@@ -2,7 +2,6 @@
 import "./styles/globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import HomeSections from "./components/HomeSections";
 
 export const metadata = {
   title: "Evermount Capital",
@@ -19,7 +18,6 @@ export default function RootLayout({
       <body className="bg-white text-gray-900">
         <Navbar />
         {children}
-        <HomeSections />
         <Footer />
       </body>
     </html>
