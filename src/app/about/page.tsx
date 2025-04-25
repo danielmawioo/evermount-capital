@@ -59,7 +59,7 @@ export default function AboutPage() {
             },
             {
               name: "Evans Kipngetich",
-              role: "CTO & Co-Founder",
+              role: "Chief Data Officer & Co-Founder",
               image: "/images/founder2.jpg",
               linkedin: "https://www.linkedin.com/in/evans-kipngetich/",
             },
