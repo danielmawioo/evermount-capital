@@ -10,6 +10,7 @@ const authRoutes = [
   "/forgot-password",
   "/reset-password",
   "/verify",
+  "/dashboard",
 ];
 
 export default function LayoutWrapper({
