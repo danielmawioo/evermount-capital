@@ -3,10 +3,11 @@
 import Link from "next/link";
 import {
   FaFacebookF,
-  FaTwitter,
   FaInstagram,
   FaLinkedinIn,
-} from "react-icons/fa";
+  FaTiktok,
+} from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6"; // New X logo
 
 export default function Footer() {
   return (
@@ -118,12 +119,8 @@ export default function Footer() {
           >
             <FaFacebookF />
           </Link>
-          <Link
-            href="https://twitter.com"
-            target="_blank"
-            aria-label="X/Twitter"
-          >
-            <FaTwitter />
+          <Link href="https://x.com" target="_blank" aria-label="X Twitter">
+            <FaXTwitter />
           </Link>
           <Link
             href="https://instagram.com"
@@ -138,6 +135,13 @@ export default function Footer() {
             aria-label="LinkedIn"
           >
             <FaLinkedinIn />
+          </Link>
+          <Link
+            href="https://tiktok.com/@evermount"
+            target="_blank"
+            aria-label="TikTok"
+          >
+            <FaTiktok />
           </Link>
         </div>
 
