@@ -241,6 +241,7 @@ export default function HomeSectionsWithImages() {
           </div>
         </div>
       </section>
+      {/* CTA END */}
     </div>
   );
 }

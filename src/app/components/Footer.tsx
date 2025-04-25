@@ -55,13 +55,13 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4">Privacy & Policy</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="#">Terms of Service</Link>
+                <Link href="/terms">Terms of Service</Link>
               </li>
               <li>
-                <Link href="#">Privacy Policy</Link>
+                <Link href="/privacy">Privacy Policy</Link>
               </li>
               <li>
-                <Link href="#">Cookie Policy</Link>
+                <Link href="/cookie-policy">Cookie Policy</Link>
               </li>
               <li>
                 <Link href="#">AML Statement</Link>

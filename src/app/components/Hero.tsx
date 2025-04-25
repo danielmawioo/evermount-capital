@@ -11,7 +11,7 @@ import { Typewriter } from "react-simple-typewriter";
 
 export default function Hero() {
   return (
-    <section className="bg-white pt-24 pb-16 lg:pt-32 lg:pb-20">
+    <section className="bg-gradient-to-b from-white via-[#e8fdf4] to-white pt-24 pb-16 lg:pt-32 lg:pb-20 transition-all">
       <div className="max-w-screen-xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
         {/* LEFT TEXT CONTENT */}
         <div className="space-y-8">
@@ -69,9 +69,9 @@ export default function Hero() {
             <Image
               src="/images/section1.png"
               alt="Main Dashboard Preview"
-              width={700}
-              height={500}
-              className="rounded-xl shadow-xl"
+              width={930} // 700 * 1.33 ≈ 930
+              height={665} // 500 * 1.33 ≈ 665
+              className="rounded-xl shadow-xl w-full h-auto"
               priority
             />
             <div className="absolute -left-6 -bottom-10 w-[240px]">
