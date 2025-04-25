@@ -50,7 +50,7 @@ export default function CareersPage() {
           </p>
           <div className="flex justify-center">
             <Image
-              src="/images/teamwork.png"
+              src="/images/Background (2).svg"
               alt="Careers Illustration"
               width={500}
               height={300}
