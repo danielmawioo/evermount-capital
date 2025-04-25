@@ -6,8 +6,9 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaTiktok,
+  FaDiscord,
 } from "react-icons/fa6";
-import { FaXTwitter } from "react-icons/fa6"; // New X logo
+import { FaXTwitter } from "react-icons/fa6"; // For the X (Twitter) icon
 
 export default function Footer() {
   return (
@@ -142,6 +143,13 @@ export default function Footer() {
             aria-label="TikTok"
           >
             <FaTiktok />
+          </Link>
+          <Link
+            href="https://discord.gg/evermount"
+            target="_blank"
+            aria-label="Discord"
+          >
+            <FaDiscord />
           </Link>
         </div>
 

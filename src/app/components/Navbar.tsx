@@ -1,9 +1,14 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import {
+  ChevronDownIcon,
+  Bars3Icon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import {
   ChartBarIcon,
   ShieldCheckIcon,
@@ -12,6 +17,8 @@ import {
 } from "@heroicons/react/24/outline";
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
@@ -30,7 +37,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Navigation */}
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-10 text-[16px] font-medium text-gray-700 items-center">
           {/* Platform Dropdown */}
           <div className="relative group">
@@ -112,8 +119,20 @@ export default function Navbar() {
           </div>
         </nav>
 
-        {/* Login Button */}
-        <div className="flex items-center space-x-4">
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden focus:outline-none"
+        >
+          {menuOpen ? (
+            <XMarkIcon className="h-7 w-7 text-[#00a76f]" />
+          ) : (
+            <Bars3Icon className="h-7 w-7 text-[#00a76f]" />
+          )}
+        </button>
+
+        {/* Login Button (Desktop Only) */}
+        <div className="hidden md:flex items-center space-x-4">
           <Link href="/login">
             <button className="bg-[#00a76f] text-white px-5 py-2 rounded-md text-sm font-semibold hover:bg-emerald-700 transition">
               Login
@@ -121,6 +140,31 @@ export default function Navbar() {
           </Link>
         </div>
       </div>
+
+      {/* Mobile Dropdown Menu */}
+      {menuOpen && (
+        <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
+          <div className="flex flex-col p-6 space-y-4 text-gray-700 font-medium">
+            <Link href="/portfolio-insights" onClick={() => setMenuOpen(false)}>
+              Portfolio Insights
+            </Link>
+            <Link href="/features" onClick={() => setMenuOpen(false)}>
+              Risk Metrics
+            </Link>
+            <Link href="/pricing" onClick={() => setMenuOpen(false)}>
+              Pricing
+            </Link>
+            <Link href="/about" onClick={() => setMenuOpen(false)}>
+              About
+            </Link>
+            <Link href="/login" onClick={() => setMenuOpen(false)}>
+              <button className="mt-4 bg-[#00a76f] text-white px-5 py-2 rounded-md font-semibold hover:bg-emerald-700 transition">
+                Login
+              </button>
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
