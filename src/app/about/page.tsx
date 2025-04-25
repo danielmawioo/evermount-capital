@@ -21,7 +21,7 @@ export default function AboutPage() {
         </p>
       </section>
 
-      {/* SECTION 2 — Mission/Vision */}
+      {/* SECTION 2 — Mission & Vision */}
       <section className="grid md:grid-cols-2 gap-10 text-gray-700">
         <div className="bg-[#f5fdfb] p-8 rounded-xl shadow">
           <h2 className="text-2xl font-bold text-[#00a76f] mb-3">
@@ -55,16 +55,16 @@ export default function AboutPage() {
               name: "Daniel Mawioo",
               role: "CEO & Co-Founder",
               image: "/images/founder1.jpg",
-              linkedin: "https://linkedin.com/in/danielmawioo",
+              linkedin: "https://www.linkedin.com/in/danielmawioo/",
             },
             {
               name: "Evans Kipngetich",
               role: "CTO & Co-Founder",
               image: "/images/founder2.jpg",
-              linkedin: "https://linkedin.com/in/evans-Kipngetich",
+              linkedin: "https://www.linkedin.com/in/evans-kipngetich/",
             },
             {
-              name: "Tony Smith.",
+              name: "Tony K.",
               role: "Lead Quant Analyst",
               image: "/images/founder3.jpg",
               linkedin: "#",
@@ -78,20 +78,22 @@ export default function AboutPage() {
                 <h4 className="font-semibold text-lg text-gray-900">{name}</h4>
                 <p className="text-sm text-gray-500">{role}</p>
               </div>
-              <a
-                href={linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#0077b5] hover:text-[#005983] transition"
-              >
-                <FaLinkedin className="text-xl" />
-              </a>
+              {linkedin !== "#" && (
+                <a
+                  href={linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#0077b5] hover:text-[#005983] transition"
+                >
+                  <FaLinkedin className="text-xl" />
+                </a>
+              )}
             </div>
           ))}
         </div>
       </section>
 
-      {/* SECTION 4 — Statement */}
+      {/* SECTION 4 — Closing Statement */}
       <section className="text-center">
         <div className="max-w-3xl mx-auto">
           <blockquote className="text-xl text-gray-600 italic">
