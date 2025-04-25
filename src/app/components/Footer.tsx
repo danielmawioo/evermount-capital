@@ -3,10 +3,12 @@
 import Link from "next/link";
 import {
   FaFacebookF,
-  FaTwitter,
   FaInstagram,
   FaLinkedinIn,
-} from "react-icons/fa";
+  FaTiktok,
+  FaDiscord,
+} from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6"; // For the X (Twitter) icon
 
 export default function Footer() {
   return (
@@ -72,7 +74,7 @@ export default function Footer() {
                 <Link href="/cookie-policy">Cookie Policy</Link>
               </li>
               <li>
-                <Link href="#">AML Statement</Link>
+                <Link href="aml-policy">AML Statement</Link>
               </li>
             </ul>
           </div>
@@ -118,12 +120,8 @@ export default function Footer() {
           >
             <FaFacebookF />
           </Link>
-          <Link
-            href="https://twitter.com"
-            target="_blank"
-            aria-label="X/Twitter"
-          >
-            <FaTwitter />
+          <Link href="https://x.com" target="_blank" aria-label="X Twitter">
+            <FaXTwitter />
           </Link>
           <Link
             href="https://instagram.com"
@@ -138,6 +136,20 @@ export default function Footer() {
             aria-label="LinkedIn"
           >
             <FaLinkedinIn />
+          </Link>
+          <Link
+            href="https://tiktok.com/@evermount"
+            target="_blank"
+            aria-label="TikTok"
+          >
+            <FaTiktok />
+          </Link>
+          <Link
+            href="https://discord.gg/evermount"
+            target="_blank"
+            aria-label="Discord"
+          >
+            <FaDiscord />
           </Link>
         </div>
 
