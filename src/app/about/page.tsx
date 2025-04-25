@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FaLinkedin } from "react-icons/fa";
 
 export const metadata = {
   title: "About Us | Evermount Capital",
@@ -8,47 +9,95 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="px-6 py-20 max-w-7xl mx-auto space-y-24">
-      {/* Section 1 - Intro */}
+    <main className="px-6 py-20 max-w-7xl mx-auto space-y-28">
+      {/* SECTION 1 — Hero */}
       <section className="text-center">
-        <h1 className="text-5xl font-extrabold text-gray-900">
+        <h1 className="text-5xl font-extrabold text-gray-900 mb-4">
           A New Breed of Hedge Fund
         </h1>
-        <p className="mt-4 text-gray-600 text-lg max-w-2xl mx-auto">
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
           We’re building the future of capital growth — driven by data,
-          protected by tech.
+          protected by tech, and designed for high-growth investors.
         </p>
       </section>
 
-      {/* Section 2 - 2 Column */}
+      {/* SECTION 2 — Mission/Vision */}
       <section className="grid md:grid-cols-2 gap-10 text-gray-700">
-        <div>
-          <h2 className="text-2xl font-bold text-[#00a76f]">Mission</h2>
-          <p className="mt-2">
-            Unlock elite investing opportunities for all growth-focused
-            investors worldwide.
+        <div className="bg-[#f5fdfb] p-8 rounded-xl shadow">
+          <h2 className="text-2xl font-bold text-[#00a76f] mb-3">
+            Our Mission
+          </h2>
+          <p className="leading-relaxed text-gray-700">
+            To unlock elite investing opportunities for all growth-focused
+            investors, combining algorithmic performance with risk-managed
+            systems across emerging and developed markets.
           </p>
         </div>
-        <div>
-          <h2 className="text-2xl font-bold text-[#00a76f]">Vision</h2>
-          <p className="mt-2">
-            To be the leading AI-powered alternative investment ecosystem in
-            Africa & beyond.
+        <div className="bg-[#f5fdfb] p-8 rounded-xl shadow">
+          <h2 className="text-2xl font-bold text-[#00a76f] mb-3">Our Vision</h2>
+          <p className="leading-relaxed text-gray-700">
+            To be Africa’s most trusted AI-powered alternative investment
+            ecosystem — enabling secure, scalable, and borderless capital
+            growth.
           </p>
         </div>
       </section>
 
-      {/* Section 3 - Team Grid */}
+      {/* SECTION 3 — Founders */}
       <section>
-        <h2 className="text-3xl font-bold text-center mb-10">Our Founders</h2>
-        <div className="grid md:grid-cols-3 gap-8 text-center">
-          {["Evelyn N.", "James M.", "Tony K."].map((name, i) => (
-            <div key={i}>
-              <div className="w-28 h-28 mx-auto bg-gray-300 rounded-full shadow" />
-              <h4 className="font-semibold mt-2">{name}</h4>
-              <p className="text-sm text-gray-500">Quant Strategist</p>
+        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+          Meet Our Founders
+        </h2>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 text-center">
+          {[
+            {
+              name: "Daniel Mawioo",
+              role: "CEO & Co-Founder",
+              image: "/images/founder1.jpg",
+              linkedin: "https://linkedin.com/in/danielmawioo",
+            },
+            {
+              name: "Evans Kipngetich",
+              role: "CTO & Co-Founder",
+              image: "/images/founder2.jpg",
+              linkedin: "https://linkedin.com/in/evans-Kipngetich",
+            },
+            {
+              name: "Tony Smith.",
+              role: "Lead Quant Analyst",
+              image: "/images/founder3.jpg",
+              linkedin: "#",
+            },
+          ].map(({ name, role, image, linkedin }, i) => (
+            <div key={i} className="flex flex-col items-center space-y-4">
+              <div className="w-28 h-28 relative rounded-full overflow-hidden shadow-lg">
+                <Image src={image} alt={name} fill className="object-cover" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-lg text-gray-900">{name}</h4>
+                <p className="text-sm text-gray-500">{role}</p>
+              </div>
+              <a
+                href={linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#0077b5] hover:text-[#005983] transition"
+              >
+                <FaLinkedin className="text-xl" />
+              </a>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* SECTION 4 — Statement */}
+      <section className="text-center">
+        <div className="max-w-3xl mx-auto">
+          <blockquote className="text-xl text-gray-600 italic">
+            “We’re not just building portfolios, we’re engineering confidence,
+            growth, and resilience — the future belongs to empowered investors.”
+          </blockquote>
         </div>
       </section>
     </main>

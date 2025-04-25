@@ -8,8 +8,6 @@ import {
   ChevronDownIcon,
   Bars3Icon,
   XMarkIcon,
-} from "@heroicons/react/24/outline";
-import {
   ChartBarIcon,
   ShieldCheckIcon,
   CodeBracketIcon,
@@ -105,7 +103,7 @@ export default function Navbar() {
                 </li>
                 <li className="flex items-start space-x-3 hover:text-black">
                   <CodeBracketIcon className="w-6 h-6 text-[#00a76f] mt-1" />
-                  <Link href="/about">
+                  <Link href="/careers">
                     <div>
                       <p className="font-semibold">Careers</p>
                       <p className="text-xs text-gray-500">
@@ -156,6 +154,9 @@ export default function Navbar() {
             </Link>
             <Link href="/about" onClick={() => setMenuOpen(false)}>
               About
+            </Link>
+            <Link href="/careers" onClick={() => setMenuOpen(false)}>
+              Careers
             </Link>
             <Link href="/login" onClick={() => setMenuOpen(false)}>
               <button className="mt-4 bg-[#00a76f] text-white px-5 py-2 rounded-md font-semibold hover:bg-emerald-700 transition">
