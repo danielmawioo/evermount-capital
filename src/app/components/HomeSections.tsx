@@ -10,6 +10,9 @@ import {
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
 
+// ✅ Import these from react-icons
+import { FiShield, FiCheckCircle, FiTrendingUp } from "react-icons/fi";
+
 export default function HomeSectionsWithImages() {
   return (
     <div className="bg-white text-gray-900">
@@ -199,22 +202,43 @@ export default function HomeSectionsWithImages() {
         </div>
       </section>
 
-      {/* === FINAL CTA === */}
-      <section className="py-32 px-6 max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl lg:text-5xl font-bold mb-8">
-          Let’s Grow Your Capital Together
-        </h2>
-        <p className="text-lg lg:text-xl text-gray-700 mb-10">
-          Whether youre an institutional investor or exploring hedge funds for
-          the first time — Evermount has the tools and team to help you grow.
-        </p>
-        <div className="flex justify-center gap-4 flex-wrap">
-          <button className="bg-[#00a76f] text-white px-8 py-3 rounded-md font-semibold hover:bg-emerald-700 text-lg">
-            Book a Demo
-          </button>
-          <button className="px-8 py-3 border border-[#00a76f] text-[#00a76f] rounded-md font-semibold hover:bg-gray-100 text-lg">
-            See Performance
-          </button>
+      <section className="relative py-32 px-6 bg-white text-center overflow-hidden">
+        {/* Decorative Background Bubbles */}
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <div className="absolute top-[-80px] left-[30%] w-[250px] h-[250px] bg-[#00a76f22] rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-[-60px] right-[20%] w-[200px] h-[200px] bg-[#00a76f33] rounded-full blur-2xl animate-pulse" />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto">
+          {/* React Icons Badge Row */}
+          <div className="flex justify-center gap-12 flex-wrap mb-12 opacity-90 text-[#00a76f] text-3xl">
+            <FiShield title="ISO Certified" />
+            <FiCheckCircle title="Financially Regulated" />
+            <FiTrendingUp title="SOC Compliant" />
+          </div>
+
+          {/* Headline */}
+          <h2 className="text-4xl lg:text-5xl font-bold leading-tight text-gray-900 mb-6">
+            The future of <span className="text-[#00a76f]">your capital</span>{" "}
+            <span className="text-[#00a76f]">starts here.</span>
+          </h2>
+
+          {/* Subtitle */}
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-12">
+            Whether you're new to hedge funds or an institutional investor,
+            Evermount equips you with the insights, execution, and support to
+            outperform.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex justify-center gap-4 flex-wrap">
+            <button className="bg-[#00a76f] hover:bg-emerald-700 text-white px-8 py-3 rounded-md text-lg font-semibold shadow-sm transition">
+              Book a Demo
+            </button>
+            <button className="px-8 py-3 border border-[#00a76f] text-[#00a76f] hover:bg-[#00a76f0d] rounded-md text-lg font-semibold transition shadow-sm">
+              See Performance
+            </button>
+          </div>
         </div>
       </section>
     </div>
