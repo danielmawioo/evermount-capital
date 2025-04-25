@@ -1,4 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -102,22 +110,34 @@ export default function Footer() {
         </div>
 
         {/* Social Icons */}
-        <div className="flex justify-center gap-4 mb-6">
-          <Link href="#">
-            <img src="/icons/facebook.svg" alt="Facebook" className="h-5 w-5" />
+        <div className="flex justify-center gap-5 mb-6 text-[#00a76f] text-lg">
+          <Link
+            href="https://facebook.com"
+            target="_blank"
+            aria-label="Facebook"
+          >
+            <FaFacebookF />
           </Link>
-          <Link href="#">
-            <img src="/icons/x.svg" alt="Twitter/X" className="h-5 w-5" />
+          <Link
+            href="https://twitter.com"
+            target="_blank"
+            aria-label="X/Twitter"
+          >
+            <FaTwitter />
           </Link>
-          <Link href="#">
-            <img
-              src="/icons/instagram.svg"
-              alt="Instagram"
-              className="h-5 w-5"
-            />
+          <Link
+            href="https://instagram.com"
+            target="_blank"
+            aria-label="Instagram"
+          >
+            <FaInstagram />
           </Link>
-          <Link href="#">
-            <img src="/icons/linkedin.svg" alt="LinkedIn" className="h-5 w-5" />
+          <Link
+            href="https://linkedin.com/company/evermount-capital"
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedinIn />
           </Link>
         </div>
 
