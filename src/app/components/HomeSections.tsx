@@ -205,7 +205,7 @@ export default function HomeSectionsWithImages() {
           Let’s Grow Your Capital Together
         </h2>
         <p className="text-lg lg:text-xl text-gray-700 mb-10">
-          Whether you're an institutional investor or exploring hedge funds for
+          Whether youre an institutional investor or exploring hedge funds for
           the first time — Evermount has the tools and team to help you grow.
         </p>
         <div className="flex justify-center gap-4 flex-wrap">

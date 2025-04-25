@@ -114,9 +114,11 @@ export default function Navbar() {
 
         {/* Login Button */}
         <div className="flex items-center space-x-4">
-          <button className="bg-[#00a76f] text-white px-5 py-2 rounded-md text-sm font-semibold hover:bg-emerald-700 transition">
-            Login
-          </button>
+          <Link href="/login">
+            <button className="bg-[#00a76f] text-white px-5 py-2 rounded-md text-sm font-semibold hover:bg-emerald-700 transition">
+              Login
+            </button>
+          </Link>
         </div>
       </div>
     </header>
