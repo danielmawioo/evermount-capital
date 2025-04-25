@@ -21,9 +21,10 @@ export default function Topbar() {
   }, []);
 
   return (
-    <header className="flex items-center justify-between py-4 px-6 bg-white dark:bg-[#1f2937] shadow-sm border-b dark:border-gray-800">
+    <header className="flex items-center justify-between px-4 py-4 md:px-6 bg-white dark:bg-gray-900 border-b dark:border-gray-700 shadow-sm transition-colors duration-300">
+      {/* Greeting Section */}
       <div>
-        <h1 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+        <h1 className="text-lg font-bold text-gray-800 dark:text-white">
           {greeting}
         </h1>
         <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -31,6 +32,7 @@ export default function Topbar() {
         </p>
       </div>
 
+      {/* Theme Toggle Button */}
       <button
         onClick={toggleTheme}
         className="p-2 rounded-md border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
