@@ -74,7 +74,7 @@ export default function Footer() {
                 <Link href="/cookie-policy">Cookie Policy</Link>
               </li>
               <li>
-                <Link href="#">AML Statement</Link>
+                <Link href="aml-policy">AML Statement</Link>
               </li>
             </ul>
           </div>
