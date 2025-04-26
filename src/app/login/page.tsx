@@ -44,10 +44,13 @@ export default function LoginPage() {
     try {
       setLoading(true);
 
-      const response = await axios.post("http://localhost:3000/auth/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://evermount-backend.onrender.com/auth/login",
+        {
+          email,
+          password,
+        }
+      );
 
       const token = response.data.token;
 

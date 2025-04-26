@@ -51,7 +51,7 @@ export default function RegisterPage() {
       setLoading(true);
       const fullName = `${firstName} ${lastName}`;
 
-      await axios.post("http://localhost:3000/auth/register", {
+      await axios.post("https://evermount-backend.onrender.com/auth/register", {
         email,
         password,
         fullName,
