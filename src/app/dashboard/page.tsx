@@ -11,17 +11,17 @@ import ExportButtons from "../components/ExportButtons";
 
 export default function DashboardPage() {
   return (
-    <main className="p-6 space-y-10 overflow-auto">
-      {/* Header Actions */}
+    <main className="p-6 md:p-8 space-y-10 bg-[#f9fafb] dark:bg-[#0f1117] min-h-screen">
+      {/* Filters + Export */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div className="flex gap-4">
+        <div className="flex gap-3 flex-wrap">
           <TimeTabs />
           <PortfolioFilter />
         </div>
         <ExportButtons />
       </div>
 
-      {/* Stat Cards */}
+      {/* Stat Summary */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
         <StatCard
           title="Total Portfolio Value"
@@ -33,39 +33,43 @@ export default function DashboardPage() {
         <StatCard title="Risk Exposure" value="Moderate" growth="-1.2%" />
       </div>
 
-      {/* Charts Section */}
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-        <div className="bg-white rounded-xl shadow p-6">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">
-            Portfolio Value Over Time
+      {/* Charts: 2-1 Layout */}
+      <section className="grid grid-cols-1 xl:grid-cols-[2fr_1fr] gap-6">
+        {/* Portfolio Value */}
+        <div className="bg-white dark:bg-[#161a23] rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
+            📈 Portfolio Value Over Time
           </h3>
           <LineChart />
         </div>
 
-        <div className="bg-white rounded-xl shadow p-6">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">
-            Investment Distribution
+        {/* Investment Distribution */}
+        <div className="bg-white dark:bg-[#161a23] rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col items-center justify-center">
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
+            🧩 Investment Distribution
           </h3>
           <PieChart />
         </div>
-      </div>
+      </section>
 
-      {/* Lower Content */}
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-        <div className="bg-white rounded-xl shadow p-6">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">
-            Yearly Performance by Type
+      {/* Yearly Bar & Activity Feed */}
+      <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Bar Chart */}
+        <div className="bg-white dark:bg-[#161a23] rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
+            📊 Yearly Performance by Type
           </h3>
           <BarChart />
         </div>
 
-        <div className="bg-white rounded-xl shadow p-6">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">
-            Recent Activity
+        {/* Activity Feed */}
+        <div className="bg-white dark:bg-[#161a23] rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
+            🕒 Recent Activity
           </h3>
           <ActivityFeed />
         </div>
-      </div>
+      </section>
     </main>
   );
 }

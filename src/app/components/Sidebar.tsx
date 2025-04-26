@@ -9,6 +9,9 @@ import {
   ShieldCheckIcon,
   ChartBarIcon,
   Cog6ToothIcon,
+  UsersIcon,
+  DocumentCheckIcon,
+  BriefcaseIcon,
 } from "@heroicons/react/24/outline";
 
 export default function Sidebar() {
@@ -43,6 +46,26 @@ export default function Sidebar() {
           label: "Settings",
           href: "/dashboard/settings",
           icon: Cog6ToothIcon,
+        },
+      ],
+    },
+    {
+      label: "Admin",
+      links: [
+        {
+          label: "User Management",
+          href: "/dashboard/admin/users",
+          icon: UsersIcon,
+        },
+        {
+          label: "KYC Verification",
+          href: "/dashboard/admin/kyc",
+          icon: DocumentCheckIcon,
+        },
+        {
+          label: "Managers",
+          href: "/dashboard/admin/managers",
+          icon: BriefcaseIcon,
         },
       ],
     },
