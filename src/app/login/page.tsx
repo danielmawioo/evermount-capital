@@ -60,12 +60,11 @@ export default function LoginPage() {
         sessionStorage.setItem("token", token);
       }
 
-      // ✅ Show success message without alert
       setSuccess("Login successful! Redirecting...");
 
       setTimeout(() => {
         window.location.href = "/dashboard";
-      }, 1500); // Wait 1.5 seconds to show the user
+      }, 1500);
     } catch (err: any) {
       setError(err.response?.data?.message || "Login failed. Try again.");
     } finally {
@@ -150,7 +149,7 @@ export default function LoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
                 required
-                className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition"
+                className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition text-gray-900"
               />
             </div>
 
@@ -169,7 +168,7 @@ export default function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
                 required
-                className="w-full mt-2 px-4 py-2 pr-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition"
+                className="w-full mt-2 px-4 py-2 pr-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition text-gray-900"
               />
               <div
                 className="absolute top-[43px] right-3 cursor-pointer text-gray-600"
