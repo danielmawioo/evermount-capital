@@ -24,14 +24,14 @@ const data = {
         "rgba(6, 95, 70, 0.9)",
         "rgba(187, 247, 208, 0.9)",
       ],
-      borderColor: "#111827", // Tailwind dark bg
+      borderColor: "#111827", // Tailwind dark background
       borderWidth: 2,
       hoverOffset: 12,
     },
   ],
 };
 
-// Options (Typed properly)
+// Options
 const options: ChartOptions<"pie"> = {
   responsive: true,
   maintainAspectRatio: false,
@@ -39,10 +39,10 @@ const options: ChartOptions<"pie"> = {
     legend: {
       position: "bottom",
       labels: {
-        color: "#9ca3af",
+        color: "#9ca3af", // gray-400
         font: {
           size: 14,
-          weight: "500",
+          weight: 500, // ✅ FIX: use number not string
         },
         padding: 16,
         boxWidth: 18,
