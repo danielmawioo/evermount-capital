@@ -1,10 +1,17 @@
 "use client";
 
 import { Pie } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  ChartOptions,
+} from "chart.js";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
+// Data
 const data = {
   labels: ["Equity", "Fixed Income", "Crypto", "Cash"],
   datasets: [
@@ -24,14 +31,15 @@ const data = {
   ],
 };
 
-const options = {
+// Options (Typed properly)
+const options: ChartOptions<"pie"> = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
     legend: {
-      position: "bottom" as const,
+      position: "bottom",
       labels: {
-        color: "#9ca3af", // text-gray-400
+        color: "#9ca3af",
         font: {
           size: 14,
           weight: "500",
@@ -41,9 +49,9 @@ const options = {
       },
     },
     tooltip: {
-      backgroundColor: "#1f2937", // gray-800
-      titleColor: "#fff",
-      bodyColor: "#d1d5db", // gray-300
+      backgroundColor: "#1f2937",
+      titleColor: "#ffffff",
+      bodyColor: "#d1d5db",
       borderColor: "#00a76f",
       borderWidth: 1,
       cornerRadius: 10,
