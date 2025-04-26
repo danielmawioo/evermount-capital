@@ -9,6 +9,7 @@ import {
   LinearScale,
   Tooltip,
   Title,
+  ChartOptions,
 } from "chart.js";
 
 ChartJS.register(
@@ -20,6 +21,7 @@ ChartJS.register(
   Title
 );
 
+// Data
 const data = {
   labels: ["Stocks", "Crypto", "Bonds", "Real Estate"],
   datasets: [
@@ -38,7 +40,8 @@ const data = {
   ],
 };
 
-const options = {
+// Options (Typed Correctly)
+const options: ChartOptions<"bar"> = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
@@ -64,7 +67,9 @@ const options = {
       ticks: {
         color: "#94a3b8",
         font: { size: 12 },
-        callback: (value: number) => `${value}%`,
+        callback: function (value) {
+          return `${value}%`;
+        },
       },
       grid: {
         color: "#33415533",
