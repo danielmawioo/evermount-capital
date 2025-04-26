@@ -10,6 +10,7 @@ import {
   Tooltip,
   Filler,
   Title,
+  ChartOptions,
 } from "chart.js";
 
 ChartJS.register(
@@ -22,6 +23,7 @@ ChartJS.register(
   Title
 );
 
+// Chart Data
 const data = {
   labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
   datasets: [
@@ -31,21 +33,22 @@ const data = {
       borderColor: "#00a76f",
       backgroundColor: "rgba(0, 167, 111, 0.1)",
       pointBackgroundColor: "#00a76f",
-      pointBorderColor: "#fff",
+      pointBorderColor: "#ffffff",
       tension: 0.4,
       fill: true,
     },
   ],
 };
 
-const options = {
+// Chart Options (typed properly)
+const options: ChartOptions<"line"> = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
     legend: { display: false },
     tooltip: {
       backgroundColor: "#1e293b",
-      titleColor: "#fff",
+      titleColor: "#ffffff",
       bodyColor: "#d1d5db",
       borderColor: "#00a76f",
       borderWidth: 1,
@@ -58,21 +61,26 @@ const options = {
   },
   scales: {
     x: {
-      ticks: { color: "#94a3b8", font: { size: 12 } },
+      ticks: {
+        color: "#94a3b8",
+        font: { size: 12 },
+      },
       grid: {
         color: "#33415533",
-        borderDash: [4, 4],
+        // ✅ No borderDash here (Chart.js 4 removed it)
       },
     },
     y: {
       ticks: {
         color: "#94a3b8",
-        callback: (value: number) => `$${value / 1000}k`,
         font: { size: 12 },
+        callback: function (value) {
+          return `$${(value as number) / 1000}k`;
+        },
       },
       grid: {
         color: "#33415533",
-        borderDash: [4, 4],
+        // ✅ No borderDash
       },
     },
   },
