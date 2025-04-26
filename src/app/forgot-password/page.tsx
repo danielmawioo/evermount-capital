@@ -1,9 +1,42 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import axios from "axios";
 
 export default function ForgotPasswordPage() {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setMessage("");
+    setError("");
+
+    if (!email) {
+      setError("Please enter your email address.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      await axios.post("http://localhost:3000/auth/send-reset-password", {
+        email,
+      });
+
+      setMessage("OTP sent to your email. Please check your inbox.");
+    } catch (err: any) {
+      setError(
+        err.response?.data?.message || "Something went wrong. Try again."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <main className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white">
       {/* Logo Header */}
@@ -43,12 +76,12 @@ export default function ForgotPasswordPage() {
             Forgot your password?
           </h2>
           <p className="text-sm text-gray-600 mb-6">
-            Enter the email associated with your account and well send you a
-            link to reset your password.
+            Enter the email associated with your account and we'll send you an
+            OTP to reset your password.
           </p>
 
           {/* === Form === */}
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label
                 htmlFor="email"
@@ -59,16 +92,24 @@ export default function ForgotPasswordPage() {
               <input
                 type="email"
                 id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="example@gmail.com"
-                className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm transition focus:outline-none focus:ring-2 focus:ring-[#00a76f] focus:border-transparent"
+                required
+                className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm transition focus:outline-none focus:ring-2 focus:ring-[#00a76f] focus:border-transparent text-gray-800"
               />
             </div>
 
+            {/* Show Messages */}
+            {message && <p className="text-green-600 text-sm">{message}</p>}
+            {error && <p className="text-red-600 text-sm">{error}</p>}
+
             <button
               type="submit"
+              disabled={loading}
               className="w-full bg-[#00a76f] hover:bg-emerald-700 text-white py-2 rounded-md font-semibold transition"
             >
-              Send request
+              {loading ? "Sending..." : "Send Request"}
             </button>
           </form>
 
