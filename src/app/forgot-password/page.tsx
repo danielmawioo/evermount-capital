@@ -23,9 +23,12 @@ export default function ForgotPasswordPage() {
 
     try {
       setLoading(true);
-      await axios.post("http://localhost:3000/auth/send-reset-password", {
-        email,
-      });
+      await axios.post(
+        "https://evermount-backend.onrender.com/auth/send-reset-password",
+        {
+          email,
+        }
+      );
 
       setMessage("OTP sent to your email. Please check your inbox.");
     } catch (err: any) {

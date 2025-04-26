@@ -45,11 +45,14 @@ export default function ResetPasswordPage() {
       setLoading(true);
       const otpCode = otp.join(""); // join the OTP digits into a full code
 
-      await axios.post("http://localhost:3000/auth/reset-password", {
-        email,
-        otp: otpCode,
-        newPassword,
-      });
+      await axios.post(
+        "https://evermount-backend.onrender.com/auth/reset-password",
+        {
+          email,
+          otp: otpCode,
+          newPassword,
+        }
+      );
 
       setSuccessMessage("Password updated successfully! Please log in.");
       setTimeout(() => {
