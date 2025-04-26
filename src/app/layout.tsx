@@ -6,33 +6,38 @@ export const metadata: Metadata = {
   title: "Evermount Capital | High-Performance Hedge Fund Platform",
   description:
     "Manage your portfolio, optimize investments, and grow your wealth with Evermount Capital's smart hedge fund platform.",
+  metadataBase: new URL("https://evermount-capital-5cu3.vercel.app"),
   icons: {
-    icon: "/favicon.ico", // (Optional) make sure you have favicon in public/
+    icon: "/favicon.ico", // ✅ make sure /public/favicon.ico exists
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png", // (optional if you add for mobile
   },
   openGraph: {
     type: "website",
     url: "https://evermount-capital-5cu3.vercel.app",
+    siteName: "Evermount Capital",
     title: "Evermount Capital | High-Performance Hedge Fund Platform",
     description:
       "Access a modern hedge fund management platform — track portfolios, analyze risk, and optimize investment growth.",
     images: [
       {
-        url: "/og-image.png", // (Optional) Create and add this image in /public folder
+        url: "/og-image.png", // ✅ make sure /public/og-image.png exists
         width: 1200,
         height: 630,
         alt: "Evermount Capital Platform",
       },
     ],
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
+    site: "@evermountcapital", // (Your Twitter profile if you have)
+    creator: "@evermountcapital", // (Same or your personal)
     title: "Evermount Capital | High-Performance Hedge Fund Platform",
     description:
       "Grow your portfolio with high-performance investment strategies at Evermount Capital.",
-    images: ["/og-image.png"], // Same image as Open Graph
-    creator: "@evermountcapital", // (Optional) your Twitter handle
+    images: ["/og-image.png"],
   },
-  metadataBase: new URL("https://evermount-capital-5cu3.vercel.app"),
 };
 
 export default function RootLayout({
