@@ -21,7 +21,7 @@ ChartJS.register(
   Title
 );
 
-// Data
+// Chart Data
 const data = {
   labels: ["Stocks", "Crypto", "Bonds", "Real Estate"],
   datasets: [
@@ -40,15 +40,17 @@ const data = {
   ],
 };
 
-// Options (Typed Correctly)
+// Chart Options
 const options: ChartOptions<"bar"> = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
-    legend: { display: false },
+    legend: {
+      display: false,
+    },
     tooltip: {
       backgroundColor: "#1e293b",
-      titleColor: "#fff",
+      titleColor: "#ffffff",
       bodyColor: "#d1d5db",
       borderColor: "#00a76f",
       borderWidth: 1,
@@ -58,7 +60,12 @@ const options: ChartOptions<"bar"> = {
   },
   scales: {
     x: {
-      ticks: { color: "#94a3b8", font: { size: 12 } },
+      ticks: {
+        color: "#94a3b8",
+        font: {
+          size: 12,
+        },
+      },
       grid: {
         display: false,
       },
@@ -66,14 +73,17 @@ const options: ChartOptions<"bar"> = {
     y: {
       ticks: {
         color: "#94a3b8",
-        font: { size: 12 },
+        font: {
+          size: 12,
+        },
         callback: function (value) {
           return `${value}%`;
         },
       },
       grid: {
         color: "#33415533",
-        borderDash: [4, 4],
+        // ❗ Removed borderDash because Chart.js 4 doesn't support it directly here (causes Vercel build fail)
+        // If you want dashed lines later, it needs plugin customization
       },
     },
   },
