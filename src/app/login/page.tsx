@@ -62,11 +62,15 @@ export default function LoginPage() {
 
       setSuccess("Login successful! Redirecting...");
 
+      // ✅ Add slight delay for UX
       setTimeout(() => {
         window.location.href = "/dashboard";
       }, 1500);
     } catch (err: any) {
-      setError(err.response?.data?.message || "Login failed. Try again.");
+      console.error("Login error:", err);
+      setError(
+        err?.response?.data?.message || "Login failed. Please try again."
+      );
     } finally {
       setLoading(false);
     }
@@ -181,7 +185,7 @@ export default function LoginPage() {
                 )}
               </div>
 
-              {/* Remember me + forgot password */}
+              {/* Remember me + Forgot password */}
               <div className="flex justify-between items-center text-sm mt-2">
                 <label className="flex items-center space-x-2 text-gray-600">
                   <input
@@ -205,7 +209,9 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#00a76f] hover:bg-emerald-700 text-white py-2 rounded-md font-semibold transition"
+              className={`w-full ${
+                loading ? "bg-[#8cd9c0]" : "bg-[#00a76f] hover:bg-emerald-700"
+              } text-white py-2 rounded-md font-semibold transition`}
             >
               {loading ? "Signing in..." : "Sign in"}
             </button>
@@ -228,6 +234,7 @@ export default function LoginPage() {
             ].map(({ label, icon }) => (
               <button
                 key={label}
+                type="button"
                 className="flex items-center justify-center gap-2 border border-gray-300 px-3 py-2 rounded-md text-sm hover:bg-gray-100 transition shadow-sm"
               >
                 <Image src={icon} alt={label} width={18} height={18} />
