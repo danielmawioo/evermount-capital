@@ -11,6 +11,7 @@ import {
   ShieldCheckIcon,
   CodeBracketIcon,
   BuildingOfficeIcon,
+  ArrowTrendingUpIcon,
 } from "@heroicons/react/24/outline";
 
 export default function Navbar() {
@@ -158,8 +159,9 @@ export default function Navbar() {
             {/* Invest Now Button (Desktop Only) */}
             <div className="hidden md:flex items-center space-x-4">
               <Link href="/login">
-                <button className="bg-gradient-to-r from-green-400 via-emerald-500 to-yellow-400 text-white px-5 py-2 rounded-md text-sm font-semibold hover:opacity-90 transition">
+                <button className="flex items-center gap-2 bg-gradient-to-r from-green-400 via-emerald-500 to-yellow-400 text-white px-5 py-2 rounded-md text-sm font-semibold hover:opacity-90 transition">
                   Invest Now
+                  <ArrowTrendingUpIcon className="w-5 h-5" />
                 </button>
               </Link>
             </div>
