@@ -190,8 +190,9 @@ export default function Navbar() {
                   Careers
                 </Link>
                 <Link href="/login" onClick={() => setMenuOpen(false)}>
-                  <button className="mt-4 bg-gradient-to-r from-green-400 via-emerald-500 to-yellow-400 text-white px-5 py-2 rounded-md font-semibold hover:opacity-90 transition">
+                  <button className="flex items-center gap-2 mt-4 bg-gradient-to-r from-green-400 via-emerald-500 to-yellow-400 text-white px-5 py-2 rounded-md font-semibold hover:opacity-90 transition">
                     Invest Now
+                    <ArrowTrendingUpIcon className="w-5 h-5" />
                   </button>
                 </Link>
               </div>
@@ -202,16 +203,18 @@ export default function Navbar() {
 
       {/* Join Waitlist Modal */}
       {showModal && (
-        <div className="fixed inset-0 z-[100] bg-black/60 flex items-center justify-center">
-          <div className="bg-white rounded-lg p-6 w-full max-w-sm shadow-xl relative">
+        <div className="fixed inset-0 z-[100] bg-black/60 flex items-center justify-center px-4">
+          <div className="bg-white rounded-2xl p-8 w-full max-w-md shadow-xl relative">
             <button
               onClick={() => setShowModal(false)}
-              className="absolute top-3 right-3 text-gray-400 hover:text-black"
+              className="absolute top-4 right-4 text-gray-400 hover:text-black"
             >
               <XMarkIcon className="w-5 h-5" />
             </button>
-            <h3 className="text-xl font-bold mb-2">Join the Waitlist</h3>
-            <p className="text-sm text-gray-600 mb-4">
+            <h3 className="text-2xl font-bold mb-4 text-center">
+              Join the Waitlist
+            </h3>
+            <p className="text-sm text-gray-600 mb-6 text-center">
               Get early access to our beta and priority onboarding.
             </p>
             <input
@@ -219,11 +222,11 @@ export default function Navbar() {
               placeholder="you@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 border rounded-md text-sm mb-3 focus:ring-[#00a76f] focus:outline-none"
+              className="w-full px-4 py-3 border rounded-lg text-sm text-black placeholder-gray-400 focus:ring-[#00a76f] focus:border-[#00a76f] focus:outline-none mb-4"
             />
             <button
               onClick={handleJoin}
-              className="w-full bg-gradient-to-r from-green-400 via-emerald-500 to-yellow-400 text-white py-2 rounded-md font-semibold hover:opacity-90 transition"
+              className="w-full bg-gradient-to-r from-green-400 via-emerald-500 to-yellow-400 text-white py-3 rounded-lg text-base font-semibold hover:opacity-90 transition"
             >
               Submit
             </button>
