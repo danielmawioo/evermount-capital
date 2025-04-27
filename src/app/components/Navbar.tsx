@@ -155,11 +155,11 @@ export default function Navbar() {
               )}
             </button>
 
-            {/* Login Button (Desktop Only) */}
+            {/* Invest Now Button (Desktop Only) */}
             <div className="hidden md:flex items-center space-x-4">
               <Link href="/login">
-                <button className="bg-[#00a76f] text-white px-5 py-2 rounded-md text-sm font-semibold hover:bg-emerald-700 transition">
-                  Login
+                <button className="bg-gradient-to-r from-green-400 via-emerald-500 to-yellow-400 text-white px-5 py-2 rounded-md text-sm font-semibold hover:opacity-90 transition">
+                  Invest Now
                 </button>
               </Link>
             </div>
@@ -188,8 +188,8 @@ export default function Navbar() {
                   Careers
                 </Link>
                 <Link href="/login" onClick={() => setMenuOpen(false)}>
-                  <button className="mt-4 bg-[#00a76f] text-white px-5 py-2 rounded-md font-semibold hover:bg-emerald-700 transition">
-                    Login
+                  <button className="mt-4 bg-gradient-to-r from-green-400 via-emerald-500 to-yellow-400 text-white px-5 py-2 rounded-md font-semibold hover:opacity-90 transition">
+                    Invest Now
                   </button>
                 </Link>
               </div>
@@ -221,7 +221,7 @@ export default function Navbar() {
             />
             <button
               onClick={handleJoin}
-              className="w-full bg-[#00a76f] text-white py-2 rounded-md font-semibold hover:bg-emerald-700 transition"
+              className="w-full bg-gradient-to-r from-green-400 via-emerald-500 to-yellow-400 text-white py-2 rounded-md font-semibold hover:opacity-90 transition"
             >
               Submit
             </button>
