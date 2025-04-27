@@ -50,6 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="bg-white text-gray-900">
+        {/* LayoutWrapper will decide when to show Navbar, Footer or not */}
         <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
