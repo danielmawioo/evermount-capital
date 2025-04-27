@@ -27,7 +27,7 @@ export default function Topbar() {
   const notifRef = useRef<HTMLDivElement>(null);
   const profileRef = useRef<HTMLDivElement>(null);
 
-  // Set greeting based on time
+  // Greeting based on time
   useEffect(() => {
     const hour = new Date().getHours();
     if (hour < 12) setGreeting("Good morning 🌅");
@@ -35,7 +35,7 @@ export default function Topbar() {
     else setGreeting("Good evening 🌙");
   }, []);
 
-  // Close dropdowns if clicked outside
+  // Handle click outside dropdowns
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (langRef.current && !langRef.current.contains(event.target as Node))
@@ -52,12 +52,11 @@ export default function Topbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Handle logout
+  // Handle Logout
   const handleLogout = () => {
     localStorage.removeItem("token");
     sessionStorage.removeItem("token");
     setLogoutMessage("✅ Logged out successfully!");
-
     setTimeout(() => {
       router.push("/");
     }, 1500);
@@ -75,16 +74,16 @@ export default function Topbar() {
         </p>
 
         {logoutMessage && (
-          <div className="mt-2 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-md px-3 py-2 text-xs font-semibold transition-all animate-fade-in">
+          <div className="mt-2 px-3 py-2 text-xs font-semibold rounded-md bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 animate-fade-in">
             {logoutMessage}
           </div>
         )}
       </div>
 
-      {/* Right tools */}
+      {/* Right Controls */}
       <div className="flex items-center gap-4 relative">
-        {/* Search */}
-        <div className="relative hidden md:flex">
+        {/* Search Input */}
+        <div className="hidden md:block relative">
           <input
             type="text"
             placeholder="Search..."
@@ -92,7 +91,7 @@ export default function Topbar() {
           />
         </div>
 
-        {/* Language selector */}
+        {/* Language Selector */}
         <div className="relative" ref={langRef}>
           <button
             onClick={() => {
@@ -100,7 +99,7 @@ export default function Topbar() {
               setNotifOpen(false);
               setProfileOpen(false);
             }}
-            className="flex items-center gap-1 px-2 py-1.5 text-sm text-gray-700 dark:text-white bg-gray-100 dark:bg-gray-800 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+            className="flex items-center gap-1 px-2 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-white rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition"
           >
             <GlobeAltIcon className="w-5 h-5" />
             <span>{selectedLang}</span>
@@ -108,7 +107,7 @@ export default function Topbar() {
           </button>
 
           {langOpen && (
-            <ul className="absolute right-0 mt-2 bg-white dark:bg-gray-900 text-sm text-gray-800 dark:text-gray-200 rounded shadow-md w-36 z-50 border dark:border-gray-700">
+            <ul className="absolute right-0 mt-2 w-36 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-md shadow-md text-sm z-50">
               {["🇬🇧 English", "🇫🇷 French", "🇪🇸 Spanish"].map((lang) => (
                 <li
                   key={lang}
@@ -143,7 +142,7 @@ export default function Topbar() {
           </button>
 
           {notifOpen && (
-            <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-gray-900 shadow-lg rounded-md border border-gray-100 dark:border-gray-700 z-50 p-4 text-sm">
+            <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-md shadow-md p-4 text-sm z-50">
               <p className="font-bold">Notifications</p>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
                 No new notifications.
@@ -152,7 +151,7 @@ export default function Topbar() {
           )}
         </div>
 
-        {/* Profile dropdown */}
+        {/* Profile Dropdown */}
         <div className="relative" ref={profileRef}>
           <button
             onClick={() => {
@@ -160,7 +159,7 @@ export default function Topbar() {
               setNotifOpen(false);
               setLangOpen(false);
             }}
-            className="rounded-full w-9 h-9 overflow-hidden border-2 border-gray-200 dark:border-gray-700 hover:ring-2 hover:ring-[#00a76f]"
+            className="w-9 h-9 rounded-full overflow-hidden border-2 border-gray-200 dark:border-gray-700 hover:ring-2 hover:ring-[#00a76f]"
           >
             <Image
               src="/images/avatar.avif"
@@ -172,30 +171,95 @@ export default function Topbar() {
           </button>
 
           {profileOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-900 shadow-lg rounded-md border border-gray-100 dark:border-gray-700 z-50 text-sm overflow-hidden transition-all">
-              <Link
-                href="/settings"
-                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
-              >
-                Edit Profile
-              </Link>
-              <Link
-                href="/settings"
-                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
-              >
-                Account Settings
-              </Link>
-              <button
-                onClick={handleLogout}
-                className="w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 text-red-500 dark:text-red-400"
-              >
-                Logout
-              </button>
+            <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-md shadow-md text-sm overflow-hidden transition-all z-50">
+              {/* User Info */}
+              <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+                <p className="font-semibold text-gray-800 dark:text-white">
+                  Daniel Mawioo
+                </p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  Mem No. 30280376
+                </p>
+                <div className="flex justify-between items-center mt-2">
+                  <span className="text-xs font-medium text-green-600 dark:text-green-400">
+                    Current Account
+                  </span>
+                  <button className="text-xs bg-green-100 dark:bg-green-800 text-green-700 dark:text-green-300 px-2 py-0.5 rounded">
+                    Switch
+                  </button>
+                </div>
+              </div>
+
+              {/* Profile Management */}
+              <div className="py-2">
+                <Link
+                  href="/settings"
+                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
+                >
+                  Profile Settings
+                </Link>
+                <Link
+                  href="/add-account"
+                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
+                >
+                  Add Account
+                </Link>
+                <Link
+                  href="/manage-accounts"
+                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
+                >
+                  Manage Accounts
+                </Link>
+              </div>
+
+              {/* Fund Management */}
+              <div className="border-t border-gray-200 dark:border-gray-700 py-2">
+                <Link
+                  href="/topup"
+                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
+                >
+                  Top Up
+                </Link>
+                <Link
+                  href="/withdraw"
+                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
+                >
+                  Withdraw
+                </Link>
+              </div>
+
+              {/* Theme Toggle */}
+              <div className="flex justify-around items-center border-t border-gray-200 dark:border-gray-700 py-3">
+                <button
+                  onClick={toggleTheme}
+                  className="flex flex-col items-center text-gray-700 dark:text-gray-400 text-xs"
+                >
+                  <SunIcon className="w-5 h-5 mb-1" />
+                  Light
+                </button>
+                <button
+                  onClick={toggleTheme}
+                  className="flex flex-col items-center text-gray-700 dark:text-gray-400 text-xs"
+                >
+                  <MoonIcon className="w-5 h-5 mb-1" />
+                  Dark
+                </button>
+              </div>
+
+              {/* Logout */}
+              <div className="border-t border-gray-200 dark:border-gray-700 p-4">
+                <button
+                  onClick={handleLogout}
+                  className="w-full py-2 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 text-sm font-bold rounded hover:bg-red-200 dark:hover:bg-red-800 transition"
+                >
+                  Logout
+                </button>
+              </div>
             </div>
           )}
         </div>
 
-        {/* Theme toggle */}
+        {/* Theme Toggle */}
         <button
           onClick={toggleTheme}
           className="p-2 rounded-md border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
