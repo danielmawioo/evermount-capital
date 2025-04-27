@@ -48,8 +48,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-white text-gray-900 dark:bg-[#0b0b12] dark:text-white">
+    <html lang="en" suppressHydrationWarning>
+      <body className="bg-white text-gray-900">
         <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>

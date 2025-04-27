@@ -18,19 +18,16 @@ export default function LayoutWrapper({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const isAuthPage = authRoutes.includes(pathname);
-  const isDashboardPage = pathname.startsWith("/dashboard");
+  const isAuthRoute = authRoutes.includes(pathname);
+  const isDashboardRoute = pathname.startsWith("/dashboard");
 
-  if (isAuthPage || isDashboardPage) {
-    // Hide Navbar and Footer on auth pages and dashboard
-    return <>{children}</>;
-  }
+  const hideLayout = isAuthRoute || isDashboardRoute;
 
   return (
     <>
-      <Navbar />
+      {!hideLayout && <Navbar />}
       {children}
-      <Footer />
+      {!hideLayout && <Footer />}
     </>
   );
 }
