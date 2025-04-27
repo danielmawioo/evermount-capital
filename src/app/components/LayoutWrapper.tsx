@@ -10,7 +10,6 @@ const authRoutes = [
   "/forgot-password",
   "/reset-password",
   "/verify",
-  "/dashboard",
 ];
 
 export default function LayoutWrapper({
@@ -20,12 +19,18 @@ export default function LayoutWrapper({
 }) {
   const pathname = usePathname();
   const isAuthPage = authRoutes.includes(pathname);
+  const isDashboardPage = pathname.startsWith("/dashboard");
+
+  if (isAuthPage || isDashboardPage) {
+    // Hide Navbar and Footer on auth pages and dashboard
+    return <>{children}</>;
+  }
 
   return (
     <>
-      {!isAuthPage && <Navbar />}
+      <Navbar />
       {children}
-      {!isAuthPage && <Footer />}
+      <Footer />
     </>
   );
 }
