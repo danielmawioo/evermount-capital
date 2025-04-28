@@ -37,9 +37,7 @@ export default function LoginPage() {
     setError("");
     setSuccess("");
 
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
 
     try {
       setLoading(true);
@@ -61,8 +59,6 @@ export default function LoginPage() {
       }
 
       setSuccess("Login successful! Redirecting...");
-
-      // ✅ Add slight delay for UX
       setTimeout(() => {
         window.location.href = "/dashboard";
       }, 1500);
@@ -77,7 +73,7 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white">
+    <main className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white relative">
       {/* Logo */}
       <div className="absolute top-6 left-6 md:left-10 z-50">
         <Link href="/" className="flex items-center space-x-2">
@@ -92,26 +88,27 @@ export default function LoginPage() {
       </div>
 
       {/* Left Panel */}
-      <div className="bg-[#f2fdf9] flex flex-col justify-center items-center px-6 py-12 text-center">
-        <h1 className="text-2xl font-bold text-gray-900">Hi, Welcome back</h1>
-        <p className="text-gray-600 text-sm mt-2 max-w-xs">
-          More effectively with optimized workflows.
-        </p>
-        <div className="mt-10">
-          <Image
-            src="/images/login.jpg"
-            alt="Welcome Illustration"
-            width={280}
-            height={280}
-            className="object-contain"
-          />
+      <div className="hidden md:flex bg-[#f2fdf9] flex-col justify-center items-center px-6 py-12 text-center">
+        <div className="max-w-xs">
+          <h1 className="text-3xl font-bold text-gray-900">Hi, Welcome back</h1>
+          <p className="text-gray-600 text-sm mt-2">
+            More effectively with optimized workflows.
+          </p>
+          <div className="mt-10 w-72 h-72 relative">
+            <Image
+              src="/images/login.jpg"
+              alt="Welcome Illustration"
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
         </div>
       </div>
 
       {/* Right Panel */}
-      <div className="flex flex-col justify-center px-8 sm:px-12 md:px-20 py-12 bg-white">
+      <div className="flex flex-col justify-center px-6 sm:px-10 md:px-20 py-12 bg-white">
         <div className="w-full max-w-md mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
             Sign in to your account
           </h2>
           <p className="text-sm text-gray-600 mt-2">
@@ -235,10 +232,10 @@ export default function LoginPage() {
               <button
                 key={label}
                 type="button"
-                className="flex items-center justify-center gap-2 border border-gray-300 px-3 py-2 rounded-md text-sm hover:bg-gray-100 transition shadow-sm"
+                className="flex flex-col items-center justify-center gap-1 border border-gray-300 px-3 py-2 rounded-md text-sm hover:bg-gray-100 transition shadow-sm"
               >
                 <Image src={icon} alt={label} width={18} height={18} />
-                {label}
+                <span className="hidden sm:inline">{label}</span>
               </button>
             ))}
           </div>

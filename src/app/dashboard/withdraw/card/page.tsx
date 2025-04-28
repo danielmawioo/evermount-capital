@@ -1,100 +1,109 @@
 "use client";
 
 import { useState } from "react";
-import { FaCreditCard } from "react-icons/fa";
+import { FaCcVisa, FaCcMastercard } from "react-icons/fa";
 
 export default function WithdrawCardPage() {
-  const [cards] = useState([
-    { id: 1, cardType: "Visa", cardNumber: "**** 1234" },
-    { id: 2, cardType: "Mastercard", cardNumber: "**** 5678" },
-  ]);
-
-  const [selectedCardId, setSelectedCardId] = useState<number | null>(null);
+  const [cardType, setCardType] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
   const [amount, setAmount] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!selectedCardId || !amount) {
-      alert("Please select a card and enter an amount.");
+    if (!cardType || !cardNumber || !amount) {
+      alert("Please complete all fields.");
       return;
     }
-    console.log("Withdraw", amount, "to card id", selectedCardId);
-    alert(`Withdrawal of $${amount} initiated to your card! 🚀`);
-    setSelectedCardId(null);
-    setAmount("");
+    setLoading(true);
+    setTimeout(() => {
+      alert(`Withdrawal of $${amount} to your ${cardType} card successful! 🚀`);
+      setCardType("");
+      setCardNumber("");
+      setAmount("");
+      setLoading(false);
+    }, 1200);
   };
 
   return (
-    <main className="min-h-screen flex flex-col p-6 md:p-10 bg-[#f9fafb] dark:bg-[#0f1117]">
-      <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">
-        Withdraw to Card
-      </h1>
-
-      {/* Form */}
-      <form
-        className="bg-white dark:bg-[#161a23] p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-800 max-w-2xl space-y-6"
-        onSubmit={handleSubmit}
-      >
-        {/* Card Selection */}
-        <div className="space-y-3">
-          <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-            Select Card
-          </p>
-          <div className="grid grid-cols-1 gap-4">
-            {cards.map((card) => (
-              <label
-                key={card.id}
-                className={`flex items-center p-4 border rounded-lg cursor-pointer ${
-                  selectedCardId === card.id
-                    ? "border-[#00a76f] bg-[#f2fdf9] dark:bg-[#1c1f2b]"
-                    : "border-gray-200 dark:border-gray-800"
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="card"
-                  checked={selectedCardId === card.id}
-                  onChange={() => setSelectedCardId(card.id)}
-                  className="hidden"
-                />
-                <div className="flex items-center gap-3">
-                  <FaCreditCard className="text-[#00a76f] w-6 h-6" />
-                  <div>
-                    <p className="font-semibold text-gray-800 dark:text-white">
-                      {card.cardType}
-                    </p>
-                    <p className="text-xs text-gray-500">{card.cardNumber}</p>
-                  </div>
-                </div>
-              </label>
-            ))}
-          </div>
-        </div>
-
-        {/* Amount */}
+    <main className="min-h-screen flex flex-col px-6 md:px-10 py-8 bg-[#f9fafb] dark:bg-[#0f1117]">
+      <div className="max-w-3xl mx-auto w-full space-y-8">
         <div>
-          <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-            Amount ($)
-          </label>
-          <input
-            type="number"
-            placeholder="Enter amount"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            required
-            min="1"
-            className="w-full mt-2 px-4 py-2 border rounded-md text-gray-900 dark:text-white bg-white dark:bg-[#161a23] focus:ring-[#00a76f] focus:border-[#00a76f] focus:outline-none text-sm"
-          />
+          <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">
+            Withdraw to Card
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400 text-sm">
+            Provide your card details to receive your funds.
+          </p>
         </div>
 
-        {/* Submit */}
-        <button
-          type="submit"
-          className="w-full bg-[#00a76f] hover:bg-emerald-700 text-white py-2 rounded-md font-semibold transition"
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white dark:bg-[#161a23] p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 space-y-8"
         >
-          Withdraw to Card
-        </button>
-      </form>
+          {/* Select Card */}
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+              Card Type
+            </label>
+            <select
+              value={cardType}
+              onChange={(e) => setCardType(e.target.value)}
+              required
+              className="w-full mt-1 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md text-gray-900 dark:text-white bg-white dark:bg-[#161a23] text-sm focus:ring-[#00a76f] focus:outline-none"
+            >
+              <option value="">Select Card</option>
+              <option value="Visa">Visa</option>
+              <option value="MasterCard">MasterCard</option>
+            </select>
+          </div>
+
+          {/* Card Number */}
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+              Card Number (Last 4 digits)
+            </label>
+            <input
+              type="text"
+              placeholder="e.g., 1234"
+              maxLength={4}
+              value={cardNumber}
+              onChange={(e) => setCardNumber(e.target.value)}
+              required
+              className="w-full mt-1 px-4 py-2 border rounded-md text-gray-900 dark:text-white bg-white dark:bg-[#161a23] text-sm focus:ring-[#00a76f] focus:outline-none"
+            />
+          </div>
+
+          {/* Amount */}
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+              Amount (USD)
+            </label>
+            <input
+              type="number"
+              placeholder="Enter amount"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              min="1"
+              required
+              className="w-full mt-1 px-4 py-2 border rounded-md text-gray-900 dark:text-white bg-white dark:bg-[#161a23] text-sm focus:ring-[#00a76f] focus:outline-none"
+            />
+          </div>
+
+          {/* Submit */}
+          <button
+            type="submit"
+            disabled={loading}
+            className={`w-full py-3 rounded-lg font-semibold transition ${
+              loading
+                ? "bg-[#8cd9c0] text-white cursor-not-allowed"
+                : "bg-[#00a76f] hover:bg-emerald-700 text-white"
+            }`}
+          >
+            {loading ? "Processing..." : "Withdraw to Card"}
+          </button>
+        </form>
+      </div>
     </main>
   );
 }

@@ -71,7 +71,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <main className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white">
+    <main className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white relative">
       {/* Logo */}
       <div className="absolute top-6 left-6 md:left-10 z-50">
         <Link href="/" className="flex items-center space-x-2">
@@ -86,26 +86,27 @@ export default function RegisterPage() {
       </div>
 
       {/* Left Panel */}
-      <div className="bg-[#f2fdf9] flex flex-col justify-center items-center px-6 py-12 text-center">
-        <h1 className="text-2xl font-bold text-gray-900">Manage the job</h1>
-        <p className="text-gray-600 text-sm mt-2 max-w-xs">
-          More effectively with optimized workflows.
-        </p>
-        <div className="mt-10">
-          <Image
-            src="/images/login.jpg"
-            alt="Register Illustration"
-            width={280}
-            height={280}
-            className="object-contain"
-          />
+      <div className="hidden md:flex bg-[#f2fdf9] flex-col justify-center items-center px-6 py-12 text-center">
+        <div className="max-w-xs">
+          <h1 className="text-3xl font-bold text-gray-900">Manage the job</h1>
+          <p className="text-gray-600 text-sm mt-2">
+            More effectively with optimized workflows.
+          </p>
+          <div className="mt-10 w-72 h-72 relative">
+            <Image
+              src="/images/login.jpg"
+              alt="Register Illustration"
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
         </div>
       </div>
 
       {/* Right Panel */}
       <div className="flex flex-col justify-center px-6 py-12 sm:px-10 md:px-20 bg-white">
         <div className="max-w-md w-full mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
             Get started absolutely free
           </h2>
           <p className="text-sm text-gray-600 mt-2">
@@ -124,13 +125,12 @@ export default function RegisterPage() {
             {success && (
               <p className="text-green-600 font-medium text-sm">{success}</p>
             )}
-
             {/* Error */}
             {error && (
               <p className="text-red-600 font-medium text-sm">{error}</p>
             )}
 
-            {/* First Name & Last Name */}
+            {/* First & Last Name */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label
@@ -146,7 +146,7 @@ export default function RegisterPage() {
                   onChange={(e) => setFirstName(e.target.value)}
                   placeholder="John"
                   required
-                  className="w-full mt-2 px-4 py-2 border border-gray-300 text-gray-900 bg-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f]"
+                  className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition text-gray-900"
                 />
               </div>
               <div>
@@ -163,7 +163,7 @@ export default function RegisterPage() {
                   onChange={(e) => setLastName(e.target.value)}
                   placeholder="Doe"
                   required
-                  className="w-full mt-2 px-4 py-2 border border-gray-300 text-gray-900 bg-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f]"
+                  className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition text-gray-900"
                 />
               </div>
             </div>
@@ -183,7 +183,7 @@ export default function RegisterPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
                 required
-                className="w-full mt-2 px-4 py-2 border border-gray-300 text-gray-900 bg-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f]"
+                className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition text-gray-900"
               />
             </div>
 
@@ -202,7 +202,7 @@ export default function RegisterPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
                 required
-                className="w-full mt-2 px-4 py-2 pr-10 border border-gray-300 text-gray-900 bg-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f]"
+                className="w-full mt-2 px-4 py-2 pr-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition text-gray-900"
               />
               <div
                 className="absolute top-[43px] right-3 cursor-pointer text-gray-600"
@@ -215,7 +215,7 @@ export default function RegisterPage() {
                 )}
               </div>
 
-              {/* Password Strength Meter */}
+              {/* Password Strength */}
               {password && (
                 <div className="mt-2">
                   <div className="w-full bg-gray-200 rounded-full h-2.5">
@@ -230,22 +230,22 @@ export default function RegisterPage() {
                     ></div>
                   </div>
                   <p className="text-xs text-gray-600 mt-1">
-                    Password must be at least 8 characters, including uppercase,
-                    number, and special character.
+                    Password must be strong. Include uppercase, number, special
+                    character.
                   </p>
                 </div>
               )}
             </div>
 
-            {/* Terms */}
-            <div className="flex items-center">
+            {/* Accept Terms */}
+            <div className="flex items-start gap-2 text-sm text-gray-700">
               <input
                 type="checkbox"
                 checked={acceptTerms}
                 onChange={() => setAcceptTerms(!acceptTerms)}
-                className="w-4 h-4 text-[#00a76f] bg-white border-2 border-[#00a76f] rounded"
+                className="w-4 h-4 mt-1 text-[#00a76f] border-gray-300 rounded"
               />
-              <label htmlFor="terms" className="ml-2 text-sm text-gray-700">
+              <label htmlFor="terms">
                 I accept the{" "}
                 <Link
                   href="/terms"
@@ -256,11 +256,11 @@ export default function RegisterPage() {
               </label>
             </div>
 
-            {/* Submit Button */}
+            {/* Submit */}
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#00a76f] hover:bg-[#029866] text-white py-3 rounded-lg font-semibold transition"
+              className="w-full bg-[#00a76f] hover:bg-emerald-700 text-white py-3 rounded-md font-semibold transition"
             >
               {loading ? "Creating account..." : "Create account"}
             </button>
@@ -273,7 +273,7 @@ export default function RegisterPage() {
             <hr className="flex-grow border-gray-300" />
           </div>
 
-          {/* Social Buttons */}
+          {/* Social Sign Up */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
               { label: "Google", icon: "/icons/google.png" },
@@ -284,10 +284,10 @@ export default function RegisterPage() {
               <button
                 key={label}
                 type="button"
-                className="flex items-center justify-center gap-2 border border-gray-300 px-3 py-2 rounded-md text-sm hover:bg-gray-100 transition shadow-sm"
+                className="flex flex-col items-center justify-center gap-1 border border-gray-300 px-3 py-2 rounded-md text-sm hover:bg-gray-100 transition shadow-sm"
               >
                 <Image src={icon} alt={label} width={18} height={18} />
-                {label}
+                <span className="hidden sm:inline">{label}</span>
               </button>
             ))}
           </div>
