@@ -4,7 +4,7 @@ import "./styles/globals.css";
 import LayoutWrapper from "./components/LayoutWrapper";
 import { Metadata } from "next";
 import IntercomProvider from "./components/IntercomProvider"; // ➡️ Add this
-
+import Analytics from "./components/Analytics"; // ✅ Import it at the top
 
 export const metadata: Metadata = {
   title: "Evermount Capital | High-Performance Hedge Fund Platform",
@@ -55,6 +55,7 @@ export default function RootLayout({
         {/* LayoutWrapper will decide when to show Navbar, Footer or not */}
         <LayoutWrapper>{children}</LayoutWrapper>
         <IntercomProvider />
+        <Analytics />
       </body>
     </html>
   );
