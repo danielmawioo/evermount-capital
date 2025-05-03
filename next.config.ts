@@ -1,9 +1,12 @@
-// next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
+  reactStrictMode: true,
+  swcMinify: true,
   eslint: {
     ignoreDuringBuilds: true,
+  },
+  images: {
+    domains: ["your-api-domain.com"], // optional: for optimized images from API
   },
 };
 
