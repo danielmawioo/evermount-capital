@@ -1,3 +1,5 @@
+"use client";
+
 import {
   CheckCircleIcon,
   CpuChipIcon,
@@ -5,16 +7,33 @@ import {
   ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
-
-export const metadata = {
-  title: "Platform Features | Evermount Capital",
-  description:
-    "Explore the proprietary strategies and trading infrastructure that give Evermount its performance edge.",
-};
+import Script from "next/script";
 
 export default function FeaturesPage() {
   return (
     <main className="px-6 py-24 max-w-7xl mx-auto space-y-28 text-gray-900">
+      {/* ✅ JSON-LD structured data for search engines */}
+      <Script
+        id="ld-json-features"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Platform Features",
+            url: "https://evermount.co/features",
+            description:
+              "Explore the proprietary strategies and infrastructure powering Evermount Capital's hedge fund performance.",
+            isPartOf: {
+              "@type": "WebSite",
+              name: "Evermount Capital",
+              url: "https://evermount.co",
+            },
+          }),
+        }}
+      />
+
       {/* SECTION 1 - Hero */}
       <section className="text-center">
         <h1 className="text-5xl lg:text-6xl font-extrabold leading-tight">
