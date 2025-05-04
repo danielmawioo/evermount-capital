@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Evermount Capital | High-Performance Hedge Fund Platform",
   description:
     "Manage your portfolio, optimize investments, and grow your wealth with Evermount Capital's smart hedge fund platform.",
-  metadataBase: new URL("https://evermount-capital-5cu3.vercel.app"),
+  metadataBase: new URL("https://evermount.co"),
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://evermount-capital-5cu3.vercel.app",
+    url: "https://evermount.co",
     siteName: "Evermount Capital",
     title: "Evermount Capital | High-Performance Hedge Fund Platform",
     description:
