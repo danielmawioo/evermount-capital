@@ -71,6 +71,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center space-x-3">
               <Image
                 src="/icons/icon1.png"
+                // src="/public/logos/evermountlogo.jpeg"
                 alt="Evermount Logo"
                 width={40}
                 height={40}
