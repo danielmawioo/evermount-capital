@@ -6,8 +6,9 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ["your-api-domain.com"], // optional: for optimized images from API
+    domains: ["evermount.co"],
   },
+  output: "export", // <-- Added to fix static export issue
 };
 
 module.exports = nextConfig;
