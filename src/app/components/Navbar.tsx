@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 import {
   Bars3Icon,
   XMarkIcon,
@@ -13,46 +15,38 @@ import {
   BuildingOfficeIcon,
   ArrowTrendingUpIcon,
 } from "@heroicons/react/24/outline";
-import axios from "axios";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState<{
-    type: "success" | "error";
-    text: string;
-  } | null>(null);
 
-  const handleJoin = async () => {
+  const handleJoin = useCallback(async () => {
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setMessage({
-        type: "error",
-        text: "Please enter a valid email address.",
-      });
+      toast.error("Please enter a valid email address.");
       return;
     }
 
     try {
       setLoading(true);
       await axios.post("https://api.evermount.co/waitlist", { email });
-      setMessage({
-        type: "success",
-        text: "You're on the waitlist! We'll be in touch 🎉",
-      });
+      toast.success("You're on the waitlist! 🎉");
       setEmail("");
+      setShowModal(false);
     } catch (err: any) {
       const msg =
         err?.response?.data?.message || "Something went wrong. Try again.";
-      setMessage({ type: "error", text: msg });
+      toast.error(msg);
     } finally {
       setLoading(false);
     }
-  };
+  }, [email]);
 
   return (
     <>
+      <Toaster position="top-center" />
+
       {/* Sticky Container for Banner + Navbar */}
       <div className="sticky top-0 z-[60] w-full">
         {/* 🎉 Waitlist Banner */}
@@ -87,7 +81,6 @@ export default function Navbar() {
               </span>
             </Link>
 
-            {/* Desktop Nav */}
             <nav className="hidden md:flex space-x-10 text-[16px] font-medium text-gray-700 items-center">
               <div className="relative group">
                 <button className="flex items-center space-x-1 hover:text-black">
@@ -187,7 +180,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Nav */}
+          {/* Mobile Dropdown */}
           {menuOpen && (
             <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
               <div className="flex flex-col p-6 space-y-4 text-gray-700 font-medium">
@@ -228,7 +221,7 @@ export default function Navbar() {
             <button
               onClick={() => {
                 setShowModal(false);
-                setMessage(null);
+                setEmail("");
               }}
               className="absolute top-4 right-4 text-gray-400 hover:text-black"
             >
@@ -240,15 +233,6 @@ export default function Navbar() {
             <p className="text-sm text-gray-600 mb-6 text-center">
               Get early access to our beta and priority onboarding.
             </p>
-            {message && (
-              <div
-                className={`text-sm text-center mb-4 ${
-                  message.type === "error" ? "text-red-600" : "text-green-600"
-                }`}
-              >
-                {message.text}
-              </div>
-            )}
             <input
               type="email"
               placeholder="you@example.com"
