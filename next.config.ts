@@ -8,7 +8,7 @@ const nextConfig = {
   images: {
     domains: ["evermount.co"],
   },
-  output: "export", // <-- Added to fix static export issue
+  output: "export", // ✅ Required for static export
 };
 
 module.exports = nextConfig;
