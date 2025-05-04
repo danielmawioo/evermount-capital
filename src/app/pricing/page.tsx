@@ -1,8 +1,6 @@
-export const metadata = {
-  title: "Investment Plans | Evermount Capital",
-  description:
-    "Compare transparent Evermount pricing tiers — choose the strategy that fits your capital, goals, and timeline.",
-};
+"use client";
+
+import Script from "next/script";
 
 export default function PricingPage() {
   const tiers = [
@@ -62,6 +60,29 @@ export default function PricingPage() {
 
   return (
     <main className="px-6 py-20 max-w-7xl mx-auto">
+      {/* ✅ JSON-LD Structured Data */}
+      <Script
+        id="ld-json-pricing"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Investment Plans",
+            url: "https://evermount.co/pricing",
+            description:
+              "Transparent pricing tiers with flexible capital entry, performance expectations, and advisory levels.",
+            isPartOf: {
+              "@type": "WebSite",
+              name: "Evermount Capital",
+              url: "https://evermount.co",
+            },
+          }),
+        }}
+      />
+
+      {/* HERO */}
       <section className="text-center mb-16">
         <h1 className="text-5xl font-extrabold text-gray-900">
           Choose Your Investment Tier
@@ -72,6 +93,7 @@ export default function PricingPage() {
         </p>
       </section>
 
+      {/* TABLE */}
       <section className="overflow-x-auto">
         <table className="min-w-full text-sm text-center border-collapse shadow rounded-lg overflow-hidden">
           <thead className="bg-[#00a76f] text-white uppercase text-xs">

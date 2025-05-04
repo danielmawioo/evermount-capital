@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
+import Script from "next/script";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 export default function LoginPage() {
@@ -41,7 +42,6 @@ export default function LoginPage() {
 
     try {
       setLoading(true);
-
       const response = await axios.post("https://api.evermount.co/auth/login", {
         email,
         password,
@@ -71,6 +71,28 @@ export default function LoginPage() {
 
   return (
     <main className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white relative">
+      {/* JSON-LD Structured Data */}
+      <Script
+        id="ld-json-login"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Investor Portal Login",
+            url: "https://evermount.co/login",
+            description:
+              "Login securely to the Evermount Capital investor portal and manage hedge fund investments.",
+            isPartOf: {
+              "@type": "WebSite",
+              name: "Evermount Capital",
+              url: "https://evermount.co",
+            },
+          }),
+        }}
+      />
+
       {/* Logo */}
       <div className="absolute top-6 left-6 md:left-10 z-50">
         <Link href="/" className="flex items-center space-x-2">
@@ -118,21 +140,16 @@ export default function LoginPage() {
             </Link>
           </p>
 
-          {/* Login Form */}
           <form className="mt-6 space-y-5" onSubmit={handleSubmit}>
-            {/* Success */}
             {success && (
               <p className="text-green-600 font-medium text-sm mb-2">
                 {success}
               </p>
             )}
-
-            {/* Error */}
             {error && (
               <p className="text-red-600 font-medium text-sm mb-2">{error}</p>
             )}
 
-            {/* Email */}
             <div>
               <label
                 htmlFor="email"
@@ -151,7 +168,6 @@ export default function LoginPage() {
               />
             </div>
 
-            {/* Password */}
             <div className="relative">
               <label
                 htmlFor="password"
@@ -179,7 +195,6 @@ export default function LoginPage() {
                 )}
               </div>
 
-              {/* Remember me + Forgot password */}
               <div className="flex justify-between items-center text-sm mt-2">
                 <label className="flex items-center space-x-2 text-gray-600">
                   <input
@@ -199,7 +214,6 @@ export default function LoginPage() {
               </div>
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={loading}
@@ -211,14 +225,12 @@ export default function LoginPage() {
             </button>
           </form>
 
-          {/* Divider */}
           <div className="flex items-center gap-2 my-6">
             <hr className="flex-grow border-gray-200" />
             <span className="text-sm text-gray-500">OR</span>
             <hr className="flex-grow border-gray-200" />
           </div>
 
-          {/* Socials */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
               { label: "Google", icon: "/icons/google.png" },

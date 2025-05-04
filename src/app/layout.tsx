@@ -3,8 +3,8 @@
 import "./styles/globals.css";
 import LayoutWrapper from "./components/LayoutWrapper";
 import { Metadata } from "next";
-import IntercomProvider from "./components/IntercomProvider"; // ➡️ Add this
-import Analytics from "./components/Analytics"; // ✅ Import it at the top
+import IntercomProvider from "./components/IntercomProvider";
+import Analytics from "./components/Analytics";
 
 export const metadata: Metadata = {
   title: "Evermount Capital | High-Performance Hedge Fund Platform",
@@ -51,8 +51,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-white text-gray-900">
-        {/* LayoutWrapper will decide when to show Navbar, Footer or not */}
+      <head />
+      <body className="bg-white text-gray-900 antialiased">
         <LayoutWrapper>{children}</LayoutWrapper>
         <IntercomProvider />
         <Analytics />

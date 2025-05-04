@@ -1,12 +1,32 @@
-export const metadata = {
-  title: "Portfolio Insights | Evermount Capital",
-  description:
-    "Gain deep insights into your investment growth, risk exposure, and capital efficiency — all in one intelligent dashboard.",
-};
+"use client";
+
+import Script from "next/script";
 
 export default function PortfolioInsightsPage() {
   return (
     <main className="px-6 py-20 max-w-7xl mx-auto text-gray-900">
+      {/* ✅ JSON-LD Structured Data for Search Engines */}
+      <Script
+        id="ld-json-insights"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Portfolio Insights",
+            url: "https://evermount.co/insights",
+            description:
+              "Explore portfolio growth, performance metrics, and capital risk breakdown through the Evermount insights dashboard.",
+            isPartOf: {
+              "@type": "WebSite",
+              name: "Evermount Capital",
+              url: "https://evermount.co",
+            },
+          }),
+        }}
+      />
+
       {/* INTRO SECTION */}
       <section className="text-center mb-20">
         <h1 className="text-5xl font-extrabold">
