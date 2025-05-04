@@ -13,16 +13,42 @@ import {
   BuildingOfficeIcon,
   ArrowTrendingUpIcon,
 } from "@heroicons/react/24/outline";
+import axios from "axios";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState<{
+    type: "success" | "error";
+    text: string;
+  } | null>(null);
 
-  const handleJoin = () => {
-    console.log("Email submitted:", email);
-    setShowModal(false);
-    setEmail("");
+  const handleJoin = async () => {
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setMessage({
+        type: "error",
+        text: "Please enter a valid email address.",
+      });
+      return;
+    }
+
+    try {
+      setLoading(true);
+      await axios.post("https://api.evermount.co/a/waitlist", { email });
+      setMessage({
+        type: "success",
+        text: "You're on the waitlist! We'll be in touch 🎉",
+      });
+      setEmail("");
+    } catch (err: any) {
+      const msg =
+        err?.response?.data?.message || "Something went wrong. Try again.";
+      setMessage({ type: "error", text: msg });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -48,14 +74,12 @@ export default function Navbar() {
         {/* Main Navbar */}
         <header className="bg-white border-b border-gray-200 z-50">
           <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-            {/* Logo */}
             <Link href="/" className="flex items-center space-x-3">
               <Image
                 src="/icons/icon1.png"
-                alt="Evermount Capital Logo"
+                alt="Evermount Logo"
                 width={40}
                 height={40}
-                className="object-contain"
                 priority
               />
               <span className="text-2xl font-extrabold text-[#00a76f] tracking-tight">
@@ -63,9 +87,8 @@ export default function Navbar() {
               </span>
             </Link>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Nav */}
             <nav className="hidden md:flex space-x-10 text-[16px] font-medium text-gray-700 items-center">
-              {/* Platform Dropdown */}
               <div className="relative group">
                 <button className="flex items-center space-x-1 hover:text-black">
                   <span>Platform</span>
@@ -109,7 +132,6 @@ export default function Navbar() {
                 Pricing
               </Link>
 
-              {/* About Dropdown */}
               <div className="relative group">
                 <button className="flex items-center space-x-1 hover:text-black">
                   <span>About</span>
@@ -144,7 +166,6 @@ export default function Navbar() {
               </div>
             </nav>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="md:hidden focus:outline-none"
@@ -156,7 +177,6 @@ export default function Navbar() {
               )}
             </button>
 
-            {/* Invest Now Button (Desktop Only) */}
             <div className="hidden md:flex items-center space-x-4">
               <Link href="/login">
                 <button className="flex items-center gap-2 bg-gradient-to-r from-green-400 via-emerald-500 to-yellow-400 text-white px-5 py-2 rounded-md text-sm font-semibold hover:opacity-90 transition">
@@ -167,7 +187,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Dropdown Menu */}
+          {/* Mobile Nav */}
           {menuOpen && (
             <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
               <div className="flex flex-col p-6 space-y-4 text-gray-700 font-medium">
@@ -201,12 +221,15 @@ export default function Navbar() {
         </header>
       </div>
 
-      {/* Join Waitlist Modal */}
+      {/* Waitlist Modal */}
       {showModal && (
         <div className="fixed inset-0 z-[100] bg-black/60 flex items-center justify-center px-4">
           <div className="bg-white rounded-2xl p-8 w-full max-w-md shadow-xl relative">
             <button
-              onClick={() => setShowModal(false)}
+              onClick={() => {
+                setShowModal(false);
+                setMessage(null);
+              }}
               className="absolute top-4 right-4 text-gray-400 hover:text-black"
             >
               <XMarkIcon className="w-5 h-5" />
@@ -217,6 +240,15 @@ export default function Navbar() {
             <p className="text-sm text-gray-600 mb-6 text-center">
               Get early access to our beta and priority onboarding.
             </p>
+            {message && (
+              <div
+                className={`text-sm text-center mb-4 ${
+                  message.type === "error" ? "text-red-600" : "text-green-600"
+                }`}
+              >
+                {message.text}
+              </div>
+            )}
             <input
               type="email"
               placeholder="you@example.com"
@@ -226,9 +258,10 @@ export default function Navbar() {
             />
             <button
               onClick={handleJoin}
+              disabled={loading}
               className="w-full bg-gradient-to-r from-green-400 via-emerald-500 to-yellow-400 text-white py-3 rounded-lg text-base font-semibold hover:opacity-90 transition"
             >
-              Submit
+              {loading ? "Submitting..." : "Submit"}
             </button>
           </div>
         </div>
