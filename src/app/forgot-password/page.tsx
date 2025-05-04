@@ -23,7 +23,7 @@ export default function ForgotPasswordPage() {
 
     try {
       setLoading(true);
-      await axios.post("http://api.evermount.co/auth/send-reset-password", {
+      await axios.post("https://api.evermount.co/auth/send-reset-password", {
         email,
       });
 

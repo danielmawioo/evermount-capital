@@ -42,7 +42,7 @@ export default function LoginPage() {
     try {
       setLoading(true);
 
-      const response = await axios.post("http://api.evermount.co/auth/login", {
+      const response = await axios.post("https://api.evermount.co/auth/login", {
         email,
         password,
       });

@@ -45,7 +45,7 @@ export default function ResetPasswordPage() {
       setLoading(true);
       const otpCode = otp.join(""); // join the OTP digits into a full code
 
-      await axios.post("http://api.evermount.co/auth/reset-password", {
+      await axios.post("https://api.evermount.co/auth/reset-password", {
         email,
         otp: otpCode,
         newPassword,
