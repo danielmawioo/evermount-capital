@@ -36,7 +36,7 @@ export default function Navbar() {
 
     try {
       setLoading(true);
-      await axios.post("https://api.evermount.co/a/waitlist", { email });
+      await axios.post("https://api.evermount.co/waitlist", { email });
       setMessage({
         type: "success",
         text: "You're on the waitlist! We'll be in touch 🎉",
