@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 export default function RegisterPage() {
@@ -12,8 +13,6 @@ export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [acceptTerms, setAcceptTerms] = useState(false);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -34,16 +33,13 @@ export default function RegisterPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
-    setSuccess("");
-
     if (!acceptTerms) {
-      setError("Please accept the Terms and Conditions.");
+      toast.error("Please accept the Terms and Conditions.");
       return;
     }
 
     if (getPasswordStrength(password) === "Weak") {
-      setError("Password is too weak. Make it stronger.");
+      toast.error("Password is too weak. Make it stronger.");
       return;
     }
 
@@ -57,14 +53,12 @@ export default function RegisterPage() {
         fullName,
       });
 
-      setSuccess("Account created successfully! Redirecting to login...");
+      toast.success("Account created! Please check your email to verify.");
       setTimeout(() => {
         window.location.href = "/login";
-      }, 1500);
+      }, 2000);
     } catch (err: any) {
-      setError(
-        err.response?.data?.message || "Registration failed. Try again."
-      );
+      toast.error(err.response?.data?.message || "Registration failed.");
     } finally {
       setLoading(false);
     }
@@ -72,6 +66,7 @@ export default function RegisterPage() {
 
   return (
     <main className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white relative">
+      <Toaster position="top-center" />
       {/* Logo */}
       <div className="absolute top-6 left-6 md:left-10 z-50">
         <Link href="/" className="flex items-center space-x-2">
@@ -121,16 +116,6 @@ export default function RegisterPage() {
 
           {/* Form */}
           <form className="mt-6 space-y-5" onSubmit={handleSubmit}>
-            {/* Success */}
-            {success && (
-              <p className="text-green-600 font-medium text-sm">{success}</p>
-            )}
-            {/* Error */}
-            {error && (
-              <p className="text-red-600 font-medium text-sm">{error}</p>
-            )}
-
-            {/* First & Last Name */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label
@@ -168,7 +153,6 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            {/* Email */}
             <div>
               <label
                 htmlFor="email"
@@ -187,7 +171,6 @@ export default function RegisterPage() {
               />
             </div>
 
-            {/* Password */}
             <div className="relative">
               <label
                 htmlFor="password"
@@ -214,8 +197,6 @@ export default function RegisterPage() {
                   <AiOutlineEye size={22} />
                 )}
               </div>
-
-              {/* Password Strength */}
               {password && (
                 <div className="mt-2">
                   <div className="w-full bg-gray-200 rounded-full h-2.5">
@@ -237,7 +218,6 @@ export default function RegisterPage() {
               )}
             </div>
 
-            {/* Accept Terms */}
             <div className="flex items-start gap-2 text-sm text-gray-700">
               <input
                 type="checkbox"
@@ -256,7 +236,6 @@ export default function RegisterPage() {
               </label>
             </div>
 
-            {/* Submit */}
             <button
               type="submit"
               disabled={loading}
@@ -266,14 +245,12 @@ export default function RegisterPage() {
             </button>
           </form>
 
-          {/* Divider */}
           <div className="flex items-center gap-2 my-6">
             <hr className="flex-grow border-gray-300" />
             <span className="text-sm text-gray-500">OR</span>
             <hr className="flex-grow border-gray-300" />
           </div>
 
-          {/* Social Sign Up */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
               { label: "Google", icon: "/icons/google.png" },
