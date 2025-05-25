@@ -49,7 +49,7 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4">Education</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="#">Investor Tour</Link>
+                <Link href="/investor-tour">Investor Tour</Link>
               </li>
               <li>
                 <Link href="#">AI Trading Guide</Link>
