@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import CookieConsent from "./CookieConsent"; // ✅ Optional: include if you're using it
 
 const authRoutes = [
   "/login",
@@ -21,16 +22,18 @@ export default function LayoutWrapper({
 
   const isAuthRoute = authRoutes.includes(pathname);
   const isDashboardRoute = pathname.startsWith("/dashboard");
+  const isBookDemoPage = pathname === "/book-demo";
 
   const hideNavbar = isAuthRoute || isDashboardRoute;
-  const hideFooter =
-    isAuthRoute || isDashboardRoute || pathname === "/book-demo";
+  const hideFooter = isAuthRoute || isDashboardRoute || isBookDemoPage;
 
   return (
     <>
       {!hideNavbar && <Navbar />}
       {children}
       {!hideFooter && <Footer />}
+      {!hideFooter && <CookieConsent />}{" "}
+      {/* ✅ Optional: display cookie banner */}
     </>
   );
 }

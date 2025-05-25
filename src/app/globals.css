@@ -3,13 +3,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
+  --accent: #00a76f;
+  --accent-hover: #029866;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans, ui-sans-serif, system-ui);
+  --font-mono: var(--font-geist-mono, ui-monospace, SFMono-Regular);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,9 +20,11 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
 }
 
+/* ========== ANIMATIONS ========== */
 @keyframes slide-left {
   0% {
     transform: translateX(0%);
@@ -39,28 +39,50 @@ body {
   animation: slide-left 25s linear infinite;
 }
 
+/* ========== INPUT STYLES ========== */
 .input-style {
-  @apply w-full mt-2 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00a76f] shadow-sm;
+  @apply w-full mt-2 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[--accent] shadow-sm;
 }
 
+.input {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[--accent] focus:outline-none text-gray-900 dark:bg-[#0f1117] dark:border-gray-700 dark:text-white;
+}
+
+/* ========== CHECKBOX ========== */
 .checkbox-style {
-  @apply w-4 h-4 text-[#00a76f] bg-white dark:bg-gray-900 border-2 border-[#00a76f] rounded focus:ring-[#00a76f];
+  @apply w-4 h-4 text-[--accent] bg-white dark:bg-gray-900 border-2 border-[--accent] rounded focus:ring-[--accent];
 }
 
+/* ========== BUTTONS ========== */
 .btn-primary {
-  @apply w-full bg-[#00a76f] hover:bg-[#029866] text-white font-semibold py-3 rounded-lg transition;
+  @apply w-full bg-[--accent] hover:bg-[--accent-hover] text-white font-semibold py-3 rounded-lg transition;
 }
 
 .btn-social {
   @apply flex items-center justify-center gap-2 px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition;
 }
 
-
-/* Inside your globals.css */
-.input {
-  @apply w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#00a76f] focus:outline-none text-gray-900 dark:bg-[#0f1117] dark:border-gray-700 dark:text-white;
+/* Gradient text utility */
+.text-gradient {
+  @apply bg-gradient-to-r from-[#00a76f] to-green-400 bg-clip-text text-transparent;
 }
 
-.btn-primary {
-  @apply bg-[#00a76f] hover:bg-emerald-600 text-white py-2 rounded-md font-semibold transition;
+/* Gradient background utility */
+.bg-gradient-section {
+  @apply bg-gradient-to-b from-white via-[#e8fdf4] to-white dark:from-[#0a0a0a] dark:via-[#101f1b] dark:to-[#0a0a0a];
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
 }
