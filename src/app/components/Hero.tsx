@@ -111,42 +111,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      {/* PAYMENT LOGOS */}
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 mt-24 pb-12">
-        <p className="text-center text-gray-500 text-sm font-medium mb-6">
-          WE SUPPORT SEAMLESS TRANSACTIONS VIA:
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-6">
-          <Image
-            src="/logos/mastercard.png"
-            alt="Mastercard"
-            width={50}
-            height={50}
-          />
-          <Image src="/logos/paypal.png" alt="PayPal" width={50} height={50} />
-          <Image
-            src="/logos/coinbase.png"
-            alt="Coinbase"
-            width={50}
-            height={50}
-          />
-          <Image src="/logos/usdc.png" alt="USDC" width={50} height={50} />
-          <Image src="/logos/stripe.png" alt="Stripe" width={50} height={50} />
-          <Image
-            src="/logos/applepay.png"
-            alt="Apple Pay"
-            width={50}
-            height={50}
-          />
-          <Image
-            src="/logos/bitcoin.png"
-            alt="Bitcoin"
-            width={50}
-            height={50}
-          />
-        </div>
-      </div>
     </section>
   );
 }
