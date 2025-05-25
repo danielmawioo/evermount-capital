@@ -10,6 +10,8 @@ import {
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
 
+import Link from "next/link";
+
 // ✅ Import these from react-icons
 import { FiShield, FiCheckCircle, FiTrendingUp } from "react-icons/fi";
 
@@ -232,12 +234,16 @@ export default function HomeSectionsWithImages() {
 
           {/* CTA Buttons */}
           <div className="flex justify-center gap-4 flex-wrap">
-            <button className="bg-[#00a76f] hover:bg-emerald-700 text-white px-8 py-3 rounded-md text-lg font-semibold shadow-sm transition">
-              Book a Demo
-            </button>
-            <button className="px-8 py-3 border border-[#00a76f] text-[#00a76f] hover:bg-[#00a76f0d] rounded-md text-lg font-semibold transition shadow-sm">
-              See Performance
-            </button>
+            <Link href="/book-demo">
+              <button className="bg-[#00a76f] hover:bg-emerald-700 text-white px-8 py-3 rounded-md text-lg font-semibold shadow-sm transition">
+                Book a Demo
+              </button>
+            </Link>
+            <Link href="/portfolio-insights">
+              <button className="px-8 py-3 border border-[#00a76f] text-[#00a76f] hover:bg-[#00a76f0d] rounded-md text-lg font-semibold transition shadow-sm">
+                See Performance
+              </button>
+            </Link>
           </div>
         </div>
       </section>

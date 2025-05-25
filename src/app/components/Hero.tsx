@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
 import {
   ChartBarIcon,
   CurrencyDollarIcon,
@@ -10,7 +9,7 @@ import {
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
 import { Typewriter } from "react-simple-typewriter";
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"; // ✅ Fixed import for v9
 
 // MUI Icons
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
@@ -32,7 +31,7 @@ export default function Hero() {
             Building the Future of Investing
           </h1>
 
-          <h2 className="text-lg sm:text-xl lg:text-4xl font-medium text-[#00a76f] min-h-[40px]">
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-medium text-[#00a76f] min-h-[40px]">
             <span className="inline-block min-w-[240px]">
               <Typewriter
                 words={[
