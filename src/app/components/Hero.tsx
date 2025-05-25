@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
   ChartBarIcon,
   CurrencyDollarIcon,
@@ -52,14 +53,18 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <button className="flex items-center justify-center gap-2 px-6 py-3 bg-[#00a76f] text-white rounded-md font-semibold hover:bg-emerald-700 transition shadow-lg">
-              <SupportAgentIcon fontSize="small" />
-              Talk to Our Team
-            </button>
-            <button className="flex items-center justify-center gap-2 px-6 py-3 border border-[#00a76f] text-[#00a76f] rounded-md font-semibold hover:bg-[#e6f5f0] transition shadow-lg">
-              <RocketLaunchIcon fontSize="small" />
-              Get Early Access
-            </button>
+            <Link href="/about">
+              <button className="flex items-center justify-center gap-2 px-6 py-3 bg-[#00a76f] text-white rounded-md font-semibold hover:bg-emerald-700 transition shadow-lg">
+                <SupportAgentIcon fontSize="small" />
+                Talk to Our Team
+              </button>
+            </Link>
+            <Link href="/about">
+              <button className="flex items-center justify-center gap-2 px-6 py-3 border border-[#00a76f] text-[#00a76f] rounded-md font-semibold hover:bg-[#e6f5f0] transition shadow-lg">
+                <RocketLaunchIcon fontSize="small" />
+                Get Early Access
+              </button>
+            </Link>
           </div>
 
           {/* Trust Metrics */}
