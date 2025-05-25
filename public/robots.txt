@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# ✅ Public Pages
+Allow: /about
+Allow: /careers
+Allow: /features
+Allow: /portfolio-insights
+Allow: /pricing
+Allow: /book-demo
+Allow: /investor-tour
+
+# ✅ Auth Pages (but won't index them)
+Disallow: /login
+Disallow: /register
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /verify
+
+# ✅ Admin or internal dashboards
+Disallow: /dashboard
+
+# ✅ Development or non-production pages
+Disallow: /test
+Disallow: /dev
+Disallow: /drafts
+
+# Sitemap
+Sitemap: https://www.evermount.co/sitemap.xml
