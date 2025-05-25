@@ -9,30 +9,29 @@ import {
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
 import { Typewriter } from "react-simple-typewriter";
-import { motion } from "framer-motion"; // ✅ Fixed import for v9
+import { motion } from "framer-motion";
 
-// MUI Icons
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 
 export default function Hero() {
   return (
-    <section className="bg-gradient-to-b from-white via-[#e8fdf4] to-white py-28 lg:py-36 transition-all">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-20 items-center">
+    <section className="bg-gradient-to-b from-white via-[#e8fdf4] to-white py-20 sm:py-28 transition-all">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-14 sm:gap-20 items-center">
         {/* LEFT TEXT CONTENT */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="space-y-6"
+          className="space-y-6 text-center lg:text-left"
         >
-          <h1 className="text-4xl sm:text-5xl lg:text-4xl font-extrabold text-gray-900 leading-tight tracking-tight max-w-1xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight">
             Building the Future of Investing
           </h1>
 
-          <h2 className="text-lg sm:text-xl lg:text-2xl font-medium text-[#00a76f] min-h-[40px]">
-            <span className="inline-block min-w-[240px]">
+          <h2 className="text-base sm:text-lg md:text-2xl font-medium text-[#00a76f] min-h-[32px] sm:min-h-[40px]">
+            <span className="inline-block min-w-[220px]">
               <Typewriter
                 words={[
                   "Quant Hedge Funds",
@@ -49,16 +48,16 @@ export default function Hero() {
             </span>
           </h2>
 
-          <p className="text-gray-600 text-lg lg:text-xl max-w-xl leading-relaxed mt-4">
+          <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
             A next-gen quantitative hedge fund blending data science, AI, and
             algorithmic precision to unlock sustainable alpha and global-scale
             growth.
           </p>
 
           {/* CTA BUTTONS */}
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2">
             <Link href="/book-demo">
-              <button className="flex items-center justify-center gap-2 px-6 py-3 bg-[#00a76f] text-white rounded-md font-semibold hover:bg-emerald-700 transition shadow-lg">
+              <button className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-[#00a76f] text-white rounded-md font-semibold hover:bg-emerald-700 transition shadow-md">
                 <SupportAgentIcon fontSize="small" />
                 Talk to Our Team
               </button>
@@ -66,7 +65,7 @@ export default function Hero() {
 
             <button
               onClick={() => window.dispatchEvent(new Event("openWaitlist"))}
-              className="flex items-center justify-center gap-2 px-6 py-3 border border-[#00a76f] text-[#00a76f] rounded-md font-semibold hover:bg-[#e6f5f0] transition shadow-lg"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 border border-[#00a76f] text-[#00a76f] rounded-md font-semibold hover:bg-[#e6f5f0] transition shadow-md"
             >
               <RocketLaunchIcon fontSize="small" />
               Get Early Access
@@ -79,23 +78,23 @@ export default function Hero() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="pt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-base text-gray-800 max-w-md"
+            className="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 text-sm text-gray-800 max-w-md mx-auto lg:mx-0"
           >
-            <div className="flex items-center gap-3 whitespace-nowrap">
-              <ChartBarIcon className="w-6 h-6 text-[#00a76f]" />
-              <span>Data-Driven Alpha</span>
+            <div className="flex items-center gap-3">
+              <ChartBarIcon className="w-5 h-5 text-[#00a76f]" />
+              Data-Driven Alpha
             </div>
-            <div className="flex items-center gap-3 whitespace-nowrap">
-              <CurrencyDollarIcon className="w-6 h-6 text-[#00a76f]" />
-              <span>$50M+ Strategies Tracked</span>
+            <div className="flex items-center gap-3">
+              <CurrencyDollarIcon className="w-5 h-5 text-[#00a76f]" />
+              $50M+ Strategies Tracked
             </div>
-            <div className="flex items-center gap-3 whitespace-nowrap">
-              <ClockIcon className="w-6 h-6 text-[#00a76f]" />
-              <span>Real-Time AI Trading</span>
+            <div className="flex items-center gap-3">
+              <ClockIcon className="w-5 h-5 text-[#00a76f]" />
+              Real-Time AI Trading
             </div>
-            <div className="flex items-center gap-3 whitespace-nowrap">
-              <UserGroupIcon className="w-6 h-6 text-[#00a76f]" />
-              <span>10,000+ Global Subscribers</span>
+            <div className="flex items-center gap-3">
+              <UserGroupIcon className="w-5 h-5 text-[#00a76f]" />
+              10,000+ Global Subscribers
             </div>
           </motion.div>
         </motion.div>
@@ -108,7 +107,7 @@ export default function Hero() {
           viewport={{ once: true }}
           className="relative w-full flex justify-center lg:justify-end"
         >
-          <div className="relative w-[90%] max-w-[700px]">
+          <div className="relative w-full max-w-[680px] sm:px-0">
             <Image
               src="/images/section1.png"
               alt="Main Dashboard Preview"
