@@ -18,16 +18,19 @@ export default function LayoutWrapper({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+
   const isAuthRoute = authRoutes.includes(pathname);
   const isDashboardRoute = pathname.startsWith("/dashboard");
 
-  const hideLayout = isAuthRoute || isDashboardRoute;
+  const hideNavbar = isAuthRoute || isDashboardRoute;
+  const hideFooter =
+    isAuthRoute || isDashboardRoute || pathname === "/book-demo";
 
   return (
     <>
-      {!hideLayout && <Navbar />}
+      {!hideNavbar && <Navbar />}
       {children}
-      {!hideLayout && <Footer />}
+      {!hideFooter && <Footer />}
     </>
   );
 }
