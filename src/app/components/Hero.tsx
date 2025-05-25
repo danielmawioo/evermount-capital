@@ -59,12 +59,14 @@ export default function Hero() {
                 Talk to Our Team
               </button>
             </Link>
-            <Link href="/about">
-              <button className="flex items-center justify-center gap-2 px-6 py-3 border border-[#00a76f] text-[#00a76f] rounded-md font-semibold hover:bg-[#e6f5f0] transition shadow-lg">
-                <RocketLaunchIcon fontSize="small" />
-                Get Early Access
-              </button>
-            </Link>
+
+            <button
+              onClick={() => window.dispatchEvent(new Event("openWaitlist"))}
+              className="flex items-center justify-center gap-2 px-6 py-3 border border-[#00a76f] text-[#00a76f] rounded-md font-semibold hover:bg-[#e6f5f0] transition shadow-lg"
+            >
+              <RocketLaunchIcon fontSize="small" />
+              Get Early Access
+            </button>
           </div>
 
           {/* Trust Metrics */}

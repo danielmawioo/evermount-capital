@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
@@ -43,6 +43,15 @@ export default function Navbar() {
     }
   }, [email]);
 
+  // ✅ Listen for custom global event
+  useEffect(() => {
+    const openWaitlist = () => setShowModal(true);
+    window.addEventListener("openWaitlist", openWaitlist);
+    return () => {
+      window.removeEventListener("openWaitlist", openWaitlist);
+    };
+  }, []);
+
   return (
     <>
       <Toaster position="top-center" />
@@ -71,7 +80,6 @@ export default function Navbar() {
             <Link href="/" className="flex items-center space-x-3">
               <Image
                 src="/icons/icon1.png"
-                // src="/public/logos/evermountlogo.jpeg"
                 alt="Evermount Logo"
                 width={40}
                 height={40}
