@@ -174,19 +174,9 @@ export default function Footer() {
         <div className="flex justify-center gap-5 mb-6 text-[#00a76f] text-lg">
           {[
             {
-              href: "https://facebook.com",
-              icon: <FaFacebookF />,
-              label: "Facebook",
-            },
-            {
               href: "https://x.com",
               icon: <FaXTwitter />,
               label: "X Twitter",
-            },
-            {
-              href: "https://instagram.com",
-              icon: <FaInstagram />,
-              label: "Instagram",
             },
             {
               href: "https://linkedin.com/company/evermount-capital",
