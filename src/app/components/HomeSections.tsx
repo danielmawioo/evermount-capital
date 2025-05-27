@@ -26,9 +26,9 @@ export default function HomeSectionsWithImages() {
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-12">
             {[
-              { value: "98K+", label: "Clients Funded" },
-              { value: "$60M+", label: "Assets Managed" },
-              { value: "18.5%", label: "Average Returns" },
+              { value: "1K+", label: "Clients Funded" },
+              { value: "$100K", label: "Assets Managed" },
+              { value: "36%", label: "Average Returns" },
               { value: "40+", label: "Global Instruments" },
             ].map((item, i) => (
               <div key={i}>
