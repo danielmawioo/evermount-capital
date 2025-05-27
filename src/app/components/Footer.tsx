@@ -2,14 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaTiktok,
-  FaDiscord,
-  FaXTwitter,
-} from "react-icons/fa6";
+import { FaLinkedinIn, FaTiktok, FaDiscord, FaXTwitter } from "react-icons/fa6";
 import axios from "axios";
 
 export default function Footer() {
