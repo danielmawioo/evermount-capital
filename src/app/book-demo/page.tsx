@@ -74,14 +74,34 @@ export default function BookDemoModal() {
     setForm((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // ✅ Handle submit and send to backend
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
-    console.log("Booking submitted:", form);
-    // Optional: send to backend API
-    setShowModal(false);
-    router.push("/");
+    try {
+      const res = await fetch("https://api.evermount.co/demo-booking", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...form,
+          date: form.date?.toISOString(), // ensure date is in correct format
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Booking failed");
+      }
+
+      // Success: close modal and redirect to thank you page
+      setShowModal(false);
+      router.push("/thank-you");
+    } catch (err) {
+      console.error("Booking error:", err);
+      alert("There was an error booking the demo. Please try again.");
+    }
   };
 
   if (!showModal) return null;
