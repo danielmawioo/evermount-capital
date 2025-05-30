@@ -25,7 +25,6 @@ export default function BookDemoModal() {
     date: "",
   });
 
-  // ⛔ Prevent background scroll when modal is open
   useEffect(() => {
     document.body.style.overflow = showModal ? "hidden" : "auto";
     return () => {
@@ -33,7 +32,6 @@ export default function BookDemoModal() {
     };
   }, [showModal]);
 
-  // ✅ Close on ESC or outside click
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") handleClose();
@@ -53,13 +51,11 @@ export default function BookDemoModal() {
     };
   }, []);
 
-  // ✅ Handle close and redirect
   const handleClose = () => {
     setShowModal(false);
     router.push("/");
   };
 
-  // ✅ Validate form
   const validate = () => {
     const newErrors = {
       name: form.name ? "" : "Name is required",
@@ -74,10 +70,14 @@ export default function BookDemoModal() {
     setForm((prev) => ({ ...prev, [field]: value }));
   };
 
-  // ✅ Handle submit and send to backend
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
+
+    const payload = {
+      ...form,
+      date: form.date?.toISOString(),
+    };
 
     try {
       const res = await fetch("https://api.evermount.co/demo-booking", {
@@ -85,22 +85,23 @@ export default function BookDemoModal() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          ...form,
-          date: form.date?.toISOString(), // ensure date is in correct format
-        }),
+        body: JSON.stringify(payload),
       });
 
+      const data = await res.json();
+
       if (!res.ok) {
-        throw new Error("Booking failed");
+        console.error("Error response:", data);
+        alert(data.message || "There was an error booking the demo.");
+        return;
       }
 
-      // Success: close modal and redirect to thank you page
+      console.log("Success response:", data);
       setShowModal(false);
       router.push("/thank-you");
     } catch (err) {
-      console.error("Booking error:", err);
-      alert("There was an error booking the demo. Please try again.");
+      console.error("Network or unexpected error:", err);
+      alert("Network error. Please try again later.");
     }
   };
 
@@ -112,7 +113,6 @@ export default function BookDemoModal() {
         ref={modalRef}
         className="bg-white w-full max-w-lg rounded-2xl p-8 shadow-2xl relative"
       >
-        {/* Close button */}
         <button
           onClick={handleClose}
           className="absolute top-4 right-4 text-gray-500 hover:text-black transition"
@@ -120,7 +120,6 @@ export default function BookDemoModal() {
           <XMarkIcon className="w-6 h-6" />
         </button>
 
-        {/* Header */}
         <h2 className="text-2xl font-bold text-center text-[#00a76f]">
           Book a Demo
         </h2>
@@ -129,7 +128,6 @@ export default function BookDemoModal() {
           invite.
         </p>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <label className="block text-sm font-medium text-gray-700">
