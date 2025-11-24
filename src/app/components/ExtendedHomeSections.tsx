@@ -43,7 +43,7 @@ export default function ExtendedHomeSections() {
   return (
     <div className="bg-white dark:bg-gray-900">
       {/* === COMPANY OVERVIEW === */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <section className="py-16 px-6 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -61,15 +61,8 @@ export default function ExtendedHomeSections() {
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
               Evermount Capital is a quantitative investment management firm that applies 
               systematic, data-driven approaches to generate alpha across global markets. 
-              Our proprietary research platform combines machine learning, statistical arbitrage, 
-              and high-frequency trading strategies to identify and exploit market inefficiencies.
-            </p>
-            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              We employ a rigorous scientific methodology, leveraging petabytes of historical 
-              market data, alternative datasets, and real-time information flows to construct 
-              portfolios that deliver consistent risk-adjusted returns. Our quantitative models 
-              continuously evolve through machine learning, adapting to changing market regimes 
-              and maintaining competitive edge.
+              We combine machine learning, statistical arbitrage, and proprietary research 
+              to deliver consistent risk-adjusted returns.
             </p>
             <motion.div
               whileHover={{ x: 5 }}
@@ -114,23 +107,21 @@ export default function ExtendedHomeSections() {
       </section>
 
       {/* === TECHNOLOGY & PLATFORM === */}
-      <section className="py-24 px-6 bg-gray-50 dark:bg-gray-800">
+      <section className="py-16 px-6 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Proprietary Technology & Research Infrastructure
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
               Our technology stack processes terabytes of data daily, executing millions of 
-              calculations per second to identify alpha opportunities. We combine quantitative 
-              research, computational finance, and engineering excellence to build systems that 
-              outperform traditional investment approaches.
+              calculations per second to identify alpha opportunities across global markets.
             </p>
           </motion.div>
 
@@ -139,25 +130,25 @@ export default function ExtendedHomeSections() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-8"
+            className="grid md:grid-cols-3 gap-6"
           >
             {[
               {
                 icon: CpuChipIcon,
                 title: "Quantitative Research & Modeling",
-                description: "Advanced statistical models, factor analysis, and machine learning algorithms trained on decades of market data. Our research team develops proprietary signals that capture market anomalies and generate consistent alpha across multiple asset classes and time horizons.",
+                description: "Advanced statistical models and machine learning algorithms trained on decades of market data to generate consistent alpha.",
                 color: "from-blue-500 to-cyan-500",
               },
               {
                 icon: ChartBarIcon,
                 title: "High-Performance Computing",
-                description: "Ultra-low latency execution infrastructure processing millions of market events per second. Our distributed computing architecture enables real-time portfolio optimization, risk monitoring, and trade execution across global exchanges.",
+                description: "Ultra-low latency infrastructure processing millions of market events per second for real-time portfolio optimization.",
                 color: "from-purple-500 to-pink-500",
               },
               {
                 icon: ShieldCheckIcon,
                 title: "Systematic Risk Management",
-                description: "Multi-layered risk framework incorporating VaR models, stress testing, and dynamic position sizing. Our risk systems monitor portfolio exposure in real-time, automatically adjusting positions to maintain target risk parameters and protect capital.",
+                description: "Multi-layered risk framework with real-time monitoring and automatic position adjustments to protect capital.",
                 color: "from-green-500 to-emerald-500",
               },
             ].map((tech, i) => (
@@ -187,7 +178,7 @@ export default function ExtendedHomeSections() {
       </section>
 
       {/* === INVESTMENT PHILOSOPHY === */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <section className="py-16 px-6 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -203,16 +194,10 @@ export default function ExtendedHomeSections() {
               Systematic Investment Philosophy
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              At Evermount Capital, we believe that markets are largely efficient but contain 
-              systematic inefficiencies that can be identified and exploited through rigorous 
-              quantitative analysis. Our investment process is entirely systematic, removing 
-              human emotion and bias from decision-making.
-            </p>
-            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              We focus on developing edge through superior data, advanced modeling techniques, 
-              and execution excellence. Our strategies span multiple asset classes including 
-              equities, fixed income, currencies, commodities, and derivatives, allowing us to 
-              diversify risk and capture alpha across different market regimes.
+              We believe markets contain systematic inefficiencies that can be identified through 
+              rigorous quantitative analysis. Our entirely systematic approach removes human emotion 
+              and bias, focusing on superior data, advanced modeling, and execution excellence across 
+              multiple asset classes.
             </p>
             <motion.div
               variants={containerVariants}
@@ -224,8 +209,7 @@ export default function ExtendedHomeSections() {
               {[
                 "Multi-strategy approach across asset classes",
                 "Systematic signal generation and validation",
-                "Dynamic portfolio optimization and rebalancing",
-                "Continuous model refinement and backtesting",
+                "Dynamic portfolio optimization",
                 "Risk-adjusted return maximization",
               ].map((principle, i) => (
                 <motion.div
@@ -271,21 +255,21 @@ export default function ExtendedHomeSections() {
       </section>
 
       {/* === LEADERSHIP TEAM === */}
-      <section className="py-24 px-6 bg-gray-50 dark:bg-gray-800">
+      <section className="py-16 px-6 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               World-Class Research & Engineering Team
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400">
-              Our team combines deep expertise in quantitative finance, computer science, 
-              mathematics, and engineering to drive innovation in systematic investing
+              Experienced professionals combining expertise in quantitative finance, computer science, 
+              and engineering to drive innovation in systematic investing.
             </p>
           </motion.div>
 
@@ -294,7 +278,7 @@ export default function ExtendedHomeSections() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-8"
+            className="grid md:grid-cols-3 gap-6"
           >
             {[
               {
@@ -348,7 +332,7 @@ export default function ExtendedHomeSections() {
       </section>
 
       {/* === SECURITY & COMPLIANCE === */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <section className="py-16 px-6 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -365,8 +349,8 @@ export default function ExtendedHomeSections() {
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
               We operate with the highest standards of operational excellence, security, and 
-              regulatory compliance. Our infrastructure is designed to handle institutional-scale 
-              assets with robust risk management, operational controls, and client protection measures.
+              regulatory compliance. Our infrastructure handles institutional-scale assets with 
+              robust risk management and client protection measures.
             </p>
             <motion.div
               variants={containerVariants}
@@ -379,10 +363,8 @@ export default function ExtendedHomeSections() {
                 "256-bit AES encryption for data at rest and in transit",
                 "Segregated client accounts with independent custodians",
                 "Multi-factor authentication and role-based access controls",
-                "Regular third-party security audits and penetration testing",
                 "SOC 2 Type II certified, GDPR compliant, MiFID II regulated",
-                "24/7 security operations center and real-time threat monitoring",
-                "Disaster recovery and business continuity planning",
+                "24/7 security operations center and real-time monitoring",
                 "Independent risk oversight and compliance monitoring",
               ].map((feature, i) => (
                 <motion.div
@@ -428,22 +410,21 @@ export default function ExtendedHomeSections() {
       </section>
 
       {/* === GLOBAL REACH === */}
-      <section className="py-24 px-6 bg-gradient-to-br from-[#00a76f]/10 via-white to-emerald-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800">
+      <section className="py-16 px-6 bg-gradient-to-br from-[#00a76f]/10 via-white to-emerald-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Global Market Access & Diversification
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              We trade across major global exchanges and markets, providing our investors with 
-              diversified exposure to opportunities worldwide. Our systematic approach allows us 
-              to operate efficiently across multiple time zones and jurisdictions.
+              We trade across major global exchanges, providing diversified exposure to opportunities 
+              worldwide through our systematic approach.
             </p>
           </motion.div>
 
@@ -452,7 +433,7 @@ export default function ExtendedHomeSections() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid sm:grid-cols-2 md:grid-cols-4 gap-8"
+            className="grid sm:grid-cols-2 md:grid-cols-4 gap-6"
           >
             {[
               { region: "Equities", markets: "50+ Exchanges", coverage: "Global" },
@@ -479,24 +460,24 @@ export default function ExtendedHomeSections() {
       </section>
 
       {/* === SUCCESS METRICS === */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <section className="py-16 px-6 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Performance Metrics & Track Record
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400">
-            Our systematic approach has delivered consistent risk-adjusted returns across 
-            various market conditions, demonstrating the robustness of our quantitative strategies
+            Consistent risk-adjusted returns across various market conditions, demonstrating 
+            the robustness of our quantitative strategies.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             { metric: "1.85+", label: "Information Ratio", icon: ChartBarIcon, desc: "Risk-adjusted performance metric" },
             { metric: "$50M+", label: "Assets Under Management", icon: CurrencyDollarIcon, desc: "Institutional scale" },
@@ -536,7 +517,7 @@ export default function ExtendedHomeSections() {
       </section>
 
       {/* === CALL TO ACTION === */}
-      <section className="py-24 px-6 bg-gradient-to-r from-[#00a76f] to-emerald-600 text-white relative overflow-hidden">
+      <section className="py-16 px-6 bg-gradient-to-r from-[#00a76f] to-emerald-600 text-white relative overflow-hidden">
         <motion.div
           animate={{
             scale: [1, 1.2, 1],
@@ -567,8 +548,7 @@ export default function ExtendedHomeSections() {
             className="text-xl mb-8 text-white/90"
           >
             Discover how quantitative excellence and systematic strategies can enhance your 
-            investment portfolio. Schedule a consultation with our team to learn more about 
-            our approach and investment solutions.
+            investment portfolio. Schedule a consultation to learn more.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

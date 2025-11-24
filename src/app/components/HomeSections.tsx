@@ -38,7 +38,7 @@ export default function HomeSectionsWithImages() {
   return (
     <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
       {/* === OUR NUMBERS SPEAK === */}
-      <section className="py-32 px-6 max-w-7xl mx-auto">
+      <section className="py-16 px-6 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -76,13 +76,13 @@ export default function HomeSectionsWithImages() {
       </section>
 
       {/* === KEY HIGHLIGHTS === */}
-      <section className="py-32 px-6 max-w-7xl mx-auto">
+      <section className="py-16 px-6 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             Key Highlights
@@ -148,7 +148,7 @@ export default function HomeSectionsWithImages() {
       </section>
 
       {/* === WHY EVERMOUNT === */}
-      <section className="py-32 px-6 max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+      <section className="py-16 px-6 max-w-7xl mx-auto flex flex-col md:flex-row gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -200,9 +200,9 @@ export default function HomeSectionsWithImages() {
             Systematic Investment Excellence
           </h2>
           {[
-            "Proprietary quantitative models leveraging machine learning and statistical arbitrage",
-            "Institutional-grade risk management with dynamic position sizing and portfolio optimization",
-            "Global market access across equities, fixed income, currencies, and commodities",
+            "Proprietary quantitative models with machine learning and statistical arbitrage",
+            "Institutional-grade risk management and portfolio optimization",
+            "Global market access across multiple asset classes",
           ].map((text, i) => (
             <motion.div
               key={i}
@@ -220,7 +220,7 @@ export default function HomeSectionsWithImages() {
       </section>
 
       {/* === FUND HIGHLIGHTS === */}
-      <section className="bg-gray-50 dark:bg-gray-800 py-32 px-6 max-w-7xl mx-auto flex flex-col md:flex-row-reverse gap-16 items-center">
+      <section className="bg-gray-50 dark:bg-gray-800 py-16 px-6 max-w-7xl mx-auto flex flex-col md:flex-row-reverse gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -301,17 +301,17 @@ export default function HomeSectionsWithImages() {
       </section>
 
       {/* === INVESTMENT TIMELINE === */}
-      <section className="py-32 px-6 max-w-7xl mx-auto">
+      <section className="py-16 px-6 max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl lg:text-5xl font-bold text-center mb-16"
+          className="text-4xl lg:text-5xl font-bold text-center mb-12"
         >
           How We Manage Your Capital
         </motion.h2>
-        <div className="flex flex-col md:flex-row gap-16 items-center">
+        <div className="flex flex-col md:flex-row gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
