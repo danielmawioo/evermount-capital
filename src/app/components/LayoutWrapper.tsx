@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { ThemeProvider } from "@/context/ThemeContext";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import CookieConsent from "./CookieConsent"; // ✅ Optional: include if you're using it
@@ -28,12 +29,12 @@ export default function LayoutWrapper({
   const hideFooter = isAuthRoute || isDashboardRoute || isBookDemoPage;
 
   return (
-    <>
+    <ThemeProvider>
       {!hideNavbar && <Navbar />}
       {children}
       {!hideFooter && <Footer />}
       {!hideFooter && <CookieConsent />}{" "}
       {/* ✅ Optional: display cookie banner */}
-    </>
+    </ThemeProvider>
   );
 }

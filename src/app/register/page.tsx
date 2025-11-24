@@ -65,7 +65,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <main className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white relative">
+    <main className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white dark:bg-gray-900 relative">
       <Toaster position="top-center" />
       {/* Logo */}
       <div className="absolute top-6 left-6 md:left-10 z-50">
@@ -81,10 +81,10 @@ export default function RegisterPage() {
       </div>
 
       {/* Left Panel */}
-      <div className="hidden md:flex bg-[#f2fdf9] flex-col justify-center items-center px-6 py-12 text-center">
+      <div className="hidden md:flex bg-[#f2fdf9] dark:bg-gray-800 flex-col justify-center items-center px-6 py-12 text-center">
         <div className="max-w-xs">
-          <h1 className="text-3xl font-bold text-gray-900">Manage the job</h1>
-          <p className="text-gray-600 text-sm mt-2">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Manage the job</h1>
+          <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
             More effectively with optimized workflows.
           </p>
           <div className="mt-10 w-72 h-72 relative">
@@ -99,12 +99,12 @@ export default function RegisterPage() {
       </div>
 
       {/* Right Panel */}
-      <div className="flex flex-col justify-center px-6 py-12 sm:px-10 md:px-20 bg-white">
+      <div className="flex flex-col justify-center px-6 py-12 sm:px-10 md:px-20 bg-white dark:bg-gray-900">
         <div className="max-w-md w-full mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
             Get started absolutely free
           </h2>
-          <p className="text-sm text-gray-600 mt-2">
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
             Already have an account?{" "}
             <Link
               href="/login"
@@ -120,7 +120,7 @@ export default function RegisterPage() {
               <div>
                 <label
                   htmlFor="firstName"
-                  className="text-sm font-medium text-gray-700"
+                  className="text-sm font-medium text-gray-700 dark:text-gray-300"
                 >
                   First name
                 </label>
@@ -131,13 +131,13 @@ export default function RegisterPage() {
                   onChange={(e) => setFirstName(e.target.value)}
                   placeholder="John"
                   required
-                  className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition text-gray-900"
+                  className="w-full mt-2 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition text-gray-900 dark:text-white bg-white dark:bg-gray-800"
                 />
               </div>
               <div>
                 <label
                   htmlFor="lastName"
-                  className="text-sm font-medium text-gray-700"
+                  className="text-sm font-medium text-gray-700 dark:text-gray-300"
                 >
                   Last name
                 </label>
@@ -148,7 +148,7 @@ export default function RegisterPage() {
                   onChange={(e) => setLastName(e.target.value)}
                   placeholder="Doe"
                   required
-                  className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition text-gray-900"
+                  className="w-full mt-2 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition text-gray-900 dark:text-white bg-white dark:bg-gray-800"
                 />
               </div>
             </div>
@@ -156,7 +156,7 @@ export default function RegisterPage() {
             <div>
               <label
                 htmlFor="email"
-                className="text-sm font-medium text-gray-700"
+                className="text-sm font-medium text-gray-700 dark:text-gray-300"
               >
                 Email address
               </label>
@@ -167,14 +167,14 @@ export default function RegisterPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
                 required
-                className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition text-gray-900"
+                className="w-full mt-2 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition text-gray-900 dark:text-white bg-white dark:bg-gray-800"
               />
             </div>
 
             <div className="relative">
               <label
                 htmlFor="password"
-                className="text-sm font-medium text-gray-700"
+                className="text-sm font-medium text-gray-700 dark:text-gray-300"
               >
                 Password
               </label>
@@ -185,7 +185,7 @@ export default function RegisterPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
                 required
-                className="w-full mt-2 px-4 py-2 pr-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition text-gray-900"
+                className="w-full mt-2 px-4 py-2 pr-10 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition text-gray-900 dark:text-white bg-white dark:bg-gray-800"
               />
               <div
                 className="absolute top-[43px] right-3 cursor-pointer text-gray-600"
@@ -246,25 +246,35 @@ export default function RegisterPage() {
           </form>
 
           <div className="flex items-center gap-2 my-6">
-            <hr className="flex-grow border-gray-300" />
-            <span className="text-sm text-gray-500">OR</span>
-            <hr className="flex-grow border-gray-300" />
+            <hr className="flex-grow border-gray-200 dark:border-gray-700" />
+            <span className="text-sm text-gray-500 dark:text-gray-400">OR</span>
+            <hr className="flex-grow border-gray-200 dark:border-gray-700" />
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="grid grid-cols-4 gap-3">
             {[
-              { label: "Google", icon: "/icons/google.png" },
-              { label: "GitHub", icon: "/icons/github.png" },
-              { label: "X", icon: "/icons/twitter.png" },
-              { label: "Apple", icon: "/icons/apple.png" },
-            ].map(({ label, icon }) => (
+              { label: "Google", icon: "/icons/google.png", displayText: "G Google" },
+              { label: "GitHub", icon: "/icons/github.png", displayText: "GitHub" },
+              { label: "X", icon: "/icons/twitter.png", displayText: "X" },
+              { label: "Apple", icon: "/icons/apple.png", displayText: "Apple" },
+            ].map(({ label, icon, displayText }) => (
               <button
                 key={label}
                 type="button"
-                className="flex flex-col items-center justify-center gap-1 border border-gray-300 px-3 py-2 rounded-md text-sm hover:bg-gray-100 transition shadow-sm"
+                onClick={() => {
+                  // Handle social login
+                  toast.info(`${label} sign up coming soon!`);
+                }}
+                className="flex flex-col items-center justify-center gap-1.5 border border-gray-300 dark:border-gray-700 px-3 py-3 rounded-md text-xs font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition shadow-sm bg-white dark:bg-gray-900"
               >
-                <Image src={icon} alt={label} width={18} height={18} />
-                <span className="hidden sm:inline">{label}</span>
+                <Image 
+                  src={icon} 
+                  alt={label} 
+                  width={20} 
+                  height={20}
+                  className="object-contain"
+                />
+                <span className="text-[10px] sm:text-xs text-gray-700 dark:text-gray-300">{displayText}</span>
               </button>
             ))}
           </div>

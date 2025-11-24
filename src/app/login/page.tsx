@@ -97,7 +97,7 @@ export default function LoginPage() {
         }}
       />
 
-      <main className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white relative">
+      <main className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white dark:bg-gray-900 relative">
         {/* Logo */}
         <div className="absolute top-6 left-6 md:left-10 z-50">
           <Link href="/" className="flex items-center space-x-2">
@@ -112,12 +112,12 @@ export default function LoginPage() {
         </div>
 
         {/* Left Panel */}
-        <div className="hidden md:flex bg-[#f2fdf9] flex-col justify-center items-center px-6 py-12 text-center">
+        <div className="hidden md:flex bg-[#f2fdf9] dark:bg-gray-800 flex-col justify-center items-center px-6 py-12 text-center">
           <div className="max-w-xs">
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
               Hi, Welcome back
             </h1>
-            <p className="text-gray-600 text-sm mt-2">
+            <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
               More effectively with optimized workflows.
             </p>
             <div className="mt-10 w-72 h-72 relative">
@@ -132,13 +132,13 @@ export default function LoginPage() {
         </div>
 
         {/* Right Panel */}
-        <div className="flex flex-col justify-center px-6 sm:px-10 md:px-20 py-12 bg-white">
+        <div className="flex flex-col justify-center px-6 sm:px-10 md:px-20 py-12 bg-white dark:bg-gray-900">
           <div className="w-full max-w-md mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
               Sign in to your account
             </h2>
-            <p className="text-sm text-gray-600 mt-2">
-              Don’t have an account?{" "}
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+              Don't have an account?{" "}
               <Link
                 href="/register"
                 className="text-[#00a76f] font-medium hover:underline"
@@ -151,7 +151,7 @@ export default function LoginPage() {
               <div>
                 <label
                   htmlFor="email"
-                  className="text-sm font-medium text-gray-700"
+                  className="text-sm font-medium text-gray-700 dark:text-gray-300"
                 >
                   Email address
                 </label>
@@ -162,14 +162,14 @@ export default function LoginPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
                   required
-                  className="w-full mt-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition text-gray-900"
+                  className="w-full mt-2 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition text-gray-900 dark:text-white bg-white dark:bg-gray-800"
                 />
               </div>
 
               <div className="relative">
                 <label
                   htmlFor="password"
-                  className="text-sm font-medium text-gray-700"
+                  className="text-sm font-medium text-gray-700 dark:text-gray-300"
                 >
                   Password
                 </label>
@@ -180,7 +180,7 @@ export default function LoginPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                   required
-                  className="w-full mt-2 px-4 py-2 pr-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition text-gray-900"
+                  className="w-full mt-2 px-4 py-2 pr-10 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#00a76f] transition text-gray-900 dark:text-white bg-white dark:bg-gray-800"
                 />
                 <div
                   className="absolute top-[43px] right-3 cursor-pointer text-gray-600"
@@ -194,12 +194,12 @@ export default function LoginPage() {
                 </div>
 
                 <div className="flex justify-between items-center text-sm mt-2">
-                  <label className="flex items-center space-x-2 text-gray-600">
+                  <label className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
                     <input
                       type="checkbox"
                       checked={rememberMe}
                       onChange={() => setRememberMe(!rememberMe)}
-                      className="form-checkbox text-[#00a76f]"
+                      className="form-checkbox text-[#00a76f] border-gray-300 dark:border-gray-700 rounded"
                     />
                     <span>Remember me</span>
                   </label>
@@ -229,20 +229,30 @@ export default function LoginPage() {
               <hr className="flex-grow border-gray-200" />
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="grid grid-cols-4 gap-3">
               {[
-                { label: "Google", icon: "/icons/google.png" },
-                { label: "GitHub", icon: "/icons/github.png" },
-                { label: "X", icon: "/icons/twitter.png" },
-                { label: "Apple", icon: "/icons/apple.png" },
-              ].map(({ label, icon }) => (
+                { label: "Google", icon: "/icons/google.png", displayText: "G Google" },
+                { label: "GitHub", icon: "/icons/github.png", displayText: "GitHub" },
+                { label: "X", icon: "/icons/twitter.png", displayText: "X" },
+                { label: "Apple", icon: "/icons/apple.png", displayText: "Apple" },
+              ].map(({ label, icon, displayText }) => (
                 <button
                   key={label}
                   type="button"
-                  className="flex flex-col items-center justify-center gap-1 border border-gray-300 px-3 py-2 rounded-md text-sm hover:bg-gray-100 transition shadow-sm"
+                  onClick={() => {
+                    // Handle social login
+                    toast.info(`${label} login coming soon!`);
+                  }}
+                  className="flex flex-col items-center justify-center gap-1.5 border border-gray-300 dark:border-gray-700 px-3 py-3 rounded-md text-xs font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition shadow-sm bg-white dark:bg-gray-900"
                 >
-                  <Image src={icon} alt={label} width={18} height={18} />
-                  <span className="hidden sm:inline">{label}</span>
+                  <Image 
+                    src={icon} 
+                    alt={label} 
+                    width={20} 
+                    height={20}
+                    className="object-contain"
+                  />
+                  <span className="text-[10px] sm:text-xs text-gray-700 dark:text-gray-300">{displayText}</span>
                 </button>
               ))}
             </div>

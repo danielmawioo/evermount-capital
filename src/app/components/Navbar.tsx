@@ -17,9 +17,13 @@ import {
   ArrowRightIcon,
   CpuChipIcon,
   PresentationChartLineIcon,
+  SunIcon,
+  MoonIcon,
 } from "@heroicons/react/24/outline";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function Navbar() {
+  const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
@@ -256,7 +260,22 @@ export default function Navbar() {
             </div>
 
             {/* Right Side Actions - Scale AI Style */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-3">
+              {/* Theme Toggle Button */}
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={toggleTheme}
+                className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? (
+                  <SunIcon className="w-5 h-5" />
+                ) : (
+                  <MoonIcon className="w-5 h-5" />
+                )}
+              </motion.button>
+
               <Link href="/book-demo" className="hidden md:block">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
@@ -335,6 +354,24 @@ export default function Navbar() {
                   </motion.div>
                 ))}
                 <div className="pt-4 border-t border-gray-200 dark:border-gray-800 space-y-2">
+                  {/* Theme Toggle in Mobile Menu */}
+                  <motion.button
+                    whileTap={{ scale: 0.95 }}
+                    onClick={toggleTheme}
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
+                  >
+                    {theme === "dark" ? (
+                      <>
+                        <SunIcon className="w-5 h-5" />
+                        Light Mode
+                      </>
+                    ) : (
+                      <>
+                        <MoonIcon className="w-5 h-5" />
+                        Dark Mode
+                      </>
+                    )}
+                  </motion.button>
                   <Link href="/book-demo" onClick={() => setMenuOpen(false)}>
                     <motion.button
                       whileTap={{ scale: 0.95 }}
