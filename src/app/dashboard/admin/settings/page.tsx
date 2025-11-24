@@ -10,8 +10,31 @@ import {
   CheckCircleIcon,
 } from "@heroicons/react/24/outline";
 
+type SettingsState = {
+  notifications: {
+    email: boolean;
+    sms: boolean;
+    push: boolean;
+  };
+  security: {
+    twoFactor: boolean;
+    sessionTimeout: number;
+    ipWhitelist: boolean;
+  };
+  platform: {
+    maintenanceMode: boolean;
+    registrationEnabled: boolean;
+    apiEnabled: boolean;
+  };
+  integrations: {
+    stripe: boolean;
+    intercom: boolean;
+    analytics: boolean;
+  };
+};
+
 export default function AdminSettingsPage() {
-  const [settings, setSettings] = useState({
+  const [settings, setSettings] = useState<SettingsState>({
     notifications: {
       email: true,
       sms: false,
@@ -34,23 +57,37 @@ export default function AdminSettingsPage() {
     },
   });
 
-  const handleToggle = (category: string, key: string) => {
-    setSettings((prev) => ({
-      ...prev,
-      [category]: {
-        ...prev[category as keyof typeof prev],
-        [key]: !prev[category as keyof typeof prev][key],
-      },
-    }));
+  const handleToggle = <K extends keyof SettingsState>(
+    category: K,
+    key: keyof SettingsState[K]
+  ) => {
+    setSettings((prev) => {
+      const categorySettings = prev[category];
+      const currentValue = (categorySettings as Record<string, any>)[key as string];
+      if (typeof currentValue === 'boolean') {
+        return {
+          ...prev,
+          [category]: {
+            ...categorySettings,
+            [key]: !currentValue,
+          } as SettingsState[K],
+        };
+      }
+      return prev;
+    });
   };
 
-  const handleNumberChange = (category: string, key: string, value: number) => {
+  const handleNumberChange = <K extends keyof SettingsState>(
+    category: K,
+    key: keyof SettingsState[K],
+    value: number
+  ) => {
     setSettings((prev) => ({
       ...prev,
       [category]: {
-        ...prev[category as keyof typeof prev],
+        ...prev[category],
         [key]: value,
-      },
+      } as SettingsState[K],
     }));
   };
 
@@ -89,7 +126,7 @@ export default function AdminSettingsPage() {
                   </p>
                 </div>
                 <button
-                  onClick={() => handleToggle("notifications", "email")}
+                  onClick={() => handleToggle("notifications", "email" as const)}
                   className={`relative w-12 h-6 rounded-full transition ${
                     settings.notifications.email
                       ? "bg-[#00a76f]"
@@ -113,7 +150,7 @@ export default function AdminSettingsPage() {
                   </p>
                 </div>
                 <button
-                  onClick={() => handleToggle("notifications", "sms")}
+                  onClick={() => handleToggle("notifications", "sms" as const)}
                   className={`relative w-12 h-6 rounded-full transition ${
                     settings.notifications.sms
                       ? "bg-[#00a76f]"
@@ -137,7 +174,7 @@ export default function AdminSettingsPage() {
                   </p>
                 </div>
                 <button
-                  onClick={() => handleToggle("notifications", "push")}
+                  onClick={() => handleToggle("notifications", "push" as const)}
                   className={`relative w-12 h-6 rounded-full transition ${
                     settings.notifications.push
                       ? "bg-[#00a76f]"
@@ -173,7 +210,7 @@ export default function AdminSettingsPage() {
                   </p>
                 </div>
                 <button
-                  onClick={() => handleToggle("security", "twoFactor")}
+                  onClick={() => handleToggle("security", "twoFactor" as const)}
                   className={`relative w-12 h-6 rounded-full transition ${
                     settings.security.twoFactor
                       ? "bg-[#00a76f]"
@@ -202,7 +239,7 @@ export default function AdminSettingsPage() {
                   onChange={(e) =>
                     handleNumberChange(
                       "security",
-                      "sessionTimeout",
+                      "sessionTimeout" as const,
                       parseInt(e.target.value) || 30
                     )
                   }
@@ -221,7 +258,7 @@ export default function AdminSettingsPage() {
                   </p>
                 </div>
                 <button
-                  onClick={() => handleToggle("security", "ipWhitelist")}
+                  onClick={() => handleToggle("security", "ipWhitelist" as const)}
                   className={`relative w-12 h-6 rounded-full transition ${
                     settings.security.ipWhitelist
                       ? "bg-[#00a76f]"
@@ -257,7 +294,7 @@ export default function AdminSettingsPage() {
                   </p>
                 </div>
                 <button
-                  onClick={() => handleToggle("platform", "maintenanceMode")}
+                  onClick={() => handleToggle("platform", "maintenanceMode" as const)}
                   className={`relative w-12 h-6 rounded-full transition ${
                     settings.platform.maintenanceMode
                       ? "bg-[#00a76f]"
@@ -281,7 +318,7 @@ export default function AdminSettingsPage() {
                   </p>
                 </div>
                 <button
-                  onClick={() => handleToggle("platform", "registrationEnabled")}
+                  onClick={() => handleToggle("platform", "registrationEnabled" as const)}
                   className={`relative w-12 h-6 rounded-full transition ${
                     settings.platform.registrationEnabled
                       ? "bg-[#00a76f]"
@@ -305,7 +342,7 @@ export default function AdminSettingsPage() {
                   </p>
                 </div>
                 <button
-                  onClick={() => handleToggle("platform", "apiEnabled")}
+                  onClick={() => handleToggle("platform", "apiEnabled" as const)}
                   className={`relative w-12 h-6 rounded-full transition ${
                     settings.platform.apiEnabled
                       ? "bg-[#00a76f]"
