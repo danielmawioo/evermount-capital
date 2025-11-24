@@ -73,7 +73,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-semibold mb-4">Privacy & Policy</h4>
+            <h4 className="text-white font-semibold mb-4">Legal & Compliance</h4>
             <ul className="space-y-2">
               <li>
                 <Link href="/terms">Terms of Service</Link>
@@ -85,7 +85,22 @@ export default function Footer() {
                 <Link href="/cookie-policy">Cookie Policy</Link>
               </li>
               <li>
+                <Link href="/investment-agreement">Investment Agreement</Link>
+              </li>
+              <li>
+                <Link href="/risk-disclosure">Risk Disclosure</Link>
+              </li>
+              <li>
                 <Link href="/aml-policy">AML Statement</Link>
+              </li>
+              <li>
+                <Link href="/regulatory-compliance">Regulatory Compliance</Link>
+              </li>
+              <li>
+                <Link href="/conflict-of-interest">Conflict of Interest</Link>
+              </li>
+              <li>
+                <Link href="/best-execution">Best Execution Policy</Link>
               </li>
             </ul>
           </div>

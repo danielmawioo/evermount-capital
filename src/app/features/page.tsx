@@ -8,10 +8,32 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Script from "next/script";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
 
 export default function FeaturesPage() {
   return (
-    <main className="px-6 py-24 max-w-7xl mx-auto space-y-28 text-gray-900">
+    <main className="px-6 py-24 max-w-7xl mx-auto space-y-28 text-gray-900 dark:text-white">
       {/* ✅ JSON-LD structured data for search engines */}
       <Script
         id="ld-json-features"
@@ -35,18 +57,30 @@ export default function FeaturesPage() {
       />
 
       {/* SECTION 1 - Hero */}
-      <section className="text-center">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-center"
+      >
         <h1 className="text-5xl lg:text-6xl font-extrabold leading-tight">
           Platform Built for Performance
         </h1>
-        <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
           Dive into the tech stack and strategies that drive speed, accuracy,
           and transparency across every Evermount strategy.
         </p>
-      </section>
+      </motion.section>
 
       {/* SECTION 2 - Feature Cards */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <motion.section
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+      >
         {[
           {
             icon: CpuChipIcon,
@@ -64,56 +98,103 @@ export default function FeaturesPage() {
             desc: "Built for security, audited regularly, and aligned with global financial regulations.",
           },
         ].map(({ icon: Icon, title, desc }, i) => (
-          <div
+          <motion.div
             key={i}
-            className="bg-white border shadow-md rounded-2xl p-6 text-center transition hover:shadow-lg"
+            variants={itemVariants}
+            whileHover={{ y: -5, scale: 1.02 }}
+            className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-md rounded-2xl p-6 text-center transition hover:shadow-lg"
           >
             <Icon className="w-10 h-10 mx-auto text-[#00a76f] mb-4" />
-            <h3 className="text-xl font-semibold">{title}</h3>
-            <p className="text-sm text-gray-600 mt-2">{desc}</p>
-          </div>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+              {title}
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+              {desc}
+            </p>
+          </motion.div>
         ))}
-      </section>
+      </motion.section>
 
       {/* SECTION 3 - AI Strategy Overview */}
       <section className="flex flex-col-reverse md:flex-row items-center gap-14">
-        <div className="md:w-1/2 space-y-6">
-          <h2 className="text-4xl font-bold">Smart AI Meets Hedge Funds</h2>
-          <p className="text-gray-600 text-base">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="md:w-1/2 space-y-6"
+        >
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white">
+            Smart AI Meets Hedge Funds
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 text-base">
             Our proprietary models process market patterns, volatility trends,
             and sentiment data to execute at lightning speed and adapt
             dynamically.
           </p>
-          <ul className="space-y-3 text-gray-800 text-sm">
-            <li>✔ Pattern recognition based on 10+ years of data</li>
-            <li>✔ Automatic volatility hedging and reallocation</li>
-            <li>✔ Emotion-free strategy optimization in real-time</li>
-          </ul>
-        </div>
-        <div className="md:w-1/2">
-          <Image
-            src="/images/section3.png"
-            alt="AI Engine and Platform Tools"
-            width={600}
-            height={400}
-            className="rounded-xl shadow-xl"
-          />
-        </div>
+          <motion.ul
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="space-y-3 text-gray-800 dark:text-gray-200 text-sm"
+          >
+            {[
+              "Pattern recognition based on 10+ years of data",
+              "Automatic volatility hedging and reallocation",
+              "Emotion-free strategy optimization in real-time",
+            ].map((item, i) => (
+              <motion.li key={i} variants={itemVariants} className="flex items-start gap-2">
+                <CheckCircleIcon className="w-5 h-5 text-[#00a76f] mt-0.5 flex-shrink-0" />
+                {item}
+              </motion.li>
+            ))}
+          </motion.ul>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="md:w-1/2"
+        >
+          <motion.div whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }}>
+            <Image
+              src="/images/section3.png"
+              alt="AI Engine and Platform Tools"
+              width={600}
+              height={400}
+              className="rounded-xl shadow-xl"
+            />
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* SECTION 4 - RISK METRICS */}
-      <section className="bg-gray-50 py-20 px-6 rounded-2xl shadow-inner">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="bg-gray-50 dark:bg-gray-800 py-20 px-6 rounded-2xl shadow-inner"
+      >
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6 text-gray-900">
+          <h2 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">
             Risk Metrics & Capital Protection
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-12">
-            At Evermount, we don’t just chase performance — we prioritize
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">
+            At Evermount, we don't just chase performance — we prioritize
             preservation through quant analysis, AI stress testing, and smart
             diversification.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-10 text-left">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid md:grid-cols-3 gap-10 text-left"
+          >
             {[
               {
                 title: "Quantitative Risk Indexing",
@@ -131,18 +212,22 @@ export default function FeaturesPage() {
                 icon: CpuChipIcon,
               },
             ].map(({ title, desc, icon: Icon }, i) => (
-              <div
+              <motion.div
                 key={i}
-                className="bg-white p-6 rounded-xl shadow hover:shadow-md transition"
+                variants={itemVariants}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow hover:shadow-md transition"
               >
                 <Icon className="w-8 h-8 text-[#00a76f] mb-4" />
-                <h4 className="font-semibold text-lg mb-2">{title}</h4>
-                <p className="text-gray-600 text-sm">{desc}</p>
-              </div>
+                <h4 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">
+                  {title}
+                </h4>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">{desc}</p>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
     </main>
   );
 }

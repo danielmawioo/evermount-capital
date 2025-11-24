@@ -1,7 +1,29 @@
 "use client";
 
 import Script from "next/script";
+import { motion } from "framer-motion";
 import { metadata as meta } from "./metadata";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
 
 export default function PortfolioInsightsPage() {
   return (
@@ -35,93 +57,163 @@ export default function PortfolioInsightsPage() {
       />
 
       {/* INTRO SECTION */}
-      <section className="text-center mb-20">
-        <h1 className="text-5xl font-extrabold">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-20"
+      >
+        <h1 className="text-5xl font-extrabold text-gray-900 dark:text-white">
           Portfolio Insights That Drive Performance
         </h1>
-        <p className="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
+        <p className="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
           Visualize risk-adjusted returns, monitor drawdowns, and compare
           benchmarks — everything you need to make confident capital decisions.
         </p>
-      </section>
+      </motion.section>
 
       {/* METRICS GRID */}
-      <section className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+      <motion.section
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24"
+      >
         {[
           { label: "Avg Quarterly Return", value: "18.5%" },
           { label: "Volatility Index", value: "3.7%" },
           { label: "Max Drawdown", value: "-5.2%" },
           { label: "Sharpe Ratio", value: "1.98" },
         ].map(({ label, value }, i) => (
-          <div
+          <motion.div
             key={i}
-            className="bg-white shadow-md p-6 rounded-xl text-center border"
+            variants={itemVariants}
+            whileHover={{ y: -5, scale: 1.02 }}
+            className="bg-white dark:bg-gray-800 shadow-md p-6 rounded-xl text-center border border-gray-200 dark:border-gray-700 hover:shadow-lg transition"
           >
-            <p className="text-sm text-gray-500 mb-1">{label}</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">{label}</p>
             <p className="text-3xl font-bold text-[#00a76f]">{value}</p>
-          </div>
+          </motion.div>
         ))}
-      </section>
+      </motion.section>
 
       {/* CHART + INSIGHTS */}
       <section className="grid md:grid-cols-2 gap-16 items-center mb-24">
-        <div>
-          <h2 className="text-3xl font-bold mb-4">Growth Curve Analysis</h2>
-          <p className="text-gray-600 mb-6">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Growth Curve Analysis</h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
             Track cumulative returns versus benchmark indices and understand how
             algorithmic rebalancing improves long-term performance.
           </p>
-          <ul className="list-disc pl-5 text-gray-700 space-y-2">
-            <li>Dynamic capital allocation models</li>
-            <li>Compounded monthly return visualization</li>
-            <li>Comparative benchmark overlays</li>
-          </ul>
-        </div>
-        <div>
+          <motion.ul
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-2"
+          >
+            {[
+              "Dynamic capital allocation models",
+              "Compounded monthly return visualization",
+              "Comparative benchmark overlays",
+            ].map((item, i) => (
+              <motion.li key={i} variants={itemVariants}>
+                {item}
+              </motion.li>
+            ))}
+          </motion.ul>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          whileHover={{ scale: 1.02 }}
+        >
           <img
             src="/images/portfolio/line-chart.png"
             alt="Growth Chart"
             className="rounded-xl shadow-xl"
           />
-        </div>
+        </motion.div>
       </section>
 
       {/* RISK INSIGHTS */}
       <section className="grid md:grid-cols-2 gap-16 items-center mb-24">
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          whileHover={{ scale: 1.02 }}
+        >
           <img
             src="/images/portfolio/pie-risk.png"
             alt="Risk Chart"
             className="rounded-xl shadow-xl"
           />
-        </div>
-        <div>
-          <h2 className="text-3xl font-bold mb-4">Risk Distribution</h2>
-          <p className="text-gray-600 mb-6">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Risk Distribution</h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
             Understand your capital's exposure across market sectors, asset
             classes, and volatility groups — in real-time.
           </p>
-          <ul className="list-disc pl-5 text-gray-700 space-y-2">
-            <li>Global equities vs. African mid-cap split</li>
-            <li>Risk-index optimization tools</li>
-            <li>Rebalancing notifications & alerts</li>
-          </ul>
-        </div>
+          <motion.ul
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-2"
+          >
+            {[
+              "Global equities vs. African mid-cap split",
+              "Risk-index optimization tools",
+              "Rebalancing notifications & alerts",
+            ].map((item, i) => (
+              <motion.li key={i} variants={itemVariants}>
+                {item}
+              </motion.li>
+            ))}
+          </motion.ul>
+        </motion.div>
       </section>
 
       {/* FINAL CTA */}
-      <section className="text-center max-w-3xl mx-auto">
-        <h3 className="text-3xl font-bold mb-4">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-center max-w-3xl mx-auto"
+      >
+        <h3 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
           Real Insights. Smarter Capital Decisions.
         </h3>
-        <p className="text-gray-700 mb-6">
+        <p className="text-gray-700 dark:text-gray-400 mb-6">
           Access your personalized dashboard today and unlock deeper control
-          over your portfolio’s performance and risk profile.
+          over your portfolio's performance and risk profile.
         </p>
-        <button className="bg-[#00a76f] text-white px-6 py-3 rounded-md font-semibold hover:bg-emerald-700 transition">
+        <motion.button
+          whileHover={{ scale: 1.05, y: -2 }}
+          whileTap={{ scale: 0.95 }}
+          className="bg-[#00a76f] text-white px-6 py-3 rounded-md font-semibold hover:bg-emerald-700 transition shadow-sm hover:shadow-md"
+        >
           Get Access
-        </button>
-      </section>
+        </motion.button>
+      </motion.section>
     </main>
   );
 }

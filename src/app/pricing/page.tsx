@@ -1,6 +1,7 @@
 "use client";
 
 import Script from "next/script";
+import { motion } from "framer-motion";
 import { metadata as meta } from "./metadata";
 
 export default function PricingPage() {
@@ -93,71 +94,110 @@ export default function PricingPage() {
       />
 
       {/* HERO */}
-      <section className="text-center mb-16">
-        <h1 className="text-5xl font-extrabold text-gray-900">
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-16"
+      >
+        <h1 className="text-5xl font-extrabold text-gray-900 dark:text-white">
           Choose Your Investment Tier
         </h1>
-        <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
           Flexible capital thresholds, tailored returns, and support that grows
           with you.
         </p>
-      </section>
+      </motion.section>
 
       {/* TABLE */}
-      <section className="overflow-x-auto">
-        <table className="min-w-full text-sm text-center border-collapse shadow rounded-lg overflow-hidden">
-          <thead className="bg-[#00a76f] text-white uppercase text-xs">
-            <tr>
-              <th className="px-6 py-4 text-left bg-[#008d5e]">Feature</th>
-              {tiers.map((tier, i) => (
-                <th key={i} className="px-6 py-4">
-                  {tier.size}
-                  <div className="text-sm font-semibold mt-1 text-white/90">
-                    Fee: {tier.fee}
-                  </div>
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody className="bg-white text-gray-700">
-            {[
-              { label: "Target ROI", key: "roi" },
-              { label: "Max Loss Limit", key: "lossLimit" },
-              { label: "Max Daily Drawdown", key: "dailyLoss" },
-              { label: "AI-Driven Strategy", key: "ai", type: "boolean" },
-              {
-                label: "Realtime Dashboard",
-                key: "dashboard",
-                type: "boolean",
-              },
-              { label: "Capital Advisor", key: "advisor", type: "boolean" },
-              { label: "Min Investment Period", key: "minDays" },
-              { label: "Withdrawal Frequency", key: "frequency" },
-              { label: "Support Channel", key: "support" },
-            ].map((row, i) => (
-              <tr
-                key={i}
-                className={i % 2 === 0 ? "bg-white" : "bg-gray-50 border-t"}
-              >
-                <td className="py-4 px-6 text-left font-medium">{row.label}</td>
-                {tiers.map((tier, j) => (
-                  <td key={j} className="py-4 px-6">
-                    {row.type === "boolean"
-                      ? tier[row.key as keyof typeof tier]
-                        ? "✅"
-                        : "❌"
-                      : tier[row.key as keyof typeof tier]}
-                  </td>
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="overflow-x-auto"
+      >
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+          <table className="min-w-full text-sm text-center border-collapse">
+            <thead className="bg-[#00a76f] text-white uppercase text-xs">
+              <tr>
+                <th className="px-6 py-4 text-left bg-[#008d5e]">Feature</th>
+                {tiers.map((tier, i) => (
+                  <motion.th
+                    key={i}
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="px-6 py-4"
+                  >
+                    {tier.size}
+                    <div className="text-sm font-semibold mt-1 text-white/90">
+                      Fee: {tier.fee}
+                    </div>
+                  </motion.th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
+            </thead>
+            <tbody className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 divide-y divide-gray-200 dark:divide-gray-700">
+              {[
+                { label: "Target ROI", key: "roi" },
+                { label: "Max Loss Limit", key: "lossLimit" },
+                { label: "Max Daily Drawdown", key: "dailyLoss" },
+                { label: "AI-Driven Strategy", key: "ai", type: "boolean" },
+                {
+                  label: "Realtime Dashboard",
+                  key: "dashboard",
+                  type: "boolean",
+                },
+                { label: "Capital Advisor", key: "advisor", type: "boolean" },
+                { label: "Min Investment Period", key: "minDays" },
+                { label: "Withdrawal Frequency", key: "frequency" },
+                { label: "Support Channel", key: "support" },
+              ].map((row, i) => (
+                <motion.tr
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  whileHover={{ backgroundColor: "rgba(0, 167, 111, 0.05)" }}
+                  className={i % 2 === 0 ? "bg-white dark:bg-gray-800" : "bg-gray-50 dark:bg-gray-900"}
+                >
+                  <td className="py-4 px-6 text-left font-medium text-gray-900 dark:text-white">{row.label}</td>
+                  {tiers.map((tier, j) => (
+                    <motion.td
+                      key={j}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: (i * 0.05) + (j * 0.1) }}
+                      className="py-4 px-6"
+                    >
+                      {row.type === "boolean"
+                        ? tier[row.key as keyof typeof tier]
+                          ? "✅"
+                          : "❌"
+                        : tier[row.key as keyof typeof tier]}
+                    </motion.td>
+                  ))}
+                </motion.tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </motion.section>
 
-      <div className="mt-12 text-center text-sm text-gray-500">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="mt-12 text-center text-sm text-gray-500 dark:text-gray-400"
+      >
         No hidden fees. Refundable after successful qualification.
-      </div>
+      </motion.div>
     </main>
   );
 }

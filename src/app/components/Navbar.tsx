@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import {
@@ -11,9 +12,11 @@ import {
   ChevronDownIcon,
   ChartBarIcon,
   ShieldCheckIcon,
-  CodeBracketIcon,
   BuildingOfficeIcon,
-  ArrowTrendingUpIcon,
+  BookOpenIcon,
+  ArrowRightIcon,
+  CpuChipIcon,
+  PresentationChartLineIcon,
 } from "@heroicons/react/24/outline";
 
 export default function Navbar() {
@@ -21,6 +24,16 @@ export default function Navbar() {
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [hoveredNav, setHoveredNav] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleJoin = useCallback(async () => {
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -43,7 +56,6 @@ export default function Navbar() {
     }
   }, [email]);
 
-  // ✅ Listen for custom global event
   useEffect(() => {
     const openWaitlist = () => setShowModal(true);
     window.addEventListener("openWaitlist", openWaitlist);
@@ -52,213 +64,359 @@ export default function Navbar() {
     };
   }, []);
 
+  const navItems = [
+    {
+      label: "Strategies",
+      href: "/features",
+      submenu: [
+        {
+          label: "Quantitative Trading",
+          description: "AI-powered algorithmic strategies",
+          href: "/features",
+          icon: CpuChipIcon,
+        },
+        {
+          label: "Risk Management",
+          description: "Real-time portfolio risk analytics",
+          href: "/portfolio-insights",
+          icon: ShieldCheckIcon,
+        },
+        {
+          label: "Portfolio Analytics",
+          description: "Advanced performance insights",
+          href: "/portfolio-insights",
+          icon: PresentationChartLineIcon,
+        },
+      ],
+    },
+    {
+      label: "Performance",
+      href: "/portfolio-insights",
+    },
+    {
+      label: "Institutional",
+      href: "/pricing",
+    },
+    {
+      label: "Investors",
+      href: "/about",
+      submenu: [
+        {
+          label: "Our Story",
+          description: "Learn about our mission and team",
+          href: "/about",
+          icon: BuildingOfficeIcon,
+        },
+        {
+          label: "Careers",
+          description: "Join our quantitative team",
+          href: "/careers",
+          icon: BuildingOfficeIcon,
+        },
+      ],
+    },
+    {
+      label: "Resources",
+      href: "/investor-tour",
+      submenu: [
+        {
+          label: "Investor Tour",
+          description: "Explore our platform",
+          href: "/investor-tour",
+          icon: BookOpenIcon,
+        },
+        {
+          label: "Platform",
+          description: "Technology and infrastructure",
+          href: "/platform",
+          icon: ChartBarIcon,
+        },
+      ],
+    },
+  ];
+
   return (
     <>
       <Toaster position="top-center" />
+      
+      {/* Announcement Banner */}
+      <motion.div
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.4 }}
+        className="bg-gradient-to-r from-[#00a76f] via-emerald-500 to-green-400 text-white text-sm sm:text-base text-center px-4 py-2.5 font-medium relative z-[60]"
+      >
+        <p className="flex flex-wrap justify-center items-center gap-2">
+          <span className="font-semibold">🚀 New:</span>
+          <span className="whitespace-nowrap">We're open-sourcing our AI-powered quantitative trading infrastructure.</span>
+          <Link
+            href="/book-demo"
+            className="ml-2 underline font-semibold hover:text-green-100 transition flex items-center gap-1"
+          >
+            Try now
+            <ArrowRightIcon className="w-4 h-4 inline" />
+          </Link>
+        </p>
+      </motion.div>
 
-      {/* Sticky Container for Banner + Navbar */}
-      <div className="sticky top-0 z-[60] w-full">
-        {/* 🎉 Waitlist Banner */}
-        <div className="bg-gradient-to-r from-emerald-500 via-green-500 to-lime-400 text-white text-sm sm:text-base text-center px-4 py-1.5 font-medium shadow z-[61]">
-          <p className="flex flex-wrap justify-center items-center gap-2">
-            🎉 <span className="whitespace-nowrap">Beta Launch Incoming</span> —
-            <span className="hidden sm:inline">
-              Join our Private Waitlist & Get Early Access!
-            </span>
-            <button
-              onClick={() => setShowModal(true)}
-              className="ml-2 underline font-semibold hover:text-lime-100 transition"
-            >
-              Join Now →
-            </button>
-          </p>
-        </div>
-
-        {/* Main Navbar */}
-        <header className="bg-white border-b border-gray-200 z-50">
-          <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-            <Link href="/" className="flex items-center space-x-3">
-              <Image
-                src="/icons/icon1.png"
-                alt="Evermount Logo"
-                width={40}
-                height={40}
-                priority
-              />
-              <span className="text-2xl font-extrabold text-[#00a76f] tracking-tight">
-                <i>Evermount</i>
+      {/* Main Navbar */}
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.3 }}
+        className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+          scrolled
+            ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-sm border-b border-gray-200 dark:border-gray-800"
+            : "bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <Link href="/" className="flex items-center space-x-2 group">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Image
+                  src="/icons/icon1.png"
+                  alt="Evermount Logo"
+                  width={32}
+                  height={32}
+                  priority
+                  className="rounded"
+                />
+              </motion.div>
+              <span className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-[#00a76f] transition-colors">
+                Evermount
               </span>
             </Link>
 
-            <nav className="hidden md:flex space-x-10 text-[16px] font-medium text-gray-700 items-center">
-              <div className="relative group">
-                <button className="flex items-center space-x-1 hover:text-black">
-                  <span>Platform</span>
-                  <ChevronDownIcon className="w-5 h-5 text-gray-500" />
-                </button>
-                <div className="absolute top-full left-0 mt-4 bg-white border border-gray-100 rounded-lg shadow-lg w-[280px] p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <ul className="space-y-4 text-gray-700 text-sm">
-                    <li>
-                      <Link
-                        href="/portfolio-insights"
-                        className="flex items-start space-x-3 hover:text-black"
-                      >
-                        <ChartBarIcon className="w-6 h-6 text-[#00a76f] mt-1" />
-                        <div>
-                          <p className="font-semibold">Portfolio Insights</p>
-                          <p className="text-xs text-gray-500">
-                            View performance and analytics across strategies.
-                          </p>
-                        </div>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/features"
-                        className="flex items-start space-x-3 hover:text-black"
-                      >
-                        <ShieldCheckIcon className="w-6 h-6 text-[#00a76f] mt-1" />
-                        <div>
-                          <p className="font-semibold">Risk Metrics</p>
-                          <p className="text-xs text-gray-500">
-                            Monitor portfolio risks in real-time.
-                          </p>
-                        </div>
-                      </Link>
-                    </li>
-                  </ul>
+            {/* Desktop Navigation - Scale AI Style */}
+            <div className="hidden lg:flex items-center space-x-8">
+              {navItems.map((item) => (
+                <div
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() => item.submenu && setHoveredNav(item.label)}
+                  onMouseLeave={() => setHoveredNav(null)}
+                >
+                  {item.submenu ? (
+                    <>
+                      <button className="flex items-center space-x-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors py-2">
+                        <span>{item.label}</span>
+                        <ChevronDownIcon className="w-4 h-4" />
+                      </button>
+                      <AnimatePresence>
+                        {hoveredNav === item.label && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 10 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute top-full left-0 mt-2 w-72 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl p-2"
+                          >
+                            {item.submenu.map((subItem, idx) => (
+                              <motion.div
+                                key={subItem.label}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: idx * 0.05 }}
+                              >
+                                <Link
+                                  href={subItem.href}
+                                  className="flex items-start space-x-3 p-3 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors group/item"
+                                >
+                                  <subItem.icon className="w-5 h-5 text-[#00a76f] mt-0.5 flex-shrink-0" />
+                                  <div>
+                                    <p className="text-sm font-medium text-gray-900 dark:text-white group-hover/item:text-[#00a76f] transition-colors">
+                                      {subItem.label}
+                                    </p>
+                                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                                      {subItem.description}
+                                    </p>
+                                  </div>
+                                </Link>
+                              </motion.div>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors py-2"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </div>
-              </div>
+              ))}
+            </div>
 
-              <Link href="/pricing" className="hover:text-black">
-                Pricing
+            {/* Right Side Actions - Scale AI Style */}
+            <div className="flex items-center space-x-4">
+              <Link href="/book-demo" className="hidden md:block">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >
+                  Book a Demo
+                  <ArrowRightIcon className="w-4 h-4" />
+                </motion.button>
               </Link>
-
-              <div className="relative group">
-                <button className="flex items-center space-x-1 hover:text-black">
-                  <span>About</span>
-                  <ChevronDownIcon className="w-5 h-5 text-gray-500" />
-                </button>
-                <div className="absolute top-full left-0 mt-4 bg-white border border-gray-100 rounded-lg shadow-lg w-[260px] p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <ul className="space-y-4 text-gray-700 text-sm">
-                    <li className="flex items-start space-x-3 hover:text-black">
-                      <BuildingOfficeIcon className="w-6 h-6 text-[#00a76f] mt-1" />
-                      <Link href="/about">
-                        <div>
-                          <p className="font-semibold">Our Story</p>
-                          <p className="text-xs text-gray-500">
-                            Discover our journey and values.
-                          </p>
-                        </div>
-                      </Link>
-                    </li>
-                    <li className="flex items-start space-x-3 hover:text-black">
-                      <CodeBracketIcon className="w-6 h-6 text-[#00a76f] mt-1" />
-                      <Link href="/careers">
-                        <div>
-                          <p className="font-semibold">Careers</p>
-                          <p className="text-xs text-gray-500">
-                            Join our mission-driven team.
-                          </p>
-                        </div>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
-
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden focus:outline-none"
-            >
-              {menuOpen ? (
-                <XMarkIcon className="h-7 w-7 text-[#00a76f]" />
-              ) : (
-                <Bars3Icon className="h-7 w-7 text-[#00a76f]" />
-              )}
-            </button>
-
-            <div className="hidden md:flex items-center space-x-4">
               <Link href="/login">
-                <button className="flex items-center gap-2 bg-gradient-to-r from-green-400 via-emerald-500 to-yellow-400 text-white px-5 py-2 rounded-md text-sm font-semibold hover:opacity-90 transition">
-                  Invest Now
-                  <ArrowTrendingUpIcon className="w-5 h-5" />
-                </button>
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="px-4 py-2 text-sm font-medium text-white bg-[#00a76f] hover:bg-emerald-700 rounded-md transition-colors"
+                >
+                  Log In
+                </motion.button>
               </Link>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="lg:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                aria-label="Toggle menu"
+              >
+                {menuOpen ? (
+                  <XMarkIcon className="w-6 h-6" />
+                ) : (
+                  <Bars3Icon className="w-6 h-6" />
+                )}
+              </button>
             </div>
           </div>
+        </div>
 
-          {/* Mobile Dropdown */}
+        {/* Mobile Menu */}
+        <AnimatePresence>
           {menuOpen && (
-            <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
-              <div className="flex flex-col p-6 space-y-4 text-gray-700 font-medium">
-                <Link
-                  href="/portfolio-insights"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Portfolio Insights
-                </Link>
-                <Link href="/features" onClick={() => setMenuOpen(false)}>
-                  Risk Metrics
-                </Link>
-                <Link href="/pricing" onClick={() => setMenuOpen(false)}>
-                  Pricing
-                </Link>
-                <Link href="/about" onClick={() => setMenuOpen(false)}>
-                  About
-                </Link>
-                <Link href="/careers" onClick={() => setMenuOpen(false)}>
-                  Careers
-                </Link>
-                <Link href="/login" onClick={() => setMenuOpen(false)}>
-                  <button className="flex items-center gap-2 mt-4 bg-gradient-to-r from-green-400 via-emerald-500 to-yellow-400 text-white px-5 py-2 rounded-md font-semibold hover:opacity-90 transition">
-                    Invest Now
-                    <ArrowTrendingUpIcon className="w-5 h-5" />
-                  </button>
-                </Link>
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+              className="lg:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900"
+            >
+              <div className="px-4 py-4 space-y-1">
+                {navItems.map((item, idx) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                    {item.submenu && (
+                      <div className="pl-4 mt-1 space-y-1">
+                        {item.submenu.map((subItem) => (
+                          <Link
+                            key={subItem.label}
+                            href={subItem.href}
+                            onClick={() => setMenuOpen(false)}
+                            className="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </motion.div>
+                ))}
+                <div className="pt-4 border-t border-gray-200 dark:border-gray-800 space-y-2">
+                  <Link href="/book-demo" onClick={() => setMenuOpen(false)}>
+                    <motion.button
+                      whileTap={{ scale: 0.95 }}
+                      className="w-full flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
+                    >
+                      Book a Demo
+                      <ArrowRightIcon className="w-4 h-4" />
+                    </motion.button>
+                  </Link>
+                  <Link href="/login" onClick={() => setMenuOpen(false)}>
+                    <motion.button
+                      whileTap={{ scale: 0.95 }}
+                      className="w-full px-4 py-2 text-sm font-medium text-white bg-[#00a76f] hover:bg-emerald-700 rounded-md transition-colors"
+                    >
+                      Log In
+                    </motion.button>
+                  </Link>
+                </div>
               </div>
-            </div>
+            </motion.div>
           )}
-        </header>
-      </div>
+        </AnimatePresence>
+      </motion.nav>
 
       {/* Waitlist Modal */}
-      {showModal && (
-        <div className="fixed inset-0 z-[100] bg-black/60 flex items-center justify-center px-4">
-          <div className="bg-white rounded-2xl p-8 w-full max-w-md shadow-xl relative">
-            <button
+      <AnimatePresence>
+        {showModal && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               onClick={() => {
                 setShowModal(false);
                 setEmail("");
               }}
-              className="absolute top-4 right-4 text-gray-400 hover:text-black"
-            >
-              <XMarkIcon className="w-5 h-5" />
-            </button>
-            <h3 className="text-2xl font-bold mb-4 text-center">
-              Join the Waitlist
-            </h3>
-            <p className="text-sm text-gray-600 mb-6 text-center">
-              Get early access to our beta and priority onboarding.
-            </p>
-            <input
-              type="email"
-              placeholder="you@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 border rounded-lg text-sm text-black placeholder-gray-400 focus:ring-[#00a76f] focus:border-[#00a76f] focus:outline-none mb-4"
+              className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm"
             />
-            <button
-              onClick={handleJoin}
-              disabled={loading}
-              className="w-full bg-gradient-to-r from-green-400 via-emerald-500 to-yellow-400 text-white py-3 rounded-lg text-base font-semibold hover:opacity-90 transition"
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="fixed inset-0 z-[101] flex items-center justify-center p-4"
             >
-              {loading ? "Submitting..." : "Submit"}
-            </button>
-          </div>
-        </div>
-      )}
+              <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 w-full max-w-md shadow-2xl relative">
+                <button
+                  onClick={() => {
+                    setShowModal(false);
+                    setEmail("");
+                  }}
+                  className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                >
+                  <XMarkIcon className="w-5 h-5" />
+                </button>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+                  Join the Waitlist
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
+                  Get early access to our beta and priority onboarding.
+                </p>
+                <input
+                  type="email"
+                  placeholder="you@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg text-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-[#00a76f] focus:border-[#00a76f] focus:outline-none mb-4 transition-all"
+                />
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={handleJoin}
+                  disabled={loading}
+                  className="w-full bg-[#00a76f] hover:bg-emerald-700 text-white py-3 rounded-lg text-base font-semibold transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {loading ? "Submitting..." : "Submit"}
+                </motion.button>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </>
   );
 }

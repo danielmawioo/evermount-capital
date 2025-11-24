@@ -16,8 +16,41 @@ import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 
 export default function Hero() {
   return (
-    <section className="bg-gradient-to-b from-white via-[#e8fdf4] to-white py-20 sm:py-28 transition-all">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-14 sm:gap-20 items-center">
+    <section className="bg-gradient-to-b from-white dark:from-gray-900 via-[#e8fdf4] dark:via-gray-800 to-white dark:to-gray-900 py-20 sm:py-28 transition-all relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.1, 0.2, 0.1],
+            x: [0, 100, 0],
+            y: [0, 50, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-20 left-10 w-72 h-72 bg-[#00a76f] rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.1, 0.15, 0.1],
+            x: [0, -80, 0],
+            y: [0, -30, 0],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+          className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-400 rounded-full blur-3xl"
+        />
+      </div>
+
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-14 sm:gap-20 items-center relative z-10">
         {/* LEFT TEXT CONTENT */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -55,22 +88,34 @@ export default function Hero() {
           </p>
 
           {/* CTA BUTTONS */}
-          <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2"
+          >
             <Link href="/book-demo">
-              <button className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-[#00a76f] text-white rounded-md font-semibold hover:bg-emerald-700 transition shadow-md">
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-[#00a76f] text-white rounded-md font-semibold hover:bg-emerald-700 transition shadow-md"
+              >
                 <SupportAgentIcon fontSize="small" />
                 Talk to Our Team
-              </button>
+              </motion.button>
             </Link>
 
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => window.dispatchEvent(new Event("openWaitlist"))}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 border border-[#00a76f] text-[#00a76f] rounded-md font-semibold hover:bg-[#e6f5f0] transition shadow-md"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 border border-[#00a76f] text-[#00a76f] rounded-md font-semibold hover:bg-[#e6f5f0] dark:hover:bg-[#00a76f22] transition shadow-md"
             >
               <RocketLaunchIcon fontSize="small" />
               Get Early Access
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
 
           {/* TRUST METRICS */}
           <motion.div
@@ -101,22 +146,33 @@ export default function Hero() {
 
         {/* IMAGE SECTION */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.95, x: 50 }}
+          whileInView={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
           className="relative w-full flex justify-center lg:justify-end"
         >
           <div className="relative w-full max-w-[680px] sm:px-0">
-            <Image
-              src="/images/section1.png"
-              alt="Main Dashboard Preview"
-              width={930}
-              height={665}
-              className="rounded-xl shadow-2xl w-full h-auto object-contain"
-              priority
-            />
-            <div className="absolute -left-6 -bottom-10 w-[240px] hidden md:block">
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <Image
+                src="/images/section1.png"
+                alt="Main Dashboard Preview"
+                width={930}
+                height={665}
+                className="rounded-xl shadow-2xl w-full h-auto object-contain"
+                priority
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20, y: 20 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="absolute -left-6 -bottom-10 w-[240px] hidden md:block"
+            >
               <Image
                 src="/images/section1.png"
                 alt="Mobile Preview"
@@ -124,7 +180,7 @@ export default function Hero() {
                 height={380}
                 className="rounded-xl shadow-lg"
               />
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

@@ -11,6 +11,17 @@ Allow: /book-demo
 Allow: /investor-tour
 Allow: /platform
 
+# ✅ Legal & Compliance Pages
+Allow: /terms
+Allow: /privacy
+Allow: /cookie-policy
+Allow: /aml-policy
+Allow: /risk-disclosure
+Allow: /regulatory-compliance
+Allow: /investment-agreement
+Allow: /conflict-of-interest
+Allow: /best-execution
+
 # ✅ Auth Pages (but won't index them)
 Disallow: /login
 Disallow: /register
