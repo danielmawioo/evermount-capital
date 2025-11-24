@@ -241,7 +241,9 @@ export default function LoginPage() {
                   type="button"
                   onClick={() => {
                     // Handle social login
-                    toast.info(`${label} login coming soon!`);
+                    toast(`${label} login coming soon!`, {
+                      icon: 'ℹ️',
+                    });
                   }}
                   className="flex flex-col items-center justify-center gap-1.5 border border-gray-300 dark:border-gray-700 px-3 py-3 rounded-md text-xs font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition shadow-sm bg-white dark:bg-gray-900"
                 >
