@@ -16,6 +16,7 @@ import {
   BoltIcon,
   LockClosedIcon,
   AcademicCapIcon,
+  CurrencyDollarIcon,
 } from "@heroicons/react/24/outline";
 
 const containerVariants = {
