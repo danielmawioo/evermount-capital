@@ -4,9 +4,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  output: "export", // For static site generation
+  // Removed "output: export" to enable API routes for chat functionality
+  // If you need static export, you'll need to use a different approach for the chat API
   images: {
-    unoptimized: true, // Required for static export with <Image>
     domains: ["evermount.co"],
   },
 };

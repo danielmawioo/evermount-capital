@@ -173,15 +173,26 @@ export async function POST(request: NextRequest) {
                          aiMessage.toLowerCase().includes('book a demo')
     });
   } catch (error) {
-    console.error("Chat API error:", error);
+    console.error("❌ Chat API error caught in catch block:");
+    console.error("Error type:", error instanceof Error ? error.constructor.name : typeof error);
+    console.error("Error message:", error instanceof Error ? error.message : String(error));
+    console.error("Error stack:", error instanceof Error ? error.stack : "No stack trace");
+    
     const errorMessage = error instanceof Error ? error.message : "Unknown error";
-    console.error("Error details:", errorMessage);
+    
+    // Return more helpful error message in development
+    const devMessage = process.env.NODE_ENV === "development" 
+      ? `I apologize, but I'm experiencing technical difficulties. Error: ${errorMessage}. Please check the server logs for details or contact support@evermount.co`
+      : "I apologize, but I'm experiencing technical difficulties. Please try again or contact our support team at support@evermount.co";
     
     return NextResponse.json(
       {
-        message: "I apologize, but I'm experiencing technical difficulties. Please try again or contact our support team at support@evermount.co",
+        message: devMessage,
         error: "Internal server error",
-        details: process.env.NODE_ENV === "development" ? errorMessage : undefined
+        details: process.env.NODE_ENV === "development" ? {
+          message: errorMessage,
+          type: error instanceof Error ? error.constructor.name : typeof error
+        } : undefined
       },
       { status: 500 }
     );
