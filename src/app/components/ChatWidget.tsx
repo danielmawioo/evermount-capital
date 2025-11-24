@@ -7,6 +7,13 @@ import {
   XMarkIcon,
   PaperAirplaneIcon,
   SparklesIcon,
+  WrenchScrewdriverIcon,
+  ComputerDesktopIcon,
+  CreditCardIcon,
+  ShieldCheckIcon,
+  ChartBarIcon,
+  UserCircleIcon,
+  QuestionMarkCircleIcon,
 } from "@heroicons/react/24/outline";
 import { useTheme } from "@/context/ThemeContext";
 
@@ -18,12 +25,74 @@ interface Message {
   needsHumanSupport?: boolean;
 }
 
+interface Department {
+  id: string;
+  name: string;
+  description: string;
+  icon: React.ComponentType<{ className?: string }>;
+  color: string;
+}
+
 // List of assistant names to randomly select from
 const ASSISTANT_NAMES = ["Ethan", "Adriel", "Nathan", "Miguel", "Mike", "Alex", "Jordan", "Sam"];
+
+// Department definitions for a quant firm
+const DEPARTMENTS: Department[] = [
+  {
+    id: "technical",
+    name: "Technical Support",
+    description: "Platform issues, bugs, API access",
+    icon: WrenchScrewdriverIcon,
+    color: "from-blue-500 to-blue-600",
+  },
+  {
+    id: "it-support",
+    name: "IT Support",
+    description: "Account access, security, integrations",
+    icon: ComputerDesktopIcon,
+    color: "from-purple-500 to-purple-600",
+  },
+  {
+    id: "payments",
+    name: "Payments & Billing",
+    description: "Deposits, withdrawals, fees, transactions",
+    icon: CreditCardIcon,
+    color: "from-green-500 to-green-600",
+  },
+  {
+    id: "compliance",
+    name: "Compliance & Regulatory",
+    description: "KYC, AML, regulations, legal matters",
+    icon: ShieldCheckIcon,
+    color: "from-red-500 to-red-600",
+  },
+  {
+    id: "trading",
+    name: "Trading & Portfolio",
+    description: "Strategies, performance, portfolio management",
+    icon: ChartBarIcon,
+    color: "from-yellow-500 to-yellow-600",
+  },
+  {
+    id: "account",
+    name: "Account Management",
+    description: "Account settings, profile, preferences",
+    icon: UserCircleIcon,
+    color: "from-indigo-500 to-indigo-600",
+  },
+  {
+    id: "general",
+    name: "General Inquiry",
+    description: "Other questions or information",
+    icon: QuestionMarkCircleIcon,
+    color: "from-gray-500 to-gray-600",
+  },
+];
 
 export default function ChatWidget() {
   const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedDepartment, setSelectedDepartment] = useState<string | null>(null);
   const [assistantName] = useState(() => {
     // Get a random name, with preference for Ethan (first in list)
     // 40% chance for Ethan, 60% chance for others
@@ -32,13 +101,7 @@ export default function ChatWidget() {
     }
     return ASSISTANT_NAMES[Math.floor(Math.random() * ASSISTANT_NAMES.length)];
   });
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      role: "assistant",
-      content: `Hello! I'm ${assistantName}, your AI assistant. How can I help you today?`,
-      timestamp: new Date(),
-    },
-  ]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -53,10 +116,29 @@ export default function ChatWidget() {
   }, [messages]);
 
   useEffect(() => {
-    if (isOpen && inputRef.current) {
+    if (isOpen && inputRef.current && selectedDepartment) {
       inputRef.current.focus();
     }
+  }, [isOpen, selectedDepartment]);
+
+  // Reset department when chat is closed
+  useEffect(() => {
+    if (!isOpen) {
+      setSelectedDepartment(null);
+      setMessages([]);
+    }
   }, [isOpen]);
+
+  const handleDepartmentSelect = (departmentId: string) => {
+    setSelectedDepartment(departmentId);
+    const department = DEPARTMENTS.find((d) => d.id === departmentId);
+    const welcomeMessage: Message = {
+      role: "assistant",
+      content: `Hello! I'm ${assistantName}, and I'm here to help you with ${department?.name.toLowerCase()}. How can I assist you today?`,
+      timestamp: new Date(),
+    };
+    setMessages([welcomeMessage]);
+  };
 
   const handleSend = async () => {
     if (!input.trim() || loading) return;
@@ -83,6 +165,7 @@ export default function ChatWidget() {
             content: msg.content,
           })),
           assistantName: assistantName,
+          department: selectedDepartment,
         }),
       });
 
@@ -209,9 +292,52 @@ export default function ChatWidget() {
                 </div>
               </div>
 
-              {/* Messages */}
-              <div className="flex-1 overflow-y-auto p-4 space-y-4">
-                {messages.map((message, index) => (
+              {/* Department Selection or Messages */}
+              <div className="flex-1 overflow-y-auto p-4">
+                {!selectedDepartment ? (
+                  <div className="space-y-3">
+                    <div className="text-center mb-4">
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        Hi! I'm {assistantName}, your AI assistant.
+                      </p>
+                      <p className="text-sm font-medium text-gray-900 dark:text-white">
+                        Which department can help you today?
+                      </p>
+                    </div>
+                    <div className="grid grid-cols-1 gap-2">
+                      {DEPARTMENTS.map((dept) => {
+                        const IconComponent = dept.icon;
+                        return (
+                          <motion.button
+                            key={dept.id}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            onClick={() => handleDepartmentSelect(dept.id)}
+                            className={`flex items-center gap-3 p-3 rounded-lg border transition-all ${
+                              theme === "dark"
+                                ? "bg-gray-800 border-gray-700 hover:border-gray-600 hover:bg-gray-700"
+                                : "bg-white border-gray-200 hover:border-gray-300 hover:bg-gray-50"
+                            }`}
+                          >
+                            <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${dept.color} flex items-center justify-center flex-shrink-0`}>
+                              <IconComponent className="w-5 h-5 text-white" />
+                            </div>
+                            <div className="flex-1 text-left">
+                              <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                                {dept.name}
+                              </p>
+                              <p className="text-xs text-gray-500 dark:text-gray-400">
+                                {dept.description}
+                              </p>
+                            </div>
+                          </motion.button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    {messages.map((message, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 10 }}
@@ -287,82 +413,86 @@ export default function ChatWidget() {
                     </div>
                   </motion.div>
                 ))}
-                {loading && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="flex justify-start"
-                  >
-                    <div
-                      className={`max-w-[80%] rounded-2xl px-4 py-2 ${
-                        theme === "dark"
-                          ? "bg-gray-800 text-gray-100"
-                          : "bg-gray-100 text-gray-900"
-                      }`}
-                    >
-                      <div className="flex gap-1">
-                        <motion.div
-                          animate={{ opacity: [0.5, 1, 0.5] }}
-                          transition={{ duration: 1, repeat: Infinity, delay: 0 }}
-                          className="w-2 h-2 rounded-full bg-gray-400"
-                        />
-                        <motion.div
-                          animate={{ opacity: [0.5, 1, 0.5] }}
-                          transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
-                          className="w-2 h-2 rounded-full bg-gray-400"
-                        />
-                        <motion.div
-                          animate={{ opacity: [0.5, 1, 0.5] }}
-                          transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
-                          className="w-2 h-2 rounded-full bg-gray-400"
-                        />
-                      </div>
-                    </div>
-                  </motion.div>
+                    {loading && (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="flex justify-start"
+                      >
+                        <div
+                          className={`max-w-[80%] rounded-2xl px-4 py-2 ${
+                            theme === "dark"
+                              ? "bg-gray-800 text-gray-100"
+                              : "bg-gray-100 text-gray-900"
+                          }`}
+                        >
+                          <div className="flex gap-1">
+                            <motion.div
+                              animate={{ opacity: [0.5, 1, 0.5] }}
+                              transition={{ duration: 1, repeat: Infinity, delay: 0 }}
+                              className="w-2 h-2 rounded-full bg-gray-400"
+                            />
+                            <motion.div
+                              animate={{ opacity: [0.5, 1, 0.5] }}
+                              transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
+                              className="w-2 h-2 rounded-full bg-gray-400"
+                            />
+                            <motion.div
+                              animate={{ opacity: [0.5, 1, 0.5] }}
+                              transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
+                              className="w-2 h-2 rounded-full bg-gray-400"
+                            />
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                    <div ref={messagesEndRef} />
+                  </div>
                 )}
-                <div ref={messagesEndRef} />
               </div>
 
-              {/* Input */}
-              <div
-                className={`px-4 py-4 border-t ${
-                  theme === "dark" ? "border-gray-700 bg-gray-800" : "border-gray-200 bg-gray-50"
-                }`}
-              >
-                <div className="flex gap-2">
-                  <input
-                    ref={inputRef}
-                    type="text"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    onKeyPress={handleKeyPress}
-                    placeholder="Type your message..."
-                    disabled={loading}
-                    className={`flex-1 px-4 py-2 rounded-lg text-sm border ${
-                      theme === "dark"
-                        ? "bg-gray-900 border-gray-700 text-white placeholder-gray-500"
-                        : "bg-white border-gray-300 text-gray-900 placeholder-gray-400"
-                    } focus:outline-none focus:ring-2 focus:ring-[#00a76f] disabled:opacity-50`}
-                  />
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={handleSend}
-                    disabled={!input.trim() || loading}
-                    className={`p-2 rounded-lg ${
-                      input.trim() && !loading
-                        ? "bg-[#00a76f] hover:bg-emerald-700 text-white"
-                        : "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed"
-                    } transition-colors`}
-                    aria-label="Send message"
-                  >
-                    <PaperAirplaneIcon className="w-5 h-5" />
-                  </motion.button>
+              {/* Input - Only show when department is selected */}
+              {selectedDepartment && (
+                <div
+                  className={`px-4 py-4 border-t ${
+                    theme === "dark" ? "border-gray-700 bg-gray-800" : "border-gray-200 bg-gray-50"
+                  }`}
+                >
+                  <div className="flex gap-2">
+                    <input
+                      ref={inputRef}
+                      type="text"
+                      value={input}
+                      onChange={(e) => setInput(e.target.value)}
+                      onKeyPress={handleKeyPress}
+                      placeholder="Type your message..."
+                      disabled={loading}
+                      className={`flex-1 px-4 py-2 rounded-lg text-sm border ${
+                        theme === "dark"
+                          ? "bg-gray-900 border-gray-700 text-white placeholder-gray-500"
+                          : "bg-white border-gray-300 text-gray-900 placeholder-gray-400"
+                      } focus:outline-none focus:ring-2 focus:ring-[#00a76f] disabled:opacity-50`}
+                    />
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={handleSend}
+                      disabled={!input.trim() || loading}
+                      className={`p-2 rounded-lg ${
+                        input.trim() && !loading
+                          ? "bg-[#00a76f] hover:bg-emerald-700 text-white"
+                          : "bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed"
+                      } transition-colors`}
+                      aria-label="Send message"
+                    >
+                      <PaperAirplaneIcon className="w-5 h-5" />
+                    </motion.button>
+                  </div>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center">
+                    Powered by AI • Responses may vary
+                  </p>
                 </div>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center">
-                  Powered by AI • Responses may vary
-                </p>
-              </div>
+              )}
             </motion.div>
           </>
         )}

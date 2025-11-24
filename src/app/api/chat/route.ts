@@ -1,7 +1,52 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// System prompt for the AI assistant
-const SYSTEM_PROMPT = `You are a helpful customer support assistant for Evermount Capital, a quantitative hedge fund and investment management firm. 
+// Department-specific information
+const DEPARTMENT_INFO: Record<string, string> = {
+  technical: `Technical Support Department:
+- Handles platform issues, bugs, API access, and technical problems
+- Can assist with: system errors, performance issues, API documentation, integration help, data feeds, platform features
+- Escalation: For critical technical issues, direct to support@evermount.co with "Technical Support" in subject
+- Response time: Technical issues are prioritized and typically resolved within 24-48 hours`,
+
+  "it-support": `IT Support Department:
+- Handles account access, security, integrations, and IT-related issues
+- Can assist with: password resets, two-factor authentication, account recovery, security concerns, third-party integrations, access permissions
+- Escalation: For security breaches or account compromises, immediately contact security@evermount.co
+- Response time: Security issues are handled immediately, general IT support within 4-6 hours`,
+
+  payments: `Payments & Billing Department:
+- Handles deposits, withdrawals, fees, transactions, and billing inquiries
+- Can assist with: deposit methods (bank transfer, wire, crypto), withdrawal requests, transaction status, fee structures, payment processing, refunds, billing questions
+- Escalation: For large transactions ($100K+) or payment disputes, contact payments@evermount.co
+- Response time: Payment inquiries are typically resolved within 2-4 hours during business hours`,
+
+  compliance: `Compliance & Regulatory Department:
+- Handles KYC, AML, regulations, legal matters, and compliance requirements
+- Can assist with: KYC verification, AML procedures, regulatory questions, compliance documentation, legal inquiries, regulatory reporting
+- Escalation: For urgent compliance matters, contact compliance@evermount.co
+- Response time: Compliance matters are handled within 1-2 business days`,
+
+  trading: `Trading & Portfolio Department:
+- Handles strategies, performance, portfolio management, and trading-related questions
+- Can assist with: investment strategies, portfolio performance, risk metrics, trading algorithms, market analysis, performance attribution, strategy allocation
+- Escalation: For detailed strategy discussions or portfolio reviews, suggest booking a demo at https://www.evermount.co/book-demo
+- Response time: Trading inquiries are typically answered within 4-6 hours`,
+
+  account: `Account Management Department:
+- Handles account settings, profile, preferences, and account-related inquiries
+- Can assist with: profile updates, account settings, notification preferences, user preferences, account information, subscription management
+- Escalation: For account modifications requiring verification, contact support@evermount.co
+- Response time: Account management requests are handled within 2-4 hours`,
+
+  general: `General Inquiry:
+- Handles general questions, information requests, and other inquiries
+- Can assist with: company information, services overview, getting started, general questions, referrals to appropriate departments
+- Escalation: For complex inquiries, direct to appropriate department or support@evermount.co
+- Response time: General inquiries are typically answered within 4-6 hours`,
+};
+
+// Base system prompt for the AI assistant
+const BASE_SYSTEM_PROMPT = `You are a helpful customer support assistant for Evermount Capital, a quantitative hedge fund and investment management firm. 
 
 Your role is to:
 - Answer questions about Evermount Capital's services, investment strategies, and platform
@@ -11,6 +56,7 @@ Your role is to:
 - Provide relevant links to website pages when helpful
 - Connect users to real human support when you cannot fully answer their question
 - Be professional, friendly, and knowledgeable about financial services
+- Focus on the specific department's area of expertise when a department is selected
 
 Key information about Evermount Capital:
 - We offer AI-powered quantitative trading strategies
@@ -52,7 +98,7 @@ When providing information:
 
 export async function POST(request: NextRequest) {
   try {
-    const { messages, assistantName = "Ethan" } = await request.json();
+    const { messages, assistantName = "Ethan", department } = await request.json();
 
     if (!messages || !Array.isArray(messages)) {
       return NextResponse.json(
@@ -81,11 +127,17 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // Create personalized system prompt with assistant name
-    const personalizedSystemPrompt = SYSTEM_PROMPT.replace(
+    // Build department-specific context
+    let departmentContext = "";
+    if (department && DEPARTMENT_INFO[department]) {
+      departmentContext = `\n\n${DEPARTMENT_INFO[department]}\n\nIMPORTANT: You are currently handling a ${department} inquiry. Focus your responses on this department's expertise and provide relevant information.`;
+    }
+
+    // Create personalized system prompt with assistant name and department context
+    const personalizedSystemPrompt = BASE_SYSTEM_PROMPT.replace(
       /You are a helpful customer support assistant/,
       `You are ${assistantName}, a helpful customer support assistant`
-    ) + `\n\nYour name is ${assistantName}. Always introduce yourself as ${assistantName} when appropriate, and sign off with your name when it feels natural.`;
+    ) + departmentContext + `\n\nYour name is ${assistantName}. Always introduce yourself as ${assistantName} when appropriate, and sign off with your name when it feels natural.`;
 
     // Prepare messages for OpenAI (include system prompt)
     const formattedMessages = [
