@@ -74,13 +74,13 @@ export default function LiveMarketTicker() {
   const getTypeColor = (type: string) => {
     switch (type) {
       case "crypto":
-        return "text-yellow-500";
+        return { text: "text-yellow-500", rgb: "251, 191, 36" }; // yellow-400
       case "forex":
-        return "text-blue-500";
+        return { text: "text-blue-500", rgb: "59, 130, 246" }; // blue-500
       case "index":
-        return "text-purple-500";
+        return { text: "text-purple-500", rgb: "168, 85, 247" }; // purple-500
       default:
-        return "text-green-500";
+        return { text: "text-green-500", rgb: "34, 197, 94" }; // green-500
     }
   };
 
@@ -98,7 +98,7 @@ export default function LiveMarketTicker() {
   };
 
   return (
-    <div className="hidden lg:block w-64">
+    <div className="hidden lg:block w-56">
       <motion.div
         initial={{ opacity: 0, scale: 0.9, y: -10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -164,14 +164,16 @@ export default function LiveMarketTicker() {
               className="rounded-lg p-2.5 border transition-all cursor-pointer group"
               style={{
                 background: theme === 'dark' 
-                  ? 'rgba(255, 255, 255, 0.04)' 
-                  : 'rgba(255, 255, 255, 0.5)',
+                  ? 'rgba(255, 255, 255, 0.06)' 
+                  : 'rgba(255, 255, 255, 0.55)',
                 backdropFilter: 'blur(12px)',
                 WebkitBackdropFilter: 'blur(12px)',
                 borderColor: theme === 'dark' 
-                  ? 'rgba(255, 255, 255, 0.1)' 
-                  : 'rgba(0, 0, 0, 0.08)',
-                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+                  ? 'rgba(255, 255, 255, 0.15)' 
+                  : 'rgba(0, 0, 0, 0.12)',
+                boxShadow: theme === 'dark'
+                  ? '0 2px 8px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05) inset'
+                  : '0 2px 8px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.3) inset',
               }}
               onHoverStart={(e) => {
                 if (theme === 'dark') {
@@ -195,31 +197,74 @@ export default function LiveMarketTicker() {
               <div className="flex items-start justify-between mb-2">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-1.5 mb-1">
-                    <span className="font-bold text-xs text-gray-900 dark:text-white truncate">
+                    <span 
+                      className="font-bold text-xs truncate"
+                      style={{
+                        color: theme === 'dark' ? 'rgba(255, 255, 255, 0.95)' : 'rgba(0, 0, 0, 0.9)',
+                        textShadow: theme === 'dark' 
+                          ? '0 1px 3px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.4)' 
+                          : '0 1px 2px rgba(255, 255, 255, 0.9), 0 0 4px rgba(255, 255, 255, 0.6)',
+                      }}
+                    >
                       {item.symbol}
                     </span>
                     <span
-                      className={`text-[10px] px-1.5 py-0.5 rounded-md font-medium ${getTypeColor(
+                      className={`text-[10px] px-1.5 py-0.5 rounded-md font-semibold ${getTypeColor(
                         item.type
-                      )} bg-opacity-15 flex-shrink-0`}
+                      ).text} flex-shrink-0`}
+                      style={{
+                        backgroundColor: theme === 'dark' 
+                          ? `rgba(${getTypeColor(item.type).rgb}, 0.2)` 
+                          : `rgba(${getTypeColor(item.type).rgb}, 0.15)`,
+                        textShadow: '0 1px 2px rgba(0, 0, 0, 0.4)',
+                        border: `1px solid rgba(${getTypeColor(item.type).rgb}, 0.3)`,
+                      }}
                     >
                       {getTypeBadge(item.type).charAt(0)}
                     </span>
                   </div>
-                  <p className="text-[10px] text-gray-600 dark:text-gray-400 truncate font-medium">
+                  <p 
+                    className="text-[10px] truncate font-medium"
+                    style={{
+                      color: theme === 'dark' ? 'rgba(255, 255, 255, 0.85)' : 'rgba(0, 0, 0, 0.75)',
+                      textShadow: theme === 'dark' 
+                        ? '0 1px 2px rgba(0, 0, 0, 0.6)' 
+                        : '0 1px 2px rgba(255, 255, 255, 0.8)',
+                    }}
+                  >
                     {item.name}
                   </p>
                 </div>
                 {item.changePercent >= 0 ? (
-                  <ArrowTrendingUpIcon className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                  <ArrowTrendingUpIcon 
+                    className="w-4 h-4 flex-shrink-0 mt-0.5" 
+                    style={{
+                      color: '#10b981',
+                      filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4))',
+                    }}
+                  />
                 ) : (
-                  <ArrowTrendingDownIcon className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
+                  <ArrowTrendingDownIcon 
+                    className="w-4 h-4 flex-shrink-0 mt-0.5"
+                    style={{
+                      color: '#ef4444',
+                      filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4))',
+                    }}
+                  />
                 )}
               </div>
 
               <div className="flex items-end justify-between">
                 <div>
-                  <p className="text-xs font-bold text-gray-900 dark:text-white">
+                  <p 
+                    className="text-xs font-bold"
+                    style={{
+                      color: theme === 'dark' ? 'rgba(255, 255, 255, 0.95)' : 'rgba(0, 0, 0, 0.9)',
+                      textShadow: theme === 'dark' 
+                        ? '0 1px 3px rgba(0, 0, 0, 0.8), 0 0 6px rgba(0, 0, 0, 0.4)' 
+                        : '0 1px 2px rgba(255, 255, 255, 0.9), 0 0 4px rgba(255, 255, 255, 0.6)',
+                    }}
+                  >
                     ${item.price.toLocaleString(undefined, {
                       minimumFractionDigits: item.type === "forex" ? 4 : 2,
                       maximumFractionDigits: item.type === "forex" ? 4 : 2,
@@ -227,9 +272,12 @@ export default function LiveMarketTicker() {
                   </p>
                 </div>
                 <div
-                  className={`text-xs font-bold flex items-center gap-0.5 ${
-                    item.changePercent >= 0 ? "text-green-500" : "text-red-500"
-                  }`}
+                  className="text-xs font-bold flex items-center gap-0.5"
+                  style={{
+                    color: item.changePercent >= 0 ? '#10b981' : '#ef4444',
+                    textShadow: '0 1px 3px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 0, 0, 0.3)',
+                    fontWeight: '700',
+                  }}
                 >
                   <span>{item.changePercent >= 0 ? "+" : ""}</span>
                   <span>{item.changePercent.toFixed(2)}%</span>

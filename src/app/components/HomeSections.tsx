@@ -197,12 +197,12 @@ export default function HomeSectionsWithImages() {
           className="md:w-1/2 space-y-8"
         >
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Why Choose Evermount
+            Systematic Investment Excellence
           </h2>
           {[
-            "AI-powered, high-frequency strategy",
-            "Capital protection via smart risk indexing",
-            "Access global and African markets in one portfolio",
+            "Proprietary quantitative models leveraging machine learning and statistical arbitrage",
+            "Institutional-grade risk management with dynamic position sizing and portfolio optimization",
+            "Global market access across equities, fixed income, currencies, and commodities",
           ].map((text, i) => (
             <motion.div
               key={i}

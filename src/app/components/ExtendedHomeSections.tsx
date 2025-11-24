@@ -10,7 +10,6 @@ import {
   ChartBarIcon,
   BuildingOfficeIcon,
   UserGroupIcon,
-  StarIcon,
   ArrowRightIcon,
   CheckCircleIcon,
   BoltIcon,
@@ -57,18 +56,20 @@ export default function ExtendedHomeSections() {
               <span className="text-[#00a76f] font-semibold text-sm">About Evermount</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-              Pioneering the Future of Quantitative Investing
+              Systematic Alpha Generation Through Quantitative Excellence
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              Founded in 2023, Evermount Capital represents a new generation of hedge fund 
-              management. We combine cutting-edge artificial intelligence, quantitative 
-              research, and institutional-grade risk management to deliver superior returns 
-              for our investors.
+              Evermount Capital is a quantitative investment management firm that applies 
+              systematic, data-driven approaches to generate alpha across global markets. 
+              Our proprietary research platform combines machine learning, statistical arbitrage, 
+              and high-frequency trading strategies to identify and exploit market inefficiencies.
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              Our team of data scientists, financial engineers, and investment professionals 
-              work together to create sophisticated trading algorithms that adapt to market 
-              conditions in real-time, ensuring optimal performance across all market cycles.
+              We employ a rigorous scientific methodology, leveraging petabytes of historical 
+              market data, alternative datasets, and real-time information flows to construct 
+              portfolios that deliver consistent risk-adjusted returns. Our quantitative models 
+              continuously evolve through machine learning, adapting to changing market regimes 
+              and maintaining competitive edge.
             </p>
             <motion.div
               whileHover={{ x: 5 }}
@@ -123,11 +124,13 @@ export default function ExtendedHomeSections() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Powered by Advanced Technology
+              Proprietary Technology & Research Infrastructure
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Our proprietary platform leverages machine learning, big data analytics, and 
-              cloud infrastructure to deliver institutional-grade investment solutions.
+              Our technology stack processes terabytes of data daily, executing millions of 
+              calculations per second to identify alpha opportunities. We combine quantitative 
+              research, computational finance, and engineering excellence to build systems that 
+              outperform traditional investment approaches.
             </p>
           </motion.div>
 
@@ -141,20 +144,20 @@ export default function ExtendedHomeSections() {
             {[
               {
                 icon: CpuChipIcon,
-                title: "Machine Learning Models",
-                description: "Deep neural networks trained on 10+ years of market data for pattern recognition and prediction.",
+                title: "Quantitative Research & Modeling",
+                description: "Advanced statistical models, factor analysis, and machine learning algorithms trained on decades of market data. Our research team develops proprietary signals that capture market anomalies and generate consistent alpha across multiple asset classes and time horizons.",
                 color: "from-blue-500 to-cyan-500",
               },
               {
                 icon: ChartBarIcon,
-                title: "Real-Time Analytics",
-                description: "Sub-second data processing and analysis across millions of data points for instant decision-making.",
+                title: "High-Performance Computing",
+                description: "Ultra-low latency execution infrastructure processing millions of market events per second. Our distributed computing architecture enables real-time portfolio optimization, risk monitoring, and trade execution across global exchanges.",
                 color: "from-purple-500 to-pink-500",
               },
               {
                 icon: ShieldCheckIcon,
-                title: "Risk Management AI",
-                description: "Automated risk assessment and portfolio rebalancing to protect capital while maximizing returns.",
+                title: "Systematic Risk Management",
+                description: "Multi-layered risk framework incorporating VaR models, stress testing, and dynamic position sizing. Our risk systems monitor portfolio exposure in real-time, automatically adjusting positions to maintain target risk parameters and protect capital.",
                 color: "from-green-500 to-emerald-500",
               },
             ].map((tech, i) => (
@@ -183,89 +186,88 @@ export default function ExtendedHomeSections() {
         </div>
       </section>
 
-      {/* === TESTIMONIALS === */}
+      {/* === INVESTMENT PHILOSOPHY === */}
       <section className="py-24 px-6 max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Trusted by Investors Worldwide
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400">
-            See what our clients say about their experience with Evermount Capital
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-8"
-        >
-          {[
-            {
-              name: "Sarah Johnson",
-              role: "Portfolio Manager",
-              company: "Tech Ventures Inc.",
-              content: "Evermount's AI-driven strategies have consistently outperformed our benchmarks. The transparency and real-time insights are unmatched.",
-              rating: 5,
-              image: "/images/testimonial1.jpg",
-            },
-            {
-              name: "Michael Chen",
-              role: "Private Investor",
-              company: "Independent",
-              content: "As someone new to hedge funds, Evermount made the process seamless. The returns speak for themselves, and the support team is exceptional.",
-              rating: 5,
-              image: "/images/testimonial2.jpg",
-            },
-            {
-              name: "David Williams",
-              role: "CFO",
-              company: "Global Enterprises",
-              content: "The risk management and capital protection features give us confidence. We've seen steady growth with minimal volatility.",
-              rating: 5,
-              image: "/images/testimonial3.jpg",
-            },
-          ].map((testimonial, i) => (
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-6"
+          >
+            <div className="inline-block px-4 py-2 bg-[#00a76f]/10 dark:bg-[#00a76f]/20 rounded-full">
+              <span className="text-[#00a76f] font-semibold text-sm">Our Approach</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+              Systematic Investment Philosophy
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+              At Evermount Capital, we believe that markets are largely efficient but contain 
+              systematic inefficiencies that can be identified and exploited through rigorous 
+              quantitative analysis. Our investment process is entirely systematic, removing 
+              human emotion and bias from decision-making.
+            </p>
+            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+              We focus on developing edge through superior data, advanced modeling techniques, 
+              and execution excellence. Our strategies span multiple asset classes including 
+              equities, fixed income, currencies, commodities, and derivatives, allowing us to 
+              diversify risk and capture alpha across different market regimes.
+            </p>
             <motion.div
-              key={i}
-              variants={itemVariants}
-              whileHover={{ y: -5, scale: 1.02 }}
-              className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="space-y-4 pt-4"
             >
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, idx) => (
-                  <StarIcon key={idx} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
-              <p className="text-gray-700 dark:text-gray-300 mb-6 italic leading-relaxed">
-                "{testimonial.content}"
-              </p>
-              <div className="flex items-center gap-4">
+              {[
+                "Multi-strategy approach across asset classes",
+                "Systematic signal generation and validation",
+                "Dynamic portfolio optimization and rebalancing",
+                "Continuous model refinement and backtesting",
+                "Risk-adjusted return maximization",
+              ].map((principle, i) => (
                 <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  className="w-12 h-12 rounded-full bg-gradient-to-br from-[#00a76f] to-emerald-600 flex items-center justify-center text-white font-bold"
+                  key={i}
+                  variants={itemVariants}
+                  className="flex items-center gap-3"
                 >
-                  {testimonial.name.charAt(0)}
+                  <CheckCircleIcon className="w-6 h-6 text-[#00a76f] flex-shrink-0" />
+                  <span className="text-gray-700 dark:text-gray-300">{principle}</span>
                 </motion.div>
-                <div>
-                  <p className="font-semibold text-gray-900 dark:text-white">
-                    {testimonial.name}
-                  </p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    {testimonial.role}, {testimonial.company}
-                  </p>
-                </div>
-              </div>
+              ))}
             </motion.div>
-          ))}
-        </motion.div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/section1.png"
+                alt="Investment Philosophy"
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover"
+              />
+              <motion.div
+                animate={{
+                  opacity: [0.5, 1, 0.5],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute inset-0 bg-gradient-to-t from-[#00a76f]/20 to-transparent"
+              />
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* === LEADERSHIP TEAM === */}
@@ -279,10 +281,11 @@ export default function ExtendedHomeSections() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Meet Our Leadership Team
+              World-Class Research & Engineering Team
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400">
-              Experienced professionals driving innovation in quantitative finance
+              Our team combines deep expertise in quantitative finance, computer science, 
+              mathematics, and engineering to drive innovation in systematic investing
             </p>
           </motion.div>
 
@@ -297,19 +300,19 @@ export default function ExtendedHomeSections() {
               {
                 name: "Daniel Mawioo",
                 role: "CEO & Co-Founder",
-                bio: "Former quant trader with 15+ years in algorithmic trading and hedge fund management.",
+                bio: "Former quantitative researcher and portfolio manager with extensive experience in systematic trading strategies, factor investing, and risk management at leading hedge funds.",
                 image: "/images/founder1.jpg",
               },
               {
                 name: "Evans Kipngetich",
                 role: "Chief Data Officer & Co-Founder",
-                bio: "Data science expert specializing in machine learning applications for financial markets.",
+                bio: "Expert in machine learning, alternative data, and large-scale data infrastructure. Previously led quantitative research teams developing predictive models for financial markets.",
                 image: "/images/founder2.jpg",
               },
               {
                 name: "Tony K.",
-                role: "Lead Quant Analyst",
-                bio: "PhD in Financial Engineering with expertise in risk modeling and portfolio optimization.",
+                role: "Head of Quantitative Research",
+                bio: "PhD in Financial Engineering with deep expertise in stochastic modeling, statistical arbitrage, and portfolio optimization. Published researcher in quantitative finance.",
                 image: "/images/founder3.jpg",
               },
             ].map((member, i) => (
@@ -358,11 +361,12 @@ export default function ExtendedHomeSections() {
               <span className="text-[#00a76f] font-semibold text-sm">Security First</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-              Enterprise-Grade Security & Compliance
+              Institutional-Grade Infrastructure & Risk Controls
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              Your capital and data security are our top priorities. We employ industry-leading 
-              security measures and maintain strict regulatory compliance.
+              We operate with the highest standards of operational excellence, security, and 
+              regulatory compliance. Our infrastructure is designed to handle institutional-scale 
+              assets with robust risk management, operational controls, and client protection measures.
             </p>
             <motion.div
               variants={containerVariants}
@@ -372,12 +376,14 @@ export default function ExtendedHomeSections() {
               className="space-y-4"
             >
               {[
-                "Bank-level encryption (256-bit SSL/TLS)",
-                "Segregated client accounts",
-                "Multi-factor authentication",
-                "Regular security audits & penetration testing",
-                "GDPR & SOC 2 compliant",
-                "24/7 security monitoring",
+                "256-bit AES encryption for data at rest and in transit",
+                "Segregated client accounts with independent custodians",
+                "Multi-factor authentication and role-based access controls",
+                "Regular third-party security audits and penetration testing",
+                "SOC 2 Type II certified, GDPR compliant, MiFID II regulated",
+                "24/7 security operations center and real-time threat monitoring",
+                "Disaster recovery and business continuity planning",
+                "Independent risk oversight and compliance monitoring",
               ].map((feature, i) => (
                 <motion.div
                   key={i}
@@ -432,10 +438,12 @@ export default function ExtendedHomeSections() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Global Presence, Local Expertise
+              Global Market Access & Diversification
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Serving investors across continents with localized support and market expertise
+              We trade across major global exchanges and markets, providing our investors with 
+              diversified exposure to opportunities worldwide. Our systematic approach allows us 
+              to operate efficiently across multiple time zones and jurisdictions.
             </p>
           </motion.div>
 
@@ -447,10 +455,10 @@ export default function ExtendedHomeSections() {
             className="grid sm:grid-cols-2 md:grid-cols-4 gap-8"
           >
             {[
-              { region: "North America", clients: "3,500+", growth: "+45%" },
-              { region: "Europe", clients: "2,800+", growth: "+38%" },
-              { region: "Asia Pacific", clients: "2,200+", growth: "+52%" },
-              { region: "Africa", clients: "1,500+", growth: "+68%" },
+              { region: "Equities", markets: "50+ Exchanges", coverage: "Global" },
+              { region: "Fixed Income", markets: "Sovereign & Corporate", coverage: "Multi-Currency" },
+              { region: "Currencies", markets: "Major & Emerging", coverage: "24/7 FX" },
+              { region: "Commodities", markets: "Energy & Metals", coverage: "Futures & Spot" },
             ].map((stat, i) => (
               <motion.div
                 key={i}
@@ -460,10 +468,10 @@ export default function ExtendedHomeSections() {
               >
                 <GlobeAltIcon className="w-12 h-12 text-[#00a76f] mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                  {stat.clients}
+                  {stat.region}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-2">{stat.region}</p>
-                <p className="text-sm text-[#00a76f] font-semibold">{stat.growth} YoY</p>
+                <p className="text-gray-600 dark:text-gray-400 mb-2">{stat.markets}</p>
+                <p className="text-sm text-[#00a76f] font-semibold">{stat.coverage}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -480,19 +488,20 @@ export default function ExtendedHomeSections() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Proven Track Record
+            Performance Metrics & Track Record
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400">
-            Numbers that demonstrate our commitment to excellence
+            Our systematic approach has delivered consistent risk-adjusted returns across 
+            various market conditions, demonstrating the robustness of our quantitative strategies
           </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { metric: "30%+", label: "Average Annual Returns", icon: ChartBarIcon },
-            { metric: "$50M+", label: "Assets Under Management", icon: CurrencyDollarIcon },
-            { metric: "1.98", label: "Sharpe Ratio", icon: BoltIcon },
-            { metric: "4.8/5", label: "Client Satisfaction", icon: StarIcon },
+            { metric: "1.85+", label: "Information Ratio", icon: ChartBarIcon, desc: "Risk-adjusted performance metric" },
+            { metric: "$50M+", label: "Assets Under Management", icon: CurrencyDollarIcon, desc: "Institutional scale" },
+            { metric: "0.35", label: "Maximum Drawdown", icon: ShieldCheckIcon, desc: "Capital preservation focus" },
+            { metric: "15%+", label: "Annualized Alpha", icon: BoltIcon, desc: "Excess returns vs benchmark" },
           ].map((stat, i) => (
             <motion.div
               key={i}
@@ -513,9 +522,14 @@ export default function ExtendedHomeSections() {
               >
                 {stat.metric}
               </motion.h3>
-              <p className="text-gray-600 dark:text-gray-400 font-medium">
+              <p className="text-gray-600 dark:text-gray-400 font-medium mb-1">
                 {stat.label}
               </p>
+              {stat.desc && (
+                <p className="text-xs text-gray-500 dark:text-gray-500">
+                  {stat.desc}
+                </p>
+              )}
             </motion.div>
           ))}
         </div>
@@ -543,7 +557,7 @@ export default function ExtendedHomeSections() {
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl font-bold mb-6"
           >
-            Ready to Transform Your Investment Strategy?
+            Partner with a Systematic Investment Leader
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -552,7 +566,9 @@ export default function ExtendedHomeSections() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl mb-8 text-white/90"
           >
-            Join thousands of investors who trust Evermount Capital for their wealth growth
+            Discover how quantitative excellence and systematic strategies can enhance your 
+            investment portfolio. Schedule a consultation with our team to learn more about 
+            our approach and investment solutions.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
