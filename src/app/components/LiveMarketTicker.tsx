@@ -46,7 +46,7 @@ export default function LiveMarketTicker() {
 
     // Sort by absolute change percentage (biggest movers first)
     const sortedData = mockData.sort((a, b) => Math.abs(b.changePercent) - Math.abs(a.changePercent));
-    setMarketData(sortedData.slice(0, 12)); // Show top 12 movers
+    setMarketData(sortedData.slice(0, 10)); // Show top 10 movers
 
     // Simulate live updates every 5 seconds
     const interval = setInterval(() => {
@@ -96,62 +96,62 @@ export default function LiveMarketTicker() {
   };
 
   return (
-    <div className="hidden xl:block w-80 sticky top-24">
+    <div className="hidden xl:block w-64 sticky top-24">
       <motion.div
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
-        className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden"
+        className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-xl p-4 shadow-2xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden"
       >
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-            Top Movers Today
+        <div className="flex items-center justify-between mb-3">
+          <h3 className="text-sm font-bold text-gray-900 dark:text-white">
+            Top Movers
           </h3>
           <motion.div
             animate={{ opacity: [1, 0.5, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="w-2 h-2 bg-green-500 rounded-full"
+            className="w-1.5 h-1.5 bg-green-500 rounded-full"
           />
         </div>
 
-        <div className="space-y-3 max-h-[600px] overflow-y-auto custom-scrollbar">
+        <div className="space-y-2 max-h-[500px] overflow-y-auto custom-scrollbar">
           {marketData.map((item, index) => (
             <motion.div
               key={`${item.symbol}-${index}`}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
-              whileHover={{ scale: 1.02, x: 5 }}
-              className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-lg p-3 border border-gray-200/50 dark:border-gray-700/50 hover:border-[#00a76f]/50 transition-all cursor-pointer"
+              whileHover={{ scale: 1.02, x: 3 }}
+              className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-lg p-2 border border-gray-200/50 dark:border-gray-700/50 hover:border-[#00a76f]/50 transition-all cursor-pointer"
             >
-              <div className="flex items-start justify-between mb-2">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="font-bold text-sm text-gray-900 dark:text-white">
+              <div className="flex items-start justify-between mb-1.5">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <span className="font-bold text-xs text-gray-900 dark:text-white truncate">
                       {item.symbol}
                     </span>
                     <span
-                      className={`text-xs px-2 py-0.5 rounded-full ${getTypeColor(
+                      className={`text-[10px] px-1.5 py-0.5 rounded ${getTypeColor(
                         item.type
-                      )} bg-opacity-10`}
+                      )} bg-opacity-10 flex-shrink-0`}
                     >
-                      {getTypeBadge(item.type)}
+                      {getTypeBadge(item.type).charAt(0)}
                     </span>
                   </div>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 truncate">
+                  <p className="text-[10px] text-gray-600 dark:text-gray-400 truncate">
                     {item.name}
                   </p>
                 </div>
                 {item.changePercent >= 0 ? (
-                  <ArrowTrendingUpIcon className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <ArrowTrendingUpIcon className="w-4 h-4 text-green-500 flex-shrink-0" />
                 ) : (
-                  <ArrowTrendingDownIcon className="w-5 h-5 text-red-500 flex-shrink-0" />
+                  <ArrowTrendingDownIcon className="w-4 h-4 text-red-500 flex-shrink-0" />
                 )}
               </div>
 
               <div className="flex items-end justify-between">
                 <div>
-                  <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                  <p className="text-xs font-semibold text-gray-900 dark:text-white">
                     ${item.price.toLocaleString(undefined, {
                       minimumFractionDigits: item.type === "forex" ? 4 : 2,
                       maximumFractionDigits: item.type === "forex" ? 4 : 2,
@@ -159,7 +159,7 @@ export default function LiveMarketTicker() {
                   </p>
                 </div>
                 <div
-                  className={`text-sm font-bold ${
+                  className={`text-xs font-bold ${
                     item.changePercent >= 0 ? "text-green-500" : "text-red-500"
                   }`}
                 >
@@ -175,10 +175,10 @@ export default function LiveMarketTicker() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 text-center"
+          className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700 text-center"
         >
-          <p className="text-xs text-gray-500 dark:text-gray-400">
-            Live market data • Updates every 5s
+          <p className="text-[10px] text-gray-500 dark:text-gray-400">
+            Live • Updates 5s
           </p>
         </motion.div>
       </motion.div>

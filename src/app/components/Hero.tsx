@@ -51,7 +51,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 xl:grid-cols-[1fr_1fr_auto] gap-8 sm:gap-14 items-start relative z-10">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 xl:grid-cols-[1fr_1fr_auto] gap-6 sm:gap-8 items-start relative z-10">
         {/* LEFT TEXT CONTENT */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
