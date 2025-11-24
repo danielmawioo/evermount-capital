@@ -184,7 +184,7 @@ export default function Hero() {
             </motion.div>
             
             {/* LIVE MARKET TICKER - Overlay on Image */}
-            <div className="absolute top-4 right-4 xl:top-6 xl:right-6 z-20">
+            <div className="absolute -top-8 right-4 xl:-top-10 xl:right-6 z-30">
               <LiveMarketTicker />
             </div>
           </div>

@@ -103,64 +103,123 @@ export default function LiveMarketTicker() {
         initial={{ opacity: 0, scale: 0.9, y: -10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="rounded-xl p-4 shadow-2xl border border-white/20 dark:border-gray-700/30 overflow-hidden"
+        className="rounded-xl p-4 overflow-hidden relative"
         style={{
           background: theme === 'dark' 
-            ? 'rgba(17, 24, 39, 0.75)' 
-            : 'rgba(255, 255, 255, 0.75)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
+            ? 'linear-gradient(135deg, rgba(17, 24, 39, 0.4) 0%, rgba(17, 24, 39, 0.3) 100%)' 
+            : 'linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.4) 100%)',
+          backdropFilter: 'blur(20px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+          boxShadow: theme === 'dark'
+            ? '0 8px 32px 0 rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.08) inset, 0 1px 0 rgba(255, 255, 255, 0.08) inset'
+            : '0 8px 32px 0 rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.3) inset, 0 1px 0 rgba(255, 255, 255, 0.5) inset',
+          border: theme === 'dark' 
+            ? '1px solid rgba(255, 255, 255, 0.1)' 
+            : '1px solid rgba(255, 255, 255, 0.35)',
         }}
       >
-        <div className="flex items-center justify-between mb-3">
-          <h3 className="text-sm font-bold text-gray-900 dark:text-white">
-            Top Movers
-          </h3>
-          <motion.div
-            animate={{ opacity: [1, 0.5, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-1.5 h-1.5 bg-green-500 rounded-full"
-          />
+        <div 
+          className="flex items-center justify-between mb-3 pb-3 border-b"
+          style={{
+            borderColor: theme === 'dark' 
+              ? 'rgba(255, 255, 255, 0.1)' 
+              : 'rgba(0, 0, 0, 0.1)',
+          }}
+        >
+          <div className="flex items-center gap-2">
+            <h3 
+              className="text-sm font-bold"
+              style={{
+                color: theme === 'dark' ? 'rgba(255, 255, 255, 0.95)' : 'rgba(0, 0, 0, 0.9)',
+                textShadow: theme === 'dark' 
+                  ? '0 1px 2px rgba(0, 0, 0, 0.5)' 
+                  : '0 1px 2px rgba(255, 255, 255, 0.8)',
+              }}
+            >
+              Top Movers
+            </h3>
+            <motion.div
+              animate={{ opacity: [1, 0.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="w-1.5 h-1.5 bg-green-500 rounded-full shadow-lg"
+              style={{
+                boxShadow: '0 0 8px rgba(34, 197, 94, 0.6)',
+              }}
+            />
+          </div>
         </div>
 
-        <div className="space-y-2 max-h-[500px] overflow-y-auto custom-scrollbar">
+        <div className="space-y-2 max-h-[480px] overflow-y-auto custom-scrollbar pr-1">
           {marketData.map((item, index) => (
             <motion.div
               key={`${item.symbol}-${index}`}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
-              whileHover={{ scale: 1.02, x: 3 }}
-              className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-lg p-2 border border-gray-200/50 dark:border-gray-700/50 hover:border-[#00a76f]/50 transition-all cursor-pointer"
+              whileHover={{ 
+                scale: 1.02, 
+                x: 3,
+                transition: { duration: 0.2 }
+              }}
+              className="rounded-lg p-2.5 border transition-all cursor-pointer group"
+              style={{
+                background: theme === 'dark' 
+                  ? 'rgba(255, 255, 255, 0.04)' 
+                  : 'rgba(255, 255, 255, 0.5)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                borderColor: theme === 'dark' 
+                  ? 'rgba(255, 255, 255, 0.1)' 
+                  : 'rgba(0, 0, 0, 0.08)',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+              }}
+              onHoverStart={(e) => {
+                if (theme === 'dark') {
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
+                  e.currentTarget.style.borderColor = 'rgba(0, 167, 111, 0.4)';
+                } else {
+                  e.currentTarget.style.background = 'rgba(0, 167, 111, 0.1)';
+                  e.currentTarget.style.borderColor = 'rgba(0, 167, 111, 0.3)';
+                }
+              }}
+              onHoverEnd={(e) => {
+                if (theme === 'dark') {
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                } else {
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.5)';
+                  e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.08)';
+                }
+              }}
             >
-              <div className="flex items-start justify-between mb-1.5">
+              <div className="flex items-start justify-between mb-2">
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-1.5 mb-0.5">
+                  <div className="flex items-center gap-1.5 mb-1">
                     <span className="font-bold text-xs text-gray-900 dark:text-white truncate">
                       {item.symbol}
                     </span>
                     <span
-                      className={`text-[10px] px-1.5 py-0.5 rounded ${getTypeColor(
+                      className={`text-[10px] px-1.5 py-0.5 rounded-md font-medium ${getTypeColor(
                         item.type
-                      )} bg-opacity-10 flex-shrink-0`}
+                      )} bg-opacity-15 flex-shrink-0`}
                     >
                       {getTypeBadge(item.type).charAt(0)}
                     </span>
                   </div>
-                  <p className="text-[10px] text-gray-600 dark:text-gray-400 truncate">
+                  <p className="text-[10px] text-gray-600 dark:text-gray-400 truncate font-medium">
                     {item.name}
                   </p>
                 </div>
                 {item.changePercent >= 0 ? (
-                  <ArrowTrendingUpIcon className="w-4 h-4 text-green-500 flex-shrink-0" />
+                  <ArrowTrendingUpIcon className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
                 ) : (
-                  <ArrowTrendingDownIcon className="w-4 h-4 text-red-500 flex-shrink-0" />
+                  <ArrowTrendingDownIcon className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
                 )}
               </div>
 
               <div className="flex items-end justify-between">
                 <div>
-                  <p className="text-xs font-semibold text-gray-900 dark:text-white">
+                  <p className="text-xs font-bold text-gray-900 dark:text-white">
                     ${item.price.toLocaleString(undefined, {
                       minimumFractionDigits: item.type === "forex" ? 4 : 2,
                       maximumFractionDigits: item.type === "forex" ? 4 : 2,
@@ -168,7 +227,7 @@ export default function LiveMarketTicker() {
                   </p>
                 </div>
                 <div
-                  className={`text-xs font-bold ${
+                  className={`text-xs font-bold flex items-center gap-0.5 ${
                     item.changePercent >= 0 ? "text-green-500" : "text-red-500"
                   }`}
                 >
@@ -184,9 +243,22 @@ export default function LiveMarketTicker() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700 text-center"
+          className="mt-3 pt-3 border-t text-center"
+          style={{
+            borderColor: theme === 'dark' 
+              ? 'rgba(255, 255, 255, 0.1)' 
+              : 'rgba(0, 0, 0, 0.1)',
+          }}
         >
-          <p className="text-[10px] text-gray-500 dark:text-gray-400">
+          <p 
+            className="text-[10px] font-medium"
+            style={{
+              color: theme === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.6)',
+              textShadow: theme === 'dark' 
+                ? '0 1px 2px rgba(0, 0, 0, 0.5)' 
+                : '0 1px 2px rgba(255, 255, 255, 0.8)',
+            }}
+          >
             Live • Updates 5s
           </p>
         </motion.div>
