@@ -14,6 +14,7 @@ interface MarketData {
 }
 
 export default function LiveMarketTicker() {
+  const { theme } = useTheme();
   const [marketData, setMarketData] = useState<MarketData[]>([]);
 
   // Mock data - in production, this would come from an API
@@ -96,12 +97,19 @@ export default function LiveMarketTicker() {
   };
 
   return (
-    <div className="hidden xl:block w-64 sticky top-24">
+    <div className="hidden lg:block w-64">
       <motion.div
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
-        className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-xl p-4 shadow-2xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden"
+        initial={{ opacity: 0, scale: 0.9, y: -10 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className="rounded-xl p-4 shadow-2xl border border-white/20 dark:border-gray-700/30 overflow-hidden"
+        style={{
+          background: theme === 'dark' 
+            ? 'rgba(17, 24, 39, 0.75)' 
+            : 'rgba(255, 255, 255, 0.75)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+        }}
       >
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-sm font-bold text-gray-900 dark:text-white">

@@ -51,7 +51,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 xl:grid-cols-[1fr_1fr_auto] gap-6 sm:gap-8 items-start relative z-10">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-6 sm:gap-8 items-center relative z-10">
         {/* LEFT TEXT CONTENT */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -182,11 +182,13 @@ export default function Hero() {
                 className="rounded-xl shadow-lg"
               />
             </motion.div>
+            
+            {/* LIVE MARKET TICKER - Overlay on Image */}
+            <div className="absolute top-4 right-4 xl:top-6 xl:right-6 z-20">
+              <LiveMarketTicker />
+            </div>
           </div>
         </motion.div>
-
-        {/* LIVE MARKET TICKER */}
-        <LiveMarketTicker />
       </div>
     </section>
   );
