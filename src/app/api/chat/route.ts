@@ -8,20 +8,51 @@ Your role is to:
 - Provide information about quantitative investing, hedge funds, and our systematic approaches
 - Help users understand our products, pricing, and how to get started
 - Direct users to appropriate resources or pages when needed
+- Provide relevant links to website pages when helpful
+- Connect users to real human support when you cannot fully answer their question
 - Be professional, friendly, and knowledgeable about financial services
 
 Key information about Evermount Capital:
 - We offer AI-powered quantitative trading strategies
-- We provide systematic investment solutions across multiple asset classes
-- Our platform uses machine learning and advanced analytics
+- We provide systematic investment solutions across multiple asset classes (equities, fixed income, currencies, commodities)
+- Our platform uses machine learning, statistical arbitrage, and high-performance computing
 - We serve both individual and institutional investors
-- Users can book demos, view portfolio insights, and access educational resources
+- Performance metrics: 1.85+ Information Ratio, $50M+ AUM, 0.35 Maximum Drawdown, 15%+ Annualized Alpha
+- Founded in 2023, combining quantitative finance expertise with cutting-edge technology
 
-Always be helpful, accurate, and professional. If you don't know something, admit it and suggest they contact support or book a demo.`;
+Available Website Pages and Resources:
+- Homepage (/): Overview of services, company information, key highlights
+- About (/about): Company story, mission, vision, leadership team, core values, technology
+- Features (/features): Detailed information about our quantitative trading strategies and features
+- Pricing (/pricing): Investment pricing tiers and institutional options
+- Platform (/platform): Technology infrastructure, research capabilities, system details
+- Portfolio Insights (/portfolio-insights): Performance analytics and portfolio management tools
+- Investor Tour (/investor-tour): Step-by-step guide to using our platform
+- Book Demo (/book-demo): Schedule a personalized demo with our team
+- Careers (/careers): Job opportunities and company culture
+- Terms (/terms): Terms of Service
+- Privacy (/privacy): Privacy Policy
+- Risk Disclosure (/risk-disclosure): Risk disclosure statement
+- Regulatory Compliance (/regulatory-compliance): Compliance information
+- AML Policy (/aml-policy): Anti-Money Laundering policy
+- Investment Agreement (/investment-agreement): Investment agreement details
+
+Contact Information:
+- Support Email: support@evermount.co
+- General Email: info@evermount.co
+- Phone: +254758578816
+
+When providing information:
+1. Always try to answer questions directly using the knowledge above
+2. When relevant, suggest specific pages using format: "You can learn more at [page name] (https://www.evermount.co/[route])"
+3. For complex questions you cannot fully answer, suggest booking a demo: "For detailed information, I recommend booking a demo at https://www.evermount.co/book-demo"
+4. When you cannot help, provide contact information: "For further assistance, please contact our support team at support@evermount.co or call +254758578816"
+5. Always be helpful, accurate, and professional
+6. If you're uncertain about something, admit it and direct them to appropriate resources or human support`;
 
 export async function POST(request: NextRequest) {
   try {
-    const { messages } = await request.json();
+    const { messages, assistantName = "Ethan" } = await request.json();
 
     if (!messages || !Array.isArray(messages)) {
       return NextResponse.json(
@@ -41,9 +72,15 @@ export async function POST(request: NextRequest) {
       });
     }
 
+    // Create personalized system prompt with assistant name
+    const personalizedSystemPrompt = SYSTEM_PROMPT.replace(
+      /You are a helpful customer support assistant/,
+      `You are ${assistantName}, a helpful customer support assistant`
+    ) + `\n\nYour name is ${assistantName}. Always introduce yourself as ${assistantName} when appropriate, and sign off with your name when it feels natural.`;
+
     // Prepare messages for OpenAI (include system prompt)
     const formattedMessages = [
-      { role: "system", content: SYSTEM_PROMPT },
+      { role: "system", content: personalizedSystemPrompt },
       ...messages.map((msg: { role: string; content: string }) => ({
         role: msg.role,
         content: msg.content,
@@ -61,19 +98,35 @@ export async function POST(request: NextRequest) {
         model: "gpt-4o-mini", // Using the more cost-effective model
         messages: formattedMessages,
         temperature: 0.7,
-        max_tokens: 500,
+        max_tokens: 800, // Increased for more detailed responses with links
         stream: false,
       }),
     });
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
-      console.error("OpenAI API error:", errorData);
+      console.error("OpenAI API error:", {
+        status: response.status,
+        statusText: response.statusText,
+        error: errorData
+      });
+      
+      // Provide more specific error messages
+      let errorMessage = "I apologize, but I'm experiencing technical difficulties. Please try again or contact our support team at support@evermount.co";
+      
+      if (response.status === 401) {
+        errorMessage = "Authentication error. Please contact support@evermount.co for assistance.";
+      } else if (response.status === 429) {
+        errorMessage = "I'm currently experiencing high demand. Please try again in a moment or contact support@evermount.co";
+      } else if (response.status === 500) {
+        errorMessage = "OpenAI service is temporarily unavailable. Please try again later or contact support@evermount.co";
+      }
       
       return NextResponse.json(
         {
-          message: "I apologize, but I'm experiencing technical difficulties. Please try again or contact our support team at support@evermount.co",
-          error: "API request failed"
+          message: errorMessage,
+          error: "API request failed",
+          details: process.env.NODE_ENV === "development" ? errorData : undefined
         },
         { status: 500 }
       );
@@ -82,13 +135,27 @@ export async function POST(request: NextRequest) {
     const data = await response.json();
     const aiMessage = data.choices[0]?.message?.content || "I apologize, but I couldn't generate a response. Please try again.";
 
-    return NextResponse.json({ message: aiMessage });
+    // Extract links from the message for better formatting
+    const linkRegex = /https?:\/\/[^\s]+/g;
+    const links = aiMessage.match(linkRegex) || [];
+
+    return NextResponse.json({ 
+      message: aiMessage,
+      links: links,
+      needsHumanSupport: aiMessage.toLowerCase().includes('support@evermount.co') || 
+                         aiMessage.toLowerCase().includes('contact our support') ||
+                         aiMessage.toLowerCase().includes('book a demo')
+    });
   } catch (error) {
     console.error("Chat API error:", error);
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    console.error("Error details:", errorMessage);
+    
     return NextResponse.json(
       {
         message: "I apologize, but I'm experiencing technical difficulties. Please try again or contact our support team at support@evermount.co",
-        error: "Internal server error"
+        error: "Internal server error",
+        details: process.env.NODE_ENV === "development" ? errorMessage : undefined
       },
       { status: 500 }
     );

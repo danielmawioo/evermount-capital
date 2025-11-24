@@ -14,15 +14,28 @@ interface Message {
   role: "user" | "assistant";
   content: string;
   timestamp: Date;
+  links?: string[];
+  needsHumanSupport?: boolean;
 }
+
+// List of assistant names to randomly select from
+const ASSISTANT_NAMES = ["Ethan", "Adriel", "Nathan", "Miguel", "Mike", "Alex", "Jordan", "Sam"];
 
 export default function ChatWidget() {
   const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
+  const [assistantName] = useState(() => {
+    // Get a random name, with preference for Ethan (first in list)
+    // 40% chance for Ethan, 60% chance for others
+    if (Math.random() < 0.4) {
+      return "Ethan";
+    }
+    return ASSISTANT_NAMES[Math.floor(Math.random() * ASSISTANT_NAMES.length)];
+  });
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Hello! I'm your AI assistant. How can I help you today?",
+      content: `Hello! I'm ${assistantName}, your AI assistant. How can I help you today?`,
       timestamp: new Date(),
     },
   ]);
@@ -69,6 +82,7 @@ export default function ChatWidget() {
             role: msg.role,
             content: msg.content,
           })),
+          assistantName: assistantName,
         }),
       });
 
@@ -78,6 +92,8 @@ export default function ChatWidget() {
         role: "assistant",
         content: data.message || "I apologize, but I couldn't generate a response. Please try again.",
         timestamp: new Date(),
+        links: data.links || [],
+        needsHumanSupport: data.needsHumanSupport || false,
       };
 
       setMessages((prev) => [...prev, assistantMessage]);
@@ -177,10 +193,10 @@ export default function ChatWidget() {
                   </div>
                   <div className="flex-1">
                     <h3 className="font-semibold text-gray-900 dark:text-white">
-                      AI Assistant
+                      {assistantName}
                     </h3>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
-                      We typically reply in seconds
+                      AI Assistant • We typically reply in seconds
                     </p>
                   </div>
                   <button
@@ -214,8 +230,48 @@ export default function ChatWidget() {
                       }`}
                     >
                       <p className="text-sm leading-relaxed whitespace-pre-wrap">
-                        {message.content}
+                        {message.content.split(/(https?:\/\/[^\s]+)/g).map((part, i) => {
+                          if (part.match(/^https?:\/\//)) {
+                            return (
+                              <a
+                                key={i}
+                                href={part}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[#00a76f] dark:text-emerald-400 underline hover:opacity-80"
+                              >
+                                {part}
+                              </a>
+                            );
+                          }
+                          return <span key={i}>{part}</span>;
+                        })}
                       </p>
+                      {message.links && message.links.length > 0 && (
+                        <div className="mt-3 space-y-2">
+                          {message.links.map((link, linkIndex) => (
+                            <a
+                              key={linkIndex}
+                              href={link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block text-xs text-[#00a76f] dark:text-emerald-400 hover:underline break-all"
+                            >
+                              🔗 {link}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                      {message.needsHumanSupport && (
+                        <div className="mt-3 pt-3 border-t border-gray-300 dark:border-gray-600">
+                          <a
+                            href="/book-demo"
+                            className="inline-block text-xs bg-[#00a76f] hover:bg-emerald-700 text-white px-3 py-1.5 rounded-md font-medium transition"
+                          >
+                            📞 Book a Demo with Our Team
+                          </a>
+                        </div>
+                      )}
                       <p
                         className={`text-xs mt-1 ${
                           message.role === "user"
