@@ -15,20 +15,24 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setMounted(true);
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.classList.toggle("dark", savedTheme === "dark");
-    } else {
-      // Check system preference
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const initialTheme = prefersDark ? "dark" : "light";
-      setTheme(initialTheme);
-      document.documentElement.classList.toggle("dark", initialTheme === "dark");
+    // Only access localStorage and window after mount
+    if (typeof window !== "undefined") {
+      const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
+      if (savedTheme) {
+        setTheme(savedTheme);
+        document.documentElement.classList.toggle("dark", savedTheme === "dark");
+      } else {
+        // Check system preference
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const initialTheme = prefersDark ? "dark" : "light";
+        setTheme(initialTheme);
+        document.documentElement.classList.toggle("dark", initialTheme === "dark");
+      }
     }
   }, []);
 
   const toggleTheme = () => {
+    if (typeof window === "undefined") return;
     const newTheme = theme === "dark" ? "light" : "dark";
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
@@ -50,7 +54,19 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 export function useTheme() {
   const context = useContext(ThemeContext);
   if (!context) {
-    throw new Error("useTheme must be used within a ThemeProvider");
+    // Fallback for SSR/SSG when ThemeProvider is not available
+    return {
+      theme: "light" as "light" | "dark",
+      toggleTheme: () => {
+        // No-op during SSR
+        if (typeof window !== "undefined") {
+          const currentTheme = document.documentElement.classList.contains("dark") ? "dark" : "light";
+          const newTheme = currentTheme === "dark" ? "light" : "dark";
+          localStorage.setItem("theme", newTheme);
+          document.documentElement.classList.toggle("dark", newTheme === "dark");
+        }
+      },
+    };
   }
   return context;
 }
