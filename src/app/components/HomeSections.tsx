@@ -154,15 +154,40 @@ export default function HomeSectionsWithImages() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="md:w-1/2"
+          whileHover={{ scale: 1.05, rotate: 2 }}
+          className="md:w-1/2 relative"
         >
-          <Image
-            src="/images/section3.png"
-            alt="Why Evermount"
-            width={600}
-            height={400}
-            className="rounded-xl shadow-xl max-w-full h-auto"
-          />
+          <motion.div
+            animate={{
+              scale: [1, 1.02, 1],
+              rotate: [0, 1, 0],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="relative"
+          >
+            <Image
+              src="/images/section3.png"
+              alt="Why Evermount"
+              width={600}
+              height={400}
+              className="rounded-xl shadow-xl max-w-full h-auto"
+            />
+            <motion.div
+              animate={{
+                opacity: [0.3, 0.6, 0.3],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute inset-0 bg-gradient-to-t from-[#00a76f]/20 to-transparent rounded-xl"
+            />
+          </motion.div>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 50 }}
@@ -201,15 +226,41 @@ export default function HomeSectionsWithImages() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="md:w-1/2"
+          whileHover={{ scale: 1.05, rotate: -2 }}
+          className="md:w-1/2 relative"
         >
-          <Image
-            src="/images/section2.png"
-            alt="Fund Features"
-            width={600}
-            height={400}
-            className="rounded-xl shadow-xl max-w-full h-auto"
-          />
+          <motion.div
+            animate={{
+              scale: [1, 1.02, 1],
+              rotate: [0, -1, 0],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="relative"
+          >
+            <Image
+              src="/images/section2.png"
+              alt="Fund Features"
+              width={600}
+              height={400}
+              className="rounded-xl shadow-xl max-w-full h-auto"
+            />
+            <motion.div
+              animate={{
+                opacity: [0.3, 0.6, 0.3],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.5,
+              }}
+              className="absolute inset-0 bg-gradient-to-br from-[#00a76f]/20 to-transparent rounded-xl"
+            />
+          </motion.div>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -307,15 +358,39 @@ export default function HomeSectionsWithImages() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="md:w-1/2"
+            whileHover={{ scale: 1.05 }}
+            className="md:w-1/2 relative"
           >
-            <Image
-              src="/images/section3.png"
-              alt="Capital Management"
-              width={600}
-              height={400}
-              className="rounded-xl shadow-xl max-w-full h-auto"
-            />
+            <motion.div
+              animate={{
+                scale: [1, 1.03, 1],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="relative"
+            >
+              <Image
+                src="/images/section3.png"
+                alt="Capital Management"
+                width={600}
+                height={400}
+                className="rounded-xl shadow-xl max-w-full h-auto"
+              />
+              <motion.div
+                animate={{
+                  opacity: [0.2, 0.5, 0.2],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute inset-0 bg-gradient-to-r from-[#00a76f]/20 via-transparent to-emerald-400/20 rounded-xl"
+              />
+            </motion.div>
           </motion.div>
         </div>
       </section>

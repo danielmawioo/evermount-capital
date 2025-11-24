@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Script from "next/script";
 import Hero from "./components/Hero";
 import HomeSectionsWithImages from "./components/HomeSections";
+import ExtendedHomeSections from "./components/ExtendedHomeSections";
 import TrustLogos from "./components/TrustLogos";
 
 export const metadata: Metadata = {
@@ -201,6 +202,7 @@ export default function Home() {
         <Hero />
         <TrustLogos />
         <HomeSectionsWithImages />
+        <ExtendedHomeSections />
       </main>
     </>
   );
