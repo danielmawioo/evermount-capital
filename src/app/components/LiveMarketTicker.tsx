@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowTrendingUpIcon, ArrowTrendingDownIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
+import { useTheme } from "@/context/ThemeContext";
 
 interface MarketData {
   symbol: string;
