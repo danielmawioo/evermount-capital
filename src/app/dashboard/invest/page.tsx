@@ -1,6 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import {
+  GlobeAltIcon,
+  ChartBarIcon,
+  BuildingLibraryIcon,
+} from "@heroicons/react/24/outline";
 
 export default function InvestPage() {
   return (
@@ -22,9 +27,11 @@ export default function InvestPage() {
           {/* Forex */}
           <Link
             href="/dashboard/invest/forex"
-            className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 p-6 flex flex-col items-center text-center hover:shadow-md hover:scale-[1.03] transition-all duration-300 ease-in-out"
+            className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 p-6 flex flex-col items-center text-center hover:shadow-lg hover:scale-[1.02] transition-all duration-300 ease-in-out"
           >
-            <div className="text-4xl mb-4">🌍</div>
+            <div className="mb-4 p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full">
+              <GlobeAltIcon className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+            </div>
             <h2 className="text-lg font-semibold text-gray-800 dark:text-white">
               Global Forex
             </h2>
@@ -37,9 +44,11 @@ export default function InvestPage() {
           {/* Stocks */}
           <Link
             href="/dashboard/invest/stocks"
-            className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 p-6 flex flex-col items-center text-center hover:shadow-md hover:scale-[1.03] transition-all duration-300 ease-in-out"
+            className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 p-6 flex flex-col items-center text-center hover:shadow-lg hover:scale-[1.02] transition-all duration-300 ease-in-out"
           >
-            <div className="text-4xl mb-4">📈</div>
+            <div className="mb-4 p-3 bg-green-100 dark:bg-green-900/30 rounded-full">
+              <ChartBarIcon className="w-8 h-8 text-green-600 dark:text-green-400" />
+            </div>
             <h2 className="text-lg font-semibold text-gray-800 dark:text-white">
               Global Stocks & ETFs
             </h2>
@@ -52,9 +61,11 @@ export default function InvestPage() {
           {/* Commodities */}
           <Link
             href="/dashboard/invest/commodities"
-            className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 p-6 flex flex-col items-center text-center hover:shadow-md hover:scale-[1.03] transition-all duration-300 ease-in-out"
+            className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 p-6 flex flex-col items-center text-center hover:shadow-lg hover:scale-[1.02] transition-all duration-300 ease-in-out"
           >
-            <div className="text-4xl mb-4">🏦</div>
+            <div className="mb-4 p-3 bg-yellow-100 dark:bg-yellow-900/30 rounded-full">
+              <BuildingLibraryIcon className="w-8 h-8 text-yellow-600 dark:text-yellow-400" />
+            </div>
             <h2 className="text-lg font-semibold text-gray-800 dark:text-white">
               Commodities
             </h2>

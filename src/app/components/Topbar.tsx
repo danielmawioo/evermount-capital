@@ -8,6 +8,7 @@ import {
   BellIcon,
   GlobeAltIcon,
   ChevronDownIcon,
+  RocketLaunchIcon,
 } from "@heroicons/react/24/outline";
 import { useTheme } from "@/context/ThemeContext";
 import Image from "next/image";
@@ -30,9 +31,9 @@ export default function Topbar() {
   // Greeting based on time
   useEffect(() => {
     const hour = new Date().getHours();
-    if (hour < 12) setGreeting("Good morning 🌅");
-    else if (hour < 18) setGreeting("Good afternoon ☀️");
-    else setGreeting("Good evening 🌙");
+    if (hour < 12) setGreeting("Good morning");
+    else if (hour < 18) setGreeting("Good afternoon");
+    else setGreeting("Good evening");
   }, []);
 
   // Handle click outside dropdowns
@@ -69,8 +70,9 @@ export default function Topbar() {
         <h1 className="text-base md:text-lg font-bold text-gray-800 dark:text-white">
           {greeting}
         </h1>
-        <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
-          Let’s grow your portfolio today 🚀
+        <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 flex items-center gap-1">
+          <RocketLaunchIcon className="w-3 h-3 text-[#00a76f]" />
+          Let's grow your portfolio today
         </p>
 
         {logoutMessage && (
@@ -81,13 +83,13 @@ export default function Topbar() {
       </div>
 
       {/* Right Controls */}
-      <div className="flex items-center gap-4 relative">
+      <div className="flex items-center gap-2 sm:gap-4 relative">
         {/* Search Input */}
-        <div className="hidden md:block relative">
+        <div className="hidden lg:block relative">
           <input
             type="text"
             placeholder="Search..."
-            className="rounded-md px-3 py-1.5 w-48 text-sm bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#00a76f]"
+            className="rounded-md px-3 py-1.5 w-40 xl:w-48 text-sm bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#00a76f]"
           />
         </div>
 
@@ -99,11 +101,11 @@ export default function Topbar() {
               setNotifOpen(false);
               setProfileOpen(false);
             }}
-            className="flex items-center gap-1 px-2 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-white rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+            className="flex items-center gap-1 px-2 py-1.5 text-xs sm:text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-white rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition"
           >
-            <GlobeAltIcon className="w-5 h-5" />
-            <span>{selectedLang}</span>
-            <ChevronDownIcon className="w-4 h-4" />
+            <GlobeAltIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span className="hidden sm:inline">{selectedLang}</span>
+            <ChevronDownIcon className="w-3 h-3 sm:w-4 sm:h-4" />
           </button>
 
           {langOpen && (
@@ -136,9 +138,9 @@ export default function Topbar() {
               setLangOpen(false);
               setProfileOpen(false);
             }}
-            className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+            className="p-1.5 sm:p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
           >
-            <BellIcon className="w-5 h-5 text-gray-600 dark:text-white" />
+            <BellIcon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-white" />
           </button>
 
           {notifOpen && (
@@ -159,14 +161,14 @@ export default function Topbar() {
               setNotifOpen(false);
               setLangOpen(false);
             }}
-            className="w-9 h-9 rounded-full overflow-hidden border-2 border-gray-200 dark:border-gray-700 hover:ring-2 hover:ring-[#00a76f]"
+            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border-2 border-gray-200 dark:border-gray-700 hover:ring-2 hover:ring-[#00a76f] transition"
           >
             <Image
               src="/images/avatar.avif"
               alt="User Avatar"
               width={36}
               height={36}
-              className="object-cover rounded-full"
+              className="object-cover rounded-full w-full h-full"
             />
           </button>
 
@@ -262,13 +264,13 @@ export default function Topbar() {
         {/* Theme Toggle */}
         <button
           onClick={toggleTheme}
-          className="p-2 rounded-md border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+          className="p-1.5 sm:p-2 rounded-md border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
           aria-label="Toggle theme"
         >
           {theme === "dark" ? (
-            <SunIcon className="w-5 h-5 text-yellow-400" />
+            <SunIcon className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400" />
           ) : (
-            <MoonIcon className="w-5 h-5 text-gray-700" />
+            <MoonIcon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700 dark:text-gray-300" />
           )}
         </button>
       </div>

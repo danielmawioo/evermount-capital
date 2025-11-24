@@ -1,13 +1,14 @@
 "use client";
 
 import Script from "next/script";
+import { metadata as meta } from "./metadata";
 
 export default function PortfolioInsightsPage() {
   return (
     <main className="px-6 py-20 max-w-7xl mx-auto text-gray-900">
-      {/* ✅ JSON-LD Structured Data for Search Engines */}
+      {/* Enhanced Structured Data */}
       <Script
-        id="ld-json-insights"
+        id="portfolio-insights-structured-data"
         type="application/ld+json"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
@@ -15,13 +16,19 @@ export default function PortfolioInsightsPage() {
             "@context": "https://schema.org",
             "@type": "WebPage",
             name: "Portfolio Insights",
-            url: "https://evermount.co/insights",
+            url: "https://www.evermount.co/portfolio-insights",
             description:
               "Explore portfolio growth, performance metrics, and capital risk breakdown through the Evermount insights dashboard.",
             isPartOf: {
               "@type": "WebSite",
               name: "Evermount Capital",
-              url: "https://evermount.co",
+              url: "https://www.evermount.co",
+            },
+            mainEntity: {
+              "@type": "FinancialProduct",
+              name: "Portfolio Analytics Dashboard",
+              description:
+                "Real-time portfolio performance tracking with risk metrics, return analysis, and benchmark comparisons.",
             },
           }),
         }}

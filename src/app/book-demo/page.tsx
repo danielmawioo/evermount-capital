@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Script from "next/script";
 import {
   CalendarIcon,
   XMarkIcon,
@@ -26,12 +27,13 @@ export default function BookDemoModal() {
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-
   const [errors, setErrors] = useState({
     name: "",
     email: "",
     date: "",
   });
+
+  const [bookedSlots, setBookedSlots] = useState<Date[]>([]);
 
   useEffect(() => {
     document.body.style.overflow = showModal ? "hidden" : "auto";
@@ -59,6 +61,24 @@ export default function BookDemoModal() {
     };
   }, []);
 
+  useEffect(() => {
+    const fetchBookedSlots = async () => {
+      try {
+        const res = await fetch("https://api.evermount.co/booked-demo-slots");
+        const data = await res.json();
+
+        const dates = (data.bookedSlots || []).map(
+          (iso: string) => new Date(iso)
+        );
+        setBookedSlots(dates);
+      } catch (error) {
+        console.error("Failed to fetch booked slots:", error);
+      }
+    };
+
+    fetchBookedSlots();
+  }, []);
+
   const handleClose = () => {
     setShowModal(false);
     router.push("/");
@@ -82,7 +102,6 @@ export default function BookDemoModal() {
     e.preventDefault();
     if (!validate()) return;
 
-    // ✅ Updated payload to match backend expectations
     const payload = {
       fullName: form.name,
       email: form.email,
@@ -96,21 +115,17 @@ export default function BookDemoModal() {
     try {
       const res = await fetch("https://api.evermount.co/demo-booking", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
       const data = await res.json();
 
       if (!res.ok) {
-        console.error("Error response:", data);
         toast.error(data.message || "There was an error booking the demo.");
         return;
       }
 
-      console.log("Success response:", data);
       setSuccess(true);
       toast.success("Demo booked successfully!");
       setTimeout(() => {
@@ -118,58 +133,91 @@ export default function BookDemoModal() {
         router.push("/");
       }, 2000);
     } catch (err) {
-      console.error("Network or unexpected error:", err);
       toast.error("Network error. Please try again later.");
     } finally {
       setLoading(false);
     }
   };
 
+  const getExcludedTimes = (date: Date) => {
+    return bookedSlots.filter(
+      (slot) => slot.toDateString() === date.toDateString()
+    );
+  };
+
   if (!showModal) return null;
+
+  const eventStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: "Evermount Capital Platform Demo",
+    description:
+      "Schedule a personalized demo to learn about Evermount Capital's AI-powered hedge fund platform and investment strategies.",
+    organizer: {
+      "@type": "Organization",
+      name: "Evermount Capital",
+      url: "https://www.evermount.co",
+    },
+    eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    location: {
+      "@type": "VirtualLocation",
+      url: "https://www.evermount.co/book-demo",
+    },
+  };
 
   return (
     <>
+      <Script
+        id="book-demo-structured-data"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(eventStructuredData),
+        }}
+      />
       <Toaster position="top-center" />
-      <div className="fixed inset-0 z-[100] bg-black/50 flex items-center justify-center px-4">
+      <div className="fixed inset-0 z-[100] bg-black/50 flex items-center justify-center px-4 py-4 overflow-y-auto">
         <div
           ref={modalRef}
-          className="bg-white w-full max-w-lg rounded-2xl p-8 shadow-2xl relative"
+          className="bg-white dark:bg-gray-800 w-full max-w-lg rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl relative my-auto"
         >
           <button
             onClick={handleClose}
-            className="absolute top-4 right-4 text-gray-500 hover:text-black transition"
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition p-1"
           >
-            <XMarkIcon className="w-6 h-6" />
+            <XMarkIcon className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
 
           {success ? (
             <div className="flex flex-col items-center text-center py-10">
               <CheckCircleIcon className="w-16 h-16 text-green-500 mb-4" />
-              <h2 className="text-xl font-semibold text-green-600">
+              <h2 className="text-lg sm:text-xl font-semibold text-green-600 dark:text-green-400">
                 Demo Booked Successfully!
               </h2>
-              <p className="text-gray-600 mt-2">Redirecting...</p>
+              <p className="text-gray-600 dark:text-gray-400 mt-2">Redirecting...</p>
             </div>
           ) : (
             <>
-              <h2 className="text-2xl font-bold text-center text-[#00a76f]">
+              <h2 className="text-xl sm:text-2xl font-bold text-center text-[#00a76f] dark:text-green-400">
                 Book a Demo
               </h2>
-              <p className="text-sm text-gray-600 text-center mb-6 mt-1">
-                Choose a date and time that works best. We’ll send you a meeting
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 text-center mb-4 sm:mb-6 mt-1">
+                Choose a date and time that works best. We'll send you a meeting
                 invite.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Full Name */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Full Name <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
                     value={form.name}
                     onChange={(e) => handleChange("name", e.target.value)}
-                    className={`mt-1 w-full px-4 py-3 border rounded-lg text-sm shadow-sm outline-none focus:ring-[#00a76f] focus:border-[#00a76f] ${
+                    className={`mt-1 w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 dark:border-gray-700 rounded-lg text-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-white shadow-sm outline-none focus:ring-[#00a76f] focus:border-[#00a76f] ${
                       errors.name && "border-red-500"
                     }`}
                     placeholder="Jane Doe"
@@ -179,15 +227,16 @@ export default function BookDemoModal() {
                   )}
                 </div>
 
+                {/* Email */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Email Address <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="email"
                     value={form.email}
                     onChange={(e) => handleChange("email", e.target.value)}
-                    className={`mt-1 w-full px-4 py-3 border rounded-lg text-sm shadow-sm outline-none focus:ring-[#00a76f] focus:border-[#00a76f] ${
+                    className={`mt-1 w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 dark:border-gray-700 rounded-lg text-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-white shadow-sm outline-none focus:ring-[#00a76f] focus:border-[#00a76f] ${
                       errors.email && "border-red-500"
                     }`}
                     placeholder="you@example.com"
@@ -197,21 +246,23 @@ export default function BookDemoModal() {
                   )}
                 </div>
 
+                {/* Company */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Company (optional)
                   </label>
                   <input
                     type="text"
                     value={form.company}
                     onChange={(e) => handleChange("company", e.target.value)}
-                    className="mt-1 w-full px-4 py-3 border rounded-lg text-sm shadow-sm outline-none focus:ring-[#00a76f] focus:border-[#00a76f]"
+                    className="mt-1 w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 dark:border-gray-700 rounded-lg text-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-white shadow-sm outline-none focus:ring-[#00a76f] focus:border-[#00a76f]"
                     placeholder="Evermount Capital"
                   />
                 </div>
 
+                {/* Date & Time */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Preferred Date & Time{" "}
                     <span className="text-red-500">*</span>
                   </label>
@@ -223,19 +274,23 @@ export default function BookDemoModal() {
                       minDate={new Date()}
                       dateFormat="Pp"
                       placeholderText="Select date & time"
-                      className={`w-full px-4 py-3 border rounded-lg text-sm shadow-sm outline-none focus:ring-[#00a76f] focus:border-[#00a76f] ${
+                      excludeTimes={
+                        form.date ? getExcludedTimes(form.date) : []
+                      }
+                      className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 dark:border-gray-700 rounded-lg text-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-white shadow-sm outline-none focus:ring-[#00a76f] focus:border-[#00a76f] ${
                         errors.date && "border-red-500"
                       }`}
                     />
-                    <CalendarIcon className="absolute right-4 top-3 w-5 h-5 text-gray-400 pointer-events-none" />
+                    <CalendarIcon className="absolute right-3 sm:right-4 top-2.5 sm:top-3 w-4 h-4 sm:w-5 sm:h-5 text-gray-400 dark:text-gray-500 pointer-events-none" />
                   </div>
                   {errors.date && (
                     <p className="text-red-500 text-xs mt-1">{errors.date}</p>
                   )}
                 </div>
 
+                {/* Message */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Anything you'd like us to cover?
                   </label>
                   <textarea
@@ -243,10 +298,11 @@ export default function BookDemoModal() {
                     value={form.message}
                     onChange={(e) => handleChange("message", e.target.value)}
                     placeholder="Your message..."
-                    className="mt-1 w-full px-4 py-3 border rounded-lg text-sm shadow-sm outline-none focus:ring-[#00a76f] focus:border-[#00a76f]"
+                    className="mt-1 w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 dark:border-gray-700 rounded-lg text-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-white shadow-sm outline-none focus:ring-[#00a76f] focus:border-[#00a76f]"
                   />
                 </div>
 
+                {/* Submit Button */}
                 <button
                   type="submit"
                   disabled={loading}
@@ -254,7 +310,7 @@ export default function BookDemoModal() {
                     loading ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >
-                  {loading ? (
+                  {loading && (
                     <svg
                       className="animate-spin h-5 w-5 mr-2 text-white"
                       xmlns="http://www.w3.org/2000/svg"
@@ -275,7 +331,7 @@ export default function BookDemoModal() {
                         d="M4 12a8 8 0 018-8v8H4z"
                       ></path>
                     </svg>
-                  ) : null}
+                  )}
                   {loading ? "Booking..." : "Book Demo"}
                 </button>
               </form>

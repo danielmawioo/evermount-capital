@@ -1,10 +1,55 @@
 "use client";
 
 import Link from "next/link";
+import Script from "next/script";
+import { metadata as meta } from "./metadata";
 
 export default function InvestorTourPage() {
+  const howToStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to Invest with Evermount Capital",
+    description:
+      "Step-by-step guide to investing with Evermount Capital's AI-powered hedge fund platform.",
+    step: [
+      {
+        "@type": "HowToStep",
+        position: 1,
+        name: "Onboarding",
+        text: "Create an account and complete KYC verification securely.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 2,
+        name: "Fund Wallet",
+        text: "Deposit capital using your preferred secure method (bank transfer, card, or crypto).",
+      },
+      {
+        "@type": "HowToStep",
+        position: 3,
+        name: "Invest Smartly",
+        text: "Let our AI algorithms allocate and manage trades intelligently across global markets.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 4,
+        name: "Withdraw Profits",
+        text: "Enjoy seamless withdrawals to your preferred account with flexible frequency options.",
+      },
+    ],
+  };
+
   return (
-    <main className="bg-white text-gray-800">
+    <>
+      <Script
+        id="investor-tour-structured-data"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(howToStructuredData),
+        }}
+      />
+      <main className="bg-white text-gray-800">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-white via-[#f0fdf8] to-white py-24 px-6 text-center">
         <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
@@ -212,5 +257,6 @@ export default function InvestorTourPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }

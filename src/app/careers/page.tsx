@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import {
   BriefcaseIcon,
   ArrowRightIcon,
@@ -36,8 +37,36 @@ export default function CareersPage() {
     },
   ];
 
+  const jobPostingsStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: openings.map((job, index) => ({
+      "@type": "JobPosting",
+      position: index + 1,
+      title: job.title,
+      employmentType: job.type.split(" · ")[0],
+      jobLocation: {
+        "@type": "Place",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: job.location,
+        },
+      },
+      url: `https://www.evermount.co/careers#${job.title.toLowerCase().replace(/\s+/g, "-")}`,
+    })),
+  };
+
   return (
-    <main className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-sky-100 px-6 py-20 text-gray-800">
+    <>
+      <Script
+        id="careers-structured-data"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jobPostingsStructuredData),
+        }}
+      />
+      <main className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-sky-100 px-6 py-20 text-gray-800">
       <div className="max-w-6xl mx-auto space-y-24">
         {/* HERO */}
         <section className="text-center space-y-6">
@@ -141,5 +170,6 @@ export default function CareersPage() {
         </section>
       </div>
     </main>
+    </>
   );
 }

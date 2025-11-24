@@ -1,6 +1,7 @@
 "use client";
 
 import Script from "next/script";
+import { metadata as meta } from "./metadata";
 
 export default function PricingPage() {
   const tiers = [
@@ -58,27 +59,36 @@ export default function PricingPage() {
     },
   ];
 
+  const serviceStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Hedge Fund Investment Services",
+    provider: {
+      "@type": "FinancialService",
+      name: "Evermount Capital",
+      url: "https://www.evermount.co",
+    },
+    areaServed: "Worldwide",
+    offers: tiers.map((tier) => ({
+      "@type": "Offer",
+      name: `${tier.size} Investment Plan`,
+      price: tier.fee,
+      priceCurrency: "USD",
+      description: `Investment plan with ${tier.roi} target ROI, ${tier.lossLimit} max loss limit, and ${tier.support} support.`,
+      availability: "https://schema.org/InStock",
+      validFrom: "2024-01-01",
+    })),
+  };
+
   return (
     <main className="px-6 py-20 max-w-7xl mx-auto">
-      {/* ✅ JSON-LD Structured Data */}
+      {/* Enhanced Structured Data */}
       <Script
-        id="ld-json-pricing"
+        id="pricing-structured-data"
         type="application/ld+json"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            name: "Investment Plans",
-            url: "https://evermount.co/pricing",
-            description:
-              "Transparent pricing tiers with flexible capital entry, performance expectations, and advisory levels.",
-            isPartOf: {
-              "@type": "WebSite",
-              name: "Evermount Capital",
-              url: "https://evermount.co",
-            },
-          }),
+          __html: JSON.stringify(serviceStructuredData),
         }}
       />
 

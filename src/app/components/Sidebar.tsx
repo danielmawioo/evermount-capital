@@ -15,9 +15,14 @@ import {
   BriefcaseIcon,
   DocumentDuplicateIcon,
   Cog6ToothIcon,
+  XMarkIcon,
 } from "@heroicons/react/24/outline";
 
-export default function Sidebar() {
+interface SidebarProps {
+  onClose?: () => void;
+}
+
+export default function Sidebar({ onClose }: SidebarProps) {
   const pathname = usePathname();
 
   const navSections = [
@@ -78,14 +83,25 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="h-screen w-64 fixed md:static bg-white dark:bg-[#0f1117] border-r border-gray-200 dark:border-gray-800 shadow-md flex flex-col p-6 space-y-10 overflow-y-auto">
-      {/* Logo */}
-      <Link
-        href="/"
-        className="text-2xl font-extrabold text-[#00a76f] dark:text-white mb-4"
-      >
-        Evermount
-      </Link>
+    <aside className="h-screen w-64 bg-white dark:bg-[#0f1117] border-r border-gray-200 dark:border-gray-800 shadow-md flex flex-col p-6 space-y-10 overflow-y-auto">
+      {/* Logo and Close Button */}
+      <div className="flex items-center justify-between">
+        <Link
+          href="/"
+          className="text-2xl font-extrabold text-[#00a76f] dark:text-white"
+          onClick={onClose}
+        >
+          Evermount
+        </Link>
+        {onClose && (
+          <button
+            onClick={onClose}
+            className="md:hidden p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+          >
+            <XMarkIcon className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+          </button>
+        )}
+      </div>
 
       {/* Navigation */}
       <nav className="flex flex-col flex-1 space-y-8">
@@ -99,6 +115,7 @@ export default function Sidebar() {
                 <Link
                   key={href}
                   href={href}
+                  onClick={onClose}
                   className={clsx(
                     "flex items-center gap-3 px-3 py-2 rounded-md text-sm font-semibold transition",
                     pathname === href

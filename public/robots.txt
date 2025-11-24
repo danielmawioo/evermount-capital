@@ -9,13 +9,14 @@ Allow: /portfolio-insights
 Allow: /pricing
 Allow: /book-demo
 Allow: /investor-tour
+Allow: /platform
 
 # ✅ Auth Pages (but won't index them)
 Disallow: /login
 Disallow: /register
 Disallow: /forgot-password
 Disallow: /reset-password
-Disallow: /verify
+Disallow: /verify-email
 
 # ✅ Admin or internal dashboards
 Disallow: /dashboard
@@ -24,6 +25,10 @@ Disallow: /dashboard
 Disallow: /test
 Disallow: /dev
 Disallow: /drafts
+Disallow: /api
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
 
 # Sitemap
 Sitemap: https://www.evermount.co/sitemap.xml
