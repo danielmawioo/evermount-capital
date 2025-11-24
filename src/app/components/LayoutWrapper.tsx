@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/context/ThemeContext";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import CookieConsent from "./CookieConsent"; // ✅ Optional: include if you're using it
+import ChatWidget from "./ChatWidget";
 
 const authRoutes = [
   "/login",
@@ -35,6 +36,7 @@ export default function LayoutWrapper({
       {!hideFooter && <Footer />}
       {!hideFooter && <CookieConsent />}{" "}
       {/* ✅ Optional: display cookie banner */}
+      {!hideNavbar && <ChatWidget />}
     </ThemeProvider>
   );
 }
