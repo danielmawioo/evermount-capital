@@ -10,80 +10,71 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Initialize theme from DOM (set by script in head) or localStorage
-  const getInitialTheme = (): "light" | "dark" => {
-    if (typeof window === "undefined") return "light";
-    
-    // First check if already set in DOM (by head script)
-    const hasDarkClass = document.documentElement.classList.contains("dark");
-    if (hasDarkClass) {
-      const saved = localStorage.getItem("theme");
-      if (saved === "light" || saved === "dark") {
-        return saved;
-      }
-      return "dark";
-    }
-    
-    // Check localStorage
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    if (savedTheme) {
-      return savedTheme;
-    }
-    
-    // Check system preference
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    return prefersDark ? "dark" : "light";
-  };
-
-  const [theme, setTheme] = useState<"light" | "dark">(getInitialTheme);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
   const [mounted, setMounted] = useState(false);
 
+  // Initialize theme on mount
   useEffect(() => {
-    setMounted(true);
-    // Sync state with DOM on mount
-    if (typeof window !== "undefined") {
-      const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-      
-      // If there's a saved theme, use it and apply it
-      if (savedTheme) {
-        setTheme(savedTheme);
-        if (savedTheme === "dark") {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
+    if (typeof window === "undefined") return;
+
+    // Get saved theme from localStorage
+    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
+    
+    if (savedTheme) {
+      // Use saved theme
+      setTheme(savedTheme);
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark");
       } else {
-        // Otherwise check current DOM state (set by head script)
-        const currentTheme = document.documentElement.classList.contains("dark") ? "dark" : "light";
-        setTheme(currentTheme);
+        document.documentElement.classList.remove("dark");
       }
+    } else {
+      // Check system preference if no saved theme
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const systemTheme = prefersDark ? "dark" : "light";
+      setTheme(systemTheme);
+      if (systemTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+      // Save system preference to localStorage
+      localStorage.setItem("theme", systemTheme);
     }
+
+    setMounted(true);
   }, []);
 
   const toggleTheme = () => {
     if (typeof window === "undefined") return;
-    
-    // Use current theme state to determine new theme
-    const newTheme = theme === "dark" ? "light" : "dark";
-    
-    // Update state first
-    setTheme(newTheme);
-    
-    // Save to localStorage
-    localStorage.setItem("theme", newTheme);
-    
-    // Update DOM class immediately
-    if (newTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-    
-    // Force a re-render by updating the root element
-    document.documentElement.setAttribute("data-theme", newTheme);
+
+    // Calculate new theme based on current state
+    setTheme((currentTheme) => {
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      
+      // Update DOM immediately
+      const htmlElement = document.documentElement;
+      if (newTheme === "dark") {
+        htmlElement.classList.add("dark");
+      } else {
+        htmlElement.classList.remove("dark");
+      }
+      
+      // Save to localStorage - this is critical for persistence
+      try {
+        localStorage.setItem("theme", newTheme);
+      } catch (e) {
+        console.error("Failed to save theme to localStorage:", e);
+      }
+      
+      // Log for debugging (can be removed later)
+      console.log("Theme toggled to:", newTheme);
+      
+      return newTheme;
+    });
   };
 
-  // Prevent hydration mismatch by not rendering until mounted
+  // Prevent hydration mismatch
   if (!mounted) {
     return <>{children}</>;
   }
@@ -102,12 +93,15 @@ export function useTheme() {
     return {
       theme: "light" as "light" | "dark",
       toggleTheme: () => {
-        // No-op during SSR
         if (typeof window !== "undefined") {
-          const currentTheme = document.documentElement.classList.contains("dark") ? "dark" : "light";
-          const newTheme = currentTheme === "dark" ? "light" : "dark";
+          const isDark = document.documentElement.classList.contains("dark");
+          const newTheme = isDark ? "light" : "dark";
           localStorage.setItem("theme", newTheme);
-          document.documentElement.classList.toggle("dark", newTheme === "dark");
+          if (newTheme === "dark") {
+            document.documentElement.classList.add("dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+          }
         }
       },
     };

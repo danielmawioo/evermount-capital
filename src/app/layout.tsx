@@ -89,26 +89,31 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Theme initialization script - runs before React hydration */}
+        {/* Theme initialization script - runs before React hydration to prevent flash */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
                 try {
-                  const theme = localStorage.getItem('theme');
-                  if (theme === 'dark') {
+                  const savedTheme = localStorage.getItem('theme');
+                  if (savedTheme === 'dark') {
                     document.documentElement.classList.add('dark');
-                  } else if (theme === 'light') {
+                  } else if (savedTheme === 'light') {
                     document.documentElement.classList.remove('dark');
                   } else {
+                    // No saved theme, check system preference
                     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
                     if (prefersDark) {
                       document.documentElement.classList.add('dark');
+                      localStorage.setItem('theme', 'dark');
                     } else {
                       document.documentElement.classList.remove('dark');
+                      localStorage.setItem('theme', 'light');
                     }
                   }
-                } catch (e) {}
+                } catch (e) {
+                  console.error('Theme initialization error:', e);
+                }
               })();
             `,
           }}
@@ -229,3 +234,4 @@ export default function RootLayout({
     </html>
   );
 }
+

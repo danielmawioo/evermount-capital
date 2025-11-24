@@ -265,9 +265,14 @@ export default function Navbar() {
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                onClick={toggleTheme}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  toggleTheme();
+                }}
                 className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                 aria-label="Toggle theme"
+                type="button"
               >
                 {theme === "dark" ? (
                   <SunIcon className="w-5 h-5" />
@@ -357,8 +362,13 @@ export default function Navbar() {
                   {/* Theme Toggle in Mobile Menu */}
                   <motion.button
                     whileTap={{ scale: 0.95 }}
-                    onClick={toggleTheme}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      toggleTheme();
+                    }}
                     className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
+                    type="button"
                   >
                     {theme === "dark" ? (
                       <>
