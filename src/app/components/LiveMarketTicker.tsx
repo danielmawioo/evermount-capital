@@ -176,6 +176,7 @@ export default function LiveMarketTicker() {
                   : '0 2px 8px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.3) inset',
               }}
               onHoverStart={(e) => {
+                if (!e.currentTarget) return;
                 if (theme === 'dark') {
                   e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
                   e.currentTarget.style.borderColor = 'rgba(0, 167, 111, 0.4)';
@@ -185,6 +186,7 @@ export default function LiveMarketTicker() {
                 }
               }}
               onHoverEnd={(e) => {
+                if (!e.currentTarget) return;
                 if (theme === 'dark') {
                   e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)';
                   e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
