@@ -1,0 +1,20 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Mountain peaks representing Evermount -->
+  <path d="M8 24L16 8L24 24H8Z" fill="url(#goldGradient)"/>
+  <path d="M10 24L16 12L22 24H10Z" fill="url(#silverGradient)"/>
+  
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="goldGradient" x1="16" y1="8" x2="16" y2="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="silverGradient" x1="16" y1="12" x2="16" y2="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E5E7EB"/>
+      <stop offset="50%" stop-color="#9CA3AF"/>
+      <stop offset="100%" stop-color="#6B7280"/>
+    </linearGradient>
+  </defs>
+</svg>
+
