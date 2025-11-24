@@ -293,40 +293,50 @@ export default function ChatWidget() {
               </div>
 
               {/* Department Selection or Messages */}
-              <div className="flex-1 overflow-y-auto p-4">
+              <div className={`flex-1 overflow-y-auto p-4 ${
+                !selectedDepartment && theme === "light" ? "bg-gray-50" : ""
+              }`}>
                 {!selectedDepartment ? (
                   <div className="space-y-3">
                     <div className="text-center mb-4">
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                      <p className={`text-sm mb-1 ${
+                        theme === "dark" ? "text-gray-400" : "text-gray-700"
+                      }`}>
                         Hi! I'm {assistantName}, your AI assistant.
                       </p>
-                      <p className="text-sm font-medium text-gray-900 dark:text-white">
+                      <p className={`text-sm font-semibold ${
+                        theme === "dark" ? "text-white" : "text-gray-900"
+                      }`}>
                         Which department can help you today?
                       </p>
                     </div>
-                    <div className="grid grid-cols-1 gap-2">
+                    <div className="grid grid-cols-1 gap-3">
                       {DEPARTMENTS.map((dept) => {
                         const IconComponent = dept.icon;
                         return (
                           <motion.button
                             key={dept.id}
-                            whileHover={{ scale: 1.02 }}
+                            whileHover={{ scale: 1.02, y: -2 }}
                             whileTap={{ scale: 0.98 }}
                             onClick={() => handleDepartmentSelect(dept.id)}
-                            className={`flex items-center gap-3 p-3 rounded-lg border transition-all ${
+                            className={`flex items-center gap-3 p-4 rounded-xl border-2 transition-all ${
                               theme === "dark"
-                                ? "bg-gray-800 border-gray-700 hover:border-gray-600 hover:bg-gray-700"
-                                : "bg-white border-gray-200 hover:border-gray-300 hover:bg-gray-50"
+                                ? "bg-gray-800 border-gray-700 hover:border-gray-600 hover:bg-gray-700 shadow-lg"
+                                : "bg-white border-gray-300 hover:border-gray-400 hover:bg-gray-50 shadow-md hover:shadow-lg"
                             }`}
                           >
-                            <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${dept.color} flex items-center justify-center flex-shrink-0`}>
-                              <IconComponent className="w-5 h-5 text-white" />
+                            <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${dept.color} flex items-center justify-center flex-shrink-0 shadow-md`}>
+                              <IconComponent className="w-6 h-6 text-white" />
                             </div>
                             <div className="flex-1 text-left">
-                              <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                              <p className={`text-sm font-bold ${
+                                theme === "dark" ? "text-white" : "text-gray-900"
+                              }`}>
                                 {dept.name}
                               </p>
-                              <p className="text-xs text-gray-500 dark:text-gray-400">
+                              <p className={`text-xs mt-0.5 ${
+                                theme === "dark" ? "text-gray-400" : "text-gray-600"
+                              }`}>
                                 {dept.description}
                               </p>
                             </div>
