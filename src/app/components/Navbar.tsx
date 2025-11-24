@@ -281,23 +281,14 @@ export default function Navbar() {
                 )}
               </motion.button>
 
-              <Link href="/book-demo" className="hidden md:block">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  Book a Demo
-                  <ArrowRightIcon className="w-4 h-4" />
-                </motion.button>
-              </Link>
               <Link href="/login">
                 <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="px-4 py-2 text-sm font-medium text-white bg-[#00a76f] hover:bg-emerald-700 rounded-md transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white rounded-md transition-all shadow-md hover:shadow-lg bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:from-yellow-500 hover:via-yellow-600 hover:to-yellow-700"
                 >
-                  Log In
+                  Invest
+                  <ArrowRightIcon className="w-4 h-4" />
                 </motion.button>
               </Link>
 
@@ -382,23 +373,15 @@ export default function Navbar() {
                       </>
                     )}
                   </motion.button>
-                  <Link href="/book-demo" onClick={() => setMenuOpen(false)}>
-                    <motion.button
-                      whileTap={{ scale: 0.95 }}
-                      className="w-full flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
-                    >
-                      Book a Demo
-                      <ArrowRightIcon className="w-4 h-4" />
-                    </motion.button>
-                  </Link>
-                  <Link href="/login" onClick={() => setMenuOpen(false)}>
-                    <motion.button
-                      whileTap={{ scale: 0.95 }}
-                      className="w-full px-4 py-2 text-sm font-medium text-white bg-[#00a76f] hover:bg-emerald-700 rounded-md transition-colors"
-                    >
-                      Log In
-                    </motion.button>
-                  </Link>
+                      <Link href="/login" onClick={() => setMenuOpen(false)}>
+                        <motion.button
+                          whileTap={{ scale: 0.95 }}
+                          className="w-full flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-medium text-white rounded-md transition-all shadow-md hover:shadow-lg bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:from-yellow-500 hover:via-yellow-600 hover:to-yellow-700"
+                        >
+                          Invest
+                          <ArrowRightIcon className="w-4 h-4" />
+                        </motion.button>
+                      </Link>
                 </div>
               </div>
             </motion.div>
