@@ -64,8 +64,17 @@ export async function POST(request: NextRequest) {
     // Check if OpenAI API key is configured
     const apiKey = process.env.OPENAI_API_KEY;
     
+    // Log in development to help debug
+    if (process.env.NODE_ENV === "development") {
+      console.log("🔍 Environment check:");
+      console.log("- OPENAI_API_KEY exists:", !!apiKey);
+      console.log("- OPENAI_API_KEY length:", apiKey?.length || 0);
+      console.log("- OPENAI_API_KEY starts with:", apiKey?.substring(0, 7) || "N/A");
+    }
+    
     if (!apiKey) {
       // Fallback to a simple response if API key is not configured
+      console.error("❌ OPENAI_API_KEY environment variable is not set!");
       return NextResponse.json({
         message: "I'm here to help! However, the AI assistant is not fully configured yet. Please contact our support team at support@evermount.co or book a demo to speak with our team directly.",
         error: "API key not configured"
@@ -88,6 +97,11 @@ export async function POST(request: NextRequest) {
     ];
 
     // Call OpenAI API
+    if (process.env.NODE_ENV === "development") {
+      console.log("📡 Calling OpenAI API with model: gpt-4o-mini");
+      console.log("📨 Messages count:", formattedMessages.length);
+    }
+    
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -102,13 +116,25 @@ export async function POST(request: NextRequest) {
         stream: false,
       }),
     });
+    
+    if (process.env.NODE_ENV === "development") {
+      console.log("📥 OpenAI API response status:", response.status);
+    }
 
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      console.error("OpenAI API error:", {
+      const errorText = await response.text();
+      let errorData = {};
+      try {
+        errorData = JSON.parse(errorText);
+      } catch (e) {
+        errorData = { raw: errorText };
+      }
+      
+      console.error("❌ OpenAI API error:", {
         status: response.status,
         statusText: response.statusText,
-        error: errorData
+        error: errorData,
+        errorText: errorText.substring(0, 500) // First 500 chars
       });
       
       // Provide more specific error messages
