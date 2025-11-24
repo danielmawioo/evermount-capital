@@ -176,23 +176,25 @@ export default function LiveMarketTicker() {
                   : '0 2px 8px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.3) inset',
               }}
               onHoverStart={(e) => {
-                if (!e.currentTarget) return;
+                const target = e.currentTarget as HTMLElement | null;
+                if (!target) return;
                 if (theme === 'dark') {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                  e.currentTarget.style.borderColor = 'rgba(0, 167, 111, 0.4)';
+                  target.style.background = 'rgba(255, 255, 255, 0.08)';
+                  target.style.borderColor = 'rgba(0, 167, 111, 0.4)';
                 } else {
-                  e.currentTarget.style.background = 'rgba(0, 167, 111, 0.1)';
-                  e.currentTarget.style.borderColor = 'rgba(0, 167, 111, 0.3)';
+                  target.style.background = 'rgba(0, 167, 111, 0.1)';
+                  target.style.borderColor = 'rgba(0, 167, 111, 0.3)';
                 }
               }}
               onHoverEnd={(e) => {
-                if (!e.currentTarget) return;
+                const target = e.currentTarget as HTMLElement | null;
+                if (!target) return;
                 if (theme === 'dark') {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                  target.style.background = 'rgba(255, 255, 255, 0.04)';
+                  target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
                 } else {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.5)';
-                  e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.08)';
+                  target.style.background = 'rgba(255, 255, 255, 0.5)';
+                  target.style.borderColor = 'rgba(0, 0, 0, 0.08)';
                 }
               }}
             >
