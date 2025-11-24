@@ -13,6 +13,7 @@ import { motion } from "framer-motion";
 
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
+import LiveMarketTicker from "./LiveMarketTicker";
 
 export default function Hero() {
   return (
@@ -50,7 +51,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-14 sm:gap-20 items-center relative z-10">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 xl:grid-cols-[1fr_1fr_auto] gap-8 sm:gap-14 items-start relative z-10">
         {/* LEFT TEXT CONTENT */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -183,6 +184,9 @@ export default function Hero() {
             </motion.div>
           </div>
         </motion.div>
+
+        {/* LIVE MARKET TICKER */}
+        <LiveMarketTicker />
       </div>
     </section>
   );
