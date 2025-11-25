@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { FaUniversity } from "react-icons/fa";
+import toast from "react-hot-toast";
+import { api } from "@/lib/api-client";
 
 export default function WithdrawBankPage() {
   const [bankAccounts] = useState([
@@ -12,20 +14,36 @@ export default function WithdrawBankPage() {
   const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedBankId || !amount) {
-      alert("Please select a bank and enter an amount.");
+      toast.error("Please select a bank and enter an amount.");
       return;
     }
+    const numAmount = parseFloat(amount);
+    if (isNaN(numAmount) || numAmount <= 0) {
+      toast.error("Please enter a valid amount");
+      return;
+    }
+
     setLoading(true);
-    setTimeout(() => {
-      console.log("Withdraw", amount, "to bank id", selectedBankId);
-      alert(`Withdrawal of $${amount} initiated successfully! 🚀`);
-      setSelectedBankId(null);
-      setAmount("");
+    try {
+      const { data } = await api.withdrawals.bank({
+        amount: numAmount,
+        currency: "USD",
+        bankAccountId: selectedBankId.toString(),
+        reason: "Personal withdrawal",
+      });
+      toast.success(`Withdrawal of $${amount} initiated successfully!`);
+      setTimeout(() => {
+        window.location.href = "/dashboard/withdraw";
+      }, 2000);
+    } catch (error: any) {
+      const message = error?.response?.data?.error?.message || error?.response?.data?.message || "Withdrawal failed";
+      toast.error(message);
+    } finally {
       setLoading(false);
-    }, 1200);
+    }
   };
 
   return (

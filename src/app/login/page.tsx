@@ -3,10 +3,10 @@
 import { useCallback, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import axios from "axios";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Script from "next/script";
 import toast, { Toaster } from "react-hot-toast";
+import { api } from "@/lib/api-client";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -42,13 +42,7 @@ export default function LoginPage() {
 
       setLoading(true);
       try {
-        const { data } = await axios.post(
-          "https://api.evermount.co/auth/login",
-          {
-            email,
-            password,
-          }
-        );
+        const { data } = await api.auth.login({ email, password });
 
         const token = data.token;
 
@@ -58,13 +52,19 @@ export default function LoginPage() {
           sessionStorage.setItem("token", token);
         }
 
+        // Store user data
+        if (data.user) {
+          const storage = rememberMe ? localStorage : sessionStorage;
+          storage.setItem("user", JSON.stringify(data.user));
+        }
+
         toast.success("Login successful! Redirecting...");
         setTimeout(() => {
           window.location.href = "/dashboard";
         }, 1500);
       } catch (err: any) {
         const message =
-          err?.response?.data?.message || "Login failed. Please try again.";
+          err?.response?.data?.error?.message || err?.response?.data?.message || "Login failed. Please try again.";
         toast.error(message);
       } finally {
         setLoading(false);
@@ -72,6 +72,68 @@ export default function LoginPage() {
     },
     [email, password, rememberMe]
   );
+
+  const handleSocialLogin = useCallback(async (provider: string) => {
+    setLoading(true);
+    try {
+      let accessToken: string | null = null;
+
+      // Initialize OAuth based on provider
+      if (provider === "google") {
+        // Google OAuth - you'll need to implement Google Sign-In
+        // For now, this is a placeholder
+        toast.info("Google Sign-In integration in progress");
+        return;
+      } else if (provider === "github") {
+        // GitHub OAuth
+        window.location.href = `https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID}&redirect_uri=${window.location.origin}/auth/github/callback&scope=user:email`;
+        return;
+      } else if (provider === "x") {
+        // X (Twitter) OAuth
+        toast.info("X (Twitter) Sign-In integration in progress");
+        return;
+      } else if (provider === "apple") {
+        // Apple Sign-In
+        toast.info("Apple Sign-In integration in progress");
+        return;
+      }
+
+      if (!accessToken) {
+        setLoading(false);
+        return;
+      }
+
+      // Call backend with access token
+      const authEndpoint = provider === "google" 
+        ? api.auth.googleAuth 
+        : provider === "github" 
+        ? api.auth.githubAuth 
+        : provider === "x"
+        ? api.auth.xAuth
+        : api.auth.appleAuth;
+
+      const { data } = await authEndpoint({ accessToken } as any);
+
+      const token = data.token;
+      if (rememberMe) {
+        localStorage.setItem("token", token);
+        if (data.user) localStorage.setItem("user", JSON.stringify(data.user));
+      } else {
+        sessionStorage.setItem("token", token);
+        if (data.user) sessionStorage.setItem("user", JSON.stringify(data.user));
+      }
+
+      toast.success("Login successful! Redirecting...");
+      setTimeout(() => {
+        window.location.href = "/dashboard";
+      }, 1500);
+    } catch (err: any) {
+      const message =
+        err?.response?.data?.error?.message || err?.response?.data?.message || `${provider} login failed`;
+      toast.error(message);
+      setLoading(false);
+    }
+  }, [rememberMe]);
 
   return (
     <>
@@ -240,12 +302,19 @@ export default function LoginPage() {
                   key={label}
                   type="button"
                   onClick={() => {
-                    // Handle social login
-                    toast(`${label} login coming soon!`, {
-                      icon: 'ℹ️',
-                    });
+                    const provider = label.toLowerCase();
+                    if (provider === "google") {
+                      handleSocialLogin("google");
+                    } else if (provider === "github") {
+                      handleSocialLogin("github");
+                    } else if (provider === "x") {
+                      handleSocialLogin("x");
+                    } else if (provider === "apple") {
+                      handleSocialLogin("apple");
+                    }
                   }}
-                  className="flex flex-col items-center justify-center gap-1.5 border border-gray-300 dark:border-gray-700 px-3 py-3 rounded-md text-xs font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition shadow-sm bg-white dark:bg-gray-900"
+                  disabled={loading}
+                  className="flex flex-col items-center justify-center gap-1.5 border border-gray-300 dark:border-gray-700 px-3 py-3 rounded-md text-xs font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition shadow-sm bg-white dark:bg-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Image 
                     src={icon} 

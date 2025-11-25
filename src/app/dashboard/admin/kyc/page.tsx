@@ -2,25 +2,60 @@
 
 import { useState } from "react";
 import { FaIdCard, FaFileAlt, FaUpload } from "react-icons/fa";
+import FileUpload from "@/components/FileUpload";
+import toast from "react-hot-toast";
+import { api } from "@/lib/api-client";
 
 export default function KYCPage() {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [identityDocument, setIdentityDocument] = useState<File | null>(null);
+  const [proofOfAddress, setProofOfAddress] = useState<File | null>(null);
+  const [selfie, setSelfie] = useState<File | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files?.[0]) {
-      setSelectedFile(e.target.files[0]);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!identityDocument || !proofOfAddress || !selfie) {
+      toast.error("Please upload all required documents");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      await api.kyc.submit({
+        identityDocument,
+        proofOfAddress,
+        selfie,
+      });
+      toast.success("KYC documents submitted successfully!");
+      // Reset form
+      setIdentityDocument(null);
+      setProofOfAddress(null);
+      setSelfie(null);
+    } catch (error: any) {
+      const message = error?.response?.data?.error?.message || error?.response?.data?.message || "Failed to submit documents";
+      toast.error(message);
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!selectedFile) {
-      alert("Please upload your document.");
-      return;
+  const handleIdentityUpload = async (files: File[]) => {
+    if (files.length > 0) {
+      setIdentityDocument(files[0]);
     }
-    // TODO: send selectedFile to API
-    console.log("Uploading file:", selectedFile);
-    alert("✅ Document submitted successfully!");
+  };
+
+  const handleAddressUpload = async (files: File[]) => {
+    if (files.length > 0) {
+      setProofOfAddress(files[0]);
+    }
+  };
+
+  const handleSelfieUpload = async (files: File[]) => {
+    if (files.length > 0) {
+      setSelfie(files[0]);
+    }
   };
 
   return (
@@ -56,33 +91,44 @@ export default function KYCPage() {
             />
           </div>
 
-          {/* File Upload */}
-          <div>
-            <label className="block text-gray-700 dark:text-gray-300 mb-2 text-sm font-medium">
-              Upload ID Document (PDF or Image)
-            </label>
-            <div className="flex items-center space-x-4">
-              <input
-                type="file"
-                accept="image/*,.pdf"
-                onChange={handleFileChange}
-                className="text-sm text-gray-500 dark:text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#00a76f]/20 file:text-[#00a76f] hover:file:bg-[#00a76f]/30"
-              />
-              {selectedFile && (
-                <span className="text-gray-700 dark:text-white text-sm">
-                  {selectedFile.name}
-                </span>
-              )}
-            </div>
+          {/* File Uploads */}
+          <div className="space-y-6">
+            <FileUpload
+              accept="image/*,.pdf"
+              maxSize={10}
+              multiple={false}
+              onUpload={handleIdentityUpload}
+              label="Identity Document (ID/Passport)"
+              description="Upload a clear photo or scan of your government-issued ID or passport"
+            />
+
+            <FileUpload
+              accept="image/*,.pdf"
+              maxSize={10}
+              multiple={false}
+              onUpload={handleAddressUpload}
+              label="Proof of Address"
+              description="Upload a utility bill, bank statement, or other document showing your address"
+            />
+
+            <FileUpload
+              accept="image/*"
+              maxSize={5}
+              multiple={false}
+              onUpload={handleSelfieUpload}
+              label="Selfie Photo"
+              description="Upload a clear selfie photo holding your ID next to your face"
+            />
           </div>
 
           {/* Submit */}
           <button
             type="submit"
-            className="flex items-center gap-2 w-full justify-center bg-[#00a76f] hover:bg-emerald-700 text-white py-2 rounded-md font-semibold transition"
+            disabled={loading || !identityDocument || !proofOfAddress || !selfie}
+            className="flex items-center gap-2 w-full justify-center bg-[#00a76f] hover:bg-emerald-700 text-white py-2 rounded-md font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <FaUpload />
-            Submit Verification
+            {loading ? "Submitting..." : "Submit Verification"}
           </button>
         </form>
       </div>

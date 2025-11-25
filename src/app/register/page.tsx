@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { api } from "@/lib/api-client";
 
 export default function RegisterPage() {
   const [firstName, setFirstName] = useState("");
@@ -47,7 +47,7 @@ export default function RegisterPage() {
       setLoading(true);
       const fullName = `${firstName} ${lastName}`;
 
-      await axios.post("https://api.evermount.co/auth/register", {
+      await api.auth.register({
         email,
         password,
         fullName,
@@ -58,11 +58,27 @@ export default function RegisterPage() {
         window.location.href = "/login";
       }, 2000);
     } catch (err: any) {
-      toast.error(err.response?.data?.message || "Registration failed.");
+      const message = err?.response?.data?.error?.message || err?.response?.data?.message || "Registration failed.";
+      toast.error(message);
     } finally {
       setLoading(false);
     }
   };
+
+  const handleSocialSignup = useCallback(async (provider: string) => {
+    setLoading(true);
+    try {
+      if (provider === "github") {
+        window.location.href = `https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID}&redirect_uri=${window.location.origin}/auth/github/callback&scope=user:email`;
+        return;
+      }
+      toast.info(`${provider} sign up integration in progress`);
+    } catch (err: any) {
+      toast.error(`${provider} sign up failed`);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   return (
     <main className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white dark:bg-gray-900 relative">
@@ -262,12 +278,11 @@ export default function RegisterPage() {
                 key={label}
                 type="button"
                 onClick={() => {
-                  // Handle social login
-                  toast(`${label} sign up coming soon!`, {
-                    icon: 'ℹ️',
-                  });
+                  const provider = label.toLowerCase();
+                  handleSocialSignup(provider);
                 }}
-                className="flex flex-col items-center justify-center gap-1.5 border border-gray-300 dark:border-gray-700 px-3 py-3 rounded-md text-xs font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition shadow-sm bg-white dark:bg-gray-900"
+                disabled={loading}
+                className="flex flex-col items-center justify-center gap-1.5 border border-gray-300 dark:border-gray-700 px-3 py-3 rounded-md text-xs font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition shadow-sm bg-white dark:bg-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Image 
                   src={icon} 
