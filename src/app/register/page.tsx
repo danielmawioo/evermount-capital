@@ -72,7 +72,9 @@ export default function RegisterPage() {
         window.location.href = `https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID}&redirect_uri=${window.location.origin}/auth/github/callback&scope=user:email`;
         return;
       }
-      toast.info(`${provider} sign up integration in progress`);
+      toast(`${provider} sign up integration in progress`, {
+        icon: "ℹ️",
+      });
     } catch (err: any) {
       toast.error(`${provider} sign up failed`);
     } finally {

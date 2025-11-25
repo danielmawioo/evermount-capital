@@ -82,7 +82,9 @@ export default function LoginPage() {
       if (provider === "google") {
         // Google OAuth - you'll need to implement Google Sign-In
         // For now, this is a placeholder
-        toast.info("Google Sign-In integration in progress");
+        toast("Google Sign-In integration in progress", {
+          icon: "ℹ️",
+        });
         return;
       } else if (provider === "github") {
         // GitHub OAuth
@@ -90,11 +92,15 @@ export default function LoginPage() {
         return;
       } else if (provider === "x") {
         // X (Twitter) OAuth
-        toast.info("X (Twitter) Sign-In integration in progress");
+        toast("X (Twitter) Sign-In integration in progress", {
+          icon: "ℹ️",
+        });
         return;
       } else if (provider === "apple") {
         // Apple Sign-In
-        toast.info("Apple Sign-In integration in progress");
+        toast("Apple Sign-In integration in progress", {
+          icon: "ℹ️",
+        });
         return;
       }
 
