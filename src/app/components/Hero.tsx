@@ -60,11 +60,11 @@ export default function Hero() {
           viewport={{ once: true }}
           className="space-y-6 text-center lg:text-left"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight tracking-tight">
             Building the Future of Investing
           </h1>
 
-          <h2 className="text-base sm:text-lg md:text-2xl font-medium text-[#00a76f] min-h-[32px] sm:min-h-[40px]">
+          <h2 className="text-base sm:text-lg md:text-2xl font-medium text-[#00a76f] dark:text-emerald-400 min-h-[32px] sm:min-h-[40px]">
             <span className="inline-block min-w-[220px]">
               <Typewriter
                 words={[
@@ -82,7 +82,7 @@ export default function Hero() {
             </span>
           </h2>
 
-          <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
             A next-gen quantitative hedge fund blending data science, AI, and
             algorithmic precision to unlock sustainable alpha and global-scale
             growth.
@@ -111,7 +111,7 @@ export default function Hero() {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => window.dispatchEvent(new Event("openWaitlist"))}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 border border-[#00a76f] text-[#00a76f] rounded-md font-semibold hover:bg-[#e6f5f0] dark:hover:bg-[#00a76f22] transition shadow-md"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 border border-[#00a76f] dark:border-emerald-400 text-[#00a76f] dark:text-emerald-400 rounded-md font-semibold hover:bg-[#e6f5f0] dark:hover:bg-emerald-400/20 transition shadow-md"
             >
               <RocketLaunchIcon fontSize="small" />
               Get Early Access
@@ -124,7 +124,7 @@ export default function Hero() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 text-sm text-gray-800 max-w-md mx-auto lg:mx-0"
+            className="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 text-sm text-gray-800 dark:text-gray-200 max-w-md mx-auto lg:mx-0"
           >
             <div className="flex items-center gap-3">
               <ChartBarIcon className="w-5 h-5 text-[#00a76f]" />
