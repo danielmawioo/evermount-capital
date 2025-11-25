@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function InvestmentAgreementPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50 text-gray-800 px-6 py-20">
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-800 dark:text-gray-200 px-6 py-20">
       <div className="max-w-4xl mx-auto space-y-12">
         <header>
           <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
@@ -32,13 +32,13 @@ export default function InvestmentAgreementPage() {
             1. Parties to the Agreement
           </h2>
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-            <ul className="space-y-3 list-disc pl-5 text-base leading-7">
+            <ul className="space-y-3 list-disc pl-5 text-base leading-7 text-gray-700 dark:text-gray-300">
               <li>
-                <strong>Evermount Capital</strong> ("Company", "we", "us", "our") - 
+                <strong className="text-gray-900 dark:text-white">Evermount Capital</strong> ("Company", "we", "us", "our") - 
                 The technology platform provider and investment service facilitator.
               </li>
               <li>
-                <strong>Investor</strong> ("you", "your", "Client") - The individual 
+                <strong className="text-gray-900 dark:text-white">Investor</strong> ("you", "your", "Client") - The individual 
                 or entity using the platform to make investments.
               </li>
             </ul>
@@ -51,17 +51,17 @@ export default function InvestmentAgreementPage() {
             2. Investment Services
           </h2>
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-            <p className="text-base leading-7 mb-4">
+            <p className="text-base leading-7 mb-4 text-gray-700 dark:text-gray-300">
               Evermount Capital provides access to investment opportunities including:
             </p>
-            <ul className="space-y-3 list-disc pl-5 text-base leading-7">
+            <ul className="space-y-3 list-disc pl-5 text-base leading-7 text-gray-700 dark:text-gray-300">
               <li>Hedge fund investment strategies</li>
               <li>Quantitative trading strategies</li>
               <li>Portfolio management services</li>
               <li>Investment analytics and reporting</li>
               <li>Risk management tools</li>
             </ul>
-            <p className="text-base leading-7 mt-4">
+            <p className="text-base leading-7 mt-4 text-gray-700 dark:text-gray-300">
               Investment services may be provided directly by Evermount Capital or 
               through licensed third-party entities, depending on jurisdiction and 
               regulatory requirements.
@@ -75,8 +75,8 @@ export default function InvestmentAgreementPage() {
             3. Client Obligations
           </h2>
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-            <p className="text-base leading-7 mb-4">You agree to:</p>
-            <ul className="space-y-3 list-disc pl-5 text-base leading-7">
+            <p className="text-base leading-7 mb-4 text-gray-700 dark:text-gray-300">You agree to:</p>
+            <ul className="space-y-3 list-disc pl-5 text-base leading-7 text-gray-700 dark:text-gray-300">
               <li>Provide accurate and complete information during account registration and KYC</li>
               <li>Maintain the security and confidentiality of your account credentials</li>
               <li>Notify us immediately of any unauthorized access or suspicious activity</li>

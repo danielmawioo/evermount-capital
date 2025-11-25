@@ -56,8 +56,8 @@ export default function AboutPage() {
           __html: JSON.stringify(aboutStructuredData),
         }}
       />
-      <main className="px-6 py-20 max-w-7xl mx-auto space-y-20">
-        {/* SECTION 1 — Hero */}
+      <main className="px-6 py-20 max-w-7xl mx-auto space-y-20 bg-white dark:bg-gray-900">
+      {/* SECTION 1 — Hero */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -66,12 +66,12 @@ export default function AboutPage() {
           className="text-center"
         >
           <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-6">
-            A New Breed of Hedge Fund
-          </h1>
+          A New Breed of Hedge Fund
+        </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
             We're building the future of capital growth — driven by data,
-            protected by tech, and designed for high-growth investors.
-          </p>
+          protected by tech, and designed for high-growth investors.
+        </p>
         </motion.section>
 
         {/* SECTION 2 — Company Story */}
@@ -119,14 +119,14 @@ export default function AboutPage() {
             whileHover={{ y: -5, scale: 1.02 }}
             className="bg-[#f5fdfb] dark:bg-gray-800 p-8 rounded-xl shadow hover:shadow-lg transition"
           >
-            <h2 className="text-2xl font-bold text-[#00a76f] mb-3">
-              Our Mission
-            </h2>
+          <h2 className="text-2xl font-bold text-[#00a76f] mb-3">
+            Our Mission
+          </h2>
             <p className="leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
-              To unlock elite investing opportunities for all growth-focused
-              investors, combining algorithmic performance with risk-managed
-              systems across emerging and developed markets.
-            </p>
+            To unlock elite investing opportunities for all growth-focused
+            investors, combining algorithmic performance with risk-managed
+            systems across emerging and developed markets.
+          </p>
             <p className="leading-relaxed text-gray-600 dark:text-gray-400 text-sm">
               We believe that sophisticated investment strategies should not be limited 
               to institutional investors. Through technology and systematic approaches, 
@@ -141,19 +141,19 @@ export default function AboutPage() {
             whileHover={{ y: -5, scale: 1.02 }}
             className="bg-[#f5fdfb] dark:bg-gray-800 p-8 rounded-xl shadow hover:shadow-lg transition"
           >
-            <h2 className="text-2xl font-bold text-[#00a76f] mb-3">Our Vision</h2>
+          <h2 className="text-2xl font-bold text-[#00a76f] mb-3">Our Vision</h2>
             <p className="leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
               To be Africa's most trusted AI-powered alternative investment
-              ecosystem — enabling secure, scalable, and borderless capital
-              growth.
-            </p>
+            ecosystem — enabling secure, scalable, and borderless capital
+            growth.
+          </p>
             <p className="leading-relaxed text-gray-600 dark:text-gray-400 text-sm">
               We envision a future where quantitative excellence and systematic 
               investment strategies are the standard, empowering investors worldwide 
               to achieve their financial goals through data-driven decision-making.
             </p>
           </motion.div>
-        </section>
+      </section>
 
         {/* SECTION 4 — Our Approach */}
         <motion.section
@@ -283,7 +283,7 @@ export default function AboutPage() {
             <p>
               Our technology stack includes:
             </p>
-            <ul className="list-disc list-inside space-y-2 ml-4">
+            <ul className="list-disc list-inside space-y-2 ml-4 text-gray-700 dark:text-gray-300">
               <li>Machine learning models trained on decades of historical market data</li>
               <li>Real-time data processing and analysis infrastructure</li>
               <li>Automated risk management and portfolio optimization systems</li>
@@ -306,7 +306,7 @@ export default function AboutPage() {
         </motion.section>
 
         {/* SECTION 7 — Founders */}
-        <section>
+      <section>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -314,7 +314,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12"
           >
-            Meet Our Founders
+          Meet Our Founders
           </motion.h2>
 
           <motion.div
@@ -332,26 +332,26 @@ export default function AboutPage() {
             }}
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 text-center"
           >
-            {[
-              {
-                name: "Daniel Mawioo",
-                role: "CEO & Co-Founder",
-                image: "/images/founder1.jpg",
-                linkedin: "https://www.linkedin.com/in/danielmawioo/",
+          {[
+            {
+              name: "Daniel Mawioo",
+              role: "CEO & Co-Founder",
+              image: "/images/founder1.jpg",
+              linkedin: "https://www.linkedin.com/in/danielmawioo/",
                 bio: "Former quantitative researcher and portfolio manager with extensive experience in systematic trading strategies, factor investing, and risk management at leading hedge funds. Daniel brings deep expertise in quantitative finance and strategic leadership to Evermount Capital.",
-              },
-              {
-                name: "Evans Kipngetich",
-                role: "Chief Data Officer & Co-Founder",
-                image: "/images/founder2.jpg",
-                linkedin: "https://www.linkedin.com/in/evans-kipngetich/",
+            },
+            {
+              name: "Evans Kipngetich",
+              role: "Chief Data Officer & Co-Founder",
+              image: "/images/founder2.jpg",
+              linkedin: "https://www.linkedin.com/in/evans-kipngetich/",
                 bio: "Expert in machine learning, alternative data, and large-scale data infrastructure. Previously led quantitative research teams developing predictive models for financial markets. Evans drives our data science and technology innovation initiatives.",
-              },
-              {
-                name: "Tony K.",
+            },
+            {
+              name: "Tony K.",
                 role: "Head of Quantitative Research",
-                image: "/images/founder3.jpg",
-                linkedin: "#",
+              image: "/images/founder3.jpg",
+              linkedin: "#",
                 bio: "PhD in Financial Engineering with deep expertise in stochastic modeling, statistical arbitrage, and portfolio optimization. Published researcher in quantitative finance. Tony leads our research team in developing proprietary trading strategies.",
               },
             ].map(({ name, role, image, linkedin, bio }, i) => (
@@ -369,7 +369,7 @@ export default function AboutPage() {
                   transition={{ type: "spring", stiffness: 300 }}
                   className="w-32 h-32 relative rounded-full overflow-hidden shadow-lg"
                 >
-                  <Image src={image} alt={name} fill className="object-cover" />
+                <Image src={image} alt={name} fill className="object-cover" />
                 </motion.div>
                 <div className="text-center">
                   <h4 className="font-semibold text-xl text-gray-900 dark:text-white mb-1">
@@ -379,16 +379,16 @@ export default function AboutPage() {
                   <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                     {bio}
                   </p>
-                </div>
-                {linkedin !== "#" && (
+              </div>
+              {linkedin !== "#" && (
                   <motion.a
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0.9 }}
-                    href={linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#0077b5] hover:text-[#005983] transition"
-                  >
+                  href={linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#0077b5] hover:text-[#005983] transition"
+                >
                     <FaLinkedin className="text-2xl" />
                   </motion.a>
                 )}
@@ -451,10 +451,10 @@ export default function AboutPage() {
                   <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                     {item.description}
                   </p>
-                </div>
+            </div>
               </motion.div>
-            ))}
-          </div>
+          ))}
+        </div>
         </motion.section>
 
         {/* SECTION 9 — Closing Statement */}
@@ -465,12 +465,12 @@ export default function AboutPage() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto">
             <blockquote className="text-xl text-gray-600 dark:text-gray-400 italic">
               "We're not just building portfolios, we're engineering confidence,
               growth, and resilience — the future belongs to empowered investors."
-            </blockquote>
-          </div>
+          </blockquote>
+        </div>
         </motion.section>
     </main>
     </>

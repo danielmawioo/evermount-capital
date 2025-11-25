@@ -2,17 +2,17 @@
 
 export default function AMLPolicyPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-white via-slate-50 to-white text-gray-800 px-6 py-20">
+    <main className="min-h-screen bg-gradient-to-br from-white via-slate-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-800 dark:text-gray-200 px-6 py-20">
       <div className="max-w-4xl mx-auto space-y-14">
         {/* HEADER */}
         <header>
-          <h1 className="text-4xl lg:text-5xl font-extrabold mb-2 text-gray-900">
+          <h1 className="text-4xl lg:text-5xl font-extrabold mb-2 text-gray-900 dark:text-white">
             🛡️ Anti-Money Laundering (AML) Policy
           </h1>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-500 dark:text-gray-400">
             Effective Date: April 25, 2025
           </p>
-          <p className="mt-4 text-base text-gray-700 leading-relaxed">
+          <p className="mt-4 text-base text-gray-700 dark:text-gray-300 leading-relaxed">
             At Evermount Capital, we are committed to the highest standards of
             anti-money laundering (AML) compliance and ethical behavior. This
             AML Policy outlines our responsibilities and how we detect, prevent,
@@ -21,8 +21,8 @@ export default function AMLPolicyPage() {
         </header>
 
         {/* POLICY DETAILS */}
-        <section className="space-y-10 text-base leading-7 text-gray-700">
-          <ol className="space-y-8 list-decimal pl-5">
+        <section className="space-y-10 text-base leading-7 text-gray-700 dark:text-gray-300">
+          <ol className="space-y-8 list-decimal pl-5 text-gray-700 dark:text-gray-300">
             {[
               [
                 "Purpose",
@@ -146,14 +146,14 @@ export default function AMLPolicyPage() {
               ],
             ].map(([title, desc], i) => (
               <li key={i}>
-                <strong>{title}:</strong> {desc}
+                <strong className="text-gray-900 dark:text-white">{title}:</strong> {desc}
               </li>
             ))}
           </ol>
         </section>
 
         {/* CONTACT */}
-        <footer className="pt-10 border-t border-gray-200 text-sm text-gray-600">
+        <footer className="pt-10 border-t border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-400">
           <p>
             Questions? Contact our AML Compliance Officer at{" "}
             <a

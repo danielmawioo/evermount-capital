@@ -27,7 +27,7 @@ const itemVariants = {
 
 export default function PortfolioInsightsPage() {
   return (
-    <main className="px-6 py-20 max-w-7xl mx-auto text-gray-900">
+    <main className="px-6 py-20 max-w-7xl mx-auto text-gray-900 dark:text-white bg-white dark:bg-gray-900">
       {/* Enhanced Structured Data */}
       <Script
         id="portfolio-insights-structured-data"

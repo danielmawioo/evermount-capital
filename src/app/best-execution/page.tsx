@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function BestExecutionPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-green-50 via-white to-teal-50 text-gray-800 px-6 py-20">
+    <main className="min-h-screen bg-gradient-to-br from-green-50 via-white to-teal-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-800 dark:text-gray-200 px-6 py-20">
       <div className="max-w-4xl mx-auto space-y-12">
         <header>
           <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
@@ -32,7 +32,7 @@ export default function BestExecutionPage() {
             1. Best Execution Commitment
           </h2>
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-            <p className="text-base leading-7">
+            <p className="text-base leading-7 text-gray-700 dark:text-gray-300">
               When executing client orders, Evermount Capital is committed to taking 
               all sufficient steps to obtain the best possible result for clients, 
               taking into account price, costs, speed, likelihood of execution and 
@@ -48,34 +48,34 @@ export default function BestExecutionPage() {
             2. Execution Factors
           </h2>
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-            <p className="text-base leading-7 mb-4">
+            <p className="text-base leading-7 mb-4 text-gray-700 dark:text-gray-300">
               When determining best execution, we consider the following factors:
             </p>
-            <ul className="space-y-3 list-disc pl-5 text-base leading-7">
+            <ul className="space-y-3 list-disc pl-5 text-base leading-7 text-gray-700 dark:text-gray-300">
               <li>
-                <strong>Price:</strong> The price at which the order can be executed
+                <strong className="text-gray-900 dark:text-white">Price:</strong> The price at which the order can be executed
               </li>
               <li>
-                <strong>Costs:</strong> All costs related to execution, including 
+                <strong className="text-gray-900 dark:text-white">Costs:</strong> All costs related to execution, including 
                 commissions, fees, and spreads
               </li>
               <li>
-                <strong>Speed:</strong> The speed of execution and likelihood of 
+                <strong className="text-gray-900 dark:text-white">Speed:</strong> The speed of execution and likelihood of 
                 settlement
               </li>
               <li>
-                <strong>Likelihood of Execution:</strong> The probability that the 
+                <strong className="text-gray-900 dark:text-white">Likelihood of Execution:</strong> The probability that the 
                 order will be filled
               </li>
               <li>
-                <strong>Size:</strong> The size of the order relative to available 
+                <strong className="text-gray-900 dark:text-white">Size:</strong> The size of the order relative to available 
                 liquidity
               </li>
               <li>
-                <strong>Nature:</strong> The nature of the order (market, limit, etc.)
+                <strong className="text-gray-900 dark:text-white">Nature:</strong> The nature of the order (market, limit, etc.)
               </li>
               <li>
-                <strong>Market Conditions:</strong> Current market conditions and 
+                <strong className="text-gray-900 dark:text-white">Market Conditions:</strong> Current market conditions and 
                 volatility
               </li>
             </ul>
@@ -88,16 +88,16 @@ export default function BestExecutionPage() {
             3. Execution Venues
           </h2>
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-            <p className="text-base leading-7 mb-4">
+            <p className="text-base leading-7 mb-4 text-gray-700 dark:text-gray-300">
               We execute client orders through various execution venues, including:
             </p>
-            <ul className="space-y-3 list-disc pl-5 text-base leading-7">
+            <ul className="space-y-3 list-disc pl-5 text-base leading-7 text-gray-700 dark:text-gray-300">
               <li>Regulated exchanges and trading platforms</li>
               <li>Licensed brokers and market makers</li>
               <li>Electronic trading systems</li>
               <li>Over-the-counter (OTC) markets where appropriate</li>
             </ul>
-            <p className="text-base leading-7 mt-4">
+            <p className="text-base leading-7 mt-4 text-gray-700 dark:text-gray-300">
               We select execution venues based on their ability to provide best 
               execution for the specific order type and market conditions.
             </p>

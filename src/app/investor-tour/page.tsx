@@ -71,7 +71,7 @@ export default function InvestorTourPage() {
           __html: JSON.stringify(howToStructuredData),
         }}
       />
-      <main className="bg-white text-gray-800">
+      <main className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-r from-white via-[#f0fdf8] dark:via-gray-800 to-white dark:to-gray-900 py-24 px-6 text-center">
         {/* Animated Background */}

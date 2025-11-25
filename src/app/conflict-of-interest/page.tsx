@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function ConflictOfInterestPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 text-gray-800 px-6 py-20">
+    <main className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-800 dark:text-gray-200 px-6 py-20">
       <div className="max-w-4xl mx-auto space-y-12">
         <header>
           <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
@@ -32,7 +32,7 @@ export default function ConflictOfInterestPage() {
             1. Policy Statement
           </h2>
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-            <p className="text-base leading-7">
+            <p className="text-base leading-7 text-gray-700 dark:text-gray-300">
               Evermount Capital maintains policies and procedures to identify, prevent, 
               manage, and disclose conflicts of interest that may arise between our 
               interests and those of our clients, or between the interests of different 
@@ -48,34 +48,34 @@ export default function ConflictOfInterestPage() {
             2. Types of Conflicts of Interest
           </h2>
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-            <p className="text-base leading-7 mb-4">Potential conflicts may arise from:</p>
-            <ul className="space-y-3 list-disc pl-5 text-base leading-7">
+            <p className="text-base leading-7 mb-4 text-gray-700 dark:text-gray-300">Potential conflicts may arise from:</p>
+            <ul className="space-y-3 list-disc pl-5 text-base leading-7 text-gray-700 dark:text-gray-300">
               <li>
-                <strong>Proprietary Trading:</strong> We may trade for our own account 
+                <strong className="text-gray-900 dark:text-white">Proprietary Trading:</strong> We may trade for our own account 
                 or related entities, which may conflict with client interests
               </li>
               <li>
-                <strong>Fee Structures:</strong> Our compensation may create incentives 
+                <strong className="text-gray-900 dark:text-white">Fee Structures:</strong> Our compensation may create incentives 
                 that conflict with client interests
               </li>
               <li>
-                <strong>Soft Dollar Arrangements:</strong> Receipt of goods or services 
+                <strong className="text-gray-900 dark:text-white">Soft Dollar Arrangements:</strong> Receipt of goods or services 
                 from brokers or other service providers
               </li>
               <li>
-                <strong>Related Party Transactions:</strong> Transactions with affiliates, 
+                <strong className="text-gray-900 dark:text-white">Related Party Transactions:</strong> Transactions with affiliates, 
                 related entities, or connected parties
               </li>
               <li>
-                <strong>Information Barriers:</strong> Access to material non-public 
+                <strong className="text-gray-900 dark:text-white">Information Barriers:</strong> Access to material non-public 
                 information that could benefit certain clients
               </li>
               <li>
-                <strong>Allocation of Investment Opportunities:</strong> Deciding which 
+                <strong className="text-gray-900 dark:text-white">Allocation of Investment Opportunities:</strong> Deciding which 
                 clients receive access to limited investment opportunities
               </li>
               <li>
-                <strong>Personal Trading:</strong> Personal investments by employees 
+                <strong className="text-gray-900 dark:text-white">Personal Trading:</strong> Personal investments by employees 
                 that may conflict with client interests
               </li>
             </ul>
@@ -88,33 +88,33 @@ export default function ConflictOfInterestPage() {
             3. Conflict Management Measures
           </h2>
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-            <ul className="space-y-4 list-disc pl-5 text-base leading-7">
+            <ul className="space-y-4 list-disc pl-5 text-base leading-7 text-gray-700 dark:text-gray-300">
               <li>
-                <strong>Organizational Measures:</strong> Information barriers, separate 
+                <strong className="text-gray-900 dark:text-white">Organizational Measures:</strong> Information barriers, separate 
                 reporting lines, and independent oversight functions
               </li>
               <li>
-                <strong>Operational Measures:</strong> Separate management of different 
+                <strong className="text-gray-900 dark:text-white">Operational Measures:</strong> Separate management of different 
                 activities, separate accounts, and independent pricing
               </li>
               <li>
-                <strong>Disclosure:</strong> Transparent disclosure of conflicts to 
+                <strong className="text-gray-900 dark:text-white">Disclosure:</strong> Transparent disclosure of conflicts to 
                 affected clients where appropriate
               </li>
               <li>
-                <strong>Policies & Procedures:</strong> Written policies and procedures 
+                <strong className="text-gray-900 dark:text-white">Policies & Procedures:</strong> Written policies and procedures 
                 for identifying and managing conflicts
               </li>
               <li>
-                <strong>Employee Training:</strong> Regular training on conflict 
+                <strong className="text-gray-900 dark:text-white">Employee Training:</strong> Regular training on conflict 
                 identification and management
               </li>
               <li>
-                <strong>Monitoring:</strong> Regular review and monitoring of potential 
+                <strong className="text-gray-900 dark:text-white">Monitoring:</strong> Regular review and monitoring of potential 
                 conflicts
               </li>
               <li>
-                <strong>Personal Trading Policies:</strong> Restrictions on personal 
+                <strong className="text-gray-900 dark:text-white">Personal Trading Policies:</strong> Restrictions on personal 
                 trading by employees
               </li>
             </ul>

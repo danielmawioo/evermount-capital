@@ -2,23 +2,23 @@
 
 export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-sky-100 via-sky-50 to-white text-gray-800 px-6 py-20">
+    <main className="min-h-screen bg-gradient-to-br from-sky-100 via-sky-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-800 dark:text-gray-200 px-6 py-20">
       <div className="max-w-4xl mx-auto space-y-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
           Terms & Conditions
         </h1>
-        <p className="text-sm text-gray-500">Last updated: April 25, 2025</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">Last updated: April 25, 2025</p>
 
-        <section className="space-y-8 text-base leading-7">
+        <section className="space-y-8 text-base leading-7 text-gray-700 dark:text-gray-300">
           <p>
             These Terms and Conditions ("Terms") govern your use of Evermount
             Capital, a hedge fund technology platform offering investment
             analytics, automation, and performance monitoring tools.
           </p>
 
-          <ol className="space-y-6 list-decimal pl-5">
+          <ol className="space-y-6 list-decimal pl-5 text-gray-700 dark:text-gray-300">
             <li>
-              <strong>Eligibility:</strong> You must be at least 18 years of age
+              <strong className="text-gray-900 dark:text-white">Eligibility:</strong> You must be at least 18 years of age
               or legally permitted to invest in your jurisdiction.
             </li>
 

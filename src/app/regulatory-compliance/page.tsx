@@ -32,12 +32,12 @@ export default function RegulatoryCompliancePage() {
             1. Regulatory Framework
           </h2>
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-            <p className="text-base leading-7 mb-4">
+            <p className="text-base leading-7 mb-4 text-gray-700 dark:text-gray-300">
               Evermount Capital operates in compliance with applicable financial 
               services regulations in the jurisdictions where we provide services. 
               Our regulatory compliance framework includes:
             </p>
-            <ul className="space-y-3 list-disc pl-5 text-base leading-7">
+            <ul className="space-y-3 list-disc pl-5 text-base leading-7 text-gray-700 dark:text-gray-300">
               <li>Securities and Exchange Commission (SEC) regulations (where applicable)</li>
               <li>Financial Conduct Authority (FCA) standards (UK/EU)</li>
               <li>Capital Markets Authority (CMA) regulations (Kenya)</li>
@@ -57,8 +57,8 @@ export default function RegulatoryCompliancePage() {
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
             <div className="space-y-4">
               <div>
-                <h3 className="font-semibold text-lg mb-2">Technology Platform License</h3>
-                <p className="text-base leading-7">
+                <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">Technology Platform License</h3>
+                <p className="text-base leading-7 text-gray-700 dark:text-gray-300">
                   Evermount Capital operates as a technology platform providing 
                   investment management tools and analytics. Our platform services 
                   are provided under appropriate technology and software licensing 
@@ -66,16 +66,16 @@ export default function RegulatoryCompliancePage() {
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-lg mb-2">Investment Services</h3>
-                <p className="text-base leading-7">
+                <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">Investment Services</h3>
+                <p className="text-base leading-7 text-gray-700 dark:text-gray-300">
                   Investment services may be provided through licensed third-party 
                   entities or partnerships with regulated financial institutions, 
                   depending on jurisdiction and service type.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-lg mb-2">Payment Processing</h3>
-                <p className="text-base leading-7">
+                <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">Payment Processing</h3>
+                <p className="text-base leading-7 text-gray-700 dark:text-gray-300">
                   Payment processing services are provided through licensed payment 
                   service providers and financial institutions that maintain appropriate 
                   regulatory authorizations.
@@ -91,35 +91,35 @@ export default function RegulatoryCompliancePage() {
             3. Compliance Programs
           </h2>
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
-            <ul className="space-y-4 list-disc pl-5 text-base leading-7">
+            <ul className="space-y-4 list-disc pl-5 text-base leading-7 text-gray-700 dark:text-gray-300">
               <li>
-                <strong>AML/CTF Compliance:</strong> Comprehensive anti-money laundering 
+                <strong className="text-gray-900 dark:text-white">AML/CTF Compliance:</strong> Comprehensive anti-money laundering 
                 and counter-terrorism financing program with customer due diligence, 
                 transaction monitoring, and suspicious activity reporting.
               </li>
               <li>
-                <strong>KYC Procedures:</strong> Know Your Customer (KYC) verification 
+                <strong className="text-gray-900 dark:text-white">KYC Procedures:</strong> Know Your Customer (KYC) verification 
                 for all users, including identity verification, address verification, 
                 and source of funds checks where required.
               </li>
               <li>
-                <strong>Data Protection:</strong> GDPR, CCPA, and other data protection 
+                <strong className="text-gray-900 dark:text-white">Data Protection:</strong> GDPR, CCPA, and other data protection 
                 law compliance with appropriate technical and organizational measures.
               </li>
               <li>
-                <strong>Client Asset Protection:</strong> Segregation of client funds, 
+                <strong className="text-gray-900 dark:text-white">Client Asset Protection:</strong> Segregation of client funds, 
                 appropriate custody arrangements, and protection of client assets.
               </li>
               <li>
-                <strong>Conflict of Interest Management:</strong> Policies and procedures 
+                <strong className="text-gray-900 dark:text-white">Conflict of Interest Management:</strong> Policies and procedures 
                 to identify, manage, and disclose conflicts of interest.
               </li>
               <li>
-                <strong>Best Execution:</strong> Policies to ensure best execution of 
+                <strong className="text-gray-900 dark:text-white">Best Execution:</strong> Policies to ensure best execution of 
                 client orders where applicable.
               </li>
               <li>
-                <strong>Complaints Handling:</strong> Formal complaints handling 
+                <strong className="text-gray-900 dark:text-white">Complaints Handling:</strong> Formal complaints handling 
                 procedures and escalation processes.
               </li>
             </ul>
@@ -210,7 +210,7 @@ export default function RegulatoryCompliancePage() {
         {/* Disclaimer */}
         <section className="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-600 p-6 rounded-lg">
           <p className="text-sm leading-6 text-gray-700 dark:text-gray-300">
-            <strong>Disclaimer:</strong> This page provides general information about 
+            <strong className="text-gray-900 dark:text-white">Disclaimer:</strong> This page provides general information about 
             our regulatory compliance framework. Specific regulatory requirements may 
             vary by jurisdiction and service type. Investors should consult with 
             qualified advisors regarding regulatory matters in their jurisdiction.
