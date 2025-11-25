@@ -84,7 +84,7 @@ export default function HomeSectionsWithImages() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
             Key Highlights
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400">
@@ -196,7 +196,7 @@ export default function HomeSectionsWithImages() {
           transition={{ duration: 0.6 }}
           className="md:w-1/2 space-y-8"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
             Systematic Investment Excellence
           </h2>
           {[
@@ -269,7 +269,7 @@ export default function HomeSectionsWithImages() {
           transition={{ duration: 0.6 }}
           className="md:w-1/2"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold mb-8">
+          <h2 className="text-4xl lg:text-5xl font-bold mb-8 text-gray-900 dark:text-white">
             Fund Highlights
           </h2>
           <motion.ul

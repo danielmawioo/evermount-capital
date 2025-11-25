@@ -64,7 +64,7 @@ export default function FeaturesPage() {
         transition={{ duration: 0.6 }}
         className="text-center"
       >
-        <h1 className="text-5xl lg:text-6xl font-extrabold leading-tight">
+        <h1 className="text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white">
           Platform Built for Performance
         </h1>
         <p className="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
