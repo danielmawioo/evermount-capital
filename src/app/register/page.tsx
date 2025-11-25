@@ -69,15 +69,34 @@ export default function RegisterPage() {
     setLoading(true);
     try {
       if (provider === "github") {
-        window.location.href = `https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID}&redirect_uri=${window.location.origin}/auth/github/callback&scope=user:email`;
+        // GitHub OAuth - redirects to callback which handles both login and signup
+        const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID}&redirect_uri=${encodeURIComponent(window.location.origin + "/auth/github/callback")}&scope=user:email`;
+        window.location.href = githubAuthUrl;
+        return;
+      } else if (provider === "google") {
+        // Google OAuth - placeholder for future implementation
+        toast("Google Sign-In integration in progress", {
+          icon: "ℹ️",
+        });
+        setLoading(false);
+        return;
+      } else if (provider === "x") {
+        // X (Twitter) OAuth - placeholder for future implementation
+        toast("X (Twitter) Sign-In integration in progress", {
+          icon: "ℹ️",
+        });
+        setLoading(false);
+        return;
+      } else if (provider === "apple") {
+        // Apple Sign-In - placeholder for future implementation
+        toast("Apple Sign-In integration in progress", {
+          icon: "ℹ️",
+        });
+        setLoading(false);
         return;
       }
-      toast(`${provider} sign up integration in progress`, {
-        icon: "ℹ️",
-      });
     } catch (err: any) {
       toast.error(`${provider} sign up failed`);
-    } finally {
       setLoading(false);
     }
   }, []);
