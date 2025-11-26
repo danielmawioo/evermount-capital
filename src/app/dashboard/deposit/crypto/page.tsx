@@ -60,7 +60,7 @@ export default function CryptoDepositPage() {
           Crypto Deposit
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-2">
-          Fund your wallet easily using supported cryptocurrencies.
+          Deposit funds to your wallet using supported cryptocurrencies. Funds will be available in your wallet after confirmation.
         </p>
       </div>
 

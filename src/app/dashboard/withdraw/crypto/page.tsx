@@ -1,28 +1,59 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { FaBitcoin, FaEthereum } from "react-icons/fa";
+import toast from "react-hot-toast";
+import { api } from "@/lib/api-client";
 
 export default function WithdrawCryptoPage() {
+  const router = useRouter();
   const [cryptoType, setCryptoType] = useState("");
   const [walletAddress, setWalletAddress] = useState("");
   const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!cryptoType || !walletAddress || !amount) {
-      alert("Please fill all fields.");
+      toast.error("Please fill all fields");
       return;
     }
+    
+    const numAmount = parseFloat(amount);
+    if (isNaN(numAmount) || numAmount <= 0) {
+      toast.error("Please enter a valid amount");
+      return;
+    }
+
     setLoading(true);
-    setTimeout(() => {
-      alert(`Withdrawal of $${amount} via ${cryptoType} initiated! 🚀`);
-      setCryptoType("");
-      setWalletAddress("");
-      setAmount("");
+    try {
+      // Map crypto type to currency code
+      const currencyMap: { [key: string]: string } = {
+        Bitcoin: "BTC",
+        Ethereum: "ETH",
+        USDT: "USDT",
+      };
+      
+      const currency = currencyMap[cryptoType] || cryptoType;
+      
+      const { data } = await api.withdrawals.crypto({
+        amount: numAmount,
+        currency,
+        walletAddress,
+        network: cryptoType.toLowerCase(),
+      });
+      
+      toast.success(`Withdrawal of ${amount} ${currency} initiated successfully!`);
+      setTimeout(() => {
+        router.push("/dashboard/wallets");
+      }, 2000);
+    } catch (error: any) {
+      const message = error?.response?.data?.error?.message || error?.response?.data?.message || "Withdrawal failed";
+      toast.error(message);
+    } finally {
       setLoading(false);
-    }, 1200);
+    }
   };
 
   return (
@@ -33,7 +64,7 @@ export default function WithdrawCryptoPage() {
             Withdraw to Crypto
           </h1>
           <p className="text-gray-600 dark:text-gray-400 text-sm">
-            Enter your crypto wallet details to receive your withdrawal.
+            Withdraw funds from your wallet to your crypto wallet. Only available wallet balance can be withdrawn.
           </p>
         </div>
 

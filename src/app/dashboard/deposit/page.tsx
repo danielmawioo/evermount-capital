@@ -11,7 +11,7 @@ export default function DepositPage() {
           Deposit Funds
         </h1>
         <p className="text-gray-600 dark:text-gray-400">
-          Choose your preferred deposit method to fund your Evermount wallet.
+          Choose your preferred deposit method to add funds to your wallet. Funds will be available for withdrawal or investment.
         </p>
       </div>
 

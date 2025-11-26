@@ -130,6 +130,12 @@ export const api = {
       limit?: number;
     }) =>
       apiClient.get("/wallets/history", { params }),
+    
+    transferToInvestment: (data: { amount: number; investmentOptionId: string; strategy?: string }) =>
+      apiClient.post("/wallets/transfer-to-investment", data),
+    
+    withdrawProfit: (data: { amount: number; reason?: string }) =>
+      apiClient.post("/wallets/withdraw-profit", data),
   },
 
   // Deposits

@@ -55,7 +55,7 @@ export default function WithdrawBankPage() {
             Withdraw to Bank
           </h1>
           <p className="text-gray-600 dark:text-gray-400 text-sm">
-            Choose your bank and input the amount you want to withdraw securely.
+            Withdraw funds from your wallet to your bank account. Only available wallet balance can be withdrawn.
           </p>
         </div>
 

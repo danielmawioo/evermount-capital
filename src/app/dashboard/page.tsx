@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   SunIcon,
@@ -8,6 +8,7 @@ import {
   PlusIcon,
   MinusIcon,
   ChartBarIcon,
+  WalletIcon,
 } from "@heroicons/react/24/outline";
 
 import StatCard from "../components/StatCard";
@@ -19,9 +20,16 @@ import TimeTabs from "../components/TimeTabs";
 import PortfolioFilter from "../components/PortfolioFilter";
 import ExportButtons from "../components/ExportButtons";
 import Link from "next/link";
+import { api } from "@/lib/api-client";
 
 export default function DashboardPage() {
   const router = useRouter();
+  const [walletBalance, setWalletBalance] = useState<{
+    availableBalance: number;
+    investedBalance: number;
+    totalBalance: number;
+    currency: string;
+  } | null>(null);
 
   useEffect(() => {
     const token =
@@ -29,8 +37,28 @@ export default function DashboardPage() {
 
     if (!token) {
       router.push("/login"); // Redirect unauthenticated users
+    } else {
+      fetchWalletBalance();
     }
   }, [router]);
+
+  const fetchWalletBalance = async () => {
+    try {
+      const { data } = await api.wallets.getBalance();
+      setWalletBalance(data);
+    } catch (error) {
+      console.error("Failed to fetch wallet balance:", error);
+    }
+  };
+
+  const formatCurrency = (amount: number, currency: string = "USD") => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: currency,
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(amount);
+  };
 
   return (
     <main className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 md:space-y-10 bg-[#f9fafb] dark:bg-[#0f1117] min-h-screen">
@@ -80,13 +108,21 @@ export default function DashboardPage() {
       {/* Stat Summary Cards */}
       <section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
         <StatCard
+          title="Wallet Balance"
+          value={walletBalance ? formatCurrency(walletBalance.availableBalance, walletBalance.currency) : "$0.00"}
+          growth="Available"
+        />
+        <StatCard
           title="Total Portfolio Value"
-          value="$68,250"
+          value={walletBalance ? formatCurrency(walletBalance.totalBalance, walletBalance.currency) : "$0.00"}
           growth="+2.3%"
         />
-        <StatCard title="Monthly Growth" value="$3,200" growth="+5.1%" />
+        <StatCard
+          title="Invested Balance"
+          value={walletBalance ? formatCurrency(walletBalance.investedBalance, walletBalance.currency) : "$0.00"}
+          growth="Active"
+        />
         <StatCard title="Active Strategies" value="8" growth="Stable" />
-        <StatCard title="Risk Exposure" value="Moderate" growth="-1.2%" />
       </section>
 
       {/* Charts Section */}

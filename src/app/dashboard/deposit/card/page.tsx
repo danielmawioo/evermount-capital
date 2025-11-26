@@ -28,13 +28,21 @@ export default function CardDepositPage() {
 
   const handlePaymentSuccess = async (paymentIntentId: string) => {
     try {
-      // Payment already processed by Stripe, just redirect
-      toast.success("Deposit successful!");
+      // Create deposit record via API
+      const { data } = await api.deposits.card({
+        amount: parseFloat(amount),
+        currency: "USD",
+        cardToken: paymentIntentId,
+        saveCard: false,
+      });
+      
+      toast.success(`$${amount} deposited to your wallet successfully!`);
       setTimeout(() => {
         router.push("/dashboard/wallets");
       }, 2000);
     } catch (error: any) {
-      toast.error("Failed to complete deposit");
+      const message = error?.response?.data?.error?.message || error?.response?.data?.message || "Failed to complete deposit";
+      toast.error(message);
     }
   };
 
@@ -80,7 +88,7 @@ export default function CardDepositPage() {
         Card Deposit
       </h1>
       <p className="text-gray-600 dark:text-gray-400">
-        Securely fund your wallet using Visa or Mastercard.
+        Securely deposit funds to your wallet using Visa or Mastercard. Funds will be available in your wallet for withdrawal or investment.
       </p>
 
       <div className="bg-white dark:bg-gray-900 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm max-w-lg mx-auto">

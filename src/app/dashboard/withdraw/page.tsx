@@ -27,7 +27,7 @@ Branch: Nairobi HQ
           Withdraw Funds
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-2">
-          Securely withdraw your funds to your preferred bank or crypto wallet.
+          Withdraw funds from your wallet to your preferred bank or crypto wallet. Only available wallet balance can be withdrawn.
         </p>
       </div>
 
