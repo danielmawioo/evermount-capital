@@ -277,8 +277,8 @@ export default function InvestorTourPage() {
           >
             {[
               { value: "18.5%", label: "Annualized Returns" },
-              { value: "$50M+", label: "Assets Under Management" },
-              { value: "500+", label: "Investor Partners" },
+              { value: "$300K", label: "Assets Under Management" },
+              { value: "80", label: "Investor Partners" },
             ].map((metric, i) => (
               <motion.div
                 key={i}

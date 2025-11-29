@@ -57,8 +57,8 @@ export default function HomeSectionsWithImages() {
             className="grid grid-cols-2 sm:grid-cols-4 gap-12"
           >
             {[
-              { value: "500+", label: "Investor Partners" },
-              { value: "$50M+", label: "Assets Under Management" },
+              { value: "80", label: "Investor Partners" },
+              { value: "$300K", label: "Assets Under Management" },
               { value: "18.5%", label: "Annualized Returns" },
               { value: "40+", label: "Global Markets" },
             ].map((item, i) => (

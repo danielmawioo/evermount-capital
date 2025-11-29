@@ -132,7 +132,7 @@ export default function Hero() {
             </div>
             <div className="flex items-center gap-3">
               <CurrencyDollarIcon className="w-5 h-5 text-[#00a76f]" />
-              $50M+ Assets Under Management
+              $300K Assets Under Management
             </div>
             <div className="flex items-center gap-3">
               <ClockIcon className="w-5 h-5 text-[#00a76f]" />
@@ -140,7 +140,7 @@ export default function Hero() {
             </div>
             <div className="flex items-center gap-3">
               <UserGroupIcon className="w-5 h-5 text-[#00a76f]" />
-              500+ Investor Partners
+              80 Investor Partners
             </div>
           </motion.div>
         </motion.div>

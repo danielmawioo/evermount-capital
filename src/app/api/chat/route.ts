@@ -63,7 +63,7 @@ Key information about Evermount Capital:
 - We provide systematic investment solutions across multiple asset classes (equities, fixed income, currencies, commodities)
 - Our platform uses machine learning, statistical arbitrage, and high-performance computing
 - We serve both individual and institutional investors
-- Performance metrics: 1.85+ Information Ratio, $50M+ AUM, 0.35 Maximum Drawdown, 15%+ Annualized Alpha
+- Performance metrics: 1.85+ Information Ratio, $300K AUM, 0.35 Maximum Drawdown, 15%+ Annualized Alpha
 - Founded in 2023, combining quantitative finance expertise with cutting-edge technology
 
 Available Website Pages and Resources:

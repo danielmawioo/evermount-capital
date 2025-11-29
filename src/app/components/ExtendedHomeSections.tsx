@@ -480,7 +480,7 @@ export default function ExtendedHomeSections() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             { metric: "1.85+", label: "Information Ratio", icon: ChartBarIcon, desc: "Risk-adjusted performance metric" },
-            { metric: "$50M+", label: "Assets Under Management", icon: CurrencyDollarIcon, desc: "Institutional scale" },
+            { metric: "$300K", label: "Assets Under Management", icon: CurrencyDollarIcon, desc: "Growing portfolio" },
             { metric: "0.35", label: "Maximum Drawdown", icon: ShieldCheckIcon, desc: "Capital preservation focus" },
             { metric: "15%+", label: "Annualized Alpha", icon: BoltIcon, desc: "Excess returns vs benchmark" },
           ].map((stat, i) => (
