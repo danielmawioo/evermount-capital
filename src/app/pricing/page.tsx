@@ -7,56 +7,56 @@ import { metadata as meta } from "./metadata";
 export default function PricingPage() {
   const tiers = [
     {
-      size: "$500",
-      fee: "$25",
-      roi: "5-8%",
-      lossLimit: "12%",
-      dailyLoss: "6%",
-      ai: false,
-      dashboard: true,
-      advisor: false,
-      minDays: "3 Months",
-      frequency: "Quarterly (Every 3 Months)",
-      support: "Email Only",
-    },
-    {
-      size: "$2,500",
-      fee: "$59",
-      roi: "10-15%",
-      lossLimit: "10%",
-      dailyLoss: "5%",
-      ai: true,
-      dashboard: true,
-      advisor: false,
-      minDays: "3 Months",
-      frequency: "Quarterly (Every 3 Months)",
-      support: "Email Only",
-    },
-    {
       size: "$10,000",
-      fee: "$199",
-      roi: "15-20%",
-      lossLimit: "10%",
-      dailyLoss: "5%",
-      ai: true,
+      managementFee: "2.5%",
+      performanceFee: "20%",
+      targetReturn: "12-18%",
+      sharpeRatio: "1.5+",
+      maxDrawdown: "15%",
+      strategies: "Core Strategies",
       dashboard: true,
-      advisor: true,
-      minDays: "3 Months",
-      frequency: "Quarterly (Every 3 Months)",
-      support: "Priority Chat",
+      reporting: "Quarterly",
+      support: "Email Support",
+      minPeriod: "6 Months",
     },
     {
-      size: "$50,000+",
-      fee: "$499",
-      roi: "25-30%",
-      lossLimit: "8%",
-      dailyLoss: "4%",
-      ai: true,
+      size: "$50,000",
+      managementFee: "2.0%",
+      performanceFee: "20%",
+      targetReturn: "15-22%",
+      sharpeRatio: "1.7+",
+      maxDrawdown: "12%",
+      strategies: "Enhanced Strategies",
       dashboard: true,
-      advisor: true,
-      minDays: "3 Months",
-      frequency: "Quarterly (Every 3 Months)",
+      reporting: "Monthly",
+      support: "Priority Support",
+      minPeriod: "6 Months",
+    },
+    {
+      size: "$250,000",
+      managementFee: "1.5%",
+      performanceFee: "20%",
+      targetReturn: "18-25%",
+      sharpeRatio: "1.9+",
+      maxDrawdown: "10%",
+      strategies: "Premium Strategies",
+      dashboard: true,
+      reporting: "Monthly + Custom",
       support: "Dedicated Manager",
+      minPeriod: "6 Months",
+    },
+    {
+      size: "$1,000,000+",
+      managementFee: "1.0%",
+      performanceFee: "20%",
+      targetReturn: "20-30%",
+      sharpeRatio: "2.0+",
+      maxDrawdown: "8%",
+      strategies: "Institutional Strategies",
+      dashboard: true,
+      reporting: "Monthly + Custom",
+      support: "Dedicated Team",
+      minPeriod: "6 Months",
     },
   ];
 
@@ -72,10 +72,10 @@ export default function PricingPage() {
     areaServed: "Worldwide",
     offers: tiers.map((tier) => ({
       "@type": "Offer",
-      name: `${tier.size} Investment Plan`,
-      price: tier.fee,
+      name: `${tier.size} Investment Tier`,
+      price: tier.size,
       priceCurrency: "USD",
-      description: `Investment plan with ${tier.roi} target ROI, ${tier.lossLimit} max loss limit, and ${tier.support} support.`,
+      description: `Investment tier with ${tier.managementFee} management fee, ${tier.performanceFee} performance fee, ${tier.targetReturn} target annual return, and ${tier.support} support.`,
       availability: "https://schema.org/InStock",
       validFrom: "2024-01-01",
     })),
@@ -102,11 +102,11 @@ export default function PricingPage() {
         className="text-center mb-16"
       >
         <h1 className="text-5xl font-extrabold text-gray-900 dark:text-white">
-          Choose Your Investment Tier
+          Investment Minimums & Fee Structure
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
-          Flexible capital thresholds, tailored returns, and support that grows
-          with you.
+          Institutional-grade quantitative strategies with transparent fee structures. 
+          Performance fees align our interests with yours.
         </p>
       </motion.section>
 
@@ -134,7 +134,7 @@ export default function PricingPage() {
                   >
                     {tier.size}
                     <div className="text-sm font-semibold mt-1 text-white/90">
-                      Fee: {tier.fee}
+                      Minimum Investment
                     </div>
                   </motion.th>
                 ))}
@@ -142,19 +142,20 @@ export default function PricingPage() {
             </thead>
             <tbody className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 divide-y divide-gray-200 dark:divide-gray-700">
               {[
-                { label: "Target ROI", key: "roi" },
-                { label: "Max Loss Limit", key: "lossLimit" },
-                { label: "Max Daily Drawdown", key: "dailyLoss" },
-                { label: "AI-Driven Strategy", key: "ai", type: "boolean" },
+                { label: "Management Fee (Annual)", key: "managementFee" },
+                { label: "Performance Fee", key: "performanceFee" },
+                { label: "Target Annual Return", key: "targetReturn" },
+                { label: "Target Sharpe Ratio", key: "sharpeRatio" },
+                { label: "Maximum Drawdown", key: "maxDrawdown" },
+                { label: "Strategy Access", key: "strategies" },
                 {
-                  label: "Realtime Dashboard",
+                  label: "Portfolio Dashboard",
                   key: "dashboard",
                   type: "boolean",
                 },
-                { label: "Capital Advisor", key: "advisor", type: "boolean" },
-                { label: "Min Investment Period", key: "minDays" },
-                { label: "Withdrawal Frequency", key: "frequency" },
-                { label: "Support Channel", key: "support" },
+                { label: "Performance Reporting", key: "reporting" },
+                { label: "Minimum Lock-In Period", key: "minPeriod" },
+                { label: "Client Support", key: "support" },
               ].map((row, i) => (
                 <motion.tr
                   key={i}
@@ -194,9 +195,14 @@ export default function PricingPage() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.4 }}
-        className="mt-12 text-center text-sm text-gray-500 dark:text-gray-400"
+        className="mt-12 text-center space-y-4"
       >
-        No hidden fees. Refundable after successful qualification.
+        <p className="text-sm text-gray-500 dark:text-gray-400">
+          Performance fees are calculated on realized profits only. Management fees are charged quarterly in advance.
+        </p>
+        <p className="text-sm text-gray-600 dark:text-gray-500 font-medium">
+          All investments are subject to our standard terms and risk disclosure. Past performance does not guarantee future results.
+        </p>
       </motion.div>
     </main>
   );

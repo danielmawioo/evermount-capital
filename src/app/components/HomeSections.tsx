@@ -57,10 +57,10 @@ export default function HomeSectionsWithImages() {
             className="grid grid-cols-2 sm:grid-cols-4 gap-12"
           >
             {[
-              { value: "1K+", label: "Clients Funded" },
-              { value: "$100K", label: "Assets Managed" },
-              { value: "36%", label: "Average Returns" },
-              { value: "40+", label: "Global Instruments" },
+              { value: "500+", label: "Investor Partners" },
+              { value: "$50M+", label: "Assets Under Management" },
+              { value: "18.5%", label: "Annualized Returns" },
+              { value: "40+", label: "Global Markets" },
             ].map((item, i) => (
               <motion.div key={i} variants={itemVariants}>
                 <p className="text-4xl font-extrabold text-[#00a76f]">
@@ -102,33 +102,33 @@ export default function HomeSectionsWithImages() {
           {[
             {
               icon: CurrencyDollarIcon,
-              title: "Zero Entry Fees",
-              desc: "No upfront or exit fees — maximize your investment potential.",
+              title: "Transparent Fee Structure",
+              desc: "Clear management and performance fees aligned with investor interests.",
             },
             {
               icon: BoltIcon,
-              title: "AI-Driven Execution",
-              desc: "Real-time insights & automated trades for efficiency.",
+              title: "Systematic Execution",
+              desc: "Proprietary algorithms executing trades with precision and speed.",
             },
             {
               icon: DevicePhoneMobileIcon,
-              title: "Multi-Currency Flexibility",
-              desc: "Invest in KES or USD — flexibility that fits your needs.",
+              title: "Multi-Asset Class Access",
+              desc: "Diversified exposure across equities, fixed income, currencies, and commodities.",
             },
             {
               icon: DocumentChartBarIcon,
-              title: "24/7 Dashboard Access",
-              desc: "Stay in control with round-the-clock transparency.",
+              title: "Real-Time Portfolio Analytics",
+              desc: "Institutional-grade dashboards with comprehensive performance metrics.",
             },
             {
               icon: DocumentChartBarIcon,
-              title: "Quarterly Growth Reports",
-              desc: "Backed by expert analysis to track performance.",
+              title: "Quarterly Performance Reports",
+              desc: "Detailed attribution analysis and risk-adjusted return reporting.",
             },
             {
               icon: UserGroupIcon,
-              title: "Client-First Support",
-              desc: "Our dedicated managers are here when you need them.",
+              title: "Dedicated Relationship Management",
+              desc: "Direct access to portfolio managers and research team.",
             },
           ].map(({ icon: Icon, title, desc }, i) => (
             <motion.div
@@ -280,12 +280,13 @@ export default function HomeSectionsWithImages() {
             className="space-y-5 text-gray-700 dark:text-gray-300 text-lg"
           >
             {[
-              "0% Entry & Exit Fees",
-              "Minimum Investment: $ 500",
+              "Management Fee: 1.5% - 2.5%",
+              "Performance Fee: 20% of profits",
+              "Minimum Investment: $10,000",
               "Quarterly Performance Reports",
               "Audited & Regulated",
               "6 Month Lock-In Period",
-              "USD + KES denomination",
+              "USD + Multi-Currency Support",
             ].map((point, i) => (
               <motion.li
                 key={i}
@@ -321,20 +322,20 @@ export default function HomeSectionsWithImages() {
           >
             {[
               {
-                title: "Step 1 – Profile Setup",
-                desc: "We assess your risk appetite and capital goals for a custom plan.",
+                title: "Step 1 – Investor Onboarding",
+                desc: "KYC verification, risk profiling, and investment mandate alignment.",
               },
               {
-                title: "Step 2 – Strategy Mapping",
-                desc: "Model-based allocation built on decades of financial insights.",
+                title: "Step 2 – Portfolio Allocation",
+                desc: "Systematic allocation across quantitative strategies based on risk-return objectives.",
               },
               {
-                title: "Step 3 – Live Execution",
-                desc: "Smart execution powered by AI and market data.",
+                title: "Step 3 – Systematic Execution",
+                desc: "Proprietary algorithms execute trades across global markets with precision.",
               },
               {
-                title: "Step 4 – Weekly & Quarterly Insights",
-                desc: "Your performance dashboard keeps you informed 24/7.",
+                title: "Step 4 – Performance Monitoring",
+                desc: "Real-time portfolio analytics and quarterly performance attribution reports.",
               },
             ].map((step, i) => (
               <motion.div
