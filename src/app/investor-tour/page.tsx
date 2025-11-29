@@ -157,8 +157,8 @@ export default function InvestorTourPage() {
             },
             {
               icon: "/icons/ai-trade.svg",
-              title: "Autonomous AI Models",
-              description: "Our AI models execute trades with precision using predefined quant rules and real-time signals.",
+              title: "Systematic Execution",
+              description: "Proprietary quantitative models execute trades systematically using rigorous signal generation and validation.",
             },
             {
               icon: "/icons/dashboard.svg",
@@ -222,13 +222,13 @@ export default function InvestorTourPage() {
               },
               {
                 icon: "/illustrations/growth.svg",
-                title: "3. Invest Smartly",
-                description: "Let our algorithms allocate and manage trades intelligently.",
+                title: "3. Portfolio Allocation",
+                description: "Systematic allocation across quantitative strategies based on your risk-return objectives.",
               },
               {
                 icon: "/illustrations/withdraw.svg",
-                title: "4. Withdraw Profits",
-                description: "Enjoy seamless withdrawals to your preferred account.",
+                title: "4. Performance Monitoring",
+                description: "Real-time portfolio analytics and quarterly performance attribution reports.",
               },
             ].map((step, i) => (
               <motion.div
@@ -276,9 +276,9 @@ export default function InvestorTourPage() {
             className="grid sm:grid-cols-3 gap-8 text-center"
           >
             {[
-              { value: "30%+", label: "Average Quarterly ROI" },
-              { value: "$50M+", label: "Assets Tracked" },
-              { value: "10,000+", label: "Global Subscribers" },
+              { value: "18.5%", label: "Annualized Returns" },
+              { value: "$50M+", label: "Assets Under Management" },
+              { value: "500+", label: "Investor Partners" },
             ].map((metric, i) => (
               <motion.div
                 key={i}
@@ -384,8 +384,8 @@ export default function InvestorTourPage() {
             Ready to Experience the Future of Investing?
           </h2>
           <p className="text-lg max-w-xl mx-auto mb-6 text-gray-700 dark:text-gray-300">
-            Join thousands of forward-thinking investors using Evermount's
-            AI-powered hedge fund technology.
+            Join institutional and accredited investors leveraging Evermount's
+            quantitative investment strategies and systematic alpha generation.
           </p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

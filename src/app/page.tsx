@@ -76,7 +76,7 @@ export default function Home() {
         name: "What is the minimum investment amount?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "The minimum investment amount varies by fund type. For most funds, the minimum is $1,000. Premium funds may have higher minimums. You can check specific requirements on each fund's details page in your dashboard.",
+          text: "The minimum investment amount varies by strategy tier. Our entry-level tier requires $10,000, with higher tiers available at $50,000, $250,000, and $1,000,000+. Each tier offers different strategy access and fee structures. See our Pricing page for complete details.",
         },
       },
       {
@@ -92,7 +92,7 @@ export default function Home() {
         name: "What fees does Evermount Capital charge?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "We charge a management fee of 2% annually and a performance fee of 20% on profits above the high-water mark. There are no deposit or withdrawal fees for most methods. See our Pricing page for complete fee details.",
+          text: "We charge management fees ranging from 1.0% to 2.5% annually (depending on investment tier) and a performance fee of 20% on realized profits above the high-water mark. Management fees are charged quarterly in advance. See our Pricing page for complete fee details.",
         },
       },
       {

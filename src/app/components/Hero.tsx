@@ -68,9 +68,9 @@ export default function Hero() {
             <span className="inline-block min-w-[220px]">
               <Typewriter
                 words={[
-                  "Quant Hedge Funds",
-                  "AI-Powered Portfolios",
-                  "Autonomous Trading Systems",
+                  "Quantitative Strategies",
+                  "Systematic Alpha Generation",
+                  "Institutional-Grade Execution",
                 ]}
                 loop
                 cursor
@@ -83,9 +83,9 @@ export default function Hero() {
           </h2>
 
           <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
-            A next-gen quantitative hedge fund blending data science, AI, and
-            algorithmic precision to unlock sustainable alpha and global-scale
-            growth.
+            A quantitative investment management firm combining systematic research, 
+            proprietary algorithms, and institutional-grade execution to deliver 
+            consistent risk-adjusted returns across global markets.
           </p>
 
           {/* CTA BUTTONS */}
@@ -132,15 +132,15 @@ export default function Hero() {
             </div>
             <div className="flex items-center gap-3">
               <CurrencyDollarIcon className="w-5 h-5 text-[#00a76f]" />
-              $50M+ Strategies Tracked
+              $50M+ Assets Under Management
             </div>
             <div className="flex items-center gap-3">
               <ClockIcon className="w-5 h-5 text-[#00a76f]" />
-              Real-Time AI Trading
+              Systematic Execution
             </div>
             <div className="flex items-center gap-3">
               <UserGroupIcon className="w-5 h-5 text-[#00a76f]" />
-              10,000+ Global Subscribers
+              500+ Investor Partners
             </div>
           </motion.div>
         </motion.div>

@@ -84,8 +84,8 @@ export default function FeaturesPage() {
         {[
           {
             icon: CpuChipIcon,
-            title: "AI Trading Models",
-            desc: "Autonomous, data-driven execution around the clock. Trained on over a decade of financial data.",
+            title: "Quantitative Trading Models",
+            desc: "Systematic, data-driven execution powered by proprietary algorithms. Trained on decades of financial data.",
           },
           {
             icon: ChartBarIcon,
@@ -125,12 +125,12 @@ export default function FeaturesPage() {
           className="md:w-1/2 space-y-6"
         >
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white">
-            Smart AI Meets Hedge Funds
+            Quantitative Research Meets Systematic Execution
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-base">
-            Our proprietary models process market patterns, volatility trends,
-            and sentiment data to execute at lightning speed and adapt
-            dynamically.
+            Our proprietary quantitative models analyze market patterns, volatility regimes,
+            and cross-asset relationships to generate alpha through systematic execution
+            across global markets.
           </p>
           <motion.ul
             variants={containerVariants}
@@ -140,9 +140,9 @@ export default function FeaturesPage() {
             className="space-y-3 text-gray-800 dark:text-gray-200 text-sm"
           >
             {[
-              "Pattern recognition based on 10+ years of data",
-              "Automatic volatility hedging and reallocation",
-              "Emotion-free strategy optimization in real-time",
+              "Statistical pattern recognition based on decades of market data",
+              "Dynamic volatility regime detection and portfolio rebalancing",
+              "Systematic strategy optimization with real-time risk monitoring",
             ].map((item, i) => (
               <motion.li key={i} variants={itemVariants} className="flex items-start gap-2">
                 <CheckCircleIcon className="w-5 h-5 text-[#00a76f] mt-0.5 flex-shrink-0" />

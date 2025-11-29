@@ -82,7 +82,7 @@ export default function PortfolioInsightsPage() {
         className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24"
       >
         {[
-          { label: "Avg Quarterly Return", value: "18.5%" },
+          { label: "Annualized Return", value: "18.5%" },
           { label: "Volatility Index", value: "3.7%" },
           { label: "Max Drawdown", value: "-5.2%" },
           { label: "Sharpe Ratio", value: "1.98" },

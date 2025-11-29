@@ -17,8 +17,8 @@ export default function InvestPage() {
             Explore Investment Opportunities
           </h1>
           <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base max-w-2xl mx-auto">
-            Discover diverse global assets — from forex and stocks to precious
-            metals and commodities. Grow your wealth with Evermount Capital.
+            Access institutional-grade quantitative strategies across multiple asset classes. 
+            Systematic allocation designed to generate alpha while managing risk.
           </p>
         </div>
 
@@ -36,8 +36,7 @@ export default function InvestPage() {
               Global Forex
             </h2>
             <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">
-              Trade currencies in major global markets and maximize
-              opportunities.
+              Systematic currency strategies across major and emerging market pairs.
             </p>
           </Link>
 
@@ -53,8 +52,7 @@ export default function InvestPage() {
               Global Stocks & ETFs
             </h2>
             <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">
-              Invest in leading companies and diversify your portfolio across
-              sectors.
+              Quantitative equity strategies with systematic factor exposure and sector rotation.
             </p>
           </Link>
 
@@ -70,8 +68,7 @@ export default function InvestPage() {
               Commodities
             </h2>
             <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">
-              Hedge against inflation with investments in gold, oil, and
-              agriculture.
+              Systematic commodity strategies for portfolio diversification and inflation hedging.
             </p>
           </Link>
         </div>

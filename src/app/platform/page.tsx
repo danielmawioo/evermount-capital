@@ -141,9 +141,9 @@ export default function PlatformPage() {
                 The Platform
               </h1>
               <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                Evermount delivers performance via quant strategies, algorithmic
-                execution, and real-time investor dashboards. Designed for Africa's
-                investors, powered by global tech.
+                Evermount delivers consistent risk-adjusted returns through systematic 
+                quantitative strategies, proprietary execution algorithms, and institutional-grade 
+                investor dashboards. Serving global investors with institutional-quality infrastructure.
               </p>
             </motion.div>
 
