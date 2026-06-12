@@ -12,6 +12,8 @@ concurrency:
 
 env:
   NODE_VERSION: "20"
+  VERCEL_ORG_ID: team_g1ftCcKDPvxTGOPWgfUqSoMe
+  VERCEL_PROJECT_ID: prj_tRPb5l7auEFV9iPLVRoFwzxwa1Rf
 
 jobs:
   validate:
@@ -70,12 +72,19 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Verify Vercel token
+        run: |
+          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then
+            echo "::error::VERCEL_TOKEN is not set. Add it under Settings → Environments → production → Secrets."
+            exit 1
+          fi
+
       - name: Deploy to Vercel (production)
         uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-org-id: ${{ env.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ env.VERCEL_PROJECT_ID }}
           vercel-args: "--prod"
           working-directory: ./
 
