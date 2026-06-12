@@ -14,6 +14,7 @@ env:
   NODE_VERSION: "20"
   VERCEL_ORG_ID: team_g1ftCcKDPvxTGOPWgfUqSoMe
   VERCEL_PROJECT_ID: prj_tRPb5l7auEFV9iPLVRoFwzxwa1Rf
+  VERCEL_DEPLOY_HOOK: https://api.vercel.com/v1/integrations/deploy/prj_tRPb5l7auEFV9iPLVRoFwzxwa1Rf/W6cP0DZaIm
 
 jobs:
   validate:
@@ -53,40 +54,21 @@ jobs:
     timeout-minutes: 15
     environment: production
 
-    env:
-      NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
-      NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}
-      NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }}
-      NEXT_PUBLIC_GITHUB_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_GITHUB_CLIENT_ID }}
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Verify Vercel token
+      - name: Trigger Vercel production deploy
         run: |
-          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then
-            echo "::error::VERCEL_TOKEN is not set. Add it under Settings → Environments → production → Secrets."
+          response=$(curl -sS -w "\n%{http_code}" -X POST "${{ env.VERCEL_DEPLOY_HOOK }}")
+          http_code=$(echo "$response" | tail -n1)
+          body=$(echo "$response" | sed '$d')
+
+          echo "$body"
+
+          if [ "$http_code" -lt 200 ] || [ "$http_code" -ge 300 ]; then
+            echo "::error::Vercel deploy hook failed with HTTP $http_code"
             exit 1
           fi
 
-      - name: Deploy to Vercel (production)
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ env.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ env.VERCEL_PROJECT_ID }}
-          vercel-args: "--prod"
-          working-directory: ./
+          echo "Vercel production deployment triggered successfully."
 
       - name: Deployment summary
         if: always()
