@@ -69,64 +69,39 @@ export default function LoginPage() {
   const handleSocialLogin = useCallback(async (provider: string) => {
     setLoading(true);
     try {
-      const accessToken: string | null = null;
-
-      // Initialize OAuth based on provider
       if (provider === "google") {
-        // Google OAuth - you'll need to implement Google Sign-In
-        // For now, this is a placeholder
         toast("Google Sign-In integration in progress", {
           icon: "ℹ️",
         });
         return;
-      } else if (provider === "github") {
-        // GitHub OAuth
+      }
+
+      if (provider === "github") {
         window.location.href = `https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID}&redirect_uri=${window.location.origin}/auth/github/callback&scope=user:email`;
         return;
-      } else if (provider === "x") {
-        // X (Twitter) OAuth
+      }
+
+      if (provider === "x") {
         toast("X (Twitter) Sign-In integration in progress", {
           icon: "ℹ️",
         });
         return;
-      } else if (provider === "apple") {
-        // Apple Sign-In
+      }
+
+      if (provider === "apple") {
         toast("Apple Sign-In integration in progress", {
           icon: "ℹ️",
         });
         return;
       }
 
-      if (!accessToken) {
-        setLoading(false);
-        return;
-      }
-
-      // Call backend with access token
-      const authEndpoint = provider === "google" 
-        ? api.auth.googleAuth 
-        : provider === "github" 
-        ? api.auth.githubAuth 
-        : provider === "x"
-        ? api.auth.xAuth
-        : api.auth.appleAuth;
-
-      const { data } = await authEndpoint({ accessToken });
-
-      setAuthTokens(data.token, data.refreshToken, rememberMe);
-      if (data.user) {
-        setUser(data.user, rememberMe);
-      }
-
-      toast.success("Login successful! Redirecting...");
-      setTimeout(() => {
-        window.location.href = "/dashboard";
-      }, 1500);
+      toast.error("Unsupported sign-in provider.");
     } catch (err: unknown) {
       toast.error(getApiErrorMessage(err, `${provider} login failed`));
+    } finally {
       setLoading(false);
     }
-  }, [rememberMe]);
+  }, []);
 
   return (
     <>
