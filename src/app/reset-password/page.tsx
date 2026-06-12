@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
+import { getApiErrorMessage } from "@/lib/api-error";
 import AuthLeftPanel from "../components/AuthLeftPanel";
 
 export default function ResetPasswordPage() {
@@ -55,10 +56,8 @@ export default function ResetPasswordPage() {
       setTimeout(() => {
         window.location.href = "/login";
       }, 2000);
-    } catch (err: any) {
-      setError(
-        err.response?.data?.message || "Something went wrong. Try again."
-      );
+    } catch (err: unknown) {
+      setError(getApiErrorMessage(err, "Something went wrong. Try again."));
     } finally {
       setLoading(false);
     }

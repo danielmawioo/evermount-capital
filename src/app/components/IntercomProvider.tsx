@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { boot, shutdown, update } from "@intercom/messenger-js-sdk";
+import { boot, shutdown } from "@intercom/messenger-js-sdk";
 
 export default function IntercomProvider() {
   useEffect(() => {

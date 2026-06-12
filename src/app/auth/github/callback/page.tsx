@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { setAuthTokens, setUser } from "@/lib/auth-storage";
+import { getApiErrorMessage } from "@/lib/api-error";
 
 function GitHubCallbackContent() {
   const searchParams = useSearchParams();
@@ -55,9 +56,9 @@ function GitHubCallbackContent() {
 
         toast.success("Login successful!");
         router.push("/dashboard");
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error("GitHub callback error:", err);
-        toast.error("Authentication failed. Please try again.");
+        toast.error(getApiErrorMessage(err, "Authentication failed. Please try again."));
         router.push("/login");
       } finally {
         setLoading(false);

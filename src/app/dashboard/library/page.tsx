@@ -162,7 +162,7 @@ export default function LibraryPage() {
               <FunnelIcon className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
               <select
                 value={filterCategory}
-                onChange={(e) => setFilterCategory(e.target.value as any)}
+                onChange={(e) => setFilterCategory(e.target.value as "all" | Resource["category"])}
                 className="pl-10 pr-8 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#00a76f] appearance-none"
               >
                 <option value="all">All Categories</option>

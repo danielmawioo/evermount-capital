@@ -27,7 +27,7 @@ interface Manager {
 }
 
 export default function ManagersPage() {
-  const [managers, setManagers] = useState<Manager[]>([
+  const [managers] = useState<Manager[]>([
     {
       id: "1",
       name: "John Smith",

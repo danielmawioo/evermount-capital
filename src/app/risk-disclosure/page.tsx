@@ -91,7 +91,7 @@ export default function RiskDisclosurePage() {
               <li>
                 <strong className="text-gray-900 dark:text-white">Regulatory Risk:</strong> Changes in laws, regulations, or 
                 regulatory interpretations may adversely affect investments or the 
-                platform's operations.
+                platform&apos;s operations.
               </li>
               <li>
                 <strong className="text-gray-900 dark:text-white">Lock-Up Periods:</strong> Some investments may have lock-up 
@@ -115,7 +115,7 @@ export default function RiskDisclosurePage() {
               <li>
                 <strong className="text-gray-900 dark:text-white">Model Risk:</strong> AI and quantitative models may fail to 
                 perform as expected, especially during unprecedented market conditions 
-                or "black swan" events.
+                or &quot;black swan&quot; events.
               </li>
               <li>
                 <strong>Data Risk:</strong> Models depend on historical data, which may 
@@ -258,7 +258,7 @@ export default function RiskDisclosurePage() {
             Investor Acknowledgment
           </h2>
           <p className="text-base leading-7 text-gray-800 dark:text-gray-200">
-            By using Evermount Capital's platform and investing through our services, 
+            By using Evermount Capital&apos;s platform and investing through our services, 
             you acknowledge that you have read, understood, and accept all risks 
             disclosed in this statement. You confirm that you are capable of evaluating 
             the merits and risks of these investments and that you have sufficient 

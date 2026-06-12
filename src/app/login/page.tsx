@@ -8,6 +8,7 @@ import Script from "next/script";
 import toast, { Toaster } from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { setAuthTokens, setUser } from "@/lib/auth-storage";
+import { getApiErrorMessage } from "@/lib/api-error";
 import ThemeToggle from "@/app/components/ThemeToggle";
 
 export default function LoginPage() {
@@ -17,7 +18,7 @@ export default function LoginPage() {
   const [rememberMe, setRememberMe] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const validateForm = (): boolean => {
+  const validateForm = useCallback((): boolean => {
     if (!email || !password) {
       toast.error("Email and password are required.");
       return false;
@@ -35,7 +36,7 @@ export default function LoginPage() {
     }
 
     return true;
-  };
+  }, [email, password]);
 
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
@@ -56,21 +57,19 @@ export default function LoginPage() {
         setTimeout(() => {
           window.location.href = "/dashboard";
         }, 1500);
-      } catch (err: any) {
-        const message =
-          err?.response?.data?.error?.message || err?.response?.data?.message || "Login failed. Please try again.";
-        toast.error(message);
+      } catch (err: unknown) {
+        toast.error(getApiErrorMessage(err, "Login failed. Please try again."));
       } finally {
         setLoading(false);
       }
     },
-    [email, password, rememberMe]
+    [email, password, rememberMe, validateForm]
   );
 
   const handleSocialLogin = useCallback(async (provider: string) => {
     setLoading(true);
     try {
-      let accessToken: string | null = null;
+      const accessToken: string | null = null;
 
       // Initialize OAuth based on provider
       if (provider === "google") {
@@ -112,7 +111,7 @@ export default function LoginPage() {
         ? api.auth.xAuth
         : api.auth.appleAuth;
 
-      const { data } = await authEndpoint({ accessToken } as any);
+      const { data } = await authEndpoint({ accessToken });
 
       setAuthTokens(data.token, data.refreshToken, rememberMe);
       if (data.user) {
@@ -123,10 +122,8 @@ export default function LoginPage() {
       setTimeout(() => {
         window.location.href = "/dashboard";
       }, 1500);
-    } catch (err: any) {
-      const message =
-        err?.response?.data?.error?.message || err?.response?.data?.message || `${provider} login failed`;
-      toast.error(message);
+    } catch (err: unknown) {
+      toast.error(getApiErrorMessage(err, `${provider} login failed`));
       setLoading(false);
     }
   }, [rememberMe]);
@@ -199,7 +196,7 @@ export default function LoginPage() {
               Sign in to your account
             </h2>
             <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <Link
                 href="/register"
                 className="text-[#00a76f] font-medium hover:underline"

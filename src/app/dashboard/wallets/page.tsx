@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { getApiErrorMessage } from "@/lib/api-error";
 import {
   WalletIcon,
   ArrowDownTrayIcon,
@@ -34,7 +34,6 @@ interface Transaction {
 }
 
 export default function WalletsPage() {
-  const router = useRouter();
   const [balance, setBalance] = useState<WalletBalance | null>(null);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [loading, setLoading] = useState(true);
@@ -49,7 +48,7 @@ export default function WalletsPage() {
     try {
       const { data } = await api.wallets.getBalance();
       setBalance(data);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Failed to fetch balance:", error);
       // Set default values if API fails
       setBalance({
@@ -69,9 +68,9 @@ export default function WalletsPage() {
     try {
       const { data } = await api.wallets.getHistory({ limit: 10 });
       setTransactions(data.transactions || []);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Failed to fetch transactions:", error);
-      toast.error("Failed to load transaction history");
+      toast.error(getApiErrorMessage(error, "Failed to load transaction history"));
     } finally {
       setTransactionsLoading(false);
     }
@@ -113,16 +112,6 @@ export default function WalletsPage() {
       fee: "Fee",
     };
     return labels[type] || type.charAt(0).toUpperCase() + type.slice(1);
-  };
-
-  const getTransactionColor = (type: string) => {
-    if (type === "deposit" || type === "dividend" || type === "profit-withdrawal") {
-      return "text-green-600 dark:text-green-400";
-    }
-    if (type === "withdrawal" || type === "investment" || type === "transfer-to-investment" || type === "fee") {
-      return "text-red-600 dark:text-red-400";
-    }
-    return "text-gray-600 dark:text-gray-400";
   };
 
   if (loading) {

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import Script from "next/script";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
@@ -287,7 +286,7 @@ export default function CareersPage() {
               Join the <span className="text-[#00a76f]">Evermount</span> Mission
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              We're building the future of quantitative investment management — and we're just
+              We&apos;re building the future of quantitative investment management — and we&apos;re just
               getting started. Join a team of world-class engineers, researchers, and designers.
             </p>
             <motion.div
@@ -567,11 +566,11 @@ export default function CareersPage() {
             className="text-center mt-20"
           >
             <h3 className="text-3xl font-semibold text-gray-900 dark:text-white mb-4">
-              Don't see a role for you?
+              Don&apos;t see a role for you?
             </h3>
             <p className="text-gray-600 dark:text-gray-400 max-w-xl mx-auto mb-6">
-              We're always looking for passionate people. If you're excited by our
-              mission, we'd love to hear from you.
+              We&apos;re always looking for passionate people. If you&apos;re excited by our
+              mission, we&apos;d love to hear from you.
             </p>
             <motion.a
               whileHover={{ scale: 1.05, y: -2 }}
@@ -613,7 +612,7 @@ export default function CareersPage() {
                     Apply for {openings.find((j) => j.id === showApplyModal)?.title}
                   </h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
-                    Choose how you'd like to apply for this position.
+                    Choose how you&apos;d like to apply for this position.
                   </p>
                   <div className="space-y-3">
                     <motion.a

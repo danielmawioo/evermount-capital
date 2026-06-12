@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import StripePayment from "@/components/StripePayment";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { getApiErrorMessage } from "@/lib/api-error";
 import { SETTLEMENT_ACCOUNT } from "@/lib/settlement-account";
 
 export default function CardDepositPage() {
@@ -30,7 +31,7 @@ export default function CardDepositPage() {
   const handlePaymentSuccess = async (paymentIntentId: string) => {
     try {
       // Create deposit record via API
-      const { data } = await api.deposits.card({
+      await api.deposits.card({
         amount: parseFloat(amount),
         currency: "USD",
         cardToken: paymentIntentId,
@@ -41,9 +42,8 @@ export default function CardDepositPage() {
       setTimeout(() => {
         router.push("/dashboard/wallets");
       }, 2000);
-    } catch (error: any) {
-      const message = error?.response?.data?.error?.message || error?.response?.data?.message || "Failed to complete deposit";
-      toast.error(message);
+    } catch (error: unknown) {
+      toast.error(getApiErrorMessage(error, "Failed to complete deposit"));
     }
   };
 

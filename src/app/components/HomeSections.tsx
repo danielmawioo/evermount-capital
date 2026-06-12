@@ -88,7 +88,7 @@ export default function HomeSectionsWithImages() {
             Key Highlights
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400">
-            Power up your investing journey with Evermount's most valuable
+            Power up your investing journey with Evermount&apos;s most valuable
             features.
           </p>
         </motion.div>
@@ -470,7 +470,7 @@ export default function HomeSectionsWithImages() {
 
           {/* Subtitle */}
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">
-            Whether you're new to hedge funds or an institutional investor,
+            Whether you&apos;re new to hedge funds or an institutional investor,
             Evermount equips you with the insights, execution, and support to
             outperform.
           </p>

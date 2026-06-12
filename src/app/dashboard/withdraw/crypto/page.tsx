@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { FaBitcoin, FaEthereum } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { getApiErrorMessage } from "@/lib/api-error";
 
 export default function WithdrawCryptoPage() {
   const router = useRouter();
@@ -37,7 +37,7 @@ export default function WithdrawCryptoPage() {
       
       const currency = currencyMap[cryptoType] || cryptoType;
       
-      const { data } = await api.withdrawals.crypto({
+      await api.withdrawals.crypto({
         amount: numAmount,
         currency,
         walletAddress,
@@ -48,9 +48,8 @@ export default function WithdrawCryptoPage() {
       setTimeout(() => {
         router.push("/dashboard/wallets");
       }, 2000);
-    } catch (error: any) {
-      const message = error?.response?.data?.error?.message || error?.response?.data?.message || "Withdrawal failed";
-      toast.error(message);
+    } catch (error: unknown) {
+      toast.error(getApiErrorMessage(error, "Withdrawal failed"));
     } finally {
       setLoading(false);
     }

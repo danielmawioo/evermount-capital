@@ -6,6 +6,7 @@ import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { api } from "@/lib/api-client";
+import { getApiErrorMessage } from "@/lib/api-error";
 import ThemeToggle from "@/app/components/ThemeToggle";
 
 export default function RegisterPage() {
@@ -58,9 +59,8 @@ export default function RegisterPage() {
       setTimeout(() => {
         window.location.href = "/login";
       }, 2000);
-    } catch (err: any) {
-      const message = err?.response?.data?.error?.message || err?.response?.data?.message || "Registration failed.";
-      toast.error(message);
+    } catch (err: unknown) {
+      toast.error(getApiErrorMessage(err, "Registration failed."));
     } finally {
       setLoading(false);
     }
@@ -96,7 +96,7 @@ export default function RegisterPage() {
         setLoading(false);
         return;
       }
-    } catch (err: any) {
+    } catch {
       toast.error(`${provider} sign up failed`);
       setLoading(false);
     }

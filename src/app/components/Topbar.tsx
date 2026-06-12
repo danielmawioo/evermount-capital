@@ -78,7 +78,7 @@ export default function Topbar() {
         </h1>
         <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 flex items-center gap-1">
           <RocketLaunchIcon className="w-3 h-3 text-[#00a76f]" />
-          Let's grow your portfolio today
+          Let&apos;s grow your portfolio today
         </p>
 
         {logoutMessage && (

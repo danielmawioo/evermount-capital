@@ -4,17 +4,6 @@ const USER_KEY = "user";
 const AUTH_COOKIE = "evermount_token";
 const ACCESS_TOKEN_MAX_AGE = 15 * 60; // 15 minutes, matches backend JWT
 
-function getStorage(): Storage | null {
-  if (typeof window === "undefined") return null;
-  return localStorage.getItem(TOKEN_KEY)
-    ? localStorage
-    : sessionStorage.getItem(TOKEN_KEY)
-      ? sessionStorage
-      : localStorage.getItem(REFRESH_TOKEN_KEY)
-        ? localStorage
-        : sessionStorage;
-}
-
 export function getAccessToken(): string | null {
   if (typeof window === "undefined") return null;
   return localStorage.getItem(TOKEN_KEY) || sessionStorage.getItem(TOKEN_KEY);

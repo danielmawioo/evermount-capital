@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -42,6 +42,11 @@ export default function BookDemoModal() {
     };
   }, [showModal]);
 
+  const handleClose = useCallback(() => {
+    setShowModal(false);
+    router.push("/");
+  }, [router]);
+
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") handleClose();
@@ -59,7 +64,7 @@ export default function BookDemoModal() {
       document.removeEventListener("keydown", handleEscape);
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [handleClose]);
 
   useEffect(() => {
     const fetchBookedSlots = async () => {
@@ -79,11 +84,6 @@ export default function BookDemoModal() {
     fetchBookedSlots();
   }, []);
 
-  const handleClose = () => {
-    setShowModal(false);
-    router.push("/");
-  };
-
   const validate = () => {
     const newErrors = {
       name: form.name ? "" : "Name is required",
@@ -94,7 +94,7 @@ export default function BookDemoModal() {
     return Object.values(newErrors).every((e) => !e);
   };
 
-  const handleChange = (field: string, value: any) => {
+  const handleChange = (field: string, value: string | Date | null) => {
     setForm((prev) => ({ ...prev, [field]: value }));
   };
 
@@ -132,7 +132,7 @@ export default function BookDemoModal() {
         setShowModal(false);
         router.push("/");
       }, 2000);
-    } catch (err) {
+    } catch {
       toast.error("Network error. Please try again later.");
     } finally {
       setLoading(false);
@@ -203,7 +203,7 @@ export default function BookDemoModal() {
                 Book a Demo
               </h2>
               <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 text-center mb-4 sm:mb-6 mt-1">
-                Choose a date and time that works best. We'll send you a meeting
+                Choose a date and time that works best. We&apos;ll send you a meeting
                 invite.
               </p>
 
@@ -291,7 +291,7 @@ export default function BookDemoModal() {
                 {/* Message */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                    Anything you'd like us to cover?
+                    Anything you&apos;d like us to cover?
                   </label>
                   <textarea
                     rows={3}

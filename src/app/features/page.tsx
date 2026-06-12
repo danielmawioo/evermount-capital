@@ -183,7 +183,7 @@ export default function FeaturesPage() {
             Risk Metrics & Capital Protection
           </h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">
-            At Evermount, we don't just chase performance — we prioritize
+            At Evermount, we don&apos;t just chase performance — we prioritize
             preservation through quant analysis, AI stress testing, and smart
             diversification.
           </p>

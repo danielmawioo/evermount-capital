@@ -11,7 +11,7 @@ export default function TermsPage() {
 
         <section className="space-y-8 text-base leading-7 text-gray-700 dark:text-gray-300">
           <p>
-            These Terms and Conditions ("Terms") govern your use of Evermount
+            These Terms and Conditions (&quot;Terms&quot;) govern your use of Evermount
             Capital, a hedge fund technology platform offering investment
             analytics, automation, and performance monitoring tools.
           </p>

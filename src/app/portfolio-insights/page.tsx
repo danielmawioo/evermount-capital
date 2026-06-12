@@ -2,8 +2,6 @@
 
 import Script from "next/script";
 import { motion } from "framer-motion";
-import { metadata as meta } from "./metadata";
-
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -168,7 +166,7 @@ export default function PortfolioInsightsPage() {
         >
           <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Risk Distribution</h2>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
-            Understand your capital's exposure across market sectors, asset
+            Understand your capital&apos;s exposure across market sectors, asset
             classes, and volatility groups — in real-time.
           </p>
           <motion.ul
@@ -204,7 +202,7 @@ export default function PortfolioInsightsPage() {
         </h3>
         <p className="text-gray-700 dark:text-gray-400 mb-6">
           Access your personalized dashboard today and unlock deeper control
-          over your portfolio's performance and risk profile.
+          over your portfolio&apos;s performance and risk profile.
         </p>
         <motion.button
           whileHover={{ scale: 1.05, y: -2 }}

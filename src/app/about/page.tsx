@@ -13,7 +13,6 @@ import {
   GlobeAltIcon,
   BoltIcon,
   ArrowRightIcon,
-  BuildingOfficeIcon,
   AcademicCapIcon,
   CurrencyDollarIcon,
 } from "@heroicons/react/24/outline";
@@ -69,7 +68,7 @@ export default function AboutPage() {
           A New Breed of Hedge Fund
         </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            We're building the future of capital growth — driven by data,
+            We&apos;re building the future of capital growth — driven by data,
           protected by tech, and designed for high-growth investors.
         </p>
         </motion.section>
@@ -97,7 +96,7 @@ export default function AboutPage() {
               We began with a simple yet powerful premise: markets contain systematic 
               inefficiencies that can be identified and exploited through rigorous 
               quantitative analysis. By leveraging cutting-edge machine learning, 
-              statistical modeling, and high-performance computing, we've built a platform 
+              statistical modeling, and high-performance computing, we&apos;ve built a platform 
               that processes terabytes of market data daily to generate alpha opportunities.
             </p>
             <p>
@@ -143,7 +142,7 @@ export default function AboutPage() {
           >
           <h2 className="text-2xl font-bold text-[#00a76f] mb-3">Our Vision</h2>
             <p className="leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
-              To be Africa's most trusted AI-powered alternative investment
+              To be Africa&apos;s most trusted AI-powered alternative investment
             ecosystem — enabling secure, scalable, and borderless capital
             growth.
           </p>
@@ -467,8 +466,8 @@ export default function AboutPage() {
         >
         <div className="max-w-3xl mx-auto">
             <blockquote className="text-xl text-gray-600 dark:text-gray-400 italic">
-              "We're not just building portfolios, we're engineering confidence,
-              growth, and resilience — the future belongs to empowered investors."
+              &quot;We&apos;re not just building portfolios, we&apos;re engineering confidence,
+              growth, and resilience — the future belongs to empowered investors.&quot;
           </blockquote>
         </div>
         </motion.section>

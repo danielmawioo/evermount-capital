@@ -63,7 +63,7 @@ export default function AdminSettingsPage() {
   ) => {
     setSettings((prev) => {
       const categorySettings = prev[category];
-      const currentValue = (categorySettings as Record<string, any>)[key as string];
+      const currentValue = (categorySettings as Record<string, boolean | number>)[key as string];
       if (typeof currentValue === 'boolean') {
         return {
           ...prev,

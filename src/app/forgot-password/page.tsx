@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
+import { getApiErrorMessage } from "@/lib/api-error";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -28,10 +29,8 @@ export default function ForgotPasswordPage() {
       });
 
       setMessage("OTP sent to your email. Please check your inbox.");
-    } catch (err: any) {
-      setError(
-        err.response?.data?.message || "Something went wrong. Try again."
-      );
+    } catch (err: unknown) {
+      setError(getApiErrorMessage(err, "Something went wrong. Try again."));
     } finally {
       setLoading(false);
     }
@@ -76,7 +75,7 @@ export default function ForgotPasswordPage() {
             Forgot your password?
           </h2>
           <p className="text-sm text-gray-600 mb-6">
-            Enter the email associated with your account and we'll send you an
+            Enter the email associated with your account and we&apos;ll send you an
             OTP to reset your password.
           </p>
 

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import { getApiErrorMessage } from "@/lib/api-error";
 import {
   Bars3Icon,
   XMarkIcon,
@@ -51,10 +52,8 @@ export default function Navbar() {
       toast.success("You're on the waitlist! 🎉");
       setEmail("");
       setShowModal(false);
-    } catch (err: any) {
-      const msg =
-        err?.response?.data?.message || "Something went wrong. Try again.";
-      toast.error(msg);
+    } catch (err: unknown) {
+      toast.error(getApiErrorMessage(err, "Something went wrong. Try again."));
     } finally {
       setLoading(false);
     }
@@ -152,7 +151,7 @@ export default function Navbar() {
       >
         <p className="flex flex-wrap justify-center items-center gap-2">
           <span className="font-semibold">🚀 New:</span>
-          <span className="whitespace-nowrap">We're open-sourcing our AI-powered quantitative trading infrastructure.</span>
+          <span className="whitespace-nowrap">We&apos;re open-sourcing our AI-powered quantitative trading infrastructure.</span>
           <Link
             href="/book-demo"
             className="ml-2 underline font-semibold hover:text-green-100 transition flex items-center gap-1"

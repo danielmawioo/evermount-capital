@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { FaCcVisa, FaCcMastercard } from "react-icons/fa";
 
 export default function WithdrawCardPage() {
   const [cardType, setCardType] = useState("");

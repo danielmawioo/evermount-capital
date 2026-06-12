@@ -145,7 +145,7 @@ export default function TradePage() {
 
       {/* Step indicator */}
       <div className="flex gap-2">
-        {(["amount", "preview", "confirm"] as Step[]).map((s, i) => (
+        {(["amount", "preview", "confirm"] as Step[]).map((s) => (
           <div
             key={s}
             className={`h-1 flex-1 rounded-full ${

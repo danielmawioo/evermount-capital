@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { getApiErrorMessage } from "@/lib/api-error";
 import FileUpload from "@/components/FileUpload";
 
 const LOCK_IN_OPTIONS = [
@@ -95,7 +96,7 @@ export default function SettingsPage() {
           country: "",
         },
       });
-    } catch (error: any) {
+    } catch {
       toast.error("Failed to load profile");
     } finally {
       setProfileLoading(false);
@@ -108,9 +109,8 @@ export default function SettingsPage() {
     try {
       await api.users.updateProfile(formData);
       toast.success("Profile updated successfully");
-    } catch (error: any) {
-      const message = error?.response?.data?.error?.message || error?.response?.data?.message || "Failed to update profile";
-      toast.error(message);
+    } catch (error: unknown) {
+      toast.error(getApiErrorMessage(error, "Failed to update profile"));
     } finally {
       setLoading(false);
     }
@@ -134,9 +134,8 @@ export default function SettingsPage() {
       });
       toast.success("Password changed successfully");
       setPasswordData({ currentPassword: "", newPassword: "", confirmPassword: "" });
-    } catch (error: any) {
-      const message = error?.response?.data?.error?.message || error?.response?.data?.message || "Failed to change password";
-      toast.error(message);
+    } catch (error: unknown) {
+      toast.error(getApiErrorMessage(error, "Failed to change password"));
     } finally {
       setLoading(false);
     }
@@ -145,11 +144,10 @@ export default function SettingsPage() {
   const handleProfilePictureUpload = async (files: File[]) => {
     if (files.length === 0) return;
     try {
-      const { data } = await api.users.uploadProfilePicture(files[0]);
+      await api.users.uploadProfilePicture(files[0]);
       toast.success("Profile picture updated successfully");
-    } catch (error: any) {
-      const message = error?.response?.data?.error?.message || error?.response?.data?.message || "Failed to upload picture";
-      toast.error(message);
+    } catch (error: unknown) {
+      toast.error(getApiErrorMessage(error, "Failed to upload picture"));
     }
   };
 

@@ -2,8 +2,6 @@
 
 import Script from "next/script";
 import { motion } from "framer-motion";
-import { metadata as meta } from "./metadata";
-
 export default function PricingPage() {
   const tiers = [
     {

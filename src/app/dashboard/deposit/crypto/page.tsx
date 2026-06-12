@@ -1,19 +1,23 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { getApiErrorMessage } from "@/lib/api-error";
+
+interface CryptoDepositData {
+  depositAddress?: string;
+  qrCode?: string;
+}
 
 export default function CryptoDepositPage() {
-  const router = useRouter();
   const [copied, setCopied] = useState(false);
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState("BTC");
   const [walletAddress, setWalletAddress] = useState("");
   const [loading, setLoading] = useState(false);
-  const [depositData, setDepositData] = useState<any>(null);
+  const [depositData, setDepositData] = useState<CryptoDepositData | null>(null);
 
   const handleCreateDeposit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,9 +37,8 @@ export default function CryptoDepositPage() {
       setDepositData(data);
       setWalletAddress(data.depositAddress || "");
       toast.success("Deposit address generated");
-    } catch (error: any) {
-      const message = error?.response?.data?.error?.message || error?.response?.data?.message || "Failed to create deposit";
-      toast.error(message);
+    } catch (error: unknown) {
+      toast.error(getApiErrorMessage(error, "Failed to create deposit"));
     } finally {
       setLoading(false);
     }

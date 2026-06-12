@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       accessToken: tokenData.access_token,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("GitHub callback error:", error);
     return NextResponse.json(
       { error: "Failed to authenticate with GitHub" },
@@ -50,4 +50,3 @@ export async function POST(request: NextRequest) {
     );
   }
 }
-

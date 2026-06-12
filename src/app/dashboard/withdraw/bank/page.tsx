@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaUniversity } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { getApiErrorMessage } from "@/lib/api-error";
 
 export default function WithdrawBankPage() {
   const [bankAccounts] = useState([
@@ -28,7 +29,7 @@ export default function WithdrawBankPage() {
 
     setLoading(true);
     try {
-      const { data } = await api.withdrawals.bank({
+      await api.withdrawals.bank({
         amount: numAmount,
         currency: "USD",
         bankAccountId: selectedBankId.toString(),
@@ -38,9 +39,8 @@ export default function WithdrawBankPage() {
       setTimeout(() => {
         window.location.href = "/dashboard/withdraw";
       }, 2000);
-    } catch (error: any) {
-      const message = error?.response?.data?.error?.message || error?.response?.data?.message || "Withdrawal failed";
-      toast.error(message);
+    } catch (error: unknown) {
+      toast.error(getApiErrorMessage(error, "Withdrawal failed"));
     } finally {
       setLoading(false);
     }

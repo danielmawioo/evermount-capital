@@ -20,7 +20,7 @@ export default function BestExecutionPage() {
             Last updated: April 25, 2025
           </p>
           <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-            This policy outlines Evermount Capital's commitment to obtaining the best 
+            This policy outlines Evermount Capital&apos;s commitment to obtaining the best 
             possible execution for client orders, taking into account price, costs, 
             speed, likelihood of execution, settlement, and other relevant factors.
           </p>

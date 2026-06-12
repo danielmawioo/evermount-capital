@@ -8,13 +8,10 @@ import {
   ShieldCheckIcon,
   GlobeAltIcon,
   ChartBarIcon,
-  BuildingOfficeIcon,
-  UserGroupIcon,
   ArrowRightIcon,
   CheckCircleIcon,
   BoltIcon,
   LockClosedIcon,
-  AcademicCapIcon,
   CurrencyDollarIcon,
 } from "@heroicons/react/24/outline";
 

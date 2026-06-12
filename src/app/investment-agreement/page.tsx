@@ -20,7 +20,7 @@ export default function InvestmentAgreementPage() {
             Last updated: April 25, 2025
           </p>
           <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-            This Investment Agreement ("Agreement") sets forth the terms and conditions 
+            This Investment Agreement (&quot;Agreement&quot;) sets forth the terms and conditions 
             governing your investment relationship with Evermount Capital. By using our 
             platform and making investments, you agree to be bound by this Agreement.
           </p>
@@ -34,11 +34,11 @@ export default function InvestmentAgreementPage() {
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
             <ul className="space-y-3 list-disc pl-5 text-base leading-7 text-gray-700 dark:text-gray-300">
               <li>
-                <strong className="text-gray-900 dark:text-white">Evermount Capital</strong> ("Company", "we", "us", "our") - 
+                <strong className="text-gray-900 dark:text-white">Evermount Capital</strong> (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, &quot;our&quot;) - 
                 The technology platform provider and investment service facilitator.
               </li>
               <li>
-                <strong className="text-gray-900 dark:text-white">Investor</strong> ("you", "your", "Client") - The individual 
+                <strong className="text-gray-900 dark:text-white">Investor</strong> (&quot;you&quot;, &quot;your&quot;, &quot;Client&quot;) - The individual 
                 or entity using the platform to make investments.
               </li>
             </ul>
@@ -185,7 +185,7 @@ export default function InvestmentAgreementPage() {
             </p>
             <ul className="space-y-3 list-disc pl-5 text-base leading-7">
               <li>
-                Evermount Capital's liability is limited to the fees paid by you in 
+                Evermount Capital&apos;s liability is limited to the fees paid by you in 
                 the 12 months preceding any claim
               </li>
               <li>

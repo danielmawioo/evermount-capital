@@ -1,14 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { api } from "@/lib/api-client";
+import { getApiErrorMessage } from "@/lib/api-error";
 import toast from "react-hot-toast";
 import {
   ArrowLeftIcon,
-  CheckCircleIcon,
-  XCircleIcon,
-  ClockIcon,
   FunnelIcon,
 } from "@heroicons/react/24/outline";
 
@@ -42,14 +40,10 @@ export default function WalletHistoryPage() {
     total: 0,
   });
 
-  useEffect(() => {
-    fetchTransactions();
-  }, [filters, pagination.page]);
-
-  const fetchTransactions = async () => {
+  const fetchTransactions = useCallback(async () => {
     setLoading(true);
     try {
-      const params: any = {
+      const params: Record<string, string | number> = {
         page: pagination.page,
         limit: pagination.limit,
       };
@@ -64,13 +58,17 @@ export default function WalletHistoryPage() {
         ...prev,
         total: data.total || 0,
       }));
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Failed to fetch transactions:", error);
-      toast.error("Failed to load transaction history");
+      toast.error(getApiErrorMessage(error, "Failed to load transaction history"));
     } finally {
       setLoading(false);
     }
-  };
+  }, [filters, pagination.page, pagination.limit]);
+
+  useEffect(() => {
+    fetchTransactions();
+  }, [fetchTransactions]);
 
   const formatCurrency = (amount: number, currency: string = "USD") => {
     return new Intl.NumberFormat("en-US", {
@@ -79,22 +77,6 @@ export default function WalletHistoryPage() {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     }).format(amount);
-  };
-
-  const getStatusIcon = (status: string) => {
-    switch (status.toLowerCase()) {
-      case "completed":
-      case "success":
-        return <CheckCircleIcon className="w-5 h-5 text-green-500" />;
-      case "pending":
-      case "processing":
-        return <ClockIcon className="w-5 h-5 text-yellow-500" />;
-      case "failed":
-      case "rejected":
-        return <XCircleIcon className="w-5 h-5 text-red-500" />;
-      default:
-        return <ClockIcon className="w-5 h-5 text-gray-400" />;
-    }
   };
 
   const getStatusBadge = (status: string) => {

@@ -218,7 +218,7 @@ export default function HelpCenterPage() {
             </h2>
           </div>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
-            Can't find what you're looking for? Send us a message and we'll get back to you within 24 hours.
+            Can&apos;t find what you&apos;re looking for? Send us a message and we&apos;ll get back to you within 24 hours.
           </p>
           <form onSubmit={handleContactSubmit} className="space-y-4">
             <div>

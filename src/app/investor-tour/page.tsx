@@ -3,8 +3,6 @@
 import Link from "next/link";
 import Script from "next/script";
 import { motion } from "framer-motion";
-import { metadata as meta } from "./metadata";
-
 export default function InvestorTourPage() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -384,7 +382,7 @@ export default function InvestorTourPage() {
             Ready to Experience the Future of Investing?
           </h2>
           <p className="text-lg max-w-xl mx-auto mb-6 text-gray-700 dark:text-gray-300">
-            Join institutional and accredited investors leveraging Evermount's
+            Join institutional and accredited investors leveraging Evermount&apos;s
             quantitative investment strategies and systematic alpha generation.
           </p>
           <motion.div

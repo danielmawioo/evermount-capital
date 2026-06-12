@@ -10,6 +10,7 @@ import {
 } from "@stripe/react-stripe-js";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { getApiErrorMessage } from "@/lib/api-error";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
@@ -53,8 +54,8 @@ function CheckoutForm({
         } else if (response.data.clientSecret) {
           setClientSecret(response.data.clientSecret);
         }
-      } catch (error: any) {
-        const message = error?.response?.data?.error?.message || "Failed to initialize payment";
+      } catch (error: unknown) {
+        const message = getApiErrorMessage(error, "Failed to initialize payment");
         toast.error(message);
         onError?.(message);
       }
@@ -63,7 +64,7 @@ function CheckoutForm({
     if (amount > 0) {
       createPaymentIntent();
     }
-  }, [amount, currency, saveCard]);
+  }, [amount, currency, saveCard, onError]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -99,8 +100,8 @@ function CheckoutForm({
         toast.success("Payment successful!");
         onSuccess(paymentIntent.id);
       }
-    } catch (error: any) {
-      const message = error?.message || "Payment processing failed";
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : "Payment processing failed";
       toast.error(message);
       onError?.(message);
     } finally {
