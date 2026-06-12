@@ -2,170 +2,209 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import {
-  SunIcon,
-  RocketLaunchIcon,
-  PlusIcon,
-  MinusIcon,
-  ChartBarIcon,
-  WalletIcon,
-} from "@heroicons/react/24/outline";
-
-import StatCard from "../components/StatCard";
-import LineChart from "../components/LineChart";
-import BarChart from "../components/BarChart";
-import PieChart from "../components/PieChart";
-import ActivityFeed from "../components/ActivityFeed";
-import TimeTabs from "../components/TimeTabs";
-import PortfolioFilter from "../components/PortfolioFilter";
-import ExportButtons from "../components/ExportButtons";
 import Link from "next/link";
 import { api } from "@/lib/api-client";
+import { useInvestor } from "@/hooks/useInvestor";
+import InvestorQuickActions from "./components/InvestorQuickActions";
+import TradingMetricsGrid from "./components/TradingMetricsGrid";
+import EquityCurveChart from "./components/EquityCurveChart";
+import RecentActivityList from "./components/RecentActivityList";
+
+interface WalletBalance {
+  availableBalance: number;
+  investedBalance: number;
+  totalBalance: number;
+  currency: string;
+}
+
+interface PerformanceData {
+  equityCurve: { date: string; equity: number }[];
+  metrics: {
+    gainPercent: number;
+    absGain: number;
+    dailyPercent: number;
+    monthlyPercent: number;
+    maxDrawdown: number;
+    volatility: number;
+    sharpeRatio: number | null;
+    balance: number;
+    equity: number;
+  };
+}
+
+interface DashboardStats {
+  recentActivity: {
+    id: string;
+    type: string;
+    amount: number;
+    status: string;
+    createdAt: string;
+  }[];
+}
 
 export default function DashboardPage() {
   const router = useRouter();
-  const [walletBalance, setWalletBalance] = useState<{
-    availableBalance: number;
-    investedBalance: number;
-    totalBalance: number;
-    currency: string;
-  } | null>(null);
+  const { profile, tier, loading: profileLoading, kycApproved } = useInvestor();
+  const [walletBalance, setWalletBalance] = useState<WalletBalance | null>(null);
+  const [performance, setPerformance] = useState<PerformanceData | null>(null);
+  const [recentActivity, setRecentActivity] = useState<DashboardStats["recentActivity"]>([]);
+  const [period, setPeriod] = useState("30d");
 
   useEffect(() => {
     const token =
       localStorage.getItem("token") || sessionStorage.getItem("token");
-
     if (!token) {
-      router.push("/login"); // Redirect unauthenticated users
-    } else {
-      fetchWalletBalance();
+      router.push("/login");
+      return;
     }
-  }, [router]);
+    loadDashboard(period);
+  }, [router, period]);
 
-  const fetchWalletBalance = async () => {
+  const loadDashboard = async (selectedPeriod: string) => {
     try {
-      const { data } = await api.wallets.getBalance();
-      setWalletBalance(data);
+      const [walletRes, perfRes, statsRes] = await Promise.all([
+        api.wallets.getBalance(),
+        api.portfolio.getPerformance({ period: selectedPeriod }),
+        api.dashboard.getStats(),
+      ]);
+      setWalletBalance(walletRes.data);
+      setPerformance(perfRes.data);
+      setRecentActivity(statsRes.data.recentActivity ?? []);
     } catch (error) {
-      console.error("Failed to fetch wallet balance:", error);
+      console.error("Failed to load dashboard:", error);
     }
   };
 
-  const formatCurrency = (amount: number, currency: string = "USD") => {
-    return new Intl.NumberFormat("en-US", {
+  const formatCurrency = (amount: number, currency = "USD") =>
+    new Intl.NumberFormat("en-US", {
       style: "currency",
-      currency: currency,
+      currency,
       minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
     }).format(amount);
+
+  const greeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return "Good morning";
+    if (hour < 18) return "Good afternoon";
+    return "Good evening";
+  };
+
+  const currency = walletBalance?.currency ?? "USD";
+  const displayBalance =
+    performance?.metrics.balance ?? walletBalance?.totalBalance ?? 0;
+
+  const metrics = performance?.metrics ?? {
+    gainPercent: 0,
+    absGain: 0,
+    dailyPercent: 0,
+    monthlyPercent: 0,
+    maxDrawdown: 0,
+    volatility: 0,
+    sharpeRatio: null,
+    balance: walletBalance?.totalBalance ?? 0,
+    equity: walletBalance?.totalBalance ?? 0,
   };
 
   return (
-    <main className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 md:space-y-10 bg-[#f9fafb] dark:bg-[#0f1117] min-h-screen">
-      {/* Welcome Section */}
-      <section className="space-y-2">
-        <h1 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white flex items-center gap-2">
-          <SunIcon className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-500" />
-          Good morning
-        </h1>
-        <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
-          <RocketLaunchIcon className="w-3 h-3 sm:w-4 sm:h-4 text-[#00a76f]" />
-          Let's grow your portfolio today
-        </p>
-      </section>
-
-      {/* Call to Actions (Deposit, Withdraw, Invest) */}
-      <section className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-        <Link href="/dashboard/wallets">
-          <div className="bg-green-100 dark:bg-green-900/30 hover:bg-green-200 dark:hover:bg-green-900/50 text-green-800 dark:text-green-300 font-semibold py-3 sm:py-4 px-3 sm:px-4 rounded-lg flex items-center justify-center gap-2 text-center transition-all hover:scale-[1.02] cursor-pointer shadow-sm hover:shadow-md">
-            <PlusIcon className="w-4 h-4 sm:w-5 sm:h-5" />
-            <span className="text-sm sm:text-base">Deposit</span>
+    <div className="space-y-6">
+      {/* Header */}
+      <section className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+            {greeting()}
+            {profile?.fullName ? `, ${profile.fullName.split(" ")[0]}` : ""}
+          </h1>
+          <div className="flex flex-wrap items-center gap-2 mt-2">
+            <span className="inline-flex items-center rounded-full bg-[#00a76f]/10 text-[#00a76f] text-xs font-semibold px-3 py-1">
+              {tier.label} Plan
+            </span>
+            <span className="text-sm text-gray-500 dark:text-gray-400">
+              {tier.strategies} · Min ${tier.minInvestment.toLocaleString()}
+            </span>
           </div>
-        </Link>
-        <Link href="/dashboard/withdraw">
-          <div className="bg-orange-100 dark:bg-orange-900/30 hover:bg-orange-200 dark:hover:bg-orange-900/50 text-orange-800 dark:text-orange-300 font-semibold py-3 sm:py-4 px-3 sm:px-4 rounded-lg flex items-center justify-center gap-2 text-center transition-all hover:scale-[1.02] cursor-pointer shadow-sm hover:shadow-md">
-            <MinusIcon className="w-4 h-4 sm:w-5 sm:h-5" />
-            <span className="text-sm sm:text-base">Withdraw</span>
+        </div>
+        <div className="text-left sm:text-right">
+          <p className="text-sm text-gray-500 dark:text-gray-400">Account balance</p>
+          <p className="text-3xl font-bold text-gray-900 dark:text-white tabular-nums">
+            {formatCurrency(displayBalance, currency)}
+          </p>
+          {walletBalance && (
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+              {formatCurrency(walletBalance.availableBalance, currency)} available ·{" "}
+              {formatCurrency(walletBalance.investedBalance, currency)} invested
+            </p>
+          )}
+        </div>
+      </section>
+
+      {/* Quick actions */}
+      {!profileLoading && (
+        <InvestorQuickActions tier={tier} kycApproved={kycApproved} />
+      )}
+
+      {/* Period selector */}
+      <div className="flex gap-2">
+        {[
+          { label: "7D", value: "7d" },
+          { label: "30D", value: "30d" },
+          { label: "90D", value: "90d" },
+        ].map((tab) => (
+          <button
+            key={tab.value}
+            onClick={() => setPeriod(tab.value)}
+            className={`px-4 py-1.5 rounded-lg text-sm font-medium transition ${
+              period === tab.value
+                ? "bg-[#00a76f] text-white"
+                : "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-[#00a76f]/50"
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Trading metrics — MyFxBook style */}
+      <TradingMetricsGrid metrics={metrics} currency={currency} />
+
+      {/* Equity curve */}
+      <div className="bg-white dark:bg-[#161a23] rounded-xl p-5 sm:p-6 border border-gray-100 dark:border-gray-800 shadow-sm">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h3 className="text-base font-semibold text-gray-800 dark:text-white">
+              Equity Curve
+            </h3>
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+              Portfolio value over time
+            </p>
           </div>
-        </Link>
-        <Link href="/dashboard/invest">
-          <div className="bg-blue-100 dark:bg-blue-900/30 hover:bg-blue-200 dark:hover:bg-blue-900/50 text-blue-800 dark:text-blue-300 font-semibold py-3 sm:py-4 px-3 sm:px-4 rounded-lg flex items-center justify-center gap-2 text-center transition-all hover:scale-[1.02] cursor-pointer shadow-sm hover:shadow-md">
-            <ChartBarIcon className="w-4 h-4 sm:w-5 sm:h-5" />
-            <span className="text-sm sm:text-base">Invest</span>
-          </div>
-        </Link>
-      </section>
-
-      {/* Filters + Export */}
-      <section className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div className="flex gap-3 flex-wrap">
-          <TimeTabs />
-          <PortfolioFilter />
+          <Link
+            href="/dashboard/portfolio"
+            className="text-sm text-[#00a76f] hover:underline font-medium"
+          >
+            View portfolio
+          </Link>
         </div>
-        <ExportButtons />
-      </section>
-
-      {/* Stat Summary Cards */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
-        <StatCard
-          title="Wallet Balance"
-          value={walletBalance ? formatCurrency(walletBalance.availableBalance, walletBalance.currency) : "$0.00"}
-          growth="Available"
+        <EquityCurveChart
+          data={performance?.equityCurve ?? []}
+          currency={currency}
         />
-        <StatCard
-          title="Total Portfolio Value"
-          value={walletBalance ? formatCurrency(walletBalance.totalBalance, walletBalance.currency) : "$0.00"}
-          growth="+2.3%"
-        />
-        <StatCard
-          title="Invested Balance"
-          value={walletBalance ? formatCurrency(walletBalance.investedBalance, walletBalance.currency) : "$0.00"}
-          growth="Active"
-        />
-        <StatCard title="Active Strategies" value="8" growth="Stable" />
-      </section>
+      </div>
 
-      {/* Charts Section */}
-      <section className="grid grid-cols-1 xl:grid-cols-[2fr_1fr] gap-4 sm:gap-6">
-        {/* Portfolio Value Chart */}
-        <div className="bg-white dark:bg-[#161a23] rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
-            <ChartBarIcon className="w-5 h-5 text-[#00a76f]" />
-            Portfolio Value Over Time
-          </h3>
-          <LineChart />
-        </div>
-
-        {/* Investment Distribution Pie Chart */}
-        <div className="bg-white dark:bg-[#161a23] rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col items-center justify-center">
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
-            <ChartBarIcon className="w-5 h-5 text-[#00a76f]" />
-            Investment Distribution
-          </h3>
-          <PieChart />
-        </div>
-      </section>
-
-      {/* Bar Chart & Activity Feed */}
-      <section className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-        {/* Yearly Bar Chart */}
-        <div className="bg-white dark:bg-[#161a23] rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
-            <ChartBarIcon className="w-5 h-5 text-[#00a76f]" />
-            Yearly Performance by Type
-          </h3>
-          <BarChart />
-        </div>
-
-        {/* Recent Activity Feed */}
-        <div className="bg-white dark:bg-[#161a23] rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
-            <ChartBarIcon className="w-5 h-5 text-[#00a76f]" />
+      {/* Recent activity */}
+      <div className="bg-white dark:bg-[#161a23] rounded-xl p-5 sm:p-6 border border-gray-100 dark:border-gray-800 shadow-sm">
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="text-base font-semibold text-gray-800 dark:text-white">
             Recent Activity
           </h3>
-          <ActivityFeed />
+          <Link
+            href="/dashboard/transactions"
+            className="text-sm text-[#00a76f] hover:underline font-medium"
+          >
+            View all
+          </Link>
         </div>
-      </section>
-    </main>
+        <RecentActivityList items={recentActivity} />
+      </div>
+    </div>
   );
 }

@@ -23,129 +23,129 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#0e0e1a] text-gray-400">
+    <footer className="bg-gray-100 text-gray-600 dark:bg-[#0e0e1a] dark:text-gray-400">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Main Footer Content */}
         <div className="pt-16 pb-12">
           {/* Grid Sections */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12 text-sm mb-16">
             <div>
-              <h4 className="text-white font-semibold mb-5 text-base">Markets</h4>
+              <h4 className="text-gray-900 dark:text-gray-900 dark:text-white font-semibold mb-5 text-base">Markets</h4>
               <ul className="space-y-3">
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="#" className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors">
                     Evermount CFDs
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="#" className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors">
                     Future Markets
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-5 text-base">Education</h4>
+              <h4 className="text-gray-900 dark:text-white font-semibold mb-5 text-base">Education</h4>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/investor-tour" className="hover:text-white transition-colors">
+                  <Link href="/investor-tour" className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors">
                     Investor Tour
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="#" className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors">
                     AI Trading Guide
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="#" className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors">
                     Growth Dashboard
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="#" className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors">
                     Insights Blog
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-5 text-base">Important Links</h4>
+              <h4 className="text-gray-900 dark:text-white font-semibold mb-5 text-base">Important Links</h4>
               <ul className="space-y-3">
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="#" className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors">
                     FAQs
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="#" className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors">
                     Partnerships
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="#" className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors">
                     Investor Events
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="#" className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors">
                     Risk Disclosure
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-5 text-base">Legal & Compliance</h4>
+              <h4 className="text-gray-900 dark:text-white font-semibold mb-5 text-base">Legal & Compliance</h4>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/terms" className="hover:text-white transition-colors">
+                  <Link href="/terms" className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors">
                     Terms of Service
                   </Link>
                 </li>
                 <li>
-                  <Link href="/privacy" className="hover:text-white transition-colors">
+                  <Link href="/privacy" className="hover:text-gray-900 dark:hover:text-white transition-colors">
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/cookie-policy" className="hover:text-white transition-colors">
+                  <Link href="/cookie-policy" className="hover:text-gray-900 dark:hover:text-white transition-colors">
                     Cookie Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/investment-agreement" className="hover:text-white transition-colors">
+                  <Link href="/investment-agreement" className="hover:text-gray-900 dark:hover:text-white transition-colors">
                     Investment Agreement
                   </Link>
                 </li>
                 <li>
-                  <Link href="/risk-disclosure" className="hover:text-white transition-colors">
+                  <Link href="/risk-disclosure" className="hover:text-gray-900 dark:hover:text-white transition-colors">
                     Risk Disclosure
                   </Link>
                 </li>
                 <li>
-                  <Link href="/aml-policy" className="hover:text-white transition-colors">
+                  <Link href="/aml-policy" className="hover:text-gray-900 dark:hover:text-white transition-colors">
                     AML Statement
                   </Link>
                 </li>
                 <li>
-                  <Link href="/regulatory-compliance" className="hover:text-white transition-colors">
+                  <Link href="/regulatory-compliance" className="hover:text-gray-900 dark:hover:text-white transition-colors">
                     Regulatory Compliance
                   </Link>
                 </li>
                 <li>
-                  <Link href="/conflict-of-interest" className="hover:text-white transition-colors">
+                  <Link href="/conflict-of-interest" className="hover:text-gray-900 dark:hover:text-white transition-colors">
                     Conflict of Interest
                   </Link>
                 </li>
                 <li>
-                  <Link href="/best-execution" className="hover:text-white transition-colors">
+                  <Link href="/best-execution" className="hover:text-gray-900 dark:hover:text-white transition-colors">
                     Best Execution Policy
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-5 text-base">Contact Us</h4>
+              <h4 className="text-gray-900 dark:text-white font-semibold mb-5 text-base">Contact Us</h4>
               <ul className="space-y-3">
                 <li>
                   <span className="text-gray-500">Email: </span>
@@ -166,32 +166,32 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="#" className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors">
                     Live Chat
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="#" className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors">
                     Messenger
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-5 text-base">Community</h4>
+              <h4 className="text-gray-900 dark:text-white font-semibold mb-5 text-base">Community</h4>
               <ul className="space-y-3">
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="#" className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors">
                     Local Communities
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="#" className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors">
                     Join Discord
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="#" className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors">
                     Join X
                   </Link>
                 </li>
@@ -201,10 +201,10 @@ export default function Footer() {
 
           {/* Newsletter Signup */}
           <div className="mb-16 text-center">
-            <h4 className="text-xl text-white font-semibold mb-3">
+            <h4 className="text-xl text-gray-900 dark:text-white font-semibold mb-3">
               Subscribe to our Newsletter
             </h4>
-            <p className="text-sm text-gray-500 mb-6 max-w-md mx-auto">
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 max-w-md mx-auto">
               Get updates on new products, investor tools, and market strategies.
             </p>
             <form
@@ -216,7 +216,7 @@ export default function Footer() {
                 placeholder="you@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="px-4 py-3 rounded-lg w-full sm:flex-1 text-sm text-white placeholder-gray-400 bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#00a76f] focus:border-transparent transition"
+                className="px-4 py-3 rounded-lg w-full sm:flex-1 text-sm text-gray-900 dark:text-white placeholder-gray-400 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#00a76f] focus:border-transparent transition"
                 required
               />
               <button
@@ -338,8 +338,8 @@ export default function Footer() {
         </div>
 
         {/* Footer Bottom */}
-        <div className="border-t border-gray-800 pt-6 pb-6">
-          <p className="text-center text-xs text-gray-500">
+        <div className="border-t border-gray-300 dark:border-gray-800 pt-6 pb-6">
+          <p className="text-center text-xs text-gray-500 dark:text-gray-400">
             © {new Date().getFullYear()} Evermount Capital. All rights reserved.
           </p>
         </div>

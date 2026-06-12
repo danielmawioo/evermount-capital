@@ -13,10 +13,12 @@ import {
 import { useTheme } from "@/context/ThemeContext";
 import Image from "next/image";
 import Link from "next/link";
+import { clearAuth } from "@/lib/auth-storage";
+import { api } from "@/lib/api-client";
 
 export default function Topbar() {
   const router = useRouter();
-  const { theme, toggleTheme } = useTheme();
+  const { theme, setTheme, toggleTheme } = useTheme();
   const [greeting, setGreeting] = useState("");
   const [langOpen, setLangOpen] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
@@ -54,9 +56,13 @@ export default function Topbar() {
   }, []);
 
   // Handle Logout
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    sessionStorage.removeItem("token");
+  const handleLogout = async () => {
+    try {
+      await api.auth.logout();
+    } catch {
+      // Clear local session even if API call fails
+    }
+    clearAuth();
     setLogoutMessage("✅ Logged out successfully!");
     setTimeout(() => {
       router.push("/");
@@ -233,15 +239,23 @@ export default function Topbar() {
               {/* Theme Toggle */}
               <div className="flex justify-around items-center border-t border-gray-200 dark:border-gray-700 py-3">
                 <button
-                  onClick={toggleTheme}
-                  className="flex flex-col items-center text-gray-700 dark:text-gray-400 text-xs"
+                  onClick={() => setTheme("light")}
+                  className={`flex flex-col items-center text-xs transition ${
+                    theme === "light"
+                      ? "text-[#00a76f] font-semibold"
+                      : "text-gray-700 dark:text-gray-400"
+                  }`}
                 >
                   <SunIcon className="w-5 h-5 mb-1" />
                   Light
                 </button>
                 <button
-                  onClick={toggleTheme}
-                  className="flex flex-col items-center text-gray-700 dark:text-gray-400 text-xs"
+                  onClick={() => setTheme("dark")}
+                  className={`flex flex-col items-center text-xs transition ${
+                    theme === "dark"
+                      ? "text-[#00a76f] font-semibold"
+                      : "text-gray-700 dark:text-gray-400"
+                  }`}
                 >
                   <MoonIcon className="w-5 h-5 mb-1" />
                   Dark

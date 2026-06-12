@@ -1,120 +1,91 @@
-name: Deploy Evermount Backend
+name: Deploy Frontend
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch: # Allow manual trigger
+  workflow_dispatch:
+
+concurrency:
+  group: frontend-deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: "20"
 
 jobs:
-  deploy:
+  validate:
+    name: Build & lint
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 15
+
+    env:
+      NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+      NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}
+      NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }}
+      NEXT_PUBLIC_GITHUB_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_GITHUB_CLIENT_ID }}
+
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'yarn'
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Run linting
-        run: yarn lint || true # Continue even if linting fails (remove || true to enforce)
+      - name: Lint
+        run: yarn lint
 
-      - name: Run tests
-        run: yarn test || true # Continue even if tests fail (remove || true to enforce)
-
-      - name: Build project
+      - name: Build
         run: yarn build
 
-      - name: Deploy to server via SSH
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ${{ secrets.SERVER_IP }}
-          username: ${{ secrets.SERVER_USERNAME || 'root' }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          port: ${{ secrets.SERVER_SSH_PORT || '22' }}
-          script: |
-            set -e  # Exit on any error
-            
-            echo "🚀 Starting deployment..."
-            
-            # Navigate to deployment directory
-            cd /var/www/evermount-backend
-            
-            # Pull latest code
-            echo "📥 Pulling latest code..."
-            git fetch origin
-            git reset --hard origin/main
-            git clean -fd
-            
-            # Install dependencies
-            echo "📦 Installing dependencies..."
-            yarn install --frozen-lockfile --production=false
-            
-            # Build project
-            echo "🔨 Building project..."
-            yarn build
-            
-            # Verify build output exists
-            if [ ! -f "dist/src/main.js" ]; then
-              echo "❌ Build failed: dist/src/main.js not found"
-              exit 1
-            fi
-            
-            # Restart PM2 process (zero-downtime reload)
-            echo "🔄 Restarting PM2 process..."
-            pm2 reload evermount-backend || pm2 restart evermount-backend
-            
-            # Wait for PM2 to stabilize
-            sleep 2
-            
-            # Verify PM2 process is running
-            if ! pm2 describe evermount-backend | grep -q "online"; then
-              echo "❌ PM2 process is not online"
-              pm2 logs evermount-backend --lines 50
-              exit 1
-            fi
-            
-            # Show PM2 status
-            echo "✅ Deployment successful!"
-            pm2 status evermount-backend
-            pm2 info evermount-backend
+  deploy:
+    name: Deploy to Vercel
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: production
 
-      - name: Verify deployment
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ${{ secrets.SERVER_IP }}
-          username: ${{ secrets.SERVER_USERNAME || 'root' }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          port: ${{ secrets.SERVER_SSH_PORT || '22' }}
-          script: |
-            # Health check
-            echo "🏥 Running health check..."
-            sleep 3
-            
-            # Check if API is responding
-            if curl -f -s https://api.evermount.co/health > /dev/null; then
-              echo "✅ Health check passed"
-            else
-              echo "⚠️  Health check failed (this might be normal if /health endpoint doesn't exist)"
-            fi
-            
-            # Show recent PM2 logs
-            echo "📋 Recent PM2 logs:"
-            pm2 logs evermount-backend --lines 20 --nostream
+    env:
+      NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+      NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}
+      NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }}
+      NEXT_PUBLIC_GITHUB_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_GITHUB_CLIENT_ID }}
 
-      - name: Deployment Summary
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Deploy to Vercel (production)
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: "--prod"
+          working-directory: ./
+
+      - name: Deployment summary
         if: always()
         run: |
-          echo "## Deployment Summary" >> $GITHUB_STEP_SUMMARY
-          echo "- **Status**: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
-          echo "- **Branch**: ${{ github.ref }}" >> $GITHUB_STEP_SUMMARY
-          echo "- **Commit**: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
-          echo "- **Deployed to**: https://api.evermount.co" >> $GITHUB_STEP_SUMMARY
-
+          {
+            echo "## Frontend deployment"
+            echo "- **Status**: ${{ job.status }}"
+            echo "- **Commit**: \`${{ github.sha }}\`"
+            echo "- **Branch**: \`${{ github.ref_name }}\`"
+            echo "- **Target**: https://evermount.co"
+          } >> "$GITHUB_STEP_SUMMARY"

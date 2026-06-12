@@ -229,7 +229,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-white text-gray-900 antialiased" suppressHydrationWarning>
+      <body className="bg-white text-gray-900 dark:bg-[#0b0b12] dark:text-gray-100 antialiased" suppressHydrationWarning>
         <LayoutWrapper>{children}</LayoutWrapper>
         <IntercomProvider />
         <Analytics />

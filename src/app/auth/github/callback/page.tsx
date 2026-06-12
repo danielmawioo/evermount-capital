@@ -4,6 +4,7 @@ import { useEffect, useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { setAuthTokens, setUser } from "@/lib/auth-storage";
 
 function GitHubCallbackContent() {
   const searchParams = useSearchParams();
@@ -47,10 +48,9 @@ function GitHubCallbackContent() {
         // Call backend with access token
         const { data: authData } = await api.auth.githubAuth({ accessToken });
 
-        // Store token and user data
-        localStorage.setItem("token", authData.token);
+        setAuthTokens(authData.token, authData.refreshToken, true);
         if (authData.user) {
-          localStorage.setItem("user", JSON.stringify(authData.user));
+          setUser(authData.user, true);
         }
 
         toast.success("Login successful!");

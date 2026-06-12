@@ -7,6 +7,8 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Script from "next/script";
 import toast, { Toaster } from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { setAuthTokens, setUser } from "@/lib/auth-storage";
+import ThemeToggle from "@/app/components/ThemeToggle";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -44,18 +46,10 @@ export default function LoginPage() {
       try {
         const { data } = await api.auth.login({ email, password });
 
-        const token = data.token;
+        setAuthTokens(data.token, data.refreshToken, rememberMe);
 
-        if (rememberMe) {
-          localStorage.setItem("token", token);
-        } else {
-          sessionStorage.setItem("token", token);
-        }
-
-        // Store user data
         if (data.user) {
-          const storage = rememberMe ? localStorage : sessionStorage;
-          storage.setItem("user", JSON.stringify(data.user));
+          setUser(data.user, rememberMe);
         }
 
         toast.success("Login successful! Redirecting...");
@@ -120,13 +114,9 @@ export default function LoginPage() {
 
       const { data } = await authEndpoint({ accessToken } as any);
 
-      const token = data.token;
-      if (rememberMe) {
-        localStorage.setItem("token", token);
-        if (data.user) localStorage.setItem("user", JSON.stringify(data.user));
-      } else {
-        sessionStorage.setItem("token", token);
-        if (data.user) sessionStorage.setItem("user", JSON.stringify(data.user));
+      setAuthTokens(data.token, data.refreshToken, rememberMe);
+      if (data.user) {
+        setUser(data.user, rememberMe);
       }
 
       toast.success("Login successful! Redirecting...");
@@ -166,7 +156,7 @@ export default function LoginPage() {
       />
 
       <main className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white dark:bg-gray-900 relative">
-        {/* Logo */}
+        {/* Logo & Theme Toggle */}
         <div className="absolute top-6 left-6 md:left-10 z-50">
           <Link href="/" className="flex items-center space-x-2">
             <Image
@@ -177,6 +167,9 @@ export default function LoginPage() {
             />
             <span className="text-xl font-bold text-[#00a76f]">Evermount</span>
           </Link>
+        </div>
+        <div className="absolute top-6 right-6 md:right-10 z-50">
+          <ThemeToggle />
         </div>
 
         {/* Left Panel */}

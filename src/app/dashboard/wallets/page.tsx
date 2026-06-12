@@ -244,7 +244,7 @@ export default function WalletsPage() {
           </Link>
 
           <Link
-            href="/dashboard/invest"
+            href="/dashboard/trade"
             className="flex items-center gap-3 p-4 bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-lg transition border border-blue-200 dark:border-blue-800"
           >
             <ChartBarIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />

@@ -17,7 +17,7 @@ const logos = [
 export default function PaymentPartners() {
   return (
     <section className="py-20 max-w-6xl mx-auto px-6 text-center">
-      <p className="text-gray-500 text-sm uppercase tracking-wide mb-8">
+      <p className="text-gray-500 dark:text-gray-400 text-sm uppercase tracking-wide mb-8">
         We Support Seamless Transactions Via:
       </p>
 

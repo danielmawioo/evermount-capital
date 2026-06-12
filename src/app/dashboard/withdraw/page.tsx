@@ -2,18 +2,13 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { formatSettlementDetails } from "@/lib/settlement-account";
 
 export default function WithdrawPage() {
   const [copied, setCopied] = useState(false);
 
   const handleCopyBankDetails = () => {
-    const details = `
-Bank: Evermount Capital Bank
-Account Number: 1234567890
-Branch: Nairobi HQ
-`;
-
-    navigator.clipboard.writeText(details);
+    navigator.clipboard.writeText(formatSettlementDetails());
     setCopied(true);
 
     setTimeout(() => setCopied(false), 2000);
@@ -32,7 +27,7 @@ Branch: Nairobi HQ
       </div>
 
       {/* Withdrawal Methods */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {/* Bank Withdrawal */}
         <div className="bg-white dark:bg-gray-900 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-md flex flex-col items-center text-center space-y-4">
           <div className="bg-blue-100 dark:bg-blue-900 p-3 rounded-full">
@@ -71,6 +66,40 @@ Branch: Nairobi HQ
             className="text-sm text-[#00a76f] mt-2 hover:underline"
           >
             Proceed to Withdraw →
+          </Link>
+        </div>
+
+        {/* M-Pesa Withdrawal */}
+        <div className="bg-white dark:bg-gray-900 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-md flex flex-col items-center text-center space-y-4">
+          <div className="bg-green-100 dark:bg-green-900 p-3 rounded-full">
+            <svg
+              className="w-6 h-6 text-green-600 dark:text-green-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+              />
+            </svg>
+          </div>
+
+          <h2 className="text-lg font-semibold text-gray-800 dark:text-white">
+            Withdraw to M-Pesa
+          </h2>
+
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            Receive KES directly on your M-Pesa phone number.
+          </p>
+
+          <Link
+            href="/dashboard/withdraw/mpesa"
+            className="mt-4 w-full bg-[#00a76f] hover:bg-emerald-700 text-white py-2 rounded-lg font-semibold transition text-center"
+          >
+            Withdraw to M-Pesa
           </Link>
         </div>
 

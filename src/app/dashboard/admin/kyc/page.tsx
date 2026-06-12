@@ -1,137 +1,207 @@
 "use client";
 
-import { useState } from "react";
-import { FaIdCard, FaFileAlt, FaUpload } from "react-icons/fa";
-import FileUpload from "@/components/FileUpload";
+import { useCallback, useEffect, useState } from "react";
+import {
+  CheckCircleIcon,
+  XCircleIcon,
+  ClockIcon,
+  DocumentDuplicateIcon,
+} from "@heroicons/react/24/outline";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 
-export default function KYCPage() {
-  const [identityDocument, setIdentityDocument] = useState<File | null>(null);
-  const [proofOfAddress, setProofOfAddress] = useState<File | null>(null);
-  const [selfie, setSelfie] = useState<File | null>(null);
-  const [loading, setLoading] = useState(false);
+interface KYCSubmission {
+  id: string;
+  userId: string;
+  userEmail: string;
+  userName: string;
+  status: string;
+  submittedAt: string;
+  identityDocument?: string;
+  proofOfAddress?: string;
+  selfie?: string;
+}
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!identityDocument || !proofOfAddress || !selfie) {
-      toast.error("Please upload all required documents");
-      return;
-    }
+export default function AdminKYCReviewPage() {
+  const [submissions, setSubmissions] = useState<KYCSubmission[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState<string>("PENDING");
+  const [processingId, setProcessingId] = useState<string | null>(null);
 
+  const loadSubmissions = useCallback(async () => {
     setLoading(true);
     try {
-      await api.kyc.submit({
-        identityDocument,
-        proofOfAddress,
-        selfie,
-      });
-      toast.success("KYC documents submitted successfully!");
-      // Reset form
-      setIdentityDocument(null);
-      setProofOfAddress(null);
-      setSelfie(null);
-    } catch (error: any) {
-      const message = error?.response?.data?.error?.message || error?.response?.data?.message || "Failed to submit documents";
-      toast.error(message);
+      const params = filter !== "all" ? { status: filter } : undefined;
+      const { data } = await api.admin.kyc.getAll(params);
+      setSubmissions(data.submissions || data.kycSubmissions || []);
+    } catch {
+      toast.error("Failed to load KYC submissions");
     } finally {
       setLoading(false);
     }
-  };
+  }, [filter]);
 
-  const handleIdentityUpload = async (files: File[]) => {
-    if (files.length > 0) {
-      setIdentityDocument(files[0]);
+  useEffect(() => {
+    loadSubmissions();
+  }, [loadSubmissions]);
+
+  const updateStatus = async (
+    kycId: string,
+    status: "VERIFIED" | "REJECTED",
+    notes?: string
+  ) => {
+    setProcessingId(kycId);
+    try {
+      await api.admin.kyc.update(kycId, { status, notes });
+      toast.success(`KYC ${status === "VERIFIED" ? "approved" : "rejected"}`);
+      await loadSubmissions();
+    } catch {
+      toast.error("Failed to update KYC status");
+    } finally {
+      setProcessingId(null);
     }
   };
 
-  const handleAddressUpload = async (files: File[]) => {
-    if (files.length > 0) {
-      setProofOfAddress(files[0]);
+  const statusBadge = (status: string) => {
+    const normalized = status.toUpperCase();
+    if (normalized === "VERIFIED") {
+      return (
+        <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300">
+          <CheckCircleIcon className="w-3.5 h-3.5" /> Verified
+        </span>
+      );
     }
-  };
-
-  const handleSelfieUpload = async (files: File[]) => {
-    if (files.length > 0) {
-      setSelfie(files[0]);
+    if (normalized === "REJECTED") {
+      return (
+        <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300">
+          <XCircleIcon className="w-3.5 h-3.5" /> Rejected
+        </span>
+      );
     }
+    return (
+      <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300">
+        <ClockIcon className="w-3.5 h-3.5" /> Pending
+      </span>
+    );
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-6 bg-[#f9fafb] dark:bg-[#0f1117]">
-      <div className="w-full max-w-2xl bg-white dark:bg-[#161a23] p-8 rounded-lg shadow-md border border-gray-100 dark:border-gray-800">
-        <h1 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-8">
-          KYC Verification
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+          <DocumentDuplicateIcon className="w-8 h-8 text-[#00a76f]" />
+          KYC Review
         </h1>
-
-        <form className="space-y-6" onSubmit={handleSubmit}>
-          {/* Personal Details */}
-          <div>
-            <label className="block text-gray-700 dark:text-gray-300 mb-2 text-sm font-medium">
-              Full Name
-            </label>
-            <input
-              type="text"
-              required
-              placeholder="John Doe"
-              className="w-full px-4 py-2 border rounded-md bg-white dark:bg-[#161a23] text-gray-900 dark:text-white focus:ring-[#00a76f] focus:border-[#00a76f] focus:outline-none text-sm"
-            />
-          </div>
-
-          <div>
-            <label className="block text-gray-700 dark:text-gray-300 mb-2 text-sm font-medium">
-              National ID or Passport Number
-            </label>
-            <input
-              type="text"
-              required
-              placeholder="ID12345678"
-              className="w-full px-4 py-2 border rounded-md bg-white dark:bg-[#161a23] text-gray-900 dark:text-white focus:ring-[#00a76f] focus:border-[#00a76f] focus:outline-none text-sm"
-            />
-          </div>
-
-          {/* File Uploads */}
-          <div className="space-y-6">
-            <FileUpload
-              accept="image/*,.pdf"
-              maxSize={10}
-              multiple={false}
-              onUpload={handleIdentityUpload}
-              label="Identity Document (ID/Passport)"
-              description="Upload a clear photo or scan of your government-issued ID or passport"
-            />
-
-            <FileUpload
-              accept="image/*,.pdf"
-              maxSize={10}
-              multiple={false}
-              onUpload={handleAddressUpload}
-              label="Proof of Address"
-              description="Upload a utility bill, bank statement, or other document showing your address"
-            />
-
-            <FileUpload
-              accept="image/*"
-              maxSize={5}
-              multiple={false}
-              onUpload={handleSelfieUpload}
-              label="Selfie Photo"
-              description="Upload a clear selfie photo holding your ID next to your face"
-            />
-          </div>
-
-          {/* Submit */}
-          <button
-            type="submit"
-            disabled={loading || !identityDocument || !proofOfAddress || !selfie}
-            className="flex items-center gap-2 w-full justify-center bg-[#00a76f] hover:bg-emerald-700 text-white py-2 rounded-md font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <FaUpload />
-            {loading ? "Submitting..." : "Submit Verification"}
-          </button>
-        </form>
+        <p className="text-gray-600 dark:text-gray-400 mt-1">
+          Review and approve investor identity submissions.
+        </p>
       </div>
-    </main>
+
+      <div className="flex gap-2">
+        {["PENDING", "VERIFIED", "REJECTED", "all"].map((s) => (
+          <button
+            key={s}
+            onClick={() => setFilter(s)}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+              filter === s
+                ? "bg-[#00a76f] text-white"
+                : "bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300"
+            }`}
+          >
+            {s === "all" ? "All" : s.charAt(0) + s.slice(1).toLowerCase()}
+          </button>
+        ))}
+      </div>
+
+      {loading ? (
+        <p className="text-gray-500 dark:text-gray-400">Loading submissions...</p>
+      ) : submissions.length === 0 ? (
+        <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
+          <p className="text-gray-600 dark:text-gray-400">No submissions found.</p>
+        </div>
+      ) : (
+        <div className="space-y-4">
+          {submissions.map((item) => (
+            <div
+              key={item.id}
+              className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 shadow-sm"
+            >
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                  <p className="font-semibold text-gray-900 dark:text-white">
+                    {item.userName}
+                  </p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    {item.userEmail}
+                  </p>
+                  <p className="text-xs text-gray-400 mt-1">
+                    Submitted{" "}
+                    {new Date(item.submittedAt).toLocaleString()}
+                  </p>
+                </div>
+                <div className="flex items-center gap-3">
+                  {statusBadge(item.status)}
+                  {item.status.toUpperCase() === "PENDING" && (
+                    <>
+                      <button
+                        disabled={processingId === item.id}
+                        onClick={() => updateStatus(item.id, "VERIFIED")}
+                        className="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-sm rounded-lg disabled:opacity-50"
+                      >
+                        Approve
+                      </button>
+                      <button
+                        disabled={processingId === item.id}
+                        onClick={() => {
+                          const notes = prompt("Rejection reason (optional):");
+                          updateStatus(item.id, "REJECTED", notes || undefined);
+                        }}
+                        className="px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white text-sm rounded-lg disabled:opacity-50"
+                      >
+                        Reject
+                      </button>
+                    </>
+                  )}
+                </div>
+              </div>
+              {(item.identityDocument || item.proofOfAddress || item.selfie) && (
+                <div className="mt-4 flex flex-wrap gap-3 text-sm">
+                  {item.identityDocument && (
+                    <a
+                      href={item.identityDocument}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#00a76f] hover:underline"
+                    >
+                      Identity doc
+                    </a>
+                  )}
+                  {item.proofOfAddress && (
+                    <a
+                      href={item.proofOfAddress}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#00a76f] hover:underline"
+                    >
+                      Proof of address
+                    </a>
+                  )}
+                  {item.selfie && (
+                    <a
+                      href={item.selfie}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#00a76f] hover:underline"
+                    >
+                      Selfie
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
 }

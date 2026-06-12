@@ -123,7 +123,7 @@ export default function FundsPage() {
           </p>
         </div>
         <Link
-          href="/dashboard/invest"
+          href="/dashboard/trade"
           className="flex items-center gap-2 bg-[#00a76f] hover:bg-emerald-700 text-white px-4 py-2.5 rounded-lg font-semibold transition shadow-sm hover:shadow-md"
         >
           <PlusIcon className="w-5 h-5" />
@@ -303,7 +303,7 @@ export default function FundsPage() {
             No funds found matching your criteria.
           </p>
           <Link
-            href="/dashboard/invest"
+            href="/dashboard/trade"
             className="inline-flex items-center gap-2 bg-[#00a76f] hover:bg-emerald-700 text-white px-4 py-2 rounded-lg font-semibold transition"
           >
             <PlusIcon className="w-5 h-5" />

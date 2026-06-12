@@ -46,8 +46,8 @@ export default function CookieConsent() {
 
   return (
     <div className="fixed bottom-4 left-0 right-0 z-[1000] flex justify-center px-4 sm:px-6">
-      <div className="w-full max-w-4xl bg-gradient-to-r from-white via-[#f0fdf8] to-white border border-gray-200 shadow-xl rounded-2xl px-6 py-5 animate-fade-in backdrop-blur-sm">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-5 text-sm sm:text-base text-gray-800">
+      <div className="w-full max-w-4xl bg-gradient-to-r from-white via-[#f0fdf8] to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700 shadow-xl rounded-2xl px-6 py-5 animate-fade-in backdrop-blur-sm">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-5 text-sm sm:text-base text-gray-800 dark:text-gray-200">
           <p className="text-center sm:text-left leading-relaxed flex-1">
             We use cookies to enhance your experience, analyze site usage, and
             deliver personalized content.{" "}
@@ -68,7 +68,7 @@ export default function CookieConsent() {
             </button>
             <button
               onClick={handleReject}
-              className="bg-red-100 hover:bg-red-200 text-red-700 px-5 py-2 rounded-md font-semibold text-sm border border-red-300 transition"
+              className="bg-red-100 hover:bg-red-200 dark:bg-red-900/30 dark:hover:bg-red-900/50 text-red-700 dark:text-red-300 px-5 py-2 rounded-md font-semibold text-sm border border-red-300 dark:border-red-800 transition"
             >
               Reject
             </button>

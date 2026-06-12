@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import StripePayment from "@/components/StripePayment";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { SETTLEMENT_ACCOUNT } from "@/lib/settlement-account";
 
 export default function CardDepositPage() {
   const router = useRouter();
@@ -57,8 +58,22 @@ export default function CardDepositPage() {
           Complete Payment
         </h1>
         <p className="text-gray-600 dark:text-gray-400">
-          Enter your card details to complete the deposit.
+          Enter your Visa or Mastercard details to complete the deposit.
         </p>
+
+        <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg border border-gray-200 dark:border-gray-700 max-w-lg mx-auto text-sm text-gray-600 dark:text-gray-400">
+          <p>
+            Card payments are processed securely and settled to{" "}
+            <span className="font-medium text-gray-800 dark:text-gray-200">
+              {SETTLEMENT_ACCOUNT.bankName}
+            </span>{" "}
+            account{" "}
+            <span className="font-medium text-gray-800 dark:text-gray-200">
+              {SETTLEMENT_ACCOUNT.accountNumber}
+            </span>
+            .
+          </p>
+        </div>
 
         <div className="bg-white dark:bg-gray-900 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm max-w-lg mx-auto">
           <StripePayment
@@ -88,11 +103,24 @@ export default function CardDepositPage() {
         Card Deposit
       </h1>
       <p className="text-gray-600 dark:text-gray-400">
-        Securely deposit funds to your wallet using Visa or Mastercard. Funds will be available in your wallet for withdrawal or investment.
+        Securely deposit funds using Visa or Mastercard. Payments settle to our{" "}
+        {SETTLEMENT_ACCOUNT.bankName} account (
+        {SETTLEMENT_ACCOUNT.accountNumber}) and are credited to your wallet.
       </p>
 
-      <div className="bg-white dark:bg-gray-900 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm max-w-lg mx-auto">
-        <form onSubmit={handleAmountSubmit} className="space-y-6">
+      <div className="bg-white dark:bg-gray-900 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm max-w-lg mx-auto space-y-4">
+        <div className="rounded-lg bg-gray-50 dark:bg-gray-800/50 p-4 text-sm space-y-1 border border-gray-100 dark:border-gray-700">
+          <p className="font-medium text-gray-800 dark:text-white">
+            Receiving account
+          </p>
+          <p className="text-gray-600 dark:text-gray-400">
+            {SETTLEMENT_ACCOUNT.bankName} · {SETTLEMENT_ACCOUNT.accountNumber}
+          </p>
+          <p className="text-gray-500 dark:text-gray-500">
+            Card: {SETTLEMENT_ACCOUNT.cardMasked}
+          </p>
+        </div>
+        <form onSubmit={handleAmountSubmit} className="space-y-6 pt-2">
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Deposit Amount (USD)

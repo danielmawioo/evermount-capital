@@ -6,6 +6,7 @@ import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { api } from "@/lib/api-client";
+import ThemeToggle from "@/app/components/ThemeToggle";
 
 export default function RegisterPage() {
   const [firstName, setFirstName] = useState("");
@@ -104,7 +105,7 @@ export default function RegisterPage() {
   return (
     <main className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white dark:bg-gray-900 relative">
       <Toaster position="top-center" />
-      {/* Logo */}
+      {/* Logo & Theme Toggle */}
       <div className="absolute top-6 left-6 md:left-10 z-50">
         <Link href="/" className="flex items-center space-x-2">
           <Image
@@ -115,6 +116,9 @@ export default function RegisterPage() {
           />
           <span className="text-xl font-bold text-[#00a76f]">Evermount</span>
         </Link>
+      </div>
+      <div className="absolute top-6 right-6 md:right-10 z-50">
+        <ThemeToggle />
       </div>
 
       {/* Left Panel */}

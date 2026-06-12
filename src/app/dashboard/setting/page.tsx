@@ -5,9 +5,27 @@ import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import FileUpload from "@/components/FileUpload";
 
+const LOCK_IN_OPTIONS = [
+  { label: "6 months", value: 6 },
+  { label: "12 months", value: 12 },
+  { label: "24 months", value: 24 },
+];
+
+const RISK_OPTIONS = [
+  { label: "Conservative", value: "LOW", description: "Lower volatility strategies" },
+  { label: "Balanced", value: "MODERATE", description: "Moderate risk and return" },
+  { label: "Growth", value: "HIGH", description: "Higher return potential" },
+];
+
 export default function SettingsPage() {
   const [loading, setLoading] = useState(false);
   const [profileLoading, setProfileLoading] = useState(true);
+  const [prefsLoading, setPrefsLoading] = useState(true);
+  const [investmentPrefs, setInvestmentPrefs] = useState({
+    lockInMonths: 6,
+    riskTolerance: "MODERATE",
+    reinvestProfits: true,
+  });
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -29,7 +47,37 @@ export default function SettingsPage() {
 
   useEffect(() => {
     loadProfile();
+    loadInvestmentPrefs();
   }, []);
+
+  const loadInvestmentPrefs = async () => {
+    try {
+      const { data } = await api.investments.getPreferences();
+      setInvestmentPrefs({
+        lockInMonths: data.lockInMonths ?? 6,
+        riskTolerance: data.riskTolerance ?? "MODERATE",
+        reinvestProfits: data.reinvestProfits ?? true,
+      });
+    } catch {
+      toast.error("Failed to load investment preferences");
+    } finally {
+      setPrefsLoading(false);
+    }
+  };
+
+  const handleInvestmentPrefsSave = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      await api.investments.updatePreferences(investmentPrefs);
+      toast.success("Investment preferences saved");
+    } catch (error: unknown) {
+      const err = error as { response?: { data?: { message?: string } } };
+      toast.error(err.response?.data?.message || "Failed to save preferences");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const loadProfile = async () => {
     try {
@@ -105,7 +153,7 @@ export default function SettingsPage() {
     }
   };
 
-  if (profileLoading) {
+  if (profileLoading || prefsLoading) {
     return (
       <div className="max-w-xl mx-auto space-y-8">
         <div className="animate-pulse">Loading...</div>
@@ -198,6 +246,111 @@ export default function SettingsPage() {
             {loading ? "Saving..." : "Save Changes"}
           </button>
         </div>
+      </form>
+
+      {/* Investment Preferences */}
+      <form
+        onSubmit={handleInvestmentPrefsSave}
+        className="space-y-6 bg-white dark:bg-gray-900 p-6 rounded-xl shadow"
+      >
+        <div>
+          <h2 className="text-lg font-semibold text-gray-800 dark:text-white">
+            Investment Preferences
+          </h2>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+            Used when you click Trade. Your capital stays invested for the period you choose.
+            Early withdrawal may not be available.
+          </p>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            Default lock-in period
+          </label>
+          <div className="grid grid-cols-3 gap-2">
+            {LOCK_IN_OPTIONS.map((opt) => (
+              <button
+                key={opt.value}
+                type="button"
+                onClick={() =>
+                  setInvestmentPrefs({ ...investmentPrefs, lockInMonths: opt.value })
+                }
+                className={`py-2 rounded-lg text-sm font-medium border transition ${
+                  investmentPrefs.lockInMonths === opt.value
+                    ? "bg-[#00a76f] text-white border-[#00a76f]"
+                    : "border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300"
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            Risk comfort
+          </label>
+          <div className="space-y-2">
+            {RISK_OPTIONS.map((opt) => (
+              <label
+                key={opt.value}
+                className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition ${
+                  investmentPrefs.riskTolerance === opt.value
+                    ? "border-[#00a76f] bg-[#00a76f]/5"
+                    : "border-gray-200 dark:border-gray-700"
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="riskTolerance"
+                  value={opt.value}
+                  checked={investmentPrefs.riskTolerance === opt.value}
+                  onChange={() =>
+                    setInvestmentPrefs({
+                      ...investmentPrefs,
+                      riskTolerance: opt.value,
+                    })
+                  }
+                  className="mt-1 text-[#00a76f] focus:ring-[#00a76f]"
+                />
+                <div>
+                  <p className="text-sm font-medium text-gray-900 dark:text-white">
+                    {opt.label}
+                  </p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                    {opt.description}
+                  </p>
+                </div>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <label className="flex items-center gap-3 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={investmentPrefs.reinvestProfits}
+            onChange={(e) =>
+              setInvestmentPrefs({
+                ...investmentPrefs,
+                reinvestProfits: e.target.checked,
+              })
+            }
+            className="rounded border-gray-300 text-[#00a76f] focus:ring-[#00a76f]"
+          />
+          <span className="text-sm text-gray-700 dark:text-gray-300">
+            Reinvest profits automatically
+          </span>
+        </label>
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full bg-[#00a76f] text-white py-2 px-6 rounded-md font-semibold hover:bg-emerald-700 transition disabled:opacity-50"
+        >
+          {loading ? "Saving..." : "Save Investment Preferences"}
+        </button>
       </form>
 
       {/* Change Password */}

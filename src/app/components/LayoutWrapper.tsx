@@ -28,6 +28,7 @@ export default function LayoutWrapper({
 
   const hideNavbar = isAuthRoute || isDashboardRoute;
   const hideFooter = isAuthRoute || isDashboardRoute || isBookDemoPage;
+  const hideChat = isAuthRoute;
 
   return (
     <ThemeProvider>
@@ -36,7 +37,7 @@ export default function LayoutWrapper({
       {!hideFooter && <Footer />}
       {!hideFooter && <CookieConsent />}{" "}
       {/* ✅ Optional: display cookie banner */}
-      {!hideNavbar && <ChatWidget />}
+      {!hideChat && <ChatWidget />}
     </ThemeProvider>
   );
 }

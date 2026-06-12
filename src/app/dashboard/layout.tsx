@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { ThemeProvider } from "@/context/ThemeContext";
 import Sidebar from "@/app/components/Sidebar";
 import Topbar from "@/app/components/Topbar";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -14,8 +13,7 @@ export default function DashboardLayout({
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <ThemeProvider>
-      <div className="min-h-screen flex bg-[#f9fafb] dark:bg-[#0b0b12]">
+    <div className="min-h-screen flex bg-[#f9fafb] dark:bg-[#0b0b12]">
         {/* Mobile Sidebar Overlay */}
         {sidebarOpen && (
           <div
@@ -55,7 +53,6 @@ export default function DashboardLayout({
             <div className="max-w-7xl mx-auto">{children}</div>
           </main>
         </div>
-      </div>
-    </ThemeProvider>
+    </div>
   );
 }

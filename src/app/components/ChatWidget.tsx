@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChatBubbleLeftRightIcon,
@@ -14,8 +14,10 @@ import {
   ChartBarIcon,
   UserCircleIcon,
   QuestionMarkCircleIcon,
+  ArrowLeftIcon,
 } from "@heroicons/react/24/outline";
 import { useTheme } from "@/context/ThemeContext";
+import { CHAT_DEPARTMENTS, ASSISTANT_NAMES } from "@/lib/chat-departments";
 
 interface Message {
   role: "user" | "assistant";
@@ -23,89 +25,43 @@ interface Message {
   timestamp: Date;
   links?: string[];
   needsHumanSupport?: boolean;
+  isWelcome?: boolean;
 }
 
-interface Department {
-  id: string;
-  name: string;
-  description: string;
-  icon: React.ComponentType<{ className?: string }>;
-  color: string;
-}
-
-// List of assistant names to randomly select from
-const ASSISTANT_NAMES = ["Ethan", "Adriel", "Nathan", "Miguel", "Mike", "Alex", "Jordan", "Sam"];
-
-// Department definitions for a quant firm
-const DEPARTMENTS: Department[] = [
-  {
-    id: "technical",
-    name: "Technical Support",
-    description: "Platform issues, bugs, API access",
-    icon: WrenchScrewdriverIcon,
-    color: "from-blue-500 to-blue-600",
-  },
-  {
-    id: "it-support",
-    name: "IT Support",
-    description: "Account access, security, integrations",
-    icon: ComputerDesktopIcon,
-    color: "from-purple-500 to-purple-600",
-  },
-  {
-    id: "payments",
-    name: "Payments & Billing",
-    description: "Deposits, withdrawals, fees, transactions",
-    icon: CreditCardIcon,
-    color: "from-green-500 to-green-600",
-  },
-  {
-    id: "compliance",
-    name: "Compliance & Regulatory",
-    description: "KYC, AML, regulations, legal matters",
-    icon: ShieldCheckIcon,
-    color: "from-red-500 to-red-600",
-  },
-  {
-    id: "trading",
-    name: "Trading & Portfolio",
-    description: "Strategies, performance, portfolio management",
-    icon: ChartBarIcon,
-    color: "from-yellow-500 to-yellow-600",
-  },
-  {
-    id: "account",
-    name: "Account Management",
-    description: "Account settings, profile, preferences",
-    icon: UserCircleIcon,
-    color: "from-indigo-500 to-indigo-600",
-  },
-  {
-    id: "general",
-    name: "General Inquiry",
-    description: "Other questions or information",
-    icon: QuestionMarkCircleIcon,
-    color: "from-gray-500 to-gray-600",
-  },
-];
+const DEPARTMENT_ICONS: Record<
+  string,
+  React.ComponentType<{ className?: string }>
+> = {
+  technical: WrenchScrewdriverIcon,
+  "it-support": ComputerDesktopIcon,
+  payments: CreditCardIcon,
+  compliance: ShieldCheckIcon,
+  trading: ChartBarIcon,
+  account: UserCircleIcon,
+  general: QuestionMarkCircleIcon,
+};
 
 export default function ChatWidget() {
   const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedDepartment, setSelectedDepartment] = useState<string | null>(null);
+  const [selectedDepartment, setSelectedDepartment] = useState<string | null>(
+    null
+  );
   const [assistantName] = useState(() => {
-    // Get a random name, with preference for Ethan (first in list)
-    // 40% chance for Ethan, 60% chance for others
-    if (Math.random() < 0.4) {
-      return "Ethan";
-    }
-    return ASSISTANT_NAMES[Math.floor(Math.random() * ASSISTANT_NAMES.length)];
+    if (Math.random() < 0.4) return "Ethan";
+    return ASSISTANT_NAMES[
+      Math.floor(Math.random() * ASSISTANT_NAMES.length)
+    ];
   });
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const activeDepartment = CHAT_DEPARTMENTS.find(
+    (d) => d.id === selectedDepartment
+  );
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -121,77 +77,93 @@ export default function ChatWidget() {
     }
   }, [isOpen, selectedDepartment]);
 
-  // Reset department when chat is closed
   useEffect(() => {
     if (!isOpen) {
       setSelectedDepartment(null);
       setMessages([]);
+      setInput("");
     }
   }, [isOpen]);
 
   const handleDepartmentSelect = (departmentId: string) => {
+    const department = CHAT_DEPARTMENTS.find((d) => d.id === departmentId);
     setSelectedDepartment(departmentId);
-    const department = DEPARTMENTS.find((d) => d.id === departmentId);
     const welcomeMessage: Message = {
       role: "assistant",
-      content: `Hello! I'm ${assistantName}, and I'm here to help you with ${department?.name.toLowerCase()}. How can I assist you today?`,
+      content: `Hello! I'm ${assistantName} from ${department?.name}. I can help you resolve ${department?.description.toLowerCase()} issues. What can I help you with today?`,
       timestamp: new Date(),
+      isWelcome: true,
     };
     setMessages([welcomeMessage]);
   };
 
-  const handleSend = async () => {
-    if (!input.trim() || loading) return;
+  const sendMessage = useCallback(
+    async (text: string) => {
+      if (!text.trim() || loading || !selectedDepartment) return;
 
-    const userMessage: Message = {
-      role: "user",
-      content: input.trim(),
-      timestamp: new Date(),
-    };
-
-    setMessages((prev) => [...prev, userMessage]);
-    setInput("");
-    setLoading(true);
-
-    try {
-      const response = await fetch("/api/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          messages: [...messages, userMessage].map((msg) => ({
-            role: msg.role,
-            content: msg.content,
-          })),
-          assistantName: assistantName,
-          department: selectedDepartment,
-        }),
-      });
-
-      const data = await response.json();
-
-      const assistantMessage: Message = {
-        role: "assistant",
-        content: data.message || "I apologize, but I couldn't generate a response. Please try again.",
-        timestamp: new Date(),
-        links: data.links || [],
-        needsHumanSupport: data.needsHumanSupport || false,
-      };
-
-      setMessages((prev) => [...prev, assistantMessage]);
-    } catch (error) {
-      console.error("Chat error:", error);
-      const errorMessage: Message = {
-        role: "assistant",
-        content: "I apologize, but I'm experiencing technical difficulties. Please try again or contact our support team at support@evermount.co",
+      const userMessage: Message = {
+        role: "user",
+        content: text.trim(),
         timestamp: new Date(),
       };
-      setMessages((prev) => [...prev, errorMessage]);
-    } finally {
-      setLoading(false);
-    }
-  };
+
+      const updatedMessages = [...messages, userMessage];
+      setMessages(updatedMessages);
+      setInput("");
+      setLoading(true);
+
+      // Only send conversation history (exclude canned welcome message)
+      const apiMessages = updatedMessages
+        .filter((msg) => !msg.isWelcome)
+        .map((msg) => ({ role: msg.role, content: msg.content }));
+
+      try {
+        const response = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            messages: apiMessages,
+            assistantName,
+            department: selectedDepartment,
+          }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok && !data.message) {
+          throw new Error(data.error || "Request failed");
+        }
+
+        const assistantMessage: Message = {
+          role: "assistant",
+          content:
+            data.message ||
+            "I apologize, but I couldn't generate a response. Please try again.",
+          timestamp: new Date(),
+          links: data.links || [],
+          needsHumanSupport: data.needsHumanSupport || false,
+        };
+
+        setMessages((prev) => [...prev, assistantMessage]);
+      } catch (error) {
+        console.error("Chat error:", error);
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: "assistant",
+            content:
+              "I apologize, but I'm experiencing technical difficulties. Please try again or contact support@evermount.co",
+            timestamp: new Date(),
+          },
+        ]);
+      } finally {
+        setLoading(false);
+      }
+    },
+    [loading, selectedDepartment, messages, assistantName]
+  );
+
+  const handleSend = () => sendMessage(input);
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -200,9 +172,14 @@ export default function ChatWidget() {
     }
   };
 
+  const showSuggestedPrompts =
+    messages.length === 1 &&
+    messages[0]?.isWelcome &&
+    activeDepartment &&
+    !loading;
+
   return (
     <>
-      {/* Chat Button */}
       <motion.button
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
@@ -239,11 +216,9 @@ export default function ChatWidget() {
         </AnimatePresence>
       </motion.button>
 
-      {/* Chat Window */}
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -252,7 +227,6 @@ export default function ChatWidget() {
               className="fixed inset-0 bg-black/20 dark:bg-black/40 z-40 md:hidden"
             />
 
-            {/* Chat Panel */}
             <motion.div
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -264,22 +238,43 @@ export default function ChatWidget() {
                   : "bg-white border border-gray-200"
               }`}
             >
-              {/* Header */}
               <div
                 className={`px-4 py-4 border-b ${
-                  theme === "dark" ? "border-gray-700 bg-gray-800" : "border-gray-200 bg-gray-50"
+                  theme === "dark"
+                    ? "border-gray-700 bg-gray-800"
+                    : "border-gray-200 bg-gray-50"
                 }`}
               >
                 <div className="flex items-center gap-3">
+                  {selectedDepartment && (
+                    <button
+                      onClick={() => {
+                        setSelectedDepartment(null);
+                        setMessages([]);
+                      }}
+                      className="p-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition md:hidden"
+                      aria-label="Back to departments"
+                    >
+                      <ArrowLeftIcon className="w-5 h-5 text-gray-500" />
+                    </button>
+                  )}
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#00a76f] to-emerald-600 flex items-center justify-center">
                     <SparklesIcon className="w-5 h-5 text-white" />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-gray-900 dark:text-white">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold text-gray-900 dark:text-white truncate">
                       {assistantName}
+                      {activeDepartment && (
+                        <span className="font-normal text-gray-500 dark:text-gray-400">
+                          {" "}
+                          · {activeDepartment.name}
+                        </span>
+                      )}
                     </h3>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
-                      AI Assistant • We typically reply in seconds
+                      {activeDepartment
+                        ? "Resolving issues in your department"
+                        : "AI Assistant · Select a department"}
                     </p>
                   </div>
                   <button
@@ -292,27 +287,38 @@ export default function ChatWidget() {
                 </div>
               </div>
 
-              {/* Department Selection or Messages */}
-              <div className={`flex-1 overflow-y-auto p-4 ${
-                !selectedDepartment && theme === "light" ? "bg-gray-50" : ""
-              }`}>
+              <div
+                className={`flex-1 overflow-y-auto p-4 ${
+                  !selectedDepartment && theme === "light" ? "bg-gray-50" : ""
+                }`}
+              >
                 {!selectedDepartment ? (
                   <div className="space-y-3">
                     <div className="text-center mb-4">
-                      <p className={`text-sm mb-1 ${
-                        theme === "dark" ? "text-gray-400" : "text-gray-700"
-                      }`}>
-                        Hi! I'm {assistantName}, your AI assistant.
+                      <p
+                        className={`text-sm mb-1 ${
+                          theme === "dark"
+                            ? "text-gray-400"
+                            : "text-gray-700"
+                        }`}
+                      >
+                        Hi! I&apos;m {assistantName}, your AI assistant.
                       </p>
-                      <p className={`text-sm font-semibold ${
-                        theme === "dark" ? "text-white" : "text-gray-900"
-                      }`}>
+                      <p
+                        className={`text-sm font-semibold ${
+                          theme === "dark"
+                            ? "text-white"
+                            : "text-gray-900"
+                        }`}
+                      >
                         Which department can help you today?
                       </p>
                     </div>
                     <div className="grid grid-cols-1 gap-3">
-                      {DEPARTMENTS.map((dept) => {
-                        const IconComponent = dept.icon;
+                      {CHAT_DEPARTMENTS.map((dept) => {
+                        const IconComponent =
+                          DEPARTMENT_ICONS[dept.id] ??
+                          QuestionMarkCircleIcon;
                         return (
                           <motion.button
                             key={dept.id}
@@ -325,18 +331,28 @@ export default function ChatWidget() {
                                 : "bg-white border-gray-300 hover:border-gray-400 hover:bg-gray-50 shadow-md hover:shadow-lg"
                             }`}
                           >
-                            <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${dept.color} flex items-center justify-center flex-shrink-0 shadow-md`}>
+                            <div
+                              className={`w-12 h-12 rounded-xl bg-gradient-to-br ${dept.color} flex items-center justify-center flex-shrink-0 shadow-md`}
+                            >
                               <IconComponent className="w-6 h-6 text-white" />
                             </div>
                             <div className="flex-1 text-left">
-                              <p className={`text-sm font-bold ${
-                                theme === "dark" ? "text-white" : "text-gray-900"
-                              }`}>
+                              <p
+                                className={`text-sm font-bold ${
+                                  theme === "dark"
+                                    ? "text-white"
+                                    : "text-gray-900"
+                                }`}
+                              >
                                 {dept.name}
                               </p>
-                              <p className={`text-xs mt-0.5 ${
-                                theme === "dark" ? "text-gray-400" : "text-gray-600"
-                              }`}>
+                              <p
+                                className={`text-xs mt-0.5 ${
+                                  theme === "dark"
+                                    ? "text-gray-400"
+                                    : "text-gray-600"
+                                }`}
+                              >
                                 {dept.description}
                               </p>
                             </div>
@@ -348,81 +364,107 @@ export default function ChatWidget() {
                 ) : (
                   <div className="space-y-4">
                     {messages.map((message, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className={`flex ${
-                      message.role === "user" ? "justify-end" : "justify-start"
-                    }`}
-                  >
-                    <div
-                      className={`max-w-[80%] rounded-2xl px-4 py-2 ${
-                        message.role === "user"
-                          ? "bg-[#00a76f] text-white"
-                          : theme === "dark"
-                          ? "bg-gray-800 text-gray-100"
-                          : "bg-gray-100 text-gray-900"
-                      }`}
-                    >
-                      <p className="text-sm leading-relaxed whitespace-pre-wrap">
-                        {message.content.split(/(https?:\/\/[^\s]+)/g).map((part, i) => {
-                          if (part.match(/^https?:\/\//)) {
-                            return (
-                              <a
-                                key={i}
-                                href={part}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-[#00a76f] dark:text-emerald-400 underline hover:opacity-80"
-                              >
-                                {part}
-                              </a>
-                            );
-                          }
-                          return <span key={i}>{part}</span>;
-                        })}
-                      </p>
-                      {message.links && message.links.length > 0 && (
-                        <div className="mt-3 space-y-2">
-                          {message.links.map((link, linkIndex) => (
-                            <a
-                              key={linkIndex}
-                              href={link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="block text-xs text-[#00a76f] dark:text-emerald-400 hover:underline break-all"
-                            >
-                              🔗 {link}
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                      {message.needsHumanSupport && (
-                        <div className="mt-3 pt-3 border-t border-gray-300 dark:border-gray-600">
-                          <a
-                            href="/book-demo"
-                            className="inline-block text-xs bg-[#00a76f] hover:bg-emerald-700 text-white px-3 py-1.5 rounded-md font-medium transition"
-                          >
-                            📞 Book a Demo with Our Team
-                          </a>
-                        </div>
-                      )}
-                      <p
-                        className={`text-xs mt-1 ${
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className={`flex ${
                           message.role === "user"
-                            ? "text-white/70"
-                            : "text-gray-500"
+                            ? "justify-end"
+                            : "justify-start"
                         }`}
                       >
-                        {message.timestamp.toLocaleTimeString([], {
-                          hour: "2-digit",
-                          minute: "2-digit",
-                        })}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
+                        <div
+                          className={`max-w-[80%] rounded-2xl px-4 py-2 ${
+                            message.role === "user"
+                              ? "bg-[#00a76f] text-white"
+                              : theme === "dark"
+                                ? "bg-gray-800 text-gray-100"
+                                : "bg-gray-100 text-gray-900"
+                          }`}
+                        >
+                          <p className="text-sm leading-relaxed whitespace-pre-wrap">
+                            {message.content
+                              .split(/(https?:\/\/[^\s]+)/g)
+                              .map((part, i) => {
+                                if (part.match(/^https?:\/\//)) {
+                                  return (
+                                    <a
+                                      key={i}
+                                      href={part}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="text-[#00a76f] dark:text-emerald-400 underline hover:opacity-80"
+                                    >
+                                      {part}
+                                    </a>
+                                  );
+                                }
+                                return <span key={i}>{part}</span>;
+                              })}
+                          </p>
+                          {message.links && message.links.length > 0 && (
+                            <div className="mt-3 space-y-2">
+                              {message.links.map((link, linkIndex) => (
+                                <a
+                                  key={linkIndex}
+                                  href={link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="block text-xs text-[#00a76f] dark:text-emerald-400 hover:underline break-all"
+                                >
+                                  {link}
+                                </a>
+                              ))}
+                            </div>
+                          )}
+                          {message.needsHumanSupport && (
+                            <div className="mt-3 pt-3 border-t border-gray-300 dark:border-gray-600">
+                              <a
+                                href="/book-demo"
+                                className="inline-block text-xs bg-[#00a76f] hover:bg-emerald-700 text-white px-3 py-1.5 rounded-md font-medium transition"
+                              >
+                                Book a Demo with Our Team
+                              </a>
+                            </div>
+                          )}
+                          <p
+                            className={`text-xs mt-1 ${
+                              message.role === "user"
+                                ? "text-white/70"
+                                : "text-gray-500"
+                            }`}
+                          >
+                            {message.timestamp.toLocaleTimeString([], {
+                              hour: "2-digit",
+                              minute: "2-digit",
+                            })}
+                          </p>
+                        </div>
+                      </motion.div>
+                    ))}
+
+                    {showSuggestedPrompts && (
+                      <div className="space-y-2">
+                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                          Common questions:
+                        </p>
+                        {activeDepartment.suggestedPrompts.map((prompt) => (
+                          <button
+                            key={prompt}
+                            onClick={() => sendMessage(prompt)}
+                            className={`block w-full text-left text-xs px-3 py-2 rounded-lg border transition ${
+                              theme === "dark"
+                                ? "border-gray-700 bg-gray-800 text-gray-300 hover:bg-gray-700"
+                                : "border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
+                            }`}
+                          >
+                            {prompt}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+
                     {loading && (
                       <motion.div
                         initial={{ opacity: 0 }}
@@ -437,21 +479,18 @@ export default function ChatWidget() {
                           }`}
                         >
                           <div className="flex gap-1">
-                            <motion.div
-                              animate={{ opacity: [0.5, 1, 0.5] }}
-                              transition={{ duration: 1, repeat: Infinity, delay: 0 }}
-                              className="w-2 h-2 rounded-full bg-gray-400"
-                            />
-                            <motion.div
-                              animate={{ opacity: [0.5, 1, 0.5] }}
-                              transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
-                              className="w-2 h-2 rounded-full bg-gray-400"
-                            />
-                            <motion.div
-                              animate={{ opacity: [0.5, 1, 0.5] }}
-                              transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
-                              className="w-2 h-2 rounded-full bg-gray-400"
-                            />
+                            {[0, 0.2, 0.4].map((delay) => (
+                              <motion.div
+                                key={delay}
+                                animate={{ opacity: [0.5, 1, 0.5] }}
+                                transition={{
+                                  duration: 1,
+                                  repeat: Infinity,
+                                  delay,
+                                }}
+                                className="w-2 h-2 rounded-full bg-gray-400"
+                              />
+                            ))}
                           </div>
                         </div>
                       </motion.div>
@@ -461,11 +500,12 @@ export default function ChatWidget() {
                 )}
               </div>
 
-              {/* Input - Only show when department is selected */}
               {selectedDepartment && (
                 <div
                   className={`px-4 py-4 border-t ${
-                    theme === "dark" ? "border-gray-700 bg-gray-800" : "border-gray-200 bg-gray-50"
+                    theme === "dark"
+                      ? "border-gray-700 bg-gray-800"
+                      : "border-gray-200 bg-gray-50"
                   }`}
                 >
                   <div className="flex gap-2">
@@ -474,8 +514,8 @@ export default function ChatWidget() {
                       type="text"
                       value={input}
                       onChange={(e) => setInput(e.target.value)}
-                      onKeyPress={handleKeyPress}
-                      placeholder="Type your message..."
+                      onKeyDown={handleKeyPress}
+                      placeholder={`Ask ${activeDepartment?.name ?? "us"}...`}
                       disabled={loading}
                       className={`flex-1 px-4 py-2 rounded-lg text-sm border ${
                         theme === "dark"
@@ -499,7 +539,7 @@ export default function ChatWidget() {
                     </motion.button>
                   </div>
                   <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center">
-                    Powered by AI • Responses may vary
+                    {activeDepartment?.name} · Powered by AI
                   </p>
                 </div>
               )}
@@ -510,4 +550,3 @@ export default function ChatWidget() {
     </>
   );
 }
-
