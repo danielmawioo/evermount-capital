@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
@@ -121,7 +122,14 @@ export default function CryptoDepositPage() {
               </p>
               {depositData.qrCode &&
                 !depositData.qrCode.includes("placeholder") && (
-                <img src={depositData.qrCode} alt="QR Code" className="mt-4 w-48 h-48" />
+                <Image
+                  src={depositData.qrCode}
+                  alt="QR Code"
+                  width={192}
+                  height={192}
+                  unoptimized
+                  className="mt-4 w-48 h-48"
+                />
               )}
               {depositData.qrCode?.includes("placeholder") && (
                 <p className="text-xs text-amber-600 dark:text-amber-400 mt-2">

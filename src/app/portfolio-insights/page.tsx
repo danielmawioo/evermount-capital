@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Script from "next/script";
 import { motion } from "framer-motion";
 const containerVariants = {
@@ -135,10 +136,12 @@ export default function PortfolioInsightsPage() {
           transition={{ duration: 0.6 }}
           whileHover={{ scale: 1.02 }}
         >
-          <img
+          <Image
             src="/images/portfolio/line-chart.png"
             alt="Growth Chart"
-            className="rounded-xl shadow-xl"
+            width={800}
+            height={500}
+            className="rounded-xl shadow-xl w-full h-auto"
           />
         </motion.div>
       </section>
@@ -152,10 +155,12 @@ export default function PortfolioInsightsPage() {
           transition={{ duration: 0.6 }}
           whileHover={{ scale: 1.02 }}
         >
-          <img
+          <Image
             src="/images/portfolio/pie-risk.png"
             alt="Risk Chart"
-            className="rounded-xl shadow-xl"
+            width={800}
+            height={500}
+            className="rounded-xl shadow-xl w-full h-auto"
           />
         </motion.div>
         <motion.div

@@ -5,16 +5,19 @@ import { boot, shutdown } from "@intercom/messenger-js-sdk";
 
 export default function IntercomProvider() {
   useEffect(() => {
-    // Initialize Intercom when component mounts
-    boot({
-      app_id: "215468836564265", // 🛑 Replace with your real Intercom app ID
-    });
+    const enabled = process.env.NEXT_PUBLIC_ENABLE_INTERCOM === "true";
+    const appId = process.env.NEXT_PUBLIC_INTERCOM_APP_ID;
+
+    if (!enabled || !appId) {
+      return;
+    }
+
+    boot({ app_id: appId });
 
     return () => {
-      // Cleanup when component unmounts
       shutdown();
     };
   }, []);
 
-  return null; // It doesn't render anything visible
+  return null;
 }

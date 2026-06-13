@@ -42,14 +42,7 @@ export default function MpesaWithdrawPage() {
         window.location.href = "/dashboard/wallets";
       }, 2000);
     } catch (error: unknown) {
-      const err = error as {
-        response?: { data?: { error?: { message?: string }; message?: string } };
-      };
-      const message =
-        err?.response?.data?.error?.message ||
-        err?.response?.data?.message ||
-        "Withdrawal failed";
-      toast.error(message);
+      toast.error(getApiErrorMessage(error, "Withdrawal failed"));
     } finally {
       setLoading(false);
     }

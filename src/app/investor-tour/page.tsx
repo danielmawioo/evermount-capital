@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Script from "next/script";
 import { motion } from "framer-motion";
 export default function InvestorTourPage() {
@@ -321,10 +322,12 @@ export default function InvestorTourPage() {
             transition={{ duration: 0.6 }}
             whileHover={{ scale: 1.02 }}
           >
-            <img
+            <Image
               src="/images/security-dashboard.png"
               alt="Security"
-              className="rounded-xl shadow-lg"
+              width={800}
+              height={500}
+              className="rounded-xl shadow-lg w-full h-auto"
             />
           </motion.div>
           <motion.div

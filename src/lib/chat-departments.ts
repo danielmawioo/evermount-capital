@@ -3,11 +3,16 @@ export interface ChatDepartment {
   name: string;
   description: string;
   color: string;
+  /** Dedicated AI assistant for this department */
+  assistantName: string;
   escalationEmail: string;
   suggestedPrompts: string[];
   /** Detailed instructions injected into the system prompt for this department agent */
   agentPlaybook: string;
 }
+
+/** Default greeter before a department is selected */
+export const DEFAULT_CHAT_ASSISTANT = "Ethan";
 
 export const CHAT_DEPARTMENTS: ChatDepartment[] = [
   {
@@ -15,6 +20,7 @@ export const CHAT_DEPARTMENTS: ChatDepartment[] = [
     name: "Technical Support",
     description: "Platform issues, bugs, API access",
     color: "from-blue-500 to-blue-600",
+    assistantName: "Ethan",
     escalationEmail: "support@evermount.co",
     suggestedPrompts: [
       "The dashboard won't load properly",
@@ -41,6 +47,7 @@ Resolution approach:
     name: "IT Support",
     description: "Account access, security, integrations",
     color: "from-purple-500 to-purple-600",
+    assistantName: "Adriel",
     escalationEmail: "security@evermount.co",
     suggestedPrompts: [
       "I can't log in to my account",
@@ -68,6 +75,7 @@ Resolution approach:
     name: "Payments & Billing",
     description: "Deposits, withdrawals, fees, transactions",
     color: "from-green-500 to-green-600",
+    assistantName: "Miguel",
     escalationEmail: "payments@evermount.co",
     suggestedPrompts: [
       "How do I deposit funds?",
@@ -96,6 +104,7 @@ Resolution approach:
     name: "Compliance & Regulatory",
     description: "KYC, AML, regulations, legal matters",
     color: "from-red-500 to-red-600",
+    assistantName: "Nathan",
     escalationEmail: "compliance@evermount.co",
     suggestedPrompts: [
       "How do I complete KYC verification?",
@@ -123,6 +132,7 @@ Resolution approach:
     name: "Trading & Portfolio",
     description: "Strategies, performance, portfolio management",
     color: "from-yellow-500 to-yellow-600",
+    assistantName: "Alex",
     escalationEmail: "support@evermount.co",
     suggestedPrompts: [
       "How is my portfolio performance calculated?",
@@ -151,6 +161,7 @@ Resolution approach:
     name: "Account Management",
     description: "Account settings, profile, preferences",
     color: "from-indigo-500 to-indigo-600",
+    assistantName: "Jordan",
     escalationEmail: "support@evermount.co",
     suggestedPrompts: [
       "How do I update my profile?",
@@ -178,6 +189,7 @@ Resolution approach:
     name: "General Inquiry",
     description: "Other questions or information",
     color: "from-gray-500 to-gray-600",
+    assistantName: "Sam",
     escalationEmail: "info@evermount.co",
     suggestedPrompts: [
       "What services does Evermount offer?",
@@ -187,12 +199,12 @@ Resolution approach:
     agentPlaybook: `You are the General Inquiry agent. Your job is to answer broad questions and route users to the right department when needed.
 
 Routing guide (suggest the user reopen chat and select the right department):
-- Platform bugs/errors → Technical Support
-- Login/password/security → IT Support
-- Deposits/withdrawals/fees → Payments & Billing
-- KYC/AML/regulations → Compliance & Regulatory
-- Strategies/performance → Trading & Portfolio
-- Profile/settings → Account Management
+- Platform bugs/errors → Technical Support (Ethan)
+- Login/password/security → IT Support (Adriel)
+- Deposits/withdrawals/fees → Payments & Billing (Miguel)
+- KYC/AML/regulations → Compliance & Regulatory (Nathan)
+- Strategies/performance → Trading & Portfolio (Alex)
+- Profile/settings → Account Management (Jordan)
 
 Getting started:
 1. Register at /register
@@ -223,3 +235,12 @@ export const ASSISTANT_NAMES = [
   "Jordan",
   "Sam",
 ] as const;
+
+export function getDepartmentAssistant(departmentId?: string): string {
+  if (!departmentId) return DEFAULT_CHAT_ASSISTANT;
+  return CHAT_DEPARTMENT_MAP[departmentId]?.assistantName ?? DEFAULT_CHAT_ASSISTANT;
+}
+
+export function isValidDepartmentId(departmentId: string): boolean {
+  return departmentId in CHAT_DEPARTMENT_MAP;
+}

@@ -17,7 +17,7 @@ import {
   ArrowLeftIcon,
 } from "@heroicons/react/24/outline";
 import { useTheme } from "@/context/ThemeContext";
-import { CHAT_DEPARTMENTS, ASSISTANT_NAMES } from "@/lib/chat-departments";
+import { CHAT_DEPARTMENTS, DEFAULT_CHAT_ASSISTANT } from "@/lib/chat-departments";
 
 interface Message {
   role: "user" | "assistant";
@@ -47,12 +47,6 @@ export default function ChatWidget() {
   const [selectedDepartment, setSelectedDepartment] = useState<string | null>(
     null
   );
-  const [assistantName] = useState(() => {
-    if (Math.random() < 0.4) return "Ethan";
-    return ASSISTANT_NAMES[
-      Math.floor(Math.random() * ASSISTANT_NAMES.length)
-    ];
-  });
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -62,6 +56,8 @@ export default function ChatWidget() {
   const activeDepartment = CHAT_DEPARTMENTS.find(
     (d) => d.id === selectedDepartment
   );
+  const assistantName =
+    activeDepartment?.assistantName ?? DEFAULT_CHAT_ASSISTANT;
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -353,7 +349,7 @@ export default function ChatWidget() {
                                     : "text-gray-600"
                                 }`}
                               >
-                                {dept.description}
+                                {dept.description} · {dept.assistantName}
                               </p>
                             </div>
                           </motion.button>

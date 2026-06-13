@@ -1,5 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { CHAT_DEPARTMENT_MAP } from "@/lib/chat-departments";
+import {
+  CHAT_DEPARTMENT_MAP,
+  getDepartmentAssistant,
+  isValidDepartmentId,
+} from "@/lib/chat-departments";
+
+const CHAT_MODEL = process.env.OPENAI_CHAT_MODEL || "gpt-4o-mini";
 
 const BASE_SYSTEM_PROMPT = `You are a helpful customer support assistant for Evermount Capital, a quantitative hedge fund and investment management firm.
 
@@ -67,7 +73,7 @@ function buildSystemPrompt(
 
 export async function POST(request: NextRequest) {
   try {
-    const { messages, assistantName = "Ethan", department } = await request.json();
+    const { messages, assistantName, department } = await request.json();
 
     if (!messages || !Array.isArray(messages)) {
       return NextResponse.json(
@@ -83,14 +89,36 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (!department || typeof department !== "string") {
+      return NextResponse.json(
+        { error: "Department is required" },
+        { status: 400 }
+      );
+    }
+
+    if (!isValidDepartmentId(department)) {
+      return NextResponse.json(
+        { error: "Invalid department" },
+        { status: 400 }
+      );
+    }
+
+    const resolvedAssistant =
+      typeof assistantName === "string" && assistantName.trim()
+        ? assistantName.trim()
+        : getDepartmentAssistant(department);
+
     const apiKey = process.env.OPENAI_API_KEY;
+    const orgId = process.env.OPENAI_ORG_ID;
 
     if (process.env.NODE_ENV === "development") {
       console.log("Chat request:", {
         department,
-        assistantName,
+        assistantName: resolvedAssistant,
         messageCount: messages.length,
         hasApiKey: !!apiKey,
+        hasOrgId: !!orgId,
+        model: CHAT_MODEL,
       });
     }
 
@@ -103,7 +131,7 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    const systemPrompt = buildSystemPrompt(assistantName, department);
+    const systemPrompt = buildSystemPrompt(resolvedAssistant, department);
 
     const formattedMessages = [
       { role: "system" as const, content: systemPrompt },
@@ -113,14 +141,19 @@ export async function POST(request: NextRequest) {
       })),
     ];
 
+    const openAiHeaders: Record<string, string> = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    };
+    if (orgId) {
+      openAiHeaders["OpenAI-Organization"] = orgId;
+    }
+
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-      },
+      headers: openAiHeaders,
       body: JSON.stringify({
-        model: "gpt-4o-mini",
+        model: CHAT_MODEL,
         messages: formattedMessages,
         temperature: 0.5,
         max_tokens: 800,
@@ -145,12 +178,19 @@ export async function POST(request: NextRequest) {
       let errorMessage =
         "I apologize, but I'm experiencing technical difficulties. Please try again or contact our support team at support@evermount.co";
 
+      const openAiError = errorData?.error as
+        | { code?: string; type?: string }
+        | undefined;
+
       if (response.status === 401) {
         errorMessage =
           "Authentication error. Please contact support@evermount.co for assistance.";
-      } else if (response.status === 429) {
+      } else if (
+        response.status === 429 ||
+        openAiError?.code === "insufficient_quota"
+      ) {
         errorMessage =
-          "I'm currently experiencing high demand. Please try again in a moment or contact support@evermount.co";
+          "Our AI assistant is temporarily unavailable. Please contact support@evermount.co or book a demo at https://www.evermount.co/book-demo.";
       }
 
       return NextResponse.json(
