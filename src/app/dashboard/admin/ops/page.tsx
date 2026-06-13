@@ -36,10 +36,66 @@ interface TradingStatus {
 
 interface FlipbotStatus {
   connected: boolean;
+  bridgeEnabled?: boolean;
+  executionModel?: string;
   health?: { status: string; version?: string };
   tradingStyle?: { trading_style?: string };
   risk?: Record<string, unknown>;
 }
+
+interface FlipbotPool {
+  strategyKey: string;
+  poolAum: number;
+  executionModel: string;
+  bridgeEnabled: boolean;
+}
+
+interface ExnessPartnerStatus {
+  enabled: boolean;
+  connected: boolean;
+  broker: string;
+  baseUrl: string;
+  referralLink?: string;
+  referralLinkSource?: "configured" | "api";
+  error?: string;
+}
+
+interface ExnessPartnerSummary {
+  status: ExnessPartnerStatus;
+  summary: {
+    connected: boolean;
+    broker: string;
+    referralLink?: string | null;
+    referralLinkSource?: "configured" | "api" | null;
+    defaultLink: {
+      full_default_link?: string;
+      url?: string;
+      code?: string;
+    } | null;
+    wallet: {
+      summary_equity?: number;
+      reserved_rebates?: number;
+    } | null;
+    clients: { total: number };
+    rewards: { totalCommissionUsd: number };
+  } | null;
+}
+
+const FLIPBOT_STRATEGY_KEYS = [
+  "flipbot",
+  "orderflow",
+  "momentum",
+  "mean_reversion",
+  "volume_profile",
+] as const;
+
+const STRATEGY_SYMBOLS: Record<string, string> = {
+  flipbot: "EURUSD",
+  orderflow: "EURUSD",
+  momentum: "EURUSD",
+  mean_reversion: "GBPUSD",
+  volume_profile: "XAUUSD",
+};
 
 interface LifecycleRow {
   id: string;
@@ -57,20 +113,35 @@ export default function TradingOpsPage() {
   const [reconHistory, setReconHistory] = useState<
     Array<{ id: string; status: string; navDriftCount: number; createdAt: string }>
   >([]);
+  const [flipbotPool, setFlipbotPool] = useState<FlipbotPool | null>(null);
+  const [exnessPartner, setExnessPartner] = useState<ExnessPartnerSummary | null>(
+    null,
+  );
+  const [signalForm, setSignalForm] = useState({
+    strategyKey: "momentum",
+    symbol: "EURUSD",
+    side: "buy" as "buy" | "sell",
+    volumeLots: 0.01,
+    slPips: 20,
+    tpPips: 40,
+  });
 
   const loadStatus = useCallback(async () => {
     setLoading(true);
     try {
-      const [tradingRes, flipbotRes, lifecycleRes, reconRes] = await Promise.all([
+      const [tradingRes, flipbotRes, lifecycleRes, reconRes, exnessRes] =
+        await Promise.all([
         api.ops.getTradingStatus(),
         api.ops.getFlipbotStatus().catch(() => ({ data: null })),
         api.ops.getStrategyLifecycle().catch(() => ({ data: [] })),
         api.ops.getDemoReconciliationHistory().catch(() => ({ data: [] })),
+        api.ops.getExnessPartnerSummary().catch(() => ({ data: null })),
       ]);
       setStatus(tradingRes.data);
       setFlipbot(flipbotRes.data);
       setLifecycle(lifecycleRes.data);
       setReconHistory(reconRes.data);
+      setExnessPartner(exnessRes.data);
     } catch {
       toast.error("Failed to load trading ops status");
       setStatus(null);
@@ -82,6 +153,21 @@ export default function TradingOpsPage() {
   useEffect(() => {
     loadStatus();
   }, [loadStatus]);
+
+  const loadFlipbotPool = useCallback(async (strategyKey: string) => {
+    try {
+      const { data } = await api.ops.getFlipbotPool(strategyKey);
+      setFlipbotPool(data);
+    } catch {
+      setFlipbotPool(null);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (signalForm.strategyKey) {
+      void loadFlipbotPool(signalForm.strategyKey);
+    }
+  }, [signalForm.strategyKey, loadFlipbotPool]);
 
   const handleKillSwitch = async (active: boolean) => {
     const reason = active
@@ -158,6 +244,25 @@ export default function TradingOpsPage() {
       await loadStatus();
     } catch {
       toast.error("Demo reconciliation failed");
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  const handlePushFlipbotSignal = async () => {
+    setActionLoading(true);
+    try {
+      const { data } = await api.ops.pushFlipbotSignal(signalForm);
+      if (data.queued) {
+        toast.success(
+          `Signal #${data.signal?.id} queued — ${signalForm.side.toUpperCase()} ${signalForm.volumeLots} lots ${signalForm.symbol}`
+        );
+        await loadFlipbotPool(signalForm.strategyKey);
+      } else {
+        toast.error(data.reason ?? "Signal not queued");
+      }
+    } catch {
+      toast.error("Failed to queue Flipbot signal — is Flipbot API running?");
     } finally {
       setActionLoading(false);
     }
@@ -337,26 +442,264 @@ export default function TradingOpsPage() {
 
       <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
         <h2 className="font-semibold text-gray-900 dark:text-white mb-3">
-          Flipbot (orderflow / MT5)
+          Flipbot — Pooled Exness MT5 Demo Execution
         </h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400">
-          Status:{" "}
-          <span
-            className={
-              flipbot?.connected ? "text-green-600 font-medium" : "text-red-600"
-            }
-          >
-            {flipbot?.connected ? "Connected" : "Disconnected"}
-          </span>
-        </p>
+        <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <p>
+            API:{" "}
+            <span
+              className={
+                flipbot?.connected ? "text-green-600 font-medium" : "text-red-600"
+              }
+            >
+              {flipbot?.connected ? "Connected" : "Disconnected"}
+            </span>
+          </p>
+          <p>
+            Bridge:{" "}
+            <span
+              className={
+                flipbot?.bridgeEnabled
+                  ? "text-green-600 font-medium"
+                  : "text-amber-600"
+              }
+            >
+              {flipbot?.bridgeEnabled ? "Enabled" : "Disabled"}
+            </span>
+          </p>
+          <p>
+            Model:{" "}
+            <span className="font-medium text-gray-800 dark:text-gray-200">
+              {flipbot?.executionModel ?? "pooled"}
+            </span>
+          </p>
+        </div>
         {flipbot?.health && (
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-sm text-gray-500 mb-1">
             v{flipbot.health.version ?? "?"} — {flipbot.health.status}
           </p>
         )}
         {flipbot?.tradingStyle?.trading_style && (
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-sm text-gray-500 mb-4">
             Style: {flipbot.tradingStyle.trading_style}
+          </p>
+        )}
+
+        <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-2">
+          <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">
+            Queue demo trade (Exness MT5 account)
+          </h3>
+          <p className="text-xs text-gray-500 mb-4">
+            FlipbotEA polls the signal queue and executes on the logged-in Exness MT5
+            demo. Successful fills bump investor NAV via FillRecorded.
+          </p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-4">
+            <label className="block text-xs text-gray-500">
+              Strategy
+              <select
+                value={signalForm.strategyKey}
+                onChange={(e) => {
+                  const key = e.target.value;
+                  setSignalForm((f) => ({
+                    ...f,
+                    strategyKey: key,
+                    symbol: STRATEGY_SYMBOLS[key] ?? f.symbol,
+                  }));
+                }}
+                className="mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 px-3 py-2 text-sm"
+              >
+                {FLIPBOT_STRATEGY_KEYS.map((k) => (
+                  <option key={k} value={k}>
+                    {k}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label className="block text-xs text-gray-500">
+              Symbol
+              <input
+                type="text"
+                value={signalForm.symbol}
+                onChange={(e) =>
+                  setSignalForm((f) => ({ ...f, symbol: e.target.value.toUpperCase() }))
+                }
+                className="mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 px-3 py-2 text-sm"
+              />
+            </label>
+
+            <label className="block text-xs text-gray-500">
+              Side
+              <select
+                value={signalForm.side}
+                onChange={(e) =>
+                  setSignalForm((f) => ({
+                    ...f,
+                    side: e.target.value as "buy" | "sell",
+                  }))
+                }
+                className="mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 px-3 py-2 text-sm"
+              >
+                <option value="buy">Buy</option>
+                <option value="sell">Sell</option>
+              </select>
+            </label>
+
+            <label className="block text-xs text-gray-500">
+              Lots
+              <input
+                type="number"
+                min={0.01}
+                step={0.01}
+                value={signalForm.volumeLots}
+                onChange={(e) =>
+                  setSignalForm((f) => ({
+                    ...f,
+                    volumeLots: parseFloat(e.target.value) || 0.01,
+                  }))
+                }
+                className="mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 px-3 py-2 text-sm"
+              />
+            </label>
+
+            <label className="block text-xs text-gray-500">
+              SL (pips)
+              <input
+                type="number"
+                min={1}
+                value={signalForm.slPips}
+                onChange={(e) =>
+                  setSignalForm((f) => ({
+                    ...f,
+                    slPips: parseInt(e.target.value, 10) || 20,
+                  }))
+                }
+                className="mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 px-3 py-2 text-sm"
+              />
+            </label>
+
+            <label className="block text-xs text-gray-500">
+              TP (pips)
+              <input
+                type="number"
+                min={1}
+                value={signalForm.tpPips}
+                onChange={(e) =>
+                  setSignalForm((f) => ({
+                    ...f,
+                    tpPips: parseInt(e.target.value, 10) || 40,
+                  }))
+                }
+                className="mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 px-3 py-2 text-sm"
+              />
+            </label>
+          </div>
+
+          {flipbotPool && (
+            <p className="text-xs text-gray-500 mb-3">
+              Pooled AUM ({flipbotPool.strategyKey}):{" "}
+              <span className="font-medium text-gray-800 dark:text-gray-200">
+                ${flipbotPool.poolAum.toLocaleString()}
+              </span>
+            </p>
+          )}
+
+          <button
+            disabled={actionLoading || !flipbot?.connected}
+            onClick={handlePushFlipbotSignal}
+            className="px-4 py-2 bg-[#00a76f] hover:bg-emerald-700 text-white text-sm rounded-lg disabled:opacity-50"
+          >
+            Queue signal on MT5 demo
+          </button>
+        </div>
+      </div>
+
+      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
+        <h2 className="font-semibold text-gray-900 dark:text-white mb-3">
+          Exness Partner Broker
+        </h2>
+        <p className="text-xs text-gray-500 mb-4">
+          Partnership API for referral links, client reports, and commission data.
+          Trading execution uses Exness MT5 above — not this API.
+        </p>
+        <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <p>
+            API:{" "}
+            <span
+              className={
+                exnessPartner?.status?.connected
+                  ? "text-green-600 font-medium"
+                  : exnessPartner?.status?.enabled
+                    ? "text-amber-600"
+                    : "text-gray-500"
+              }
+            >
+              {exnessPartner?.status?.connected
+                ? "Connected"
+                : exnessPartner?.status?.enabled
+                  ? "Not connected"
+                  : "Disabled"}
+            </span>
+          </p>
+          {exnessPartner?.summary?.wallet?.summary_equity != null && (
+            <p>
+              Wallet equity:{" "}
+              <span className="font-medium text-gray-800 dark:text-gray-200">
+                ${exnessPartner.summary.wallet.summary_equity.toLocaleString()}
+              </span>
+            </p>
+          )}
+          {exnessPartner?.summary?.clients?.total != null && (
+            <p>
+              Referred clients:{" "}
+              <span className="font-medium text-gray-800 dark:text-gray-200">
+                {exnessPartner.summary.clients.total}
+              </span>
+            </p>
+          )}
+          {exnessPartner?.summary?.rewards?.totalCommissionUsd != null && (
+            <p>
+              Commission (USD):{" "}
+              <span className="font-medium text-gray-800 dark:text-gray-200">
+                $
+                {exnessPartner.summary.rewards.totalCommissionUsd.toLocaleString()}
+              </span>
+            </p>
+          )}
+        </div>
+        {(exnessPartner?.summary?.referralLink ||
+          exnessPartner?.status?.referralLink) && (
+          <p className="text-xs text-gray-500 break-all">
+            Referral link
+            {exnessPartner?.summary?.referralLinkSource === "configured" ||
+            exnessPartner?.status?.referralLinkSource === "configured"
+              ? " (configured)"
+              : ""}
+            :{" "}
+            <a
+              href={
+                exnessPartner?.summary?.referralLink ||
+                exnessPartner?.status?.referralLink
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#00a76f] hover:underline"
+            >
+              {exnessPartner?.summary?.referralLink ||
+                exnessPartner?.status?.referralLink}
+            </a>
+          </p>
+        )}
+        {exnessPartner?.status?.error && (
+          <p className="text-xs text-amber-600 mt-2">{exnessPartner.status.error}</p>
+        )}
+        {!exnessPartner?.status?.enabled &&
+          !exnessPartner?.summary?.referralLink &&
+          !exnessPartner?.status?.referralLink && (
+          <p className="text-xs text-gray-500 mt-2">
+            Set EXNESS_PARTNER_REFERRAL_LINK or enable EXNESS_PARTNER_ENABLED with
+            PPA credentials in backend env.
           </p>
         )}
       </div>

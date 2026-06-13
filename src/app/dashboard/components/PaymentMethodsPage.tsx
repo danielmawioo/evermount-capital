@@ -22,7 +22,7 @@ const PaymentMethodsPage = ({ type }: PaymentMethodsPageProps) => {
   const cardAvailable = type === "deposit";
   const bankAvailable = type === "withdraw";
   const mpesaAvailable = true;
-  const cryptoAvailable = false;
+  const cryptoAvailable = true;
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center p-6 bg-[#f9fafb] dark:bg-[#0f1117]">
@@ -34,7 +34,12 @@ const PaymentMethodsPage = ({ type }: PaymentMethodsPageProps) => {
         </h1>
         {type === "deposit" && (
           <p className="text-center text-gray-500 dark:text-gray-400 text-sm mb-10">
-            Card and M-Pesa deposits are live. Bank and crypto transfers are coming soon.
+            Card, M-Pesa, and crypto deposits are available. Bank transfers are coming soon.
+          </p>
+        )}
+        {type === "withdraw" && (
+          <p className="text-center text-gray-500 dark:text-gray-400 text-sm mb-10">
+            Bank, M-Pesa, and crypto withdrawals are available after KYC verification.
           </p>
         )}
 
@@ -82,7 +87,9 @@ const PaymentMethodsPage = ({ type }: PaymentMethodsPageProps) => {
           >
             <FaBitcoin size={40} className="text-[#00a76f] mb-4" />
             <p className="font-semibold text-gray-800 dark:text-white">Crypto</p>
-            <p className="text-xs text-gray-400 mt-1">Coming soon</p>
+            <p className="text-xs text-gray-400 mt-1">
+              {cryptoAvailable ? "Available" : "Coming soon"}
+            </p>
           </div>
         </div>
       </div>

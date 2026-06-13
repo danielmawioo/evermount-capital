@@ -7,6 +7,7 @@ import {
   CheckCircleIcon,
   XCircleIcon,
   TrashIcon,
+  PlusIcon,
 } from "@heroicons/react/24/outline";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
@@ -30,6 +31,26 @@ export default function UserManagementPage() {
   const [filterStatus, setFilterStatus] = useState("all");
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [form, setForm] = useState({
+    fullName: "",
+    email: "",
+    password: "",
+    role: "INVESTOR",
+  });
+  const [creditUser, setCreditUser] = useState<ApiUser | null>(null);
+  const [creditAmount, setCreditAmount] = useState("");
+  const [crediting, setCrediting] = useState(false);
+  const [assignUser, setAssignUser] = useState<ApiUser | null>(null);
+  const [editUser, setEditUser] = useState<ApiUser | null>(null);
+  const [editForm, setEditForm] = useState({ fullName: "", role: "INVESTOR" });
+  const [updating, setUpdating] = useState(false);
+  const [managers, setManagers] = useState<
+    Array<{ id: string; fullName: string; email: string }>
+  >([]);
+  const [selectedManagerId, setSelectedManagerId] = useState("");
+  const [assigning, setAssigning] = useState(false);
   const limit = 10;
 
   const loadUsers = useCallback(async () => {
@@ -65,6 +86,96 @@ export default function UserManagementPage() {
     }
   };
 
+  const handleCreate = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.fullName.trim() || !form.email.trim() || !form.password) {
+      toast.error("All fields are required");
+      return;
+    }
+    setSubmitting(true);
+    try {
+      await api.admin.users.create({
+        fullName: form.fullName.trim(),
+        email: form.email.trim(),
+        password: form.password,
+        role: form.role,
+      });
+      toast.success("User created");
+      setShowAddModal(false);
+      setForm({ fullName: "", email: "", password: "", role: "INVESTOR" });
+      loadUsers();
+    } catch (err: unknown) {
+      const msg =
+        (err as { response?: { data?: { message?: string } } })?.response?.data
+          ?.message ?? "Failed to create user";
+      toast.error(msg);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const openAssignModal = async (user: ApiUser) => {
+    setAssignUser(user);
+    setSelectedManagerId("");
+    try {
+      const { data } = await api.admin.managers.getAll();
+      setManagers(
+        (data.managers ?? []).filter((m) => m.status === "active"),
+      );
+    } catch {
+      toast.error("Failed to load managers");
+      setAssignUser(null);
+    }
+  };
+
+  const handleAssignToManager = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!assignUser || !selectedManagerId) return;
+    setAssigning(true);
+    try {
+      await api.admin.managers.assignClient(selectedManagerId, {
+        email: assignUser.email,
+      });
+      toast.success("Investor assigned to portfolio manager");
+      setAssignUser(null);
+    } catch (err: unknown) {
+      const msg =
+        (err as { response?: { data?: { message?: string } } })?.response?.data
+          ?.message ?? "Failed to assign investor";
+      toast.error(msg);
+    } finally {
+      setAssigning(false);
+    }
+  };
+
+  const handleCreditWallet = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!creditUser) return;
+    const amount = parseFloat(creditAmount);
+    if (!amount || amount <= 0) {
+      toast.error("Enter a valid amount");
+      return;
+    }
+    setCrediting(true);
+    try {
+      await api.admin.wallets.creditUser(creditUser.id, {
+        amount,
+        description: `Admin credit for ${creditUser.fullName}`,
+      });
+      toast.success(`Credited $${amount.toLocaleString()}`);
+      setCreditUser(null);
+      setCreditAmount("");
+      loadUsers();
+    } catch (err: unknown) {
+      const msg =
+        (err as { response?: { data?: { message?: string } } })?.response?.data
+          ?.message ?? "Failed to credit wallet";
+      toast.error(msg);
+    } finally {
+      setCrediting(false);
+    }
+  };
+
   const handleDelete = async (userId: string) => {
     if (!confirm("Delete this user permanently?")) return;
     try {
@@ -76,18 +187,47 @@ export default function UserManagementPage() {
     }
   };
 
+  const handleUpdateUser = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editUser) return;
+    setUpdating(true);
+    try {
+      await api.admin.users.update(editUser.id, {
+        fullName: editForm.fullName.trim(),
+        role: editForm.role,
+      });
+      toast.success("User updated");
+      setEditUser(null);
+      loadUsers();
+    } catch {
+      toast.error("Failed to update user");
+    } finally {
+      setUpdating(false);
+    }
+  };
+
   const totalPages = Math.ceil(total / limit);
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-          <UsersIcon className="w-8 h-8 text-[#00a76f]" />
-          User Management
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400 mt-1">
-          Manage investor accounts and access.
-        </p>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+            <UsersIcon className="w-8 h-8 text-[#00a76f]" />
+            User Management
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-1">
+            Manage investor accounts and access. Portfolio managers are created
+            under Admin → Managers.
+          </p>
+        </div>
+        <button
+          onClick={() => setShowAddModal(true)}
+          className="flex items-center gap-2 bg-[#00a76f] hover:bg-emerald-700 text-white px-4 py-2.5 rounded-lg font-semibold"
+        >
+          <PlusIcon className="w-5 h-5" />
+          Add User
+        </button>
       </div>
 
       <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 shadow-sm">
@@ -186,6 +326,37 @@ export default function UserManagementPage() {
                     </td>
                     <td className="px-6 py-4 text-right">
                       <div className="flex justify-end gap-2">
+                        <button
+                          onClick={() => {
+                            setEditUser(user);
+                            setEditForm({
+                              fullName: user.fullName,
+                              role: user.role,
+                            });
+                          }}
+                          className="text-xs px-2 py-1 rounded bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200"
+                        >
+                          Edit
+                        </button>
+                        {user.role === "INVESTOR" && (
+                          <>
+                            <button
+                              onClick={() => void openAssignModal(user)}
+                              className="text-xs px-2 py-1 rounded bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300"
+                            >
+                              Assign
+                            </button>
+                            <button
+                              onClick={() => {
+                                setCreditUser(user);
+                                setCreditAmount("");
+                              }}
+                              className="text-xs px-2 py-1 rounded bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300"
+                            >
+                              Credit
+                            </button>
+                          </>
+                        )}
                         {user.status === "active" ? (
                           <button
                             onClick={() => handleSuspend(user.id, "suspend")}
@@ -241,6 +412,235 @@ export default function UserManagementPage() {
           </div>
         )}
       </div>
+
+      {assignUser && (
+        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-sm w-full p-6">
+            <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+              Assign to manager
+            </h2>
+            <p className="text-sm text-gray-500 mb-4">
+              {assignUser.fullName} ({assignUser.email})
+            </p>
+            <form onSubmit={handleAssignToManager} className="space-y-4">
+              <select
+                value={selectedManagerId}
+                onChange={(e) => setSelectedManagerId(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900"
+                required
+              >
+                <option value="">Select portfolio manager</option>
+                {managers.map((m) => (
+                  <option key={m.id} value={m.id}>
+                    {m.fullName} ({m.email})
+                  </option>
+                ))}
+              </select>
+              <div className="flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => setAssignUser(null)}
+                  className="flex-1 px-4 py-2 border rounded-lg text-gray-700 dark:text-gray-300"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={assigning}
+                  className="flex-1 px-4 py-2 bg-[#00a76f] text-white rounded-lg font-semibold disabled:opacity-60"
+                >
+                  {assigning ? "Assigning…" : "Assign"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {creditUser && (
+        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-sm w-full p-6">
+            <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+              Credit wallet
+            </h2>
+            <p className="text-sm text-gray-500 mb-4">
+              {creditUser.fullName} ({creditUser.email})
+            </p>
+            <form onSubmit={handleCreditWallet} className="space-y-4">
+              <input
+                type="number"
+                min={1}
+                step="0.01"
+                value={creditAmount}
+                onChange={(e) => setCreditAmount(e.target.value)}
+                placeholder="Amount (USD)"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900"
+                required
+              />
+              <div className="flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => setCreditUser(null)}
+                  className="flex-1 px-4 py-2 border rounded-lg text-gray-700 dark:text-gray-300"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={crediting}
+                  className="flex-1 px-4 py-2 bg-[#00a76f] text-white rounded-lg font-semibold disabled:opacity-60"
+                >
+                  {crediting ? "Crediting…" : "Credit"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {showAddModal && (
+        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-md w-full p-6">
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+              Add User
+            </h2>
+            <form onSubmit={handleCreate} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  value={form.fullName}
+                  onChange={(e) =>
+                    setForm((f) => ({ ...f, fullName: e.target.value }))
+                  }
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  value={form.email}
+                  onChange={(e) =>
+                    setForm((f) => ({ ...f, email: e.target.value }))
+                  }
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Temporary Password
+                </label>
+                <input
+                  type="password"
+                  value={form.password}
+                  onChange={(e) =>
+                    setForm((f) => ({ ...f, password: e.target.value }))
+                  }
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
+                  minLength={8}
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Role
+                </label>
+                <select
+                  value={form.role}
+                  onChange={(e) =>
+                    setForm((f) => ({ ...f, role: e.target.value }))
+                  }
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
+                >
+                  <option value="INVESTOR">Investor</option>
+                  <option value="ADMIN">Admin</option>
+                </select>
+              </div>
+              <div className="flex gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setShowAddModal(false)}
+                  className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-700 dark:text-gray-300"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="flex-1 px-4 py-2 bg-[#00a76f] hover:bg-emerald-700 disabled:opacity-60 text-white rounded-lg font-semibold"
+                >
+                  {submitting ? "Creating…" : "Create User"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {editUser && (
+        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-sm w-full p-6">
+            <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+              Edit user
+            </h2>
+            <form onSubmit={handleUpdateUser} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Full name
+                </label>
+                <input
+                  type="text"
+                  value={editForm.fullName}
+                  onChange={(e) =>
+                    setEditForm((f) => ({ ...f, fullName: e.target.value }))
+                  }
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Role
+                </label>
+                <select
+                  value={editForm.role}
+                  onChange={(e) =>
+                    setEditForm((f) => ({ ...f, role: e.target.value }))
+                  }
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900"
+                >
+                  <option value="INVESTOR">Investor</option>
+                  <option value="MANAGER">Manager</option>
+                  <option value="ADMIN">Admin</option>
+                </select>
+              </div>
+              <div className="flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => setEditUser(null)}
+                  className="flex-1 px-4 py-2 border rounded-lg text-gray-700 dark:text-gray-300"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={updating}
+                  className="flex-1 px-4 py-2 bg-[#00a76f] text-white rounded-lg font-semibold disabled:opacity-60"
+                >
+                  {updating ? "Saving…" : "Save"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

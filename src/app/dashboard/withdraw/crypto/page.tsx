@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import KycRequiredGate from "@/components/KycRequiredGate";
 
 export default function WithdrawCryptoPage() {
   const router = useRouter();
@@ -44,7 +45,9 @@ export default function WithdrawCryptoPage() {
         network: cryptoType.toLowerCase(),
       });
       
-      toast.success(`Withdrawal of ${amount} ${currency} initiated successfully!`);
+      toast.success(
+        "Withdrawal submitted. It will be processed after admin approval."
+      );
       setTimeout(() => {
         router.push("/dashboard/wallets");
       }, 2000);
@@ -56,6 +59,7 @@ export default function WithdrawCryptoPage() {
   };
 
   return (
+    <KycRequiredGate action="withdraw funds">
     <main className="min-h-screen flex flex-col px-6 md:px-10 py-8 bg-[#f9fafb] dark:bg-[#0f1117]">
       <div className="max-w-3xl mx-auto w-full space-y-8">
         <div>
@@ -135,5 +139,6 @@ export default function WithdrawCryptoPage() {
         </form>
       </div>
     </main>
+    </KycRequiredGate>
   );
 }

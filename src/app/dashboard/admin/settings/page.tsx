@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Cog6ToothIcon,
   BellIcon,
@@ -9,6 +9,9 @@ import {
   ChartBarIcon,
   CheckCircleIcon,
 } from "@heroicons/react/24/outline";
+import toast from "react-hot-toast";
+import { api } from "@/lib/api-client";
+import { getApiErrorMessage } from "@/lib/api-error";
 
 type SettingsState = {
   notifications: {
@@ -34,6 +37,8 @@ type SettingsState = {
 };
 
 export default function AdminSettingsPage() {
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
   const [settings, setSettings] = useState<SettingsState>({
     notifications: {
       email: true,
@@ -56,6 +61,38 @@ export default function AdminSettingsPage() {
       analytics: true,
     },
   });
+
+  useEffect(() => {
+    api.admin.settings
+      .get()
+      .then(({ data }) => {
+        setSettings((prev) => ({
+          notifications: { ...prev.notifications, ...data.notifications },
+          security: { ...prev.security, ...data.security },
+          platform: { ...prev.platform, ...data.platform },
+          integrations: { ...prev.integrations, ...data.integrations },
+        }));
+      })
+      .catch(() => toast.error("Failed to load settings"))
+      .finally(() => setLoading(false));
+  }, []);
+
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      const keys = ["notifications", "security", "platform", "integrations"] as const;
+      await Promise.all(
+        keys.map((key) =>
+          api.admin.settings.update(key, settings[key] as Record<string, unknown>)
+        )
+      );
+      toast.success("Settings saved");
+    } catch (error: unknown) {
+      toast.error(getApiErrorMessage(error, "Failed to save settings"));
+    } finally {
+      setSaving(false);
+    }
+  };
 
   const handleToggle = <K extends keyof SettingsState>(
     category: K,
@@ -440,9 +477,14 @@ export default function AdminSettingsPage() {
           </div>
 
           {/* Save Button */}
-          <button className="w-full bg-[#00a76f] hover:bg-emerald-700 text-white py-3 px-4 rounded-lg font-semibold transition shadow-sm hover:shadow-md flex items-center justify-center gap-2">
+          <button
+            type="button"
+            onClick={handleSave}
+            disabled={loading || saving}
+            className="w-full bg-[#00a76f] hover:bg-emerald-700 text-white py-3 px-4 rounded-lg font-semibold transition shadow-sm hover:shadow-md flex items-center justify-center gap-2 disabled:opacity-50"
+          >
             <CheckCircleIcon className="w-5 h-5" />
-            Save All Changes
+            {saving ? "Saving..." : "Save All Changes"}
           </button>
         </div>
       </div>

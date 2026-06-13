@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { getApiErrorMessage } from "@/lib/api-error";
+import KycRequiredGate from "@/components/KycRequiredGate";
 
 export default function MpesaWithdrawPage() {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -34,7 +36,7 @@ export default function MpesaWithdrawPage() {
       });
 
       toast.success(
-        `Withdrawal of KES ${numAmount} initiated. Funds will arrive on your phone shortly.`
+        "Withdrawal submitted. It will be processed after admin approval."
       );
       setTimeout(() => {
         window.location.href = "/dashboard/wallets";
@@ -54,6 +56,7 @@ export default function MpesaWithdrawPage() {
   };
 
   return (
+    <KycRequiredGate action="withdraw funds">
     <main className="min-h-screen flex flex-col px-6 md:px-10 py-8 bg-[#f9fafb] dark:bg-[#0f1117]">
       <div className="max-w-3xl w-full mx-auto space-y-8">
         <div>
@@ -123,5 +126,6 @@ export default function MpesaWithdrawPage() {
         </div>
       </div>
     </main>
+    </KycRequiredGate>
   );
 }

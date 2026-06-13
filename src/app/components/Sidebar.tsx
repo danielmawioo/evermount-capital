@@ -14,10 +14,13 @@ import {
   QuestionMarkCircleIcon,
   UsersIcon,
   BriefcaseIcon,
+  UserGroupIcon,
   Cog6ToothIcon,
   XMarkIcon,
   BoltIcon,
   ShieldCheckIcon,
+  ChartBarSquareIcon,
+  BanknotesIcon,
 } from "@heroicons/react/24/outline";
 import { useInvestor } from "@/hooks/useInvestor";
 
@@ -50,15 +53,18 @@ const investorLinks: NavLink[] = [
 
 const adminLinks: NavLink[] = [
   { label: "Users", href: "/dashboard/admin/users", icon: UsersIcon },
+  { label: "Managers", href: "/dashboard/admin/managers", icon: BriefcaseIcon },
   { label: "KYC Review", href: "/dashboard/admin/kyc", icon: DocumentDuplicateIcon },
+  { label: "Withdrawals", href: "/dashboard/admin/withdrawals", icon: BanknotesIcon },
   { label: "Trading Ops", href: "/dashboard/admin/ops", icon: BoltIcon },
   { label: "Compliance", href: "/dashboard/admin/compliance", icon: ShieldCheckIcon },
   { label: "Security", href: "/dashboard/admin/security", icon: ShieldCheckIcon },
+  { label: "Settings", href: "/dashboard/admin/settings", icon: Cog6ToothIcon },
 ];
 
 const managerLinks: NavLink[] = [
-  { label: "Managers", href: "/dashboard/admin/managers", icon: BriefcaseIcon },
-  { label: "Admin Settings", href: "/dashboard/admin/settings", icon: Cog6ToothIcon },
+  { label: "My Clients", href: "/dashboard/manager/clients", icon: UserGroupIcon },
+  { label: "Strategies", href: "/dashboard/manager/strategies", icon: ChartBarSquareIcon },
 ];
 
 export default function Sidebar({ onClose }: SidebarProps) {

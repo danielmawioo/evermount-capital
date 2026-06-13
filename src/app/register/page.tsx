@@ -7,6 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { setAuthTokens, setUser } from "@/lib/auth-storage";
 import ThemeToggle from "@/app/components/ThemeToggle";
 
 export default function RegisterPage() {
@@ -49,16 +50,36 @@ export default function RegisterPage() {
       setLoading(true);
       const fullName = `${firstName} ${lastName}`;
 
-      await api.auth.register({
+      const { data } = await api.auth.register({
         email,
         password,
         fullName,
       });
 
-      toast.success("Account created! Please check your email to verify.");
-      setTimeout(() => {
-        window.location.href = "/login";
-      }, 2000);
+      if (data.token && data.refreshToken) {
+        setAuthTokens(data.token, data.refreshToken, true);
+        if (data.userId) {
+          setUser(
+            {
+              id: data.userId,
+              email,
+              fullName,
+              role: "INVESTOR",
+              isVerified: false,
+            },
+            true
+          );
+        }
+        toast.success("Account created! Redirecting to your dashboard...");
+        setTimeout(() => {
+          window.location.href = "/dashboard/kyc";
+        }, 1500);
+      } else {
+        toast.success("Account created! Please check your email to verify.");
+        setTimeout(() => {
+          window.location.href = "/login";
+        }, 2000);
+      }
     } catch (err: unknown) {
       toast.error(getApiErrorMessage(err, "Registration failed."));
     } finally {

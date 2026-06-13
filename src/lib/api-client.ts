@@ -128,7 +128,7 @@ export const api = {
     sendResetPassword: (data: { email: string }) =>
       apiClient.post("/auth/send-reset-password", data),
 
-    resetPassword: (data: { token: string; newPassword: string }) =>
+    resetPassword: (data: { email: string; otp: string; newPassword: string }) =>
       apiClient.post("/auth/reset-password", data),
 
     verifyEmail: (data: { token: string }) =>
@@ -162,6 +162,21 @@ export const api = {
 
     deleteAccount: (data: { password: string }) =>
       apiClient.delete("/users/account", { data }),
+
+    bankAccounts: {
+      list: () => apiClient.get("/users/bank-accounts"),
+
+      add: (data: {
+        bankName: string;
+        accountHolder: string;
+        accountNumber: string;
+        routingNumber?: string;
+        isDefault?: boolean;
+      }) => apiClient.post("/users/bank-accounts", data),
+
+      remove: (accountId: string) =>
+        apiClient.delete(`/users/bank-accounts/${accountId}`),
+    },
   },
 
   kyc: {
@@ -213,6 +228,9 @@ export const api = {
       saveCard?: boolean;
     }) => apiClient.post("/deposits/card", data),
 
+    confirmStripe: (data: { paymentIntentId: string }) =>
+      apiClient.post("/deposits/stripe/confirm", data),
+
     crypto: (data: {
       amount: number;
       currency: string;
@@ -223,7 +241,7 @@ export const api = {
       amount: number;
       currency: string;
       bankAccountId: string;
-      reference: string;
+      reference?: string;
     }) => apiClient.post("/deposits/bank", data),
 
     mpesa: (data: {
@@ -369,6 +387,23 @@ export const api = {
 
     getFlipbotStatus: () => apiClient.get("/ops/flipbot/status"),
 
+    getExnessPartnerStatus: () => apiClient.get("/ops/partner/exness/status"),
+
+    getExnessPartnerSummary: () =>
+      apiClient.get("/ops/partner/exness/summary"),
+
+    getFlipbotPool: (strategyKey: string) =>
+      apiClient.get(`/ops/flipbot/pool/${strategyKey}`),
+
+    pushFlipbotSignal: (data: {
+      symbol?: string;
+      side?: "buy" | "sell";
+      volumeLots?: number;
+      slPips?: number;
+      tpPips?: number;
+      strategyKey?: string;
+    }) => apiClient.post("/ops/flipbot/signals", data),
+
     getStrategyLifecycle: () => apiClient.get("/ops/strategies/lifecycle"),
 
     runPromotionCheck: (strategyKey: string, mfaToken?: string) =>
@@ -402,6 +437,143 @@ export const api = {
 
     getDemoReconciliationHistory: () =>
       apiClient.get("/ops/trading/demo-reconciliation/history"),
+  },
+
+  portfolioManager: {
+    getStrategies: () =>
+      apiClient.get<{
+        strategies: Array<{
+          strategyKey: string;
+          displayName: string;
+          lifecycleStatus: string | null;
+          isActive: boolean;
+          isPrimary: boolean;
+          isRunning: boolean;
+          executionPlane: "quant" | "flipbot" | "both";
+          capitalAllocation: number;
+          poolAum: number;
+          investorCount: number;
+          navPerUnit: number;
+          dailyReturnPct: number;
+          cumulativeReturnPct: number;
+          walkForwardScore: number | null;
+          productName: string | null;
+        }>;
+        combined: {
+          totalPoolAum: number;
+          totalInvestors: number;
+          strategyCount: number;
+          activeCount: number;
+          primaryStrategy: string | null;
+          weightedDailyReturnPct: number;
+          weightedCumulativeReturnPct: number;
+          blendedNavPerUnit: number;
+          quantConnected: boolean;
+          flipbotConnected: boolean;
+          killSwitchActive: boolean;
+          tradingMode: string | null;
+        };
+      }>("/portfolio-manager/strategies"),
+
+    switchStrategy: (strategyKey: string) =>
+      apiClient.post(`/portfolio-manager/strategies/${strategyKey}/switch`),
+
+    setStrategyActive: (strategyKey: string, active: boolean) =>
+      apiClient.post(`/portfolio-manager/strategies/${strategyKey}/active`, {
+        active,
+      }),
+
+    createClient: (data: {
+      email: string;
+      password: string;
+      fullName: string;
+      phoneNumber?: string;
+      notes?: string;
+    }) =>
+      apiClient.post<{
+        message: string;
+        client: {
+          assignmentId: string;
+          clientId: string;
+          email: string;
+          fullName: string;
+          kycStatus: string;
+        };
+      }>("/portfolio-manager/clients", data),
+
+    assignClient: (data: { email: string; notes?: string }) =>
+      apiClient.post<{
+        message: string;
+        client: {
+          assignmentId: string;
+          clientId: string;
+          email: string;
+          fullName: string;
+          kycStatus: string;
+        };
+      }>("/portfolio-manager/clients/assign", data),
+
+    getClients: () =>
+      apiClient.get<{
+        clients: Array<{
+          assignmentId: string;
+          assignedAt: string;
+          clientId: string;
+          email: string;
+          fullName: string;
+          kycStatus: string;
+          wallet: {
+            currency: string;
+            availableBalance: number;
+            pendingBalance: number;
+            lockedBalance: number;
+          } | null;
+          totalInvested: number;
+          activeInvestments: Array<{
+            id: string;
+            amountInvested: number;
+            currentValue: number | null;
+            assetName: string;
+            strategyKey: string | null;
+            investmentOptionId: string | null;
+          }>;
+        }>;
+      }>("/portfolio-manager/clients"),
+
+    getInvestmentOptions: () =>
+      apiClient.get<{
+        options: Array<{
+          id: string;
+          name: string;
+          symbol: string;
+          strategyKey: string | null;
+          minInvestment: number;
+          riskLevel: string;
+        }>;
+      }>("/portfolio-manager/investment-options"),
+
+    previewAllocation: (
+      clientId: string,
+      data: {
+        investmentOptionId: string;
+        amount: number;
+        lockInMonths?: number;
+      }
+    ) =>
+      apiClient.post(`/portfolio-manager/clients/${clientId}/allocate/preview`, data),
+
+    allocateForClient: (
+      clientId: string,
+      data: {
+        investmentOptionId: string;
+        amount: number;
+        lockInMonths?: number;
+      }
+    ) =>
+      apiClient.post(`/portfolio-manager/clients/${clientId}/allocate`, data),
+
+    unassignClient: (clientId: string) =>
+      apiClient.delete(`/portfolio-manager/clients/${clientId}`),
   },
 
   security: {
@@ -482,18 +654,97 @@ export const api = {
     settings: {
       get: () => apiClient.get("/admin/settings"),
 
-      update: (data: Record<string, unknown>) =>
-        apiClient.put("/admin/settings", data),
+      update: (key: string, value: Record<string, unknown>) =>
+        apiClient.put("/admin/settings", { key, value }),
     },
 
     managers: {
-      getAll: () => apiClient.get("/admin/managers"),
+      getAll: () =>
+        apiClient.get<{
+          managers: Array<{
+            id: string;
+            email: string;
+            fullName: string;
+            status: "active" | "inactive";
+            clientCount: number;
+            joinDate: string;
+          }>;
+        }>("/admin/managers"),
 
-      create: (data: Record<string, unknown>) =>
+      create: (data: { email: string; password: string; fullName: string }) =>
         apiClient.post("/admin/managers", data),
 
-      update: (managerId: string, data: Record<string, unknown>) =>
-        apiClient.put(`/admin/managers/${managerId}`, data),
+      update: (
+        managerId: string,
+        data: { fullName?: string; status?: "active" | "inactive" }
+      ) => apiClient.put(`/admin/managers/${managerId}`, data),
+
+      getClients: (managerId: string) =>
+        apiClient.get<{
+          managerId: string;
+          managerName: string;
+          clients: Array<{
+            assignmentId: string;
+            clientId: string;
+            email: string;
+            fullName: string;
+            kycStatus: string;
+            availableBalance: number;
+            currency: string;
+            assignedAt: string;
+            notes: string | null;
+          }>;
+        }>(`/admin/managers/${managerId}/clients`),
+
+      assignClient: (
+        managerId: string,
+        data: { email: string; notes?: string }
+      ) => apiClient.post(`/admin/managers/${managerId}/clients`, data),
+
+      unassignClient: (managerId: string, clientId: string) =>
+        apiClient.delete(`/admin/managers/${managerId}/clients/${clientId}`),
+    },
+
+    wallets: {
+      creditUser: (
+        userId: string,
+        data: { amount: number; description?: string }
+      ) =>
+        apiClient.post<{
+          message: string;
+          availableBalance: number;
+          amount: number;
+        }>(`/admin/wallets/users/${userId}/credit`, data),
+
+      getPendingWithdrawals: () =>
+        apiClient.get<{
+          withdrawals: Array<{
+            transactionId: string;
+            userId: string;
+            userEmail: string;
+            userName: string;
+            amount: number;
+            fee: number;
+            currency: string;
+            method: string;
+            reference: string | null;
+            description: string | null;
+            createdAt: string;
+          }>;
+          total: number;
+        }>("/admin/wallets/withdrawals/pending"),
+
+      approveWithdrawal: (transactionId: string) =>
+        apiClient.patch(`/admin/wallets/withdrawals/${transactionId}/approve`),
+
+      rejectWithdrawal: (
+        transactionId: string,
+        data?: { reason?: string }
+      ) =>
+        apiClient.patch(
+          `/admin/wallets/withdrawals/${transactionId}/reject`,
+          data
+        ),
     },
   },
 };

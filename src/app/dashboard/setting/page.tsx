@@ -86,8 +86,10 @@ export default function SettingsPage() {
       setFormData({
         fullName: data.fullName || "",
         email: data.email || "",
-        phone: data.phone || "",
-        dateOfBirth: data.dateOfBirth || "",
+        phone: data.phoneNumber || "",
+        dateOfBirth: data.dateOfBirth
+          ? String(data.dateOfBirth).slice(0, 10)
+          : "",
         address: data.address || {
           street: "",
           city: "",
@@ -107,7 +109,12 @@ export default function SettingsPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      await api.users.updateProfile(formData);
+      await api.users.updateProfile({
+        fullName: formData.fullName,
+        phoneNumber: formData.phone || undefined,
+        dateOfBirth: formData.dateOfBirth || undefined,
+        address: formData.address,
+      });
       toast.success("Profile updated successfully");
     } catch (error: unknown) {
       toast.error(getApiErrorMessage(error, "Failed to update profile"));

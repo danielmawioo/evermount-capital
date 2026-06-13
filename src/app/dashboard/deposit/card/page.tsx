@@ -1,18 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import StripePayment from "@/components/StripePayment";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
-import { SETTLEMENT_ACCOUNT } from "@/lib/settlement-account";
 
 export default function CardDepositPage() {
   const router = useRouter();
   const [amount, setAmount] = useState("");
   const [showPayment, setShowPayment] = useState(false);
+  const [settlementBank, setSettlementBank] = useState("");
+  const [settlementAccount, setSettlementAccount] = useState("");
+  const [settlementCard, setSettlementCard] = useState("");
+
+  useEffect(() => {
+    api.deposits
+      .getSettlementAccount()
+      .then(({ data }) => {
+        setSettlementBank(data.bankName || "");
+        setSettlementAccount(data.accountNumber || "");
+        setSettlementCard(data.cardMasked || "");
+      })
+      .catch(() => {
+        /* settlement display is optional */
+      });
+  }, []);
 
   const handleAmountSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,18 +45,11 @@ export default function CardDepositPage() {
 
   const handlePaymentSuccess = async (paymentIntentId: string) => {
     try {
-      // Create deposit record via API
-      await api.deposits.card({
-        amount: parseFloat(amount),
-        currency: "USD",
-        cardToken: paymentIntentId,
-        saveCard: false,
-      });
-      
+      await api.deposits.confirmStripe({ paymentIntentId });
       toast.success(`$${amount} deposited to your wallet successfully!`);
       setTimeout(() => {
         router.push("/dashboard/wallets");
-      }, 2000);
+      }, 1500);
     } catch (error: unknown) {
       toast.error(getApiErrorMessage(error, "Failed to complete deposit"));
     }
@@ -65,11 +73,11 @@ export default function CardDepositPage() {
           <p>
             Card payments are processed securely and settled to{" "}
             <span className="font-medium text-gray-800 dark:text-gray-200">
-              {SETTLEMENT_ACCOUNT.bankName}
+              {settlementBank || "Equity Bank Kenya"}
             </span>{" "}
             account{" "}
             <span className="font-medium text-gray-800 dark:text-gray-200">
-              {SETTLEMENT_ACCOUNT.accountNumber}
+              {settlementAccount || "0110166613478"}
             </span>
             .
           </p>
@@ -104,8 +112,8 @@ export default function CardDepositPage() {
       </h1>
       <p className="text-gray-600 dark:text-gray-400">
         Securely deposit funds using Visa or Mastercard. Payments settle to our{" "}
-        {SETTLEMENT_ACCOUNT.bankName} account (
-        {SETTLEMENT_ACCOUNT.accountNumber}) and are credited to your wallet.
+        {settlementBank || "Equity Bank Kenya"} account (
+        {settlementAccount || "0110166613478"}) and are credited to your wallet.
       </p>
 
       <div className="bg-white dark:bg-gray-900 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm max-w-lg mx-auto space-y-4">
@@ -114,11 +122,13 @@ export default function CardDepositPage() {
             Receiving account
           </p>
           <p className="text-gray-600 dark:text-gray-400">
-            {SETTLEMENT_ACCOUNT.bankName} · {SETTLEMENT_ACCOUNT.accountNumber}
+            {settlementBank || "Equity Bank Kenya"} · {settlementAccount || "0110166613478"}
           </p>
-          <p className="text-gray-500 dark:text-gray-500">
-            Card: {SETTLEMENT_ACCOUNT.cardMasked}
-          </p>
+          {settlementCard && (
+            <p className="text-gray-500 dark:text-gray-500">
+              Card: {settlementCard}
+            </p>
+          )}
         </div>
         <form onSubmit={handleAmountSubmit} className="space-y-6 pt-2">
           <div>

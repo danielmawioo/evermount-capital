@@ -12,11 +12,15 @@ export default function InvestorKYCPage() {
   const [selfie, setSelfie] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const [kycStatus, setKycStatus] = useState<string | null>(null);
+  const [rejectionReason, setRejectionReason] = useState<string | null>(null);
 
   useEffect(() => {
     api.kyc
       .getStatus()
-      .then(({ data }) => setKycStatus(data.status))
+      .then(({ data }) => {
+        setKycStatus(data.status);
+        setRejectionReason(data.rejectionReason ?? null);
+      })
       .catch(() => setKycStatus(null));
   }, []);
 
@@ -49,6 +53,69 @@ export default function InvestorKYCPage() {
       setLoading(false);
     }
   };
+
+  if (kycStatus === "rejected") {
+    return (
+      <main className="min-h-screen flex flex-col items-center justify-center p-6 bg-[#f9fafb] dark:bg-[#0f1117]">
+        <div className="w-full max-w-2xl bg-white dark:bg-[#161a23] p-8 rounded-lg shadow-md border border-gray-100 dark:border-gray-800">
+          <div className="text-center mb-6">
+            <h1 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-2">
+              Verification Rejected
+            </h1>
+            <p className="text-gray-600 dark:text-gray-400 text-sm">
+              Your previous submission was rejected. Please upload new documents
+              to try again.
+            </p>
+            {rejectionReason && (
+              <p className="text-sm text-red-600 dark:text-red-400 mt-2">
+                Reason: {rejectionReason}
+              </p>
+            )}
+          </div>
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            <FileUpload
+              accept="image/*,.pdf"
+              maxSize={10}
+              multiple={false}
+              onUpload={async (files) => {
+                if (files[0]) setIdentityDocument(files[0]);
+              }}
+              label="Identity Document (ID/Passport)"
+              description="Government-issued ID or passport"
+            />
+            <FileUpload
+              accept="image/*,.pdf"
+              maxSize={10}
+              multiple={false}
+              onUpload={async (files) => {
+                if (files[0]) setProofOfAddress(files[0]);
+              }}
+              label="Proof of Address"
+              description="Utility bill or bank statement (within 3 months)"
+            />
+            <FileUpload
+              accept="image/*"
+              maxSize={5}
+              multiple={false}
+              onUpload={async (files) => {
+                if (files[0]) setSelfie(files[0]);
+              }}
+              label="Selfie with ID"
+              description="Clear selfie holding your ID next to your face"
+            />
+            <button
+              type="submit"
+              disabled={loading || !identityDocument || !proofOfAddress || !selfie}
+              className="flex items-center gap-2 w-full justify-center bg-[#00a76f] hover:bg-emerald-700 text-white py-2.5 rounded-md font-semibold transition disabled:opacity-50"
+            >
+              <FaUpload />
+              {loading ? "Submitting..." : "Resubmit Verification"}
+            </button>
+          </form>
+        </div>
+      </main>
+    );
+  }
 
   if (kycStatus === "verified") {
     return (

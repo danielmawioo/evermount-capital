@@ -119,8 +119,14 @@ export default function CryptoDepositPage() {
               <p className="text-sm text-gray-800 dark:text-white break-all text-center font-mono">
                 {walletAddress}
               </p>
-              {depositData.qrCode && (
+              {depositData.qrCode &&
+                !depositData.qrCode.includes("placeholder") && (
                 <img src={depositData.qrCode} alt="QR Code" className="mt-4 w-48 h-48" />
+              )}
+              {depositData.qrCode?.includes("placeholder") && (
+                <p className="text-xs text-amber-600 dark:text-amber-400 mt-2">
+                  QR code unavailable in local dev — use the address above.
+                </p>
               )}
             </div>
 

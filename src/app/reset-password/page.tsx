@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import axios from "axios";
+import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
 import AuthLeftPanel from "../components/AuthLeftPanel";
 
@@ -46,7 +46,7 @@ export default function ResetPasswordPage() {
       setLoading(true);
       const otpCode = otp.join(""); // join the OTP digits into a full code
 
-      await axios.post("https://api.evermount.co/auth/reset-password", {
+      await api.auth.resetPassword({
         email,
         otp: otpCode,
         newPassword,
@@ -151,7 +151,18 @@ export default function ResetPasswordPage() {
               Don’t have a code?{" "}
               <button
                 type="button"
-                onClick={() => alert("Feature coming soon.")}
+                onClick={async () => {
+                  if (!email) {
+                    setError("Enter your email first.");
+                    return;
+                  }
+                  try {
+                    await api.auth.sendResetPassword({ email });
+                    setSuccessMessage("OTP resent to your email.");
+                  } catch (err: unknown) {
+                    setError(getApiErrorMessage(err, "Failed to resend OTP."));
+                  }
+                }}
                 className="text-[#00a76f] font-medium hover:underline"
               >
                 Resend
