@@ -4,6 +4,10 @@ import {
   getDepartmentAssistant,
   isValidDepartmentId,
 } from "@/lib/chat-departments";
+import {
+  extractLinks,
+  getChatFallbackResponse,
+} from "@/lib/chat-fallback";
 
 const CHAT_MODEL = process.env.OPENAI_CHAT_MODEL || "gpt-4o-mini";
 
@@ -189,8 +193,34 @@ export async function POST(request: NextRequest) {
         response.status === 429 ||
         openAiError?.code === "insufficient_quota"
       ) {
-        errorMessage =
-          "Our AI assistant is temporarily unavailable. Please contact support@evermount.co or book a demo at https://www.evermount.co/book-demo.";
+        const lastUserMessage = [...messages]
+          .reverse()
+          .find((m: { role: string }) => m.role === "user");
+        const userText =
+          typeof lastUserMessage?.content === "string"
+            ? lastUserMessage.content
+            : "";
+
+        const fallbackMessage = getChatFallbackResponse(
+          department,
+          resolvedAssistant,
+          userText
+        );
+        const fallbackLinks = extractLinks(fallbackMessage);
+        const dept = CHAT_DEPARTMENT_MAP[department];
+
+        console.warn("OpenAI unavailable, using playbook fallback:", {
+          code: openAiError?.code,
+          department,
+        });
+
+        return NextResponse.json({
+          message: fallbackMessage,
+          links: fallbackLinks,
+          needsHumanSupport: false,
+          fallback: true,
+          escalationEmail: dept?.escalationEmail,
+        });
       }
 
       return NextResponse.json(
