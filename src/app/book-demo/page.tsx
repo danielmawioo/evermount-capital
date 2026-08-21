@@ -11,6 +11,8 @@ import {
   CheckCircleIcon,
 } from "@heroicons/react/24/outline";
 import toast, { Toaster } from "react-hot-toast";
+import { api } from "@/lib/api-client";
+import { getApiErrorMessage } from "@/lib/api-error";
 
 export default function BookDemoModal() {
   const router = useRouter();
@@ -69,8 +71,7 @@ export default function BookDemoModal() {
   useEffect(() => {
     const fetchBookedSlots = async () => {
       try {
-        const res = await fetch("https://api.evermount.co/booked-demo-slots");
-        const data = await res.json();
+        const { data } = await api.demo.getBookedSlots();
 
         const dates = (data.bookedSlots || []).map(
           (iso: string) => new Date(iso)
@@ -106,25 +107,14 @@ export default function BookDemoModal() {
       fullName: form.name,
       email: form.email,
       company: form.company,
-      preferredDateTime: form.date?.toISOString(),
+      preferredDateTime: form.date!.toISOString(),
       message: form.message,
     };
 
     setLoading(true);
 
     try {
-      const res = await fetch("https://api.evermount.co/demo-booking", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        toast.error(data.message || "There was an error booking the demo.");
-        return;
-      }
+      await api.demo.book(payload);
 
       setSuccess(true);
       toast.success("Demo booked successfully!");
@@ -132,8 +122,10 @@ export default function BookDemoModal() {
         setShowModal(false);
         router.push("/");
       }, 2000);
-    } catch {
-      toast.error("Network error. Please try again later.");
+    } catch (error) {
+      toast.error(
+        getApiErrorMessage(error, "There was an error booking the demo.")
+      );
     } finally {
       setLoading(false);
     }
