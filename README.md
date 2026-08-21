@@ -1,40 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Evermount Capital — Frontend
 
-## Getting Started
+Next.js (App Router) / TypeScript frontend for the Evermount fintech platform: public marketing site plus investor, portfolio-manager, and admin dashboards. It talks to a separate backend over a typed API client — this repo does not include the backend.
 
-First, run the development server:
+## Prerequisites
+
+- Node.js 20.x
+- Yarn 1 (Classic) — this repo's lockfile is `yarn.lock`, not `package-lock.json` or `pnpm-lock.yaml`
+- A running instance of the Evermount backend (see [`DEPLOYMENT_SETUP.md`](./DEPLOYMENT_SETUP.md)), or point `NEXT_PUBLIC_API_URL` at a deployed one, for any page that calls the API
+
+## Install
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Copy `.env.example` to `.env.local` and fill in the values you need:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+cp .env.example .env.local
+```
 
-## Learn More
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `NODE_ENV` | auto | Set by Next.js tooling — do not set manually |
+| `NEXT_PUBLIC_API_URL` | yes | Backend base URL |
+| `NEXT_PUBLIC_APP_URL` | yes | This app's own URL, used for OAuth redirects |
+| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | for payments | Stripe publishable key — never put the secret key here |
+| `NEXT_PUBLIC_GITHUB_CLIENT_ID` / `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` | for GitHub OAuth | GitHub OAuth app credentials |
+| `OPENAI_API_KEY` / `OPENAI_ORG_ID` / `OPENAI_CHAT_MODEL` | for support chat | Used server-side only, in `src/app/api/chat` |
+| `NEXT_PUBLIC_ENABLE_INTERCOM` / `NEXT_PUBLIC_INTERCOM_APP_ID` | no | Alternate support widget, disabled by default |
+| `VERCEL_TOKEN` / `VERCEL_ORG_ID` / `VERCEL_PROJECT_ID` | for local Vercel CLI use | Not needed for `yarn dev` |
 
-To learn more about Next.js, take a look at the following resources:
+See `.env.example` for the full list with inline comments.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Run
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+yarn dev
+```
 
-## Deploy on Vercel
+Open [http://localhost:3000](http://localhost:3000).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Test
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+yarn test        # Jest + React Testing Library, with coverage
+yarn typecheck   # tsc --noEmit
+yarn lint        # next lint
+```
 
-# evermount-capital
+CI (`.github/workflows/deploy.yml`) runs lint, typecheck, build, and tests on every push to `main`; the Vercel deploy only triggers once all of them pass.
 
-Financial service
+## Build
+
+```bash
+yarn build
+yarn start
+```
+
+## Architecture
+
+- **App Router** under `src/app`: marketing pages at the root, authenticated dashboards under `src/app/dashboard/{admin,manager,...}`, and a couple of server-side API routes under `src/app/api` (chat proxy, GitHub OAuth callback).
+- **API layer** (`src/lib/api-client.ts`): a single Axios instance (`apiClient`) with a typed `api.*` surface (`api.auth`, `api.wallets`, `api.admin`, `api.portfolioManager`, …) mirroring the backend's REST routes. A request interceptor attaches the bearer token; a response interceptor handles `401`s by refreshing the access token once (via `/auth/refresh`) and retrying the original request, or clearing auth and redirecting to `/login` if the refresh itself fails.
+- **Auth storage** (`src/lib/auth-storage.ts`): tokens live in `localStorage` (remember-me) or `sessionStorage`, mirrored into a short-lived cookie so middleware can read auth state without an API round trip.
+- **Validation** (`src/lib/schemas.ts`): Zod schemas for form inputs that reach the API layer (e.g. wallet credit amounts), used alongside `getApiErrorMessage` (`src/lib/api-error.ts`) for consistent error surfacing across dashboard pages.
+- **Deployment**: GitHub Actions builds, lints, typechecks, and tests on push to `main`, then triggers a Vercel deploy hook. The backend is deployed separately (see `DEPLOYMENT_SETUP.md` and `nginx-api.evermount.co.conf`).
+
+## Other docs in this repo
+
+- [`DEPLOYMENT_SETUP.md`](./DEPLOYMENT_SETUP.md) — backend server/Nginx/HTTPS setup
+- [`BACKEND_API_ENDPOINTS_PROMPT.md`](./BACKEND_API_ENDPOINTS_PROMPT.md) — backend API contract reference
+- [`ESCROW_WALLET_BACKEND_PROMPT.md`](./ESCROW_WALLET_BACKEND_PROMPT.md) — escrow/wallet backend spec
+- [`FRONTEND_INTEGRATION_SUMMARY.md`](./FRONTEND_INTEGRATION_SUMMARY.md) — frontend/backend integration notes
