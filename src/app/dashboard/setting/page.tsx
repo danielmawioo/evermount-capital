@@ -73,8 +73,7 @@ export default function SettingsPage() {
       await api.investments.updatePreferences(investmentPrefs);
       toast.success("Investment preferences saved");
     } catch (error: unknown) {
-      const err = error as { response?: { data?: { message?: string } } };
-      toast.error(err.response?.data?.message || "Failed to save preferences");
+      toast.error(getApiErrorMessage(error, "Failed to save preferences"));
     } finally {
       setLoading(false);
     }

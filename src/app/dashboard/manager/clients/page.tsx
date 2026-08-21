@@ -256,10 +256,7 @@ export default function ManagerClientsPage() {
       setClientForm({ fullName: "", email: "", password: "", notes: "" });
       await load();
     } catch (err: unknown) {
-      const msg =
-        (err as { response?: { data?: { message?: string } } })?.response?.data
-          ?.message ?? "Failed to add client";
-      toast.error(msg);
+      toast.error(getApiErrorMessage(err, "Failed to add client"));
     } finally {
       setAddingClient(false);
     }
@@ -321,10 +318,7 @@ export default function ManagerClientsPage() {
       toast.success("Client unassigned");
       await load();
     } catch (err: unknown) {
-      const msg =
-        (err as { response?: { data?: { message?: string } } })?.response?.data
-          ?.message ?? "Failed to unassign client";
-      toast.error(msg);
+      toast.error(getApiErrorMessage(err, "Failed to unassign client"));
     } finally {
       setUnassigning(null);
     }

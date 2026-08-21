@@ -10,6 +10,7 @@ import {
   ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
 import { api } from "@/lib/api-client";
+import { getApiErrorMessage } from "@/lib/api-error";
 import { useInvestor } from "@/hooks/useInvestor";
 import TradePreviewCard, { TradePreview } from "./components/TradePreviewCard";
 
@@ -79,10 +80,7 @@ export default function TradePage() {
       setPreview(data);
       setStep("preview");
     } catch (error: unknown) {
-      const err = error as { response?: { data?: { message?: string } } };
-      toast.error(
-        err.response?.data?.message || "Could not find a matching strategy"
-      );
+      toast.error(getApiErrorMessage(error, "Could not find a matching strategy"));
     } finally {
       setLoading(false);
     }
@@ -100,8 +98,7 @@ export default function TradePage() {
       toast.success("Trade executed successfully");
       router.push("/dashboard/portfolio?traded=1");
     } catch (error: unknown) {
-      const err = error as { response?: { data?: { message?: string } } };
-      toast.error(err.response?.data?.message || "Trade failed");
+      toast.error(getApiErrorMessage(error, "Trade failed"));
     } finally {
       setLoading(false);
     }

@@ -11,6 +11,8 @@ import {
 } from "@heroicons/react/24/outline";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { getApiErrorMessage } from "@/lib/api-error";
+import { CreditAmountSchema } from "@/lib/schemas";
 
 interface ApiUser {
   id: string;
@@ -105,10 +107,7 @@ export default function UserManagementPage() {
       setForm({ fullName: "", email: "", password: "", role: "INVESTOR" });
       loadUsers();
     } catch (err: unknown) {
-      const msg =
-        (err as { response?: { data?: { message?: string } } })?.response?.data
-          ?.message ?? "Failed to create user";
-      toast.error(msg);
+      toast.error(getApiErrorMessage(err, "Failed to create user"));
     } finally {
       setSubmitting(false);
     }
@@ -139,10 +138,7 @@ export default function UserManagementPage() {
       toast.success("Investor assigned to portfolio manager");
       setAssignUser(null);
     } catch (err: unknown) {
-      const msg =
-        (err as { response?: { data?: { message?: string } } })?.response?.data
-          ?.message ?? "Failed to assign investor";
-      toast.error(msg);
+      toast.error(getApiErrorMessage(err, "Failed to assign investor"));
     } finally {
       setAssigning(false);
     }
@@ -151,11 +147,12 @@ export default function UserManagementPage() {
   const handleCreditWallet = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!creditUser) return;
-    const amount = parseFloat(creditAmount);
-    if (!amount || amount <= 0) {
-      toast.error("Enter a valid amount");
+    const parsedAmount = CreditAmountSchema.safeParse(parseFloat(creditAmount));
+    if (!parsedAmount.success) {
+      toast.error(parsedAmount.error.issues[0]?.message ?? "Enter a valid amount");
       return;
     }
+    const amount = parsedAmount.data;
     setCrediting(true);
     try {
       await api.admin.wallets.creditUser(creditUser.id, {
@@ -167,10 +164,7 @@ export default function UserManagementPage() {
       setCreditAmount("");
       loadUsers();
     } catch (err: unknown) {
-      const msg =
-        (err as { response?: { data?: { message?: string } } })?.response?.data
-          ?.message ?? "Failed to credit wallet";
-      toast.error(msg);
+      toast.error(getApiErrorMessage(err, "Failed to credit wallet"));
     } finally {
       setCrediting(false);
     }

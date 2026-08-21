@@ -5,6 +5,7 @@ import { FaUpload } from "react-icons/fa";
 import FileUpload from "@/components/FileUpload";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { getApiErrorMessage } from "@/lib/api-error";
 
 export default function InvestorKYCPage() {
   const [identityDocument, setIdentityDocument] = useState<File | null>(null);
@@ -45,10 +46,7 @@ export default function InvestorKYCPage() {
       setSelfie(null);
       setKycStatus("pending");
     } catch (error: unknown) {
-      const err = error as { response?: { data?: { message?: string } } };
-      const message =
-        err?.response?.data?.message || "Failed to submit documents";
-      toast.error(message);
+      toast.error(getApiErrorMessage(error, "Failed to submit documents"));
     } finally {
       setLoading(false);
     }
