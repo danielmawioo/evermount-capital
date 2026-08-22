@@ -13,6 +13,7 @@ import {
 import toast, { Toaster } from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 
 export default function BookDemoModal() {
   const router = useRouter();
@@ -78,6 +79,8 @@ export default function BookDemoModal() {
         );
         setBookedSlots(dates);
       } catch (error) {
+        logger.error("Failed to fetch booked slots", error);
+        // Keep the raw console.error for local debugging visibility.
         console.error("Failed to fetch booked slots:", error);
       }
     };
@@ -123,6 +126,7 @@ export default function BookDemoModal() {
         router.push("/");
       }, 2000);
     } catch (error) {
+      logger.error("Demo booking failed", error);
       toast.error(
         getApiErrorMessage(error, "There was an error booking the demo.")
       );

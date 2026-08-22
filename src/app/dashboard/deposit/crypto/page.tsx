@@ -6,6 +6,7 @@ import Image from "next/image";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 import { PositiveAmountSchema } from "@/lib/schemas";
 
 interface CryptoDepositData {
@@ -41,6 +42,7 @@ export default function CryptoDepositPage() {
       setWalletAddress(data.depositAddress || "");
       toast.success("Deposit address generated");
     } catch (error: unknown) {
+      logger.error("Crypto deposit creation failed", error);
       toast.error(getApiErrorMessage(error, "Failed to create deposit"));
     } finally {
       setLoading(false);

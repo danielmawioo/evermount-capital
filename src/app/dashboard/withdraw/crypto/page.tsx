@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 import { PositiveAmountSchema } from "@/lib/schemas";
 import KycRequiredGate from "@/components/KycRequiredGate";
 
@@ -54,6 +55,7 @@ export default function WithdrawCryptoPage() {
         router.push("/dashboard/wallets");
       }, 2000);
     } catch (error: unknown) {
+      logger.error("Crypto withdrawal failed", error);
       toast.error(getApiErrorMessage(error, "Withdrawal failed"));
     } finally {
       setLoading(false);
