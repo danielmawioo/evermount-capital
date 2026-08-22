@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { ShieldCheckIcon, KeyIcon } from "@heroicons/react/24/outline";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { logger } from "@/lib/logger";
 
 export default function AdminSecurityPage() {
   const [status, setStatus] = useState<{
@@ -22,7 +23,8 @@ export default function AdminSecurityPage() {
     try {
       const { data } = await api.security.mfa.getStatus();
       setStatus(data);
-    } catch {
+    } catch (error) {
+      logger.error("Failed to load MFA status", error);
       toast.error("Failed to load MFA status");
     } finally {
       setLoading(false);
@@ -38,7 +40,8 @@ export default function AdminSecurityPage() {
       const { data } = await api.security.mfa.setup();
       setSetup(data);
       toast.success("Scan the secret with your authenticator app");
-    } catch {
+    } catch (error) {
+      logger.error("MFA setup failed", error);
       toast.error("MFA setup failed");
     }
   };
@@ -50,7 +53,8 @@ export default function AdminSecurityPage() {
       setSetup(null);
       setToken("");
       await load();
-    } catch {
+    } catch (error) {
+      logger.error("Failed to enable MFA", error);
       toast.error("Invalid token — could not enable MFA");
     }
   };
@@ -61,7 +65,8 @@ export default function AdminSecurityPage() {
       toast.success("MFA disabled");
       setToken("");
       await load();
-    } catch {
+    } catch (error) {
+      logger.error("Failed to disable MFA", error);
       toast.error("Invalid token — could not disable MFA");
     }
   };

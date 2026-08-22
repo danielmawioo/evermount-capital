@@ -9,6 +9,7 @@ import {
 } from "@heroicons/react/24/outline";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { logger } from "@/lib/logger";
 
 interface PendingWithdrawal {
   transactionId: string;
@@ -42,7 +43,8 @@ export default function AdminWithdrawalsPage() {
     try {
       const { data } = await api.admin.wallets.getPendingWithdrawals();
       setWithdrawals(data.withdrawals ?? []);
-    } catch {
+    } catch (error) {
+      logger.error("Failed to load pending withdrawals", error);
       toast.error("Failed to load pending withdrawals");
     } finally {
       setLoading(false);
@@ -59,7 +61,8 @@ export default function AdminWithdrawalsPage() {
       await api.admin.wallets.approveWithdrawal(transactionId);
       toast.success("Withdrawal approved");
       await load();
-    } catch {
+    } catch (error) {
+      logger.error("Failed to approve withdrawal", error);
       toast.error("Failed to approve withdrawal");
     } finally {
       setProcessingId(null);
@@ -73,7 +76,8 @@ export default function AdminWithdrawalsPage() {
       await api.admin.wallets.rejectWithdrawal(transactionId, { reason });
       toast.success("Withdrawal rejected — funds returned to wallet");
       await load();
-    } catch {
+    } catch (error) {
+      logger.error("Failed to reject withdrawal", error);
       toast.error("Failed to reject withdrawal");
     } finally {
       setProcessingId(null);

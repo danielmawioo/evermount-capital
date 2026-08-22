@@ -8,6 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { logger } from "@/lib/logger";
 
 interface ComplianceReport {
   generatedAt: string;
@@ -46,7 +47,8 @@ export default function CompliancePage() {
       ]);
       setReport(reportRes.data);
       setAuditTotal(logsRes.data.total);
-    } catch {
+    } catch (error) {
+      logger.error("Failed to load compliance data", error);
       toast.error("Failed to load compliance data");
     } finally {
       setLoading(false);
@@ -68,7 +70,8 @@ export default function CompliancePage() {
       a.click();
       URL.revokeObjectURL(url);
       toast.success("Audit log exported");
-    } catch {
+    } catch (error) {
+      logger.error("Failed to export audit logs", error);
       toast.error("Export failed");
     } finally {
       setExporting(false);

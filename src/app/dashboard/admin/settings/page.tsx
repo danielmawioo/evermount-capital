@@ -12,6 +12,7 @@ import {
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 
 type SettingsState = {
   notifications: {
@@ -73,7 +74,10 @@ export default function AdminSettingsPage() {
           integrations: { ...prev.integrations, ...data.integrations },
         }));
       })
-      .catch(() => toast.error("Failed to load settings"))
+      .catch((error) => {
+        logger.error("Failed to load settings", error);
+        toast.error("Failed to load settings");
+      })
       .finally(() => setLoading(false));
   }, []);
 
@@ -88,6 +92,7 @@ export default function AdminSettingsPage() {
       );
       toast.success("Settings saved");
     } catch (error: unknown) {
+      logger.error("Failed to save settings", error);
       toast.error(getApiErrorMessage(error, "Failed to save settings"));
     } finally {
       setSaving(false);

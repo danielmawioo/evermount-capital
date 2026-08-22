@@ -11,6 +11,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { api } from "@/lib/api-client";
 import { useInvestor } from "@/hooks/useInvestor";
+import { logger } from "@/lib/logger";
 
 type StrategyRow = {
   strategyKey: string;
@@ -110,7 +111,8 @@ export default function ManagerStrategiesPage() {
       const { data } = await api.portfolioManager.getStrategies();
       setStrategies(data.strategies);
       setCombined(data.combined);
-    } catch {
+    } catch (error) {
+      logger.error("Failed to load strategies", error);
       toast.error("Failed to load strategies");
     } finally {
       setLoading(false);
@@ -132,7 +134,8 @@ export default function ManagerStrategiesPage() {
       setStrategies(data.strategies);
       setCombined(data.combined);
       toast.success(`${strategyKey} is now the running strategy`);
-    } catch {
+    } catch (error) {
+      logger.error("Failed to switch strategy", error);
       toast.error("Failed to switch strategy");
     } finally {
       setActionKey(null);
@@ -149,7 +152,8 @@ export default function ManagerStrategiesPage() {
       setStrategies(data.strategies);
       setCombined(data.combined);
       toast.success(active ? "Strategy activated" : "Strategy deactivated");
-    } catch {
+    } catch (error) {
+      logger.error("Failed to update strategy", error);
       toast.error("Failed to update strategy");
     } finally {
       setActionKey(null);

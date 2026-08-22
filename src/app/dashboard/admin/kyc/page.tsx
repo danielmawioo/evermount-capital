@@ -9,6 +9,7 @@ import {
 } from "@heroicons/react/24/outline";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { logger } from "@/lib/logger";
 
 interface KYCSubmission {
   id: string;
@@ -34,7 +35,8 @@ export default function AdminKYCReviewPage() {
       const params = filter !== "all" ? { status: filter } : undefined;
       const { data } = await api.admin.kyc.getAll(params);
       setSubmissions(data.submissions || data.kycSubmissions || []);
-    } catch {
+    } catch (error) {
+      logger.error("Failed to load KYC submissions", error);
       toast.error("Failed to load KYC submissions");
     } finally {
       setLoading(false);
@@ -55,7 +57,8 @@ export default function AdminKYCReviewPage() {
       await api.admin.kyc.update(kycId, { status, notes });
       toast.success(`KYC ${status === "VERIFIED" ? "approved" : "rejected"}`);
       await loadSubmissions();
-    } catch {
+    } catch (error) {
+      logger.error("Failed to update KYC status", error);
       toast.error("Failed to update KYC status");
     } finally {
       setProcessingId(null);
