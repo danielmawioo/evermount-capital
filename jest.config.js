@@ -15,6 +15,14 @@ const customJestConfig = {
     "!src/**/*.test.{ts,tsx}",
     "!src/**/*.d.ts",
   ],
+  coverageThreshold: {
+    global: {
+      statements: 75,
+      lines: 75,
+      functions: 70,
+      branches: 65,
+    },
+  },
 };
 
 module.exports = createJestConfig(customJestConfig);
