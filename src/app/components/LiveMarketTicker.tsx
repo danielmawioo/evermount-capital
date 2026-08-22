@@ -5,214 +5,16 @@ import {
   ArrowTrendingUpIcon,
   ArrowTrendingDownIcon,
 } from "@heroicons/react/24/outline";
-import { useEffect, useState } from "react";
 import { useTheme } from "@/context/ThemeContext";
-
-interface MarketData {
-  symbol: string;
-  name: string;
-  price: number;
-  change: number;
-  changePercent: number;
-  type: "stock" | "crypto" | "forex" | "index";
-}
+import {
+  useMarketTicker,
+  getMarketTypeColor,
+  getMarketTypeBadge,
+} from "@/hooks/useMarketTicker";
 
 export default function LiveMarketTicker() {
   const { theme } = useTheme();
-  const [marketData, setMarketData] = useState<MarketData[]>([]);
-
-  // Mock data - in production, this would come from an API
-  useEffect(() => {
-    const mockData: MarketData[] = [
-      // Stocks
-      {
-        symbol: "AAPL",
-        name: "Apple Inc.",
-        price: 178.45,
-        change: 2.35,
-        changePercent: 1.33,
-        type: "stock",
-      },
-      {
-        symbol: "TSLA",
-        name: "Tesla",
-        price: 248.92,
-        change: -5.23,
-        changePercent: -2.06,
-        type: "stock",
-      },
-      {
-        symbol: "MSFT",
-        name: "Microsoft",
-        price: 378.21,
-        change: 4.12,
-        changePercent: 1.1,
-        type: "stock",
-      },
-      {
-        symbol: "NVDA",
-        name: "NVIDIA",
-        price: 485.67,
-        change: 12.45,
-        changePercent: 2.63,
-        type: "stock",
-      },
-      {
-        symbol: "AMZN",
-        name: "Amazon",
-        price: 145.32,
-        change: 1.89,
-        changePercent: 1.32,
-        type: "stock",
-      },
-
-      // Crypto
-      {
-        symbol: "BTC/USD",
-        name: "Bitcoin",
-        price: 43250.5,
-        change: 1250.3,
-        changePercent: 2.98,
-        type: "crypto",
-      },
-      {
-        symbol: "ETH/USD",
-        name: "Ethereum",
-        price: 2650.75,
-        change: -45.2,
-        changePercent: -1.68,
-        type: "crypto",
-      },
-      {
-        symbol: "BNB/USD",
-        name: "Binance Coin",
-        price: 315.42,
-        change: 8.75,
-        changePercent: 2.85,
-        type: "crypto",
-      },
-      {
-        symbol: "SOL/USD",
-        name: "Solana",
-        price: 98.25,
-        change: 3.45,
-        changePercent: 3.64,
-        type: "crypto",
-      },
-
-      // Forex
-      {
-        symbol: "EUR/USD",
-        name: "Euro",
-        price: 1.0856,
-        change: 0.0023,
-        changePercent: 0.21,
-        type: "forex",
-      },
-      {
-        symbol: "GBP/USD",
-        name: "British Pound",
-        price: 1.2645,
-        change: -0.0015,
-        changePercent: -0.12,
-        type: "forex",
-      },
-      {
-        symbol: "USD/JPY",
-        name: "US Dollar/Yen",
-        price: 149.82,
-        change: 0.45,
-        changePercent: 0.3,
-        type: "forex",
-      },
-      {
-        symbol: "USD/CHF",
-        name: "US Dollar/Franc",
-        price: 0.8845,
-        change: -0.0012,
-        changePercent: -0.14,
-        type: "forex",
-      },
-
-      // Indices
-      {
-        symbol: "SPX",
-        name: "S&P 500",
-        price: 4567.89,
-        change: 23.45,
-        changePercent: 0.52,
-        type: "index",
-      },
-      {
-        symbol: "DJI",
-        name: "Dow Jones",
-        price: 34567.12,
-        change: -123.45,
-        changePercent: -0.36,
-        type: "index",
-      },
-      {
-        symbol: "IXIC",
-        name: "NASDAQ",
-        price: 14234.56,
-        change: 67.89,
-        changePercent: 0.48,
-        type: "index",
-      },
-    ];
-
-    // Sort by absolute change percentage (biggest movers first)
-    const sortedData = mockData.sort(
-      (a, b) => Math.abs(b.changePercent) - Math.abs(a.changePercent),
-    );
-    setMarketData(sortedData.slice(0, 10)); // Show top 10 movers
-
-    // Simulate live updates every 5 seconds
-    const interval = setInterval(() => {
-      setMarketData((prev) =>
-        prev.map((item) => {
-          // Simulate small price movements
-          const randomChange = (Math.random() - 0.5) * 0.5;
-          const newChangePercent = item.changePercent + randomChange;
-          const newChange = (item.price * newChangePercent) / 100;
-          return {
-            ...item,
-            price: item.price + newChange,
-            change: newChange,
-            changePercent: newChangePercent,
-          };
-        }),
-      );
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const getTypeColor = (type: string) => {
-    switch (type) {
-      case "crypto":
-        return { text: "text-yellow-500", rgb: "251, 191, 36" }; // yellow-400
-      case "forex":
-        return { text: "text-blue-500", rgb: "59, 130, 246" }; // blue-500
-      case "index":
-        return { text: "text-purple-500", rgb: "168, 85, 247" }; // purple-500
-      default:
-        return { text: "text-green-500", rgb: "34, 197, 94" }; // green-500
-    }
-  };
-
-  const getTypeBadge = (type: string) => {
-    switch (type) {
-      case "crypto":
-        return "Crypto";
-      case "forex":
-        return "Forex";
-      case "index":
-        return "Index";
-      default:
-        return "Stock";
-    }
-  };
+  const { marketData } = useMarketTicker();
 
   return (
     <div className="hidden lg:block w-56">
@@ -346,18 +148,18 @@ export default function LiveMarketTicker() {
                     </span>
                     <span
                       className={`text-[10px] px-1.5 py-0.5 rounded-md font-semibold ${
-                        getTypeColor(item.type).text
+                        getMarketTypeColor(item.type).text
                       } flex-shrink-0`}
                       style={{
                         backgroundColor:
                           theme === "dark"
-                            ? `rgba(${getTypeColor(item.type).rgb}, 0.2)`
-                            : `rgba(${getTypeColor(item.type).rgb}, 0.15)`,
+                            ? `rgba(${getMarketTypeColor(item.type).rgb}, 0.2)`
+                            : `rgba(${getMarketTypeColor(item.type).rgb}, 0.15)`,
                         textShadow: "0 1px 2px rgba(0, 0, 0, 0.4)",
-                        border: `1px solid rgba(${getTypeColor(item.type).rgb}, 0.3)`,
+                        border: `1px solid rgba(${getMarketTypeColor(item.type).rgb}, 0.3)`,
                       }}
                     >
-                      {getTypeBadge(item.type).charAt(0)}
+                      {getMarketTypeBadge(item.type).charAt(0)}
                     </span>
                   </div>
                   <p
@@ -459,7 +261,7 @@ export default function LiveMarketTicker() {
                   : "0 1px 2px rgba(255, 255, 255, 0.8)",
             }}
           >
-            Live • Updates 5s
+            Sample data • Illustrative only
           </p>
         </motion.div>
       </motion.div>

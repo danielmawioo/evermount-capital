@@ -15,7 +15,9 @@ describe("LiveMarketTicker", () => {
     render(<LiveMarketTicker />);
 
     expect(screen.getByText("Top Movers")).toBeInTheDocument();
-    expect(screen.getByText("Live • Updates 5s")).toBeInTheDocument();
+    expect(
+      screen.getByText("Sample data • Illustrative only"),
+    ).toBeInTheDocument();
     // Solana has the largest absolute % change in the mock dataset, so it
     // should be sorted to the top of the "top movers" list.
     expect(screen.getByText("Solana")).toBeInTheDocument();
