@@ -86,6 +86,7 @@ The app is served at [http://localhost:3000](http://localhost:3000). `NEXT_PUBLI
 ## Other docs in this repo
 
 - [`CONTRIBUTING.md`](./CONTRIBUTING.md) — setup, commit/PR conventions, project structure, testing conventions
+- [`CHANGELOG.md`](./CHANGELOG.md) — notable changes, Keep a Changelog format
 - [`SECURITY.md`](./SECURITY.md) — how to report a vulnerability, what's already handled, known limitations
 - [`DEPLOYMENT_SETUP.md`](./DEPLOYMENT_SETUP.md) — backend server/Nginx/HTTPS setup
 - [`BACKEND_API_ENDPOINTS_PROMPT.md`](./BACKEND_API_ENDPOINTS_PROMPT.md) — backend API contract reference

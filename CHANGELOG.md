@@ -1,0 +1,73 @@
+# Changelog
+
+All notable changes to this project are documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project uses [Conventional Commits](https://www.conventionalcommits.org/)
+for commit messages going forward.
+
+## [Unreleased]
+
+### Added
+
+- Structured logging (`src/lib/logger.ts`) and optional Sentry error tracking
+  (`src/instrumentation.ts` / `src/instrumentation-client.ts`), inert unless
+  `NEXT_PUBLIC_SENTRY_DSN`/`SENTRY_DSN` is configured.
+- Shared Zod validation schemas (`EmailSchema`, `requiredTextSchema`,
+  `minimumPasswordSchema`) applied consistently across auth, admin, and
+  contact forms that previously hand-rolled their own regexes or skipped
+  validation entirely.
+- Prettier, integrated with ESLint, plus a `format`/`format:check` script and
+  a CI gate.
+- Conventional Commits enforced locally via a husky `commit-msg` hook
+  (commitlint).
+- This changelog.
+
+### Changed
+
+- Upgraded axios, Next.js, and PostCSS to patch a critical `form-data` RNG
+  issue and DoS/SSRF/prototype-pollution advisories; added `resolutions`
+  overrides for several transitive dependencies still pulling vulnerable
+  versions. Production dependency audit went from 75 findings (33 high, 1
+  critical) to 0.
+- CI's dependency audit now blocks the build on production-dependency
+  findings (`yarn audit --groups dependencies --level high`); a separate
+  dev-tooling audit stays informational.
+- Moved Vercel deploy identifiers (`VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`,
+  `VERCEL_DEPLOY_HOOK`) from a plaintext workflow env block to GitHub Actions
+  secrets.
+- ~100 previously bare/unlogged `catch` blocks across hooks, pages, and
+  components now log through `logger.error`/`logger.warn` instead of
+  silently discarding the error.
+
+### Fixed
+
+- `getApiErrorMessage` crashed on `null`/`undefined` errors instead of
+  returning its fallback message.
+- `book-demo` and the Navbar/Footer newsletter forms were calling `fetch`/
+  `axios` directly against a hardcoded or wrongly-resolved URL, bypassing
+  `NEXT_PUBLIC_API_URL` and (for the Footer) silently hitting the frontend's
+  own origin instead of the backend.
+- `src/app/about/layout.tsx` was missing its default export, which broke
+  `yarn build` from a clean checkout.
+
+### Removed
+
+- `react-use`, which was unused anywhere in `src/` and pulled in a
+  vulnerable transitive `js-cookie`.
+
+## [1.0.0] - 2026-08-22
+
+First tagged release. Established the project's engineering baseline:
+
+- Jest + React Testing Library test suite (130+ spec files, ~83% statement
+  coverage, coverage floor enforced via `jest.config.js`).
+- CI (`.github/workflows/deploy.yml`) running lint, typecheck, build, and
+  tests on every push and pull request to `main`; Vercel deploy gated on all
+  of them passing on `main` only.
+- Extracted data/state logic out of the largest dashboard pages into
+  `src/hooks/*` (`useTradingOps`, `useManagerClients`, `useAdminUsers`,
+  `useAdminManagers`, `useChatWidget`), and `src/lib/api-client.ts` split
+  into one file per backend domain under `src/lib/api/`.
+- `README.md`, `CONTRIBUTING.md`, `SECURITY.md`, `Dockerfile`, and
+  `docker-compose.yml`.
