@@ -7,7 +7,7 @@ describe("ManagersPage", () => {
     render(<ManagersPage />);
 
     expect(
-      screen.getByRole("heading", { name: "Portfolio Managers" })
+      screen.getByRole("heading", { name: "Portfolio Managers" }),
     ).toBeInTheDocument();
     expect(screen.getByText("John Smith")).toBeInTheDocument();
     expect(screen.getByText("Sarah Johnson")).toBeInTheDocument();
@@ -20,7 +20,7 @@ describe("ManagersPage", () => {
     render(<ManagersPage />);
 
     const search = screen.getByPlaceholderText(
-      "Search managers by name or role..."
+      "Search managers by name or role...",
     );
     await user.type(search, "quant");
 
@@ -34,12 +34,12 @@ describe("ManagersPage", () => {
     render(<ManagersPage />);
 
     const search = screen.getByPlaceholderText(
-      "Search managers by name or role..."
+      "Search managers by name or role...",
     );
     await user.type(search, "nonexistent-manager");
 
     expect(
-      screen.getByText("No managers found matching your search.")
+      screen.getByText("No managers found matching your search."),
     ).toBeInTheDocument();
   });
 
@@ -50,19 +50,19 @@ describe("ManagersPage", () => {
     await user.click(screen.getByText("John Smith"));
 
     expect(
-      screen.getByRole("heading", { name: "John Smith", level: 2 })
+      screen.getByRole("heading", { name: "John Smith", level: 2 }),
     ).toBeInTheDocument();
     expect(screen.getByText(/Joined Evermount Capital on/)).toBeInTheDocument();
     expect(screen.getByText("john.smith@evermount.co")).toBeInTheDocument();
 
     const closeButtons = screen.getAllByRole("button", { name: "" });
     const modalCloseButton = closeButtons.find((btn) =>
-      btn.querySelector("svg")
+      btn.querySelector("svg"),
     );
     await user.click(modalCloseButton!);
 
     expect(
-      screen.queryByRole("heading", { name: "John Smith", level: 2 })
+      screen.queryByRole("heading", { name: "John Smith", level: 2 }),
     ).not.toBeInTheDocument();
   });
 });

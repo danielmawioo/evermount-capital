@@ -10,10 +10,8 @@ describe("PortfolioFilter", () => {
     expect(select.value).toBe("All");
     ["All", "Equities", "Crypto", "Real Estate", "Commodities"].forEach(
       (opt) => {
-        expect(
-          screen.getByRole("option", { name: opt })
-        ).toBeInTheDocument();
-      }
+        expect(screen.getByRole("option", { name: opt })).toBeInTheDocument();
+      },
     );
   });
 
@@ -36,7 +34,7 @@ describe("PortfolioFilter", () => {
     await user.selectOptions(screen.getByRole("combobox"), "Equities");
 
     expect((screen.getByRole("combobox") as HTMLSelectElement).value).toBe(
-      "Equities"
+      "Equities",
     );
   });
 });

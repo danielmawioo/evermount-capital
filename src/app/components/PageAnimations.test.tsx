@@ -26,7 +26,7 @@ describe("PageAnimations", () => {
     render(
       <AnimatedSection className="my-section">
         <p>Section content</p>
-      </AnimatedSection>
+      </AnimatedSection>,
     );
 
     const content = screen.getByText("Section content");
@@ -38,7 +38,7 @@ describe("PageAnimations", () => {
     render(
       <AnimatedCard className="my-card">
         <span>Card content</span>
-      </AnimatedCard>
+      </AnimatedCard>,
     );
 
     const content = screen.getByText("Card content");

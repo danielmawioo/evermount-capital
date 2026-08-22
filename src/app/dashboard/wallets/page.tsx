@@ -71,7 +71,9 @@ export default function WalletsPage() {
       setTransactions(data.transactions || []);
     } catch (error: unknown) {
       logger.error("Failed to fetch wallet transactions", error);
-      toast.error(getApiErrorMessage(error, "Failed to load transaction history"));
+      toast.error(
+        getApiErrorMessage(error, "Failed to load transaction history"),
+      );
     } finally {
       setTransactionsLoading(false);
     }
@@ -134,7 +136,8 @@ export default function WalletsPage() {
           Wallet & Escrow
         </h1>
         <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base">
-          Manage your wallet balance, deposits, withdrawals, and transfer funds to investments.
+          Manage your wallet balance, deposits, withdrawals, and transfer funds
+          to investments.
         </p>
       </div>
 
@@ -149,7 +152,9 @@ export default function WalletsPage() {
             <WalletIcon className="w-5 h-5 text-[#00a76f]" />
           </div>
           <p className="text-2xl font-extrabold text-gray-900 dark:text-white">
-            {balance ? formatCurrency(balance.availableBalance, balance.currency) : "$0.00"}
+            {balance
+              ? formatCurrency(balance.availableBalance, balance.currency)
+              : "$0.00"}
           </p>
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
             Funds available for withdrawal or investment
@@ -165,7 +170,9 @@ export default function WalletsPage() {
             <ChartBarIcon className="w-5 h-5 text-blue-500" />
           </div>
           <p className="text-2xl font-extrabold text-gray-900 dark:text-white">
-            {balance ? formatCurrency(balance.totalBalance, balance.currency) : "$0.00"}
+            {balance
+              ? formatCurrency(balance.totalBalance, balance.currency)
+              : "$0.00"}
           </p>
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
             Wallet + Invested funds
@@ -181,7 +188,9 @@ export default function WalletsPage() {
             <ChartBarIcon className="w-5 h-5 text-purple-500" />
           </div>
           <p className="text-2xl font-extrabold text-gray-900 dark:text-white">
-            {balance ? formatCurrency(balance.investedBalance, balance.currency) : "$0.00"}
+            {balance
+              ? formatCurrency(balance.investedBalance, balance.currency)
+              : "$0.00"}
           </p>
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
             Active investments
@@ -197,7 +206,9 @@ export default function WalletsPage() {
             <ClockIcon className="w-5 h-5 text-yellow-500" />
           </div>
           <p className="text-2xl font-extrabold text-gray-900 dark:text-white">
-            {balance ? formatCurrency(balance.pendingBalance, balance.currency) : "$0.00"}
+            {balance
+              ? formatCurrency(balance.pendingBalance, balance.currency)
+              : "$0.00"}
           </p>
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
             Transactions in progress
@@ -217,8 +228,12 @@ export default function WalletsPage() {
           >
             <ArrowDownTrayIcon className="w-6 h-6 text-green-600 dark:text-green-400" />
             <div>
-              <p className="font-semibold text-gray-900 dark:text-white">Deposit</p>
-              <p className="text-xs text-gray-600 dark:text-gray-400">Add funds to wallet</p>
+              <p className="font-semibold text-gray-900 dark:text-white">
+                Deposit
+              </p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">
+                Add funds to wallet
+              </p>
             </div>
           </Link>
 
@@ -228,8 +243,12 @@ export default function WalletsPage() {
           >
             <ArrowUpTrayIcon className="w-6 h-6 text-red-600 dark:text-red-400" />
             <div>
-              <p className="font-semibold text-gray-900 dark:text-white">Withdraw</p>
-              <p className="text-xs text-gray-600 dark:text-gray-400">Withdraw from wallet</p>
+              <p className="font-semibold text-gray-900 dark:text-white">
+                Withdraw
+              </p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">
+                Withdraw from wallet
+              </p>
             </div>
           </Link>
 
@@ -239,8 +258,12 @@ export default function WalletsPage() {
           >
             <ChartBarIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
             <div>
-              <p className="font-semibold text-gray-900 dark:text-white">Invest</p>
-              <p className="text-xs text-gray-600 dark:text-gray-400">Transfer to investment</p>
+              <p className="font-semibold text-gray-900 dark:text-white">
+                Invest
+              </p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">
+                Transfer to investment
+              </p>
             </div>
           </Link>
 
@@ -250,8 +273,12 @@ export default function WalletsPage() {
           >
             <ClockIcon className="w-6 h-6 text-gray-600 dark:text-gray-400" />
             <div>
-              <p className="font-semibold text-gray-900 dark:text-white">History</p>
-              <p className="text-xs text-gray-600 dark:text-gray-400">View all transactions</p>
+              <p className="font-semibold text-gray-900 dark:text-white">
+                History
+              </p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">
+                View all transactions
+              </p>
             </div>
           </Link>
         </div>
@@ -263,7 +290,7 @@ export default function WalletsPage() {
           <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
             Recent Transactions
           </h2>
-        <Link
+          <Link
             href="/dashboard/wallets/history"
             className="text-sm text-[#00a76f] hover:underline"
           >
@@ -286,7 +313,9 @@ export default function WalletsPage() {
         ) : transactions.length === 0 ? (
           <div className="text-center py-8">
             <WalletIcon className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-            <p className="text-gray-600 dark:text-gray-400">No transactions yet</p>
+            <p className="text-gray-600 dark:text-gray-400">
+              No transactions yet
+            </p>
             <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
               Start by making a deposit to your wallet
             </p>
@@ -305,13 +334,16 @@ export default function WalletsPage() {
                       {getTransactionTypeLabel(transaction.type)}
                     </p>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                      {new Date(transaction.createdAt).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric",
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })}
+                      {new Date(transaction.createdAt).toLocaleDateString(
+                        "en-US",
+                        {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        },
+                      )}
                     </p>
                     {transaction.description && (
                       <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
@@ -354,19 +386,23 @@ export default function WalletsPage() {
         </h3>
         <ul className="text-sm text-blue-800 dark:text-blue-400 space-y-2 list-disc list-inside">
           <li>
-            Your wallet acts as an escrow account where you can safely store funds before investing
+            Your wallet acts as an escrow account where you can safely store
+            funds before investing
           </li>
           <li>
-            Deposits go directly to your wallet and are available for withdrawal or investment
+            Deposits go directly to your wallet and are available for withdrawal
+            or investment
           </li>
           <li>
-            Withdrawn profits from investments are automatically added to your wallet balance
+            Withdrawn profits from investments are automatically added to your
+            wallet balance
           </li>
           <li>
             You can transfer funds from your wallet to investments at any time
           </li>
           <li>
-            All payment methods (card, bank, crypto) can be used for deposits and withdrawals
+            All payment methods (card, bank, crypto) can be used for deposits
+            and withdrawals
           </li>
         </ul>
       </div>

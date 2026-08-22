@@ -9,16 +9,14 @@ describe("HomeSections", () => {
     render(<HomeSectionsWithImages />);
 
     expect(
-      screen.getByText("Our Numbers Speak For Themselves")
+      screen.getByText("Our Numbers Speak For Themselves"),
     ).toBeInTheDocument();
     expect(screen.getByText("Key Highlights")).toBeInTheDocument();
     expect(
-      screen.getByText("Systematic Investment Excellence")
+      screen.getByText("Systematic Investment Excellence"),
     ).toBeInTheDocument();
     expect(screen.getByText("Fund Highlights")).toBeInTheDocument();
-    expect(
-      screen.getByText("How We Manage Your Capital")
-    ).toBeInTheDocument();
+    expect(screen.getByText("How We Manage Your Capital")).toBeInTheDocument();
   });
 
   it("renders the final CTA links to book-demo and portfolio-insights", () => {
@@ -26,10 +24,10 @@ describe("HomeSections", () => {
 
     expect(screen.getByRole("link", { name: "Book a Demo" })).toHaveAttribute(
       "href",
-      "/book-demo"
+      "/book-demo",
     );
     expect(
-      screen.getByRole("link", { name: "See Performance" })
+      screen.getByRole("link", { name: "See Performance" }),
     ).toHaveAttribute("href", "/portfolio-insights");
   });
 

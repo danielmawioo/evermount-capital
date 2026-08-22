@@ -46,7 +46,10 @@ function formatPct(n: number, digits = 2) {
 }
 
 function formatRisk(risk: string) {
-  return risk.replace(/_/g, " ").toLowerCase().replace(/^\w/, (c) => c.toUpperCase());
+  return risk
+    .replace(/_/g, " ")
+    .toLowerCase()
+    .replace(/^\w/, (c) => c.toUpperCase());
 }
 
 function Metric({
@@ -136,7 +139,10 @@ export default function AllocationPreviewPanel({
       )}
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 bg-white dark:bg-gray-800/60">
-        <Metric label="Invest amount" value={formatUsd(preview.amount, preview.currency)} />
+        <Metric
+          label="Invest amount"
+          value={formatUsd(preview.amount, preview.currency)}
+        />
         <Metric
           label="Available balance"
           value={formatUsd(preview.availableBalance, preview.currency)}
@@ -178,7 +184,10 @@ export default function AllocationPreviewPanel({
           value={`${preview.lockInMonths} mo`}
           sub={new Date(preview.lockInEndsAt).toLocaleDateString()}
         />
-        <Metric label="Client risk profile" value={formatRisk(preview.clientRiskTolerance)} />
+        <Metric
+          label="Client risk profile"
+          value={formatRisk(preview.clientRiskTolerance)}
+        />
         <Metric label="Plan tier" value={preview.planType} />
         <Metric
           label="Min investment"

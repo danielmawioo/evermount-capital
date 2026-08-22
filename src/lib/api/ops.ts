@@ -7,8 +7,10 @@ function mfaConfig(mfaToken?: string) {
 export const ops = {
   getTradingStatus: () => apiClient.get("/ops/trading/status"),
 
-  setKillSwitch: (data: { active: boolean; reason?: string }, mfaToken?: string) =>
-    apiClient.post("/ops/trading/kill-switch", data, mfaConfig(mfaToken)),
+  setKillSwitch: (
+    data: { active: boolean; reason?: string },
+    mfaToken?: string,
+  ) => apiClient.post("/ops/trading/kill-switch", data, mfaConfig(mfaToken)),
 
   runNavBatch: () => apiClient.post("/ops/nav-batch/run"),
 
@@ -39,18 +41,18 @@ export const ops = {
     apiClient.post(
       `/ops/strategies/${strategyKey}/promotion-check`,
       {},
-      mfaConfig(mfaToken)
+      mfaConfig(mfaToken),
     ),
 
   promoteStrategy: (
     strategyKey: string,
     data: { targetStatus: string },
-    mfaToken?: string
+    mfaToken?: string,
   ) =>
     apiClient.post(
       `/ops/strategies/${strategyKey}/promote`,
       data,
-      mfaConfig(mfaToken)
+      mfaConfig(mfaToken),
     ),
 
   syncPositions: () => apiClient.post("/ops/trading/sync-positions"),

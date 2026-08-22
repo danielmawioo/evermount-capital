@@ -59,7 +59,9 @@ function GitHubCallbackContent() {
         router.push("/dashboard");
       } catch (err: unknown) {
         logger.error("GitHub callback error", err);
-        toast.error(getApiErrorMessage(err, "Authentication failed. Please try again."));
+        toast.error(
+          getApiErrorMessage(err, "Authentication failed. Please try again."),
+        );
         router.push("/login");
       } finally {
         setLoading(false);
@@ -75,7 +77,9 @@ function GitHubCallbackContent() {
         {loading ? (
           <>
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#00a76f] mx-auto mb-4"></div>
-            <p className="text-gray-600 dark:text-gray-400">Completing authentication...</p>
+            <p className="text-gray-600 dark:text-gray-400">
+              Completing authentication...
+            </p>
           </>
         ) : (
           <p className="text-gray-600 dark:text-gray-400">Redirecting...</p>
@@ -101,4 +105,3 @@ export default function GitHubCallbackPage() {
     </Suspense>
   );
 }
-

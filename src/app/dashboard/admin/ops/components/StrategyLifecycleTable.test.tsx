@@ -11,7 +11,7 @@ describe("StrategyLifecycleTable", () => {
         actionLoading={false}
         onPromotionCheck={jest.fn()}
         onPromote={jest.fn()}
-      />
+      />,
     );
 
     expect(screen.getByText("No lifecycle records")).toBeInTheDocument();
@@ -24,14 +24,18 @@ describe("StrategyLifecycleTable", () => {
     render(
       <StrategyLifecycleTable
         lifecycle={[]}
-        strategies={[{ name: "momentum", active: true, capital_allocation: 0.5 }]}
+        strategies={[
+          { name: "momentum", active: true, capital_allocation: 0.5 },
+        ]}
         actionLoading={false}
         onPromotionCheck={onPromotionCheck}
         onPromote={onPromote}
-      />
+      />,
     );
 
-    await user.click(screen.getByRole("button", { name: /Walk-forward check/i }));
+    await user.click(
+      screen.getByRole("button", { name: /Walk-forward check/i }),
+    );
     expect(onPromotionCheck).toHaveBeenCalledWith("momentum");
 
     await user.click(screen.getByRole("button", { name: /Promote to PAPER/i }));
@@ -42,14 +46,19 @@ describe("StrategyLifecycleTable", () => {
     render(
       <StrategyLifecycleTable
         lifecycle={[
-          { id: "1", strategyKey: "momentum", status: "PAPER", walkForwardScore: 1.2 },
+          {
+            id: "1",
+            strategyKey: "momentum",
+            status: "PAPER",
+            walkForwardScore: 1.2,
+          },
           { id: "2", strategyKey: "orderflow", status: "BACKTEST" },
         ]}
         strategies={[]}
         actionLoading={false}
         onPromotionCheck={jest.fn()}
         onPromote={jest.fn()}
-      />
+      />,
     );
 
     expect(screen.getByText("momentum")).toBeInTheDocument();

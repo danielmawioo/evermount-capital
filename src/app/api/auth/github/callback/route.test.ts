@@ -83,7 +83,7 @@ describe("POST /api/auth/github/callback", () => {
           "Content-Type": "application/json",
           Accept: "application/json",
         }),
-      })
+      }),
     );
     const [, options] = (global.fetch as jest.Mock).mock.calls[0];
     expect(JSON.parse(options.body)).toMatchObject({ code: "valid-code" });

@@ -24,12 +24,10 @@ describe("RecentActivityList", () => {
             type: "withdrawal",
             amount: 100,
             status: "pending",
-            createdAt: new Date(
-              Date.now() - 25 * 60 * 60 * 1000
-            ).toISOString(),
+            createdAt: new Date(Date.now() - 25 * 60 * 60 * 1000).toISOString(),
           },
         ]}
-      />
+      />,
     );
 
     expect(screen.getByText("Wire Transfer")).toBeInTheDocument();
@@ -55,7 +53,7 @@ describe("RecentActivityList", () => {
             createdAt: new Date().toISOString(),
           },
         ]}
-      />
+      />,
     );
 
     expect(screen.getByText(/Just now/)).toBeInTheDocument();

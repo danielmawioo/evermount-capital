@@ -10,7 +10,7 @@ import { minimumAmountSchema } from "@/lib/schemas";
 
 const MpesaDepositAmountSchema = minimumAmountSchema(
   10,
-  "Minimum deposit amount is KES 10"
+  "Minimum deposit amount is KES 10",
 );
 
 export default function MpesaDepositPage() {
@@ -25,7 +25,9 @@ export default function MpesaDepositPage() {
 
     const parsed = MpesaDepositAmountSchema.safeParse(parseFloat(amount));
     if (!parsed.success) {
-      toast.error(parsed.error.issues[0]?.message ?? "Minimum deposit amount is KES 10");
+      toast.error(
+        parsed.error.issues[0]?.message ?? "Minimum deposit amount is KES 10",
+      );
       return;
     }
     const numAmount = parsed.data;
@@ -46,7 +48,7 @@ export default function MpesaDepositPage() {
       setPending(true);
       toast.success(
         data.customerMessage ||
-          "STK push sent. Check your phone to complete the payment."
+          "STK push sent. Check your phone to complete the payment.",
       );
 
       const pollStatus = async (attempts = 0) => {
@@ -86,7 +88,9 @@ export default function MpesaDepositPage() {
       setTimeout(() => pollStatus(), 5000);
     } catch (error: unknown) {
       const err = error as {
-        response?: { data?: { error?: { message?: string }; message?: string } };
+        response?: {
+          data?: { error?: { message?: string }; message?: string };
+        };
       };
       const message =
         err?.response?.data?.error?.message ||

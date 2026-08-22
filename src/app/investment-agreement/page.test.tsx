@@ -5,7 +5,7 @@ describe("InvestmentAgreementPage", () => {
   it("renders the investment agreement content", () => {
     render(<InvestmentAgreementPage />);
     expect(
-      screen.getByRole("heading", { level: 1, name: /Investment Agreement/i })
+      screen.getByRole("heading", { level: 1, name: /Investment Agreement/i }),
     ).toBeInTheDocument();
     expect(screen.getByText(/Last updated:/i)).toBeInTheDocument();
   });

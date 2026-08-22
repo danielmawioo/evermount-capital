@@ -76,7 +76,8 @@ export default function ManagerClientsPage() {
             My Clients
           </h1>
           <p className="text-gray-600 dark:text-gray-400 mt-1">
-            Assigned investors, balances, and strategy allocation with live risk metrics
+            Assigned investors, balances, and strategy allocation with live risk
+            metrics
           </p>
         </div>
         <div className="flex gap-2">
@@ -92,7 +93,9 @@ export default function ManagerClientsPage() {
             disabled={loading}
             className="flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg text-sm font-medium"
           >
-            <ArrowPathIcon className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
+            <ArrowPathIcon
+              className={`w-4 h-4 ${loading ? "animate-spin" : ""}`}
+            />
             Refresh
           </button>
         </div>
@@ -217,8 +220,9 @@ export default function ManagerClientsPage() {
                           {options.map((o) => (
                             <option key={o.id} value={o.id}>
                               {o.name}
-                              {o.strategyKey ? ` (${o.strategyKey})` : ""} —{" "}
-                              {o.riskLevel}
+                              {o.strategyKey
+                                ? ` (${o.strategyKey})`
+                                : ""} — {o.riskLevel}
                             </option>
                           ))}
                         </select>

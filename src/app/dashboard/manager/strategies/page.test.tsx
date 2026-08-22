@@ -57,7 +57,7 @@ describe("ManagerStrategiesPage", () => {
     setAuthTokens("token", "refresh", true);
     setUser(
       { id: "1", email: "m@b.com", fullName: "M B", role: "MANAGER" },
-      true
+      true,
     );
     mock.onGet("/users/profile").reply(200, {
       id: "1",
@@ -83,7 +83,9 @@ describe("ManagerStrategiesPage", () => {
 
     render(<ManagerStrategiesPage />);
 
-    expect(await screen.findByText("Combined Portfolio Metrics")).toBeInTheDocument();
+    expect(
+      await screen.findByText("Combined Portfolio Metrics"),
+    ).toBeInTheDocument();
     expect(screen.getByText("Strategy Portfolio")).toBeInTheDocument();
     expect(screen.getByText("Momentum Alpha")).toBeInTheDocument();
     expect(screen.getByText("momentum")).toBeInTheDocument();
@@ -99,7 +101,7 @@ describe("ManagerStrategiesPage", () => {
     render(<ManagerStrategiesPage />);
 
     expect(
-      await screen.findByText("No strategies configured")
+      await screen.findByText("No strategies configured"),
     ).toBeInTheDocument();
   });
 
@@ -110,7 +112,7 @@ describe("ManagerStrategiesPage", () => {
     render(<ManagerStrategiesPage />);
 
     await waitFor(() =>
-      expect(toastError).toHaveBeenCalledWith("Failed to load strategies")
+      expect(toastError).toHaveBeenCalledWith("Failed to load strategies"),
     );
   });
 
@@ -121,12 +123,10 @@ describe("ManagerStrategiesPage", () => {
       strategies: [STRATEGY],
       combined: COMBINED,
     });
-    mock
-      .onPost("/portfolio-manager/strategies/momentum/switch")
-      .reply(200, {
-        strategies: [{ ...STRATEGY, isRunning: true, isPrimary: true }],
-        combined: { ...COMBINED, primaryStrategy: "momentum" },
-      });
+    mock.onPost("/portfolio-manager/strategies/momentum/switch").reply(200, {
+      strategies: [{ ...STRATEGY, isRunning: true, isPrimary: true }],
+      combined: { ...COMBINED, primaryStrategy: "momentum" },
+    });
 
     render(<ManagerStrategiesPage />);
 
@@ -136,12 +136,12 @@ describe("ManagerStrategiesPage", () => {
     await waitFor(() =>
       expect(
         mock.history.post?.some(
-          (r) => r.url === "/portfolio-manager/strategies/momentum/switch"
-        )
-      ).toBe(true)
+          (r) => r.url === "/portfolio-manager/strategies/momentum/switch",
+        ),
+      ).toBe(true),
     );
     expect(toastSuccess).toHaveBeenCalledWith(
-      "momentum is now the running strategy"
+      "momentum is now the running strategy",
     );
     expect(await screen.findByText("Running")).toBeInTheDocument();
   });
@@ -153,12 +153,10 @@ describe("ManagerStrategiesPage", () => {
       strategies: [STRATEGY],
       combined: COMBINED,
     });
-    mock
-      .onPost("/portfolio-manager/strategies/momentum/active")
-      .reply(200, {
-        strategies: [{ ...STRATEGY, isActive: false }],
-        combined: COMBINED,
-      });
+    mock.onPost("/portfolio-manager/strategies/momentum/active").reply(200, {
+      strategies: [{ ...STRATEGY, isActive: false }],
+      combined: COMBINED,
+    });
 
     render(<ManagerStrategiesPage />);
 
@@ -167,7 +165,7 @@ describe("ManagerStrategiesPage", () => {
 
     await waitFor(() => {
       const call = mock.history.post?.find(
-        (r) => r.url === "/portfolio-manager/strategies/momentum/active"
+        (r) => r.url === "/portfolio-manager/strategies/momentum/active",
       );
       expect(call).toBeDefined();
       expect(JSON.parse(call!.data)).toEqual({ active: false });

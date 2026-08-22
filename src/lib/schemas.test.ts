@@ -36,7 +36,7 @@ describe("PositiveAmountSchema", () => {
       expect(result.success).toBe(false);
       if (!result.success) {
         expect(result.error.issues[0].message).toBe(
-          "Please enter a valid amount"
+          "Please enter a valid amount",
         );
       }
     }
@@ -56,7 +56,7 @@ describe("minimumAmountSchema", () => {
     expect(result.success).toBe(false);
     if (!result.success) {
       expect(result.error.issues[0].message).toBe(
-        "Minimum deposit amount is KES 10"
+        "Minimum deposit amount is KES 10",
       );
     }
   });
@@ -66,7 +66,7 @@ describe("minimumAmountSchema", () => {
     expect(result.success).toBe(false);
     if (!result.success) {
       expect(result.error.issues[0].message).toBe(
-        "Please enter a valid amount"
+        "Please enter a valid amount",
       );
     }
   });
@@ -111,7 +111,10 @@ describe("requiredTextSchema", () => {
 });
 
 describe("minimumPasswordSchema", () => {
-  const schema = minimumPasswordSchema(8, "Password must be at least 8 characters");
+  const schema = minimumPasswordSchema(
+    8,
+    "Password must be at least 8 characters",
+  );
 
   it("accepts a password at or above the minimum length", () => {
     expect(schema.safeParse("12345678").success).toBe(true);
@@ -122,7 +125,7 @@ describe("minimumPasswordSchema", () => {
     expect(result.success).toBe(false);
     if (!result.success) {
       expect(result.error.issues[0].message).toBe(
-        "Password must be at least 8 characters"
+        "Password must be at least 8 characters",
       );
     }
   });

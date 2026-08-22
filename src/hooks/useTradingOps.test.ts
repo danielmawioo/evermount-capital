@@ -85,7 +85,8 @@ describe("useTradingOps", () => {
 
     expect(result.current.killActive).toBe(true);
     expect(
-      mock.history.post?.find((r) => r.url === "/ops/trading/kill-switch")?.data
+      mock.history.post?.find((r) => r.url === "/ops/trading/kill-switch")
+        ?.data,
     ).toBe(JSON.stringify({ active: true, reason: "maintenance window" }));
 
     window.prompt = originalPrompt;

@@ -6,10 +6,10 @@ describe("ExportButtons", () => {
     render(<ExportButtons />);
 
     expect(
-      screen.getByRole("button", { name: /Export PDF/i })
+      screen.getByRole("button", { name: /Export PDF/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: /Export CSV/i })
+      screen.getByRole("button", { name: /Export CSV/i }),
     ).toBeInTheDocument();
   });
 });

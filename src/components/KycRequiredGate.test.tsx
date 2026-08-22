@@ -21,7 +21,10 @@ describe("KycRequiredGate", () => {
 
   it("renders children when KYC is verified", async () => {
     setAuthTokens("token", "refresh", true);
-    setUser({ id: "1", email: "a@b.com", fullName: "A B", role: "INVESTOR" }, true);
+    setUser(
+      { id: "1", email: "a@b.com", fullName: "A B", role: "INVESTOR" },
+      true,
+    );
     mock.onGet("/users/profile").reply(200, {
       id: "1",
       email: "a@b.com",
@@ -33,7 +36,7 @@ describe("KycRequiredGate", () => {
     render(
       <KycRequiredGate>
         <div>Gated Content</div>
-      </KycRequiredGate>
+      </KycRequiredGate>,
     );
 
     expect(await screen.findByText("Gated Content")).toBeInTheDocument();
@@ -41,7 +44,10 @@ describe("KycRequiredGate", () => {
 
   it("shows the verification-required message and link when KYC is not verified", async () => {
     setAuthTokens("token", "refresh", true);
-    setUser({ id: "2", email: "c@d.com", fullName: "C D", role: "INVESTOR" }, true);
+    setUser(
+      { id: "2", email: "c@d.com", fullName: "C D", role: "INVESTOR" },
+      true,
+    );
     mock.onGet("/users/profile").reply(200, {
       id: "2",
       email: "c@d.com",
@@ -53,17 +59,20 @@ describe("KycRequiredGate", () => {
     render(
       <KycRequiredGate action="withdraw funds">
         <div>Gated Content</div>
-      </KycRequiredGate>
+      </KycRequiredGate>,
     );
 
-    expect(await screen.findByText("Verification Required")).toBeInTheDocument();
     expect(
-      screen.getByText(/Complete KYC verification before you can withdraw funds\./)
+      await screen.findByText("Verification Required"),
     ).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Complete Verification" })).toHaveAttribute(
-      "href",
-      "/dashboard/kyc"
-    );
+    expect(
+      screen.getByText(
+        /Complete KYC verification before you can withdraw funds\./,
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Complete Verification" }),
+    ).toHaveAttribute("href", "/dashboard/kyc");
     expect(screen.queryByText("Gated Content")).not.toBeInTheDocument();
   });
 
@@ -73,10 +82,12 @@ describe("KycRequiredGate", () => {
     render(
       <KycRequiredGate>
         <div>Gated Content</div>
-      </KycRequiredGate>
+      </KycRequiredGate>,
     );
 
-    expect(await screen.findByText("Verification Required")).toBeInTheDocument();
+    expect(
+      await screen.findByText("Verification Required"),
+    ).toBeInTheDocument();
     expect(screen.queryByText("Gated Content")).not.toBeInTheDocument();
   });
 });

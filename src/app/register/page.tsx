@@ -39,11 +39,15 @@ export default function RegisterPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!requiredTextSchema("First name is required").safeParse(firstName).success) {
+    if (
+      !requiredTextSchema("First name is required").safeParse(firstName).success
+    ) {
       toast.error("First name is required.");
       return;
     }
-    if (!requiredTextSchema("Last name is required").safeParse(lastName).success) {
+    if (
+      !requiredTextSchema("Last name is required").safeParse(lastName).success
+    ) {
       toast.error("Last name is required.");
       return;
     }
@@ -83,7 +87,7 @@ export default function RegisterPage() {
               role: "INVESTOR",
               isVerified: false,
             },
-            true
+            true,
           );
         }
         toast.success("Account created! Redirecting to your dashboard...");
@@ -163,7 +167,9 @@ export default function RegisterPage() {
       {/* Left Panel */}
       <div className="hidden md:flex bg-[#f2fdf9] dark:bg-gray-800 flex-col justify-center items-center px-6 py-12 text-center">
         <div className="max-w-xs">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Manage the job</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+            Manage the job
+          </h1>
           <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
             More effectively with optimized workflows.
           </p>
@@ -285,8 +291,8 @@ export default function RegisterPage() {
                         getPasswordStrength(password) === "Strong"
                           ? "bg-green-500 w-full"
                           : getPasswordStrength(password) === "Moderate"
-                          ? "bg-yellow-400 w-2/3"
-                          : "bg-red-400 w-1/3"
+                            ? "bg-yellow-400 w-2/3"
+                            : "bg-red-400 w-1/3"
                       }`}
                     ></div>
                   </div>
@@ -333,10 +339,22 @@ export default function RegisterPage() {
 
           <div className="grid grid-cols-4 gap-3">
             {[
-              { label: "Google", icon: "/icons/google.png", displayText: "G Google" },
-              { label: "GitHub", icon: "/icons/github.png", displayText: "GitHub" },
+              {
+                label: "Google",
+                icon: "/icons/google.png",
+                displayText: "G Google",
+              },
+              {
+                label: "GitHub",
+                icon: "/icons/github.png",
+                displayText: "GitHub",
+              },
               { label: "X", icon: "/icons/twitter.png", displayText: "X" },
-              { label: "Apple", icon: "/icons/apple.png", displayText: "Apple" },
+              {
+                label: "Apple",
+                icon: "/icons/apple.png",
+                displayText: "Apple",
+              },
             ].map(({ label, icon, displayText }) => (
               <button
                 key={label}
@@ -348,14 +366,16 @@ export default function RegisterPage() {
                 disabled={loading}
                 className="flex flex-col items-center justify-center gap-1.5 border border-gray-300 dark:border-gray-700 px-3 py-3 rounded-md text-xs font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition shadow-sm bg-white dark:bg-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <Image 
-                  src={icon} 
-                  alt={label} 
-                  width={20} 
+                <Image
+                  src={icon}
+                  alt={label}
+                  width={20}
                   height={20}
                   className="object-contain"
                 />
-                <span className="text-[10px] sm:text-xs text-gray-700 dark:text-gray-300">{displayText}</span>
+                <span className="text-[10px] sm:text-xs text-gray-700 dark:text-gray-300">
+                  {displayText}
+                </span>
               </button>
             ))}
           </div>

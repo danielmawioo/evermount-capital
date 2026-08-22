@@ -113,11 +113,15 @@ export default function AdminSecurityPage() {
 
             {setup && (
               <div className="space-y-3 text-sm">
-                <p className="font-medium">Add this secret to Google Authenticator / 1Password:</p>
+                <p className="font-medium">
+                  Add this secret to Google Authenticator / 1Password:
+                </p>
                 <code className="block p-3 bg-gray-100 dark:bg-gray-900 rounded break-all">
                   {setup.secret}
                 </code>
-                <p className="text-xs text-gray-500 break-all">{setup.otpauthUrl}</p>
+                <p className="text-xs text-gray-500 break-all">
+                  {setup.otpauthUrl}
+                </p>
                 <input
                   type="text"
                   inputMode="numeric"

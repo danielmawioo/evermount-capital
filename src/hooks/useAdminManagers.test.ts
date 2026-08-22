@@ -127,7 +127,9 @@ describe("useAdminManagers", () => {
 
     await waitFor(() => expect(result.current.loading).toBe(false));
 
-    expect(toast.error).toHaveBeenCalledWith("Failed to load portfolio managers");
+    expect(toast.error).toHaveBeenCalledWith(
+      "Failed to load portfolio managers",
+    );
     expect(result.current.filteredManagers).toEqual([]);
   });
 });

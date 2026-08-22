@@ -33,12 +33,14 @@ describe("ChatWidget", () => {
     const user = userEvent.setup();
     render(<ChatWidget />);
 
-    expect(screen.queryByText("Which department can help you today?")).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("Which department can help you today?"),
+    ).not.toBeInTheDocument();
 
     await user.click(screen.getByLabelText("Open chat"));
 
     expect(
-      screen.getByText("Which department can help you today?")
+      screen.getByText("Which department can help you today?"),
     ).toBeInTheDocument();
     // All department options are listed before a department is selected.
     expect(screen.getByText("Technical Support")).toBeInTheDocument();
@@ -53,20 +55,24 @@ describe("ChatWidget", () => {
     await user.click(screen.getByText("Technical Support"));
 
     expect(
-      screen.getByText(/Hello! I'm Ethan from Technical Support/)
+      screen.getByText(/Hello! I'm Ethan from Technical Support/),
     ).toBeInTheDocument();
     expect(screen.getByText("Common questions:")).toBeInTheDocument();
     expect(
-      screen.getByText("The dashboard won't load properly")
+      screen.getByText("The dashboard won't load properly"),
     ).toBeInTheDocument();
     expect(
-      screen.getByPlaceholderText("Ask Technical Support...")
+      screen.getByPlaceholderText("Ask Technical Support..."),
     ).toBeInTheDocument();
   });
 
   it("sends a typed message and renders the assistant's response", async () => {
     global.fetch = mockFetchOnce({
-      jsonBody: { message: "Try clearing your cache.", links: [], needsHumanSupport: false },
+      jsonBody: {
+        message: "Try clearing your cache.",
+        links: [],
+        needsHumanSupport: false,
+      },
     });
     const user = userEvent.setup();
     render(<ChatWidget />);
@@ -81,7 +87,7 @@ describe("ChatWidget", () => {
     expect(screen.getByText("The dashboard is blank")).toBeInTheDocument();
 
     expect(
-      await screen.findByText("Try clearing your cache.")
+      await screen.findByText("Try clearing your cache."),
     ).toBeInTheDocument();
 
     expect(global.fetch).toHaveBeenCalledWith(
@@ -89,11 +95,9 @@ describe("ChatWidget", () => {
       expect.objectContaining({
         method: "POST",
         headers: { "Content-Type": "application/json" },
-      })
+      }),
     );
-    const body = JSON.parse(
-      (global.fetch as jest.Mock).mock.calls[0][1].body
-    );
+    const body = JSON.parse((global.fetch as jest.Mock).mock.calls[0][1].body);
     expect(body.department).toBe("technical");
     expect(body.assistantName).toBe("Ethan");
     // The canned welcome message is excluded from the outgoing history.
@@ -115,7 +119,7 @@ describe("ChatWidget", () => {
     await user.click(screen.getByText("The dashboard won't load properly"));
 
     expect(
-      await screen.findByText("Here is how to fix it.")
+      await screen.findByText("Here is how to fix it."),
     ).toBeInTheDocument();
   });
 
@@ -138,7 +142,7 @@ describe("ChatWidget", () => {
 
     await screen.findByText("Let's get you to a specialist.");
     expect(
-      screen.getByRole("link", { name: "Book a Demo with Our Team" })
+      screen.getByRole("link", { name: "Book a Demo with Our Team" }),
     ).toHaveAttribute("href", "/book-demo");
   });
 
@@ -158,9 +162,7 @@ describe("ChatWidget", () => {
     await user.click(screen.getByLabelText("Send message"));
 
     expect(
-      await screen.findByText(
-        /I'm experiencing technical difficulties/
-      )
+      await screen.findByText(/I'm experiencing technical difficulties/),
     ).toBeInTheDocument();
     consoleErrorSpy.mockRestore();
   });
@@ -194,19 +196,19 @@ describe("ChatWidget", () => {
     await user.click(screen.getByLabelText("Open chat"));
     await user.click(screen.getByText("Technical Support"));
     expect(
-      screen.getByText(/Hello! I'm Ethan from Technical Support/)
+      screen.getByText(/Hello! I'm Ethan from Technical Support/),
     ).toBeInTheDocument();
 
     await user.click(screen.getByLabelText("Back to departments"));
     expect(
-      screen.getByText("Which department can help you today?")
+      screen.getByText("Which department can help you today?"),
     ).toBeInTheDocument();
 
     await user.click(screen.getByLabelText("Close chat"));
 
     await user.click(screen.getByLabelText("Open chat"));
     expect(
-      screen.getByText("Which department can help you today?")
+      screen.getByText("Which department can help you today?"),
     ).toBeInTheDocument();
   });
 
@@ -215,7 +217,7 @@ describe("ChatWidget", () => {
     global.fetch = jest.fn().mockReturnValueOnce(
       new Promise((resolve) => {
         resolveFetch = resolve;
-      })
+      }),
     );
     const user = userEvent.setup();
     render(<ChatWidget />);

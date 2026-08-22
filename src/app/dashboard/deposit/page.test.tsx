@@ -6,7 +6,7 @@ describe("DepositPage", () => {
     render(<DepositPage />);
 
     expect(
-      screen.getByRole("heading", { name: "Deposit Funds" })
+      screen.getByRole("heading", { name: "Deposit Funds" }),
     ).toBeInTheDocument();
     expect(screen.getByText("Card Payment")).toBeInTheDocument();
     expect(screen.getByText("Crypto Payment")).toBeInTheDocument();
@@ -19,19 +19,19 @@ describe("DepositPage", () => {
 
     expect(screen.getByText("Card Payment").closest("a")).toHaveAttribute(
       "href",
-      "/dashboard/deposit/card"
+      "/dashboard/deposit/card",
     );
     expect(screen.getByText("Crypto Payment").closest("a")).toHaveAttribute(
       "href",
-      "/dashboard/deposit/crypto"
+      "/dashboard/deposit/crypto",
     );
     expect(screen.getByText("M-Pesa").closest("a")).toHaveAttribute(
       "href",
-      "/dashboard/deposit/mpesa"
+      "/dashboard/deposit/mpesa",
     );
     expect(screen.getByText("Bank Transfer").closest("a")).toHaveAttribute(
       "href",
-      "/dashboard/deposit/bank"
+      "/dashboard/deposit/bank",
     );
   });
 });

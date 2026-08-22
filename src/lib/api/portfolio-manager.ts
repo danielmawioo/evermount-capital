@@ -119,11 +119,11 @@ export const portfolioManager = {
       investmentOptionId: string;
       amount: number;
       lockInMonths?: number;
-    }
+    },
   ) =>
     apiClient.post(
       `/portfolio-manager/clients/${clientId}/allocate/preview`,
-      data
+      data,
     ),
 
   allocateForClient: (
@@ -132,7 +132,7 @@ export const portfolioManager = {
       investmentOptionId: string;
       amount: number;
       lockInMonths?: number;
-    }
+    },
   ) => apiClient.post(`/portfolio-manager/clients/${clientId}/allocate`, data),
 
   unassignClient: (clientId: string) =>

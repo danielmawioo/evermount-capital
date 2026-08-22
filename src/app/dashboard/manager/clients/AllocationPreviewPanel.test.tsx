@@ -44,7 +44,7 @@ describe("AllocationPreviewPanel", () => {
   it("shows a loading placeholder while calculating", () => {
     render(<AllocationPreviewPanel preview={null} loading />);
     expect(
-      screen.getByText("Calculating allocation metrics…")
+      screen.getByText("Calculating allocation metrics…"),
     ).toBeInTheDocument();
   });
 
@@ -74,7 +74,7 @@ describe("AllocationPreviewPanel", () => {
 
     expect(screen.getByText("Cannot allocate")).toBeInTheDocument();
     expect(
-      screen.getByText("• Amount exceeds available balance")
+      screen.getByText("• Amount exceeds available balance"),
     ).toBeInTheDocument();
   });
 

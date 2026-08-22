@@ -11,7 +11,10 @@ import toast from "react-hot-toast";
 import apiClient from "@/lib/api-client";
 import AdminManagersPage from "./page";
 
-function fieldFor(labelText: RegExp, root: ParentNode = document): HTMLInputElement {
+function fieldFor(
+  labelText: RegExp,
+  root: ParentNode = document,
+): HTMLInputElement {
   const label = within(root as HTMLElement).getByText(labelText);
   const input = label.parentElement?.querySelector("input");
   if (!input) throw new Error(`No input found for label ${labelText}`);
@@ -83,14 +86,14 @@ describe("AdminManagersPage", () => {
 
     await user.type(
       screen.getByPlaceholderText(/search managers/i),
-      "Inactive"
+      "Inactive",
     );
 
     expect(screen.queryByText("Manager One")).not.toBeInTheDocument();
     expect(screen.getByText("Inactive Manager")).toBeInTheDocument();
-    expect(mock.history.get.filter((r) => r.url === "/admin/managers")).toHaveLength(
-      1
-    );
+    expect(
+      mock.history.get.filter((r) => r.url === "/admin/managers"),
+    ).toHaveLength(1);
   });
 
   it("rejects a short password on create without calling the API", async () => {
@@ -102,25 +105,25 @@ describe("AdminManagersPage", () => {
 
     await user.click(screen.getByRole("button", { name: /add manager/i }));
 
-    const dialog = (
-      await screen.findByText("Add Portfolio Manager")
-    ).closest(".rounded-xl") as HTMLElement;
+    const dialog = (await screen.findByText("Add Portfolio Manager")).closest(
+      ".rounded-xl",
+    ) as HTMLElement;
     await user.type(fieldFor(/full name/i, dialog), "New Manager");
     await user.type(fieldFor(/^email$/i, dialog), "newmanager@evermount.co");
     await user.type(fieldFor(/temporary password/i, dialog), "short");
 
     await user.click(
-      within(dialog).getByRole("button", { name: /add manager/i })
+      within(dialog).getByRole("button", { name: /add manager/i }),
     );
 
     await waitFor(() =>
       expect(toast.error).toHaveBeenCalledWith(
-        "Password must be at least 8 characters"
-      )
+        "Password must be at least 8 characters",
+      ),
     );
-    expect(mock.history.post.filter((r) => r.url === "/admin/managers")).toHaveLength(
-      0
-    );
+    expect(
+      mock.history.post.filter((r) => r.url === "/admin/managers"),
+    ).toHaveLength(0);
   });
 
   it("creates a manager with a valid password", async () => {
@@ -133,24 +136,24 @@ describe("AdminManagersPage", () => {
 
     await user.click(screen.getByRole("button", { name: /add manager/i }));
 
-    const dialog = (
-      await screen.findByText("Add Portfolio Manager")
-    ).closest(".rounded-xl") as HTMLElement;
+    const dialog = (await screen.findByText("Add Portfolio Manager")).closest(
+      ".rounded-xl",
+    ) as HTMLElement;
     await user.type(fieldFor(/full name/i, dialog), "New Manager");
     await user.type(fieldFor(/^email$/i, dialog), "newmanager@evermount.co");
     await user.type(fieldFor(/temporary password/i, dialog), "longenough123");
 
     await user.click(
-      within(dialog).getByRole("button", { name: /add manager/i })
+      within(dialog).getByRole("button", { name: /add manager/i }),
     );
 
     await waitFor(() =>
       expect(
-        mock.history.post.filter((r) => r.url === "/admin/managers")
-      ).toHaveLength(1)
+        mock.history.post.filter((r) => r.url === "/admin/managers"),
+      ).toHaveLength(1),
     );
     const payload = JSON.parse(
-      mock.history.post.find((r) => r.url === "/admin/managers")!.data
+      mock.history.post.find((r) => r.url === "/admin/managers")!.data,
     );
     expect(payload).toEqual({
       fullName: "New Manager",
@@ -168,18 +171,20 @@ describe("AdminManagersPage", () => {
     render(<AdminManagersPage />);
     await screen.findByText("Manager One");
 
-    const managerCard = screen.getByText("Manager One").closest(
-      ".rounded-xl"
-    ) as HTMLElement;
-    await user.click(within(managerCard).getByRole("button", { name: /active/i }));
+    const managerCard = screen
+      .getByText("Manager One")
+      .closest(".rounded-xl") as HTMLElement;
+    await user.click(
+      within(managerCard).getByRole("button", { name: /active/i }),
+    );
 
     await waitFor(() =>
       expect(
-        mock.history.put.filter((r) => r.url === "/admin/managers/m1")
-      ).toHaveLength(1)
+        mock.history.put.filter((r) => r.url === "/admin/managers/m1"),
+      ).toHaveLength(1),
     );
     const payload = JSON.parse(
-      mock.history.put.find((r) => r.url === "/admin/managers/m1")!.data
+      mock.history.put.find((r) => r.url === "/admin/managers/m1")!.data,
     );
     expect(payload).toEqual({ status: "inactive" });
   });
@@ -192,20 +197,20 @@ describe("AdminManagersPage", () => {
     render(<AdminManagersPage />);
     await screen.findByText("Inactive Manager");
 
-    const managerCard = screen.getByText("Inactive Manager").closest(
-      ".rounded-xl"
-    ) as HTMLElement;
+    const managerCard = screen
+      .getByText("Inactive Manager")
+      .closest(".rounded-xl") as HTMLElement;
     await user.click(
-      within(managerCard).getByRole("button", { name: /inactive/i })
+      within(managerCard).getByRole("button", { name: /inactive/i }),
     );
 
     await waitFor(() =>
       expect(
-        mock.history.put.filter((r) => r.url === "/admin/managers/m2")
-      ).toHaveLength(1)
+        mock.history.put.filter((r) => r.url === "/admin/managers/m2"),
+      ).toHaveLength(1),
     );
     const payload = JSON.parse(
-      mock.history.put.find((r) => r.url === "/admin/managers/m2")!.data
+      mock.history.put.find((r) => r.url === "/admin/managers/m2")!.data,
     );
     expect(payload).toEqual({ status: "active" });
   });
@@ -222,14 +227,16 @@ describe("AdminManagersPage", () => {
     render(<AdminManagersPage />);
     await screen.findByText("Manager One");
 
-    const managerCard = screen.getByText("Manager One").closest(
-      ".rounded-xl"
-    ) as HTMLElement;
-    await user.click(within(managerCard).getByRole("button", { name: /clients/i }));
+    const managerCard = screen
+      .getByText("Manager One")
+      .closest(".rounded-xl") as HTMLElement;
+    await user.click(
+      within(managerCard).getByRole("button", { name: /clients/i }),
+    );
 
     expect(await screen.findByText("Client One")).toBeInTheDocument();
     expect(
-      mock.history.get.filter((r) => r.url === "/admin/managers/m1/clients")
+      mock.history.get.filter((r) => r.url === "/admin/managers/m1/clients"),
     ).toHaveLength(1);
   });
 
@@ -244,13 +251,15 @@ describe("AdminManagersPage", () => {
     render(<AdminManagersPage />);
     await screen.findByText("Manager One");
 
-    const managerCard = screen.getByText("Manager One").closest(
-      ".rounded-xl"
-    ) as HTMLElement;
-    await user.click(within(managerCard).getByRole("button", { name: /clients/i }));
+    const managerCard = screen
+      .getByText("Manager One")
+      .closest(".rounded-xl") as HTMLElement;
+    await user.click(
+      within(managerCard).getByRole("button", { name: /clients/i }),
+    );
 
     const emailInput = await screen.findByPlaceholderText(
-      /assign investor by email/i
+      /assign investor by email/i,
     );
     await user.type(emailInput, "investor@evermount.co");
 
@@ -265,14 +274,12 @@ describe("AdminManagersPage", () => {
 
     await waitFor(() =>
       expect(
-        mock.history.post.filter(
-          (r) => r.url === "/admin/managers/m1/clients"
-        )
-      ).toHaveLength(1)
+        mock.history.post.filter((r) => r.url === "/admin/managers/m1/clients"),
+      ).toHaveLength(1),
     );
     const payload = JSON.parse(
       mock.history.post.find((r) => r.url === "/admin/managers/m1/clients")!
-        .data
+        .data,
     );
     expect(payload).toEqual({ email: "investor@evermount.co" });
     expect(toast.success).toHaveBeenCalledWith("Client assigned");
@@ -291,10 +298,12 @@ describe("AdminManagersPage", () => {
     render(<AdminManagersPage />);
     await screen.findByText("Manager One");
 
-    const managerCard = screen.getByText("Manager One").closest(
-      ".rounded-xl"
-    ) as HTMLElement;
-    await user.click(within(managerCard).getByRole("button", { name: /clients/i }));
+    const managerCard = screen
+      .getByText("Manager One")
+      .closest(".rounded-xl") as HTMLElement;
+    await user.click(
+      within(managerCard).getByRole("button", { name: /clients/i }),
+    );
 
     await screen.findByText("Client One");
     await user.click(screen.getByRole("button", { name: /unassign/i }));
@@ -303,9 +312,9 @@ describe("AdminManagersPage", () => {
     await waitFor(() =>
       expect(
         mock.history.delete.filter(
-          (r) => r.url === "/admin/managers/m1/clients/c1"
-        )
-      ).toHaveLength(1)
+          (r) => r.url === "/admin/managers/m1/clients/c1",
+        ),
+      ).toHaveLength(1),
     );
     expect(toast.success).toHaveBeenCalledWith("Client unassigned");
   });
@@ -323,17 +332,19 @@ describe("AdminManagersPage", () => {
     render(<AdminManagersPage />);
     await screen.findByText("Manager One");
 
-    const managerCard = screen.getByText("Manager One").closest(
-      ".rounded-xl"
-    ) as HTMLElement;
-    await user.click(within(managerCard).getByRole("button", { name: /clients/i }));
+    const managerCard = screen
+      .getByText("Manager One")
+      .closest(".rounded-xl") as HTMLElement;
+    await user.click(
+      within(managerCard).getByRole("button", { name: /clients/i }),
+    );
 
     await screen.findByText("Client One");
     await user.click(screen.getByRole("button", { name: /unassign/i }));
 
     expect(window.confirm).toHaveBeenCalled();
     expect(
-      mock.history.delete.filter((r) => r.url?.includes("/clients/c1"))
+      mock.history.delete.filter((r) => r.url?.includes("/clients/c1")),
     ).toHaveLength(0);
   });
 
@@ -349,10 +360,12 @@ describe("AdminManagersPage", () => {
     render(<AdminManagersPage />);
     await screen.findByText("Manager One");
 
-    const managerCard = screen.getByText("Manager One").closest(
-      ".rounded-xl"
-    ) as HTMLElement;
-    await user.click(within(managerCard).getByRole("button", { name: /clients/i }));
+    const managerCard = screen
+      .getByText("Manager One")
+      .closest(".rounded-xl") as HTMLElement;
+    await user.click(
+      within(managerCard).getByRole("button", { name: /clients/i }),
+    );
 
     await screen.findByText("Client One");
     await user.click(screen.getByRole("button", { name: /credit wallet/i }));
@@ -366,7 +379,7 @@ describe("AdminManagersPage", () => {
 
     await waitFor(() => expect(toast.error).toHaveBeenCalled());
     expect(
-      mock.history.post.filter((r) => r.url?.includes("/credit"))
+      mock.history.post.filter((r) => r.url?.includes("/credit")),
     ).toHaveLength(0);
   });
 
@@ -383,10 +396,12 @@ describe("AdminManagersPage", () => {
     render(<AdminManagersPage />);
     await screen.findByText("Manager One");
 
-    const managerCard = screen.getByText("Manager One").closest(
-      ".rounded-xl"
-    ) as HTMLElement;
-    await user.click(within(managerCard).getByRole("button", { name: /clients/i }));
+    const managerCard = screen
+      .getByText("Manager One")
+      .closest(".rounded-xl") as HTMLElement;
+    await user.click(
+      within(managerCard).getByRole("button", { name: /clients/i }),
+    );
 
     await screen.findByText("Client One");
     await user.click(screen.getByRole("button", { name: /credit wallet/i }));
@@ -401,14 +416,13 @@ describe("AdminManagersPage", () => {
     await waitFor(() =>
       expect(
         mock.history.post.filter(
-          (r) => r.url === "/admin/wallets/users/c1/credit"
-        )
-      ).toHaveLength(1)
+          (r) => r.url === "/admin/wallets/users/c1/credit",
+        ),
+      ).toHaveLength(1),
     );
     const payload = JSON.parse(
-      mock.history.post.find(
-        (r) => r.url === "/admin/wallets/users/c1/credit"
-      )!.data
+      mock.history.post.find((r) => r.url === "/admin/wallets/users/c1/credit")!
+        .data,
     );
     expect(payload).toEqual({
       amount: 100,
@@ -424,8 +438,8 @@ describe("AdminManagersPage", () => {
 
     await waitFor(() =>
       expect(toast.error).toHaveBeenCalledWith(
-        "Failed to load portfolio managers"
-      )
+        "Failed to load portfolio managers",
+      ),
     );
   });
 });

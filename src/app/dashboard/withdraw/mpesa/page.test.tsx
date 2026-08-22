@@ -9,7 +9,7 @@ function seedVerifiedInvestor(mock: MockAdapter) {
   setAuthTokens("token", "refresh", true);
   setUser(
     { id: "1", email: "a@b.com", fullName: "A B", role: "INVESTOR" },
-    true
+    true,
   );
   mock.onGet("/users/profile").reply(200, {
     id: "1",
@@ -37,7 +37,7 @@ describe("MpesaWithdrawPage", () => {
     setAuthTokens("token", "refresh", true);
     setUser(
       { id: "1", email: "a@b.com", fullName: "A B", role: "INVESTOR" },
-      true
+      true,
     );
     mock.onGet("/users/profile").reply(200, {
       id: "1",
@@ -50,7 +50,7 @@ describe("MpesaWithdrawPage", () => {
     render(<MpesaWithdrawPage />);
 
     expect(
-      await screen.findByRole("heading", { name: "Verification Required" })
+      await screen.findByRole("heading", { name: "Verification Required" }),
     ).toBeInTheDocument();
   });
 
@@ -63,7 +63,9 @@ describe("MpesaWithdrawPage", () => {
 
     await user.type(screen.getByPlaceholderText("07XX XXX XXX"), "0712345678");
     await user.type(screen.getByPlaceholderText("Enter amount"), "5");
-    await user.click(screen.getByRole("button", { name: "Withdraw to M-Pesa" }));
+    await user.click(
+      screen.getByRole("button", { name: "Withdraw to M-Pesa" }),
+    );
 
     expect(mock.history.post).toHaveLength(0);
   });
@@ -79,7 +81,9 @@ describe("MpesaWithdrawPage", () => {
 
     await user.type(screen.getByPlaceholderText("07XX XXX XXX"), "0712345678");
     await user.type(screen.getByPlaceholderText("Enter amount"), "500");
-    await user.click(screen.getByRole("button", { name: "Withdraw to M-Pesa" }));
+    await user.click(
+      screen.getByRole("button", { name: "Withdraw to M-Pesa" }),
+    );
 
     await waitFor(() => expect(mock.history.post).toHaveLength(1));
     expect(JSON.parse(mock.history.post[0].data)).toEqual({

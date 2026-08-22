@@ -5,20 +5,20 @@ describe("AboutPage", () => {
   it("renders without crashing and shows the main heading", () => {
     render(<AboutPage />);
     expect(
-      screen.getByRole("heading", { name: /a new breed of hedge fund/i })
+      screen.getByRole("heading", { name: /a new breed of hedge fund/i }),
     ).toBeInTheDocument();
   });
 
   it("renders the mission, vision, and founders sections", () => {
     render(<AboutPage />);
     expect(
-      screen.getByRole("heading", { name: /our mission/i })
+      screen.getByRole("heading", { name: /our mission/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /our vision/i })
+      screen.getByRole("heading", { name: /our vision/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /meet our founders/i })
+      screen.getByRole("heading", { name: /meet our founders/i }),
     ).toBeInTheDocument();
     expect(screen.getByText("Daniel Mawioo")).toBeInTheDocument();
     expect(screen.getByText("Evans Kipngetich")).toBeInTheDocument();

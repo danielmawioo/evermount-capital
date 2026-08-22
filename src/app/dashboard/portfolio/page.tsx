@@ -162,7 +162,10 @@ export default function PortfolioPage() {
         <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
           <p className="text-gray-600 dark:text-gray-400">
             No active investments.{" "}
-            <Link href="/dashboard/trade" className="text-[#00a76f] hover:underline">
+            <Link
+              href="/dashboard/trade"
+              className="text-[#00a76f] hover:underline"
+            >
               Start trading
             </Link>
           </p>
@@ -190,11 +193,14 @@ export default function PortfolioPage() {
                     {asset.lockInEndsAt && (
                       <p className="text-xs text-amber-600 dark:text-amber-400 mt-1">
                         Locked until{" "}
-                        {new Date(asset.lockInEndsAt).toLocaleDateString("en-US", {
-                          month: "short",
-                          day: "numeric",
-                          year: "numeric",
-                        })}
+                        {new Date(asset.lockInEndsAt).toLocaleDateString(
+                          "en-US",
+                          {
+                            month: "short",
+                            day: "numeric",
+                            year: "numeric",
+                          },
+                        )}
                       </p>
                     )}
                   </div>

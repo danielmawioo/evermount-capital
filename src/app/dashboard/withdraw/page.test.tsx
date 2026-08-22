@@ -6,7 +6,7 @@ describe("WithdrawPage", () => {
     render(<WithdrawPage />);
 
     expect(
-      screen.getByRole("heading", { name: "Withdraw Funds" })
+      screen.getByRole("heading", { name: "Withdraw Funds" }),
     ).toBeInTheDocument();
   });
 });

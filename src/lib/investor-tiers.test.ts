@@ -1,4 +1,8 @@
-import { getInvestorTier, canPerformAction, INVESTOR_TIERS } from "./investor-tiers";
+import {
+  getInvestorTier,
+  canPerformAction,
+  INVESTOR_TIERS,
+} from "./investor-tiers";
 
 describe("getInvestorTier", () => {
   it("returns the BASIC tier for 'BASIC'", () => {
@@ -32,10 +36,14 @@ describe("canPerformAction", () => {
   });
 
   it("returns false for actions not included in the tier", () => {
-    expect(canPerformAction(INVESTOR_TIERS.BASIC, "customReporting")).toBe(false);
+    expect(canPerformAction(INVESTOR_TIERS.BASIC, "customReporting")).toBe(
+      false,
+    );
   });
 
   it("returns true for premium-only actions on the PREMIUM tier", () => {
-    expect(canPerformAction(INVESTOR_TIERS.PREMIUM, "customReporting")).toBe(true);
+    expect(canPerformAction(INVESTOR_TIERS.PREMIUM, "customReporting")).toBe(
+      true,
+    );
   });
 });

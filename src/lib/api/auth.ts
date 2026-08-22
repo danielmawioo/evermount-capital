@@ -15,8 +15,7 @@ export const auth = {
 
   xAuth: (data: { accessToken: string }) => apiClient.post("/auth/x", data),
 
-  appleAuth: (data: { idToken: string }) =>
-    apiClient.post("/auth/apple", data),
+  appleAuth: (data: { idToken: string }) => apiClient.post("/auth/apple", data),
 
   sendResetPassword: (data: { email: string }) =>
     apiClient.post("/auth/send-reset-password", data),

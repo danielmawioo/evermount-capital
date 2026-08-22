@@ -28,9 +28,17 @@ const LEADERSHIP_TEAM = [
 
 const GLOBAL_REACH_STATS = [
   { region: "Equities", markets: "50+ Exchanges", coverage: "Global" },
-  { region: "Fixed Income", markets: "Sovereign & Corporate", coverage: "Multi-Currency" },
+  {
+    region: "Fixed Income",
+    markets: "Sovereign & Corporate",
+    coverage: "Multi-Currency",
+  },
   { region: "Currencies", markets: "Major & Emerging", coverage: "24/7 FX" },
-  { region: "Commodities", markets: "Energy & Metals", coverage: "Futures & Spot" },
+  {
+    region: "Commodities",
+    markets: "Energy & Metals",
+    coverage: "Futures & Spot",
+  },
 ];
 
 export default function TeamAndReachSection() {
@@ -50,8 +58,9 @@ export default function TeamAndReachSection() {
               World-Class Research & Engineering Team
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400">
-              Experienced professionals combining expertise in quantitative finance, computer science,
-              and engineering to drive innovation in systematic investing.
+              Experienced professionals combining expertise in quantitative
+              finance, computer science, and engineering to drive innovation in
+              systematic investing.
             </p>
           </motion.div>
 
@@ -84,7 +93,9 @@ export default function TeamAndReachSection() {
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
                   {member.name}
                 </h3>
-                <p className="text-[#00a76f] font-semibold mb-3">{member.role}</p>
+                <p className="text-[#00a76f] font-semibold mb-3">
+                  {member.role}
+                </p>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   {member.bio}
                 </p>
@@ -108,8 +119,9 @@ export default function TeamAndReachSection() {
               Global Market Access & Diversification
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              We trade across major global exchanges, providing diversified exposure to opportunities
-              worldwide through our systematic approach.
+              We trade across major global exchanges, providing diversified
+              exposure to opportunities worldwide through our systematic
+              approach.
             </p>
           </motion.div>
 
@@ -131,8 +143,12 @@ export default function TeamAndReachSection() {
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                   {stat.region}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-2">{stat.markets}</p>
-                <p className="text-sm text-[#00a76f] font-semibold">{stat.coverage}</p>
+                <p className="text-gray-600 dark:text-gray-400 mb-2">
+                  {stat.markets}
+                </p>
+                <p className="text-sm text-[#00a76f] font-semibold">
+                  {stat.coverage}
+                </p>
               </motion.div>
             ))}
           </motion.div>

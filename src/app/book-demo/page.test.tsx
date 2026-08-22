@@ -1,4 +1,10 @@
-import { render, screen, waitFor, act, fireEvent } from "@testing-library/react";
+import {
+  render,
+  screen,
+  waitFor,
+  act,
+  fireEvent,
+} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import MockAdapter from "axios-mock-adapter";
 import apiClient from "@/lib/api-client";
@@ -49,14 +55,12 @@ describe("BookDemoPage", () => {
     render(<BookDemoPage />);
 
     expect(
-      screen.getByRole("heading", { name: /book a demo/i })
+      screen.getByRole("heading", { name: /book a demo/i }),
     ).toBeInTheDocument();
     expect(screen.getByPlaceholderText("Jane Doe")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("you@example.com")).toBeInTheDocument();
     expect(
-      screen.getByPlaceholderText("you@example.com")
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("button", { name: /book demo/i })
+      screen.getByRole("button", { name: /book demo/i }),
     ).toBeInTheDocument();
 
     // Fetches previously booked slots on mount so they can be excluded.
@@ -89,7 +93,7 @@ describe("BookDemoPage", () => {
 
     expect(push).toHaveBeenCalledWith("/");
     expect(
-      screen.queryByRole("heading", { name: /book a demo/i })
+      screen.queryByRole("heading", { name: /book a demo/i }),
     ).not.toBeInTheDocument();
   });
 
@@ -128,7 +132,7 @@ describe("BookDemoPage", () => {
     await waitFor(() => {
       expect(consoleError).toHaveBeenCalledWith(
         "Failed to fetch booked slots:",
-        expect.anything()
+        expect.anything(),
       );
     });
 
@@ -150,15 +154,15 @@ describe("BookDemoPage", () => {
       await user.type(screen.getByPlaceholderText("Jane Doe"), "Jane Doe");
       await user.type(
         screen.getByPlaceholderText("you@example.com"),
-        "jane@example.com"
+        "jane@example.com",
       );
       await user.type(
         screen.getByPlaceholderText("Evermount Capital"),
-        "Acme Corp"
+        "Acme Corp",
       );
       await user.type(
         screen.getByPlaceholderText(/your message/i),
-        "Interested in the platform"
+        "Interested in the platform",
       );
 
       await pickDateAndTime(user);
@@ -178,14 +182,14 @@ describe("BookDemoPage", () => {
 
       await waitFor(() => {
         expect(toastFn.success).toHaveBeenCalledWith(
-          "Demo booked successfully!"
+          "Demo booked successfully!",
         );
       });
 
       expect(
         await screen.findByRole("heading", {
           name: /demo booked successfully!/i,
-        })
+        }),
       ).toBeInTheDocument();
 
       act(() => {
@@ -210,7 +214,7 @@ describe("BookDemoPage", () => {
     await user.type(screen.getByPlaceholderText("Jane Doe"), "Jane Doe");
     await user.type(
       screen.getByPlaceholderText("you@example.com"),
-      "jane@example.com"
+      "jane@example.com",
     );
     await pickDateAndTime(user);
 

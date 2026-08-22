@@ -5,11 +5,9 @@ describe("SEOHead", () => {
   it("injects review and breadcrumb JSON-LD structured data scripts", () => {
     render(<SEOHead />);
 
-    const reviewScript = document.body.querySelector(
-      "#review-structured-data"
-    );
+    const reviewScript = document.body.querySelector("#review-structured-data");
     const breadcrumbScript = document.body.querySelector(
-      "#breadcrumb-structured-data"
+      "#breadcrumb-structured-data",
     );
 
     expect(reviewScript).toBeInTheDocument();

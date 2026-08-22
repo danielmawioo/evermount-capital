@@ -76,7 +76,7 @@ export default function BookDemoModal() {
         const { data } = await api.demo.getBookedSlots();
 
         const dates = (data.bookedSlots || []).map(
-          (iso: string) => new Date(iso)
+          (iso: string) => new Date(iso),
         );
         setBookedSlots(dates);
       } catch (error) {
@@ -92,7 +92,9 @@ export default function BookDemoModal() {
   const validate = () => {
     const newErrors = {
       name: form.name ? "" : "Name is required",
-      email: EmailSchema.safeParse(form.email).success ? "" : "Valid email required",
+      email: EmailSchema.safeParse(form.email).success
+        ? ""
+        : "Valid email required",
       date: form.date ? "" : "Date & time required",
     };
     setErrors(newErrors);
@@ -129,7 +131,7 @@ export default function BookDemoModal() {
     } catch (error) {
       logger.error("Demo booking failed", error);
       toast.error(
-        getApiErrorMessage(error, "There was an error booking the demo.")
+        getApiErrorMessage(error, "There was an error booking the demo."),
       );
     } finally {
       setLoading(false);
@@ -138,7 +140,7 @@ export default function BookDemoModal() {
 
   const getExcludedTimes = (date: Date) => {
     return bookedSlots.filter(
-      (slot) => slot.toDateString() === date.toDateString()
+      (slot) => slot.toDateString() === date.toDateString(),
     );
   };
 
@@ -192,7 +194,9 @@ export default function BookDemoModal() {
               <h2 className="text-lg sm:text-xl font-semibold text-green-600 dark:text-green-400">
                 Demo Booked Successfully!
               </h2>
-              <p className="text-gray-600 dark:text-gray-400 mt-2">Redirecting...</p>
+              <p className="text-gray-600 dark:text-gray-400 mt-2">
+                Redirecting...
+              </p>
             </div>
           ) : (
             <>
@@ -200,8 +204,8 @@ export default function BookDemoModal() {
                 Book a Demo
               </h2>
               <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 text-center mb-4 sm:mb-6 mt-1">
-                Choose a date and time that works best. We&apos;ll send you a meeting
-                invite.
+                Choose a date and time that works best. We&apos;ll send you a
+                meeting invite.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-5">

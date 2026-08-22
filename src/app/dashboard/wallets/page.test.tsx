@@ -38,7 +38,7 @@ describe("WalletsPage", () => {
     render(<WalletsPage />);
 
     expect(
-      await screen.findByRole("heading", { name: "Wallet & Escrow" })
+      await screen.findByRole("heading", { name: "Wallet & Escrow" }),
     ).toBeInTheDocument();
     expect(await screen.findByText("$1,000.00")).toBeInTheDocument();
     expect(screen.getByText("$1,500.00")).toBeInTheDocument();

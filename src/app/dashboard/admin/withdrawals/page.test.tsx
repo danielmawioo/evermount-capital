@@ -50,7 +50,7 @@ describe("AdminWithdrawalsPage", () => {
     expect(screen.getByText(/Loading/i)).toBeInTheDocument();
 
     await waitFor(() =>
-      expect(screen.getByText("Jane Investor")).toBeInTheDocument()
+      expect(screen.getByText("Jane Investor")).toBeInTheDocument(),
     );
     expect(screen.getByText("investor@example.com")).toBeInTheDocument();
     expect(screen.getByText("$500.00")).toBeInTheDocument();
@@ -64,7 +64,7 @@ describe("AdminWithdrawalsPage", () => {
     render(<AdminWithdrawalsPage />);
 
     await waitFor(() =>
-      expect(screen.getByText("No pending withdrawals.")).toBeInTheDocument()
+      expect(screen.getByText("No pending withdrawals.")).toBeInTheDocument(),
     );
   });
 
@@ -74,7 +74,9 @@ describe("AdminWithdrawalsPage", () => {
     render(<AdminWithdrawalsPage />);
 
     await waitFor(() =>
-      expect(toast.error).toHaveBeenCalledWith("Failed to load pending withdrawals")
+      expect(toast.error).toHaveBeenCalledWith(
+        "Failed to load pending withdrawals",
+      ),
     );
   });
 
@@ -88,7 +90,7 @@ describe("AdminWithdrawalsPage", () => {
     render(<AdminWithdrawalsPage />);
 
     await waitFor(() =>
-      expect(screen.getByText("Jane Investor")).toBeInTheDocument()
+      expect(screen.getByText("Jane Investor")).toBeInTheDocument(),
     );
 
     mock.onGet("/admin/wallets/withdrawals/pending").reply(200, {
@@ -99,12 +101,12 @@ describe("AdminWithdrawalsPage", () => {
     await user.click(screen.getByRole("button", { name: /Approve/i }));
 
     await waitFor(() =>
-      expect(toast.success).toHaveBeenCalledWith("Withdrawal approved")
+      expect(toast.success).toHaveBeenCalledWith("Withdrawal approved"),
     );
     expect(
       mock.history.patch.some(
-        (r) => r.url === "/admin/wallets/withdrawals/tx-1/approve"
-      )
+        (r) => r.url === "/admin/wallets/withdrawals/tx-1/approve",
+      ),
     ).toBe(true);
   });
 
@@ -119,7 +121,7 @@ describe("AdminWithdrawalsPage", () => {
     render(<AdminWithdrawalsPage />);
 
     await waitFor(() =>
-      expect(screen.getByText("Jane Investor")).toBeInTheDocument()
+      expect(screen.getByText("Jane Investor")).toBeInTheDocument(),
     );
 
     mock.onGet("/admin/wallets/withdrawals/pending").reply(200, {
@@ -131,11 +133,11 @@ describe("AdminWithdrawalsPage", () => {
 
     await waitFor(() =>
       expect(toast.success).toHaveBeenCalledWith(
-        "Withdrawal rejected — funds returned to wallet"
-      )
+        "Withdrawal rejected — funds returned to wallet",
+      ),
     );
     const rejectCall = mock.history.patch.find(
-      (r) => r.url === "/admin/wallets/withdrawals/tx-1/reject"
+      (r) => r.url === "/admin/wallets/withdrawals/tx-1/reject",
     );
     expect(JSON.parse(rejectCall?.data)).toEqual({
       reason: "Suspicious activity",
@@ -153,16 +155,16 @@ describe("AdminWithdrawalsPage", () => {
     render(<AdminWithdrawalsPage />);
 
     await waitFor(() =>
-      expect(screen.getByText("Jane Investor")).toBeInTheDocument()
+      expect(screen.getByText("Jane Investor")).toBeInTheDocument(),
     );
 
     await user.click(screen.getByRole("button", { name: /Reject/i }));
 
     await waitFor(() =>
-      expect(toast.error).toHaveBeenCalledWith("Failed to reject withdrawal")
+      expect(toast.error).toHaveBeenCalledWith("Failed to reject withdrawal"),
     );
     const rejectCall = mock.history.patch.find(
-      (r) => r.url === "/admin/wallets/withdrawals/tx-1/reject"
+      (r) => r.url === "/admin/wallets/withdrawals/tx-1/reject",
     );
     expect(JSON.parse(rejectCall?.data)).toEqual({});
   });

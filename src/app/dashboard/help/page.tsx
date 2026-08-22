@@ -34,49 +34,57 @@ export default function HelpCenterPage() {
     {
       id: "1",
       question: "How do I deposit funds into my account?",
-      answer: "You can deposit funds using multiple methods: bank transfer, credit/debit card, or cryptocurrency. Navigate to the Wallets page and click 'Deposit' to choose your preferred method. Bank transfers typically take 1-3 business days, while card and crypto deposits are usually instant.",
+      answer:
+        "You can deposit funds using multiple methods: bank transfer, credit/debit card, or cryptocurrency. Navigate to the Wallets page and click 'Deposit' to choose your preferred method. Bank transfers typically take 1-3 business days, while card and crypto deposits are usually instant.",
       category: "account",
     },
     {
       id: "2",
       question: "What is the minimum investment amount?",
-      answer: "The minimum investment amount varies by fund type. For most funds, the minimum is $1,000. Premium funds may have higher minimums. Check the fund details page for specific requirements.",
+      answer:
+        "The minimum investment amount varies by fund type. For most funds, the minimum is $1,000. Premium funds may have higher minimums. Check the fund details page for specific requirements.",
       category: "investing",
     },
     {
       id: "3",
       question: "How do I withdraw my funds?",
-      answer: "To withdraw funds, go to the Withdraw page and select your preferred withdrawal method. You can withdraw to your bank account or crypto wallet. Withdrawals typically process within 1-5 business days depending on the method chosen.",
+      answer:
+        "To withdraw funds, go to the Withdraw page and select your preferred withdrawal method. You can withdraw to your bank account or crypto wallet. Withdrawals typically process within 1-5 business days depending on the method chosen.",
       category: "account",
     },
     {
       id: "4",
       question: "What fees do you charge?",
-      answer: "We charge a management fee of 2% annually and a performance fee of 20% on profits above the high-water mark. There are no deposit or withdrawal fees for most methods. See our Pricing page for complete fee details.",
+      answer:
+        "We charge a management fee of 2% annually and a performance fee of 20% on profits above the high-water mark. There are no deposit or withdrawal fees for most methods. See our Pricing page for complete fee details.",
       category: "fees",
     },
     {
       id: "5",
       question: "How is my portfolio performance calculated?",
-      answer: "Portfolio performance is calculated using time-weighted returns, which account for deposits and withdrawals. This ensures accurate performance measurement regardless of when you add or remove funds.",
+      answer:
+        "Portfolio performance is calculated using time-weighted returns, which account for deposits and withdrawals. This ensures accurate performance measurement regardless of when you add or remove funds.",
       category: "portfolio",
     },
     {
       id: "6",
       question: "Is my money safe and secure?",
-      answer: "Yes, we use bank-level encryption and security measures. Funds are held in segregated accounts, and we're regulated by financial authorities. We also offer insurance coverage for eligible accounts.",
+      answer:
+        "Yes, we use bank-level encryption and security measures. Funds are held in segregated accounts, and we're regulated by financial authorities. We also offer insurance coverage for eligible accounts.",
       category: "security",
     },
     {
       id: "7",
       question: "Can I change my investment strategy?",
-      answer: "Yes, you can reallocate your investments at any time through the Portfolio page. You can also set up automatic rebalancing based on your preferences.",
+      answer:
+        "Yes, you can reallocate your investments at any time through the Portfolio page. You can also set up automatic rebalancing based on your preferences.",
       category: "investing",
     },
     {
       id: "8",
       question: "How do I update my personal information?",
-      answer: "Go to Settings and click on 'Profile' to update your personal information, contact details, and preferences. Some changes may require verification for security purposes.",
+      answer:
+        "Go to Settings and click on 'Profile' to update your personal information, contact details, and preferences. Some changes may require verification for security purposes.",
       category: "account",
     },
   ];
@@ -96,13 +104,16 @@ export default function HelpCenterPage() {
     const matchesSearch =
       faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
       faq.answer.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === "all" || faq.category === selectedCategory;
+    const matchesCategory =
+      selectedCategory === "all" || faq.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Thank you for contacting us! We'll get back to you within 24 hours.");
+    alert(
+      "Thank you for contacting us! We'll get back to you within 24 hours.",
+    );
     setContactForm({ name: "", email: "", subject: "", message: "" });
   };
 
@@ -218,7 +229,8 @@ export default function HelpCenterPage() {
             </h2>
           </div>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
-            Can&apos;t find what you&apos;re looking for? Send us a message and we&apos;ll get back to you within 24 hours.
+            Can&apos;t find what you&apos;re looking for? Send us a message and
+            we&apos;ll get back to you within 24 hours.
           </p>
           <form onSubmit={handleContactSubmit} className="space-y-4">
             <div>
@@ -229,7 +241,9 @@ export default function HelpCenterPage() {
                 type="text"
                 required
                 value={contactForm.name}
-                onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                onChange={(e) =>
+                  setContactForm({ ...contactForm, name: e.target.value })
+                }
                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#00a76f]"
                 placeholder="Your name"
               />
@@ -242,7 +256,9 @@ export default function HelpCenterPage() {
                 type="email"
                 required
                 value={contactForm.email}
-                onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                onChange={(e) =>
+                  setContactForm({ ...contactForm, email: e.target.value })
+                }
                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#00a76f]"
                 placeholder="your@email.com"
               />
@@ -255,7 +271,9 @@ export default function HelpCenterPage() {
                 type="text"
                 required
                 value={contactForm.subject}
-                onChange={(e) => setContactForm({ ...contactForm, subject: e.target.value })}
+                onChange={(e) =>
+                  setContactForm({ ...contactForm, subject: e.target.value })
+                }
                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#00a76f]"
                 placeholder="What can we help with?"
               />
@@ -268,7 +286,9 @@ export default function HelpCenterPage() {
                 required
                 rows={4}
                 value={contactForm.message}
-                onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+                onChange={(e) =>
+                  setContactForm({ ...contactForm, message: e.target.value })
+                }
                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#00a76f]"
                 placeholder="Tell us more about your question..."
               />
@@ -293,9 +313,17 @@ export default function HelpCenterPage() {
                 <PhoneIcon className="w-6 h-6 text-[#00a76f]" />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 dark:text-white">Phone Support</h3>
+                <h3 className="font-semibold text-gray-900 dark:text-white">
+                  Phone Support
+                </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Call us at <a href="tel:+254758578816" className="text-[#00a76f] hover:underline">+254 758 578 816</a>
+                  Call us at{" "}
+                  <a
+                    href="tel:+254758578816"
+                    className="text-[#00a76f] hover:underline"
+                  >
+                    +254 758 578 816
+                  </a>
                 </p>
                 <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
                   Mon-Fri, 9 AM - 5 PM EAT
@@ -307,9 +335,17 @@ export default function HelpCenterPage() {
                 <EnvelopeIcon className="w-6 h-6 text-[#00a76f]" />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 dark:text-white">Email Support</h3>
+                <h3 className="font-semibold text-gray-900 dark:text-white">
+                  Email Support
+                </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Email us at <a href="mailto:support@evermount.co" className="text-[#00a76f] hover:underline">support@evermount.co</a>
+                  Email us at{" "}
+                  <a
+                    href="mailto:support@evermount.co"
+                    className="text-[#00a76f] hover:underline"
+                  >
+                    support@evermount.co
+                  </a>
                 </p>
                 <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
                   We respond within 24 hours
@@ -321,7 +357,9 @@ export default function HelpCenterPage() {
                 <ChatBubbleLeftRightIcon className="w-6 h-6 text-[#00a76f]" />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 dark:text-white">Live Chat</h3>
+                <h3 className="font-semibold text-gray-900 dark:text-white">
+                  Live Chat
+                </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   Chat with us in real-time
                 </p>

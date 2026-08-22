@@ -13,8 +13,8 @@ export default function CtaSection() {
         Don&apos;t see a role for you?
       </h3>
       <p className="text-gray-600 dark:text-gray-400 max-w-xl mx-auto mb-6">
-        We&apos;re always looking for passionate people. If you&apos;re excited by our
-        mission, we&apos;d love to hear from you.
+        We&apos;re always looking for passionate people. If you&apos;re excited
+        by our mission, we&apos;d love to hear from you.
       </p>
       <motion.a
         whileHover={{ scale: 1.05, y: -2 }}

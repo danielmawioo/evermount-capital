@@ -11,6 +11,8 @@ export default function InvestRedirectPage() {
   }, [router]);
 
   return (
-    <div className="py-12 text-center text-gray-500">Redirecting to Trade...</div>
+    <div className="py-12 text-center text-gray-500">
+      Redirecting to Trade...
+    </div>
   );
 }

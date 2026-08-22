@@ -7,19 +7,24 @@ export default function TermsPage() {
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
           Terms & Conditions
         </h1>
-        <p className="text-sm text-gray-500 dark:text-gray-400">Last updated: April 25, 2025</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">
+          Last updated: April 25, 2025
+        </p>
 
         <section className="space-y-8 text-base leading-7 text-gray-700 dark:text-gray-300">
           <p>
-            These Terms and Conditions (&quot;Terms&quot;) govern your use of Evermount
-            Capital, a hedge fund technology platform offering investment
-            analytics, automation, and performance monitoring tools.
+            These Terms and Conditions (&quot;Terms&quot;) govern your use of
+            Evermount Capital, a hedge fund technology platform offering
+            investment analytics, automation, and performance monitoring tools.
           </p>
 
           <ol className="space-y-6 list-decimal pl-5 text-gray-700 dark:text-gray-300">
             <li>
-              <strong className="text-gray-900 dark:text-white">Eligibility:</strong> You must be at least 18 years of age
-              or legally permitted to invest in your jurisdiction.
+              <strong className="text-gray-900 dark:text-white">
+                Eligibility:
+              </strong>{" "}
+              You must be at least 18 years of age or legally permitted to
+              invest in your jurisdiction.
             </li>
 
             <li>

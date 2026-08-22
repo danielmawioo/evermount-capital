@@ -13,7 +13,7 @@ describe("DemoReconciliationCard", () => {
         actionLoading={false}
         onSyncPositions={onSyncPositions}
         onRunReconciliation={onRunReconciliation}
-      />
+      />,
     );
 
     expect(screen.getByText("No reconciliation runs yet")).toBeInTheDocument();
@@ -21,7 +21,9 @@ describe("DemoReconciliationCard", () => {
     await user.click(screen.getByRole("button", { name: /Sync positions/i }));
     expect(onSyncPositions).toHaveBeenCalledTimes(1);
 
-    await user.click(screen.getByRole("button", { name: /Run reconciliation/i }));
+    await user.click(
+      screen.getByRole("button", { name: /Run reconciliation/i }),
+    );
     expect(onRunReconciliation).toHaveBeenCalledTimes(1);
   });
 
@@ -39,7 +41,7 @@ describe("DemoReconciliationCard", () => {
         actionLoading={false}
         onSyncPositions={jest.fn()}
         onRunReconciliation={jest.fn()}
-      />
+      />,
     );
 
     expect(screen.getAllByText(/drift\(s\)/)).toHaveLength(5);

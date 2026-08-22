@@ -36,7 +36,7 @@ describe("DashboardPage", () => {
     setAuthTokens("token", "refresh", true);
     setUser(
       { id: "1", email: "a@b.com", fullName: "Jane Doe", role: "INVESTOR" },
-      true
+      true,
     );
     mock.onGet("/users/profile").reply(200, {
       id: "1",
@@ -71,9 +71,9 @@ describe("DashboardPage", () => {
     render(<DashboardPage />);
 
     expect(await screen.findByText(/Jane/)).toBeInTheDocument();
-    expect(
-      (await screen.findAllByText("$10,000.00")).length
-    ).toBeGreaterThan(0);
+    expect((await screen.findAllByText("$10,000.00")).length).toBeGreaterThan(
+      0,
+    );
     expect(await screen.findByText("Deposit")).toBeInTheDocument();
     expect(push).not.toHaveBeenCalledWith("/login");
   });

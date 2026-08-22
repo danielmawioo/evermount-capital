@@ -84,11 +84,19 @@ export default function AdminSettingsPage() {
   const handleSave = async () => {
     setSaving(true);
     try {
-      const keys = ["notifications", "security", "platform", "integrations"] as const;
+      const keys = [
+        "notifications",
+        "security",
+        "platform",
+        "integrations",
+      ] as const;
       await Promise.all(
         keys.map((key) =>
-          api.admin.settings.update(key, settings[key] as Record<string, unknown>)
-        )
+          api.admin.settings.update(
+            key,
+            settings[key] as Record<string, unknown>,
+          ),
+        ),
       );
       toast.success("Settings saved");
     } catch (error: unknown) {
@@ -101,12 +109,14 @@ export default function AdminSettingsPage() {
 
   const handleToggle = <K extends keyof SettingsState>(
     category: K,
-    key: keyof SettingsState[K]
+    key: keyof SettingsState[K],
   ) => {
     setSettings((prev) => {
       const categorySettings = prev[category];
-      const currentValue = (categorySettings as Record<string, boolean | number>)[key as string];
-      if (typeof currentValue === 'boolean') {
+      const currentValue = (
+        categorySettings as Record<string, boolean | number>
+      )[key as string];
+      if (typeof currentValue === "boolean") {
         return {
           ...prev,
           [category]: {
@@ -122,7 +132,7 @@ export default function AdminSettingsPage() {
   const handleNumberChange = <K extends keyof SettingsState>(
     category: K,
     key: keyof SettingsState[K],
-    value: number
+    value: number,
   ) => {
     setSettings((prev) => ({
       ...prev,
@@ -168,7 +178,9 @@ export default function AdminSettingsPage() {
                   </p>
                 </div>
                 <button
-                  onClick={() => handleToggle("notifications", "email" as const)}
+                  onClick={() =>
+                    handleToggle("notifications", "email" as const)
+                  }
                   className={`relative w-12 h-6 rounded-full transition ${
                     settings.notifications.email
                       ? "bg-[#00a76f]"
@@ -177,7 +189,9 @@ export default function AdminSettingsPage() {
                 >
                   <span
                     className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                      settings.notifications.email ? "translate-x-6" : "translate-x-0"
+                      settings.notifications.email
+                        ? "translate-x-6"
+                        : "translate-x-0"
                     }`}
                   />
                 </button>
@@ -201,7 +215,9 @@ export default function AdminSettingsPage() {
                 >
                   <span
                     className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                      settings.notifications.sms ? "translate-x-6" : "translate-x-0"
+                      settings.notifications.sms
+                        ? "translate-x-6"
+                        : "translate-x-0"
                     }`}
                   />
                 </button>
@@ -225,7 +241,9 @@ export default function AdminSettingsPage() {
                 >
                   <span
                     className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                      settings.notifications.push ? "translate-x-6" : "translate-x-0"
+                      settings.notifications.push
+                        ? "translate-x-6"
+                        : "translate-x-0"
                     }`}
                   />
                 </button>
@@ -261,7 +279,9 @@ export default function AdminSettingsPage() {
                 >
                   <span
                     className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                      settings.security.twoFactor ? "translate-x-6" : "translate-x-0"
+                      settings.security.twoFactor
+                        ? "translate-x-6"
+                        : "translate-x-0"
                     }`}
                   />
                 </button>
@@ -282,7 +302,7 @@ export default function AdminSettingsPage() {
                     handleNumberChange(
                       "security",
                       "sessionTimeout" as const,
-                      parseInt(e.target.value) || 30
+                      parseInt(e.target.value) || 30,
                     )
                   }
                   className="w-20 px-3 py-1.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#00a76f]"
@@ -300,7 +320,9 @@ export default function AdminSettingsPage() {
                   </p>
                 </div>
                 <button
-                  onClick={() => handleToggle("security", "ipWhitelist" as const)}
+                  onClick={() =>
+                    handleToggle("security", "ipWhitelist" as const)
+                  }
                   className={`relative w-12 h-6 rounded-full transition ${
                     settings.security.ipWhitelist
                       ? "bg-[#00a76f]"
@@ -309,7 +331,9 @@ export default function AdminSettingsPage() {
                 >
                   <span
                     className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                      settings.security.ipWhitelist ? "translate-x-6" : "translate-x-0"
+                      settings.security.ipWhitelist
+                        ? "translate-x-6"
+                        : "translate-x-0"
                     }`}
                   />
                 </button>
@@ -336,7 +360,9 @@ export default function AdminSettingsPage() {
                   </p>
                 </div>
                 <button
-                  onClick={() => handleToggle("platform", "maintenanceMode" as const)}
+                  onClick={() =>
+                    handleToggle("platform", "maintenanceMode" as const)
+                  }
                   className={`relative w-12 h-6 rounded-full transition ${
                     settings.platform.maintenanceMode
                       ? "bg-[#00a76f]"
@@ -345,7 +371,9 @@ export default function AdminSettingsPage() {
                 >
                   <span
                     className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                      settings.platform.maintenanceMode ? "translate-x-6" : "translate-x-0"
+                      settings.platform.maintenanceMode
+                        ? "translate-x-6"
+                        : "translate-x-0"
                     }`}
                   />
                 </button>
@@ -360,7 +388,9 @@ export default function AdminSettingsPage() {
                   </p>
                 </div>
                 <button
-                  onClick={() => handleToggle("platform", "registrationEnabled" as const)}
+                  onClick={() =>
+                    handleToggle("platform", "registrationEnabled" as const)
+                  }
                   className={`relative w-12 h-6 rounded-full transition ${
                     settings.platform.registrationEnabled
                       ? "bg-[#00a76f]"
@@ -369,7 +399,9 @@ export default function AdminSettingsPage() {
                 >
                   <span
                     className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                      settings.platform.registrationEnabled ? "translate-x-6" : "translate-x-0"
+                      settings.platform.registrationEnabled
+                        ? "translate-x-6"
+                        : "translate-x-0"
                     }`}
                   />
                 </button>
@@ -384,7 +416,9 @@ export default function AdminSettingsPage() {
                   </p>
                 </div>
                 <button
-                  onClick={() => handleToggle("platform", "apiEnabled" as const)}
+                  onClick={() =>
+                    handleToggle("platform", "apiEnabled" as const)
+                  }
                   className={`relative w-12 h-6 rounded-full transition ${
                     settings.platform.apiEnabled
                       ? "bg-[#00a76f]"
@@ -393,7 +427,9 @@ export default function AdminSettingsPage() {
                 >
                   <span
                     className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                      settings.platform.apiEnabled ? "translate-x-6" : "translate-x-0"
+                      settings.platform.apiEnabled
+                        ? "translate-x-6"
+                        : "translate-x-0"
                     }`}
                   />
                 </button>
@@ -414,7 +450,9 @@ export default function AdminSettingsPage() {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-medium text-gray-900 dark:text-white">Stripe</p>
+                  <p className="font-medium text-gray-900 dark:text-white">
+                    Stripe
+                  </p>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     Payment processing
                   </p>
@@ -429,14 +467,18 @@ export default function AdminSettingsPage() {
                 >
                   <span
                     className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                      settings.integrations.stripe ? "translate-x-6" : "translate-x-0"
+                      settings.integrations.stripe
+                        ? "translate-x-6"
+                        : "translate-x-0"
                     }`}
                   />
                 </button>
               </div>
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-medium text-gray-900 dark:text-white">Intercom</p>
+                  <p className="font-medium text-gray-900 dark:text-white">
+                    Intercom
+                  </p>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     Customer support
                   </p>
@@ -451,14 +493,18 @@ export default function AdminSettingsPage() {
                 >
                   <span
                     className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                      settings.integrations.intercom ? "translate-x-6" : "translate-x-0"
+                      settings.integrations.intercom
+                        ? "translate-x-6"
+                        : "translate-x-0"
                     }`}
                   />
                 </button>
               </div>
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-medium text-gray-900 dark:text-white">Analytics</p>
+                  <p className="font-medium text-gray-900 dark:text-white">
+                    Analytics
+                  </p>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     Usage tracking
                   </p>
@@ -473,7 +519,9 @@ export default function AdminSettingsPage() {
                 >
                   <span
                     className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${
-                      settings.integrations.analytics ? "translate-x-6" : "translate-x-0"
+                      settings.integrations.analytics
+                        ? "translate-x-6"
+                        : "translate-x-0"
                     }`}
                   />
                 </button>
@@ -496,4 +544,3 @@ export default function AdminSettingsPage() {
     </div>
   );
 }
-

@@ -10,10 +10,10 @@ describe("TimeTabs", () => {
     });
 
     expect(screen.getByRole("button", { name: "Monthly" })).toHaveClass(
-      "bg-[#00a76f]"
+      "bg-[#00a76f]",
     );
     expect(screen.getByRole("button", { name: "Daily" })).not.toHaveClass(
-      "bg-[#00a76f]"
+      "bg-[#00a76f]",
     );
   });
 
@@ -25,17 +25,17 @@ describe("TimeTabs", () => {
 
     expect(onChange).toHaveBeenCalledWith("Weekly");
     expect(screen.getByRole("button", { name: "Weekly" })).toHaveClass(
-      "bg-[#00a76f]"
+      "bg-[#00a76f]",
     );
     expect(screen.getByRole("button", { name: "Monthly" })).not.toHaveClass(
-      "bg-[#00a76f]"
+      "bg-[#00a76f]",
     );
   });
 
   it("does not throw when onChange is not provided", () => {
     render(<TimeTabs />);
     expect(() =>
-      fireEvent.click(screen.getByRole("button", { name: "Yearly" }))
+      fireEvent.click(screen.getByRole("button", { name: "Yearly" })),
     ).not.toThrow();
   });
 });

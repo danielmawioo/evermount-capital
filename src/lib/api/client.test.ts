@@ -1,7 +1,11 @@
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 import { apiClient } from "./client";
-import { setAuthTokens, getAccessToken, getRefreshToken } from "../auth-storage";
+import {
+  setAuthTokens,
+  getAccessToken,
+  getRefreshToken,
+} from "../auth-storage";
 
 describe("apiClient 401 refresh-retry interceptor", () => {
   let clientMock: MockAdapter;
@@ -67,7 +71,7 @@ describe("apiClient 401 refresh-retry interceptor", () => {
     clientMock.onPost("/auth/refresh").reply(401);
 
     await expect(
-      apiClient.post("/auth/refresh", { refreshToken: "valid-refresh-token" })
+      apiClient.post("/auth/refresh", { refreshToken: "valid-refresh-token" }),
     ).rejects.toBeTruthy();
 
     expect(getAccessToken()).toBeNull();

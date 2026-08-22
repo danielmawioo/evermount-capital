@@ -5,20 +5,20 @@ describe("InvestorTourPage", () => {
   it("renders without crashing and shows the main heading", () => {
     render(<InvestorTourPage />);
     expect(
-      screen.getByRole("heading", { name: /a smarter way to invest/i })
+      screen.getByRole("heading", { name: /a smarter way to invest/i }),
     ).toBeInTheDocument();
   });
 
   it("renders the how-it-works and roadmap sections", () => {
     render(<InvestorTourPage />);
     expect(
-      screen.getByRole("heading", { name: /how it works/i })
+      screen.getByRole("heading", { name: /how it works/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /investor journey roadmap/i })
+      screen.getByRole("heading", { name: /investor journey roadmap/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /performance snapshot/i })
+      screen.getByRole("heading", { name: /performance snapshot/i }),
     ).toBeInTheDocument();
   });
 
@@ -27,7 +27,7 @@ describe("InvestorTourPage", () => {
     const bookDemoLinks = screen.getAllByRole("link", { name: /book a demo/i });
     expect(bookDemoLinks.length).toBeGreaterThan(0);
     bookDemoLinks.forEach((link) =>
-      expect(link).toHaveAttribute("href", "/book-demo")
+      expect(link).toHaveAttribute("href", "/book-demo"),
     );
 
     const waitlistLinks = screen.getAllByRole("link", {
@@ -35,7 +35,7 @@ describe("InvestorTourPage", () => {
     });
     expect(waitlistLinks.length).toBeGreaterThan(0);
     waitlistLinks.forEach((link) =>
-      expect(link).toHaveAttribute("href", "/waitlist")
+      expect(link).toHaveAttribute("href", "/waitlist"),
     );
   });
 });

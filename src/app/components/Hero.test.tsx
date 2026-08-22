@@ -19,7 +19,7 @@ describe("Hero", () => {
       screen.getByRole("heading", {
         name: "Building the Future of Investing",
         level: 1,
-      })
+      }),
     ).toBeInTheDocument();
 
     const talkToTeamLink = screen.getByRole("link", {
@@ -28,12 +28,12 @@ describe("Hero", () => {
     expect(talkToTeamLink).toHaveAttribute("href", "/book-demo");
 
     expect(
-      screen.getByRole("button", { name: /Get Early Access/i })
+      screen.getByRole("button", { name: /Get Early Access/i }),
     ).toBeInTheDocument();
 
     expect(screen.getByText("Data-Driven Alpha")).toBeInTheDocument();
     expect(
-      screen.getByText("$300K Assets Under Management")
+      screen.getByText("$300K Assets Under Management"),
     ).toBeInTheDocument();
     expect(screen.getByText("82 Investor Partners")).toBeInTheDocument();
 
@@ -47,7 +47,7 @@ describe("Hero", () => {
     screen.getByRole("button", { name: /Get Early Access/i }).click();
 
     expect(dispatchSpy).toHaveBeenCalledWith(
-      expect.objectContaining({ type: "openWaitlist" })
+      expect.objectContaining({ type: "openWaitlist" }),
     );
     dispatchSpy.mockRestore();
   });

@@ -20,7 +20,10 @@ describe("logger", () => {
 
     expect(consoleErrorSpy).toHaveBeenCalledTimes(1);
     const [entry] = consoleErrorSpy.mock.calls[0];
-    expect(entry).toMatchObject({ level: "error", message: "Failed to load wallet" });
+    expect(entry).toMatchObject({
+      level: "error",
+      message: "Failed to load wallet",
+    });
     expect(typeof entry.timestamp).toBe("string");
   });
 

@@ -20,7 +20,7 @@ ChartJS.register(
   PointElement,
   Tooltip,
   Filler,
-  Title
+  Title,
 );
 
 // Chart Data

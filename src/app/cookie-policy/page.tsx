@@ -13,9 +13,9 @@ export default function CookiePolicyPage() {
             Effective Date: April 25, 2025
           </p>
           <p className="mt-4 text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-            This Cookie Policy explains how Evermount Capital (&quot;we&quot;, &quot;our&quot;, or
-            &quot;us&quot;) uses cookies and similar technologies to recognize you when
-            you visit our platform.
+            This Cookie Policy explains how Evermount Capital (&quot;we&quot;,
+            &quot;our&quot;, or &quot;us&quot;) uses cookies and similar
+            technologies to recognize you when you visit our platform.
           </p>
         </header>
 
@@ -145,7 +145,9 @@ export default function CookiePolicyPage() {
               ],
             ].map(([title, desc], idx) => (
               <li key={idx}>
-                <p className="font-semibold text-gray-900 dark:text-white mb-1">{title}</p>
+                <p className="font-semibold text-gray-900 dark:text-white mb-1">
+                  {title}
+                </p>
                 <p className="text-gray-700 dark:text-gray-300">{desc}</p>
               </li>
             ))}

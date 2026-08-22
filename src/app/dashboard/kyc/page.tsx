@@ -108,7 +108,9 @@ export default function InvestorKYCPage() {
             />
             <button
               type="submit"
-              disabled={loading || !identityDocument || !proofOfAddress || !selfie}
+              disabled={
+                loading || !identityDocument || !proofOfAddress || !selfie
+              }
               className="flex items-center gap-2 w-full justify-center bg-[#00a76f] hover:bg-emerald-700 text-white py-2.5 rounded-md font-semibold transition disabled:opacity-50"
             >
               <FaUpload />
@@ -128,8 +130,8 @@ export default function InvestorKYCPage() {
             KYC Verified
           </h1>
           <p className="text-gray-600 dark:text-gray-400">
-            Your identity has been verified. You have full access to deposits and
-            investments.
+            Your identity has been verified. You have full access to deposits
+            and investments.
           </p>
         </div>
       </main>
@@ -198,7 +200,9 @@ export default function InvestorKYCPage() {
 
           <button
             type="submit"
-            disabled={loading || !identityDocument || !proofOfAddress || !selfie}
+            disabled={
+              loading || !identityDocument || !proofOfAddress || !selfie
+            }
             className="flex items-center gap-2 w-full justify-center bg-[#00a76f] hover:bg-emerald-700 text-white py-2.5 rounded-md font-semibold transition disabled:opacity-50"
           >
             <FaUpload />

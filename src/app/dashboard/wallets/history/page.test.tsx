@@ -33,12 +33,10 @@ describe("WalletHistoryPage", () => {
     render(<WalletHistoryPage />);
 
     expect(
-      await screen.findByRole("heading", { name: "Transaction History" })
+      await screen.findByRole("heading", { name: "Transaction History" }),
     ).toBeInTheDocument();
     expect(await screen.findByText("Withdrawal")).toBeInTheDocument();
-    expect(
-      screen.getByRole("cell", { name: "Pending" })
-    ).toBeInTheDocument();
+    expect(screen.getByRole("cell", { name: "Pending" })).toBeInTheDocument();
   });
 
   it("refetches with a type filter when changed", async () => {

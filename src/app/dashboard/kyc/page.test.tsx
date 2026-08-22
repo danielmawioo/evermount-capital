@@ -14,12 +14,12 @@ function makeFile(name = "id.png") {
 async function uploadInto(
   user: ReturnType<typeof userEvent.setup>,
   label: string,
-  file: File
+  file: File,
 ) {
   const heading = screen.getByText(label);
   const container = heading.closest("div")!.parentElement as HTMLElement;
   const input = container.querySelector(
-    'input[type="file"]'
+    'input[type="file"]',
   ) as HTMLInputElement;
   await user.upload(input, file);
 
@@ -29,8 +29,8 @@ async function uploadInto(
   await user.click(uploadButton);
   await waitFor(() =>
     expect(
-      within(container).queryByRole("button", { name: "Upload Files" })
-    ).not.toBeInTheDocument()
+      within(container).queryByRole("button", { name: "Upload Files" }),
+    ).not.toBeInTheDocument(),
   );
 }
 
@@ -51,7 +51,7 @@ describe("InvestorKYCPage", () => {
     render(<InvestorKYCPage />);
 
     expect(
-      await screen.findByRole("heading", { name: "KYC Verification" })
+      await screen.findByRole("heading", { name: "KYC Verification" }),
     ).toBeInTheDocument();
   });
 
@@ -61,7 +61,7 @@ describe("InvestorKYCPage", () => {
     render(<InvestorKYCPage />);
 
     expect(
-      await screen.findByRole("heading", { name: "KYC Verified" })
+      await screen.findByRole("heading", { name: "KYC Verified" }),
     ).toBeInTheDocument();
   });
 
@@ -71,7 +71,7 @@ describe("InvestorKYCPage", () => {
     render(<InvestorKYCPage />);
 
     expect(
-      await screen.findByRole("heading", { name: "KYC Under Review" })
+      await screen.findByRole("heading", { name: "KYC Under Review" }),
     ).toBeInTheDocument();
   });
 
@@ -84,7 +84,7 @@ describe("InvestorKYCPage", () => {
     render(<InvestorKYCPage />);
 
     expect(
-      await screen.findByRole("heading", { name: "Verification Rejected" })
+      await screen.findByRole("heading", { name: "Verification Rejected" }),
     ).toBeInTheDocument();
     expect(screen.getByText(/Blurry document photo/)).toBeInTheDocument();
   });
@@ -101,7 +101,7 @@ describe("InvestorKYCPage", () => {
     await uploadInto(
       user,
       "Identity Document (ID/Passport)",
-      makeFile("id.png")
+      makeFile("id.png"),
     );
     await uploadInto(user, "Proof of Address", makeFile("address.png"));
     await uploadInto(user, "Selfie with ID", makeFile("selfie.png"));

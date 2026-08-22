@@ -75,7 +75,7 @@ describe("UserManagementPage", () => {
     render(<UserManagementPage />);
 
     await waitFor(() =>
-      expect(toast.error).toHaveBeenCalledWith("Failed to load users")
+      expect(toast.error).toHaveBeenCalledWith("Failed to load users"),
     );
   });
 
@@ -98,12 +98,12 @@ describe("UserManagementPage", () => {
     await user.click(screen.getByRole("button", { name: /create user/i }));
 
     await waitFor(() =>
-      expect(mock.history.post.filter((r) => r.url === "/admin/users")).toHaveLength(
-        1
-      )
+      expect(
+        mock.history.post.filter((r) => r.url === "/admin/users"),
+      ).toHaveLength(1),
     );
     const payload = JSON.parse(
-      mock.history.post.find((r) => r.url === "/admin/users")!.data
+      mock.history.post.find((r) => r.url === "/admin/users")!.data,
     );
     expect(payload).toEqual({
       fullName: "New Person",
@@ -128,11 +128,11 @@ describe("UserManagementPage", () => {
 
     await waitFor(() =>
       expect(
-        mock.history.post.filter((r) => r.url === "/admin/users/u1/suspend")
-      ).toHaveLength(1)
+        mock.history.post.filter((r) => r.url === "/admin/users/u1/suspend"),
+      ).toHaveLength(1),
     );
     const payload = JSON.parse(
-      mock.history.post.find((r) => r.url === "/admin/users/u1/suspend")!.data
+      mock.history.post.find((r) => r.url === "/admin/users/u1/suspend")!.data,
     );
     expect(payload).toEqual({ action: "suspend" });
   });
@@ -170,12 +170,14 @@ describe("UserManagementPage", () => {
     await user.click(screen.getAllByRole("button", { name: /assign/i })[0]);
 
     const dialog = (await screen.findByText("Assign to manager")).closest(
-      "div"
+      "div",
     ) as HTMLElement;
     await waitFor(() =>
-      expect(within(dialog).getByText(/Manager One/)).toBeInTheDocument()
+      expect(within(dialog).getByText(/Manager One/)).toBeInTheDocument(),
     );
-    expect(within(dialog).queryByText(/Inactive Manager/)).not.toBeInTheDocument();
+    expect(
+      within(dialog).queryByText(/Inactive Manager/),
+    ).not.toBeInTheDocument();
 
     const select = within(dialog).getByRole("combobox");
     await user.selectOptions(select, "m1");
@@ -183,12 +185,12 @@ describe("UserManagementPage", () => {
 
     await waitFor(() =>
       expect(
-        mock.history.post.filter((r) => r.url === "/admin/managers/m1/clients")
-      ).toHaveLength(1)
+        mock.history.post.filter((r) => r.url === "/admin/managers/m1/clients"),
+      ).toHaveLength(1),
     );
     const payload = JSON.parse(
       mock.history.post.find((r) => r.url === "/admin/managers/m1/clients")!
-        .data
+        .data,
     );
     expect(payload).toEqual({ email: "investor@evermount.co" });
   });
@@ -205,7 +207,7 @@ describe("UserManagementPage", () => {
     await user.click(screen.getAllByRole("button", { name: /credit/i })[0]);
 
     const dialog = (await screen.findByText("Credit wallet")).closest(
-      "div"
+      "div",
     ) as HTMLElement;
     const amountInput = within(dialog).getByPlaceholderText(/amount/i);
     // Use a value that clears the input's native min=1 constraint but still
@@ -218,7 +220,7 @@ describe("UserManagementPage", () => {
 
     await waitFor(() => expect(toast.error).toHaveBeenCalled());
     expect(
-      mock.history.post.filter((r) => r.url?.includes("/credit"))
+      mock.history.post.filter((r) => r.url?.includes("/credit")),
     ).toHaveLength(0);
   });
 
@@ -235,7 +237,7 @@ describe("UserManagementPage", () => {
     await user.click(screen.getAllByRole("button", { name: /credit/i })[0]);
 
     const dialog = (await screen.findByText("Credit wallet")).closest(
-      "div"
+      "div",
     ) as HTMLElement;
     const amountInput = within(dialog).getByPlaceholderText(/amount/i);
     fireEvent.change(amountInput, { target: { value: "250" } });
@@ -244,14 +246,13 @@ describe("UserManagementPage", () => {
     await waitFor(() =>
       expect(
         mock.history.post.filter(
-          (r) => r.url === "/admin/wallets/users/u1/credit"
-        )
-      ).toHaveLength(1)
+          (r) => r.url === "/admin/wallets/users/u1/credit",
+        ),
+      ).toHaveLength(1),
     );
     const payload = JSON.parse(
-      mock.history.post.find(
-        (r) => r.url === "/admin/wallets/users/u1/credit"
-      )!.data
+      mock.history.post.find((r) => r.url === "/admin/wallets/users/u1/credit")!
+        .data,
     );
     expect(payload).toEqual({
       amount: 250,

@@ -92,7 +92,9 @@ export default function PortfolioInsightsPage() {
             whileHover={{ y: -5, scale: 1.02 }}
             className="bg-white dark:bg-gray-800 shadow-md p-6 rounded-xl text-center border border-gray-200 dark:border-gray-700 hover:shadow-lg transition"
           >
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">{label}</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">
+              {label}
+            </p>
             <p className="text-3xl font-bold text-[#00a76f]">{value}</p>
           </motion.div>
         ))}
@@ -106,7 +108,9 @@ export default function PortfolioInsightsPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Growth Curve Analysis</h2>
+          <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+            Growth Curve Analysis
+          </h2>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
             Track cumulative returns versus benchmark indices and understand how
             algorithmic rebalancing improves long-term performance.
@@ -169,7 +173,9 @@ export default function PortfolioInsightsPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Risk Distribution</h2>
+          <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+            Risk Distribution
+          </h2>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
             Understand your capital&apos;s exposure across market sectors, asset
             classes, and volatility groups — in real-time.

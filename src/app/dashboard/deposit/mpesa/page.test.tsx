@@ -28,7 +28,7 @@ describe("MpesaDepositPage", () => {
     render(<MpesaDepositPage />);
 
     expect(
-      screen.getByRole("heading", { name: "M-Pesa Deposit" })
+      screen.getByRole("heading", { name: "M-Pesa Deposit" }),
     ).toBeInTheDocument();
   });
 
@@ -64,7 +64,7 @@ describe("MpesaDepositPage", () => {
     });
 
     expect(
-      await screen.findByText("Waiting for M-Pesa confirmation...")
+      await screen.findByText("Waiting for M-Pesa confirmation..."),
     ).toBeInTheDocument();
   });
 
@@ -86,7 +86,9 @@ describe("MpesaDepositPage", () => {
       jest.advanceTimersByTime(6000);
     });
 
-    await waitFor(() => expect(push).toHaveBeenCalledWith("/dashboard/wallets"));
+    await waitFor(() =>
+      expect(push).toHaveBeenCalledWith("/dashboard/wallets"),
+    );
 
     jest.useRealTimers();
   });

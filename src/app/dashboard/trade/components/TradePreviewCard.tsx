@@ -36,7 +36,10 @@ function formatDate(iso: string) {
 }
 
 function formatRisk(risk: string) {
-  return risk.replace(/_/g, " ").toLowerCase().replace(/^\w/, (c) => c.toUpperCase());
+  return risk
+    .replace(/_/g, " ")
+    .toLowerCase()
+    .replace(/^\w/, (c) => c.toUpperCase());
 }
 
 export default function TradePreviewCard({
@@ -89,11 +92,14 @@ export default function TradePreviewCard({
 
       <div className="px-5 py-4 bg-gray-50 dark:bg-gray-800/40">
         <p className="text-sm text-gray-600 dark:text-gray-300">
-          <span className="font-medium text-gray-800 dark:text-white">Why this match: </span>
+          <span className="font-medium text-gray-800 dark:text-white">
+            Why this match:{" "}
+          </span>
           {preview.allocationReason}
         </p>
         <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
-          Management and performance fees apply per your {tierLabel} plan. See pricing for details.
+          Management and performance fees apply per your {tierLabel} plan. See
+          pricing for details.
         </p>
         <Link
           href="/dashboard/setting"

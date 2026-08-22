@@ -14,7 +14,7 @@ import { getApiErrorMessage } from "@/lib/api-error";
 import { logger } from "@/lib/logger";
 
 const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "",
 );
 
 interface StripePaymentProps {
@@ -49,10 +49,10 @@ function CheckoutForm({
     }
 
     try {
-      const { error: stripeError, paymentIntent } = await stripe.confirmCardPayment(
-        clientSecret,
-        { payment_method: { card: cardElement } }
-      );
+      const { error: stripeError, paymentIntent } =
+        await stripe.confirmCardPayment(clientSecret, {
+          payment_method: { card: cardElement },
+        });
 
       if (stripeError) {
         toast.error(stripeError.message || "Payment failed");
@@ -121,7 +121,10 @@ export default function StripePayment(props: StripePaymentProps) {
         }
       } catch (error: unknown) {
         logger.error("Payment intent initialization failed", error);
-        const message = getApiErrorMessage(error, "Failed to initialize payment");
+        const message = getApiErrorMessage(
+          error,
+          "Failed to initialize payment",
+        );
         setInitError(message);
         props.onError?.(message);
       }

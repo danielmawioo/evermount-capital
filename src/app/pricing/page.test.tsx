@@ -7,7 +7,7 @@ describe("PricingPage", () => {
     expect(
       screen.getByRole("heading", {
         name: /investment minimums & fee structure/i,
-      })
+      }),
     ).toBeInTheDocument();
   });
 

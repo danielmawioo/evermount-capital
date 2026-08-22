@@ -76,8 +76,8 @@ export default function ForgotPasswordPage() {
             Forgot your password?
           </h2>
           <p className="text-sm text-gray-600 mb-6">
-            Enter the email associated with your account and we&apos;ll send you an
-            OTP to reset your password.
+            Enter the email associated with your account and we&apos;ll send you
+            an OTP to reset your password.
           </p>
 
           <form className="space-y-6" onSubmit={handleSubmit}>

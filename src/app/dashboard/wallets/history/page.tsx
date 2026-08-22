@@ -6,10 +6,7 @@ import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
 import { logger } from "@/lib/logger";
 import toast from "react-hot-toast";
-import {
-  ArrowLeftIcon,
-  FunnelIcon,
-} from "@heroicons/react/24/outline";
+import { ArrowLeftIcon, FunnelIcon } from "@heroicons/react/24/outline";
 
 interface Transaction {
   id: string;
@@ -61,7 +58,9 @@ export default function WalletHistoryPage() {
       }));
     } catch (error: unknown) {
       logger.error("Failed to fetch wallet transaction history", error);
-      toast.error(getApiErrorMessage(error, "Failed to load transaction history"));
+      toast.error(
+        getApiErrorMessage(error, "Failed to load transaction history"),
+      );
     } finally {
       setLoading(false);
     }
@@ -82,17 +81,22 @@ export default function WalletHistoryPage() {
 
   const getStatusBadge = (status: string) => {
     const statusColors: { [key: string]: string } = {
-      completed: "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400",
-      success: "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400",
-      pending: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400",
-      processing: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400",
+      completed:
+        "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400",
+      success:
+        "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400",
+      pending:
+        "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400",
+      processing:
+        "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400",
       failed: "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400",
       rejected: "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400",
     };
     return (
       <span
         className={`px-2 py-1 rounded-full text-xs font-medium ${
-          statusColors[status.toLowerCase()] || "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-400"
+          statusColors[status.toLowerCase()] ||
+          "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-400"
         }`}
       >
         {status.charAt(0).toUpperCase() + status.slice(1)}
@@ -114,10 +118,18 @@ export default function WalletHistoryPage() {
   };
 
   const getTransactionIcon = (type: string) => {
-    if (type === "deposit" || type === "dividend" || type === "profit-withdrawal") {
+    if (
+      type === "deposit" ||
+      type === "dividend" ||
+      type === "profit-withdrawal"
+    ) {
       return "↓";
     }
-    if (type === "withdrawal" || type === "investment" || type === "transfer-to-investment") {
+    if (
+      type === "withdrawal" ||
+      type === "investment" ||
+      type === "transfer-to-investment"
+    ) {
       return "↑";
     }
     return "•";
@@ -163,7 +175,9 @@ export default function WalletHistoryPage() {
       <div className="bg-white dark:bg-[#161a23] border border-gray-200 dark:border-gray-800 rounded-xl p-6 shadow-sm">
         <div className="flex items-center gap-2 mb-4">
           <FunnelIcon className="w-5 h-5 text-gray-600 dark:text-gray-400" />
-          <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Filters</h2>
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+            Filters
+          </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div>
@@ -180,7 +194,9 @@ export default function WalletHistoryPage() {
               <option value="withdrawal">Withdrawal</option>
               <option value="investment">Investment</option>
               <option value="profit-withdrawal">Profit Withdrawal</option>
-              <option value="transfer-to-investment">Transfer to Investment</option>
+              <option value="transfer-to-investment">
+                Transfer to Investment
+              </option>
               <option value="dividend">Dividend</option>
               <option value="fee">Fee</option>
             </select>
@@ -228,7 +244,10 @@ export default function WalletHistoryPage() {
           </div>
         </div>
 
-        {(filters.type || filters.status || filters.startDate || filters.endDate) && (
+        {(filters.type ||
+          filters.status ||
+          filters.startDate ||
+          filters.endDate) && (
           <button
             onClick={clearFilters}
             className="mt-4 text-sm text-[#00a76f] hover:underline"
@@ -243,11 +262,15 @@ export default function WalletHistoryPage() {
         {loading ? (
           <div className="p-8 text-center">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#00a76f] mx-auto"></div>
-            <p className="mt-4 text-gray-600 dark:text-gray-400">Loading transactions...</p>
+            <p className="mt-4 text-gray-600 dark:text-gray-400">
+              Loading transactions...
+            </p>
           </div>
         ) : transactions.length === 0 ? (
           <div className="p-8 text-center">
-            <p className="text-gray-600 dark:text-gray-400">No transactions found</p>
+            <p className="text-gray-600 dark:text-gray-400">
+              No transactions found
+            </p>
             <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
               Try adjusting your filters or make your first deposit
             </p>
@@ -315,20 +338,26 @@ export default function WalletHistoryPage() {
                           transaction.type === "profit-withdrawal"
                             ? "+"
                             : "-"}
-                          {formatCurrency(transaction.amount, transaction.currency)}
+                          {formatCurrency(
+                            transaction.amount,
+                            transaction.currency,
+                          )}
                         </p>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         {getStatusBadge(transaction.status)}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                        {new Date(transaction.createdAt).toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                          hour: "2-digit",
-                          minute: "2-digit",
-                        })}
+                        {new Date(transaction.createdAt).toLocaleDateString(
+                          "en-US",
+                          {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          },
+                        )}
                       </td>
                     </tr>
                   ))}
@@ -341,13 +370,19 @@ export default function WalletHistoryPage() {
               <div className="px-6 py-4 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between">
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   Showing {(pagination.page - 1) * pagination.limit + 1} to{" "}
-                  {Math.min(pagination.page * pagination.limit, pagination.total)} of{" "}
-                  {pagination.total} transactions
+                  {Math.min(
+                    pagination.page * pagination.limit,
+                    pagination.total,
+                  )}{" "}
+                  of {pagination.total} transactions
                 </p>
                 <div className="flex gap-2">
                   <button
                     onClick={() =>
-                      setPagination((prev) => ({ ...prev, page: Math.max(1, prev.page - 1) }))
+                      setPagination((prev) => ({
+                        ...prev,
+                        page: Math.max(1, prev.page - 1),
+                      }))
                     }
                     disabled={pagination.page === 1}
                     className="px-4 py-2 text-sm border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -361,7 +396,9 @@ export default function WalletHistoryPage() {
                         page: prev.page + 1,
                       }))
                     }
-                    disabled={pagination.page * pagination.limit >= pagination.total}
+                    disabled={
+                      pagination.page * pagination.limit >= pagination.total
+                    }
                     className="px-4 py-2 text-sm border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Next
@@ -375,4 +412,3 @@ export default function WalletHistoryPage() {
     </div>
   );
 }
-

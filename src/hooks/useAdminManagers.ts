@@ -29,9 +29,9 @@ export function useAdminManagers() {
   const [managers, setManagers] = useState<Manager[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  const [filterStatus, setFilterStatus] = useState<"all" | "active" | "inactive">(
-    "all",
-  );
+  const [filterStatus, setFilterStatus] = useState<
+    "all" | "active" | "inactive"
+  >("all");
   const [showAddModal, setShowAddModal] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({
@@ -136,7 +136,9 @@ export function useAdminManagers() {
 
   const handleUnassignClient = async (client: ManagerClient) => {
     if (!manageManager) return;
-    if (!confirm(`Unassign ${client.fullName} from ${manageManager.fullName}?`)) {
+    if (
+      !confirm(`Unassign ${client.fullName} from ${manageManager.fullName}?`)
+    ) {
       return;
     }
     try {
@@ -157,7 +159,9 @@ export function useAdminManagers() {
     if (!creditClient) return;
     const parsedAmount = CreditAmountSchema.safeParse(parseFloat(creditAmount));
     if (!parsedAmount.success) {
-      toast.error(parsedAmount.error.issues[0]?.message ?? "Enter a valid amount");
+      toast.error(
+        parsedAmount.error.issues[0]?.message ?? "Enter a valid amount",
+      );
       return;
     }
     const amount = parsedAmount.data;

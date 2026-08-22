@@ -46,9 +46,13 @@ interface DashboardStats {
 export default function DashboardPage() {
   const router = useRouter();
   const { profile, tier, loading: profileLoading, kycApproved } = useInvestor();
-  const [walletBalance, setWalletBalance] = useState<WalletBalance | null>(null);
+  const [walletBalance, setWalletBalance] = useState<WalletBalance | null>(
+    null,
+  );
   const [performance, setPerformance] = useState<PerformanceData | null>(null);
-  const [recentActivity, setRecentActivity] = useState<DashboardStats["recentActivity"]>([]);
+  const [recentActivity, setRecentActivity] = useState<
+    DashboardStats["recentActivity"]
+  >([]);
   const [period, setPeriod] = useState("30d");
 
   useEffect(() => {
@@ -125,13 +129,16 @@ export default function DashboardPage() {
           </div>
         </div>
         <div className="text-left sm:text-right">
-          <p className="text-sm text-gray-500 dark:text-gray-400">Account balance</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            Account balance
+          </p>
           <p className="text-3xl font-bold text-gray-900 dark:text-white tabular-nums">
             {formatCurrency(displayBalance, currency)}
           </p>
           {walletBalance && (
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-              {formatCurrency(walletBalance.availableBalance, currency)} available ·{" "}
+              {formatCurrency(walletBalance.availableBalance, currency)}{" "}
+              available ·{" "}
               {formatCurrency(walletBalance.investedBalance, currency)} invested
             </p>
           )}

@@ -43,13 +43,13 @@ describe("AdminKYCReviewPage", () => {
     expect(screen.getByText(/Loading submissions/i)).toBeInTheDocument();
 
     await waitFor(() =>
-      expect(screen.getByText("Jane Investor")).toBeInTheDocument()
+      expect(screen.getByText("Jane Investor")).toBeInTheDocument(),
     );
 
     expect(screen.getByText("investor@example.com")).toBeInTheDocument();
-    expect(
-      mock.history.get.find((r) => r.url === "/kyc")?.params
-    ).toEqual({ status: "PENDING" });
+    expect(mock.history.get.find((r) => r.url === "/kyc")?.params).toEqual({
+      status: "PENDING",
+    });
   });
 
   it("shows the empty state when there are no submissions", async () => {
@@ -58,7 +58,7 @@ describe("AdminKYCReviewPage", () => {
     render(<AdminKYCReviewPage />);
 
     await waitFor(() =>
-      expect(screen.getByText("No submissions found.")).toBeInTheDocument()
+      expect(screen.getByText("No submissions found.")).toBeInTheDocument(),
     );
   });
 
@@ -69,7 +69,7 @@ describe("AdminKYCReviewPage", () => {
     render(<AdminKYCReviewPage />);
 
     await waitFor(() =>
-      expect(screen.getByText("Jane Investor")).toBeInTheDocument()
+      expect(screen.getByText("Jane Investor")).toBeInTheDocument(),
     );
 
     mock.resetHistory();
@@ -78,9 +78,9 @@ describe("AdminKYCReviewPage", () => {
     await user.click(screen.getByRole("button", { name: "Verified" }));
 
     await waitFor(() =>
-      expect(
-        mock.history.get.find((r) => r.url === "/kyc")?.params
-      ).toEqual({ status: "VERIFIED" })
+      expect(mock.history.get.find((r) => r.url === "/kyc")?.params).toEqual({
+        status: "VERIFIED",
+      }),
     );
   });
 
@@ -91,7 +91,7 @@ describe("AdminKYCReviewPage", () => {
     render(<AdminKYCReviewPage />);
 
     await waitFor(() =>
-      expect(screen.getByText("Jane Investor")).toBeInTheDocument()
+      expect(screen.getByText("Jane Investor")).toBeInTheDocument(),
     );
 
     mock.resetHistory();
@@ -100,10 +100,10 @@ describe("AdminKYCReviewPage", () => {
     await user.click(screen.getByRole("button", { name: "All" }));
 
     await waitFor(() =>
-      expect(mock.history.get.some((r) => r.url === "/kyc")).toBe(true)
+      expect(mock.history.get.some((r) => r.url === "/kyc")).toBe(true),
     );
     expect(
-      mock.history.get.find((r) => r.url === "/kyc")?.params
+      mock.history.get.find((r) => r.url === "/kyc")?.params,
     ).toBeUndefined();
   });
 
@@ -115,14 +115,14 @@ describe("AdminKYCReviewPage", () => {
     render(<AdminKYCReviewPage />);
 
     await waitFor(() =>
-      expect(screen.getByText("Jane Investor")).toBeInTheDocument()
+      expect(screen.getByText("Jane Investor")).toBeInTheDocument(),
     );
 
     mock.onGet("/kyc").reply(200, { submissions: [] });
     await user.click(screen.getByRole("button", { name: "Approve" }));
 
     await waitFor(() =>
-      expect(toast.success).toHaveBeenCalledWith("KYC approved")
+      expect(toast.success).toHaveBeenCalledWith("KYC approved"),
     );
     const putCall = mock.history.put.find((r) => r.url === "/kyc/kyc-1");
     expect(JSON.parse(putCall?.data)).toEqual({
@@ -140,14 +140,14 @@ describe("AdminKYCReviewPage", () => {
     render(<AdminKYCReviewPage />);
 
     await waitFor(() =>
-      expect(screen.getByText("Jane Investor")).toBeInTheDocument()
+      expect(screen.getByText("Jane Investor")).toBeInTheDocument(),
     );
 
     mock.onGet("/kyc").reply(200, { submissions: [] });
     await user.click(screen.getByRole("button", { name: "Reject" }));
 
     await waitFor(() =>
-      expect(toast.success).toHaveBeenCalledWith("KYC rejected")
+      expect(toast.success).toHaveBeenCalledWith("KYC rejected"),
     );
     const putCall = mock.history.put.find((r) => r.url === "/kyc/kyc-1");
     expect(JSON.parse(putCall?.data)).toEqual({
@@ -164,13 +164,13 @@ describe("AdminKYCReviewPage", () => {
     render(<AdminKYCReviewPage />);
 
     await waitFor(() =>
-      expect(screen.getByText("Jane Investor")).toBeInTheDocument()
+      expect(screen.getByText("Jane Investor")).toBeInTheDocument(),
     );
 
     await user.click(screen.getByRole("button", { name: "Approve" }));
 
     await waitFor(() =>
-      expect(toast.error).toHaveBeenCalledWith("Failed to update KYC status")
+      expect(toast.error).toHaveBeenCalledWith("Failed to update KYC status"),
     );
   });
 });

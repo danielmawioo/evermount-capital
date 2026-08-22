@@ -1,4 +1,10 @@
-import { render, screen, waitFor, fireEvent, act } from "@testing-library/react";
+import {
+  render,
+  screen,
+  waitFor,
+  fireEvent,
+  act,
+} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import MockAdapter from "axios-mock-adapter";
 import apiClient from "@/lib/api-client";
@@ -37,7 +43,9 @@ describe("ResetPasswordPage", () => {
   it("shows a validation error when required fields are missing", () => {
     render(<ResetPasswordPage />);
 
-    fireEvent.submit(screen.getByRole("button", { name: /update password/i }).closest("form")!);
+    fireEvent.submit(
+      screen.getByRole("button", { name: /update password/i }).closest("form")!,
+    );
 
     expect(screen.getByText("Please fill in all fields.")).toBeInTheDocument();
     expect(mock.history.post?.length ?? 0).toBe(0);
@@ -53,7 +61,9 @@ describe("ResetPasswordPage", () => {
     await user.type(newPassword, "NewPass1!");
     await user.type(confirmPassword, "Mismatch1!");
 
-    fireEvent.submit(screen.getByRole("button", { name: /update password/i }).closest("form")!);
+    fireEvent.submit(
+      screen.getByRole("button", { name: /update password/i }).closest("form")!,
+    );
 
     expect(screen.getByText("Passwords do not match.")).toBeInTheDocument();
     expect(mock.history.post?.length ?? 0).toBe(0);
@@ -76,7 +86,9 @@ describe("ResetPasswordPage", () => {
       await user.type(newPassword, "NewPass1!");
       await user.type(confirmPassword, "NewPass1!");
 
-      await user.click(screen.getByRole("button", { name: /update password/i }));
+      await user.click(
+        screen.getByRole("button", { name: /update password/i }),
+      );
 
       await waitFor(() => expect(mock.history.post?.length).toBe(1));
       expect(JSON.parse(mock.history.post![0].data)).toEqual({
@@ -86,7 +98,9 @@ describe("ResetPasswordPage", () => {
       });
 
       expect(
-        await screen.findByText("Password updated successfully! Please log in.")
+        await screen.findByText(
+          "Password updated successfully! Please log in.",
+        ),
       ).toBeInTheDocument();
 
       expect(() => {
@@ -115,7 +129,9 @@ describe("ResetPasswordPage", () => {
 
     await user.click(screen.getByRole("button", { name: /update password/i }));
 
-    expect(await screen.findByText("Invalid or expired OTP")).toBeInTheDocument();
+    expect(
+      await screen.findByText("Invalid or expired OTP"),
+    ).toBeInTheDocument();
   });
 
   it("resends the OTP when requested", async () => {
@@ -132,7 +148,9 @@ describe("ResetPasswordPage", () => {
     expect(JSON.parse(mock.history.post![0].data)).toEqual({
       email: "user@example.com",
     });
-    expect(await screen.findByText("OTP resent to your email.")).toBeInTheDocument();
+    expect(
+      await screen.findByText("OTP resent to your email."),
+    ).toBeInTheDocument();
   });
 
   it("shows an error when resending without an email", async () => {

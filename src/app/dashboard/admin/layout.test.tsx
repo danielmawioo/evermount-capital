@@ -32,7 +32,7 @@ describe("AdminLayout", () => {
     setAuthTokens("token", "refresh", true);
     setUser(
       { id: "1", email: "a@b.com", fullName: "A B", role: "ADMIN" },
-      true
+      true,
     );
     mock.onGet("/users/profile").reply(200, {
       id: "1",
@@ -45,7 +45,7 @@ describe("AdminLayout", () => {
     render(
       <AdminLayout>
         <div>Admin Content</div>
-      </AdminLayout>
+      </AdminLayout>,
     );
 
     expect(await screen.findByText("Admin Content")).toBeInTheDocument();
@@ -56,7 +56,7 @@ describe("AdminLayout", () => {
     setAuthTokens("token", "refresh", true);
     setUser(
       { id: "2", email: "c@d.com", fullName: "C D", role: "INVESTOR" },
-      true
+      true,
     );
     mock.onGet("/users/profile").reply(200, {
       id: "2",
@@ -69,7 +69,7 @@ describe("AdminLayout", () => {
     render(
       <AdminLayout>
         <div>Admin Content</div>
-      </AdminLayout>
+      </AdminLayout>,
     );
 
     await waitFor(() => expect(replace).toHaveBeenCalledWith("/dashboard"));
@@ -82,7 +82,7 @@ describe("AdminLayout", () => {
     render(
       <AdminLayout>
         <div>Admin Content</div>
-      </AdminLayout>
+      </AdminLayout>,
     );
 
     await waitFor(() => expect(replace).toHaveBeenCalledWith("/login"));

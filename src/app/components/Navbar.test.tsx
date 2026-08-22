@@ -26,7 +26,7 @@ function renderNavbar() {
   return render(
     <ThemeProvider>
       <Navbar />
-    </ThemeProvider>
+    </ThemeProvider>,
   );
 }
 
@@ -50,12 +50,14 @@ describe("Navbar", () => {
     renderNavbar();
 
     expect(screen.getByText("Evermount")).toBeInTheDocument();
-    expect(
-      screen.getByRole("link", { name: "Performance" })
-    ).toHaveAttribute("href", "/portfolio-insights");
-    expect(
-      screen.getByRole("link", { name: "Institutional" })
-    ).toHaveAttribute("href", "/pricing");
+    expect(screen.getByRole("link", { name: "Performance" })).toHaveAttribute(
+      "href",
+      "/portfolio-insights",
+    );
+    expect(screen.getByRole("link", { name: "Institutional" })).toHaveAttribute(
+      "href",
+      "/pricing",
+    );
     expect(screen.getAllByText("Invest").length).toBeGreaterThan(0);
   });
 
@@ -71,7 +73,7 @@ describe("Navbar", () => {
 
     await user.click(screen.getByLabelText("Toggle menu"));
     await waitFor(() =>
-      expect(screen.queryByText("Dark Mode")).not.toBeInTheDocument()
+      expect(screen.queryByText("Dark Mode")).not.toBeInTheDocument(),
     );
   });
 
@@ -109,12 +111,12 @@ describe("Navbar", () => {
 
     await user.type(
       screen.getByPlaceholderText("you@example.com"),
-      "not-an-email"
+      "not-an-email",
     );
     await user.click(screen.getByRole("button", { name: "Submit" }));
 
     expect(toastFn.error).toHaveBeenCalledWith(
-      "Please enter a valid email address."
+      "Please enter a valid email address.",
     );
     expect(mock.history.post.length).toBe(0);
   });
@@ -131,13 +133,13 @@ describe("Navbar", () => {
 
     await user.type(
       screen.getByPlaceholderText("you@example.com"),
-      "investor@example.com"
+      "investor@example.com",
     );
     await user.click(screen.getByRole("button", { name: "Submit" }));
 
     await waitFor(() => {
       expect(toastFn.success).toHaveBeenCalledWith(
-        "You're on the waitlist! 🎉"
+        "You're on the waitlist! 🎉",
       );
     });
     expect(JSON.parse(mock.history.post[0].data)).toEqual({
@@ -162,7 +164,7 @@ describe("Navbar", () => {
 
     await user.type(
       screen.getByPlaceholderText("you@example.com"),
-      "investor@example.com"
+      "investor@example.com",
     );
     await user.click(screen.getByRole("button", { name: "Submit" }));
 
@@ -183,15 +185,15 @@ describe("Navbar", () => {
 
     await user.type(
       screen.getByPlaceholderText("you@example.com"),
-      "investor@example.com"
+      "investor@example.com",
     );
 
     const closeButtons = screen
       .getAllByRole("button")
       .filter((btn) => btn.querySelector("svg"));
     // The close (X) button is the one inside the modal without visible text.
-    const modalCloseButton = closeButtons.find(
-      (btn) => btn.className.includes("absolute top-4 right-4")
+    const modalCloseButton = closeButtons.find((btn) =>
+      btn.className.includes("absolute top-4 right-4"),
     );
     expect(modalCloseButton).toBeTruthy();
     await user.click(modalCloseButton as HTMLElement);

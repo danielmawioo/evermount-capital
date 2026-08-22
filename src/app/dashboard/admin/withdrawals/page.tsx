@@ -101,7 +101,9 @@ export default function AdminWithdrawalsPage() {
           disabled={loading}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition"
         >
-          <ArrowPathIcon className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
+          <ArrowPathIcon
+            className={`w-4 h-4 ${loading ? "animate-spin" : ""}`}
+          />
           Refresh
         </button>
       </div>
@@ -128,7 +130,10 @@ export default function AdminWithdrawalsPage() {
               </thead>
               <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
                 {withdrawals.map((w) => (
-                  <tr key={w.transactionId} className="hover:bg-gray-50/50 dark:hover:bg-gray-800/30">
+                  <tr
+                    key={w.transactionId}
+                    className="hover:bg-gray-50/50 dark:hover:bg-gray-800/30"
+                  >
                     <td className="px-4 py-3">
                       <p className="font-medium text-gray-900 dark:text-white">
                         {w.userName}

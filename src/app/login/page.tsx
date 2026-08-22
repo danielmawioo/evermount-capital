@@ -31,7 +31,12 @@ export default function LoginPage() {
       return false;
     }
 
-    if (!minimumPasswordSchema(6, "Password must be at least 6 characters.").safeParse(password).success) {
+    if (
+      !minimumPasswordSchema(
+        6,
+        "Password must be at least 6 characters.",
+      ).safeParse(password).success
+    ) {
       toast.error("Password must be at least 6 characters.");
       return false;
     }
@@ -65,7 +70,7 @@ export default function LoginPage() {
         setLoading(false);
       }
     },
-    [email, password, rememberMe, validateForm]
+    [email, password, rememberMe, validateForm],
   );
 
   const handleSocialLogin = useCallback(async (provider: string) => {
@@ -267,10 +272,22 @@ export default function LoginPage() {
 
             <div className="grid grid-cols-4 gap-3">
               {[
-                { label: "Google", icon: "/icons/google.png", displayText: "G Google" },
-                { label: "GitHub", icon: "/icons/github.png", displayText: "GitHub" },
+                {
+                  label: "Google",
+                  icon: "/icons/google.png",
+                  displayText: "G Google",
+                },
+                {
+                  label: "GitHub",
+                  icon: "/icons/github.png",
+                  displayText: "GitHub",
+                },
                 { label: "X", icon: "/icons/twitter.png", displayText: "X" },
-                { label: "Apple", icon: "/icons/apple.png", displayText: "Apple" },
+                {
+                  label: "Apple",
+                  icon: "/icons/apple.png",
+                  displayText: "Apple",
+                },
               ].map(({ label, icon, displayText }) => (
                 <button
                   key={label}
@@ -290,14 +307,16 @@ export default function LoginPage() {
                   disabled={loading}
                   className="flex flex-col items-center justify-center gap-1.5 border border-gray-300 dark:border-gray-700 px-3 py-3 rounded-md text-xs font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition shadow-sm bg-white dark:bg-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <Image 
-                    src={icon} 
-                    alt={label} 
-                    width={20} 
+                  <Image
+                    src={icon}
+                    alt={label}
+                    width={20}
                     height={20}
                     className="object-contain"
                   />
-                  <span className="text-[10px] sm:text-xs text-gray-700 dark:text-gray-300">{displayText}</span>
+                  <span className="text-[10px] sm:text-xs text-gray-700 dark:text-gray-300">
+                    {displayText}
+                  </span>
                 </button>
               ))}
             </div>

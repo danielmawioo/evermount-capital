@@ -29,7 +29,9 @@ export default function QuantConnectionCard({
       </p>
       <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
         Last updated:{" "}
-        {quant?.last_updated ? new Date(quant.last_updated).toLocaleString() : "—"}
+        {quant?.last_updated
+          ? new Date(quant.last_updated).toLocaleString()
+          : "—"}
       </p>
     </div>
   );

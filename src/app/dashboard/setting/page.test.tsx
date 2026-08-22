@@ -29,7 +29,7 @@ describe("SettingsPage", () => {
     render(<SettingsPage />);
 
     expect(
-      await screen.findByRole("heading", { name: "Account Settings" })
+      await screen.findByRole("heading", { name: "Account Settings" }),
     ).toBeInTheDocument();
     expect(await screen.findByDisplayValue("Jane Doe")).toBeInTheDocument();
     expect(screen.getByDisplayValue("jane@example.com")).toBeDisabled();
@@ -48,7 +48,7 @@ describe("SettingsPage", () => {
 
     await waitFor(() => {
       expect(mock.history.put.some((r) => r.url === "/users/profile")).toBe(
-        true
+        true,
       );
     });
     const call = mock.history.put.find((r) => r.url === "/users/profile");
@@ -63,12 +63,12 @@ describe("SettingsPage", () => {
     await screen.findByText("Investment Preferences");
     await user.click(screen.getByRole("button", { name: "12 months" }));
     await user.click(
-      screen.getByRole("button", { name: "Save Investment Preferences" })
+      screen.getByRole("button", { name: "Save Investment Preferences" }),
     );
 
     await waitFor(() => {
       expect(
-        mock.history.put.some((r) => r.url === "/investments/preferences")
+        mock.history.put.some((r) => r.url === "/investments/preferences"),
       ).toBe(true);
     });
   });
@@ -80,7 +80,7 @@ describe("SettingsPage", () => {
     await screen.findByRole("heading", { name: "Change Password" });
 
     const passwordInputs = container.querySelectorAll<HTMLInputElement>(
-      'input[type="password"]'
+      'input[type="password"]',
     );
     expect(passwordInputs).toHaveLength(3);
     const [, newPw, confirmPw] = Array.from(passwordInputs);
@@ -89,7 +89,7 @@ describe("SettingsPage", () => {
     await user.click(screen.getByRole("button", { name: "Change Password" }));
 
     expect(
-      mock.history.put.filter((r) => r.url === "/users/change-password")
+      mock.history.put.filter((r) => r.url === "/users/change-password"),
     ).toHaveLength(0);
   });
 });

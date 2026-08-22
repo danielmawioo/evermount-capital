@@ -6,7 +6,7 @@ describe("AuthLeftPanel", () => {
     render(<AuthLeftPanel title="Welcome Back" />);
 
     expect(
-      screen.getByRole("heading", { name: "Welcome Back" })
+      screen.getByRole("heading", { name: "Welcome Back" }),
     ).toBeInTheDocument();
     expect(screen.getByAltText("Auth Visual")).toBeInTheDocument();
     expect(screen.getByAltText("okta")).toBeInTheDocument();

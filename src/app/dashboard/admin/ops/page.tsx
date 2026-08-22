@@ -50,7 +50,10 @@ export default function TradingOpsPage() {
         />
       </div>
 
-      <NavPublishingCard actionLoading={actionLoading} onRunNavBatch={handleNavBatch} />
+      <NavPublishingCard
+        actionLoading={actionLoading}
+        onRunNavBatch={handleNavBatch}
+      />
 
       <StrategiesTable strategies={quant?.strategies} />
 

@@ -41,7 +41,9 @@ export function useManagerClients() {
   const [loading, setLoading] = useState(true);
   const [allocating, setAllocating] = useState<string | null>(null);
   const [previewLoading, setPreviewLoading] = useState<string | null>(null);
-  const [previews, setPreviews] = useState<Record<string, AllocationPreview>>({});
+  const [previews, setPreviews] = useState<Record<string, AllocationPreview>>(
+    {},
+  );
   const [forms, setForms] = useState<Record<string, ClientForm>>({});
   const [confirmClientId, setConfirmClientId] = useState<string | null>(null);
   const [unassigning, setUnassigning] = useState<string | null>(null);
@@ -102,11 +104,14 @@ export function useManagerClients() {
 
       setPreviewLoading(clientId);
       try {
-        const { data } = await api.portfolioManager.previewAllocation(clientId, {
-          investmentOptionId,
-          amount,
-          lockInMonths,
-        });
+        const { data } = await api.portfolioManager.previewAllocation(
+          clientId,
+          {
+            investmentOptionId,
+            amount,
+            lockInMonths,
+          },
+        );
         setPreviews((p) => ({ ...p, [clientId]: data }));
       } catch (error: unknown) {
         setPreviews((p) => {
@@ -190,7 +195,11 @@ export function useManagerClients() {
     setAddingClient(true);
     try {
       if (addMode === "create") {
-        if (!clientForm.fullName.trim() || !clientForm.email.trim() || !clientForm.password) {
+        if (
+          !clientForm.fullName.trim() ||
+          !clientForm.email.trim() ||
+          !clientForm.password
+        ) {
           toast.error("Name, email, and password are required");
           return;
         }
@@ -198,7 +207,12 @@ export function useManagerClients() {
           toast.error("Enter a valid email address");
           return;
         }
-        if (!minimumPasswordSchema(8, "Password must be at least 8 characters").safeParse(clientForm.password).success) {
+        if (
+          !minimumPasswordSchema(
+            8,
+            "Password must be at least 8 characters",
+          ).safeParse(clientForm.password).success
+        ) {
           toast.error("Password must be at least 8 characters");
           return;
         }

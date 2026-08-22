@@ -19,7 +19,7 @@ describe("WithdrawMethodPage", () => {
     render(<WithdrawMethodPage />);
 
     expect(
-      screen.getByRole("heading", { name: "Choose Withdrawal Method" })
+      screen.getByRole("heading", { name: "Choose Withdrawal Method" }),
     ).toBeInTheDocument();
   });
 

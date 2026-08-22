@@ -78,7 +78,7 @@ describe("useManagerClients", () => {
     });
 
     await waitFor(() =>
-      expect(result.current.previews["client-1"]?.canAllocate).toBe(true)
+      expect(result.current.previews["client-1"]?.canAllocate).toBe(true),
     );
   });
 
@@ -124,7 +124,9 @@ describe("useManagerClients", () => {
     });
 
     expect(
-      mock.history.delete?.some((r) => r.url === "/portfolio-manager/clients/client-1")
+      mock.history.delete?.some(
+        (r) => r.url === "/portfolio-manager/clients/client-1",
+      ),
     ).toBe(true);
     expect(result.current.unassigning).toBeNull();
 

@@ -1,4 +1,10 @@
-import { render, screen, waitFor, fireEvent, act } from "@testing-library/react";
+import {
+  render,
+  screen,
+  waitFor,
+  fireEvent,
+  act,
+} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import MockAdapter from "axios-mock-adapter";
 import apiClient from "@/lib/api-client";
@@ -28,7 +34,7 @@ async function fillRequiredFields(
     lastName: string;
     email: string;
     password: string;
-  }> = {}
+  }> = {},
 ) {
   const {
     firstName = "Jane",
@@ -64,10 +70,12 @@ describe("RegisterPage", () => {
     render(<RegisterPage />);
 
     await fillRequiredFields(user);
-    fireEvent.submit(screen.getByRole("button", { name: /create account/i }).closest("form")!);
+    fireEvent.submit(
+      screen.getByRole("button", { name: /create account/i }).closest("form")!,
+    );
 
     expect(toastFn.error).toHaveBeenCalledWith(
-      "Please accept the Terms and Conditions."
+      "Please accept the Terms and Conditions.",
     );
     expect(mock.history.post?.length ?? 0).toBe(0);
   });
@@ -78,10 +86,12 @@ describe("RegisterPage", () => {
 
     await fillRequiredFields(user, { password: "weak" });
     await user.click(screen.getByRole("checkbox"));
-    fireEvent.submit(screen.getByRole("button", { name: /create account/i }).closest("form")!);
+    fireEvent.submit(
+      screen.getByRole("button", { name: /create account/i }).closest("form")!,
+    );
 
     expect(toastFn.error).toHaveBeenCalledWith(
-      "Password is too weak. Make it stronger."
+      "Password is too weak. Make it stronger.",
     );
     expect(mock.history.post?.length ?? 0).toBe(0);
   });
@@ -114,8 +124,8 @@ describe("RegisterPage", () => {
 
       await waitFor(() =>
         expect(toastFn.success).toHaveBeenCalledWith(
-          "Account created! Redirecting to your dashboard..."
-        )
+          "Account created! Redirecting to your dashboard...",
+        ),
       );
 
       expect(localStorage.getItem("token")).toBe("access-token-1");
@@ -155,8 +165,8 @@ describe("RegisterPage", () => {
 
       await waitFor(() =>
         expect(toastFn.success).toHaveBeenCalledWith(
-          "Account created! Please check your email to verify."
-        )
+          "Account created! Please check your email to verify.",
+        ),
       );
 
       expect(localStorage.getItem("token")).toBeNull();
@@ -184,7 +194,7 @@ describe("RegisterPage", () => {
     await user.click(screen.getByRole("button", { name: /create account/i }));
 
     await waitFor(() =>
-      expect(toastFn.error).toHaveBeenCalledWith("Email already in use")
+      expect(toastFn.error).toHaveBeenCalledWith("Email already in use"),
     );
   });
 
@@ -206,7 +216,7 @@ describe("RegisterPage", () => {
 
     expect(toastFn).toHaveBeenCalledWith(
       "Google Sign-In integration in progress",
-      expect.objectContaining({ icon: expect.any(String) })
+      expect.objectContaining({ icon: expect.any(String) }),
     );
   });
 });

@@ -108,14 +108,14 @@ function scoreMatch(message: string, keywords: string[]): number {
   const lower = message.toLowerCase();
   return keywords.reduce(
     (score, kw) => (lower.includes(kw) ? score + kw.length : score),
-    0
+    0,
   );
 }
 
 export function getChatFallbackResponse(
   departmentId: string,
   assistantName: string,
-  userMessage: string
+  userMessage: string,
 ): string {
   const dept = CHAT_DEPARTMENT_MAP[departmentId];
   if (!dept) {

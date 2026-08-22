@@ -17,7 +17,7 @@ function renderTopbar() {
   return render(
     <ThemeProvider>
       <Topbar />
-    </ThemeProvider>
+    </ThemeProvider>,
   );
 }
 
@@ -42,7 +42,7 @@ describe("Topbar", () => {
     expect(
       screen.getByRole("heading", {
         name: /Good morning|Good afternoon|Good evening/,
-      })
+      }),
     ).toBeInTheDocument();
     expect(screen.getByPlaceholderText("Search...")).toBeInTheDocument();
   });
@@ -51,9 +51,7 @@ describe("Topbar", () => {
     const user = userEvent.setup();
     renderTopbar();
 
-    expect(
-      screen.queryByText("No new notifications.")
-    ).not.toBeInTheDocument();
+    expect(screen.queryByText("No new notifications.")).not.toBeInTheDocument();
 
     // The bell button is the only icon button with no accessible name
     // (unlike the theme toggle, which has an aria-label, and the language
@@ -66,7 +64,9 @@ describe("Topbar", () => {
 
     await user.click(bellButton);
     await waitFor(() =>
-      expect(screen.queryByText("No new notifications.")).not.toBeInTheDocument()
+      expect(
+        screen.queryByText("No new notifications."),
+      ).not.toBeInTheDocument(),
     );
   });
 
@@ -79,7 +79,7 @@ describe("Topbar", () => {
 
     await user.click(screen.getByText("🇫🇷 French"));
     await waitFor(() =>
-      expect(screen.queryByText("🇬🇧 English")).not.toBeInTheDocument()
+      expect(screen.queryByText("🇬🇧 English")).not.toBeInTheDocument(),
     );
     expect(screen.getByText("🇫🇷 French")).toBeInTheDocument();
   });
@@ -120,8 +120,8 @@ describe("Topbar", () => {
 
     await waitFor(() =>
       expect(
-        screen.getByText("✅ Logged out successfully!")
-      ).toBeInTheDocument()
+        screen.getByText("✅ Logged out successfully!"),
+      ).toBeInTheDocument(),
     );
 
     await waitFor(() => expect(push).toHaveBeenCalledWith("/"), {
@@ -140,8 +140,8 @@ describe("Topbar", () => {
 
     await waitFor(() =>
       expect(
-        screen.getByText("✅ Logged out successfully!")
-      ).toBeInTheDocument()
+        screen.getByText("✅ Logged out successfully!"),
+      ).toBeInTheDocument(),
     );
 
     await waitFor(() => expect(push).toHaveBeenCalledWith("/"), {
@@ -159,7 +159,7 @@ describe("Topbar", () => {
     await user.click(document.body);
 
     await waitFor(() =>
-      expect(screen.queryByText("🇫🇷 French")).not.toBeInTheDocument()
+      expect(screen.queryByText("🇫🇷 French")).not.toBeInTheDocument(),
     );
   });
 });

@@ -8,7 +8,9 @@ export async function promptMfaToken(): Promise<string | undefined> {
     const { data } = await api.security.mfa.getStatus();
     if (!data.mfaEnabled) return undefined;
   } catch (error) {
-    logger.warn("Failed to check MFA status, assuming disabled", { error: String(error) });
+    logger.warn("Failed to check MFA status, assuming disabled", {
+      error: String(error),
+    });
     return undefined;
   }
   const code = prompt("Enter 6-digit MFA code:");
@@ -21,7 +23,11 @@ export interface TradingStatus {
     kill_switch_active: boolean;
     kill_switch_reason?: string;
     mode: string;
-    strategies: Array<{ name: string; active: boolean; capital_allocation: number }>;
+    strategies: Array<{
+      name: string;
+      active: boolean;
+      capital_allocation: number;
+    }>;
     positions: Array<Record<string, unknown>>;
     metrics: Record<string, unknown>;
     last_updated: string;
@@ -106,12 +112,16 @@ export function useTradingOps() {
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState(false);
   const [reconHistory, setReconHistory] = useState<
-    Array<{ id: string; status: string; navDriftCount: number; createdAt: string }>
+    Array<{
+      id: string;
+      status: string;
+      navDriftCount: number;
+      createdAt: string;
+    }>
   >([]);
   const [flipbotPool, setFlipbotPool] = useState<FlipbotPool | null>(null);
-  const [exnessPartner, setExnessPartner] = useState<ExnessPartnerSummary | null>(
-    null,
-  );
+  const [exnessPartner, setExnessPartner] =
+    useState<ExnessPartnerSummary | null>(null);
   const [signalForm, setSignalForm] = useState({
     strategyKey: "momentum",
     symbol: "EURUSD",
@@ -126,12 +136,12 @@ export function useTradingOps() {
     try {
       const [tradingRes, flipbotRes, lifecycleRes, reconRes, exnessRes] =
         await Promise.all([
-        api.ops.getTradingStatus(),
-        api.ops.getFlipbotStatus().catch(() => ({ data: null })),
-        api.ops.getStrategyLifecycle().catch(() => ({ data: [] })),
-        api.ops.getDemoReconciliationHistory().catch(() => ({ data: [] })),
-        api.ops.getExnessPartnerSummary().catch(() => ({ data: null })),
-      ]);
+          api.ops.getTradingStatus(),
+          api.ops.getFlipbotStatus().catch(() => ({ data: null })),
+          api.ops.getStrategyLifecycle().catch(() => ({ data: [] })),
+          api.ops.getDemoReconciliationHistory().catch(() => ({ data: [] })),
+          api.ops.getExnessPartnerSummary().catch(() => ({ data: null })),
+        ]);
       setStatus(tradingRes.data);
       setFlipbot(flipbotRes.data);
       setLifecycle(lifecycleRes.data);
@@ -174,7 +184,9 @@ export function useTradingOps() {
     try {
       const mfaToken = await promptMfaToken();
       await api.ops.setKillSwitch({ active, reason }, mfaToken);
-      toast.success(active ? "Kill switch activated" : "Kill switch deactivated");
+      toast.success(
+        active ? "Kill switch activated" : "Kill switch deactivated",
+      );
       await loadStatus();
     } catch (error) {
       logger.error("Failed to update kill switch", error);
@@ -192,7 +204,7 @@ export function useTradingOps() {
       toast.success(
         data.passed
           ? `${strategyKey}: promotion check passed`
-          : `${strategyKey}: promotion check failed`
+          : `${strategyKey}: promotion check failed`,
       );
       const { data: rows } = await api.ops.getStrategyLifecycle();
       setLifecycle(rows);
@@ -240,7 +252,7 @@ export function useTradingOps() {
       const mfaToken = await promptMfaToken();
       const { data } = await api.ops.runDemoReconciliation(mfaToken);
       toast.success(
-        `Reconciliation ${data.status} — ${data.navDriftCount} NAV drift(s)`
+        `Reconciliation ${data.status} — ${data.navDriftCount} NAV drift(s)`,
       );
       await loadStatus();
     } catch (error) {
@@ -257,14 +269,17 @@ export function useTradingOps() {
       const { data } = await api.ops.pushFlipbotSignal(signalForm);
       if (data.queued) {
         toast.success(
-          `Signal #${data.signal?.id} queued — ${signalForm.side.toUpperCase()} ${signalForm.volumeLots} lots ${signalForm.symbol}`
+          `Signal #${data.signal?.id} queued — ${signalForm.side.toUpperCase()} ${signalForm.volumeLots} lots ${signalForm.symbol}`,
         );
         await loadFlipbotPool(signalForm.strategyKey);
       } else {
         toast.error(data.reason ?? "Signal not queued");
       }
     } catch (error) {
-      logger.error("Failed to queue Flipbot signal — is Flipbot API running?", error);
+      logger.error(
+        "Failed to queue Flipbot signal — is Flipbot API running?",
+        error,
+      );
       toast.error("Failed to queue Flipbot signal — is Flipbot API running?");
     } finally {
       setActionLoading(false);

@@ -39,18 +39,22 @@ describe("AdminSettingsPage", () => {
     mock.onGet("/admin/settings").reply(200, {
       notifications: { email: false, sms: true, push: true },
       security: { twoFactor: false, sessionTimeout: 60, ipWhitelist: true },
-      platform: { maintenanceMode: true, registrationEnabled: false, apiEnabled: true },
+      platform: {
+        maintenanceMode: true,
+        registrationEnabled: false,
+        apiEnabled: true,
+      },
       integrations: { stripe: false, intercom: true, analytics: false },
     });
 
     render(<AdminSettingsPage />);
 
     expect(
-      screen.getByRole("heading", { name: /Admin Settings/i })
+      screen.getByRole("heading", { name: /Admin Settings/i }),
     ).toBeInTheDocument();
 
     await waitFor(() =>
-      expect(screen.getByDisplayValue("60")).toBeInTheDocument()
+      expect(screen.getByDisplayValue("60")).toBeInTheDocument(),
     );
   });
 
@@ -60,7 +64,7 @@ describe("AdminSettingsPage", () => {
     render(<AdminSettingsPage />);
 
     await waitFor(() =>
-      expect(toast.error).toHaveBeenCalledWith("Failed to load settings")
+      expect(toast.error).toHaveBeenCalledWith("Failed to load settings"),
     );
   });
 
@@ -68,7 +72,11 @@ describe("AdminSettingsPage", () => {
     mock.onGet("/admin/settings").reply(200, {
       notifications: { email: true, sms: false, push: true },
       security: { twoFactor: true, sessionTimeout: 30, ipWhitelist: false },
-      platform: { maintenanceMode: false, registrationEnabled: true, apiEnabled: true },
+      platform: {
+        maintenanceMode: false,
+        registrationEnabled: true,
+        apiEnabled: true,
+      },
       integrations: { stripe: true, intercom: true, analytics: true },
     });
     mock.onPut("/admin/settings").reply(200, {});
@@ -83,7 +91,7 @@ describe("AdminSettingsPage", () => {
     await user.click(screen.getByRole("button", { name: /Save All Changes/i }));
 
     await waitFor(() =>
-      expect(toast.success).toHaveBeenCalledWith("Settings saved")
+      expect(toast.success).toHaveBeenCalledWith("Settings saved"),
     );
 
     expect(mock.history.put.length).toBe(4);
@@ -102,7 +110,11 @@ describe("AdminSettingsPage", () => {
     mock.onGet("/admin/settings").reply(200, {
       notifications: { email: true, sms: false, push: true },
       security: { twoFactor: true, sessionTimeout: 30, ipWhitelist: false },
-      platform: { maintenanceMode: false, registrationEnabled: true, apiEnabled: true },
+      platform: {
+        maintenanceMode: false,
+        registrationEnabled: true,
+        apiEnabled: true,
+      },
       integrations: { stripe: true, intercom: true, analytics: true },
     });
     mock.onPut("/admin/settings").reply(500);
@@ -115,7 +127,7 @@ describe("AdminSettingsPage", () => {
     await user.click(screen.getByRole("button", { name: /Save All Changes/i }));
 
     await waitFor(() =>
-      expect(toast.error).toHaveBeenCalledWith("Failed to save settings")
+      expect(toast.error).toHaveBeenCalledWith("Failed to save settings"),
     );
   });
 });

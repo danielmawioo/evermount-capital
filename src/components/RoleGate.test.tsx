@@ -30,7 +30,10 @@ describe("RoleGate", () => {
 
   it("renders children when the profile role is in the allowed list", async () => {
     setAuthTokens("token", "refresh", true);
-    setUser({ id: "1", email: "a@b.com", fullName: "A B", role: "MANAGER" }, true);
+    setUser(
+      { id: "1", email: "a@b.com", fullName: "A B", role: "MANAGER" },
+      true,
+    );
     mock.onGet("/users/profile").reply(200, {
       id: "1",
       email: "a@b.com",
@@ -42,7 +45,7 @@ describe("RoleGate", () => {
     render(
       <RoleGate allowed={["MANAGER", "ADMIN"]}>
         <div>Protected Content</div>
-      </RoleGate>
+      </RoleGate>,
     );
 
     expect(await screen.findByText("Protected Content")).toBeInTheDocument();
@@ -51,7 +54,10 @@ describe("RoleGate", () => {
 
   it("does not render children and redirects to /dashboard when the role is not allowed", async () => {
     setAuthTokens("token", "refresh", true);
-    setUser({ id: "2", email: "c@d.com", fullName: "C D", role: "INVESTOR" }, true);
+    setUser(
+      { id: "2", email: "c@d.com", fullName: "C D", role: "INVESTOR" },
+      true,
+    );
     mock.onGet("/users/profile").reply(200, {
       id: "2",
       email: "c@d.com",
@@ -63,7 +69,7 @@ describe("RoleGate", () => {
     render(
       <RoleGate allowed={["ADMIN"]}>
         <div>Protected Content</div>
-      </RoleGate>
+      </RoleGate>,
     );
 
     await waitFor(() => expect(replace).toHaveBeenCalledWith("/dashboard"));
@@ -76,7 +82,7 @@ describe("RoleGate", () => {
     render(
       <RoleGate allowed={["ADMIN"]}>
         <div>Protected Content</div>
-      </RoleGate>
+      </RoleGate>,
     );
 
     await waitFor(() => expect(replace).toHaveBeenCalledWith("/login"));

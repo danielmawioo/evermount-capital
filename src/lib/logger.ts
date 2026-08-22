@@ -3,14 +3,19 @@ type LogContext = Record<string, unknown>;
 function logToConsole(
   level: "error" | "warn" | "info",
   message: string,
-  context?: LogContext
+  context?: LogContext,
 ) {
-  const entry = { level, message, timestamp: new Date().toISOString(), ...context };
+  const entry = {
+    level,
+    message,
+    timestamp: new Date().toISOString(),
+    ...context,
+  };
   console[level](entry);
 }
 
 const sentryDsnConfigured = Boolean(
-  process.env.NEXT_PUBLIC_SENTRY_DSN || process.env.SENTRY_DSN
+  process.env.NEXT_PUBLIC_SENTRY_DSN || process.env.SENTRY_DSN,
 );
 
 /**

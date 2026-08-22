@@ -31,7 +31,8 @@ export default function LibraryPage() {
       id: "1",
       title: "Introduction to Quantitative Trading",
       category: "video",
-      description: "Learn the fundamentals of quantitative trading strategies and how they work.",
+      description:
+        "Learn the fundamentals of quantitative trading strategies and how they work.",
       duration: "15:30",
       author: "Dr. Sarah Johnson",
       date: "2024-03-15",
@@ -41,7 +42,8 @@ export default function LibraryPage() {
       id: "2",
       title: "Risk Management Best Practices",
       category: "article",
-      description: "A comprehensive guide to managing portfolio risk in volatile markets.",
+      description:
+        "A comprehensive guide to managing portfolio risk in volatile markets.",
       author: "Michael Chen",
       date: "2024-03-10",
       bookmarked: false,
@@ -50,7 +52,8 @@ export default function LibraryPage() {
       id: "3",
       title: "Getting Started with Portfolio Diversification",
       category: "guide",
-      description: "Step-by-step guide to building a well-diversified investment portfolio.",
+      description:
+        "Step-by-step guide to building a well-diversified investment portfolio.",
       author: "Evermount Team",
       date: "2024-02-28",
       bookmarked: true,
@@ -59,7 +62,8 @@ export default function LibraryPage() {
       id: "4",
       title: "Market Analysis Webinar: Q2 2024",
       category: "webinar",
-      description: "Join our experts for an in-depth analysis of market trends and opportunities.",
+      description:
+        "Join our experts for an in-depth analysis of market trends and opportunities.",
       duration: "45:00",
       author: "John Smith",
       date: "2024-04-01",
@@ -69,7 +73,8 @@ export default function LibraryPage() {
       id: "5",
       title: "Understanding Cryptocurrency Investments",
       category: "article",
-      description: "Everything you need to know about investing in digital assets safely.",
+      description:
+        "Everything you need to know about investing in digital assets safely.",
       author: "Alice Williams",
       date: "2024-03-20",
       bookmarked: false,
@@ -78,7 +83,8 @@ export default function LibraryPage() {
       id: "6",
       title: "Advanced Trading Strategies",
       category: "video",
-      description: "Master advanced trading techniques used by professional investors.",
+      description:
+        "Master advanced trading techniques used by professional investors.",
       duration: "22:15",
       author: "Dr. Sarah Johnson",
       date: "2024-03-05",
@@ -87,12 +93,16 @@ export default function LibraryPage() {
   ]);
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [filterCategory, setFilterCategory] = useState<"all" | Resource["category"]>("all");
+  const [filterCategory, setFilterCategory] = useState<
+    "all" | Resource["category"]
+  >("all");
   const [showBookmarked, setShowBookmarked] = useState(false);
 
   const toggleBookmark = (id: string) => {
     setResources(
-      resources.map((r) => (r.id === id ? { ...r, bookmarked: !r.bookmarked } : r))
+      resources.map((r) =>
+        r.id === id ? { ...r, bookmarked: !r.bookmarked } : r,
+      ),
     );
   };
 
@@ -100,7 +110,8 @@ export default function LibraryPage() {
     const matchesSearch =
       resource.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       resource.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = filterCategory === "all" || resource.category === filterCategory;
+    const matchesCategory =
+      filterCategory === "all" || resource.category === filterCategory;
     const matchesBookmark = !showBookmarked || resource.bookmarked;
     return matchesSearch && matchesCategory && matchesBookmark;
   });
@@ -140,7 +151,8 @@ export default function LibraryPage() {
           Educational Library
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm md:text-base">
-          Access educational resources, guides, videos, and webinars to enhance your investment knowledge.
+          Access educational resources, guides, videos, and webinars to enhance
+          your investment knowledge.
         </p>
       </div>
 
@@ -162,7 +174,11 @@ export default function LibraryPage() {
               <FunnelIcon className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
               <select
                 value={filterCategory}
-                onChange={(e) => setFilterCategory(e.target.value as "all" | Resource["category"])}
+                onChange={(e) =>
+                  setFilterCategory(
+                    e.target.value as "all" | Resource["category"],
+                  )
+                }
                 className="pl-10 pr-8 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#00a76f] appearance-none"
               >
                 <option value="all">All Categories</option>
@@ -200,7 +216,8 @@ export default function LibraryPage() {
                   className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium ${getCategoryColor(resource.category)}`}
                 >
                   {getCategoryIcon(resource.category)}
-                  {resource.category.charAt(0).toUpperCase() + resource.category.slice(1)}
+                  {resource.category.charAt(0).toUpperCase() +
+                    resource.category.slice(1)}
                 </span>
                 {resource.duration && (
                   <span className="text-xs text-gray-500 dark:text-gray-400">

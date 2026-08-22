@@ -12,7 +12,7 @@ import { minimumAmountSchema } from "@/lib/schemas";
 
 const CardDepositAmountSchema = minimumAmountSchema(
   10,
-  "Minimum deposit amount is $10"
+  "Minimum deposit amount is $10",
 );
 
 export default function CardDepositPage() {
@@ -43,7 +43,9 @@ export default function CardDepositPage() {
     e.preventDefault();
     const parsed = CardDepositAmountSchema.safeParse(parseFloat(amount));
     if (!parsed.success) {
-      toast.error(parsed.error.issues[0]?.message ?? "Please enter a valid amount");
+      toast.error(
+        parsed.error.issues[0]?.message ?? "Please enter a valid amount",
+      );
       return;
     }
     setShowPayment(true);
@@ -129,7 +131,8 @@ export default function CardDepositPage() {
             Receiving account
           </p>
           <p className="text-gray-600 dark:text-gray-400">
-            {settlementBank || "Equity Bank Kenya"} · {settlementAccount || "0110166613478"}
+            {settlementBank || "Equity Bank Kenya"} ·{" "}
+            {settlementAccount || "0110166613478"}
           </p>
           {settlementCard && (
             <p className="text-gray-500 dark:text-gray-500">

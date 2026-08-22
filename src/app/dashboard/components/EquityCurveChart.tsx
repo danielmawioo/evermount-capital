@@ -20,7 +20,7 @@ ChartJS.register(
   LinearScale,
   PointElement,
   Tooltip,
-  Filler
+  Filler,
 );
 
 interface EquityPoint {
@@ -111,7 +111,7 @@ export default function EquityCurveChart({
         },
       },
     }),
-    [currency, isDark]
+    [currency, isDark],
   );
 
   if (data.length === 0) {

@@ -14,19 +14,22 @@ const TECHNOLOGY_PILLARS = [
   {
     icon: CpuChipIcon,
     title: "Quantitative Research & Modeling",
-    description: "Advanced statistical models and machine learning algorithms trained on decades of market data to generate consistent alpha.",
+    description:
+      "Advanced statistical models and machine learning algorithms trained on decades of market data to generate consistent alpha.",
     color: "from-blue-500 to-cyan-500",
   },
   {
     icon: ChartBarIcon,
     title: "High-Performance Computing",
-    description: "Ultra-low latency infrastructure processing millions of market events per second for real-time portfolio optimization.",
+    description:
+      "Ultra-low latency infrastructure processing millions of market events per second for real-time portfolio optimization.",
     color: "from-purple-500 to-pink-500",
   },
   {
     icon: ShieldCheckIcon,
     title: "Systematic Risk Management",
-    description: "Multi-layered risk framework with real-time monitoring and automatic position adjustments to protect capital.",
+    description:
+      "Multi-layered risk framework with real-time monitoring and automatic position adjustments to protect capital.",
     color: "from-green-500 to-emerald-500",
   },
 ];
@@ -57,8 +60,9 @@ export default function TechnologyAndSecuritySection() {
               Proprietary Technology & Research Infrastructure
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Our technology stack processes terabytes of data daily, executing millions of
-              calculations per second to identify alpha opportunities across global markets.
+              Our technology stack processes terabytes of data daily, executing
+              millions of calculations per second to identify alpha
+              opportunities across global markets.
             </p>
           </motion.div>
 
@@ -106,15 +110,18 @@ export default function TechnologyAndSecuritySection() {
             className="space-y-6"
           >
             <div className="inline-block px-4 py-2 bg-[#00a76f]/10 dark:bg-[#00a76f]/20 rounded-full">
-              <span className="text-[#00a76f] font-semibold text-sm">Security First</span>
+              <span className="text-[#00a76f] font-semibold text-sm">
+                Security First
+              </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
               Institutional-Grade Infrastructure & Risk Controls
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              We operate with the highest standards of operational excellence, security, and
-              regulatory compliance. Our infrastructure handles institutional-scale assets with
-              robust risk management and client protection measures.
+              We operate with the highest standards of operational excellence,
+              security, and regulatory compliance. Our infrastructure handles
+              institutional-scale assets with robust risk management and client
+              protection measures.
             </p>
             <motion.div
               variants={containerVariants}
@@ -130,7 +137,9 @@ export default function TechnologyAndSecuritySection() {
                   className="flex items-center gap-3"
                 >
                   <LockClosedIcon className="w-6 h-6 text-[#00a76f] flex-shrink-0" />
-                  <span className="text-gray-700 dark:text-gray-300">{feature}</span>
+                  <span className="text-gray-700 dark:text-gray-300">
+                    {feature}
+                  </span>
                 </motion.div>
               ))}
             </motion.div>

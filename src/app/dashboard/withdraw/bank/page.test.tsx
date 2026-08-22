@@ -25,7 +25,7 @@ function seedVerifiedInvestor(mock: MockAdapter) {
   setAuthTokens("token", "refresh", true);
   setUser(
     { id: "1", email: "a@b.com", fullName: "A B", role: "INVESTOR" },
-    true
+    true,
   );
   mock.onGet("/users/profile").reply(200, {
     id: "1",
@@ -53,7 +53,7 @@ describe("WithdrawBankPage", () => {
     setAuthTokens("token", "refresh", true);
     setUser(
       { id: "1", email: "a@b.com", fullName: "A B", role: "INVESTOR" },
-      true
+      true,
     );
     mock.onGet("/users/profile").reply(200, {
       id: "1",
@@ -66,7 +66,7 @@ describe("WithdrawBankPage", () => {
     render(<WithdrawBankPage />);
 
     expect(
-      await screen.findByRole("heading", { name: "Verification Required" })
+      await screen.findByRole("heading", { name: "Verification Required" }),
     ).toBeInTheDocument();
   });
 
@@ -79,19 +79,19 @@ describe("WithdrawBankPage", () => {
     render(<WithdrawBankPage />);
 
     expect(
-      await screen.findByRole("heading", { name: "Withdraw to Bank" })
+      await screen.findByRole("heading", { name: "Withdraw to Bank" }),
     ).toBeInTheDocument();
     expect(await screen.findByText(/Chase/)).toBeInTheDocument();
 
     await user.type(screen.getByPlaceholderText("Enter amount"), "200");
     await user.click(
-      screen.getByRole("button", { name: "Submit Withdrawal Request" })
+      screen.getByRole("button", { name: "Submit Withdrawal Request" }),
     );
 
     await waitFor(() => {
-      expect(
-        mock.history.post.some((r) => r.url === "/withdrawals/bank")
-      ).toBe(true);
+      expect(mock.history.post.some((r) => r.url === "/withdrawals/bank")).toBe(
+        true,
+      );
     });
     const call = mock.history.post.find((r) => r.url === "/withdrawals/bank");
     expect(JSON.parse(call!.data)).toEqual({
@@ -110,7 +110,7 @@ describe("WithdrawBankPage", () => {
 
     expect(await screen.findByText("Add Bank Account")).toBeInTheDocument();
     expect(
-      screen.getByText("Add a bank account above to continue.")
+      screen.getByText("Add a bank account above to continue."),
     ).toBeInTheDocument();
   });
 });

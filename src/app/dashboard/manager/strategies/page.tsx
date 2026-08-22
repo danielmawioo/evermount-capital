@@ -173,7 +173,8 @@ export default function ManagerStrategiesPage() {
             Strategy Portfolio
           </h1>
           <p className="text-gray-600 dark:text-gray-400 mt-1">
-            View running strategies, switch execution, and monitor pooled metrics
+            View running strategies, switch execution, and monitor pooled
+            metrics
           </p>
         </div>
         <button
@@ -181,7 +182,9 @@ export default function ManagerStrategiesPage() {
           disabled={loading}
           className="flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-800"
         >
-          <ArrowPathIcon className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
+          <ArrowPathIcon
+            className={`w-4 h-4 ${loading ? "animate-spin" : ""}`}
+          />
           Refresh
         </button>
       </div>
@@ -195,7 +198,10 @@ export default function ManagerStrategiesPage() {
             <p className="text-xs text-gray-500 mt-0.5">
               AUM-weighted across {combined.strategyCount} strategies
               {combined.primaryStrategy && (
-                <> · Running: <strong>{combined.primaryStrategy}</strong></>
+                <>
+                  {" "}
+                  · Running: <strong>{combined.primaryStrategy}</strong>
+                </>
               )}
             </p>
           </div>
@@ -264,11 +270,11 @@ export default function ManagerStrategiesPage() {
                 {combined.flipbotConnected ? "Connected" : "Offline"}
               </span>
             </span>
-            <span>
-              Mode: {combined.tradingMode ?? "—"}
-            </span>
+            <span>Mode: {combined.tradingMode ?? "—"}</span>
             {combined.killSwitchActive && (
-              <span className="text-red-600 font-medium">Kill switch active</span>
+              <span className="text-red-600 font-medium">
+                Kill switch active
+              </span>
             )}
           </div>
         </div>
@@ -307,9 +313,7 @@ export default function ManagerStrategiesPage() {
                   <tr
                     key={s.strategyKey}
                     className={`border-b dark:border-gray-700/50 ${
-                      s.isRunning
-                        ? "bg-green-50/50 dark:bg-green-900/10"
-                        : ""
+                      s.isRunning ? "bg-green-50/50 dark:bg-green-900/10" : ""
                     }`}
                   >
                     <td className="px-4 py-3">
@@ -331,7 +335,8 @@ export default function ManagerStrategiesPage() {
                     <td className="px-4 py-3 tabular-nums">
                       {formatUsd(s.poolAum)}
                       <span className="text-xs text-gray-500 block">
-                        {s.investorCount} investor{s.investorCount !== 1 ? "s" : ""}
+                        {s.investorCount} investor
+                        {s.investorCount !== 1 ? "s" : ""}
                       </span>
                     </td>
                     <td className="px-4 py-3 tabular-nums">

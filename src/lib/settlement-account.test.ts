@@ -1,4 +1,7 @@
-import { formatSettlementDetails, SETTLEMENT_ACCOUNT } from "./settlement-account";
+import {
+  formatSettlementDetails,
+  SETTLEMENT_ACCOUNT,
+} from "./settlement-account";
 
 describe("formatSettlementDetails", () => {
   it("formats the settlement details as labeled lines", () => {
@@ -10,7 +13,7 @@ describe("formatSettlementDetails", () => {
         `Card (Visa/Mastercard): ${SETTLEMENT_ACCOUNT.cardMasked}`,
         `Branch: ${SETTLEMENT_ACCOUNT.branch}`,
         `SWIFT: ${SETTLEMENT_ACCOUNT.swiftCode}`,
-      ].join("\n")
+      ].join("\n"),
     );
   });
 

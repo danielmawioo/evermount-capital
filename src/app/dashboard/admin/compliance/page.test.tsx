@@ -21,7 +21,11 @@ const REPORT = {
   auditTrail: {
     eventsLast30Days: 128,
     sensitiveActionsLast30Days: [
-      { action: "WITHDRAWAL_APPROVED", entity: "wallet:1", createdAt: new Date(0).toISOString() },
+      {
+        action: "WITHDRAWAL_APPROVED",
+        entity: "wallet:1",
+        createdAt: new Date(0).toISOString(),
+      },
     ],
   },
   dataProtection: {
@@ -57,11 +61,14 @@ describe("CompliancePage", () => {
 
     expect(screen.getByText("3")).toBeInTheDocument();
     expect(screen.getByText("Yes")).toBeInTheDocument();
-    expect(screen.getByText(/All admin accounts require MFA/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/All admin accounts require MFA/),
+    ).toBeInTheDocument();
     expect(screen.getByText(/WITHDRAWAL_APPROVED/)).toBeInTheDocument();
 
     expect(
-      mock.history.get.find((r) => r.url === "/admin/compliance/audit-logs")?.params
+      mock.history.get.find((r) => r.url === "/admin/compliance/audit-logs")
+        ?.params,
     ).toEqual({ limit: 10 });
   });
 
@@ -72,7 +79,9 @@ describe("CompliancePage", () => {
     render(<CompliancePage />);
 
     await waitFor(() =>
-      expect(toast.error).toHaveBeenCalledWith("Failed to load compliance data")
+      expect(toast.error).toHaveBeenCalledWith(
+        "Failed to load compliance data",
+      ),
     );
   });
 
@@ -91,7 +100,7 @@ describe("CompliancePage", () => {
     await user.click(screen.getByRole("button", { name: /Export audit CSV/i }));
 
     await waitFor(() =>
-      expect(toast.success).toHaveBeenCalledWith("Audit log exported")
+      expect(toast.success).toHaveBeenCalledWith("Audit log exported"),
     );
     expect(global.URL.createObjectURL).toHaveBeenCalled();
     expect(global.URL.revokeObjectURL).toHaveBeenCalled();

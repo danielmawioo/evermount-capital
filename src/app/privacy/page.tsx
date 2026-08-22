@@ -7,7 +7,9 @@ export default function PrivacyPolicyPage() {
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
           Privacy Policy
         </h1>
-        <p className="text-sm text-gray-500 dark:text-gray-400">Effective Date: April 25, 2025</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">
+          Effective Date: April 25, 2025
+        </p>
 
         <section className="space-y-8 text-base leading-7 text-gray-700 dark:text-gray-300">
           <p>
@@ -18,8 +20,11 @@ export default function PrivacyPolicyPage() {
 
           <ol className="space-y-6 list-decimal pl-5 text-gray-700 dark:text-gray-300">
             <li>
-              <strong className="text-gray-900 dark:text-white">Data Collected:</strong> Name, email, IP address, device
-              type, portfolio selections, and behavior.
+              <strong className="text-gray-900 dark:text-white">
+                Data Collected:
+              </strong>{" "}
+              Name, email, IP address, device type, portfolio selections, and
+              behavior.
             </li>
 
             <li>

@@ -134,7 +134,7 @@ export default function FileUpload({
     const k = 1024;
     const sizes = ["Bytes", "KB", "MB", "GB"];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return Math.round(bytes / Math.pow(k, i) * 100) / 100 + " " + sizes[i];
+    return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + " " + sizes[i];
   };
 
   return (
@@ -144,7 +144,9 @@ export default function FileUpload({
           {label}
         </label>
         {description && (
-          <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">{description}</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+            {description}
+          </p>
         )}
       </div>
 
@@ -228,4 +230,3 @@ export default function FileUpload({
     </div>
   );
 }
-

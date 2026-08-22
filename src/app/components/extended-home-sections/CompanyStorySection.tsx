@@ -27,16 +27,19 @@ export default function CompanyStorySection() {
             className="space-y-6"
           >
             <div className="inline-block px-4 py-2 bg-[#00a76f]/10 dark:bg-[#00a76f]/20 rounded-full">
-              <span className="text-[#00a76f] font-semibold text-sm">About Evermount</span>
+              <span className="text-[#00a76f] font-semibold text-sm">
+                About Evermount
+              </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
               Systematic Alpha Generation Through Quantitative Excellence
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              Evermount Capital is a quantitative investment management firm that applies
-              systematic, data-driven approaches to generate alpha across global markets.
-              We combine machine learning, statistical arbitrage, and proprietary research
-              to deliver consistent risk-adjusted returns.
+              Evermount Capital is a quantitative investment management firm
+              that applies systematic, data-driven approaches to generate alpha
+              across global markets. We combine machine learning, statistical
+              arbitrage, and proprietary research to deliver consistent
+              risk-adjusted returns.
             </p>
             <motion.div
               whileHover={{ x: 5 }}
@@ -91,15 +94,18 @@ export default function CompanyStorySection() {
             className="space-y-6"
           >
             <div className="inline-block px-4 py-2 bg-[#00a76f]/10 dark:bg-[#00a76f]/20 rounded-full">
-              <span className="text-[#00a76f] font-semibold text-sm">Our Approach</span>
+              <span className="text-[#00a76f] font-semibold text-sm">
+                Our Approach
+              </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
               Systematic Investment Philosophy
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              We believe markets contain systematic inefficiencies that can be identified through
-              rigorous quantitative analysis. Our entirely systematic approach removes human emotion
-              and bias, focusing on superior data, advanced modeling, and execution excellence across
+              We believe markets contain systematic inefficiencies that can be
+              identified through rigorous quantitative analysis. Our entirely
+              systematic approach removes human emotion and bias, focusing on
+              superior data, advanced modeling, and execution excellence across
               multiple asset classes.
             </p>
             <motion.div
@@ -116,7 +122,9 @@ export default function CompanyStorySection() {
                   className="flex items-center gap-3"
                 >
                   <CheckCircleIcon className="w-6 h-6 text-[#00a76f] flex-shrink-0" />
-                  <span className="text-gray-700 dark:text-gray-300">{principle}</span>
+                  <span className="text-gray-700 dark:text-gray-300">
+                    {principle}
+                  </span>
                 </motion.div>
               ))}
             </motion.div>

@@ -128,9 +128,9 @@ export default function FeaturesPage() {
             Quantitative Research Meets Systematic Execution
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-base">
-            Our proprietary quantitative models analyze market patterns, volatility regimes,
-            and cross-asset relationships to generate alpha through systematic execution
-            across global markets.
+            Our proprietary quantitative models analyze market patterns,
+            volatility regimes, and cross-asset relationships to generate alpha
+            through systematic execution across global markets.
           </p>
           <motion.ul
             variants={containerVariants}
@@ -144,7 +144,11 @@ export default function FeaturesPage() {
               "Dynamic volatility regime detection and portfolio rebalancing",
               "Systematic strategy optimization with real-time risk monitoring",
             ].map((item, i) => (
-              <motion.li key={i} variants={itemVariants} className="flex items-start gap-2">
+              <motion.li
+                key={i}
+                variants={itemVariants}
+                className="flex items-start gap-2"
+              >
                 <CheckCircleIcon className="w-5 h-5 text-[#00a76f] mt-0.5 flex-shrink-0" />
                 {item}
               </motion.li>
@@ -158,7 +162,10 @@ export default function FeaturesPage() {
           transition={{ duration: 0.6 }}
           className="md:w-1/2"
         >
-          <motion.div whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }}>
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
             <Image
               src="/images/section3.png"
               alt="AI Engine and Platform Tools"
@@ -222,7 +229,9 @@ export default function FeaturesPage() {
                 <h4 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">
                   {title}
                 </h4>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">{desc}</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                  {desc}
+                </p>
               </motion.div>
             ))}
           </motion.div>

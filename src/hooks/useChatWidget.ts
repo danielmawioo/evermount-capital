@@ -1,5 +1,8 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { CHAT_DEPARTMENTS, DEFAULT_CHAT_ASSISTANT } from "@/lib/chat-departments";
+import {
+  CHAT_DEPARTMENTS,
+  DEFAULT_CHAT_ASSISTANT,
+} from "@/lib/chat-departments";
 import { logger } from "@/lib/logger";
 
 export interface ChatMessage {
@@ -14,7 +17,7 @@ export interface ChatMessage {
 export function useChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDepartment, setSelectedDepartment] = useState<string | null>(
-    null
+    null,
   );
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
@@ -23,7 +26,7 @@ export function useChatWidget() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const activeDepartment = CHAT_DEPARTMENTS.find(
-    (d) => d.id === selectedDepartment
+    (d) => d.id === selectedDepartment,
   );
   const assistantName =
     activeDepartment?.assistantName ?? DEFAULT_CHAT_ASSISTANT;
@@ -125,7 +128,7 @@ export function useChatWidget() {
         setLoading(false);
       }
     },
-    [loading, selectedDepartment, messages, assistantName]
+    [loading, selectedDepartment, messages, assistantName],
   );
 
   const handleSend = () => sendMessage(input);
@@ -139,9 +142,9 @@ export function useChatWidget() {
 
   const showSuggestedPrompts = Boolean(
     messages.length === 1 &&
-      messages[0]?.isWelcome &&
-      activeDepartment &&
-      !loading
+    messages[0]?.isWelcome &&
+    activeDepartment &&
+    !loading,
   );
 
   return {

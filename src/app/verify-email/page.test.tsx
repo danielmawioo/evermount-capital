@@ -9,7 +9,7 @@ describe("EmailVerificationPage", () => {
     render(<EmailVerificationPage />);
 
     expect(
-      screen.getByRole("heading", { name: /please check your email/i })
+      screen.getByRole("heading", { name: /please check your email/i }),
     ).toBeInTheDocument();
 
     const codeInputs = screen
@@ -20,7 +20,7 @@ describe("EmailVerificationPage", () => {
     expect(screen.getByRole("button", { name: /verify/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /resend/i })).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /return to sign in/i })
+      screen.getByRole("link", { name: /return to sign in/i }),
     ).toHaveAttribute("href", "/login");
   });
 });

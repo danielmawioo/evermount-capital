@@ -1,7 +1,12 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { FaCreditCard, FaUniversity, FaBitcoin, FaMobileAlt } from "react-icons/fa";
+import {
+  FaCreditCard,
+  FaUniversity,
+  FaBitcoin,
+  FaMobileAlt,
+} from "react-icons/fa";
 import toast from "react-hot-toast";
 
 interface PaymentMethodsPageProps {
@@ -34,12 +39,14 @@ const PaymentMethodsPage = ({ type }: PaymentMethodsPageProps) => {
         </h1>
         {type === "deposit" && (
           <p className="text-center text-gray-500 dark:text-gray-400 text-sm mb-10">
-            Card, M-Pesa, and crypto deposits are available. Bank transfers are coming soon.
+            Card, M-Pesa, and crypto deposits are available. Bank transfers are
+            coming soon.
           </p>
         )}
         {type === "withdraw" && (
           <p className="text-center text-gray-500 dark:text-gray-400 text-sm mb-10">
-            Bank, M-Pesa, and crypto withdrawals are available after KYC verification.
+            Bank, M-Pesa, and crypto withdrawals are available after KYC
+            verification.
           </p>
         )}
 
@@ -73,7 +80,9 @@ const PaymentMethodsPage = ({ type }: PaymentMethodsPageProps) => {
             className="cursor-pointer bg-white dark:bg-[#161a23] p-6 rounded-lg border border-gray-100 dark:border-gray-800 shadow-sm flex flex-col items-center justify-center hover:shadow-md transition"
           >
             <FaMobileAlt size={40} className="text-[#00a76f] mb-4" />
-            <p className="font-semibold text-gray-800 dark:text-white">M-Pesa</p>
+            <p className="font-semibold text-gray-800 dark:text-white">
+              M-Pesa
+            </p>
             <p className="text-xs text-green-600 dark:text-green-400 mt-1">
               Available
             </p>
@@ -86,7 +95,9 @@ const PaymentMethodsPage = ({ type }: PaymentMethodsPageProps) => {
             }`}
           >
             <FaBitcoin size={40} className="text-[#00a76f] mb-4" />
-            <p className="font-semibold text-gray-800 dark:text-white">Crypto</p>
+            <p className="font-semibold text-gray-800 dark:text-white">
+              Crypto
+            </p>
             <p className="text-xs text-gray-400 mt-1">
               {cryptoAvailable ? "Available" : "Coming soon"}
             </p>

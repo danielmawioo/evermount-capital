@@ -38,12 +38,14 @@ describe("StripePayment", () => {
   it("renders the card form and pay button once the client secret is ready", async () => {
     mock.onPost("/deposits/card").reply(200, { clientSecret: "cs_test_123" });
 
-    render(<StripePayment amount={150.5} currency="USD" onSuccess={jest.fn()} />);
+    render(
+      <StripePayment amount={150.5} currency="USD" onSuccess={jest.fn()} />,
+    );
 
     expect(await screen.findByTestId("stripe-elements")).toBeInTheDocument();
     expect(screen.getByTestId("card-element")).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: "Pay USD 150.50" })
+      screen.getByRole("button", { name: "Pay USD 150.50" }),
     ).toBeInTheDocument();
   });
 
@@ -53,12 +55,14 @@ describe("StripePayment", () => {
     render(<StripePayment amount={50} onSuccess={jest.fn()} />);
 
     expect(
-      await screen.findByText("Payment could not be initialized")
+      await screen.findByText("Payment could not be initialized"),
     ).toBeInTheDocument();
   });
 
   it("shows an error message when the create-intent request fails", async () => {
-    mock.onPost("/deposits/card").reply(500, { error: { message: "Server exploded" } });
+    mock
+      .onPost("/deposits/card")
+      .reply(500, { error: { message: "Server exploded" } });
 
     render(<StripePayment amount={75} onSuccess={jest.fn()} />);
 

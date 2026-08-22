@@ -61,8 +61,12 @@ export default function ValuesSection() {
             className="bg-white dark:bg-gray-800 rounded-xl shadow p-6 text-left hover:shadow-md transition"
           >
             <Icon className="h-7 w-7 text-[#00a76f] mb-4" />
-            <h4 className="font-semibold text-lg text-gray-800 dark:text-white">{title}</h4>
-            <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">{desc}</p>
+            <h4 className="font-semibold text-lg text-gray-800 dark:text-white">
+              {title}
+            </h4>
+            <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
+              {desc}
+            </p>
           </motion.div>
         ))}
       </motion.div>

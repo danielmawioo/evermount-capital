@@ -6,7 +6,7 @@ describe("TrustLogos", () => {
     render(<TrustLogos />);
 
     expect(
-      screen.getByText("We Support Seamless Transactions Via:")
+      screen.getByText("We Support Seamless Transactions Via:"),
     ).toBeInTheDocument();
 
     // The logo list is duplicated ([...logos, ...logos]) to create a seamless

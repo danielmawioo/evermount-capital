@@ -103,8 +103,8 @@ export default function PricingPage() {
           Investment Minimums & Fee Structure
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
-          Institutional-grade quantitative strategies with transparent fee structures. 
-          Performance fees align our interests with yours.
+          Institutional-grade quantitative strategies with transparent fee
+          structures. Performance fees align our interests with yours.
         </p>
       </motion.section>
 
@@ -162,16 +162,22 @@ export default function PricingPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.05 }}
                   whileHover={{ backgroundColor: "rgba(0, 167, 111, 0.05)" }}
-                  className={i % 2 === 0 ? "bg-white dark:bg-gray-800" : "bg-gray-50 dark:bg-gray-900"}
+                  className={
+                    i % 2 === 0
+                      ? "bg-white dark:bg-gray-800"
+                      : "bg-gray-50 dark:bg-gray-900"
+                  }
                 >
-                  <td className="py-4 px-6 text-left font-medium text-gray-900 dark:text-white">{row.label}</td>
+                  <td className="py-4 px-6 text-left font-medium text-gray-900 dark:text-white">
+                    {row.label}
+                  </td>
                   {tiers.map((tier, j) => (
                     <motion.td
                       key={j}
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: (i * 0.05) + (j * 0.1) }}
+                      transition={{ duration: 0.3, delay: i * 0.05 + j * 0.1 }}
                       className="py-4 px-6"
                     >
                       {row.type === "boolean"
@@ -196,10 +202,12 @@ export default function PricingPage() {
         className="mt-12 text-center space-y-4"
       >
         <p className="text-sm text-gray-500 dark:text-gray-400">
-          Performance fees are calculated on realized profits only. Management fees are charged quarterly in advance.
+          Performance fees are calculated on realized profits only. Management
+          fees are charged quarterly in advance.
         </p>
         <p className="text-sm text-gray-600 dark:text-gray-500 font-medium">
-          All investments are subject to our standard terms and risk disclosure. Past performance does not guarantee future results.
+          All investments are subject to our standard terms and risk disclosure.
+          Past performance does not guarantee future results.
         </p>
       </motion.div>
     </main>

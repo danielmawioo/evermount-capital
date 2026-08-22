@@ -17,7 +17,7 @@ function seedVerifiedInvestor(mock: MockAdapter) {
   setAuthTokens("token", "refresh", true);
   setUser(
     { id: "1", email: "a@b.com", fullName: "A B", role: "INVESTOR" },
-    true
+    true,
   );
   mock.onGet("/users/profile").reply(200, {
     id: "1",
@@ -45,7 +45,7 @@ describe("WithdrawCryptoPage", () => {
     setAuthTokens("token", "refresh", true);
     setUser(
       { id: "1", email: "a@b.com", fullName: "A B", role: "INVESTOR" },
-      true
+      true,
     );
     mock.onGet("/users/profile").reply(200, {
       id: "1",
@@ -58,7 +58,7 @@ describe("WithdrawCryptoPage", () => {
     render(<WithdrawCryptoPage />);
 
     expect(
-      await screen.findByRole("heading", { name: "Verification Required" })
+      await screen.findByRole("heading", { name: "Verification Required" }),
     ).toBeInTheDocument();
   });
 
@@ -70,18 +70,18 @@ describe("WithdrawCryptoPage", () => {
     render(<WithdrawCryptoPage />);
 
     expect(
-      await screen.findByRole("heading", { name: "Withdraw to Crypto" })
+      await screen.findByRole("heading", { name: "Withdraw to Crypto" }),
     ).toBeInTheDocument();
 
     await user.selectOptions(screen.getByRole("combobox"), "Ethereum");
     await user.type(
       screen.getByPlaceholderText("Paste your wallet address"),
-      "0xabc123"
+      "0xabc123",
     );
     await user.type(screen.getByPlaceholderText("Enter amount"), "50");
 
     await user.click(
-      screen.getByRole("button", { name: "Withdraw to Crypto" })
+      screen.getByRole("button", { name: "Withdraw to Crypto" }),
     );
 
     await waitFor(() => {

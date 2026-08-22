@@ -45,13 +45,17 @@ describe("useChatWidget", () => {
     expect(result.current.messages).toHaveLength(1);
     expect(result.current.messages[0].isWelcome).toBe(true);
     expect(result.current.messages[0].content).toContain(
-      "Hello! I'm Ethan from Technical Support"
+      "Hello! I'm Ethan from Technical Support",
     );
   });
 
   it("sendMessage posts to /api/chat with the conversation history and department", async () => {
     global.fetch = mockFetchOnce({
-      jsonBody: { message: "Try clearing your cache.", links: [], needsHumanSupport: false },
+      jsonBody: {
+        message: "Try clearing your cache.",
+        links: [],
+        needsHumanSupport: false,
+      },
     });
     const { result } = renderHook(() => useChatWidget());
 
@@ -68,7 +72,7 @@ describe("useChatWidget", () => {
       expect.objectContaining({
         method: "POST",
         headers: { "Content-Type": "application/json" },
-      })
+      }),
     );
     const body = JSON.parse((global.fetch as jest.Mock).mock.calls[0][1].body);
     expect(body.department).toBe("technical");
@@ -80,7 +84,8 @@ describe("useChatWidget", () => {
 
     expect(result.current.loading).toBe(false);
     expect(result.current.input).toBe("");
-    const lastMessage = result.current.messages[result.current.messages.length - 1];
+    const lastMessage =
+      result.current.messages[result.current.messages.length - 1];
     expect(lastMessage.content).toBe("Try clearing your cache.");
     expect(lastMessage.role).toBe("assistant");
   });
@@ -90,7 +95,7 @@ describe("useChatWidget", () => {
     global.fetch = jest.fn().mockReturnValueOnce(
       new Promise((resolve) => {
         resolveFetch = resolve;
-      })
+      }),
     );
     const { result } = renderHook(() => useChatWidget());
 
@@ -113,9 +118,9 @@ describe("useChatWidget", () => {
     });
 
     await waitFor(() => expect(result.current.loading).toBe(false));
-    expect(
-      result.current.messages.some((m) => m.content === "Done")
-    ).toBe(true);
+    expect(result.current.messages.some((m) => m.content === "Done")).toBe(
+      true,
+    );
   });
 
   it("falls back to an error message when the chat request throws", async () => {
@@ -133,7 +138,8 @@ describe("useChatWidget", () => {
       await result.current.sendMessage("Anything");
     });
 
-    const lastMessage = result.current.messages[result.current.messages.length - 1];
+    const lastMessage =
+      result.current.messages[result.current.messages.length - 1];
     expect(lastMessage.content).toMatch(/experiencing technical difficulties/);
     consoleErrorSpy.mockRestore();
   });

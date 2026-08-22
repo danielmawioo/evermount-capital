@@ -15,4 +15,3 @@ export const metadata: Metadata = {
     canonical: "https://www.evermount.co/platform",
   },
 };
-

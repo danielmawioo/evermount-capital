@@ -100,7 +100,8 @@ export default function TransactionsPage() {
             ) : transactions.length === 0 ? (
               <tr>
                 <td colSpan={5} className="p-8 text-center text-gray-500">
-                  No transactions yet. Make a deposit or investment to get started.
+                  No transactions yet. Make a deposit or investment to get
+                  started.
                 </td>
               </tr>
             ) : (
@@ -112,7 +113,9 @@ export default function TransactionsPage() {
                   <td className="p-4 whitespace-nowrap">
                     {formatDate(txn.createdAt)}
                   </td>
-                  <td className="p-4 capitalize">{txn.type.replace(/_/g, " ")}</td>
+                  <td className="p-4 capitalize">
+                    {txn.type.replace(/_/g, " ")}
+                  </td>
                   <td className="p-4">
                     {txn.description || txn.reference || "—"}
                   </td>

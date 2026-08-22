@@ -146,7 +146,10 @@ export default function AMLPolicyPage() {
               ],
             ].map(([title, desc], i) => (
               <li key={i}>
-                <strong className="text-gray-900 dark:text-white">{title}:</strong> {desc}
+                <strong className="text-gray-900 dark:text-white">
+                  {title}:
+                </strong>{" "}
+                {desc}
               </li>
             ))}
           </ol>

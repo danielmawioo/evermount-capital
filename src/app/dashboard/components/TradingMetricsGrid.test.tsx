@@ -16,7 +16,7 @@ describe("TradingMetricsGrid", () => {
           balance: 10000,
           equity: 11234.5,
         }}
-      />
+      />,
     );
 
     expect(screen.getByText("Account Summary")).toBeInTheDocument();
@@ -44,7 +44,7 @@ describe("TradingMetricsGrid", () => {
           balance: 5000,
           equity: 4450,
         }}
-      />
+      />,
     );
 
     expect(screen.getByText("-5.50%")).toBeInTheDocument();
@@ -69,7 +69,7 @@ describe("TradingMetricsGrid", () => {
           equity: 300,
         }}
         currency="EUR"
-      />
+      />,
     );
 
     expect(screen.getByText("€200.00")).toBeInTheDocument();

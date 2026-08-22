@@ -3,7 +3,11 @@ import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
 import { logger } from "@/lib/logger";
-import { CreditAmountSchema, EmailSchema, minimumPasswordSchema } from "@/lib/schemas";
+import {
+  CreditAmountSchema,
+  EmailSchema,
+  minimumPasswordSchema,
+} from "@/lib/schemas";
 
 export interface ApiUser {
   id: string;
@@ -70,7 +74,10 @@ export function useAdminUsers() {
     return () => clearTimeout(timer);
   }, [loadUsers, searchTerm]);
 
-  const handleSuspend = async (userId: string, action: "suspend" | "activate") => {
+  const handleSuspend = async (
+    userId: string,
+    action: "suspend" | "activate",
+  ) => {
     try {
       await api.admin.users.suspend(userId, { action });
       toast.success(`User ${action === "suspend" ? "suspended" : "activated"}`);
@@ -91,7 +98,12 @@ export function useAdminUsers() {
       toast.error("Enter a valid email address");
       return;
     }
-    if (!minimumPasswordSchema(8, "Password must be at least 8 characters").safeParse(form.password).success) {
+    if (
+      !minimumPasswordSchema(
+        8,
+        "Password must be at least 8 characters",
+      ).safeParse(form.password).success
+    ) {
       toast.error("Password must be at least 8 characters");
       return;
     }
@@ -120,9 +132,7 @@ export function useAdminUsers() {
     setSelectedManagerId("");
     try {
       const { data } = await api.admin.managers.getAll();
-      setManagers(
-        (data.managers ?? []).filter((m) => m.status === "active"),
-      );
+      setManagers((data.managers ?? []).filter((m) => m.status === "active"));
     } catch (error) {
       logger.error("Failed to load managers", error);
       toast.error("Failed to load managers");
@@ -153,7 +163,9 @@ export function useAdminUsers() {
     if (!creditUser) return;
     const parsedAmount = CreditAmountSchema.safeParse(parseFloat(creditAmount));
     if (!parsedAmount.success) {
-      toast.error(parsedAmount.error.issues[0]?.message ?? "Enter a valid amount");
+      toast.error(
+        parsedAmount.error.issues[0]?.message ?? "Enter a valid amount",
+      );
       return;
     }
     const amount = parsedAmount.data;

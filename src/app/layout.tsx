@@ -124,10 +124,13 @@ export default function RootLayout({
         {/* Additional SEO Meta Tags */}
         <meta name="theme-color" content="#00a76f" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
         <meta name="apple-mobile-web-app-title" content="Evermount Capital" />
         <link rel="manifest" href="/manifest.json" />
-        
+
         {/* JSON-LD Rich Schema */}
         {/* Enhanced Organization Schema */}
         <Script
@@ -229,7 +232,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-white text-gray-900 dark:bg-[#0b0b12] dark:text-gray-100 antialiased" suppressHydrationWarning>
+      <body
+        className="bg-white text-gray-900 dark:bg-[#0b0b12] dark:text-gray-100 antialiased"
+        suppressHydrationWarning
+      >
         <LayoutWrapper>{children}</LayoutWrapper>
         <IntercomProvider />
         <Analytics />
@@ -237,4 +243,3 @@ export default function RootLayout({
     </html>
   );
 }
-

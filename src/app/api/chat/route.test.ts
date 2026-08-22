@@ -42,7 +42,7 @@ describe("POST /api/chat", () => {
 
   it("returns 400 when messages is not an array", async () => {
     const response = await POST(
-      makeRequest({ messages: "not-an-array", department: "payments" })
+      makeRequest({ messages: "not-an-array", department: "payments" }),
     );
     const data = await response.json();
 
@@ -51,7 +51,9 @@ describe("POST /api/chat", () => {
   });
 
   it("returns 400 when messages is empty", async () => {
-    const response = await POST(makeRequest({ messages: [], department: "payments" }));
+    const response = await POST(
+      makeRequest({ messages: [], department: "payments" }),
+    );
     const data = await response.json();
 
     expect(response.status).toBe(400);
@@ -60,7 +62,7 @@ describe("POST /api/chat", () => {
 
   it("returns 400 when department is missing", async () => {
     const response = await POST(
-      makeRequest({ messages: [{ role: "user", content: "hi" }] })
+      makeRequest({ messages: [{ role: "user", content: "hi" }] }),
     );
     const data = await response.json();
 
@@ -73,7 +75,7 @@ describe("POST /api/chat", () => {
       makeRequest({
         messages: [{ role: "user", content: "hi" }],
         department: "not-a-real-department",
-      })
+      }),
     );
     const data = await response.json();
 
@@ -113,11 +115,9 @@ describe("POST /api/chat", () => {
 
     expect(response.status).toBe(200);
     expect(data.message).toBe(
-      "You can deposit at https://www.evermount.co/dashboard/deposit."
+      "You can deposit at https://www.evermount.co/dashboard/deposit.",
     );
-    expect(data.links).toEqual([
-      "https://www.evermount.co/dashboard/deposit.",
-    ]);
+    expect(data.links).toEqual(["https://www.evermount.co/dashboard/deposit."]);
     expect(data.needsHumanSupport).toBe(false);
 
     expect(global.fetch).toHaveBeenCalledWith(
@@ -127,13 +127,13 @@ describe("POST /api/chat", () => {
         headers: expect.objectContaining({
           Authorization: "Bearer test-api-key",
         }),
-      })
+      }),
     );
 
     const [, options] = (global.fetch as jest.Mock).mock.calls[0];
     const parsedBody = JSON.parse(options.body);
     expect(parsedBody.messages[0]).toEqual(
-      expect.objectContaining({ role: "system" })
+      expect.objectContaining({ role: "system" }),
     );
     expect(parsedBody.messages[0].content).toContain("Payments & Billing");
     expect(parsedBody.messages[1]).toEqual({
@@ -149,8 +149,7 @@ describe("POST /api/chat", () => {
         choices: [
           {
             message: {
-              content:
-                "Please contact payments@evermount.co for further help.",
+              content: "Please contact payments@evermount.co for further help.",
             },
           },
         ],
@@ -168,7 +167,9 @@ describe("POST /api/chat", () => {
       ok: false,
       status: 429,
       text: async () =>
-        JSON.stringify({ error: { code: "insufficient_quota", type: "rate_limit" } }),
+        JSON.stringify({
+          error: { code: "insufficient_quota", type: "rate_limit" },
+        }),
     });
 
     const response = await POST(makeRequest(validBody));
@@ -187,7 +188,8 @@ describe("POST /api/chat", () => {
     (global.fetch as jest.Mock).mockResolvedValue({
       ok: false,
       status: 401,
-      text: async () => JSON.stringify({ error: { message: "invalid api key" } }),
+      text: async () =>
+        JSON.stringify({ error: { message: "invalid api key" } }),
     });
 
     const response = await POST(makeRequest(validBody));

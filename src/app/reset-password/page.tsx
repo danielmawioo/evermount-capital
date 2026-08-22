@@ -45,9 +45,10 @@ export default function ResetPasswordPage() {
     }
 
     if (
-      !minimumPasswordSchema(8, "Password must be at least 8 characters.").safeParse(
-        newPassword
-      ).success
+      !minimumPasswordSchema(
+        8,
+        "Password must be at least 8 characters.",
+      ).safeParse(newPassword).success
     ) {
       setError("Password must be at least 8 characters.");
       return;

@@ -8,7 +8,7 @@ describe("StatCard", () => {
         title="Total Balance"
         value="$12,345"
         icon={<span data-testid="icon">i</span>}
-      />
+      />,
     );
 
     expect(screen.getByText("Total Balance")).toBeInTheDocument();

@@ -26,7 +26,7 @@ describe("Footer", () => {
 
     const year = new Date().getFullYear().toString();
     expect(
-      screen.getByText(new RegExp(`© ${year} Evermount Capital`))
+      screen.getByText(new RegExp(`© ${year} Evermount Capital`)),
     ).toBeInTheDocument();
   });
 
@@ -35,11 +35,11 @@ describe("Footer", () => {
 
     expect(screen.getByText("info@evermount.co")).toHaveAttribute(
       "href",
-      "mailto:info@evermount.co"
+      "mailto:info@evermount.co",
     );
     expect(screen.getByText("+254 758 578 816")).toHaveAttribute(
       "href",
-      "tel:+254758578816"
+      "tel:+254758578816",
     );
     expect(screen.getByLabelText("LinkedIn")).toBeInTheDocument();
     expect(screen.getByLabelText("X Twitter")).toBeInTheDocument();
@@ -91,7 +91,7 @@ describe("Footer", () => {
     await waitFor(() => {
       expect(consoleErrorSpy).toHaveBeenCalledWith(
         "Newsletter submission error:",
-        expect.anything()
+        expect.anything(),
       );
     });
 

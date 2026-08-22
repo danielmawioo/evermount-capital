@@ -59,7 +59,7 @@ export const admin = {
 
     update: (
       managerId: string,
-      data: { fullName?: string; status?: "active" | "inactive" }
+      data: { fullName?: string; status?: "active" | "inactive" },
     ) => apiClient.put(`/admin/managers/${managerId}`, data),
 
     getClients: (managerId: string) =>
@@ -81,7 +81,7 @@ export const admin = {
 
     assignClient: (
       managerId: string,
-      data: { email: string; notes?: string }
+      data: { email: string; notes?: string },
     ) => apiClient.post(`/admin/managers/${managerId}/clients`, data),
 
     unassignClient: (managerId: string, clientId: string) =>
@@ -89,7 +89,10 @@ export const admin = {
   },
 
   wallets: {
-    creditUser: (userId: string, data: { amount: number; description?: string }) =>
+    creditUser: (
+      userId: string,
+      data: { amount: number; description?: string },
+    ) =>
       apiClient.post<{
         message: string;
         availableBalance: number;
@@ -118,6 +121,9 @@ export const admin = {
       apiClient.patch(`/admin/wallets/withdrawals/${transactionId}/approve`),
 
     rejectWithdrawal: (transactionId: string, data?: { reason?: string }) =>
-      apiClient.patch(`/admin/wallets/withdrawals/${transactionId}/reject`, data),
+      apiClient.patch(
+        `/admin/wallets/withdrawals/${transactionId}/reject`,
+        data,
+      ),
   },
 };

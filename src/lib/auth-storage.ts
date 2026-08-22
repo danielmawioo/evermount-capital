@@ -36,7 +36,7 @@ function clearAuthCookie() {
 export function setAuthTokens(
   accessToken: string,
   refreshToken: string,
-  rememberMe: boolean
+  rememberMe: boolean,
 ) {
   const storage = rememberMe ? localStorage : sessionStorage;
   const other = rememberMe ? sessionStorage : localStorage;

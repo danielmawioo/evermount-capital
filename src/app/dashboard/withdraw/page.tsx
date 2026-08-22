@@ -22,7 +22,8 @@ export default function WithdrawPage() {
           Withdraw Funds
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-2">
-          Withdraw funds from your wallet to your preferred bank or crypto wallet. Only available wallet balance can be withdrawn.
+          Withdraw funds from your wallet to your preferred bank or crypto
+          wallet. Only available wallet balance can be withdrawn.
         </p>
       </div>
 

@@ -36,17 +36,20 @@ export default function PlatformPage() {
     {
       icon: CpuChipIcon,
       title: "AI-Powered Execution",
-      description: "Autonomous trading systems powered by machine learning and quantitative models.",
+      description:
+        "Autonomous trading systems powered by machine learning and quantitative models.",
     },
     {
       icon: ChartBarIcon,
       title: "Real-Time Analytics",
-      description: "Live performance tracking, risk metrics, and portfolio insights.",
+      description:
+        "Live performance tracking, risk metrics, and portfolio insights.",
     },
     {
       icon: ShieldCheckIcon,
       title: "Enterprise Security",
-      description: "Bank-level encryption, multi-factor authentication, and compliance monitoring.",
+      description:
+        "Bank-level encryption, multi-factor authentication, and compliance monitoring.",
     },
     {
       icon: BoltIcon,
@@ -56,12 +59,14 @@ export default function PlatformPage() {
     {
       icon: GlobeAltIcon,
       title: "Global Market Access",
-      description: "Trade across forex, equities, commodities, and crypto markets worldwide.",
+      description:
+        "Trade across forex, equities, commodities, and crypto markets worldwide.",
     },
     {
       icon: LockClosedIcon,
       title: "Risk Management",
-      description: "Automated risk controls, position limits, and real-time monitoring.",
+      description:
+        "Automated risk controls, position limits, and real-time monitoring.",
     },
   ];
 
@@ -141,9 +146,10 @@ export default function PlatformPage() {
                 The Platform
               </h1>
               <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                Evermount delivers consistent risk-adjusted returns through systematic 
-                quantitative strategies, proprietary execution algorithms, and institutional-grade 
-                investor dashboards. Serving global investors with institutional-quality infrastructure.
+                Evermount delivers consistent risk-adjusted returns through
+                systematic quantitative strategies, proprietary execution
+                algorithms, and institutional-grade investor dashboards. Serving
+                global investors with institutional-quality infrastructure.
               </p>
             </motion.div>
 

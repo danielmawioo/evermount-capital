@@ -20,9 +20,10 @@ export default function BestExecutionPage() {
             Last updated: April 25, 2025
           </p>
           <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-            This policy outlines Evermount Capital&apos;s commitment to obtaining the best 
-            possible execution for client orders, taking into account price, costs, 
-            speed, likelihood of execution, settlement, and other relevant factors.
+            This policy outlines Evermount Capital&apos;s commitment to
+            obtaining the best possible execution for client orders, taking into
+            account price, costs, speed, likelihood of execution, settlement,
+            and other relevant factors.
           </p>
         </header>
 
@@ -33,11 +34,11 @@ export default function BestExecutionPage() {
           </h2>
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
             <p className="text-base leading-7 text-gray-700 dark:text-gray-300">
-              When executing client orders, Evermount Capital is committed to taking 
-              all sufficient steps to obtain the best possible result for clients, 
-              taking into account price, costs, speed, likelihood of execution and 
-              settlement, size, nature, or any other consideration relevant to the 
-              execution of the order.
+              When executing client orders, Evermount Capital is committed to
+              taking all sufficient steps to obtain the best possible result for
+              clients, taking into account price, costs, speed, likelihood of
+              execution and settlement, size, nature, or any other consideration
+              relevant to the execution of the order.
             </p>
           </div>
         </section>
@@ -49,34 +50,50 @@ export default function BestExecutionPage() {
           </h2>
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
             <p className="text-base leading-7 mb-4 text-gray-700 dark:text-gray-300">
-              When determining best execution, we consider the following factors:
+              When determining best execution, we consider the following
+              factors:
             </p>
             <ul className="space-y-3 list-disc pl-5 text-base leading-7 text-gray-700 dark:text-gray-300">
               <li>
-                <strong className="text-gray-900 dark:text-white">Price:</strong> The price at which the order can be executed
+                <strong className="text-gray-900 dark:text-white">
+                  Price:
+                </strong>{" "}
+                The price at which the order can be executed
               </li>
               <li>
-                <strong className="text-gray-900 dark:text-white">Costs:</strong> All costs related to execution, including 
-                commissions, fees, and spreads
+                <strong className="text-gray-900 dark:text-white">
+                  Costs:
+                </strong>{" "}
+                All costs related to execution, including commissions, fees, and
+                spreads
               </li>
               <li>
-                <strong className="text-gray-900 dark:text-white">Speed:</strong> The speed of execution and likelihood of 
-                settlement
+                <strong className="text-gray-900 dark:text-white">
+                  Speed:
+                </strong>{" "}
+                The speed of execution and likelihood of settlement
               </li>
               <li>
-                <strong className="text-gray-900 dark:text-white">Likelihood of Execution:</strong> The probability that the 
-                order will be filled
+                <strong className="text-gray-900 dark:text-white">
+                  Likelihood of Execution:
+                </strong>{" "}
+                The probability that the order will be filled
               </li>
               <li>
-                <strong className="text-gray-900 dark:text-white">Size:</strong> The size of the order relative to available 
-                liquidity
+                <strong className="text-gray-900 dark:text-white">Size:</strong>{" "}
+                The size of the order relative to available liquidity
               </li>
               <li>
-                <strong className="text-gray-900 dark:text-white">Nature:</strong> The nature of the order (market, limit, etc.)
+                <strong className="text-gray-900 dark:text-white">
+                  Nature:
+                </strong>{" "}
+                The nature of the order (market, limit, etc.)
               </li>
               <li>
-                <strong className="text-gray-900 dark:text-white">Market Conditions:</strong> Current market conditions and 
-                volatility
+                <strong className="text-gray-900 dark:text-white">
+                  Market Conditions:
+                </strong>{" "}
+                Current market conditions and volatility
               </li>
             </ul>
           </div>
@@ -89,7 +106,8 @@ export default function BestExecutionPage() {
           </h2>
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
             <p className="text-base leading-7 mb-4 text-gray-700 dark:text-gray-300">
-              We execute client orders through various execution venues, including:
+              We execute client orders through various execution venues,
+              including:
             </p>
             <ul className="space-y-3 list-disc pl-5 text-base leading-7 text-gray-700 dark:text-gray-300">
               <li>Regulated exchanges and trading platforms</li>
@@ -98,7 +116,7 @@ export default function BestExecutionPage() {
               <li>Over-the-counter (OTC) markets where appropriate</li>
             </ul>
             <p className="text-base leading-7 mt-4 text-gray-700 dark:text-gray-300">
-              We select execution venues based on their ability to provide best 
+              We select execution venues based on their ability to provide best
               execution for the specific order type and market conditions.
             </p>
           </div>
@@ -115,9 +133,13 @@ export default function BestExecutionPage() {
             </p>
             <ul className="space-y-3 list-disc pl-5 text-base leading-7">
               <li>Execution quality meets our best execution standards</li>
-              <li>Execution venues continue to provide competitive execution</li>
+              <li>
+                Execution venues continue to provide competitive execution
+              </li>
               <li>Our execution policies remain appropriate and effective</li>
-              <li>Any issues with execution quality are identified and addressed</li>
+              <li>
+                Any issues with execution quality are identified and addressed
+              </li>
             </ul>
           </div>
         </section>
@@ -128,23 +150,23 @@ export default function BestExecutionPage() {
             5. Limitations
           </h2>
           <div className="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-600 p-6 rounded-lg">
-            <p className="text-base leading-7 mb-4">
-              Please note that:
-            </p>
+            <p className="text-base leading-7 mb-4">Please note that:</p>
             <ul className="space-y-3 list-disc pl-5 text-base leading-7">
               <li>
-                Best execution does not guarantee the best price in all circumstances
+                Best execution does not guarantee the best price in all
+                circumstances
               </li>
               <li>
-                Market conditions, liquidity, and other factors may affect execution 
-                quality
+                Market conditions, liquidity, and other factors may affect
+                execution quality
               </li>
               <li>
-                For certain order types or market conditions, best execution may 
+                For certain order types or market conditions, best execution may
                 prioritize factors other than price
               </li>
               <li>
-                Execution quality may vary across different asset classes and markets
+                Execution quality may vary across different asset classes and
+                markets
               </li>
             </ul>
           </div>
@@ -166,4 +188,3 @@ export default function BestExecutionPage() {
     </main>
   );
 }
-

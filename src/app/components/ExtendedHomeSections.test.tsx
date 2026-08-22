@@ -9,23 +9,23 @@ describe("ExtendedHomeSections", () => {
 
     expect(
       screen.getByText(
-        "Systematic Alpha Generation Through Quantitative Excellence"
-      )
+        "Systematic Alpha Generation Through Quantitative Excellence",
+      ),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Proprietary Technology & Research Infrastructure")
+      screen.getByText("Proprietary Technology & Research Infrastructure"),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Systematic Investment Philosophy")
+      screen.getByText("Systematic Investment Philosophy"),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("World-Class Research & Engineering Team")
+      screen.getByText("World-Class Research & Engineering Team"),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Institutional-Grade Infrastructure & Risk Controls")
+      screen.getByText("Institutional-Grade Infrastructure & Risk Controls"),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Performance Metrics & Track Record")
+      screen.getByText("Performance Metrics & Track Record"),
     ).toBeInTheDocument();
   });
 
@@ -41,10 +41,10 @@ describe("ExtendedHomeSections", () => {
     render(<ExtendedHomeSections />);
 
     expect(
-      screen.getByRole("link", { name: "Schedule a Demo" })
+      screen.getByRole("link", { name: "Schedule a Demo" }),
     ).toHaveAttribute("href", "/book-demo");
     expect(
-      screen.getByRole("link", { name: "Get Started Free" })
+      screen.getByRole("link", { name: "Get Started Free" }),
     ).toHaveAttribute("href", "/register");
   });
 

@@ -75,15 +75,19 @@ export default function FundsPage() {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [filterType, setFilterType] = useState<"all" | string>("all");
-  const [filterRisk, setFilterRisk] = useState<"all" | Fund["riskLevel"]>("all");
+  const [filterRisk, setFilterRisk] = useState<"all" | Fund["riskLevel"]>(
+    "all",
+  );
 
   const totalInvested = funds.reduce(
-    (sum, fund) => sum + parseFloat(fund.invested.replace("$", "").replace(",", "")),
-    0
+    (sum, fund) =>
+      sum + parseFloat(fund.invested.replace("$", "").replace(",", "")),
+    0,
   );
   const totalValue = funds.reduce(
-    (sum, fund) => sum + parseFloat(fund.currentValue.replace("$", "").replace(",", "")),
-    0
+    (sum, fund) =>
+      sum + parseFloat(fund.currentValue.replace("$", "").replace(",", "")),
+    0,
   );
   const totalPerformance = ((totalValue - totalInvested) / totalInvested) * 100;
 
@@ -119,7 +123,8 @@ export default function FundsPage() {
             My Funds
           </h1>
           <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm md:text-base">
-            Manage your investments across different funds and track performance.
+            Manage your investments across different funds and track
+            performance.
           </p>
         </div>
         <Link
@@ -134,19 +139,25 @@ export default function FundsPage() {
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 shadow-sm">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total Invested</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+            Total Invested
+          </p>
           <p className="text-2xl font-bold text-gray-900 dark:text-white">
             ${totalInvested.toLocaleString()}
           </p>
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 shadow-sm">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Current Value</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+            Current Value
+          </p>
           <p className="text-2xl font-bold text-gray-900 dark:text-white">
             ${totalValue.toLocaleString()}
           </p>
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 shadow-sm">
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total Performance</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+            Total Performance
+          </p>
           <div className="flex items-center gap-2">
             {totalPerformance >= 0 ? (
               <ArrowTrendingUpIcon className="w-5 h-5 text-green-500" />
@@ -196,7 +207,9 @@ export default function FundsPage() {
             </div>
             <select
               value={filterRisk}
-              onChange={(e) => setFilterRisk(e.target.value as "all" | Fund["riskLevel"])}
+              onChange={(e) =>
+                setFilterRisk(e.target.value as "all" | Fund["riskLevel"])
+              }
               className="px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#00a76f]"
             >
               <option value="all">All Risk Levels</option>
@@ -220,12 +233,16 @@ export default function FundsPage() {
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
                   {fund.name}
                 </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">{fund.type}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  {fund.type}
+                </p>
               </div>
               <span
                 className={`px-2.5 py-1 rounded-full text-xs font-medium ${getRiskColor(fund.riskLevel)}`}
               >
-                {fund.riskLevel.charAt(0).toUpperCase() + fund.riskLevel.slice(1)} Risk
+                {fund.riskLevel.charAt(0).toUpperCase() +
+                  fund.riskLevel.slice(1)}{" "}
+                Risk
               </span>
             </div>
 
@@ -235,19 +252,25 @@ export default function FundsPage() {
 
             <div className="space-y-3 mb-4">
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600 dark:text-gray-400">Invested</span>
+                <span className="text-sm text-gray-600 dark:text-gray-400">
+                  Invested
+                </span>
                 <span className="font-semibold text-gray-900 dark:text-white">
                   {fund.invested}
                 </span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600 dark:text-gray-400">Current Value</span>
+                <span className="text-sm text-gray-600 dark:text-gray-400">
+                  Current Value
+                </span>
                 <span className="font-semibold text-gray-900 dark:text-white">
                   {fund.currentValue}
                 </span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600 dark:text-gray-400">Performance</span>
+                <span className="text-sm text-gray-600 dark:text-gray-400">
+                  Performance
+                </span>
                 <div className="flex items-center gap-1">
                   {fund.performance >= 0 ? (
                     <ArrowTrendingUpIcon className="w-4 h-4 text-green-500" />
@@ -266,7 +289,9 @@ export default function FundsPage() {
               </div>
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Allocation</span>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">
+                    Allocation
+                  </span>
                   <span className="text-sm font-medium text-gray-900 dark:text-white">
                     {fund.allocation}%
                   </span>

@@ -19,5 +19,3 @@ export const metadata: Metadata = {
     follow: true,
   },
 };
-
-

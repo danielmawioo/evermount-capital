@@ -50,7 +50,7 @@ export default function AdminKYCReviewPage() {
   const updateStatus = async (
     kycId: string,
     status: "VERIFIED" | "REJECTED",
-    notes?: string
+    notes?: string,
   ) => {
     setProcessingId(kycId);
     try {
@@ -117,10 +117,14 @@ export default function AdminKYCReviewPage() {
       </div>
 
       {loading ? (
-        <p className="text-gray-500 dark:text-gray-400">Loading submissions...</p>
+        <p className="text-gray-500 dark:text-gray-400">
+          Loading submissions...
+        </p>
       ) : submissions.length === 0 ? (
         <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-          <p className="text-gray-600 dark:text-gray-400">No submissions found.</p>
+          <p className="text-gray-600 dark:text-gray-400">
+            No submissions found.
+          </p>
         </div>
       ) : (
         <div className="space-y-4">
@@ -138,8 +142,7 @@ export default function AdminKYCReviewPage() {
                     {item.userEmail}
                   </p>
                   <p className="text-xs text-gray-400 mt-1">
-                    Submitted{" "}
-                    {new Date(item.submittedAt).toLocaleString()}
+                    Submitted {new Date(item.submittedAt).toLocaleString()}
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
@@ -167,7 +170,9 @@ export default function AdminKYCReviewPage() {
                   )}
                 </div>
               </div>
-              {(item.identityDocument || item.proofOfAddress || item.selfie) && (
+              {(item.identityDocument ||
+                item.proofOfAddress ||
+                item.selfie) && (
                 <div className="mt-4 flex flex-wrap gap-3 text-sm">
                   {item.identityDocument && (
                     <a

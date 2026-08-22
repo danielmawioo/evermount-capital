@@ -44,9 +44,17 @@ const investorLinks: NavLink[] = [
   { label: "Trade", href: "/dashboard/trade", icon: BoltIcon },
   { label: "Portfolio", href: "/dashboard/portfolio", icon: Squares2X2Icon },
   { label: "Wallet", href: "/dashboard/wallets", icon: WalletIcon },
-  { label: "Transactions", href: "/dashboard/transactions", icon: ArrowsRightLeftIcon },
+  {
+    label: "Transactions",
+    href: "/dashboard/transactions",
+    icon: ArrowsRightLeftIcon,
+  },
   { label: "Documents", href: "/dashboard/statements", icon: DocumentTextIcon },
-  { label: "Verification", href: "/dashboard/kyc", icon: DocumentDuplicateIcon },
+  {
+    label: "Verification",
+    href: "/dashboard/kyc",
+    icon: DocumentDuplicateIcon,
+  },
   { label: "Help", href: "/dashboard/help", icon: QuestionMarkCircleIcon },
   { label: "Settings", href: "/dashboard/setting", icon: Cog6ToothIcon },
 ];
@@ -54,26 +62,48 @@ const investorLinks: NavLink[] = [
 const adminLinks: NavLink[] = [
   { label: "Users", href: "/dashboard/admin/users", icon: UsersIcon },
   { label: "Managers", href: "/dashboard/admin/managers", icon: BriefcaseIcon },
-  { label: "KYC Review", href: "/dashboard/admin/kyc", icon: DocumentDuplicateIcon },
-  { label: "Withdrawals", href: "/dashboard/admin/withdrawals", icon: BanknotesIcon },
+  {
+    label: "KYC Review",
+    href: "/dashboard/admin/kyc",
+    icon: DocumentDuplicateIcon,
+  },
+  {
+    label: "Withdrawals",
+    href: "/dashboard/admin/withdrawals",
+    icon: BanknotesIcon,
+  },
   { label: "Trading Ops", href: "/dashboard/admin/ops", icon: BoltIcon },
-  { label: "Compliance", href: "/dashboard/admin/compliance", icon: ShieldCheckIcon },
-  { label: "Security", href: "/dashboard/admin/security", icon: ShieldCheckIcon },
+  {
+    label: "Compliance",
+    href: "/dashboard/admin/compliance",
+    icon: ShieldCheckIcon,
+  },
+  {
+    label: "Security",
+    href: "/dashboard/admin/security",
+    icon: ShieldCheckIcon,
+  },
   { label: "Settings", href: "/dashboard/admin/settings", icon: Cog6ToothIcon },
 ];
 
 const managerLinks: NavLink[] = [
-  { label: "My Clients", href: "/dashboard/manager/clients", icon: UserGroupIcon },
-  { label: "Strategies", href: "/dashboard/manager/strategies", icon: ChartBarSquareIcon },
+  {
+    label: "My Clients",
+    href: "/dashboard/manager/clients",
+    icon: UserGroupIcon,
+  },
+  {
+    label: "Strategies",
+    href: "/dashboard/manager/strategies",
+    icon: ChartBarSquareIcon,
+  },
 ];
 
 export default function Sidebar({ onClose }: SidebarProps) {
   const pathname = usePathname();
   const { profile, tier, isAdmin, isManager, loading } = useInvestor();
 
-  const sections: NavSection[] = [
-    { title: "Investor", links: investorLinks },
-  ];
+  const sections: NavSection[] = [{ title: "Investor", links: investorLinks }];
 
   if (isAdmin) {
     sections.push({ title: "Admin", links: adminLinks });
@@ -131,7 +161,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
                       "flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition",
                       isActive
                         ? "bg-[#00a76f] text-white shadow-sm"
-                        : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                        : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800",
                     )}
                   >
                     <Icon className="w-5 h-5 shrink-0" />

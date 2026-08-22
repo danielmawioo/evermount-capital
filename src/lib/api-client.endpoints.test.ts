@@ -73,7 +73,9 @@ describe("api-client endpoint wrappers", () => {
   });
 
   it("api.deposits.getSettlementAccount gets /deposits/settlement-account", async () => {
-    mock.onGet("/deposits/settlement-account").reply(200, { bankName: "Equity" });
+    mock
+      .onGet("/deposits/settlement-account")
+      .reply(200, { bankName: "Equity" });
     const res = await api.deposits.getSettlementAccount();
     expect(res.data).toEqual({ bankName: "Equity" });
   });
@@ -299,7 +301,9 @@ describe("api-client endpoint wrappers", () => {
 
   it("api.admin.wallets.rejectWithdrawal patches /admin/wallets/withdrawals/:id/reject", async () => {
     mock.onPatch("/admin/wallets/withdrawals/tx1/reject").reply(200, {});
-    const res = await api.admin.wallets.rejectWithdrawal("tx1", { reason: "fraud" });
+    const res = await api.admin.wallets.rejectWithdrawal("tx1", {
+      reason: "fraud",
+    });
     expect(res.status).toBe(200);
   });
 

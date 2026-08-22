@@ -17,7 +17,7 @@ function seedVerifiedInvestor(mock: MockAdapter) {
   setAuthTokens("token", "refresh", true);
   setUser(
     { id: "1", email: "a@b.com", fullName: "A B", role: "INVESTOR" },
-    true
+    true,
   );
   mock.onGet("/users/profile").reply(200, {
     id: "1",
@@ -60,7 +60,7 @@ describe("TradePage", () => {
     setAuthTokens("token", "refresh", true);
     setUser(
       { id: "1", email: "a@b.com", fullName: "A B", role: "INVESTOR" },
-      true
+      true,
     );
     mock.onGet("/users/profile").reply(200, {
       id: "1",
@@ -75,7 +75,7 @@ describe("TradePage", () => {
     render(<TradePage />);
 
     expect(
-      await screen.findByText("Complete verification to start trading")
+      await screen.findByText("Complete verification to start trading"),
     ).toBeInTheDocument();
   });
 
@@ -90,7 +90,7 @@ describe("TradePage", () => {
     render(<TradePage />);
 
     expect(
-      await screen.findByRole("heading", { name: "Trade" })
+      await screen.findByRole("heading", { name: "Trade" }),
     ).toBeInTheDocument();
     expect(await screen.findByText("$20,000.00")).toBeInTheDocument();
 
@@ -101,30 +101,28 @@ describe("TradePage", () => {
 
     await waitFor(() => {
       expect(
-        mock.history.post.some((r) => r.url === "/investments/trade/preview")
+        mock.history.post.some((r) => r.url === "/investments/trade/preview"),
       ).toBe(true);
     });
     expect(
       JSON.parse(
         mock.history.post.find((r) => r.url === "/investments/trade/preview")!
-          .data
-      )
+          .data,
+      ),
     ).toEqual({ amount: 15000, lockInMonths: 6 });
 
     expect(await screen.findByText("Momentum Growth")).toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: /Review & confirm/ }));
 
-    expect(
-      await screen.findByRole("checkbox")
-    ).toBeInTheDocument();
+    expect(await screen.findByRole("checkbox")).toBeInTheDocument();
     await user.click(screen.getByRole("checkbox"));
 
     await user.click(screen.getByRole("button", { name: /Start trading/ }));
 
     await waitFor(() => {
       expect(
-        mock.history.post.some((r) => r.url === "/investments/trade")
+        mock.history.post.some((r) => r.url === "/investments/trade"),
       ).toBe(true);
     });
     expect(push).toHaveBeenCalledWith("/dashboard/portfolio?traded=1");
@@ -143,7 +141,7 @@ describe("TradePage", () => {
     await user.click(screen.getByRole("button", { name: /Continue/ }));
 
     expect(
-      mock.history.post.filter((r) => r.url === "/investments/trade/preview")
+      mock.history.post.filter((r) => r.url === "/investments/trade/preview"),
     ).toHaveLength(0);
   });
 });

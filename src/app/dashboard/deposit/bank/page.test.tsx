@@ -37,7 +37,7 @@ describe("BankDepositPage", () => {
     render(<BankDepositPage />);
 
     expect(
-      await screen.findByRole("heading", { name: "Bank Transfer" })
+      await screen.findByRole("heading", { name: "Bank Transfer" }),
     ).toBeInTheDocument();
     expect(await screen.findByText(/Chase/)).toBeInTheDocument();
     expect(screen.getByText(/Equity Bank Kenya/)).toBeInTheDocument();
@@ -49,10 +49,10 @@ describe("BankDepositPage", () => {
 
     render(<BankDepositPage />);
 
+    expect(await screen.findByPlaceholderText("Bank name")).toBeInTheDocument();
     expect(
-      await screen.findByPlaceholderText("Bank name")
+      screen.getByText("Add your bank account to continue."),
     ).toBeInTheDocument();
-    expect(screen.getByText("Add your bank account to continue.")).toBeInTheDocument();
   });
 
   it("submits a bank deposit with the selected account and amount", async () => {
@@ -75,7 +75,7 @@ describe("BankDepositPage", () => {
     await user.type(amountInput, "500");
 
     await user.click(
-      screen.getByRole("button", { name: "Initiate Bank Deposit" })
+      screen.getByRole("button", { name: "Initiate Bank Deposit" }),
     );
 
     await waitFor(() => {
@@ -107,15 +107,21 @@ describe("BankDepositPage", () => {
     await screen.findByPlaceholderText("Bank name");
 
     await user.type(screen.getByPlaceholderText("Bank name"), "Chase");
-    await user.type(screen.getByPlaceholderText("Account holder name"), "Jane Doe");
-    await user.type(screen.getByPlaceholderText("Account number"), "1234567890");
+    await user.type(
+      screen.getByPlaceholderText("Account holder name"),
+      "Jane Doe",
+    );
+    await user.type(
+      screen.getByPlaceholderText("Account number"),
+      "1234567890",
+    );
 
     await user.click(screen.getByRole("button", { name: "Save bank account" }));
 
     await waitFor(() => {
-      expect(mock.history.post.some((r) => r.url === "/users/bank-accounts")).toBe(
-        true
-      );
+      expect(
+        mock.history.post.some((r) => r.url === "/users/bank-accounts"),
+      ).toBe(true);
     });
   });
 });

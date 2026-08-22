@@ -2,7 +2,11 @@ import { render, screen } from "@testing-library/react";
 import RootLayout, { metadata } from "./layout";
 
 jest.mock("./components/LayoutWrapper", () => {
-  return function MockLayoutWrapper({ children }: { children: React.ReactNode }) {
+  return function MockLayoutWrapper({
+    children,
+  }: {
+    children: React.ReactNode;
+  }) {
     return <div data-testid="layout-wrapper">{children}</div>;
   };
 });
@@ -36,8 +40,8 @@ describe("RootLayout", () => {
       render(
         <RootLayout>
           <div>test-child</div>
-        </RootLayout>
-      )
+        </RootLayout>,
+      ),
     ).not.toThrow();
 
     expect(screen.getByText("test-child")).toBeInTheDocument();

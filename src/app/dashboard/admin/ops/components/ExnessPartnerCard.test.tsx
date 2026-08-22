@@ -7,7 +7,7 @@ describe("ExnessPartnerCard", () => {
 
     expect(screen.getByText("Disabled")).toBeInTheDocument();
     expect(
-      screen.getByText(/Set EXNESS_PARTNER_REFERRAL_LINK/i)
+      screen.getByText(/Set EXNESS_PARTNER_REFERRAL_LINK/i),
     ).toBeInTheDocument();
   });
 
@@ -34,7 +34,7 @@ describe("ExnessPartnerCard", () => {
             rewards: { totalCommissionUsd: 89 },
           },
         }}
-      />
+      />,
     );
 
     expect(screen.getByText("Connected")).toBeInTheDocument();
@@ -43,7 +43,9 @@ describe("ExnessPartnerCard", () => {
     expect(screen.getByText("$89")).toBeInTheDocument();
     expect(screen.getByText(/\(configured\)/i)).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: "https://one.exnessonelink.com/a/abc123" })
+      screen.getByRole("link", {
+        name: "https://one.exnessonelink.com/a/abc123",
+      }),
     ).toHaveAttribute("href", "https://one.exnessonelink.com/a/abc123");
   });
 
@@ -60,7 +62,7 @@ describe("ExnessPartnerCard", () => {
           },
           summary: null,
         }}
-      />
+      />,
     );
 
     expect(screen.getByText("Not connected")).toBeInTheDocument();

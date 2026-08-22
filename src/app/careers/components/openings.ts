@@ -23,7 +23,8 @@ export const openings: JobOpening[] = [
     type: "Full-Time",
     location: "Remote",
     department: "Engineering",
-    description: "We're looking for a talented Frontend Engineer to join our engineering team. You'll work on building beautiful, performant user interfaces for our quantitative investment platform using React, Next.js, and TypeScript.",
+    description:
+      "We're looking for a talented Frontend Engineer to join our engineering team. You'll work on building beautiful, performant user interfaces for our quantitative investment platform using React, Next.js, and TypeScript.",
     responsibilities: [
       "Build and maintain responsive, accessible user interfaces",
       "Collaborate with designers and backend engineers to implement features",
@@ -68,7 +69,8 @@ export const openings: JobOpening[] = [
     type: "Full-Time",
     location: "Nairobi, Kenya",
     department: "Research",
-    description: "Join our quantitative research team to develop and implement systematic trading strategies. You'll work with large datasets, build predictive models, and contribute to our proprietary trading algorithms.",
+    description:
+      "Join our quantitative research team to develop and implement systematic trading strategies. You'll work with large datasets, build predictive models, and contribute to our proprietary trading algorithms.",
     responsibilities: [
       "Research and develop quantitative trading strategies",
       "Analyze market data and identify alpha opportunities",
@@ -113,7 +115,8 @@ export const openings: JobOpening[] = [
     type: "Contract",
     location: "Hybrid - London",
     department: "Design",
-    description: "We're seeking a creative Product Designer to shape the user experience of our investment platform. You'll work closely with product managers and engineers to design intuitive, data-rich interfaces for sophisticated financial tools.",
+    description:
+      "We're seeking a creative Product Designer to shape the user experience of our investment platform. You'll work closely with product managers and engineers to design intuitive, data-rich interfaces for sophisticated financial tools.",
     responsibilities: [
       "Design user interfaces for complex financial dashboards",
       "Create wireframes, prototypes, and high-fidelity designs",
@@ -155,7 +158,8 @@ export const openings: JobOpening[] = [
     type: "Part-Time",
     location: "Remote",
     department: "Marketing",
-    description: "Join our marketing team to develop and execute growth strategies for our quantitative investment platform. You'll work on content marketing, digital campaigns, and brand positioning in the fintech space.",
+    description:
+      "Join our marketing team to develop and execute growth strategies for our quantitative investment platform. You'll work on content marketing, digital campaigns, and brand positioning in the fintech space.",
     responsibilities: [
       "Develop and execute marketing strategies",
       "Create content for blog, social media, and email campaigns",

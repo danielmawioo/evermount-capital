@@ -144,7 +144,7 @@ export default function Navbar() {
   return (
     <>
       <Toaster position="top-center" />
-      
+
       {/* Announcement Banner */}
       <motion.div
         initial={{ y: -50, opacity: 0 }}
@@ -154,7 +154,10 @@ export default function Navbar() {
       >
         <p className="flex flex-wrap justify-center items-center gap-2">
           <span className="font-semibold">🚀 New:</span>
-          <span className="whitespace-nowrap">We&apos;re open-sourcing our AI-powered quantitative trading infrastructure.</span>
+          <span className="whitespace-nowrap">
+            We&apos;re open-sourcing our AI-powered quantitative trading
+            infrastructure.
+          </span>
           <Link
             href="/book-demo"
             className="ml-2 underline font-semibold hover:text-green-100 transition flex items-center gap-1"
@@ -375,15 +378,15 @@ export default function Navbar() {
                       </>
                     )}
                   </motion.button>
-                      <Link href="/login" onClick={() => setMenuOpen(false)}>
-                        <motion.button
-                          whileTap={{ scale: 0.95 }}
-                          className="w-full flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-medium text-white rounded-md transition-all shadow-md hover:shadow-lg bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:from-yellow-500 hover:via-yellow-600 hover:to-yellow-700"
-                        >
-                          Invest
-                          <ArrowRightIcon className="w-4 h-4" />
-                        </motion.button>
-                      </Link>
+                  <Link href="/login" onClick={() => setMenuOpen(false)}>
+                    <motion.button
+                      whileTap={{ scale: 0.95 }}
+                      className="w-full flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-medium text-white rounded-md transition-all shadow-md hover:shadow-lg bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:from-yellow-500 hover:via-yellow-600 hover:to-yellow-700"
+                    >
+                      Invest
+                      <ArrowRightIcon className="w-4 h-4" />
+                    </motion.button>
+                  </Link>
                 </div>
               </div>
             </motion.div>

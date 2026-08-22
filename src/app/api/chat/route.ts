@@ -4,10 +4,7 @@ import {
   getDepartmentAssistant,
   isValidDepartmentId,
 } from "@/lib/chat-departments";
-import {
-  extractLinks,
-  getChatFallbackResponse,
-} from "@/lib/chat-fallback";
+import { extractLinks, getChatFallbackResponse } from "@/lib/chat-fallback";
 import { logger } from "@/lib/logger";
 
 const CHAT_MODEL = process.env.OPENAI_CHAT_MODEL || "gpt-4o-mini";
@@ -46,14 +43,16 @@ Response format:
 
 function buildSystemPrompt(
   assistantName: string,
-  departmentId?: string
+  departmentId?: string,
 ): string {
   const namedPrompt = BASE_SYSTEM_PROMPT.replace(
     /You are a helpful customer support assistant/,
-    `You are ${assistantName}, a helpful customer support assistant`
+    `You are ${assistantName}, a helpful customer support assistant`,
   );
 
-  const department = departmentId ? CHAT_DEPARTMENT_MAP[departmentId] : undefined;
+  const department = departmentId
+    ? CHAT_DEPARTMENT_MAP[departmentId]
+    : undefined;
 
   if (!department) {
     return (
@@ -83,28 +82,28 @@ export async function POST(request: NextRequest) {
     if (!messages || !Array.isArray(messages)) {
       return NextResponse.json(
         { error: "Messages array is required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     if (messages.length === 0) {
       return NextResponse.json(
         { error: "At least one message is required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     if (!department || typeof department !== "string") {
       return NextResponse.json(
         { error: "Department is required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     if (!isValidDepartmentId(department)) {
       return NextResponse.json(
         { error: "Invalid department" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -187,8 +186,7 @@ export async function POST(request: NextRequest) {
         "I apologize, but I'm experiencing technical difficulties. Please try again or contact our support team at support@evermount.co";
 
       const openAiError = errorData?.error as
-        | { code?: string; type?: string }
-        | undefined;
+        { code?: string; type?: string } | undefined;
 
       if (response.status === 401) {
         errorMessage =
@@ -208,7 +206,7 @@ export async function POST(request: NextRequest) {
         const fallbackMessage = getChatFallbackResponse(
           department,
           resolvedAssistant,
-          userText
+          userText,
         );
         const fallbackLinks = extractLinks(fallbackMessage);
         const dept = CHAT_DEPARTMENT_MAP[department];
@@ -231,9 +229,10 @@ export async function POST(request: NextRequest) {
         {
           message: errorMessage,
           error: "API request failed",
-          details: process.env.NODE_ENV === "development" ? errorData : undefined,
+          details:
+            process.env.NODE_ENV === "development" ? errorData : undefined,
         },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -259,7 +258,8 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     logger.error("Chat API error", error);
 
-    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    const errorMessage =
+      error instanceof Error ? error.message : "Unknown error";
     const devMessage =
       process.env.NODE_ENV === "development"
         ? `Technical difficulties. Error: ${errorMessage}. Contact support@evermount.co`
@@ -270,7 +270,7 @@ export async function POST(request: NextRequest) {
         message: devMessage,
         error: "Internal server error",
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

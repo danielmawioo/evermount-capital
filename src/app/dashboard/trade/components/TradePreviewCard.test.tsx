@@ -23,8 +23,6 @@ describe("TradePreviewCard", () => {
     expect(screen.getByText("12 months")).toBeInTheDocument();
     expect(screen.getByText("Moderate risk")).toBeInTheDocument();
     expect(screen.getByText("Growth")).toBeInTheDocument();
-    expect(
-      screen.getByText(PREVIEW.allocationReason)
-    ).toBeInTheDocument();
+    expect(screen.getByText(PREVIEW.allocationReason)).toBeInTheDocument();
   });
 });

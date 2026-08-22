@@ -32,7 +32,7 @@ describe("ManagerLayout", () => {
     setAuthTokens("token", "refresh", true);
     setUser(
       { id: "1", email: "m@b.com", fullName: "M B", role: "MANAGER" },
-      true
+      true,
     );
     mock.onGet("/users/profile").reply(200, {
       id: "1",
@@ -45,7 +45,7 @@ describe("ManagerLayout", () => {
     render(
       <ManagerLayout>
         <div>Manager Content</div>
-      </ManagerLayout>
+      </ManagerLayout>,
     );
 
     expect(await screen.findByText("Manager Content")).toBeInTheDocument();
@@ -56,7 +56,7 @@ describe("ManagerLayout", () => {
     setAuthTokens("token", "refresh", true);
     setUser(
       { id: "2", email: "a@b.com", fullName: "A B", role: "ADMIN" },
-      true
+      true,
     );
     mock.onGet("/users/profile").reply(200, {
       id: "2",
@@ -69,7 +69,7 @@ describe("ManagerLayout", () => {
     render(
       <ManagerLayout>
         <div>Manager Content</div>
-      </ManagerLayout>
+      </ManagerLayout>,
     );
 
     expect(await screen.findByText("Manager Content")).toBeInTheDocument();
@@ -80,7 +80,7 @@ describe("ManagerLayout", () => {
     setAuthTokens("token", "refresh", true);
     setUser(
       { id: "3", email: "c@d.com", fullName: "C D", role: "INVESTOR" },
-      true
+      true,
     );
     mock.onGet("/users/profile").reply(200, {
       id: "3",
@@ -93,7 +93,7 @@ describe("ManagerLayout", () => {
     render(
       <ManagerLayout>
         <div>Manager Content</div>
-      </ManagerLayout>
+      </ManagerLayout>,
     );
 
     await waitFor(() => expect(replace).toHaveBeenCalledWith("/dashboard"));
@@ -106,7 +106,7 @@ describe("ManagerLayout", () => {
     render(
       <ManagerLayout>
         <div>Manager Content</div>
-      </ManagerLayout>
+      </ManagerLayout>,
     );
 
     await waitFor(() => expect(replace).toHaveBeenCalledWith("/login"));

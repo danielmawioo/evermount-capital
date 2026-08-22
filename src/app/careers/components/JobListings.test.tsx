@@ -30,7 +30,7 @@ describe("JobListings", () => {
         expandedJob={null}
         onToggleJob={onToggleJob}
         onApply={onApply}
-      />
+      />,
     );
 
     expect(screen.queryByText(/about the role/i)).not.toBeInTheDocument();
@@ -49,7 +49,7 @@ describe("JobListings", () => {
         expandedJob="test-role"
         onToggleJob={onToggleJob}
         onApply={onApply}
-      />
+      />,
     );
 
     expect(screen.getByText(/about the role/i)).toBeInTheDocument();
@@ -66,7 +66,7 @@ describe("JobListings", () => {
         expandedJob="test-role"
         onToggleJob={onToggleJob}
         onApply={onApply}
-      />
+      />,
     );
 
     await user.click(screen.getByRole("button", { name: /apply now/i }));
@@ -84,7 +84,7 @@ describe("JobListings", () => {
         expandedJob="test-role"
         onToggleJob={onToggleJob}
         onApply={onApply}
-      />
+      />,
     );
 
     expect(screen.getByText(/about the role/i)).toBeInTheDocument();
@@ -95,11 +95,11 @@ describe("JobListings", () => {
         expandedJob={null}
         onToggleJob={onToggleJob}
         onApply={onApply}
-      />
+      />,
     );
 
     await waitFor(() =>
-      expect(screen.queryByText(/about the role/i)).not.toBeInTheDocument()
+      expect(screen.queryByText(/about the role/i)).not.toBeInTheDocument(),
     );
   });
 });

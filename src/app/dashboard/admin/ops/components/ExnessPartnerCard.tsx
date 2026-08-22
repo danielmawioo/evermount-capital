@@ -57,7 +57,8 @@ export default function ExnessPartnerCard({
           <p>
             Commission (USD):{" "}
             <span className="font-medium text-gray-800 dark:text-gray-200">
-              ${exnessPartner.summary.rewards.totalCommissionUsd.toLocaleString()}
+              $
+              {exnessPartner.summary.rewards.totalCommissionUsd.toLocaleString()}
             </span>
           </p>
         )}
@@ -86,16 +87,18 @@ export default function ExnessPartnerCard({
         </p>
       )}
       {exnessPartner?.status?.error && (
-        <p className="text-xs text-amber-600 mt-2">{exnessPartner.status.error}</p>
+        <p className="text-xs text-amber-600 mt-2">
+          {exnessPartner.status.error}
+        </p>
       )}
       {!exnessPartner?.status?.enabled &&
         !exnessPartner?.summary?.referralLink &&
         !exnessPartner?.status?.referralLink && (
-        <p className="text-xs text-gray-500 mt-2">
-          Set EXNESS_PARTNER_REFERRAL_LINK or enable EXNESS_PARTNER_ENABLED with
-          PPA credentials in backend env.
-        </p>
-      )}
+          <p className="text-xs text-gray-500 mt-2">
+            Set EXNESS_PARTNER_REFERRAL_LINK or enable EXNESS_PARTNER_ENABLED
+            with PPA credentials in backend env.
+          </p>
+        )}
     </div>
   );
 }

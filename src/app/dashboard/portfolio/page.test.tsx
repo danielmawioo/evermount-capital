@@ -57,7 +57,7 @@ describe("PortfolioPage", () => {
     render(<PortfolioPage />);
 
     expect(
-      await screen.findByRole("heading", { name: "Portfolio" })
+      await screen.findByRole("heading", { name: "Portfolio" }),
     ).toBeInTheDocument();
     expect(await screen.findByText("Momentum Fund")).toBeInTheDocument();
     expect(screen.getAllByText(/\+20\.00%/).length).toBeGreaterThan(0);
@@ -69,7 +69,9 @@ describe("PortfolioPage", () => {
 
     render(<PortfolioPage />);
 
-    expect(await screen.findByText("Failed to load portfolio")).toBeInTheDocument();
+    expect(
+      await screen.findByText("Failed to load portfolio"),
+    ).toBeInTheDocument();
   });
 
   it("reloads performance data for a different period", async () => {
@@ -84,7 +86,7 @@ describe("PortfolioPage", () => {
 
     await waitFor(() => {
       const perfRequests = mock.history.get.filter(
-        (r) => r.url === "/portfolio/performance"
+        (r) => r.url === "/portfolio/performance",
       );
       expect(perfRequests[perfRequests.length - 1].params).toMatchObject({
         period: "7d",

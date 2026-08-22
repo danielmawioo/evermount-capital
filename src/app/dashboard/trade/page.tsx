@@ -85,7 +85,9 @@ export default function TradePage() {
       setStep("preview");
     } catch (error: unknown) {
       logger.error("Failed to preview trade", error);
-      toast.error(getApiErrorMessage(error, "Could not find a matching strategy"));
+      toast.error(
+        getApiErrorMessage(error, "Could not find a matching strategy"),
+      );
     } finally {
       setLoading(false);
     }
@@ -226,7 +228,8 @@ export default function TradePage() {
               ))}
             </div>
             <p className="text-xs text-gray-500 mt-2">
-              Capital stays invested for this period. Early withdrawal may not be available.
+              Capital stays invested for this period. Early withdrawal may not
+              be available.
             </p>
           </div>
 
@@ -278,9 +281,9 @@ export default function TradePage() {
               className="mt-1 rounded border-gray-300 text-[#00a76f] focus:ring-[#00a76f]"
             />
             <span className="text-sm text-gray-700 dark:text-gray-300">
-              I understand my capital of {formatUsd(parsedAmount)} is locked until{" "}
-              <strong>{formatLockInDate(preview.lockInEndsAt)}</strong> and I have
-              read the allocation summary above.
+              I understand my capital of {formatUsd(parsedAmount)} is locked
+              until <strong>{formatLockInDate(preview.lockInEndsAt)}</strong>{" "}
+              and I have read the allocation summary above.
             </span>
           </label>
 

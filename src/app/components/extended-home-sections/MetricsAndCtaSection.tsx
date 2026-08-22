@@ -10,10 +10,30 @@ import {
 } from "@heroicons/react/24/outline";
 
 const PERFORMANCE_METRICS = [
-  { metric: "1.85+", label: "Information Ratio", icon: ChartBarIcon, desc: "Risk-adjusted performance metric" },
-  { metric: "$300K", label: "Assets Under Management", icon: CurrencyDollarIcon, desc: "Growing portfolio" },
-  { metric: "0.35", label: "Maximum Drawdown", icon: ShieldCheckIcon, desc: "Capital preservation focus" },
-  { metric: "15%+", label: "Annualized Alpha", icon: BoltIcon, desc: "Excess returns vs benchmark" },
+  {
+    metric: "1.85+",
+    label: "Information Ratio",
+    icon: ChartBarIcon,
+    desc: "Risk-adjusted performance metric",
+  },
+  {
+    metric: "$300K",
+    label: "Assets Under Management",
+    icon: CurrencyDollarIcon,
+    desc: "Growing portfolio",
+  },
+  {
+    metric: "0.35",
+    label: "Maximum Drawdown",
+    icon: ShieldCheckIcon,
+    desc: "Capital preservation focus",
+  },
+  {
+    metric: "15%+",
+    label: "Annualized Alpha",
+    icon: BoltIcon,
+    desc: "Excess returns vs benchmark",
+  },
 ];
 
 export default function MetricsAndCtaSection() {
@@ -32,8 +52,8 @@ export default function MetricsAndCtaSection() {
             Performance Metrics & Track Record
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400">
-            Consistent risk-adjusted returns across various market conditions, demonstrating
-            the robustness of our quantitative strategies.
+            Consistent risk-adjusted returns across various market conditions,
+            demonstrating the robustness of our quantitative strategies.
           </p>
         </motion.div>
 
@@ -53,7 +73,11 @@ export default function MetricsAndCtaSection() {
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 + 0.2, type: "spring" }}
+                transition={{
+                  duration: 0.5,
+                  delay: i * 0.1 + 0.2,
+                  type: "spring",
+                }}
                 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-2"
               >
                 {stat.metric}
@@ -102,8 +126,9 @@ export default function MetricsAndCtaSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl mb-8 text-white/90"
           >
-            Discover how quantitative excellence and systematic strategies can enhance your
-            investment portfolio. Schedule a consultation to learn more.
+            Discover how quantitative excellence and systematic strategies can
+            enhance your investment portfolio. Schedule a consultation to learn
+            more.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

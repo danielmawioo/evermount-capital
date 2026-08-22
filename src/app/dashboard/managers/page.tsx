@@ -69,9 +69,10 @@ export default function ManagersPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedManager, setSelectedManager] = useState<Manager | null>(null);
 
-  const filteredManagers = managers.filter((manager) =>
-    manager.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    manager.role.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredManagers = managers.filter(
+    (manager) =>
+      manager.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      manager.role.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
@@ -83,7 +84,8 @@ export default function ManagersPage() {
           Portfolio Managers
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm md:text-base">
-          View and manage your portfolio managers, track their performance, and communicate directly.
+          View and manage your portfolio managers, track their performance, and
+          communicate directly.
         </p>
       </div>
 
@@ -117,7 +119,9 @@ export default function ManagersPage() {
                 <h3 className="font-semibold text-gray-900 dark:text-white text-lg">
                   {manager.name}
                 </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">{manager.role}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  {manager.role}
+                </p>
               </div>
             </div>
 
@@ -125,7 +129,9 @@ export default function ManagersPage() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <UserGroupIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Portfolios</span>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">
+                    Portfolios
+                  </span>
                 </div>
                 <span className="font-semibold text-gray-900 dark:text-white">
                   {manager.portfolios}
@@ -134,14 +140,18 @@ export default function ManagersPage() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <ChartBarIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm text-gray-600 dark:text-gray-400">AUM</span>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">
+                    AUM
+                  </span>
                 </div>
                 <span className="font-semibold text-gray-900 dark:text-white">
                   {manager.totalAUM}
                 </span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600 dark:text-gray-400">Performance</span>
+                <span className="text-sm text-gray-600 dark:text-gray-400">
+                  Performance
+                </span>
                 <div className="flex items-center gap-1">
                   {manager.performance >= 0 ? (
                     <ArrowTrendingUpIcon className="w-4 h-4 text-green-500" />
@@ -150,7 +160,9 @@ export default function ManagersPage() {
                   )}
                   <span
                     className={`font-semibold ${
-                      manager.performance >= 0 ? "text-green-600" : "text-red-600"
+                      manager.performance >= 0
+                        ? "text-green-600"
+                        : "text-red-600"
                     }`}
                   >
                     {manager.performance >= 0 ? "+" : ""}
@@ -159,7 +171,9 @@ export default function ManagersPage() {
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-600 dark:text-gray-400">Clients</span>
+                <span className="text-sm text-gray-600 dark:text-gray-400">
+                  Clients
+                </span>
                 <span className="font-semibold text-gray-900 dark:text-white">
                   {manager.clients}
                 </span>
@@ -202,14 +216,21 @@ export default function ManagersPage() {
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
                     {selectedManager.name}
                   </h2>
-                  <p className="text-gray-500 dark:text-gray-400">{selectedManager.role}</p>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    {selectedManager.role}
+                  </p>
                 </div>
               </div>
               <button
                 onClick={() => setSelectedManager(null)}
                 className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -222,13 +243,17 @@ export default function ManagersPage() {
 
             <div className="grid grid-cols-2 gap-4 mb-6">
               <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total AUM</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                  Total AUM
+                </p>
                 <p className="text-xl font-bold text-gray-900 dark:text-white">
                   {selectedManager.totalAUM}
                 </p>
               </div>
               <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Performance</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                  Performance
+                </p>
                 <div className="flex items-center gap-1">
                   {selectedManager.performance >= 0 ? (
                     <ArrowTrendingUpIcon className="w-5 h-5 text-green-500" />
@@ -237,7 +262,9 @@ export default function ManagersPage() {
                   )}
                   <p
                     className={`text-xl font-bold ${
-                      selectedManager.performance >= 0 ? "text-green-600" : "text-red-600"
+                      selectedManager.performance >= 0
+                        ? "text-green-600"
+                        : "text-red-600"
                     }`}
                   >
                     {selectedManager.performance >= 0 ? "+" : ""}
@@ -246,13 +273,17 @@ export default function ManagersPage() {
                 </div>
               </div>
               <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Portfolios</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                  Portfolios
+                </p>
                 <p className="text-xl font-bold text-gray-900 dark:text-white">
                   {selectedManager.portfolios}
                 </p>
               </div>
               <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Clients</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                  Clients
+                </p>
                 <p className="text-xl font-bold text-gray-900 dark:text-white">
                   {selectedManager.clients}
                 </p>
@@ -261,7 +292,9 @@ export default function ManagersPage() {
 
             <div className="space-y-4 mb-6">
               <div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Contact</h3>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+                  Contact
+                </h3>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
                     <EnvelopeIcon className="w-4 h-4" />
@@ -284,11 +317,13 @@ export default function ManagersPage() {
                 </div>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">About</h3>
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+                  About
+                </h3>
                 <p className="text-gray-600 dark:text-gray-400">
                   Joined Evermount Capital on{" "}
-                  {new Date(selectedManager.joinDate).toLocaleDateString()}. Specializes in
-                  quantitative strategies and risk management.
+                  {new Date(selectedManager.joinDate).toLocaleDateString()}.
+                  Specializes in quantitative strategies and risk management.
                 </p>
               </div>
             </div>

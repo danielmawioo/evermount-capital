@@ -96,7 +96,9 @@ export default function CompliancePage() {
             disabled={loading}
             className="flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg text-sm"
           >
-            <ArrowPathIcon className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
+            <ArrowPathIcon
+              className={`w-4 h-4 ${loading ? "animate-spin" : ""}`}
+            />
             Refresh
           </button>
           <button
@@ -116,11 +118,15 @@ export default function CompliancePage() {
         <>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-white dark:bg-gray-800 rounded-xl border p-5">
-              <p className="text-xs uppercase text-gray-500">Audit events (30d)</p>
+              <p className="text-xs uppercase text-gray-500">
+                Audit events (30d)
+              </p>
               <p className="text-2xl font-bold mt-1">
                 {report.auditTrail.eventsLast30Days}
               </p>
-              <p className="text-xs text-gray-500 mt-1">{auditTotal}+ in recent query</p>
+              <p className="text-xs text-gray-500 mt-1">
+                {auditTotal}+ in recent query
+              </p>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-xl border p-5">
               <p className="text-xs uppercase text-gray-500">Admin accounts</p>
@@ -155,7 +161,8 @@ export default function CompliancePage() {
                 {report.auditTrail.sensitiveActionsLast30Days.map((a, i) => (
                   <li key={i} className="flex justify-between gap-4">
                     <span>
-                      <span className="font-medium">{a.action}</span> — {a.entity}
+                      <span className="font-medium">{a.action}</span> —{" "}
+                      {a.entity}
                     </span>
                     <span className="text-gray-500 shrink-0">
                       {new Date(a.createdAt).toLocaleString()}

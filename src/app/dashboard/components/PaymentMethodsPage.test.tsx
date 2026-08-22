@@ -26,7 +26,7 @@ describe("PaymentMethodsPage", () => {
     render(<PaymentMethodsPage type="deposit" />);
 
     expect(
-      screen.getByRole("heading", { name: "Choose Deposit Method" })
+      screen.getByRole("heading", { name: "Choose Deposit Method" }),
     ).toBeInTheDocument();
     expect(screen.getByText("Card")).toBeInTheDocument();
     expect(screen.getByText("M-Pesa")).toBeInTheDocument();
@@ -38,7 +38,7 @@ describe("PaymentMethodsPage", () => {
     render(<PaymentMethodsPage type="withdraw" />);
 
     expect(
-      screen.getByRole("heading", { name: "Choose Withdrawal Method" })
+      screen.getByRole("heading", { name: "Choose Withdrawal Method" }),
     ).toBeInTheDocument();
   });
 
@@ -59,7 +59,7 @@ describe("PaymentMethodsPage", () => {
 
     expect(toast).toHaveBeenCalledWith(
       "This payment method is coming soon.",
-      expect.objectContaining({ icon: "ℹ️" })
+      expect.objectContaining({ icon: "ℹ️" }),
     );
     expect(push).not.toHaveBeenCalled();
   });

@@ -85,8 +85,8 @@ export default function FlipbotSignalForm({
           Queue demo trade (Exness MT5 account)
         </h3>
         <p className="text-xs text-gray-500 mb-4">
-          FlipbotEA polls the signal queue and executes on the logged-in Exness MT5
-          demo. Successful fills bump investor NAV via FillRecorded.
+          FlipbotEA polls the signal queue and executes on the logged-in Exness
+          MT5 demo. Successful fills bump investor NAV via FillRecorded.
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-4">
@@ -118,7 +118,10 @@ export default function FlipbotSignalForm({
               type="text"
               value={signalForm.symbol}
               onChange={(e) =>
-                setSignalForm((f) => ({ ...f, symbol: e.target.value.toUpperCase() }))
+                setSignalForm((f) => ({
+                  ...f,
+                  symbol: e.target.value.toUpperCase(),
+                }))
               }
               className="mt-1 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 px-3 py-2 text-sm"
             />

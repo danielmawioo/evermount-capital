@@ -72,7 +72,11 @@ export default function TradingMetricsGrid({
         </p>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-4">
-        <MetricCell label="Gain" value={formatPct(metrics.gainPercent)} valueClassName={gainColor} />
+        <MetricCell
+          label="Gain"
+          value={formatPct(metrics.gainPercent)}
+          valueClassName={gainColor}
+        />
         <MetricCell
           label="Abs. Gain"
           value={formatUsd(metrics.absGain, currency)}
@@ -96,12 +100,24 @@ export default function TradingMetricsGrid({
               : "text-red-600 dark:text-red-400"
           }
         />
-        <MetricCell label="Drawdown" value={formatPct(metrics.maxDrawdown, false)} valueClassName="text-red-600 dark:text-red-400" />
-        <MetricCell label="Balance" value={formatUsd(metrics.balance, currency)} />
-        <MetricCell label="Equity" value={formatUsd(metrics.equity, currency)} />
+        <MetricCell
+          label="Drawdown"
+          value={formatPct(metrics.maxDrawdown, false)}
+          valueClassName="text-red-600 dark:text-red-400"
+        />
+        <MetricCell
+          label="Balance"
+          value={formatUsd(metrics.balance, currency)}
+        />
+        <MetricCell
+          label="Equity"
+          value={formatUsd(metrics.equity, currency)}
+        />
         <MetricCell
           label="Sharpe"
-          value={metrics.sharpeRatio != null ? metrics.sharpeRatio.toFixed(2) : "—"}
+          value={
+            metrics.sharpeRatio != null ? metrics.sharpeRatio.toFixed(2) : "—"
+          }
         />
       </div>
     </div>

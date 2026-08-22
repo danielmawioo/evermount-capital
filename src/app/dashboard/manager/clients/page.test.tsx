@@ -40,7 +40,7 @@ describe("ManagerClientsPage", () => {
     setAuthTokens("token", "refresh", true);
     setUser(
       { id: "1", email: "m@b.com", fullName: "M B", role: "MANAGER" },
-      true
+      true,
     );
     mock.onGet("/users/profile").reply(200, {
       id: "1",
@@ -82,6 +82,8 @@ describe("ManagerClientsPage", () => {
 
     render(<ManagerClientsPage />);
 
-    expect(await screen.findByText("No clients assigned yet.")).toBeInTheDocument();
+    expect(
+      await screen.findByText("No clients assigned yet."),
+    ).toBeInTheDocument();
   });
 });

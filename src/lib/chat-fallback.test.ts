@@ -22,15 +22,21 @@ describe("extractLinks", () => {
 
 describe("getChatFallbackResponse", () => {
   it("returns a generic message for an unknown department id", () => {
-    const response = getChatFallbackResponse("not-a-department", "Sam", "hello");
-    expect(response).toBe("I'm Sam. Please contact support@evermount.co for assistance.");
+    const response = getChatFallbackResponse(
+      "not-a-department",
+      "Sam",
+      "hello",
+    );
+    expect(response).toBe(
+      "I'm Sam. Please contact support@evermount.co for assistance.",
+    );
   });
 
   it("returns a keyword-matched answer when the message matches a fallback entry", () => {
     const response = getChatFallbackResponse(
       "payments",
       "Miguel",
-      "How do I deposit funds into my account?"
+      "How do I deposit funds into my account?",
     );
     expect(response).toContain("Miguel");
     expect(response).toContain("Payments & Billing");
@@ -42,7 +48,7 @@ describe("getChatFallbackResponse", () => {
     const response = getChatFallbackResponse(
       "trading",
       "Alex",
-      "asdkjhasdkjh unrelated gibberish"
+      "asdkjhasdkjh unrelated gibberish",
     );
     expect(response).toContain("Alex");
     expect(response).toContain("Trading & Portfolio");

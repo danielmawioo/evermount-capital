@@ -7,7 +7,7 @@ describe("FundsPage", () => {
     render(<FundsPage />);
 
     expect(
-      screen.getByRole("heading", { name: /My Funds/ })
+      screen.getByRole("heading", { name: /My Funds/ }),
     ).toBeInTheDocument();
     expect(screen.getByText("Global Equity Fund")).toBeInTheDocument();
     expect(screen.getByText("Forex Trading Fund")).toBeInTheDocument();
@@ -18,10 +18,7 @@ describe("FundsPage", () => {
     const user = userEvent.setup();
     render(<FundsPage />);
 
-    await user.type(
-      screen.getByPlaceholderText("Search funds..."),
-      "Crypto"
-    );
+    await user.type(screen.getByPlaceholderText("Search funds..."), "Crypto");
 
     expect(screen.getByText("Crypto Growth Fund")).toBeInTheDocument();
     expect(screen.queryByText("Global Equity Fund")).not.toBeInTheDocument();
@@ -33,11 +30,11 @@ describe("FundsPage", () => {
 
     await user.type(
       screen.getByPlaceholderText("Search funds..."),
-      "nonexistent fund"
+      "nonexistent fund",
     );
 
     expect(
-      screen.getByText("No funds found matching your criteria.")
+      screen.getByText("No funds found matching your criteria."),
     ).toBeInTheDocument();
   });
 });

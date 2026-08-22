@@ -50,8 +50,8 @@ export default function DemoReconciliationCard({
           {reconHistory.slice(0, 5).map((r) => (
             <li key={r.id} className="flex justify-between gap-4">
               <span>
-                <span className="font-medium">{r.status}</span> — {r.navDriftCount}{" "}
-                drift(s)
+                <span className="font-medium">{r.status}</span> —{" "}
+                {r.navDriftCount} drift(s)
               </span>
               <span className="text-gray-500">
                 {new Date(r.createdAt).toLocaleString()}

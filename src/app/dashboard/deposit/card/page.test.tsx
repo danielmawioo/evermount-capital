@@ -39,7 +39,7 @@ describe("CardDepositPage", () => {
     render(<CardDepositPage />);
 
     expect(
-      screen.getByRole("heading", { name: "Card Deposit" })
+      screen.getByRole("heading", { name: "Card Deposit" }),
     ).toBeInTheDocument();
     expect((await screen.findAllByText(/Test Bank/)).length).toBeGreaterThan(0);
   });
@@ -50,10 +50,12 @@ describe("CardDepositPage", () => {
     render(<CardDepositPage />);
 
     await user.type(screen.getByPlaceholderText("100.00"), "5");
-    await user.click(screen.getByRole("button", { name: "Continue to Payment" }));
+    await user.click(
+      screen.getByRole("button", { name: "Continue to Payment" }),
+    );
 
     expect(
-      screen.queryByRole("heading", { name: "Complete Payment" })
+      screen.queryByRole("heading", { name: "Complete Payment" }),
     ).not.toBeInTheDocument();
   });
 
@@ -63,11 +65,13 @@ describe("CardDepositPage", () => {
     render(<CardDepositPage />);
 
     await user.type(screen.getByPlaceholderText("100.00"), "100");
-    await user.click(screen.getByRole("button", { name: "Continue to Payment" }));
+    await user.click(
+      screen.getByRole("button", { name: "Continue to Payment" }),
+    );
 
     await waitFor(() => {
       expect(
-        screen.getByRole("heading", { name: "Complete Payment" })
+        screen.getByRole("heading", { name: "Complete Payment" }),
       ).toBeInTheDocument();
     });
     expect(screen.getByText("Mock Stripe Payment")).toBeInTheDocument();

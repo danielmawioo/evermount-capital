@@ -92,8 +92,12 @@ export default function JobListings({
                   <div className="px-6 pb-6 space-y-6 border-t border-gray-200 dark:border-gray-700">
                     {/* Description */}
                     <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-white mb-2">About the Role</h4>
-                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{job.description}</p>
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                        About the Role
+                      </h4>
+                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        {job.description}
+                      </p>
                     </div>
 
                     {/* Key Info */}
@@ -116,10 +120,15 @@ export default function JobListings({
 
                     {/* Responsibilities */}
                     <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Key Responsibilities</h4>
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
+                        Key Responsibilities
+                      </h4>
                       <ul className="space-y-2">
                         {job.responsibilities.map((resp, i) => (
-                          <li key={i} className="flex items-start gap-2 text-gray-600 dark:text-gray-400">
+                          <li
+                            key={i}
+                            className="flex items-start gap-2 text-gray-600 dark:text-gray-400"
+                          >
                             <CheckCircleIcon className="w-5 h-5 text-[#00a76f] shrink-0 mt-0.5" />
                             <span className="text-sm">{resp}</span>
                           </li>
@@ -129,10 +138,15 @@ export default function JobListings({
 
                     {/* Requirements */}
                     <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Requirements</h4>
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
+                        Requirements
+                      </h4>
                       <ul className="space-y-2">
                         {job.requirements.map((req, i) => (
-                          <li key={i} className="flex items-start gap-2 text-gray-600 dark:text-gray-400">
+                          <li
+                            key={i}
+                            className="flex items-start gap-2 text-gray-600 dark:text-gray-400"
+                          >
                             <CheckCircleIcon className="w-5 h-5 text-[#00a76f] shrink-0 mt-0.5" />
                             <span className="text-sm">{req}</span>
                           </li>
@@ -143,10 +157,15 @@ export default function JobListings({
                     {/* Nice to Have */}
                     {job.niceToHave.length > 0 && (
                       <div>
-                        <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Nice to Have</h4>
+                        <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
+                          Nice to Have
+                        </h4>
                         <ul className="space-y-2">
                           {job.niceToHave.map((item, i) => (
-                            <li key={i} className="flex items-start gap-2 text-gray-600 dark:text-gray-400">
+                            <li
+                              key={i}
+                              className="flex items-start gap-2 text-gray-600 dark:text-gray-400"
+                            >
                               <CheckCircleIcon className="w-5 h-5 text-gray-400 shrink-0 mt-0.5" />
                               <span className="text-sm">{item}</span>
                             </li>
@@ -157,10 +176,15 @@ export default function JobListings({
 
                     {/* Benefits */}
                     <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Benefits & Perks</h4>
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
+                        Benefits & Perks
+                      </h4>
                       <div className="grid sm:grid-cols-2 gap-2">
                         {job.benefits.map((benefit, i) => (
-                          <div key={i} className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+                          <div
+                            key={i}
+                            className="flex items-center gap-2 text-gray-600 dark:text-gray-400"
+                          >
                             <CheckCircleIcon className="w-4 h-4 text-[#00a76f] shrink-0" />
                             <span className="text-sm">{benefit}</span>
                           </div>

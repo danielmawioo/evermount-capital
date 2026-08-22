@@ -35,11 +35,11 @@ describe("Sidebar", () => {
     expect(screen.getByText("Investor")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /Overview/i })).toHaveAttribute(
       "href",
-      "/dashboard"
+      "/dashboard",
     );
     expect(screen.getByRole("link", { name: /Wallet/i })).toHaveAttribute(
       "href",
-      "/dashboard/wallets"
+      "/dashboard/wallets",
     );
     expect(screen.queryByText("Admin")).not.toBeInTheDocument();
     expect(screen.queryByText("Management")).not.toBeInTheDocument();
@@ -48,8 +48,13 @@ describe("Sidebar", () => {
   it("shows the Admin and Management sections for an ADMIN user", async () => {
     setAuthTokens("token", "refresh", true);
     setUser(
-      { id: "1", email: "admin@evermount.co", fullName: "Admin", role: "ADMIN" },
-      true
+      {
+        id: "1",
+        email: "admin@evermount.co",
+        fullName: "Admin",
+        role: "ADMIN",
+      },
+      true,
     );
     mock.onGet("/users/profile").reply(200, {
       id: "1",
@@ -65,9 +70,10 @@ describe("Sidebar", () => {
     await waitFor(() => expect(screen.getByText("Admin")).toBeInTheDocument());
     expect(screen.getByText("Management")).toBeInTheDocument();
     expect(screen.getByText("Institutional")).toBeInTheDocument();
-    expect(
-      screen.getByRole("link", { name: /Withdrawals/i })
-    ).toHaveAttribute("href", "/dashboard/admin/withdrawals");
+    expect(screen.getByRole("link", { name: /Withdrawals/i })).toHaveAttribute(
+      "href",
+      "/dashboard/admin/withdrawals",
+    );
   });
 
   it("shows only the Management section (not Admin) for a MANAGER user", async () => {
@@ -79,7 +85,7 @@ describe("Sidebar", () => {
         fullName: "Manager",
         role: "MANAGER",
       },
-      true
+      true,
     );
     mock.onGet("/users/profile").reply(200, {
       id: "2",
@@ -92,12 +98,13 @@ describe("Sidebar", () => {
     render(<Sidebar />);
 
     await waitFor(() =>
-      expect(screen.getByText("Management")).toBeInTheDocument()
+      expect(screen.getByText("Management")).toBeInTheDocument(),
     );
     expect(screen.queryByText("Admin")).not.toBeInTheDocument();
-    expect(
-      screen.getByRole("link", { name: /My Clients/i })
-    ).toHaveAttribute("href", "/dashboard/manager/clients");
+    expect(screen.getByRole("link", { name: /My Clients/i })).toHaveAttribute(
+      "href",
+      "/dashboard/manager/clients",
+    );
   });
 
   it("does not show Admin/Management for a plain INVESTOR user", async () => {
@@ -109,7 +116,7 @@ describe("Sidebar", () => {
         fullName: "Investor",
         role: "INVESTOR",
       },
-      true
+      true,
     );
     mock.onGet("/users/profile").reply(200, {
       id: "3",
@@ -122,7 +129,7 @@ describe("Sidebar", () => {
     render(<Sidebar />);
 
     await waitFor(() =>
-      expect(screen.getByText("Your plan")).toBeInTheDocument()
+      expect(screen.getByText("Your plan")).toBeInTheDocument(),
     );
     expect(screen.queryByText("Admin")).not.toBeInTheDocument();
     expect(screen.queryByText("Management")).not.toBeInTheDocument();

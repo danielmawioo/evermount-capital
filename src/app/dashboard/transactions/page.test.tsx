@@ -33,7 +33,7 @@ describe("TransactionsPage", () => {
     render(<TransactionsPage />);
 
     expect(
-      screen.getByRole("heading", { name: "Transaction History" })
+      screen.getByRole("heading", { name: "Transaction History" }),
     ).toBeInTheDocument();
     expect(await screen.findByText("deposit")).toBeInTheDocument();
     expect(screen.getByText("$250.00")).toBeInTheDocument();
@@ -46,8 +46,8 @@ describe("TransactionsPage", () => {
 
     expect(
       await screen.findByText(
-        "No transactions yet. Make a deposit or investment to get started."
-      )
+        "No transactions yet. Make a deposit or investment to get started.",
+      ),
     ).toBeInTheDocument();
   });
 

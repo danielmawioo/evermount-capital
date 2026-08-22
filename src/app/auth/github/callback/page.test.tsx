@@ -60,7 +60,9 @@ describe("GitHubCallbackPage", () => {
     render(<GitHubCallbackPage />);
 
     await waitFor(() =>
-      expect(toastFn.error).toHaveBeenCalledWith("GitHub authentication failed")
+      expect(toastFn.error).toHaveBeenCalledWith(
+        "GitHub authentication failed",
+      ),
     );
     expect(pushMock).toHaveBeenCalledWith("/login");
     expect(fetchMock).not.toHaveBeenCalled();
@@ -70,7 +72,9 @@ describe("GitHubCallbackPage", () => {
     render(<GitHubCallbackPage />);
 
     await waitFor(() =>
-      expect(toastFn.error).toHaveBeenCalledWith("No authorization code received")
+      expect(toastFn.error).toHaveBeenCalledWith(
+        "No authorization code received",
+      ),
     );
     expect(pushMock).toHaveBeenCalledWith("/login");
     expect(fetchMock).not.toHaveBeenCalled();
@@ -91,13 +95,15 @@ describe("GitHubCallbackPage", () => {
 
     render(<GitHubCallbackPage />);
 
-    await waitFor(() => expect(fetchMock).toHaveBeenCalledWith(
-      "/api/auth/github/callback",
-      expect.objectContaining({
-        method: "POST",
-        body: JSON.stringify({ code: "abc123" }),
-      })
-    ));
+    await waitFor(() =>
+      expect(fetchMock).toHaveBeenCalledWith(
+        "/api/auth/github/callback",
+        expect.objectContaining({
+          method: "POST",
+          body: JSON.stringify({ code: "abc123" }),
+        }),
+      ),
+    );
 
     await waitFor(() => expect(mock.history.post?.length).toBe(1));
     expect(JSON.parse(mock.history.post![0].data)).toEqual({
@@ -105,7 +111,7 @@ describe("GitHubCallbackPage", () => {
     });
 
     await waitFor(() =>
-      expect(toastFn.success).toHaveBeenCalledWith("Login successful!")
+      expect(toastFn.success).toHaveBeenCalledWith("Login successful!"),
     );
     expect(localStorage.getItem("token")).toBe("app-token");
     expect(pushMock).toHaveBeenCalledWith("/dashboard");
@@ -119,8 +125,8 @@ describe("GitHubCallbackPage", () => {
 
     await waitFor(() =>
       expect(toastFn.error).toHaveBeenCalledWith(
-        "Authentication failed. Please try again."
-      )
+        "Authentication failed. Please try again.",
+      ),
     );
     expect(pushMock).toHaveBeenCalledWith("/login");
   });
@@ -139,7 +145,7 @@ describe("GitHubCallbackPage", () => {
     render(<GitHubCallbackPage />);
 
     await waitFor(() =>
-      expect(toastFn.error).toHaveBeenCalledWith("GitHub account not linked")
+      expect(toastFn.error).toHaveBeenCalledWith("GitHub account not linked"),
     );
     expect(pushMock).toHaveBeenCalledWith("/login");
   });

@@ -19,10 +19,10 @@ describe("CryptoDepositPage", () => {
     render(<CryptoDepositPage />);
 
     expect(
-      screen.getByRole("heading", { name: "Crypto Deposit" })
+      screen.getByRole("heading", { name: "Crypto Deposit" }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: "Generate Deposit Address" })
+      screen.getByRole("button", { name: "Generate Deposit Address" }),
     ).toBeInTheDocument();
   });
 
@@ -37,7 +37,7 @@ describe("CryptoDepositPage", () => {
 
     await user.type(screen.getByPlaceholderText("0.00"), "0.01");
     await user.click(
-      screen.getByRole("button", { name: "Generate Deposit Address" })
+      screen.getByRole("button", { name: "Generate Deposit Address" }),
     );
 
     await waitFor(() => {
@@ -56,7 +56,7 @@ describe("CryptoDepositPage", () => {
       .mockResolvedValue(undefined);
 
     await user.click(
-      screen.getByRole("button", { name: /Copy Wallet Address/ })
+      screen.getByRole("button", { name: /Copy Wallet Address/ }),
     );
     expect(writeTextSpy).toHaveBeenCalledWith("bc1qxyz");
   });
@@ -68,7 +68,7 @@ describe("CryptoDepositPage", () => {
     const amountInput = screen.getByPlaceholderText("0.00");
     await user.type(amountInput, "0");
     await user.click(
-      screen.getByRole("button", { name: "Generate Deposit Address" })
+      screen.getByRole("button", { name: "Generate Deposit Address" }),
     );
 
     expect(mock.history.post).toHaveLength(0);

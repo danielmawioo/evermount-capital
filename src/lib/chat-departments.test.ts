@@ -8,7 +8,9 @@ import {
 
 describe("CHAT_DEPARTMENT_MAP", () => {
   it("contains an entry for every department in CHAT_DEPARTMENTS, keyed by id", () => {
-    expect(Object.keys(CHAT_DEPARTMENT_MAP)).toHaveLength(CHAT_DEPARTMENTS.length);
+    expect(Object.keys(CHAT_DEPARTMENT_MAP)).toHaveLength(
+      CHAT_DEPARTMENTS.length,
+    );
     for (const dept of CHAT_DEPARTMENTS) {
       expect(CHAT_DEPARTMENT_MAP[dept.id]).toEqual(dept);
     }
@@ -24,7 +26,7 @@ describe("CHAT_DEPARTMENT_MAP", () => {
         "trading",
         "account",
         "general",
-      ])
+      ]),
     );
   });
 });
@@ -54,6 +56,8 @@ describe("getDepartmentAssistant", () => {
   });
 
   it("returns the default assistant for an unknown department id", () => {
-    expect(getDepartmentAssistant("not-a-department")).toBe(DEFAULT_CHAT_ASSISTANT);
+    expect(getDepartmentAssistant("not-a-department")).toBe(
+      DEFAULT_CHAT_ASSISTANT,
+    );
   });
 });

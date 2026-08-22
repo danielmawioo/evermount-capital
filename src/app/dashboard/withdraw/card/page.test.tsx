@@ -17,7 +17,7 @@ describe("WithdrawCardPage", () => {
     render(<WithdrawCardPage />);
 
     expect(
-      screen.getByRole("heading", { name: "Withdraw to Card" })
+      screen.getByRole("heading", { name: "Withdraw to Card" }),
     ).toBeInTheDocument();
   });
 
@@ -35,14 +35,16 @@ describe("WithdrawCardPage", () => {
 
     await user.click(screen.getByRole("button", { name: "Withdraw to Card" }));
 
-    expect(screen.getByRole("button", { name: "Processing..." })).toBeDisabled();
+    expect(
+      screen.getByRole("button", { name: "Processing..." }),
+    ).toBeDisabled();
 
     await waitFor(
       () =>
         expect(alertSpy).toHaveBeenCalledWith(
-          "Withdrawal of $100 to your Visa card successful! 🚀"
+          "Withdrawal of $100 to your Visa card successful! 🚀",
         ),
-      { timeout: 2000 }
+      { timeout: 2000 },
     );
   });
 });

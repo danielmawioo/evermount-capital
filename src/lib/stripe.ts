@@ -14,7 +14,10 @@ export const getStripe = () => {
   return stripePromise;
 };
 
-export const createPaymentIntent = async (amount: number, currency: string = "USD") => {
+export const createPaymentIntent = async (
+  amount: number,
+  currency: string = "USD",
+) => {
   const response = await fetch("/api/stripe/create-intent", {
     method: "POST",
     headers: {
@@ -29,4 +32,3 @@ export const createPaymentIntent = async (amount: number, currency: string = "US
 
   return response.json();
 };
-

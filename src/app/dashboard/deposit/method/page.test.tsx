@@ -19,7 +19,7 @@ describe("DepositMethodPage", () => {
     render(<DepositMethodPage />);
 
     expect(
-      screen.getByRole("heading", { name: "Choose Deposit Method" })
+      screen.getByRole("heading", { name: "Choose Deposit Method" }),
     ).toBeInTheDocument();
     expect(screen.getByText("Card")).toBeInTheDocument();
     expect(screen.getByText("M-Pesa")).toBeInTheDocument();

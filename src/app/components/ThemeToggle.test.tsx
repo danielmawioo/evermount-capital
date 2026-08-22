@@ -12,7 +12,7 @@ describe("ThemeToggle", () => {
     render(
       <ThemeProvider>
         <ThemeToggle />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     const button = screen.getByRole("button", { name: "Toggle theme" });
@@ -28,7 +28,7 @@ describe("ThemeToggle", () => {
     render(
       <ThemeProvider>
         <ThemeToggle />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     const button = screen.getByRole("button", { name: "Toggle theme" });
@@ -43,11 +43,11 @@ describe("ThemeToggle", () => {
     render(
       <ThemeProvider>
         <ThemeToggle className="custom-class" />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(screen.getByRole("button", { name: "Toggle theme" })).toHaveClass(
-      "custom-class"
+      "custom-class",
     );
   });
 });

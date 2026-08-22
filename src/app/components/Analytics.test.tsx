@@ -12,7 +12,7 @@ describe("Analytics", () => {
     expect(inlineScript?.innerHTML).toContain("gtag('config', 'G-CK2PDMGDEG')");
 
     const gtagLoader = document.body.querySelector(
-      'script[src="https://www.googletagmanager.com/gtag/js?id=G-CK2PDMGDEG"]'
+      'script[src="https://www.googletagmanager.com/gtag/js?id=G-CK2PDMGDEG"]',
     );
     expect(gtagLoader).toBeInTheDocument();
   });

@@ -69,7 +69,7 @@ export function getInvestorTier(planType?: string | null): InvestorTier {
 
 export function canPerformAction(
   tier: InvestorTier,
-  action: InvestorAction
+  action: InvestorAction,
 ): boolean {
   return tier.actions.includes(action);
 }

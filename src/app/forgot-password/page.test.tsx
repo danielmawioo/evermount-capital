@@ -18,10 +18,12 @@ describe("ForgotPasswordPage", () => {
   it("shows a validation error when the email field is empty", () => {
     render(<ForgotPasswordPage />);
 
-    fireEvent.submit(screen.getByRole("button", { name: /send request/i }).closest("form")!);
+    fireEvent.submit(
+      screen.getByRole("button", { name: /send request/i }).closest("form")!,
+    );
 
     expect(
-      screen.getByText("Please enter your email address.")
+      screen.getByText("Please enter your email address."),
     ).toBeInTheDocument();
     expect(mock.history.post?.length ?? 0).toBe(0);
   });
@@ -32,7 +34,10 @@ describe("ForgotPasswordPage", () => {
     const user = userEvent.setup();
     render(<ForgotPasswordPage />);
 
-    await user.type(screen.getByLabelText(/email address/i), "user@example.com");
+    await user.type(
+      screen.getByLabelText(/email address/i),
+      "user@example.com",
+    );
     await user.click(screen.getByRole("button", { name: /send request/i }));
 
     await waitFor(() => expect(mock.history.post?.length).toBe(1));
@@ -41,7 +46,9 @@ describe("ForgotPasswordPage", () => {
     });
 
     expect(
-      await screen.findByText("OTP sent to your email. Please check your inbox.")
+      await screen.findByText(
+        "OTP sent to your email. Please check your inbox.",
+      ),
     ).toBeInTheDocument();
   });
 
@@ -53,7 +60,10 @@ describe("ForgotPasswordPage", () => {
     const user = userEvent.setup();
     render(<ForgotPasswordPage />);
 
-    await user.type(screen.getByLabelText(/email address/i), "user@example.com");
+    await user.type(
+      screen.getByLabelText(/email address/i),
+      "user@example.com",
+    );
     await user.click(screen.getByRole("button", { name: /send request/i }));
 
     expect(await screen.findByText("Server error")).toBeInTheDocument();

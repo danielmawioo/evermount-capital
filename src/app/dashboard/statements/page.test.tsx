@@ -21,12 +21,12 @@ describe("StatementsPage", () => {
     render(<StatementsPage />);
 
     expect(
-      screen.getByRole("heading", { name: /Monthly Statements/ })
+      screen.getByRole("heading", { name: /Monthly Statements/ }),
     ).toBeInTheDocument();
     expect(
       await screen.findByText(
-        "No statements yet. Statements are generated monthly by the platform."
-      )
+        "No statements yet. Statements are generated monthly by the platform.",
+      ),
     ).toBeInTheDocument();
   });
 

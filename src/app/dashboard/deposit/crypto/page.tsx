@@ -20,13 +20,17 @@ export default function CryptoDepositPage() {
   const [currency, setCurrency] = useState("BTC");
   const [walletAddress, setWalletAddress] = useState("");
   const [loading, setLoading] = useState(false);
-  const [depositData, setDepositData] = useState<CryptoDepositData | null>(null);
+  const [depositData, setDepositData] = useState<CryptoDepositData | null>(
+    null,
+  );
 
   const handleCreateDeposit = async (e: React.FormEvent) => {
     e.preventDefault();
     const parsed = PositiveAmountSchema.safeParse(parseFloat(amount));
     if (!parsed.success) {
-      toast.error(parsed.error.issues[0]?.message ?? "Please enter a valid amount");
+      toast.error(
+        parsed.error.issues[0]?.message ?? "Please enter a valid amount",
+      );
       return;
     }
     const numAmount = parsed.data;
@@ -68,13 +72,17 @@ export default function CryptoDepositPage() {
           Crypto Deposit
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mt-2">
-          Deposit funds to your wallet using supported cryptocurrencies. Funds will be available in your wallet after confirmation.
+          Deposit funds to your wallet using supported cryptocurrencies. Funds
+          will be available in your wallet after confirmation.
         </p>
       </div>
 
       {/* Deposit Form */}
       {!depositData ? (
-        <form onSubmit={handleCreateDeposit} className="bg-white dark:bg-gray-900 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-md max-w-lg mx-auto space-y-6">
+        <form
+          onSubmit={handleCreateDeposit}
+          className="bg-white dark:bg-gray-900 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-md max-w-lg mx-auto space-y-6"
+        >
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Cryptocurrency
@@ -126,15 +134,15 @@ export default function CryptoDepositPage() {
               </p>
               {depositData.qrCode &&
                 !depositData.qrCode.includes("placeholder") && (
-                <Image
-                  src={depositData.qrCode}
-                  alt="QR Code"
-                  width={192}
-                  height={192}
-                  unoptimized
-                  className="mt-4 w-48 h-48"
-                />
-              )}
+                  <Image
+                    src={depositData.qrCode}
+                    alt="QR Code"
+                    width={192}
+                    height={192}
+                    unoptimized
+                    className="mt-4 w-48 h-48"
+                  />
+                )}
               {depositData.qrCode?.includes("placeholder") && (
                 <p className="text-xs text-amber-600 dark:text-amber-400 mt-2">
                   QR code unavailable in local dev — use the address above.
@@ -143,8 +151,12 @@ export default function CryptoDepositPage() {
             </div>
 
             <div className="text-center text-xs text-gray-500 dark:text-gray-400">
-              Send <span className="font-semibold">{amount} {currency}</span> to this address. 
-              Transaction will be confirmed after network verification.
+              Send{" "}
+              <span className="font-semibold">
+                {amount} {currency}
+              </span>{" "}
+              to this address. Transaction will be confirmed after network
+              verification.
             </div>
           </div>
 

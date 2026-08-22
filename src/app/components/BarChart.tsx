@@ -18,7 +18,7 @@ ChartJS.register(
   CategoryScale,
   LinearScale,
   Tooltip,
-  Title
+  Title,
 );
 
 // Chart Data

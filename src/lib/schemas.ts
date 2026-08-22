@@ -23,10 +23,7 @@ export const EmailSchema = z.email("Enter a valid email address");
 
 /** A trimmed, non-empty text field with a caller-supplied error message. */
 export function requiredTextSchema(message: string) {
-  return z
-    .string()
-    .trim()
-    .min(1, message);
+  return z.string().trim().min(1, message);
 }
 
 /** Password with a minimum length and a caller-supplied error message. */

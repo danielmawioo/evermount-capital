@@ -6,7 +6,7 @@ describe("RiskMetricsPage", () => {
     render(<RiskMetricsPage />);
 
     expect(
-      screen.getByRole("heading", { name: "Risk Metrics Overview" })
+      screen.getByRole("heading", { name: "Risk Metrics Overview" }),
     ).toBeInTheDocument();
     expect(screen.getByText("Sharpe Ratio")).toBeInTheDocument();
     expect(screen.getByText("1.23")).toBeInTheDocument();

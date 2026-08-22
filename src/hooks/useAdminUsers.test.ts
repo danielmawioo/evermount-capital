@@ -56,9 +56,7 @@ describe("useAdminUsers", () => {
   });
 
   it("creates a user and reloads the list", async () => {
-    mock
-      .onGet("/admin/users")
-      .reply(200, { users: [USER], total: 1 });
+    mock.onGet("/admin/users").reply(200, { users: [USER], total: 1 });
     mock.onPost("/admin/users").reply(201, {});
 
     const { result } = renderHook(() => useAdminUsers());
@@ -83,10 +81,10 @@ describe("useAdminUsers", () => {
     });
 
     expect(
-      mock.history.post.filter((r) => r.url === "/admin/users")
+      mock.history.post.filter((r) => r.url === "/admin/users"),
     ).toHaveLength(1);
     const payload = JSON.parse(
-      mock.history.post.find((r) => r.url === "/admin/users")!.data
+      mock.history.post.find((r) => r.url === "/admin/users")!.data,
     );
     expect(payload).toEqual({
       fullName: "New Person",
@@ -120,10 +118,10 @@ describe("useAdminUsers", () => {
     });
 
     expect(
-      mock.history.put.filter((r) => r.url === "/admin/users/u1")
+      mock.history.put.filter((r) => r.url === "/admin/users/u1"),
     ).toHaveLength(1);
     const payload = JSON.parse(
-      mock.history.put.find((r) => r.url === "/admin/users/u1")!.data
+      mock.history.put.find((r) => r.url === "/admin/users/u1")!.data,
     );
     expect(payload).toEqual({ fullName: "Updated Name", role: "MANAGER" });
     expect(toast.success).toHaveBeenCalledWith("User updated");

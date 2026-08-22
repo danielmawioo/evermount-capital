@@ -7,7 +7,7 @@ describe("PortfolioInsightsPage", () => {
     expect(
       screen.getByRole("heading", {
         name: /portfolio insights that drive performance/i,
-      })
+      }),
     ).toBeInTheDocument();
   });
 
@@ -23,13 +23,13 @@ describe("PortfolioInsightsPage", () => {
   it("renders the growth curve and risk distribution sections with a CTA", () => {
     render(<PortfolioInsightsPage />);
     expect(
-      screen.getByRole("heading", { name: /growth curve analysis/i })
+      screen.getByRole("heading", { name: /growth curve analysis/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /risk distribution/i })
+      screen.getByRole("heading", { name: /risk distribution/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: /get access/i })
+      screen.getByRole("button", { name: /get access/i }),
     ).toBeInTheDocument();
   });
 });

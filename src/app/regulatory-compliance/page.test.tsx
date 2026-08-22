@@ -5,7 +5,10 @@ describe("RegulatoryCompliancePage", () => {
   it("renders the regulatory compliance content", () => {
     render(<RegulatoryCompliancePage />);
     expect(
-      screen.getByRole("heading", { level: 1, name: /Regulatory Compliance & Licensing/i })
+      screen.getByRole("heading", {
+        level: 1,
+        name: /Regulatory Compliance & Licensing/i,
+      }),
     ).toBeInTheDocument();
     expect(screen.getByText(/Last updated:/i)).toBeInTheDocument();
   });

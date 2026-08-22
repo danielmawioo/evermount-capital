@@ -104,7 +104,9 @@ export default function AdminManagersPage() {
       </div>
 
       {loading ? (
-        <div className="text-center py-12 text-gray-500">Loading managers...</div>
+        <div className="text-center py-12 text-gray-500">
+          Loading managers...
+        </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredManagers.map((manager) => (
@@ -130,7 +132,9 @@ export default function AdminManagersPage() {
 
               <div className="space-y-3">
                 <div className="flex items-center gap-2 text-sm">
-                  <span className="text-gray-500 dark:text-gray-400">Email:</span>
+                  <span className="text-gray-500 dark:text-gray-400">
+                    Email:
+                  </span>
                   <span className="text-gray-900 dark:text-white truncate">
                     {manager.email}
                   </span>
@@ -146,8 +150,7 @@ export default function AdminManagersPage() {
 
                 <div className="flex items-center justify-between pt-3 border-t border-gray-200 dark:border-gray-700 gap-2">
                   <span className="text-xs text-gray-500 dark:text-gray-400">
-                    Joined:{" "}
-                    {new Date(manager.joinDate).toLocaleDateString()}
+                    Joined: {new Date(manager.joinDate).toLocaleDateString()}
                   </span>
                   <div className="flex items-center gap-2">
                     <button
@@ -207,10 +210,7 @@ export default function AdminManagersPage() {
               </button>
             </div>
 
-            <form
-              onSubmit={handleAssignClient}
-              className="flex gap-2 mb-4"
-            >
+            <form onSubmit={handleAssignClient} className="flex gap-2 mb-4">
               <input
                 type="email"
                 value={assignEmail}

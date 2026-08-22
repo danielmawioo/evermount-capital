@@ -6,23 +6,23 @@ describe("CareersPage", () => {
   it("renders without crashing and shows the main heading", () => {
     render(<CareersPage />);
     expect(
-      screen.getByRole("heading", { name: /join the evermount mission/i })
+      screen.getByRole("heading", { name: /join the evermount mission/i }),
     ).toBeInTheDocument();
   });
 
   it("lists all open positions collapsed by default", () => {
     render(<CareersPage />);
     expect(
-      screen.getByRole("heading", { name: /frontend engineer/i })
+      screen.getByRole("heading", { name: /frontend engineer/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /quantitative analyst/i })
+      screen.getByRole("heading", { name: /quantitative analyst/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /product designer/i })
+      screen.getByRole("heading", { name: /product designer/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /marketing strategist/i })
+      screen.getByRole("heading", { name: /marketing strategist/i }),
     ).toBeInTheDocument();
 
     // Details are only rendered once a job card is expanded.
@@ -41,13 +41,13 @@ describe("CareersPage", () => {
 
     expect(screen.getByText(/about the role/i)).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: /apply now/i })
+      screen.getByRole("button", { name: /apply now/i }),
     ).toBeInTheDocument();
 
     await user.click(jobHeaderButton);
 
     await waitFor(() =>
-      expect(screen.queryByText(/about the role/i)).not.toBeInTheDocument()
+      expect(screen.queryByText(/about the role/i)).not.toBeInTheDocument(),
     );
   });
 
@@ -75,7 +75,7 @@ describe("CareersPage", () => {
     const emailLink = within_.getByRole("link", { name: /apply via email/i });
     expect(emailLink).toHaveAttribute(
       "href",
-      expect.stringContaining("mailto:careers@evermount.co")
+      expect.stringContaining("mailto:careers@evermount.co"),
     );
 
     const linkedinLink = within_.getByRole("link", {
@@ -83,13 +83,13 @@ describe("CareersPage", () => {
     });
     expect(linkedinLink).toHaveAttribute(
       "href",
-      "https://www.linkedin.com/jobs/view/1234567890"
+      "https://www.linkedin.com/jobs/view/1234567890",
     );
 
     const indeedLink = within_.getByRole("link", { name: /apply on indeed/i });
     expect(indeedLink).toHaveAttribute(
       "href",
-      "https://www.indeed.com/viewjob?jk=abc123def456"
+      "https://www.indeed.com/viewjob?jk=abc123def456",
     );
 
     // Close the modal via the X button.
@@ -100,8 +100,8 @@ describe("CareersPage", () => {
       expect(
         screen.queryByRole("heading", {
           name: /apply for frontend engineer/i,
-        })
-      ).not.toBeInTheDocument()
+        }),
+      ).not.toBeInTheDocument(),
     );
   });
 

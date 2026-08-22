@@ -120,7 +120,10 @@ describe("auth-storage", () => {
   describe("clearAuth", () => {
     it("clears tokens and user from both storages and the auth cookie", () => {
       setAuthTokens("access", "refresh", true);
-      setUser({ id: "1", email: "a@b.com", fullName: "A", role: "INVESTOR" }, true);
+      setUser(
+        { id: "1", email: "a@b.com", fullName: "A", role: "INVESTOR" },
+        true,
+      );
       sessionStorage.setItem("token", "leftover");
 
       clearAuth();

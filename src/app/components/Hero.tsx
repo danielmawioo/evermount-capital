@@ -83,9 +83,9 @@ export default function Hero() {
           </h2>
 
           <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
-            A quantitative investment management firm combining systematic research, 
-            proprietary algorithms, and institutional-grade execution to deliver 
-            consistent risk-adjusted returns across global markets.
+            A quantitative investment management firm combining systematic
+            research, proprietary algorithms, and institutional-grade execution
+            to deliver consistent risk-adjusted returns across global markets.
           </p>
 
           {/* CTA BUTTONS */}
@@ -182,7 +182,7 @@ export default function Hero() {
                 className="rounded-xl shadow-lg"
               />
             </motion.div>
-            
+
             {/* LIVE MARKET TICKER - Overlay on Image */}
             <div className="absolute -top-8 right-4 xl:-top-10 xl:right-6 z-30">
               <LiveMarketTicker />

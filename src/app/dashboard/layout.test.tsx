@@ -20,7 +20,7 @@ describe("DashboardLayout", () => {
     render(
       <DashboardLayout>
         <div>Page Content</div>
-      </DashboardLayout>
+      </DashboardLayout>,
     );
 
     expect(screen.getByText("Mock Sidebar")).toBeInTheDocument();

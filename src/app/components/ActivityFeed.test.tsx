@@ -6,10 +6,10 @@ describe("ActivityFeed", () => {
     render(<ActivityFeed />);
 
     expect(
-      screen.getByRole("heading", { name: "Recent Activity" })
+      screen.getByRole("heading", { name: "Recent Activity" }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Deposited $5,000 into Growth Fund")
+      screen.getByText("Deposited $5,000 into Growth Fund"),
     ).toBeInTheDocument();
     expect(screen.getByText("Rebalanced portfolio")).toBeInTheDocument();
     expect(screen.getByText("Withdrew $1,200 to bank")).toBeInTheDocument();

@@ -5,7 +5,7 @@ import { INVESTOR_TIERS } from "@/lib/investor-tiers";
 describe("InvestorQuickActions", () => {
   it("prompts for KYC verification when not approved, regardless of tier", () => {
     render(
-      <InvestorQuickActions tier={INVESTOR_TIERS.BASIC} kycApproved={false} />
+      <InvestorQuickActions tier={INVESTOR_TIERS.BASIC} kycApproved={false} />,
     );
 
     const link = screen.getByRole("link", {
@@ -18,7 +18,7 @@ describe("InvestorQuickActions", () => {
 
   it("renders the actions available to a BASIC tier investor without dedicated support", () => {
     render(
-      <InvestorQuickActions tier={INVESTOR_TIERS.BASIC} kycApproved={true} />
+      <InvestorQuickActions tier={INVESTOR_TIERS.BASIC} kycApproved={true} />,
     );
 
     expect(screen.getByText("Deposit")).toBeInTheDocument();
@@ -30,7 +30,7 @@ describe("InvestorQuickActions", () => {
 
   it("shows the dedicated support link for a PREMIUM tier investor", () => {
     render(
-      <InvestorQuickActions tier={INVESTOR_TIERS.PREMIUM} kycApproved={true} />
+      <InvestorQuickActions tier={INVESTOR_TIERS.PREMIUM} kycApproved={true} />,
     );
 
     const supportLink = screen.getByRole("link", {
@@ -45,24 +45,24 @@ describe("InvestorQuickActions", () => {
       <InvestorQuickActions
         tier={INVESTOR_TIERS.ENTERPRISE}
         kycApproved={true}
-      />
+      />,
     );
 
     expect(screen.getByText("Deposit").closest("a")).toHaveAttribute(
       "href",
-      "/dashboard/deposit"
+      "/dashboard/deposit",
     );
     expect(screen.getByText("Withdraw").closest("a")).toHaveAttribute(
       "href",
-      "/dashboard/withdraw"
+      "/dashboard/withdraw",
     );
     expect(screen.getByText("Trade").closest("a")).toHaveAttribute(
       "href",
-      "/dashboard/trade"
+      "/dashboard/trade",
     );
     expect(screen.getByText("Statements").closest("a")).toHaveAttribute(
       "href",
-      "/dashboard/statements"
+      "/dashboard/statements",
     );
   });
 });

@@ -1,4 +1,10 @@
-import { render, screen, waitFor, act, fireEvent } from "@testing-library/react";
+import {
+  render,
+  screen,
+  waitFor,
+  act,
+  fireEvent,
+} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import MockAdapter from "axios-mock-adapter";
 import apiClient from "@/lib/api-client";
@@ -47,7 +53,7 @@ describe("LoginPage", () => {
     fireEvent.submit(container.querySelector("form")!);
 
     expect(toastFn.error).toHaveBeenCalledWith(
-      "Email and password are required."
+      "Email and password are required.",
     );
     expect(mock.history.post?.length ?? 0).toBe(0);
   });
@@ -67,12 +73,15 @@ describe("LoginPage", () => {
     const user = userEvent.setup();
     const { container } = render(<LoginPage />);
 
-    await user.type(screen.getByLabelText(/email address/i), "user@example.com");
+    await user.type(
+      screen.getByLabelText(/email address/i),
+      "user@example.com",
+    );
     await user.type(screen.getByLabelText(/^password$/i), "123");
     fireEvent.submit(container.querySelector("form")!);
 
     expect(toastFn.error).toHaveBeenCalledWith(
-      "Password must be at least 6 characters."
+      "Password must be at least 6 characters.",
     );
   });
 
@@ -91,7 +100,10 @@ describe("LoginPage", () => {
 
       render(<LoginPage />);
 
-      await user.type(screen.getByLabelText(/email address/i), "user@example.com");
+      await user.type(
+        screen.getByLabelText(/email address/i),
+        "user@example.com",
+      );
       await user.type(screen.getByLabelText(/^password$/i), "password123");
       await user.click(screen.getByRole("button", { name: /sign in/i }));
 
@@ -105,7 +117,7 @@ describe("LoginPage", () => {
 
       await waitFor(() => {
         expect(toastFn.success).toHaveBeenCalledWith(
-          "Login successful! Redirecting..."
+          "Login successful! Redirecting...",
         );
       });
 
@@ -133,7 +145,10 @@ describe("LoginPage", () => {
     const user = userEvent.setup();
     render(<LoginPage />);
 
-    await user.type(screen.getByLabelText(/email address/i), "user@example.com");
+    await user.type(
+      screen.getByLabelText(/email address/i),
+      "user@example.com",
+    );
     await user.type(screen.getByLabelText(/^password$/i), "password123");
     await user.click(screen.getByRole("button", { name: /sign in/i }));
 
@@ -164,7 +179,7 @@ describe("LoginPage", () => {
 
     expect(toastFn).toHaveBeenCalledWith(
       "Google Sign-In integration in progress",
-      expect.objectContaining({ icon: expect.any(String) })
+      expect.objectContaining({ icon: expect.any(String) }),
     );
   });
 });

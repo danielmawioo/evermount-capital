@@ -43,7 +43,9 @@ export default function BankDepositPage() {
   const [loading, setLoading] = useState(false);
   const [loadingData, setLoadingData] = useState(true);
   const [copied, setCopied] = useState(false);
-  const [depositResult, setDepositResult] = useState<DepositResult | null>(null);
+  const [depositResult, setDepositResult] = useState<DepositResult | null>(
+    null,
+  );
   const [showAddForm, setShowAddForm] = useState(false);
   const [addingAccount, setAddingAccount] = useState(false);
   const [newAccount, setNewAccount] = useState({
@@ -116,7 +118,12 @@ export default function BankDepositPage() {
         isDefault: bankAccounts.length === 0,
       });
       toast.success("Bank account added");
-      setNewAccount({ bankName: "", accountHolder: "", accountNumber: "", routingNumber: "" });
+      setNewAccount({
+        bankName: "",
+        accountHolder: "",
+        accountNumber: "",
+        routingNumber: "",
+      });
       setShowAddForm(false);
       await loadData();
       if (data.account?.id) setSelectedBankId(data.account.id);
@@ -136,7 +143,9 @@ export default function BankDepositPage() {
     }
     const parsed = PositiveAmountSchema.safeParse(parseFloat(amount));
     if (!parsed.success) {
-      toast.error(parsed.error.issues[0]?.message ?? "Please enter a valid amount");
+      toast.error(
+        parsed.error.issues[0]?.message ?? "Please enter a valid amount",
+      );
       return;
     }
     const numAmount = parsed.data;
@@ -150,7 +159,9 @@ export default function BankDepositPage() {
         reference: wireReference.trim() || undefined,
       });
       setDepositResult(data);
-      toast.success("Bank deposit initiated — transfer funds using the details below");
+      toast.success(
+        "Bank deposit initiated — transfer funds using the details below",
+      );
     } catch (error: unknown) {
       logger.error("Bank deposit failed", error);
       toast.error(getApiErrorMessage(error, "Failed to initiate bank deposit"));
@@ -187,10 +198,12 @@ export default function BankDepositPage() {
               Deposit initiated
             </p>
             <p className="text-sm text-gray-500 mt-1">
-              Reference: <span className="font-mono">{depositResult.reference}</span>
+              Reference:{" "}
+              <span className="font-mono">{depositResult.reference}</span>
             </p>
             <p className="text-sm text-gray-500">
-              Status: {depositResult.status} · ${Number(depositResult.amount).toFixed(2)}
+              Status: {depositResult.status} · $
+              {Number(depositResult.amount).toFixed(2)}
             </p>
           </div>
           {displayDetails && (
@@ -207,7 +220,9 @@ export default function BankDepositPage() {
                     <span className="font-medium text-gray-600 dark:text-gray-400">
                       {label}:
                     </span>
-                    <span className="text-gray-900 dark:text-white text-right">{value}</span>
+                    <span className="text-gray-900 dark:text-white text-right">
+                      {value}
+                    </span>
                   </div>
                 ))}
             </div>
@@ -233,7 +248,9 @@ export default function BankDepositPage() {
         >
           {displayDetails && (
             <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 space-y-2 text-sm">
-              <p className="font-medium text-gray-800 dark:text-white">Settlement account</p>
+              <p className="font-medium text-gray-800 dark:text-white">
+                Settlement account
+              </p>
               <p className="text-gray-600 dark:text-gray-400">
                 {displayDetails.bankName} · {displayDetails.accountNumber}
               </p>
@@ -266,19 +283,31 @@ export default function BankDepositPage() {
                 <input
                   placeholder="Bank name"
                   value={newAccount.bankName}
-                  onChange={(e) => setNewAccount({ ...newAccount, bankName: e.target.value })}
+                  onChange={(e) =>
+                    setNewAccount({ ...newAccount, bankName: e.target.value })
+                  }
                   className="w-full px-3 py-2 text-sm rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#161a23]"
                 />
                 <input
                   placeholder="Account holder name"
                   value={newAccount.accountHolder}
-                  onChange={(e) => setNewAccount({ ...newAccount, accountHolder: e.target.value })}
+                  onChange={(e) =>
+                    setNewAccount({
+                      ...newAccount,
+                      accountHolder: e.target.value,
+                    })
+                  }
                   className="w-full px-3 py-2 text-sm rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#161a23]"
                 />
                 <input
                   placeholder="Account number"
                   value={newAccount.accountNumber}
-                  onChange={(e) => setNewAccount({ ...newAccount, accountNumber: e.target.value })}
+                  onChange={(e) =>
+                    setNewAccount({
+                      ...newAccount,
+                      accountNumber: e.target.value,
+                    })
+                  }
                   className="w-full px-3 py-2 text-sm rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-[#161a23]"
                 />
                 <button
@@ -293,7 +322,9 @@ export default function BankDepositPage() {
             )}
 
             {bankAccounts.length === 0 ? (
-              <p className="text-sm text-gray-500">Add your bank account to continue.</p>
+              <p className="text-sm text-gray-500">
+                Add your bank account to continue.
+              </p>
             ) : (
               bankAccounts.map((bank) => (
                 <label

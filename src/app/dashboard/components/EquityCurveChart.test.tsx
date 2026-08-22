@@ -7,8 +7,8 @@ describe("EquityCurveChart", () => {
 
     expect(
       screen.getByText(
-        "No performance history yet. Invest to start tracking your equity curve."
-      )
+        "No performance history yet. Invest to start tracking your equity curve.",
+      ),
     ).toBeInTheDocument();
   });
 
@@ -20,7 +20,7 @@ describe("EquityCurveChart", () => {
           { date: "2024-01-02", equity: 1050 },
           { date: "2024-01-03", equity: 1020 },
         ]}
-      />
+      />,
     );
 
     expect(container.querySelector("canvas")).toBeInTheDocument();
@@ -33,7 +33,7 @@ describe("EquityCurveChart", () => {
     }));
 
     const { container } = render(
-      <EquityCurveChart data={data} currency="EUR" />
+      <EquityCurveChart data={data} currency="EUR" />,
     );
 
     expect(container.querySelector("canvas")).toBeInTheDocument();

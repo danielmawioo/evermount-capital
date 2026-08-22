@@ -31,8 +31,13 @@ describe("useInvestor", () => {
   it("populates the profile from the API response when getProfile succeeds", async () => {
     setAuthTokens("access", "refresh", true);
     setUser(
-      { id: "1", email: "stored@example.com", fullName: "Stored User", role: "INVESTOR" },
-      true
+      {
+        id: "1",
+        email: "stored@example.com",
+        fullName: "Stored User",
+        role: "INVESTOR",
+      },
+      true,
     );
     mock.onGet("/users/profile").reply(200, {
       id: "1",
@@ -65,8 +70,13 @@ describe("useInvestor", () => {
   it("falls back to the stored user with PENDING kyc when getProfile fails", async () => {
     setAuthTokens("access", "refresh", true);
     setUser(
-      { id: "2", email: "stored@example.com", fullName: "Stored User", role: "MANAGER" },
-      true
+      {
+        id: "2",
+        email: "stored@example.com",
+        fullName: "Stored User",
+        role: "MANAGER",
+      },
+      true,
     );
     mock.onGet("/users/profile").reply(500);
 

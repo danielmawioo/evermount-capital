@@ -41,16 +41,14 @@ describe("TradingOpsPage", () => {
     render(<TradingOpsPage />);
 
     expect(
-      screen.getByRole("heading", { name: /Trading Ops/i })
+      screen.getByRole("heading", { name: /Trading Ops/i }),
     ).toBeInTheDocument();
 
     await waitFor(() =>
-      expect(screen.getAllByText("Connected").length).toBeGreaterThan(0)
+      expect(screen.getAllByText("Connected").length).toBeGreaterThan(0),
     );
 
     expect(screen.getByText("Kill Switch")).toBeInTheDocument();
-    expect(
-      screen.getByText(/Inactive — trading allowed/i)
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Inactive — trading allowed/i)).toBeInTheDocument();
   });
 });

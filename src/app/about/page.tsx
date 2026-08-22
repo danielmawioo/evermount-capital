@@ -56,7 +56,7 @@ export default function AboutPage() {
         }}
       />
       <main className="px-6 py-20 max-w-7xl mx-auto space-y-20 bg-white dark:bg-gray-900">
-      {/* SECTION 1 — Hero */}
+        {/* SECTION 1 — Hero */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,12 +65,12 @@ export default function AboutPage() {
           className="text-center"
         >
           <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-6">
-          A New Breed of Hedge Fund
-        </h1>
+            A New Breed of Hedge Fund
+          </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
             We&apos;re building the future of capital growth — driven by data,
-          protected by tech, and designed for high-growth investors.
-        </p>
+            protected by tech, and designed for high-growth investors.
+          </p>
         </motion.section>
 
         {/* SECTION 2 — Company Story */}
@@ -86,24 +86,27 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-4 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
             <p>
-              Founded in 2023, Evermount Capital emerged from a vision to democratize 
-              access to sophisticated quantitative investment strategies. Our founders, 
-              combining decades of experience in quantitative finance, data science, and 
-              technology, recognized that institutional-grade investment management could 
-              be made accessible to a broader range of investors.
+              Founded in 2023, Evermount Capital emerged from a vision to
+              democratize access to sophisticated quantitative investment
+              strategies. Our founders, combining decades of experience in
+              quantitative finance, data science, and technology, recognized
+              that institutional-grade investment management could be made
+              accessible to a broader range of investors.
             </p>
             <p>
-              We began with a simple yet powerful premise: markets contain systematic 
-              inefficiencies that can be identified and exploited through rigorous 
-              quantitative analysis. By leveraging cutting-edge machine learning, 
-              statistical modeling, and high-performance computing, we&apos;ve built a platform 
-              that processes terabytes of market data daily to generate alpha opportunities.
+              We began with a simple yet powerful premise: markets contain
+              systematic inefficiencies that can be identified and exploited
+              through rigorous quantitative analysis. By leveraging cutting-edge
+              machine learning, statistical modeling, and high-performance
+              computing, we&apos;ve built a platform that processes terabytes of
+              market data daily to generate alpha opportunities.
             </p>
             <p>
-              Today, Evermount Capital manages assets across multiple asset classes, 
-              serving investors globally with systematic strategies that adapt to changing 
-              market conditions. Our commitment to transparency, risk management, and 
-              technological innovation continues to drive our growth and success.
+              Today, Evermount Capital manages assets across multiple asset
+              classes, serving investors globally with systematic strategies
+              that adapt to changing market conditions. Our commitment to
+              transparency, risk management, and technological innovation
+              continues to drive our growth and success.
             </p>
           </div>
         </motion.section>
@@ -118,18 +121,19 @@ export default function AboutPage() {
             whileHover={{ y: -5, scale: 1.02 }}
             className="bg-[#f5fdfb] dark:bg-gray-800 p-8 rounded-xl shadow hover:shadow-lg transition"
           >
-          <h2 className="text-2xl font-bold text-[#00a76f] mb-3">
-            Our Mission
-          </h2>
+            <h2 className="text-2xl font-bold text-[#00a76f] mb-3">
+              Our Mission
+            </h2>
             <p className="leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
-            To unlock elite investing opportunities for all growth-focused
-            investors, combining algorithmic performance with risk-managed
-            systems across emerging and developed markets.
-          </p>
+              To unlock elite investing opportunities for all growth-focused
+              investors, combining algorithmic performance with risk-managed
+              systems across emerging and developed markets.
+            </p>
             <p className="leading-relaxed text-gray-600 dark:text-gray-400 text-sm">
-              We believe that sophisticated investment strategies should not be limited 
-              to institutional investors. Through technology and systematic approaches, 
-              we make institutional-grade quantitative investing accessible to all.
+              We believe that sophisticated investment strategies should not be
+              limited to institutional investors. Through technology and
+              systematic approaches, we make institutional-grade quantitative
+              investing accessible to all.
             </p>
           </motion.div>
           <motion.div
@@ -140,19 +144,22 @@ export default function AboutPage() {
             whileHover={{ y: -5, scale: 1.02 }}
             className="bg-[#f5fdfb] dark:bg-gray-800 p-8 rounded-xl shadow hover:shadow-lg transition"
           >
-          <h2 className="text-2xl font-bold text-[#00a76f] mb-3">Our Vision</h2>
+            <h2 className="text-2xl font-bold text-[#00a76f] mb-3">
+              Our Vision
+            </h2>
             <p className="leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
               To be Africa&apos;s most trusted AI-powered alternative investment
-            ecosystem — enabling secure, scalable, and borderless capital
-            growth.
-          </p>
+              ecosystem — enabling secure, scalable, and borderless capital
+              growth.
+            </p>
             <p className="leading-relaxed text-gray-600 dark:text-gray-400 text-sm">
-              We envision a future where quantitative excellence and systematic 
-              investment strategies are the standard, empowering investors worldwide 
-              to achieve their financial goals through data-driven decision-making.
+              We envision a future where quantitative excellence and systematic
+              investment strategies are the standard, empowering investors
+              worldwide to achieve their financial goals through data-driven
+              decision-making.
             </p>
           </motion.div>
-      </section>
+        </section>
 
         {/* SECTION 4 — Our Approach */}
         <motion.section
@@ -170,17 +177,20 @@ export default function AboutPage() {
               {
                 icon: CpuChipIcon,
                 title: "Systematic & Data-Driven",
-                description: "We remove human emotion and bias from investment decisions through entirely systematic processes. Every strategy is built on rigorous quantitative research and validated through extensive backtesting.",
+                description:
+                  "We remove human emotion and bias from investment decisions through entirely systematic processes. Every strategy is built on rigorous quantitative research and validated through extensive backtesting.",
               },
               {
                 icon: ChartBarIcon,
                 title: "Multi-Strategy Diversification",
-                description: "Our portfolios span multiple asset classes including equities, fixed income, currencies, and commodities. This diversification helps capture alpha across different market regimes while managing risk.",
+                description:
+                  "Our portfolios span multiple asset classes including equities, fixed income, currencies, and commodities. This diversification helps capture alpha across different market regimes while managing risk.",
               },
               {
                 icon: ShieldCheckIcon,
                 title: "Risk-First Philosophy",
-                description: "Capital preservation is paramount. Our multi-layered risk management framework continuously monitors portfolio exposure and automatically adjusts positions to maintain target risk parameters.",
+                description:
+                  "Capital preservation is paramount. Our multi-layered risk management framework continuously monitors portfolio exposure and automatically adjusts positions to maintain target risk parameters.",
               },
             ].map((item, i) => (
               <motion.div
@@ -218,19 +228,23 @@ export default function AboutPage() {
             {[
               {
                 title: "Transparency",
-                description: "We believe in complete transparency with our investors. Regular reporting, clear communication, and open dialogue about our strategies and performance.",
+                description:
+                  "We believe in complete transparency with our investors. Regular reporting, clear communication, and open dialogue about our strategies and performance.",
               },
               {
                 title: "Innovation",
-                description: "We continuously invest in research and technology to stay at the forefront of quantitative finance, ensuring our strategies remain competitive and effective.",
+                description:
+                  "We continuously invest in research and technology to stay at the forefront of quantitative finance, ensuring our strategies remain competitive and effective.",
               },
               {
                 title: "Integrity",
-                description: "Ethical conduct and regulatory compliance are non-negotiable. We operate with the highest standards of professionalism and accountability.",
+                description:
+                  "Ethical conduct and regulatory compliance are non-negotiable. We operate with the highest standards of professionalism and accountability.",
               },
               {
                 title: "Excellence",
-                description: "We strive for excellence in everything we do—from research and technology to client service and risk management. Good enough is never enough.",
+                description:
+                  "We strive for excellence in everything we do—from research and technology to client service and risk management. Good enough is never enough.",
               },
             ].map((value, i) => (
               <motion.div
@@ -268,25 +282,32 @@ export default function AboutPage() {
           </h2>
           <div className="max-w-4xl mx-auto space-y-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
             <p>
-              At the heart of Evermount Capital is our proprietary technology platform, 
-              designed to process and analyze vast amounts of market data in real-time. 
-              Our infrastructure handles terabytes of data daily, executing millions of 
-              calculations per second to identify alpha opportunities.
+              At the heart of Evermount Capital is our proprietary technology
+              platform, designed to process and analyze vast amounts of market
+              data in real-time. Our infrastructure handles terabytes of data
+              daily, executing millions of calculations per second to identify
+              alpha opportunities.
             </p>
             <p>
-              We leverage advanced machine learning algorithms, statistical models, and 
-              high-performance computing to develop and deploy systematic trading strategies. 
-              Our research team continuously refines these models, incorporating new data 
-              sources and adapting to evolving market conditions.
+              We leverage advanced machine learning algorithms, statistical
+              models, and high-performance computing to develop and deploy
+              systematic trading strategies. Our research team continuously
+              refines these models, incorporating new data sources and adapting
+              to evolving market conditions.
             </p>
-            <p>
-              Our technology stack includes:
-            </p>
+            <p>Our technology stack includes:</p>
             <ul className="list-disc list-inside space-y-2 ml-4 text-gray-700 dark:text-gray-300">
-              <li>Machine learning models trained on decades of historical market data</li>
+              <li>
+                Machine learning models trained on decades of historical market
+                data
+              </li>
               <li>Real-time data processing and analysis infrastructure</li>
-              <li>Automated risk management and portfolio optimization systems</li>
-              <li>High-frequency execution capabilities across global exchanges</li>
+              <li>
+                Automated risk management and portfolio optimization systems
+              </li>
+              <li>
+                High-frequency execution capabilities across global exchanges
+              </li>
               <li>Comprehensive backtesting and validation frameworks</li>
             </ul>
             <div className="pt-4">
@@ -305,7 +326,7 @@ export default function AboutPage() {
         </motion.section>
 
         {/* SECTION 7 — Founders */}
-      <section>
+        <section>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -313,7 +334,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12"
           >
-          Meet Our Founders
+            Meet Our Founders
           </motion.h2>
 
           <motion.div
@@ -331,26 +352,26 @@ export default function AboutPage() {
             }}
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 text-center"
           >
-          {[
-            {
-              name: "Daniel Mawioo",
-              role: "CEO & Co-Founder",
-              image: "/images/founder1.jpg",
-              linkedin: "https://www.linkedin.com/in/danielmawioo/",
+            {[
+              {
+                name: "Daniel Mawioo",
+                role: "CEO & Co-Founder",
+                image: "/images/founder1.jpg",
+                linkedin: "https://www.linkedin.com/in/danielmawioo/",
                 bio: "Former quantitative researcher and portfolio manager with extensive experience in systematic trading strategies, factor investing, and risk management at leading hedge funds. Daniel brings deep expertise in quantitative finance and strategic leadership to Evermount Capital.",
-            },
-            {
-              name: "Evans Kipngetich",
-              role: "Chief Data Officer & Co-Founder",
-              image: "/images/founder2.jpg",
-              linkedin: "https://www.linkedin.com/in/evans-kipngetich/",
+              },
+              {
+                name: "Evans Kipngetich",
+                role: "Chief Data Officer & Co-Founder",
+                image: "/images/founder2.jpg",
+                linkedin: "https://www.linkedin.com/in/evans-kipngetich/",
                 bio: "Expert in machine learning, alternative data, and large-scale data infrastructure. Previously led quantitative research teams developing predictive models for financial markets. Evans drives our data science and technology innovation initiatives.",
-            },
-            {
-              name: "Tony K.",
+              },
+              {
+                name: "Tony K.",
                 role: "Head of Quantitative Research",
-              image: "/images/founder3.jpg",
-              linkedin: "#",
+                image: "/images/founder3.jpg",
+                linkedin: "#",
                 bio: "PhD in Financial Engineering with deep expertise in stochastic modeling, statistical arbitrage, and portfolio optimization. Published researcher in quantitative finance. Tony leads our research team in developing proprietary trading strategies.",
               },
             ].map(({ name, role, image, linkedin, bio }, i) => (
@@ -368,26 +389,28 @@ export default function AboutPage() {
                   transition={{ type: "spring", stiffness: 300 }}
                   className="w-32 h-32 relative rounded-full overflow-hidden shadow-lg"
                 >
-                <Image src={image} alt={name} fill className="object-cover" />
+                  <Image src={image} alt={name} fill className="object-cover" />
                 </motion.div>
                 <div className="text-center">
                   <h4 className="font-semibold text-xl text-gray-900 dark:text-white mb-1">
                     {name}
                   </h4>
-                  <p className="text-sm text-[#00a76f] font-medium mb-3">{role}</p>
+                  <p className="text-sm text-[#00a76f] font-medium mb-3">
+                    {role}
+                  </p>
                   <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                     {bio}
                   </p>
-              </div>
-              {linkedin !== "#" && (
+                </div>
+                {linkedin !== "#" && (
                   <motion.a
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0.9 }}
-                  href={linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#0077b5] hover:text-[#005983] transition"
-                >
+                    href={linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#0077b5] hover:text-[#005983] transition"
+                  >
                     <FaLinkedin className="text-2xl" />
                   </motion.a>
                 )}
@@ -412,22 +435,26 @@ export default function AboutPage() {
               {
                 icon: AcademicCapIcon,
                 title: "Proven Expertise",
-                description: "Our team combines decades of experience in quantitative finance, data science, and technology. We've worked at leading hedge funds and financial institutions before founding Evermount.",
+                description:
+                  "Our team combines decades of experience in quantitative finance, data science, and technology. We've worked at leading hedge funds and financial institutions before founding Evermount.",
               },
               {
                 icon: BoltIcon,
                 title: "Cutting-Edge Technology",
-                description: "We invest heavily in technology and research, ensuring our strategies leverage the latest advances in machine learning, data science, and computational finance.",
+                description:
+                  "We invest heavily in technology and research, ensuring our strategies leverage the latest advances in machine learning, data science, and computational finance.",
               },
               {
                 icon: CurrencyDollarIcon,
                 title: "Performance Focus",
-                description: "Our systematic approach has delivered consistent risk-adjusted returns across various market conditions, demonstrating the robustness of our quantitative strategies.",
+                description:
+                  "Our systematic approach has delivered consistent risk-adjusted returns across various market conditions, demonstrating the robustness of our quantitative strategies.",
               },
               {
                 icon: GlobeAltIcon,
                 title: "Global Reach",
-                description: "We trade across major global exchanges, providing diversified exposure to opportunities worldwide. Our systematic approach allows us to operate efficiently across multiple markets.",
+                description:
+                  "We trade across major global exchanges, providing diversified exposure to opportunities worldwide. Our systematic approach allows us to operate efficiently across multiple markets.",
               },
             ].map((item, i) => (
               <motion.div
@@ -450,10 +477,10 @@ export default function AboutPage() {
                   <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                     {item.description}
                   </p>
-            </div>
+                </div>
               </motion.div>
-          ))}
-        </div>
+            ))}
+          </div>
         </motion.section>
 
         {/* SECTION 9 — Closing Statement */}
@@ -464,14 +491,15 @@ export default function AboutPage() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-        <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <blockquote className="text-xl text-gray-600 dark:text-gray-400 italic">
-              &quot;We&apos;re not just building portfolios, we&apos;re engineering confidence,
-              growth, and resilience — the future belongs to empowered investors.&quot;
-          </blockquote>
-        </div>
+              &quot;We&apos;re not just building portfolios, we&apos;re
+              engineering confidence, growth, and resilience — the future
+              belongs to empowered investors.&quot;
+            </blockquote>
+          </div>
         </motion.section>
-    </main>
+      </main>
     </>
   );
 }

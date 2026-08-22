@@ -22,7 +22,7 @@ describe("ThemeContext", () => {
     render(
       <ThemeProvider>
         <ThemeConsumer />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(screen.getByTestId("theme-value")).toHaveTextContent("light");
@@ -35,7 +35,7 @@ describe("ThemeContext", () => {
     render(
       <ThemeProvider>
         <ThemeConsumer />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(screen.getByTestId("theme-value")).toHaveTextContent("dark");
@@ -46,7 +46,7 @@ describe("ThemeContext", () => {
     render(
       <ThemeProvider>
         <ThemeConsumer />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     expect(screen.getByTestId("theme-value")).toHaveTextContent("light");
@@ -68,7 +68,7 @@ describe("ThemeContext", () => {
     render(
       <ThemeProvider>
         <ThemeConsumer />
-      </ThemeProvider>
+      </ThemeProvider>,
     );
 
     fireEvent.click(screen.getByText("Set Dark"));

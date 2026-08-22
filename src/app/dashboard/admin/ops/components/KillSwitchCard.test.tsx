@@ -12,11 +12,13 @@ describe("KillSwitchCard", () => {
         quant={null}
         actionLoading={false}
         onToggle={onToggle}
-      />
+      />,
     );
 
     expect(screen.getByText(/Inactive — trading allowed/i)).toBeInTheDocument();
-    await user.click(screen.getByRole("button", { name: /Activate Kill Switch/i }));
+    await user.click(
+      screen.getByRole("button", { name: /Activate Kill Switch/i }),
+    );
     expect(onToggle).toHaveBeenCalledWith(true);
   });
 
@@ -37,7 +39,7 @@ describe("KillSwitchCard", () => {
         }}
         actionLoading={false}
         onToggle={onToggle}
-      />
+      />,
     );
 
     expect(screen.getByText(/ACTIVE — Manual halt/i)).toBeInTheDocument();

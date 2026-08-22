@@ -7,10 +7,10 @@ describe("LibraryPage", () => {
     render(<LibraryPage />);
 
     expect(
-      screen.getByRole("heading", { name: /Educational Library/ })
+      screen.getByRole("heading", { name: /Educational Library/ }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Introduction to Quantitative Trading")
+      screen.getByText("Introduction to Quantitative Trading"),
     ).toBeInTheDocument();
   });
 
@@ -20,14 +20,14 @@ describe("LibraryPage", () => {
 
     await user.type(
       screen.getByPlaceholderText("Search resources..."),
-      "Risk Management"
+      "Risk Management",
     );
 
     expect(
-      screen.getByText("Risk Management Best Practices")
+      screen.getByText("Risk Management Best Practices"),
     ).toBeInTheDocument();
     expect(
-      screen.queryByText("Introduction to Quantitative Trading")
+      screen.queryByText("Introduction to Quantitative Trading"),
     ).not.toBeInTheDocument();
   });
 
@@ -38,10 +38,10 @@ describe("LibraryPage", () => {
     await user.click(screen.getByRole("button", { name: /Bookmarked/ }));
 
     expect(
-      screen.getByText("Introduction to Quantitative Trading")
+      screen.getByText("Introduction to Quantitative Trading"),
     ).toBeInTheDocument();
     expect(
-      screen.queryByText("Risk Management Best Practices")
+      screen.queryByText("Risk Management Best Practices"),
     ).not.toBeInTheDocument();
   });
 });

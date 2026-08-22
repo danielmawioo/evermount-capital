@@ -18,8 +18,8 @@ export default function StatCard({
   const growthColor = isPositive
     ? "text-green-500"
     : isNegative
-    ? "text-red-500"
-    : "text-gray-400";
+      ? "text-red-500"
+      : "text-gray-400";
 
   return (
     <div className="bg-white dark:bg-[#161a23] border border-gray-100 dark:border-gray-800 rounded-xl px-6 py-5 shadow-sm hover:shadow-md transition-all duration-300">

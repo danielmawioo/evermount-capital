@@ -33,8 +33,12 @@ describe("AdminSecurityPage", () => {
 
     expect(screen.getByText(/Loading/i)).toBeInTheDocument();
 
-    await waitFor(() => expect(screen.getByText("Disabled")).toBeInTheDocument());
-    expect(screen.getByRole("button", { name: /Set up MFA/i })).toBeInTheDocument();
+    await waitFor(() =>
+      expect(screen.getByText("Disabled")).toBeInTheDocument(),
+    );
+    expect(
+      screen.getByRole("button", { name: /Set up MFA/i }),
+    ).toBeInTheDocument();
   });
 
   it("shows an error toast when the status call fails", async () => {
@@ -43,7 +47,7 @@ describe("AdminSecurityPage", () => {
     render(<AdminSecurityPage />);
 
     await waitFor(() =>
-      expect(toast.error).toHaveBeenCalledWith("Failed to load MFA status")
+      expect(toast.error).toHaveBeenCalledWith("Failed to load MFA status"),
     );
   });
 
@@ -61,13 +65,17 @@ describe("AdminSecurityPage", () => {
     const user = userEvent.setup();
     render(<AdminSecurityPage />);
 
-    await waitFor(() => expect(screen.getByText("Disabled")).toBeInTheDocument());
+    await waitFor(() =>
+      expect(screen.getByText("Disabled")).toBeInTheDocument(),
+    );
 
     await user.click(screen.getByRole("button", { name: /Set up MFA/i }));
 
-    await waitFor(() => expect(screen.getByText("SECRET123")).toBeInTheDocument());
+    await waitFor(() =>
+      expect(screen.getByText("SECRET123")).toBeInTheDocument(),
+    );
     expect(toast.success).toHaveBeenCalledWith(
-      "Scan the secret with your authenticator app"
+      "Scan the secret with your authenticator app",
     );
 
     const input = screen.getByPlaceholderText("6-digit code");
@@ -81,10 +89,10 @@ describe("AdminSecurityPage", () => {
     await user.click(screen.getByRole("button", { name: /^Enable MFA$/i }));
 
     await waitFor(() =>
-      expect(toast.success).toHaveBeenCalledWith("MFA enabled")
+      expect(toast.success).toHaveBeenCalledWith("MFA enabled"),
     );
     const enableCall = mock.history.post.find(
-      (r) => r.url === "/admin/security/mfa/enable"
+      (r) => r.url === "/admin/security/mfa/enable",
     );
     expect(JSON.parse(enableCall?.data)).toEqual({ token: "123456" });
   });
@@ -103,9 +111,13 @@ describe("AdminSecurityPage", () => {
     const user = userEvent.setup();
     render(<AdminSecurityPage />);
 
-    await waitFor(() => expect(screen.getByText("Disabled")).toBeInTheDocument());
+    await waitFor(() =>
+      expect(screen.getByText("Disabled")).toBeInTheDocument(),
+    );
     await user.click(screen.getByRole("button", { name: /Set up MFA/i }));
-    await waitFor(() => expect(screen.getByText("SECRET123")).toBeInTheDocument());
+    await waitFor(() =>
+      expect(screen.getByText("SECRET123")).toBeInTheDocument(),
+    );
 
     const input = screen.getByPlaceholderText("6-digit code");
     await user.type(input, "000000");
@@ -113,8 +125,8 @@ describe("AdminSecurityPage", () => {
 
     await waitFor(() =>
       expect(toast.error).toHaveBeenCalledWith(
-        "Invalid token — could not enable MFA"
-      )
+        "Invalid token — could not enable MFA",
+      ),
     );
   });
 
@@ -128,7 +140,9 @@ describe("AdminSecurityPage", () => {
     const user = userEvent.setup();
     render(<AdminSecurityPage />);
 
-    await waitFor(() => expect(screen.getByText("Enabled")).toBeInTheDocument());
+    await waitFor(() =>
+      expect(screen.getByText("Enabled")).toBeInTheDocument(),
+    );
 
     const input = screen.getByPlaceholderText("6-digit code to disable");
     await user.type(input, "654321");
@@ -141,10 +155,10 @@ describe("AdminSecurityPage", () => {
     await user.click(screen.getByRole("button", { name: /Disable MFA/i }));
 
     await waitFor(() =>
-      expect(toast.success).toHaveBeenCalledWith("MFA disabled")
+      expect(toast.success).toHaveBeenCalledWith("MFA disabled"),
     );
     const disableCall = mock.history.post.find(
-      (r) => r.url === "/admin/security/mfa/disable"
+      (r) => r.url === "/admin/security/mfa/disable",
     );
     expect(JSON.parse(disableCall?.data)).toEqual({ token: "654321" });
   });

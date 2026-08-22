@@ -47,7 +47,7 @@ describe("LayoutWrapper", () => {
     render(
       <LayoutWrapper>
         <div>Page Content</div>
-      </LayoutWrapper>
+      </LayoutWrapper>,
     );
 
     expect(screen.getByText("Page Content")).toBeInTheDocument();
@@ -62,7 +62,7 @@ describe("LayoutWrapper", () => {
     render(
       <LayoutWrapper>
         <div>Dashboard Content</div>
-      </LayoutWrapper>
+      </LayoutWrapper>,
     );
 
     expect(screen.getByText("Dashboard Content")).toBeInTheDocument();
@@ -77,7 +77,7 @@ describe("LayoutWrapper", () => {
     render(
       <LayoutWrapper>
         <div>Login Content</div>
-      </LayoutWrapper>
+      </LayoutWrapper>,
     );
 
     expect(screen.getByText("Login Content")).toBeInTheDocument();
@@ -91,7 +91,7 @@ describe("LayoutWrapper", () => {
     render(
       <LayoutWrapper>
         <div>Book Demo Content</div>
-      </LayoutWrapper>
+      </LayoutWrapper>,
     );
 
     expect(screen.getByTestId("navbar")).toBeInTheDocument();
