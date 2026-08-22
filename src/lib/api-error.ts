@@ -8,6 +8,7 @@ export type ApiError = {
 };
 
 export function getApiErrorMessage(error: unknown, fallback: string): string {
+  if (!error || typeof error !== "object") return fallback;
   const err = error as ApiError;
   return (
     err.response?.data?.error?.message ||
