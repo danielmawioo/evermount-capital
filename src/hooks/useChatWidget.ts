@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { CHAT_DEPARTMENTS, DEFAULT_CHAT_ASSISTANT } from "@/lib/chat-departments";
+import { logger } from "@/lib/logger";
 
 export interface ChatMessage {
   role: "user" | "assistant";
@@ -110,7 +111,7 @@ export function useChatWidget() {
 
         setMessages((prev) => [...prev, assistantMessage]);
       } catch (error) {
-        console.error("Chat error:", error);
+        logger.error("Chat request failed", error);
         setMessages((prev) => [
           ...prev,
           {

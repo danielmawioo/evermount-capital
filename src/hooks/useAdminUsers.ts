@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 import { CreditAmountSchema } from "@/lib/schemas";
 
 export interface ApiUser {
@@ -56,7 +57,8 @@ export function useAdminUsers() {
       });
       setUsers(data.users || []);
       setTotal(data.total || 0);
-    } catch {
+    } catch (error) {
+      logger.error("Failed to load users", error);
       toast.error("Failed to load users");
     } finally {
       setLoading(false);
@@ -73,7 +75,8 @@ export function useAdminUsers() {
       await api.admin.users.suspend(userId, { action });
       toast.success(`User ${action === "suspend" ? "suspended" : "activated"}`);
       loadUsers();
-    } catch {
+    } catch (error) {
+      logger.error("Failed to update user status", error);
       toast.error("Failed to update user status");
     }
   };
@@ -97,6 +100,7 @@ export function useAdminUsers() {
       setForm({ fullName: "", email: "", password: "", role: "INVESTOR" });
       loadUsers();
     } catch (err: unknown) {
+      logger.error("Failed to create user", err);
       toast.error(getApiErrorMessage(err, "Failed to create user"));
     } finally {
       setSubmitting(false);
@@ -111,7 +115,8 @@ export function useAdminUsers() {
       setManagers(
         (data.managers ?? []).filter((m) => m.status === "active"),
       );
-    } catch {
+    } catch (error) {
+      logger.error("Failed to load managers", error);
       toast.error("Failed to load managers");
       setAssignUser(null);
     }
@@ -128,6 +133,7 @@ export function useAdminUsers() {
       toast.success("Investor assigned to portfolio manager");
       setAssignUser(null);
     } catch (err: unknown) {
+      logger.error("Failed to assign investor", err);
       toast.error(getApiErrorMessage(err, "Failed to assign investor"));
     } finally {
       setAssigning(false);
@@ -154,6 +160,7 @@ export function useAdminUsers() {
       setCreditAmount("");
       loadUsers();
     } catch (err: unknown) {
+      logger.error("Failed to credit wallet", err);
       toast.error(getApiErrorMessage(err, "Failed to credit wallet"));
     } finally {
       setCrediting(false);
@@ -166,7 +173,8 @@ export function useAdminUsers() {
       await api.admin.users.delete(userId);
       toast.success("User deleted");
       loadUsers();
-    } catch {
+    } catch (error) {
+      logger.error("Failed to delete user", error);
       toast.error("Failed to delete user");
     }
   };
@@ -183,7 +191,8 @@ export function useAdminUsers() {
       toast.success("User updated");
       setEditUser(null);
       loadUsers();
-    } catch {
+    } catch (error) {
+      logger.error("Failed to update user", error);
       toast.error("Failed to update user");
     } finally {
       setUpdating(false);
