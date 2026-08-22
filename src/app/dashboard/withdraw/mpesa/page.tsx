@@ -5,7 +5,13 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { minimumAmountSchema } from "@/lib/schemas";
 import KycRequiredGate from "@/components/KycRequiredGate";
+
+const MpesaWithdrawAmountSchema = minimumAmountSchema(
+  10,
+  "Minimum withdrawal amount is KES 10"
+);
 
 export default function MpesaWithdrawPage() {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -15,11 +21,12 @@ export default function MpesaWithdrawPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const numAmount = parseFloat(amount);
-    if (isNaN(numAmount) || numAmount < 10) {
-      toast.error("Minimum withdrawal amount is KES 10");
+    const parsed = MpesaWithdrawAmountSchema.safeParse(parseFloat(amount));
+    if (!parsed.success) {
+      toast.error(parsed.error.issues[0]?.message ?? "Minimum withdrawal amount is KES 10");
       return;
     }
+    const numAmount = parsed.data;
 
     if (!phoneNumber.trim()) {
       toast.error("Please enter your M-Pesa phone number");

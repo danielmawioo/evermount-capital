@@ -6,6 +6,7 @@ import Image from "next/image";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { PositiveAmountSchema } from "@/lib/schemas";
 
 interface CryptoDepositData {
   depositAddress?: string;
@@ -22,11 +23,12 @@ export default function CryptoDepositPage() {
 
   const handleCreateDeposit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const numAmount = parseFloat(amount);
-    if (isNaN(numAmount) || numAmount <= 0) {
-      toast.error("Please enter a valid amount");
+    const parsed = PositiveAmountSchema.safeParse(parseFloat(amount));
+    if (!parsed.success) {
+      toast.error(parsed.error.issues[0]?.message ?? "Please enter a valid amount");
       return;
     }
+    const numAmount = parsed.data;
 
     setLoading(true);
     try {

@@ -7,6 +7,12 @@ import StripePayment from "@/components/StripePayment";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { minimumAmountSchema } from "@/lib/schemas";
+
+const CardDepositAmountSchema = minimumAmountSchema(
+  10,
+  "Minimum deposit amount is $10"
+);
 
 export default function CardDepositPage() {
   const router = useRouter();
@@ -31,13 +37,9 @@ export default function CardDepositPage() {
 
   const handleAmountSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const numAmount = parseFloat(amount);
-    if (isNaN(numAmount) || numAmount <= 0) {
-      toast.error("Please enter a valid amount");
-      return;
-    }
-    if (numAmount < 10) {
-      toast.error("Minimum deposit amount is $10");
+    const parsed = CardDepositAmountSchema.safeParse(parseFloat(amount));
+    if (!parsed.success) {
+      toast.error(parsed.error.issues[0]?.message ?? "Please enter a valid amount");
       return;
     }
     setShowPayment(true);
