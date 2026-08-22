@@ -1,4 +1,11 @@
-import { CreditAmountSchema, PositiveAmountSchema, minimumAmountSchema } from "./schemas";
+import {
+  CreditAmountSchema,
+  PositiveAmountSchema,
+  minimumAmountSchema,
+  EmailSchema,
+  requiredTextSchema,
+  minimumPasswordSchema,
+} from "./schemas";
 
 describe("CreditAmountSchema", () => {
   it("accepts a positive amount", () => {
@@ -60,6 +67,62 @@ describe("minimumAmountSchema", () => {
     if (!result.success) {
       expect(result.error.issues[0].message).toBe(
         "Please enter a valid amount"
+      );
+    }
+  });
+});
+
+describe("EmailSchema", () => {
+  it("accepts a well-formed email", () => {
+    expect(EmailSchema.safeParse("a@b.com").success).toBe(true);
+  });
+
+  it("rejects an empty string", () => {
+    expect(EmailSchema.safeParse("").success).toBe(false);
+  });
+
+  it("rejects a malformed email", () => {
+    expect(EmailSchema.safeParse("not-an-email").success).toBe(false);
+  });
+});
+
+describe("requiredTextSchema", () => {
+  const schema = requiredTextSchema("Name is required");
+
+  it("accepts non-empty text", () => {
+    expect(schema.safeParse("Ada").success).toBe(true);
+  });
+
+  it("trims before checking, so whitespace-only input is rejected", () => {
+    const result = schema.safeParse("   ");
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(result.error.issues[0].message).toBe("Name is required");
+    }
+  });
+
+  it("rejects an empty string with the custom message", () => {
+    const result = schema.safeParse("");
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(result.error.issues[0].message).toBe("Name is required");
+    }
+  });
+});
+
+describe("minimumPasswordSchema", () => {
+  const schema = minimumPasswordSchema(8, "Password must be at least 8 characters");
+
+  it("accepts a password at or above the minimum length", () => {
+    expect(schema.safeParse("12345678").success).toBe(true);
+  });
+
+  it("rejects a password below the minimum length with the custom message", () => {
+    const result = schema.safeParse("short");
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(result.error.issues[0].message).toBe(
+        "Password must be at least 8 characters"
       );
     }
   });

@@ -17,3 +17,19 @@ export const PositiveAmountSchema = z
 export function minimumAmountSchema(minimum: number, message: string) {
   return PositiveAmountSchema.min(minimum, message);
 }
+
+/** Shared email format check — used across auth, admin, and contact forms. */
+export const EmailSchema = z.email("Enter a valid email address");
+
+/** A trimmed, non-empty text field with a caller-supplied error message. */
+export function requiredTextSchema(message: string) {
+  return z
+    .string()
+    .trim()
+    .min(1, message);
+}
+
+/** Password with a minimum length and a caller-supplied error message. */
+export function minimumPasswordSchema(minLength: number, message: string) {
+  return z.string().min(minLength, message);
+}
