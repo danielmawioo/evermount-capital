@@ -7,7 +7,9 @@ describe("HeroSection", () => {
 
     expect(screen.getByText("A Smarter Way to Invest")).toBeInTheDocument();
     expect(
-      screen.getByText(/Explore how Evermount blends AI and Quantitative Models/),
+      screen.getByText(
+        /Explore how Evermount blends AI and Quantitative Models/,
+      ),
     ).toBeInTheDocument();
 
     const bookDemoLink = screen.getByRole("link", { name: "Book a Demo" });

@@ -25,7 +25,10 @@ describe("security api", () => {
       .onPost("/admin/security/mfa/setup")
       .reply(200, { secret: "abc", qrCode: "data:image/png;base64," });
     const res = await security.mfa.setup();
-    expect(res.data).toEqual({ secret: "abc", qrCode: "data:image/png;base64," });
+    expect(res.data).toEqual({
+      secret: "abc",
+      qrCode: "data:image/png;base64,",
+    });
     expect(mock.history.post[0].url).toBe("/admin/security/mfa/setup");
   });
 

@@ -6,7 +6,11 @@ import { CHAT_DEPARTMENTS } from "@/lib/chat-departments";
 describe("DepartmentPicker", () => {
   it("greets the user with the assistant name and prompts for a department", () => {
     render(
-      <DepartmentPicker theme="light" assistantName="Ethan" onSelect={jest.fn()} />,
+      <DepartmentPicker
+        theme="light"
+        assistantName="Ethan"
+        onSelect={jest.fn()}
+      />,
     );
 
     expect(
@@ -19,7 +23,11 @@ describe("DepartmentPicker", () => {
 
   it("renders a button for every configured department", () => {
     render(
-      <DepartmentPicker theme="light" assistantName="Ethan" onSelect={jest.fn()} />,
+      <DepartmentPicker
+        theme="light"
+        assistantName="Ethan"
+        onSelect={jest.fn()}
+      />,
     );
 
     const firstDept = CHAT_DEPARTMENTS[0];
@@ -40,7 +48,11 @@ describe("DepartmentPicker", () => {
     const onSelect = jest.fn();
     const user = userEvent.setup();
     render(
-      <DepartmentPicker theme="light" assistantName="Ethan" onSelect={onSelect} />,
+      <DepartmentPicker
+        theme="light"
+        assistantName="Ethan"
+        onSelect={onSelect}
+      />,
     );
 
     const lastDept = CHAT_DEPARTMENTS[CHAT_DEPARTMENTS.length - 1];

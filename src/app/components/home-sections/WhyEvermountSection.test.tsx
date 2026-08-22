@@ -15,9 +15,7 @@ describe("WhyEvermountSection", () => {
       ),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(
-        "Global market access across multiple asset classes",
-      ),
+      screen.getByText("Global market access across multiple asset classes"),
     ).toBeInTheDocument();
   });
 });

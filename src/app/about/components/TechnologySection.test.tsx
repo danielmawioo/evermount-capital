@@ -11,7 +11,9 @@ describe("TechnologySection", () => {
     expect(
       screen.getByText(/At the heart of Evermount Capital/),
     ).toBeInTheDocument();
-    expect(screen.getByText("Our technology stack includes:")).toBeInTheDocument();
+    expect(
+      screen.getByText("Our technology stack includes:"),
+    ).toBeInTheDocument();
   });
 
   it("renders the technology stack list items", () => {

@@ -14,7 +14,9 @@ const department: ChatDepartment = {
   agentPlaybook: "playbook",
 };
 
-function renderInputBar(overrides: Partial<Parameters<typeof ChatInputBar>[0]> = {}) {
+function renderInputBar(
+  overrides: Partial<Parameters<typeof ChatInputBar>[0]> = {},
+) {
   const setInput = jest.fn();
   const onSend = jest.fn();
   const onKeyPress = jest.fn();
@@ -84,7 +86,9 @@ describe("ChatInputBar", () => {
   it("disables the input and send button while loading", () => {
     renderInputBar({ input: "Hello", loading: true });
 
-    expect(screen.getByPlaceholderText("Ask Technical Support...")).toBeDisabled();
+    expect(
+      screen.getByPlaceholderText("Ask Technical Support..."),
+    ).toBeDisabled();
     expect(screen.getByLabelText("Send message")).toBeDisabled();
   });
 

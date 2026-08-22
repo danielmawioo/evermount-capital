@@ -16,9 +16,7 @@ describe("ApproachAndValuesSection", () => {
   it("renders each approach item", () => {
     render(<ApproachAndValuesSection />);
 
-    expect(
-      screen.getByText("Systematic & Data-Driven"),
-    ).toBeInTheDocument();
+    expect(screen.getByText("Systematic & Data-Driven")).toBeInTheDocument();
     expect(
       screen.getByText("Multi-Strategy Diversification"),
     ).toBeInTheDocument();

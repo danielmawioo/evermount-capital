@@ -26,16 +26,12 @@ describe("statements api", () => {
   });
 
   it("generateBatch posts with year/month query params and null body", async () => {
-    mock
-      .onPost("/admin/statements/generate")
-      .reply(200, { generated: true });
+    mock.onPost("/admin/statements/generate").reply(200, { generated: true });
     const res = await statements.generateBatch(2026, 8);
     expect(res.data).toEqual({ generated: true });
     const req = mock.history.post[0];
     expect(req.url).toBe("/admin/statements/generate");
     expect(req.params).toEqual({ year: 2026, month: 8 });
-    expect(req.data === undefined || JSON.parse(req.data) === null).toBe(
-      true,
-    );
+    expect(req.data === undefined || JSON.parse(req.data) === null).toBe(true);
   });
 });

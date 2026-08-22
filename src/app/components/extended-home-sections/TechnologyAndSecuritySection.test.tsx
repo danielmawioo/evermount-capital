@@ -12,9 +12,7 @@ describe("TechnologyAndSecuritySection", () => {
     expect(
       screen.getByText("Quantitative Research & Modeling"),
     ).toBeInTheDocument();
-    expect(
-      screen.getByText("Systematic Risk Management"),
-    ).toBeInTheDocument();
+    expect(screen.getByText("Systematic Risk Management")).toBeInTheDocument();
   });
 
   it("renders the security heading and all security features", () => {
@@ -30,9 +28,7 @@ describe("TechnologyAndSecuritySection", () => {
       ),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(
-        "Independent risk oversight and compliance monitoring",
-      ),
+      screen.getByText("Independent risk oversight and compliance monitoring"),
     ).toBeInTheDocument();
   });
 });

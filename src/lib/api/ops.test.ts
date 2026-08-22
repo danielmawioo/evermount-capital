@@ -106,7 +106,9 @@ describe("ops api", () => {
   });
 
   it("runPromotionCheck posts empty body without MFA header when no token given", async () => {
-    mock.onPost("/ops/strategies/alpha/promotion-check").reply(200, { ok: true });
+    mock
+      .onPost("/ops/strategies/alpha/promotion-check")
+      .reply(200, { ok: true });
     const res = await ops.runPromotionCheck("alpha");
     expect(res.data).toEqual({ ok: true });
     const req = mock.history.post[0];
@@ -116,7 +118,9 @@ describe("ops api", () => {
   });
 
   it("runPromotionCheck posts with MFA header when token given", async () => {
-    mock.onPost("/ops/strategies/alpha/promotion-check").reply(200, { ok: true });
+    mock
+      .onPost("/ops/strategies/alpha/promotion-check")
+      .reply(200, { ok: true });
     const res = await ops.runPromotionCheck("alpha", "mfa-999");
     expect(res.data).toEqual({ ok: true });
     const req = mock.history.post[0];

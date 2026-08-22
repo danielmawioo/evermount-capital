@@ -28,6 +28,8 @@ describe("NavPublishingCard", () => {
       <NavPublishingCard actionLoading={true} onRunNavBatch={jest.fn()} />,
     );
 
-    expect(screen.getByRole("button", { name: /Run NAV Batch/i })).toBeDisabled();
+    expect(
+      screen.getByRole("button", { name: /Run NAV Batch/i }),
+    ).toBeDisabled();
   });
 });

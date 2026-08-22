@@ -12,11 +12,16 @@ const department: ChatDepartment = {
   color: "from-blue-500 to-blue-600",
   assistantName: "Ethan",
   escalationEmail: "support@evermount.co",
-  suggestedPrompts: ["The dashboard won't load properly", "How do I access the API?"],
+  suggestedPrompts: [
+    "The dashboard won't load properly",
+    "How do I access the API?",
+  ],
   agentPlaybook: "playbook",
 };
 
-function renderList(overrides: Partial<Parameters<typeof MessageList>[0]> = {}) {
+function renderList(
+  overrides: Partial<Parameters<typeof MessageList>[0]> = {},
+) {
   const onSuggestedPromptClick = jest.fn();
   const messagesEndRef = createRef<HTMLDivElement>();
 

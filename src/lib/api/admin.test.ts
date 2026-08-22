@@ -93,7 +93,11 @@ describe("admin api", () => {
     it("getAll sends params and resolves with data", async () => {
       mock.onGet("/kyc").reply(200, { records: [] });
 
-      const response = await admin.kyc.getAll({ status: "pending", page: 1, limit: 20 });
+      const response = await admin.kyc.getAll({
+        status: "pending",
+        page: 1,
+        limit: 20,
+      });
 
       expect(response.data).toEqual({ records: [] });
       expect(mock.history.get[0].params).toEqual({
@@ -158,7 +162,11 @@ describe("admin api", () => {
     });
 
     it("create posts manager data", async () => {
-      const data = { email: "m@example.com", password: "pw123456", fullName: "Manager" };
+      const data = {
+        email: "m@example.com",
+        password: "pw123456",
+        fullName: "Manager",
+      };
       mock.onPost("/admin/managers").reply(201, { id: "m1" });
 
       const response = await admin.managers.create(data);
@@ -192,7 +200,9 @@ describe("admin api", () => {
 
     it("assignClient posts email/notes to assign a client", async () => {
       const data = { email: "client@example.com", notes: "vip" };
-      mock.onPost("/admin/managers/m1/clients").reply(201, { assignmentId: "a1" });
+      mock
+        .onPost("/admin/managers/m1/clients")
+        .reply(201, { assignmentId: "a1" });
 
       const response = await admin.managers.assignClient("m1", data);
 
