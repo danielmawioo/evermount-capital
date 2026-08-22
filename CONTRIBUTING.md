@@ -26,6 +26,7 @@ All five run in CI (`.github/workflows/deploy.yml`) on every push and pull reque
 - **Ship tests with the code that needs them**, not as a follow-up. If you add a new hook, page, or utility with real logic, add a colocated `*.test.ts`/`*.test.tsx` in the same PR.
 - **Write a commit message that explains why**, not just what — the diff already shows what changed.
 - **Use [Conventional Commits](https://www.conventionalcommits.org/)** for the subject line: `feat: add withdrawal amount validation`, `fix: correct KES minimum on M-Pesa deposits`, `test: cover useAdminUsers error paths`, `chore: ...`, `docs: ...`, `refactor: ...`, `style: ...`. This is enforced by a `commit-msg` git hook (`commitlint`, configured in `commitlint.config.js`) installed automatically via `yarn install` (husky's `prepare` script) — a non-conforming commit message will be rejected locally before it ever reaches CI.
+- **Add a line to [`CHANGELOG.md`](./CHANGELOG.md)'s `Unreleased` section** for any user-facing change (feature, fix, breaking change), in the same commit as the change itself.
 
 ## Project structure
 
