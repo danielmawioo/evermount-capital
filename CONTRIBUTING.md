@@ -11,13 +11,14 @@ yarn dev
 ## Before opening a PR
 
 ```bash
-yarn lint        # next lint --max-warnings=0 in CI
-yarn typecheck    # tsc --noEmit
-yarn test         # jest --coverage; CI enforces a coverage floor (jest.config.js)
-yarn build        # confirms the production build still compiles
+yarn lint          # next lint --max-warnings=0 in CI
+yarn format:check  # prettier --check .; run `yarn format` to fix
+yarn typecheck     # tsc --noEmit
+yarn test          # jest --coverage; CI enforces a coverage floor (jest.config.js)
+yarn build         # confirms the production build still compiles
 ```
 
-All four run in CI (`.github/workflows/deploy.yml`) on every push and pull request to `main`; the Vercel deploy only fires after they pass on `main`, and never fires from a pull request.
+All five run in CI (`.github/workflows/deploy.yml`) on every push and pull request to `main`; the Vercel deploy only fires after they pass on `main`, and never fires from a pull request.
 
 ## Commit and PR conventions
 
