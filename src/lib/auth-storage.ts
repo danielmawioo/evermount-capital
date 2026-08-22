@@ -1,3 +1,5 @@
+import { logger } from "./logger";
+
 const TOKEN_KEY = "token";
 const REFRESH_TOKEN_KEY = "refreshToken";
 const USER_KEY = "user";
@@ -83,7 +85,8 @@ export function getUser(): StoredUser | null {
   if (!raw) return null;
   try {
     return JSON.parse(raw) as StoredUser;
-  } catch {
+  } catch (error) {
+    logger.warn("Corrupt stored user JSON, clearing", { error: String(error) });
     return null;
   }
 }

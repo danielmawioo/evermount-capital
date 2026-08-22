@@ -6,6 +6,7 @@ import {
   clearAuth,
   usesPersistentStorage,
 } from "../auth-storage";
+import { logger } from "../logger";
 
 export const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL || "https://api.evermount.co";
@@ -86,7 +87,8 @@ apiClient.interceptors.response.use(
 
         originalRequest.headers.Authorization = `Bearer ${newToken}`;
         return apiClient(originalRequest);
-      } catch {
+      } catch (refreshError) {
+        logger.error("Access token refresh failed", refreshError);
         clearAuth();
         if (typeof window !== "undefined") {
           window.location.href = "/login";
