@@ -60,6 +60,17 @@ yarn build
 yarn start
 ```
 
+## Run with Docker
+
+This starts the frontend only, as a production build, in a container — it does not include the backend, which is a separate service (see [`DEPLOYMENT_SETUP.md`](./DEPLOYMENT_SETUP.md)). Point `NEXT_PUBLIC_API_URL` at wherever that backend is running.
+
+```bash
+cp .env.example .env.local   # fill in NEXT_PUBLIC_API_URL etc. first
+docker compose up --build
+```
+
+The app is served at [http://localhost:3000](http://localhost:3000). `NEXT_PUBLIC_*` variables are baked into the client bundle at build time (via `docker-compose.yml`'s build args, sourced from your shell env or an `.env` file next to `docker-compose.yml`); server-only variables (`OPENAI_API_KEY`, `GITHUB_CLIENT_SECRET`, etc.) are read from `.env.local` at container runtime.
+
 ## Architecture
 
 - **App Router** under `src/app`: marketing pages at the root, authenticated dashboards under `src/app/dashboard/{admin,manager,...}`, and a couple of server-side API routes under `src/app/api` (chat proxy, GitHub OAuth callback).
