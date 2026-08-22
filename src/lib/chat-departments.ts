@@ -224,17 +224,6 @@ Resolution approach:
 export const CHAT_DEPARTMENT_MAP: Record<string, ChatDepartment> =
   Object.fromEntries(CHAT_DEPARTMENTS.map((d) => [d.id, d]));
 
-export const ASSISTANT_NAMES = [
-  "Ethan",
-  "Adriel",
-  "Nathan",
-  "Miguel",
-  "Mike",
-  "Alex",
-  "Jordan",
-  "Sam",
-] as const;
-
 export function getDepartmentAssistant(departmentId?: string): string {
   if (!departmentId) return DEFAULT_CHAT_ASSISTANT;
   return (
