@@ -1,5 +1,7 @@
 # Evermount Capital — Frontend
 
+[![CI](https://github.com/danielmawioo/evermount-capital/actions/workflows/deploy.yml/badge.svg)](https://github.com/danielmawioo/evermount-capital/actions/workflows/deploy.yml)
+
 Next.js (App Router) / TypeScript frontend for the Evermount fintech platform: public marketing site plus investor, portfolio-manager, and admin dashboards. It talks to a separate backend over a typed API client — this repo does not include the backend.
 
 ## Prerequisites
@@ -51,7 +53,9 @@ yarn typecheck   # tsc --noEmit
 yarn lint        # next lint
 ```
 
-CI (`.github/workflows/deploy.yml`) runs lint, typecheck, build, and tests on every push to `main`; the Vercel deploy only triggers once all of them pass.
+`yarn test` enforces a coverage floor (`coverageThreshold` in `jest.config.js`) and fails if coverage regresses below it.
+
+CI (`.github/workflows/deploy.yml`) runs lint, typecheck, build, and tests on every push and pull request to `main`; the Vercel deploy only triggers on push to `main`, once all of them pass — never from a pull request.
 
 ## Build
 
@@ -74,13 +78,15 @@ The app is served at [http://localhost:3000](http://localhost:3000). `NEXT_PUBLI
 ## Architecture
 
 - **App Router** under `src/app`: marketing pages at the root, authenticated dashboards under `src/app/dashboard/{admin,manager,...}`, and a couple of server-side API routes under `src/app/api` (chat proxy, GitHub OAuth callback).
-- **API layer** (`src/lib/api-client.ts`): a single Axios instance (`apiClient`) with a typed `api.*` surface (`api.auth`, `api.wallets`, `api.admin`, `api.portfolioManager`, …) mirroring the backend's REST routes. A request interceptor attaches the bearer token; a response interceptor handles `401`s by refreshing the access token once (via `/auth/refresh`) and retrying the original request, or clearing auth and redirecting to `/login` if the refresh itself fails.
+- **API layer**: `src/lib/api/client.ts` holds the single Axios instance and its interceptors (a request interceptor attaches the bearer token; a response interceptor handles `401`s by refreshing the access token once via `/auth/refresh` and retrying, or clearing auth and redirecting to `/login` if the refresh itself fails). Each backend domain (`auth`, `wallets`, `admin`, `portfolioManager`, …) has its own file under `src/lib/api/`; `src/lib/api-client.ts` composes them into the typed `api.*` surface everything else imports.
 - **Auth storage** (`src/lib/auth-storage.ts`): tokens live in `localStorage` (remember-me) or `sessionStorage`, mirrored into a short-lived cookie so middleware can read auth state without an API round trip.
 - **Validation** (`src/lib/schemas.ts`): Zod schemas for form inputs that reach the API layer (e.g. wallet credit amounts), used alongside `getApiErrorMessage` (`src/lib/api-error.ts`) for consistent error surfacing across dashboard pages.
 - **Deployment**: GitHub Actions builds, lints, typechecks, and tests on push to `main`, then triggers a Vercel deploy hook. The backend is deployed separately (see `DEPLOYMENT_SETUP.md` and `nginx-api.evermount.co.conf`).
 
 ## Other docs in this repo
 
+- [`CONTRIBUTING.md`](./CONTRIBUTING.md) — setup, commit/PR conventions, project structure, testing conventions
+- [`SECURITY.md`](./SECURITY.md) — how to report a vulnerability, what's already handled, known limitations
 - [`DEPLOYMENT_SETUP.md`](./DEPLOYMENT_SETUP.md) — backend server/Nginx/HTTPS setup
 - [`BACKEND_API_ENDPOINTS_PROMPT.md`](./BACKEND_API_ENDPOINTS_PROMPT.md) — backend API contract reference
 - [`ESCROW_WALLET_BACKEND_PROMPT.md`](./ESCROW_WALLET_BACKEND_PROMPT.md) — escrow/wallet backend spec
