@@ -130,10 +130,10 @@ describe("BookDemoPage", () => {
     render(<BookDemoPage />);
 
     await waitFor(() => {
-      expect(consoleError).toHaveBeenCalledWith(
-        "Failed to fetch booked slots:",
-        expect.anything(),
-      );
+      expect(consoleError.mock.calls[0][0]).toMatchObject({
+        level: "error",
+        message: "Failed to fetch booked slots",
+      });
     });
 
     consoleError.mockRestore();

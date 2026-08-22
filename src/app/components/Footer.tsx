@@ -21,7 +21,6 @@ export default function Footer() {
       setEmail("");
     } catch (error) {
       logger.error("Newsletter submission error", error);
-      console.error("Newsletter submission error:", error);
     }
   };
 

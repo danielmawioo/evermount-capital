@@ -81,8 +81,6 @@ export default function BookDemoModal() {
         setBookedSlots(dates);
       } catch (error) {
         logger.error("Failed to fetch booked slots", error);
-        // Keep the raw console.error for local debugging visibility.
-        console.error("Failed to fetch booked slots:", error);
       }
     };
 

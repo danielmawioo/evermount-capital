@@ -89,10 +89,10 @@ describe("Footer", () => {
     await user.click(screen.getByRole("button", { name: "Subscribe" }));
 
     await waitFor(() => {
-      expect(consoleErrorSpy).toHaveBeenCalledWith(
-        "Newsletter submission error:",
-        expect.anything(),
-      );
+      expect(consoleErrorSpy.mock.calls[0][0]).toMatchObject({
+        level: "error",
+        message: "Newsletter submission error",
+      });
     });
 
     expect(screen.queryByText("✓ Subscribed")).not.toBeInTheDocument();

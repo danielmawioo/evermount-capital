@@ -26,9 +26,10 @@ describe("stripe module", () => {
     const result = mod.getStripe();
 
     expect(result).toBeNull();
-    expect(consoleErrorSpy).toHaveBeenCalledWith(
-      "Stripe publishable key not found",
-    );
+    expect(consoleErrorSpy.mock.calls[0][0]).toMatchObject({
+      level: "error",
+      message: "Stripe publishable key not found",
+    });
     consoleErrorSpy.mockRestore();
   });
 
