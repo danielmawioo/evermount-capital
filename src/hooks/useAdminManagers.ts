@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 import { CreditAmountSchema } from "@/lib/schemas";
 
 export interface Manager {
@@ -52,7 +53,8 @@ export function useAdminManagers() {
     try {
       const { data } = await api.admin.managers.getAll();
       setManagers(data.managers ?? []);
-    } catch {
+    } catch (error) {
+      logger.error("Failed to load portfolio managers", error);
       toast.error("Failed to load portfolio managers");
     } finally {
       setLoading(false);
@@ -80,7 +82,8 @@ export function useAdminManagers() {
         `Manager ${nextStatus === "active" ? "activated" : "deactivated"}`,
       );
       void loadManagers();
-    } catch {
+    } catch (error) {
+      logger.error("Failed to update manager status", error);
       toast.error("Failed to update manager status");
     }
   };
@@ -92,7 +95,8 @@ export function useAdminManagers() {
     try {
       const { data } = await api.admin.managers.getClients(manager.id);
       setManagerClients(data.clients ?? []);
-    } catch {
+    } catch (error) {
+      logger.error("Failed to load manager clients", error);
       toast.error("Failed to load manager clients");
       setManageManager(null);
     } finally {
@@ -119,6 +123,7 @@ export function useAdminManagers() {
       setAssignEmail("");
       await refreshManagerClients();
     } catch (err: unknown) {
+      logger.error("Failed to assign client", err);
       toast.error(getApiErrorMessage(err, "Failed to assign client"));
     } finally {
       setAssigning(false);
@@ -138,6 +143,7 @@ export function useAdminManagers() {
       toast.success("Client unassigned");
       await refreshManagerClients();
     } catch (err: unknown) {
+      logger.error("Failed to unassign client", err);
       toast.error(getApiErrorMessage(err, "Failed to unassign client"));
     }
   };
@@ -163,6 +169,7 @@ export function useAdminManagers() {
       if (manageManager) await refreshManagerClients();
       else void loadManagers();
     } catch (err: unknown) {
+      logger.error("Failed to credit wallet", err);
       toast.error(getApiErrorMessage(err, "Failed to credit wallet"));
     } finally {
       setCrediting(false);
@@ -192,6 +199,7 @@ export function useAdminManagers() {
       setForm({ fullName: "", email: "", password: "" });
       void loadManagers();
     } catch (err: unknown) {
+      logger.error("Failed to create manager", err);
       toast.error(getApiErrorMessage(err, "Failed to create manager"));
     } finally {
       setSubmitting(false);

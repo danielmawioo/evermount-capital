@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 import type { AllocationPreview } from "@/app/dashboard/manager/clients/AllocationPreviewPanel";
 
 export type Client = {
@@ -74,7 +75,8 @@ export function useManagerClients() {
         };
       }
       setForms(initialForms);
-    } catch {
+    } catch (error) {
+      logger.error("Failed to load clients", error);
       toast.error("Failed to load clients");
     } finally {
       setLoading(false);
@@ -111,6 +113,7 @@ export function useManagerClients() {
           delete next[clientId];
           return next;
         });
+        logger.error("Failed to preview allocation", error);
         toast.error(getApiErrorMessage(error, "Failed to preview allocation"));
       } finally {
         setPreviewLoading((id) => (id === clientId ? null : id));
@@ -212,6 +215,7 @@ export function useManagerClients() {
       setClientForm({ fullName: "", email: "", password: "", notes: "" });
       await load();
     } catch (err: unknown) {
+      logger.error("Failed to add client", err);
       toast.error(getApiErrorMessage(err, "Failed to add client"));
     } finally {
       setAddingClient(false);
@@ -253,7 +257,8 @@ export function useManagerClients() {
       toast.success("Strategy allocated for client");
       setConfirmClientId(null);
       await load();
-    } catch {
+    } catch (error) {
+      logger.error("Allocation failed — check preview warnings", error);
       toast.error("Allocation failed — check preview warnings");
     } finally {
       setAllocating(null);
@@ -274,6 +279,7 @@ export function useManagerClients() {
       toast.success("Client unassigned");
       await load();
     } catch (err: unknown) {
+      logger.error("Failed to unassign client", err);
       toast.error(getApiErrorMessage(err, "Failed to unassign client"));
     } finally {
       setUnassigning(null);

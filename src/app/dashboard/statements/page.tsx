@@ -5,6 +5,7 @@ import { DocumentTextIcon, ArrowDownTrayIcon } from "@heroicons/react/24/outline
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getAccessToken } from "@/lib/auth-storage";
+import { logger } from "@/lib/logger";
 
 interface Statement {
   id: string;
@@ -27,7 +28,8 @@ export default function StatementsPage() {
     try {
       const { data } = await api.statements.list();
       setStatements(data);
-    } catch {
+    } catch (error) {
+      logger.error("Failed to load statements", error);
       toast.error("Failed to load statements");
     } finally {
       setLoading(false);
@@ -52,7 +54,8 @@ export default function StatementsPage() {
       a.download = `evermount-statement-${id}.pdf`;
       a.click();
       URL.revokeObjectURL(url);
-    } catch {
+    } catch (error) {
+      logger.error("Failed to download statement", error);
       toast.error("Could not download statement");
     }
   };

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { api } from "@/lib/api-client";
+import { logger } from "@/lib/logger";
 import { useInvestor } from "@/hooks/useInvestor";
 import InvestorQuickActions from "./components/InvestorQuickActions";
 import TradingMetricsGrid from "./components/TradingMetricsGrid";
@@ -71,7 +72,7 @@ export default function DashboardPage() {
       setPerformance(perfRes.data);
       setRecentActivity(statsRes.data.recentActivity ?? []);
     } catch (error) {
-      console.error("Failed to load dashboard:", error);
+      logger.error("Failed to load dashboard", error);
     }
   };
 

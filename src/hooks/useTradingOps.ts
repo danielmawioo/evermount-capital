@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { logger } from "@/lib/logger";
 
 export async function promptMfaToken(): Promise<string | undefined> {
   try {
     const { data } = await api.security.mfa.getStatus();
     if (!data.mfaEnabled) return undefined;
-  } catch {
+  } catch (error) {
+    logger.warn("Failed to check MFA status, assuming disabled", { error: String(error) });
     return undefined;
   }
   const code = prompt("Enter 6-digit MFA code:");
@@ -135,7 +137,8 @@ export function useTradingOps() {
       setLifecycle(lifecycleRes.data);
       setReconHistory(reconRes.data);
       setExnessPartner(exnessRes.data);
-    } catch {
+    } catch (error) {
+      logger.error("Failed to load trading ops status", error);
       toast.error("Failed to load trading ops status");
       setStatus(null);
     } finally {
@@ -151,7 +154,8 @@ export function useTradingOps() {
     try {
       const { data } = await api.ops.getFlipbotPool(strategyKey);
       setFlipbotPool(data);
-    } catch {
+    } catch (error) {
+      logger.warn("Failed to load Flipbot pool", { error: String(error) });
       setFlipbotPool(null);
     }
   }, []);
@@ -172,7 +176,8 @@ export function useTradingOps() {
       await api.ops.setKillSwitch({ active, reason }, mfaToken);
       toast.success(active ? "Kill switch activated" : "Kill switch deactivated");
       await loadStatus();
-    } catch {
+    } catch (error) {
+      logger.error("Failed to update kill switch", error);
       toast.error("Failed to update kill switch");
     } finally {
       setActionLoading(false);
@@ -191,7 +196,8 @@ export function useTradingOps() {
       );
       const { data: rows } = await api.ops.getStrategyLifecycle();
       setLifecycle(rows);
-    } catch {
+    } catch (error) {
+      logger.error("Promotion check failed", error);
       toast.error("Promotion check failed");
     } finally {
       setActionLoading(false);
@@ -206,7 +212,8 @@ export function useTradingOps() {
       toast.success(`${strategyKey} → ${targetStatus}`);
       const { data: rows } = await api.ops.getStrategyLifecycle();
       setLifecycle(rows);
-    } catch {
+    } catch (error) {
+      logger.error("Promotion failed", error);
       toast.error("Promotion failed");
     } finally {
       setActionLoading(false);
@@ -219,7 +226,8 @@ export function useTradingOps() {
       const { data } = await api.ops.syncPositions();
       toast.success(`Synced ${data.synced} position snapshot(s)`);
       await loadStatus();
-    } catch {
+    } catch (error) {
+      logger.error("Position sync failed", error);
       toast.error("Position sync failed");
     } finally {
       setActionLoading(false);
@@ -235,7 +243,8 @@ export function useTradingOps() {
         `Reconciliation ${data.status} — ${data.navDriftCount} NAV drift(s)`
       );
       await loadStatus();
-    } catch {
+    } catch (error) {
+      logger.error("Demo reconciliation failed", error);
       toast.error("Demo reconciliation failed");
     } finally {
       setActionLoading(false);
@@ -254,7 +263,8 @@ export function useTradingOps() {
       } else {
         toast.error(data.reason ?? "Signal not queued");
       }
-    } catch {
+    } catch (error) {
+      logger.error("Failed to queue Flipbot signal — is Flipbot API running?", error);
       toast.error("Failed to queue Flipbot signal — is Flipbot API running?");
     } finally {
       setActionLoading(false);
@@ -267,7 +277,8 @@ export function useTradingOps() {
       const { data } = await api.ops.runNavBatch();
       toast.success(`NAV batch complete — ${data.updated} strategies updated`);
       await loadStatus();
-    } catch {
+    } catch (error) {
+      logger.error("NAV batch failed — is quant API running?", error);
       toast.error("NAV batch failed — is quant API running?");
     } finally {
       setActionLoading(false);

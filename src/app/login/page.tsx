@@ -9,6 +9,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { setAuthTokens, setUser } from "@/lib/auth-storage";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 import ThemeToggle from "@/app/components/ThemeToggle";
 
 export default function LoginPage() {
@@ -58,6 +59,7 @@ export default function LoginPage() {
           window.location.href = "/dashboard";
         }, 1500);
       } catch (err: unknown) {
+        logger.error("Login failed", err);
         toast.error(getApiErrorMessage(err, "Login failed. Please try again."));
       } finally {
         setLoading(false);
@@ -97,6 +99,7 @@ export default function LoginPage() {
 
       toast.error("Unsupported sign-in provider.");
     } catch (err: unknown) {
+      logger.error(`${provider} login failed`, err);
       toast.error(getApiErrorMessage(err, `${provider} login failed`));
     } finally {
       setLoading(false);

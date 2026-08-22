@@ -8,6 +8,7 @@ import {
   extractLinks,
   getChatFallbackResponse,
 } from "@/lib/chat-fallback";
+import { logger } from "@/lib/logger";
 
 const CHAT_MODEL = process.env.OPENAI_CHAT_MODEL || "gpt-4o-mini";
 
@@ -170,7 +171,10 @@ export async function POST(request: NextRequest) {
       let errorData: Record<string, unknown> = {};
       try {
         errorData = JSON.parse(errorText);
-      } catch {
+      } catch (parseError) {
+        logger.warn("Failed to parse OpenAI error response as JSON", {
+          error: String(parseError),
+        });
         errorData = { raw: errorText };
       }
 
@@ -253,7 +257,7 @@ export async function POST(request: NextRequest) {
         aiMessage.toLowerCase().includes("book-demo"),
     });
   } catch (error) {
-    console.error("Chat API error:", error);
+    logger.error("Chat API error", error);
 
     const errorMessage = error instanceof Error ? error.message : "Unknown error";
     const devMessage =

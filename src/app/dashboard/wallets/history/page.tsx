@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 import toast from "react-hot-toast";
 import {
   ArrowLeftIcon,
@@ -59,7 +60,7 @@ export default function WalletHistoryPage() {
         total: data.total || 0,
       }));
     } catch (error: unknown) {
-      console.error("Failed to fetch transactions:", error);
+      logger.error("Failed to fetch wallet transaction history", error);
       toast.error(getApiErrorMessage(error, "Failed to load transaction history"));
     } finally {
       setLoading(false);

@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 import toast from "react-hot-toast";
 
 interface WalletTransaction {
@@ -30,6 +31,7 @@ export default function TransactionsPage() {
       setTransactions(data.transactions || []);
       setTotal(data.total || 0);
     } catch (error: unknown) {
+      logger.error("Failed to load transactions", error);
       toast.error(getApiErrorMessage(error, "Failed to load transactions"));
     } finally {
       setLoading(false);
