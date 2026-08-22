@@ -5,6 +5,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 import { minimumAmountSchema } from "@/lib/schemas";
 import KycRequiredGate from "@/components/KycRequiredGate";
 
@@ -49,6 +50,7 @@ export default function MpesaWithdrawPage() {
         window.location.href = "/dashboard/wallets";
       }, 2000);
     } catch (error: unknown) {
+      logger.error("M-Pesa withdrawal failed", error);
       toast.error(getApiErrorMessage(error, "Withdrawal failed"));
     } finally {
       setLoading(false);

@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { FaPlus, FaUniversity } from "react-icons/fa";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 import { PositiveAmountSchema } from "@/lib/schemas";
 
 interface SettlementAccount {
@@ -65,7 +66,8 @@ export default function BankDepositPage() {
       const defaultAccount = accounts.find((a: BankAccount) => a.isDefault);
       setSelectedBankId(defaultAccount?.id ?? accounts[0]?.id ?? null);
       if (accounts.length === 0) setShowAddForm(true);
-    } catch {
+    } catch (error) {
+      logger.error("Failed to load bank deposit details", error);
       toast.error("Failed to load bank deposit details");
     } finally {
       setLoadingData(false);
@@ -119,6 +121,7 @@ export default function BankDepositPage() {
       await loadData();
       if (data.account?.id) setSelectedBankId(data.account.id);
     } catch (error: unknown) {
+      logger.error("Failed to add bank account", error);
       toast.error(getApiErrorMessage(error, "Failed to add bank account"));
     } finally {
       setAddingAccount(false);
@@ -149,6 +152,7 @@ export default function BankDepositPage() {
       setDepositResult(data);
       toast.success("Bank deposit initiated — transfer funds using the details below");
     } catch (error: unknown) {
+      logger.error("Bank deposit failed", error);
       toast.error(getApiErrorMessage(error, "Failed to initiate bank deposit"));
     } finally {
       setLoading(false);

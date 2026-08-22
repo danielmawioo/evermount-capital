@@ -7,6 +7,7 @@ import { FaUniversity, FaPlus } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 import { PositiveAmountSchema } from "@/lib/schemas";
 import KycRequiredGate from "@/components/KycRequiredGate";
 
@@ -45,7 +46,8 @@ export default function WithdrawBankPage() {
       if (accounts.length === 0) {
         setShowAddForm(true);
       }
-    } catch {
+    } catch (error) {
+      logger.error("Failed to load bank accounts", error);
       toast.error("Failed to load bank accounts");
     } finally {
       setLoadingAccounts(false);
@@ -89,6 +91,7 @@ export default function WithdrawBankPage() {
         setSelectedBankId(data.account.id);
       }
     } catch (error: unknown) {
+      logger.error("Failed to add bank account", error);
       toast.error(getApiErrorMessage(error, "Failed to add bank account"));
     } finally {
       setAddingAccount(false);
@@ -102,6 +105,7 @@ export default function WithdrawBankPage() {
       toast.success("Bank account removed");
       await loadAccounts();
     } catch (error: unknown) {
+      logger.error("Failed to remove bank account", error);
       toast.error(getApiErrorMessage(error, "Failed to remove bank account"));
     }
   };
@@ -134,6 +138,7 @@ export default function WithdrawBankPage() {
         router.push("/dashboard/wallets");
       }, 2000);
     } catch (error: unknown) {
+      logger.error("Bank withdrawal failed", error);
       toast.error(getApiErrorMessage(error, "Withdrawal failed"));
     } finally {
       setLoading(false);

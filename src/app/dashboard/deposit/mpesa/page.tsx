@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { logger } from "@/lib/logger";
 import { minimumAmountSchema } from "@/lib/schemas";
 
 const MpesaDepositAmountSchema = minimumAmountSchema(
@@ -72,7 +73,10 @@ export default function MpesaDepositPage() {
             setPending(false);
             return;
           }
-        } catch {
+        } catch (error) {
+          logger.warn("M-Pesa deposit status poll failed", {
+            error: String(error),
+          });
           // keep polling
         }
 
@@ -88,6 +92,7 @@ export default function MpesaDepositPage() {
         err?.response?.data?.error?.message ||
         err?.response?.data?.message ||
         "Failed to initiate M-Pesa deposit";
+      logger.error("M-Pesa deposit failed", error);
       toast.error(message);
     } finally {
       setLoading(false);

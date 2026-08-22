@@ -7,6 +7,7 @@ import StripePayment from "@/components/StripePayment";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 import { minimumAmountSchema } from "@/lib/schemas";
 
 const CardDepositAmountSchema = minimumAmountSchema(
@@ -30,7 +31,10 @@ export default function CardDepositPage() {
         setSettlementAccount(data.accountNumber || "");
         setSettlementCard(data.cardMasked || "");
       })
-      .catch(() => {
+      .catch((error) => {
+        logger.warn("Failed to load settlement account for card deposit", {
+          error: String(error),
+        });
         /* settlement display is optional */
       });
   }, []);
@@ -53,12 +57,13 @@ export default function CardDepositPage() {
         router.push("/dashboard/wallets");
       }, 1500);
     } catch (error: unknown) {
+      logger.error("Card deposit confirmation failed", error);
       toast.error(getApiErrorMessage(error, "Failed to complete deposit"));
     }
   };
 
   const handlePaymentError = (error: string) => {
-    console.error("Payment error:", error);
+    logger.error("Card payment failed", error);
   };
 
   if (showPayment && amount) {
