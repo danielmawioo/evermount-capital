@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 import {
   Bars3Icon,
   XMarkIcon,
@@ -53,6 +54,7 @@ export default function Navbar() {
       setEmail("");
       setShowModal(false);
     } catch (err: unknown) {
+      logger.error("Waitlist signup failed", err);
       toast.error(getApiErrorMessage(err, "Something went wrong. Try again."));
     } finally {
       setLoading(false);

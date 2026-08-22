@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaLinkedinIn, FaTiktok, FaDiscord, FaXTwitter } from "react-icons/fa6";
 import axios from "axios";
+import { logger } from "@/lib/logger";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -18,6 +19,7 @@ export default function Footer() {
       setSubmitted(true);
       setEmail("");
     } catch (error) {
+      logger.error("Newsletter submission error", error);
       console.error("Newsletter submission error:", error);
     }
   };

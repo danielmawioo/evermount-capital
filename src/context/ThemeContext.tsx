@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
+import { logger } from "@/lib/logger";
 
 type Theme = "light" | "dark";
 
@@ -40,7 +41,7 @@ function applyTheme(theme: Theme) {
   try {
     localStorage.setItem("theme", theme);
   } catch (e) {
-    console.error("Failed to save theme to localStorage:", e);
+    logger.warn("Failed to save theme to localStorage", { error: String(e) });
   }
 }
 

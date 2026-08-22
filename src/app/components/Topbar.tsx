@@ -15,6 +15,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { clearAuth } from "@/lib/auth-storage";
 import { api } from "@/lib/api-client";
+import { logger } from "@/lib/logger";
 
 export default function Topbar() {
   const router = useRouter();
@@ -59,8 +60,11 @@ export default function Topbar() {
   const handleLogout = async () => {
     try {
       await api.auth.logout();
-    } catch {
+    } catch (error) {
       // Clear local session even if API call fails
+      logger.warn("Logout API call failed; clearing session locally", {
+        error: String(error),
+      });
     }
     clearAuth();
     setLogoutMessage("✅ Logged out successfully!");

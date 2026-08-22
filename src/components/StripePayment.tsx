@@ -11,6 +11,7 @@ import {
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
@@ -61,6 +62,7 @@ function CheckoutForm({
         onSuccess(paymentIntent.id);
       }
     } catch (error: unknown) {
+      logger.error("Card payment confirmation failed", error);
       const message =
         error instanceof Error ? error.message : "Payment processing failed";
       toast.error(message);
@@ -118,6 +120,7 @@ export default function StripePayment(props: StripePaymentProps) {
           setInitError("Payment could not be initialized");
         }
       } catch (error: unknown) {
+        logger.error("Payment intent initialization failed", error);
         const message = getApiErrorMessage(error, "Failed to initialize payment");
         setInitError(message);
         props.onError?.(message);

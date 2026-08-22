@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { CloudArrowUpIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import toast from "react-hot-toast";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 
 interface FileUploadProps {
   accept?: string;
@@ -121,6 +122,7 @@ export default function FileUpload({
         fileInputRef.current.value = "";
       }
     } catch (error: unknown) {
+      logger.error("File upload failed", error);
       toast.error(getApiErrorMessage(error, "Upload failed"));
     } finally {
       setUploading(false);
