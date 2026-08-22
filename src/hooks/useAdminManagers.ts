@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
 import { logger } from "@/lib/logger";
-import { CreditAmountSchema } from "@/lib/schemas";
+import { CreditAmountSchema, EmailSchema } from "@/lib/schemas";
 
 export interface Manager {
   id: string;
@@ -114,6 +114,10 @@ export function useAdminManagers() {
   const handleAssignClient = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!manageManager || !assignEmail.trim()) return;
+    if (!EmailSchema.safeParse(assignEmail.trim()).success) {
+      toast.error("Enter a valid email address");
+      return;
+    }
     setAssigning(true);
     try {
       await api.admin.managers.assignClient(manageManager.id, {
@@ -180,6 +184,10 @@ export function useAdminManagers() {
     e.preventDefault();
     if (!form.fullName.trim() || !form.email.trim() || !form.password) {
       toast.error("All fields are required");
+      return;
+    }
+    if (!EmailSchema.safeParse(form.email.trim()).success) {
+      toast.error("Enter a valid email address");
       return;
     }
     if (form.password.length < 8) {

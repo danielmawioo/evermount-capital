@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
 import { logger } from "@/lib/logger";
-import { CreditAmountSchema } from "@/lib/schemas";
+import { CreditAmountSchema, EmailSchema, minimumPasswordSchema } from "@/lib/schemas";
 
 export interface ApiUser {
   id: string;
@@ -85,6 +85,14 @@ export function useAdminUsers() {
     e.preventDefault();
     if (!form.fullName.trim() || !form.email.trim() || !form.password) {
       toast.error("All fields are required");
+      return;
+    }
+    if (!EmailSchema.safeParse(form.email.trim()).success) {
+      toast.error("Enter a valid email address");
+      return;
+    }
+    if (!minimumPasswordSchema(8, "Password must be at least 8 characters").safeParse(form.password).success) {
+      toast.error("Password must be at least 8 characters");
       return;
     }
     setSubmitting(true);

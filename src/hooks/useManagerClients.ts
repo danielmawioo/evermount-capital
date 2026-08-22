@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
 import { logger } from "@/lib/logger";
+import { EmailSchema, minimumPasswordSchema } from "@/lib/schemas";
 import type { AllocationPreview } from "@/app/dashboard/manager/clients/AllocationPreviewPanel";
 
 export type Client = {
@@ -193,6 +194,14 @@ export function useManagerClients() {
           toast.error("Name, email, and password are required");
           return;
         }
+        if (!EmailSchema.safeParse(clientForm.email.trim()).success) {
+          toast.error("Enter a valid email address");
+          return;
+        }
+        if (!minimumPasswordSchema(8, "Password must be at least 8 characters").safeParse(clientForm.password).success) {
+          toast.error("Password must be at least 8 characters");
+          return;
+        }
         await api.portfolioManager.createClient({
           fullName: clientForm.fullName.trim(),
           email: clientForm.email.trim(),
@@ -203,6 +212,10 @@ export function useManagerClients() {
       } else {
         if (!clientForm.email.trim()) {
           toast.error("Email is required");
+          return;
+        }
+        if (!EmailSchema.safeParse(clientForm.email.trim()).success) {
+          toast.error("Enter a valid email address");
           return;
         }
         await api.portfolioManager.assignClient({
