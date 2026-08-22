@@ -24,8 +24,8 @@ Vulnerabilities in the backend or infrastructure should be reported the same way
 - Auth tokens live in `localStorage`/`sessionStorage`, never in a plain cookie usable cross-site (see `src/lib/auth-storage.ts`).
 - Input reaching the API layer from forms (deposit/withdrawal amounts, admin wallet credits) is validated with [Zod](https://zod.dev/) schemas (`src/lib/schemas.ts`) before it's sent.
 - Dependabot is configured (`.github/dependabot.yml`) for weekly npm and GitHub Actions updates.
-- CI runs a dependency audit (`yarn audit --level high`) on every push and pull request (non-blocking — see note below).
+- CI runs `yarn audit --groups dependencies --level high` on every push and pull request and **fails the build** on any high/critical advisory in a production dependency (`package.json`'s `resolutions` field pins several transitive packages — `nanoid`, `postcss`, `lodash`, `sharp`, `yaml`, and a scoped `picomatch` override — to patched versions that their parent packages hadn't picked up yet).
 
 ## Known limitations
 
-- The `yarn audit` step in CI is currently non-blocking (`continue-on-error: true`). Failing the build on every `high`/`critical` advisory would currently break CI on transitive dev-only dependencies (test tooling) that have no production impact and no available fix. Treat the audit output as a signal to review, not a hard gate, until the dependency tree is cleaned up enough to flip it to blocking.
+- A separate `yarn audit --groups devDependencies --level high` step runs informationally (`continue-on-error: true`) — dev-only tooling (Jest's dependency tree in particular) carries a long tail of advisories with no production impact and often no available fix yet. It's visible in every CI run but doesn't block merges.

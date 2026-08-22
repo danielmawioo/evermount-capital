@@ -50,8 +50,11 @@ jobs:
       - name: Typecheck
         run: yarn typecheck
 
-      - name: Dependency audit
-        run: yarn audit --level high
+      - name: Dependency audit (production — blocking)
+        run: yarn audit --groups dependencies --level high
+
+      - name: Dependency audit (dev tooling — informational)
+        run: yarn audit --groups devDependencies --level high
         continue-on-error: true
 
       - name: Build
