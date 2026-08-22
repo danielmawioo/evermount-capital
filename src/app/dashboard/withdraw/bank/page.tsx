@@ -7,6 +7,7 @@ import { FaUniversity, FaPlus } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { PositiveAmountSchema } from "@/lib/schemas";
 import KycRequiredGate from "@/components/KycRequiredGate";
 
 interface BankAccount {
@@ -111,11 +112,12 @@ export default function WithdrawBankPage() {
       toast.error("Please select a bank account and enter an amount.");
       return;
     }
-    const numAmount = parseFloat(amount);
-    if (isNaN(numAmount) || numAmount <= 0) {
-      toast.error("Please enter a valid amount");
+    const parsed = PositiveAmountSchema.safeParse(parseFloat(amount));
+    if (!parsed.success) {
+      toast.error(parsed.error.issues[0]?.message ?? "Please enter a valid amount");
       return;
     }
+    const numAmount = parsed.data;
 
     setLoading(true);
     try {

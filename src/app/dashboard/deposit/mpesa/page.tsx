@@ -5,6 +5,12 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
+import { minimumAmountSchema } from "@/lib/schemas";
+
+const MpesaDepositAmountSchema = minimumAmountSchema(
+  10,
+  "Minimum deposit amount is KES 10"
+);
 
 export default function MpesaDepositPage() {
   const router = useRouter();
@@ -16,11 +22,12 @@ export default function MpesaDepositPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const numAmount = parseFloat(amount);
-    if (isNaN(numAmount) || numAmount < 10) {
-      toast.error("Minimum deposit amount is KES 10");
+    const parsed = MpesaDepositAmountSchema.safeParse(parseFloat(amount));
+    if (!parsed.success) {
+      toast.error(parsed.error.issues[0]?.message ?? "Minimum deposit amount is KES 10");
       return;
     }
+    const numAmount = parsed.data;
 
     if (!phoneNumber.trim()) {
       toast.error("Please enter your M-Pesa phone number");

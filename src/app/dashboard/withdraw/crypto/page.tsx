@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { PositiveAmountSchema } from "@/lib/schemas";
 import KycRequiredGate from "@/components/KycRequiredGate";
 
 export default function WithdrawCryptoPage() {
@@ -21,11 +22,12 @@ export default function WithdrawCryptoPage() {
       return;
     }
     
-    const numAmount = parseFloat(amount);
-    if (isNaN(numAmount) || numAmount <= 0) {
-      toast.error("Please enter a valid amount");
+    const parsed = PositiveAmountSchema.safeParse(parseFloat(amount));
+    if (!parsed.success) {
+      toast.error(parsed.error.issues[0]?.message ?? "Please enter a valid amount");
       return;
     }
+    const numAmount = parsed.data;
 
     setLoading(true);
     try {
