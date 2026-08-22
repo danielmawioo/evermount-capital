@@ -1,7 +1,7 @@
 import { act, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
+import apiClient from "@/lib/api-client";
 import toast from "react-hot-toast";
 import { ThemeProvider } from "@/context/ThemeContext";
 import Navbar from "./Navbar";
@@ -34,7 +34,7 @@ describe("Navbar", () => {
   let mock: MockAdapter;
 
   beforeEach(() => {
-    mock = new MockAdapter(axios);
+    mock = new MockAdapter(apiClient);
     localStorage.clear();
     document.documentElement.classList.remove("dark");
     toastFn.mockClear();
@@ -120,7 +120,7 @@ describe("Navbar", () => {
   });
 
   it("submits a valid waitlist email successfully and closes the modal", async () => {
-    mock.onPost("https://api.evermount.co/waitlist").reply(200, {});
+    mock.onPost("/waitlist").reply(200, {});
     const user = userEvent.setup();
     renderNavbar();
 
@@ -149,7 +149,7 @@ describe("Navbar", () => {
   });
 
   it("shows an error toast when the waitlist submission fails", async () => {
-    mock.onPost("https://api.evermount.co/waitlist").reply(500, {
+    mock.onPost("/waitlist").reply(500, {
       error: { message: "Server exploded" },
     });
     const user = userEvent.setup();

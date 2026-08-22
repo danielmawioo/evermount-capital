@@ -4,10 +4,11 @@ import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
 import { logger } from "@/lib/logger";
+import { EmailSchema } from "@/lib/schemas";
 import {
   Bars3Icon,
   XMarkIcon,
@@ -42,14 +43,14 @@ export default function Navbar() {
   }, []);
 
   const handleJoin = useCallback(async () => {
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (!EmailSchema.safeParse(email).success) {
       toast.error("Please enter a valid email address.");
       return;
     }
 
     try {
       setLoading(true);
-      await axios.post("https://api.evermount.co/waitlist", { email });
+      await api.newsletter.subscribe({ email });
       toast.success("You're on the waitlist! 🎉");
       setEmail("");
       setShowModal(false);

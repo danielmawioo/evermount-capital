@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { useState } from "react";
 import { FaLinkedinIn, FaTiktok, FaDiscord, FaXTwitter } from "react-icons/fa6";
-import axios from "axios";
+import { api } from "@/lib/api-client";
 import { logger } from "@/lib/logger";
+import { EmailSchema } from "@/lib/schemas";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -12,10 +13,10 @@ export default function Footer() {
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    if (!EmailSchema.safeParse(email).success) return;
 
     try {
-      await axios.post("/waitlist", { email });
+      await api.newsletter.subscribe({ email });
       setSubmitted(true);
       setEmail("");
     } catch (error) {

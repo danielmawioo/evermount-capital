@@ -1,14 +1,14 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
+import apiClient from "@/lib/api-client";
 import Footer from "./Footer";
 
 describe("Footer", () => {
   let mock: MockAdapter;
 
   beforeEach(() => {
-    mock = new MockAdapter(axios);
+    mock = new MockAdapter(apiClient);
   });
 
   afterEach(() => {
