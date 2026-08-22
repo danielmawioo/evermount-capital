@@ -25,6 +25,7 @@ All five run in CI (`.github/workflows/deploy.yml`) on every push and pull reque
 - **One logical change per commit.** A commit (or a small PR) should contain one feature, fix, or refactor, together with the tests that pin its behavior. Don't bundle formatting, unrelated refactors, and new features into one commit — it makes the history impossible to review or bisect.
 - **Ship tests with the code that needs them**, not as a follow-up. If you add a new hook, page, or utility with real logic, add a colocated `*.test.ts`/`*.test.tsx` in the same PR.
 - **Write a commit message that explains why**, not just what — the diff already shows what changed.
+- **Use [Conventional Commits](https://www.conventionalcommits.org/)** for the subject line: `feat: add withdrawal amount validation`, `fix: correct KES minimum on M-Pesa deposits`, `test: cover useAdminUsers error paths`, `chore: ...`, `docs: ...`, `refactor: ...`, `style: ...`. This is enforced by a `commit-msg` git hook (`commitlint`, configured in `commitlint.config.js`) installed automatically via `yarn install` (husky's `prepare` script) — a non-conforming commit message will be rejected locally before it ever reaches CI.
 
 ## Project structure
 
