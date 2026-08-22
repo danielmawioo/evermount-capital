@@ -5,6 +5,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 import {
   WalletIcon,
   ArrowDownTrayIcon,
@@ -49,7 +50,7 @@ export default function WalletsPage() {
       const { data } = await api.wallets.getBalance();
       setBalance(data);
     } catch (error: unknown) {
-      console.error("Failed to fetch balance:", error);
+      logger.error("Failed to fetch wallet balance", error);
       // Set default values if API fails
       setBalance({
         totalBalance: 0,
@@ -69,7 +70,7 @@ export default function WalletsPage() {
       const { data } = await api.wallets.getHistory({ limit: 10 });
       setTransactions(data.transactions || []);
     } catch (error: unknown) {
-      console.error("Failed to fetch transactions:", error);
+      logger.error("Failed to fetch wallet transactions", error);
       toast.error(getApiErrorMessage(error, "Failed to load transaction history"));
     } finally {
       setTransactionsLoading(false);

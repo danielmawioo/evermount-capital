@@ -11,6 +11,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 import { useInvestor } from "@/hooks/useInvestor";
 import TradePreviewCard, { TradePreview } from "./components/TradePreviewCard";
 
@@ -41,7 +42,10 @@ export default function TradePage() {
         setAvailableBalance(walletRes.data.availableBalance ?? 0);
         setLockInMonths(prefsRes.data.lockInMonths ?? 6);
       })
-      .catch(() => toast.error("Failed to load trade data"))
+      .catch((error) => {
+        logger.error("Failed to load trade data", error);
+        toast.error("Failed to load trade data");
+      })
       .finally(() => setPageLoading(false));
   }, []);
 
@@ -80,6 +84,7 @@ export default function TradePage() {
       setPreview(data);
       setStep("preview");
     } catch (error: unknown) {
+      logger.error("Failed to preview trade", error);
       toast.error(getApiErrorMessage(error, "Could not find a matching strategy"));
     } finally {
       setLoading(false);
@@ -98,6 +103,7 @@ export default function TradePage() {
       toast.success("Trade executed successfully");
       router.push("/dashboard/portfolio?traded=1");
     } catch (error: unknown) {
+      logger.error("Failed to execute trade", error);
       toast.error(getApiErrorMessage(error, "Trade failed"));
     } finally {
       setLoading(false);

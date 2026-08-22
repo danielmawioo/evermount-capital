@@ -6,6 +6,7 @@ import FileUpload from "@/components/FileUpload";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 
 export default function InvestorKYCPage() {
   const [identityDocument, setIdentityDocument] = useState<File | null>(null);
@@ -22,7 +23,10 @@ export default function InvestorKYCPage() {
         setKycStatus(data.status);
         setRejectionReason(data.rejectionReason ?? null);
       })
-      .catch(() => setKycStatus(null));
+      .catch((error) => {
+        logger.error("Failed to load KYC status", error);
+        setKycStatus(null);
+      });
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -46,6 +50,7 @@ export default function InvestorKYCPage() {
       setSelfie(null);
       setKycStatus("pending");
     } catch (error: unknown) {
+      logger.error("Failed to submit KYC documents", error);
       toast.error(getApiErrorMessage(error, "Failed to submit documents"));
     } finally {
       setLoading(false);

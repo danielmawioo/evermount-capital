@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 import FileUpload from "@/components/FileUpload";
 
 const LOCK_IN_OPTIONS = [
@@ -59,7 +60,8 @@ export default function SettingsPage() {
         riskTolerance: data.riskTolerance ?? "MODERATE",
         reinvestProfits: data.reinvestProfits ?? true,
       });
-    } catch {
+    } catch (error) {
+      logger.error("Failed to load investment preferences", error);
       toast.error("Failed to load investment preferences");
     } finally {
       setPrefsLoading(false);
@@ -73,6 +75,7 @@ export default function SettingsPage() {
       await api.investments.updatePreferences(investmentPrefs);
       toast.success("Investment preferences saved");
     } catch (error: unknown) {
+      logger.error("Failed to save investment preferences", error);
       toast.error(getApiErrorMessage(error, "Failed to save preferences"));
     } finally {
       setLoading(false);
@@ -97,7 +100,8 @@ export default function SettingsPage() {
           country: "",
         },
       });
-    } catch {
+    } catch (error) {
+      logger.error("Failed to load profile", error);
       toast.error("Failed to load profile");
     } finally {
       setProfileLoading(false);
@@ -116,6 +120,7 @@ export default function SettingsPage() {
       });
       toast.success("Profile updated successfully");
     } catch (error: unknown) {
+      logger.error("Failed to update profile", error);
       toast.error(getApiErrorMessage(error, "Failed to update profile"));
     } finally {
       setLoading(false);
@@ -141,6 +146,7 @@ export default function SettingsPage() {
       toast.success("Password changed successfully");
       setPasswordData({ currentPassword: "", newPassword: "", confirmPassword: "" });
     } catch (error: unknown) {
+      logger.error("Failed to change password", error);
       toast.error(getApiErrorMessage(error, "Failed to change password"));
     } finally {
       setLoading(false);
@@ -153,6 +159,7 @@ export default function SettingsPage() {
       await api.users.uploadProfilePicture(files[0]);
       toast.success("Profile picture updated successfully");
     } catch (error: unknown) {
+      logger.error("Failed to upload profile picture", error);
       toast.error(getApiErrorMessage(error, "Failed to upload picture"));
     }
   };

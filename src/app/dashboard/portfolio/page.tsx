@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { api } from "@/lib/api-client";
+import { logger } from "@/lib/logger";
 import TradingMetricsGrid from "../components/TradingMetricsGrid";
 import EquityCurveChart from "../components/EquityCurveChart";
 
@@ -64,7 +65,8 @@ export default function PortfolioPage() {
       setPortfolio(portfolioRes.data);
       setPerformance(perfRes.data);
       setError(null);
-    } catch {
+    } catch (error) {
+      logger.error("Failed to load portfolio", error);
       setError("Failed to load portfolio");
     } finally {
       setLoading(false);
