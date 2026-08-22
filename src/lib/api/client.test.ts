@@ -1,7 +1,7 @@
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
-import apiClient from "./api-client";
-import { setAuthTokens, getAccessToken, getRefreshToken } from "./auth-storage";
+import { apiClient } from "./client";
+import { setAuthTokens, getAccessToken, getRefreshToken } from "../auth-storage";
 
 describe("apiClient 401 refresh-retry interceptor", () => {
   let clientMock: MockAdapter;
