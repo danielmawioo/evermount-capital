@@ -9,6 +9,7 @@ import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
 import { setAuthTokens, setUser } from "@/lib/auth-storage";
 import { logger } from "@/lib/logger";
+import { EmailSchema, requiredTextSchema } from "@/lib/schemas";
 import ThemeToggle from "@/app/components/ThemeToggle";
 
 export default function RegisterPage() {
@@ -37,6 +38,20 @@ export default function RegisterPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!requiredTextSchema("First name is required").safeParse(firstName).success) {
+      toast.error("First name is required.");
+      return;
+    }
+    if (!requiredTextSchema("Last name is required").safeParse(lastName).success) {
+      toast.error("Last name is required.");
+      return;
+    }
+    if (!EmailSchema.safeParse(email).success) {
+      toast.error("Enter a valid email address.");
+      return;
+    }
+
     if (!acceptTerms) {
       toast.error("Please accept the Terms and Conditions.");
       return;

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
 import { logger } from "@/lib/logger";
+import { EmailSchema, minimumPasswordSchema } from "@/lib/schemas";
 import AuthLeftPanel from "../components/AuthLeftPanel";
 
 export default function ResetPasswordPage() {
@@ -35,6 +36,20 @@ export default function ResetPasswordPage() {
       !confirmPassword
     ) {
       setError("Please fill in all fields.");
+      return;
+    }
+
+    if (!EmailSchema.safeParse(email).success) {
+      setError("Enter a valid email address.");
+      return;
+    }
+
+    if (
+      !minimumPasswordSchema(8, "Password must be at least 8 characters.").safeParse(
+        newPassword
+      ).success
+    ) {
+      setError("Password must be at least 8 characters.");
       return;
     }
 

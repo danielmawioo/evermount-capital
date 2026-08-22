@@ -10,6 +10,7 @@ import { api } from "@/lib/api-client";
 import { setAuthTokens, setUser } from "@/lib/auth-storage";
 import { getApiErrorMessage } from "@/lib/api-error";
 import { logger } from "@/lib/logger";
+import { EmailSchema, minimumPasswordSchema } from "@/lib/schemas";
 import ThemeToggle from "@/app/components/ThemeToggle";
 
 export default function LoginPage() {
@@ -25,13 +26,12 @@ export default function LoginPage() {
       return false;
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (!EmailSchema.safeParse(email).success) {
       toast.error("Enter a valid email address.");
       return false;
     }
 
-    if (password.length < 6) {
+    if (!minimumPasswordSchema(6, "Password must be at least 6 characters.").safeParse(password).success) {
       toast.error("Password must be at least 6 characters.");
       return false;
     }

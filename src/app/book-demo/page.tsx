@@ -14,6 +14,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
 import { logger } from "@/lib/logger";
+import { EmailSchema } from "@/lib/schemas";
 
 export default function BookDemoModal() {
   const router = useRouter();
@@ -91,7 +92,7 @@ export default function BookDemoModal() {
   const validate = () => {
     const newErrors = {
       name: form.name ? "" : "Name is required",
-      email: /^\S+@\S+\.\S+$/.test(form.email) ? "" : "Valid email required",
+      email: EmailSchema.safeParse(form.email).success ? "" : "Valid email required",
       date: form.date ? "" : "Date & time required",
     };
     setErrors(newErrors);

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
 import { logger } from "@/lib/logger";
+import { EmailSchema } from "@/lib/schemas";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -20,6 +21,10 @@ export default function ForgotPasswordPage() {
 
     if (!email) {
       setError("Please enter your email address.");
+      return;
+    }
+    if (!EmailSchema.safeParse(email).success) {
+      setError("Enter a valid email address.");
       return;
     }
 
