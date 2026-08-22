@@ -1,16 +1,27 @@
 import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
 import { logger } from "@/lib/logger";
+
+const GithubCallbackSchema = z.object({
+  code: z
+    .string({ error: "Authorization code is required" })
+    .trim()
+    .min(1, "Authorization code is required"),
+});
 
 export async function POST(request: NextRequest) {
   try {
-    const { code } = await request.json();
+    const body = await request.json();
+    const parsed = GithubCallbackSchema.safeParse(body);
 
-    if (!code) {
+    if (!parsed.success) {
       return NextResponse.json(
-        { error: "Authorization code is required" },
+        { error: parsed.error.issues[0]?.message ?? "Invalid request" },
         { status: 400 },
       );
     }
+
+    const { code } = parsed.data;
 
     // Exchange code for access token
     const tokenResponse = await fetch(

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
 import {
   CHAT_DEPARTMENT_MAP,
   getDepartmentAssistant,
@@ -6,6 +7,23 @@ import {
 } from "@/lib/chat-departments";
 import { extractLinks, getChatFallbackResponse } from "@/lib/chat-fallback";
 import { logger } from "@/lib/logger";
+
+const ChatRequestSchema = z.object({
+  messages: z
+    .array(
+      z.object({
+        role: z.string(),
+        content: z.string(),
+      }),
+      { error: "Messages array is required" },
+    )
+    .min(1, "At least one message is required"),
+  assistantName: z.string().optional(),
+  department: z
+    .string({ error: "Department is required" })
+    .trim()
+    .min(1, "Department is required"),
+});
 
 const CHAT_MODEL = process.env.OPENAI_CHAT_MODEL || "gpt-4o-mini";
 
@@ -77,28 +95,17 @@ function buildSystemPrompt(
 
 export async function POST(request: NextRequest) {
   try {
-    const { messages, assistantName, department } = await request.json();
+    const body = await request.json();
+    const parsed = ChatRequestSchema.safeParse(body);
 
-    if (!messages || !Array.isArray(messages)) {
+    if (!parsed.success) {
       return NextResponse.json(
-        { error: "Messages array is required" },
+        { error: parsed.error.issues[0]?.message ?? "Invalid request" },
         { status: 400 },
       );
     }
 
-    if (messages.length === 0) {
-      return NextResponse.json(
-        { error: "At least one message is required" },
-        { status: 400 },
-      );
-    }
-
-    if (!department || typeof department !== "string") {
-      return NextResponse.json(
-        { error: "Department is required" },
-        { status: 400 },
-      );
-    }
+    const { messages, assistantName, department } = parsed.data;
 
     if (!isValidDepartmentId(department)) {
       return NextResponse.json(
@@ -116,7 +123,7 @@ export async function POST(request: NextRequest) {
     const orgId = process.env.OPENAI_ORG_ID;
 
     if (process.env.NODE_ENV === "development") {
-      console.log("Chat request:", {
+      logger.info("Chat request", {
         department,
         assistantName: resolvedAssistant,
         messageCount: messages.length,
@@ -127,7 +134,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (!apiKey) {
-      console.error("OPENAI_API_KEY environment variable is not set");
+      logger.error("OPENAI_API_KEY environment variable is not set");
       return NextResponse.json({
         message:
           "I'm here to help! However, the AI assistant is not fully configured yet. Please contact our support team at support@evermount.co or book a demo at https://www.evermount.co/book-demo.",
@@ -177,7 +184,7 @@ export async function POST(request: NextRequest) {
         errorData = { raw: errorText };
       }
 
-      console.error("OpenAI API error:", {
+      logger.error("OpenAI API error", undefined, {
         status: response.status,
         error: errorData,
       });
@@ -211,7 +218,7 @@ export async function POST(request: NextRequest) {
         const fallbackLinks = extractLinks(fallbackMessage);
         const dept = CHAT_DEPARTMENT_MAP[department];
 
-        console.warn("OpenAI unavailable, using playbook fallback:", {
+        logger.warn("OpenAI unavailable, using playbook fallback", {
           code: openAiError?.code,
           department,
         });
