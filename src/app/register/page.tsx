@@ -8,6 +8,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
 import { setAuthTokens, setUser } from "@/lib/auth-storage";
+import { logger } from "@/lib/logger";
 import ThemeToggle from "@/app/components/ThemeToggle";
 
 export default function RegisterPage() {
@@ -81,6 +82,7 @@ export default function RegisterPage() {
         }, 2000);
       }
     } catch (err: unknown) {
+      logger.error("Registration failed", err);
       toast.error(getApiErrorMessage(err, "Registration failed."));
     } finally {
       setLoading(false);
@@ -117,7 +119,8 @@ export default function RegisterPage() {
         setLoading(false);
         return;
       }
-    } catch {
+    } catch (error) {
+      logger.error(`${provider} sign up failed`, error);
       toast.error(`${provider} sign up failed`);
       setLoading(false);
     }

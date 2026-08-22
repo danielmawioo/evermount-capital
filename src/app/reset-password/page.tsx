@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 import AuthLeftPanel from "../components/AuthLeftPanel";
 
 export default function ResetPasswordPage() {
@@ -57,6 +58,7 @@ export default function ResetPasswordPage() {
         window.location.href = "/login";
       }, 2000);
     } catch (err: unknown) {
+      logger.error("Reset password failed", err);
       setError(getApiErrorMessage(err, "Something went wrong. Try again."));
     } finally {
       setLoading(false);
@@ -160,6 +162,7 @@ export default function ResetPasswordPage() {
                     await api.auth.sendResetPassword({ email });
                     setSuccessMessage("OTP resent to your email.");
                   } catch (err: unknown) {
+                    logger.error("Resend OTP failed", err);
                     setError(getApiErrorMessage(err, "Failed to resend OTP."));
                   }
                 }}

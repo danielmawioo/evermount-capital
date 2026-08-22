@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { logger } from "@/lib/logger";
 
 export async function POST(request: NextRequest) {
   try {
@@ -43,7 +44,7 @@ export async function POST(request: NextRequest) {
       accessToken: tokenData.access_token,
     });
   } catch (error: unknown) {
-    console.error("GitHub callback error:", error);
+    logger.error("GitHub callback error", error);
     return NextResponse.json(
       { error: "Failed to authenticate with GitHub" },
       { status: 500 }

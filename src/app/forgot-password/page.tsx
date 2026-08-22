@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
+import { logger } from "@/lib/logger";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -27,6 +28,7 @@ export default function ForgotPasswordPage() {
       await api.auth.sendResetPassword({ email });
       setMessage("OTP sent to your email. Please check your inbox.");
     } catch (err: unknown) {
+      logger.error("Send reset password OTP failed", err);
       setError(getApiErrorMessage(err, "Something went wrong. Try again."));
     } finally {
       setLoading(false);
