@@ -9,6 +9,8 @@ const GithubCallbackSchema = z.object({
     .min(1, "Authorization code is required"),
 });
 
+const GITHUB_TOKEN_REQUEST_TIMEOUT_MS = 10_000;
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -38,6 +40,7 @@ export async function POST(request: NextRequest) {
           code,
           redirect_uri: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/auth/github/callback`,
         }),
+        signal: AbortSignal.timeout(GITHUB_TOKEN_REQUEST_TIMEOUT_MS),
       },
     );
 

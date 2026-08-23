@@ -26,6 +26,7 @@ const ChatRequestSchema = z.object({
 });
 
 const CHAT_MODEL = process.env.OPENAI_CHAT_MODEL || "gpt-4o-mini";
+const OPENAI_REQUEST_TIMEOUT_MS = 20_000;
 
 const BASE_SYSTEM_PROMPT = `You are a helpful customer support assistant for Evermount Capital, a quantitative hedge fund and investment management firm.
 
@@ -170,6 +171,7 @@ export async function POST(request: NextRequest) {
         max_tokens: 800,
         stream: false,
       }),
+      signal: AbortSignal.timeout(OPENAI_REQUEST_TIMEOUT_MS),
     });
 
     if (!response.ok) {
