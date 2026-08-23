@@ -3,12 +3,11 @@
 import {
   UsersIcon,
   MagnifyingGlassIcon,
-  CheckCircleIcon,
-  XCircleIcon,
-  TrashIcon,
   PlusIcon,
 } from "@heroicons/react/24/outline";
 import { useAdminUsers } from "@/hooks/useAdminUsers";
+import UserRow from "./UserRow";
+import AddUserModal from "./AddUserModal";
 
 export default function UserManagementPage() {
   const {
@@ -136,99 +135,24 @@ export default function UserManagementPage() {
               </thead>
               <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                 {users.map((user) => (
-                  <tr
+                  <UserRow
                     key={user.id}
-                    className="hover:bg-gray-50 dark:hover:bg-gray-700/50"
-                  >
-                    <td className="px-6 py-4">
-                      <div className="font-medium text-gray-900 dark:text-white">
-                        {user.fullName}
-                      </div>
-                      <div className="text-sm text-gray-500">{user.email}</div>
-                    </td>
-                    <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
-                      {user.role}
-                    </td>
-                    <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
-                      {user.kycStatus || "—"}
-                    </td>
-                    <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
-                      ${(user.totalDeposits || 0).toLocaleString()}
-                    </td>
-                    <td className="px-6 py-4">
-                      <span
-                        className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${
-                          user.status === "active"
-                            ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300"
-                            : "bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300"
-                        }`}
-                      >
-                        {user.status === "active" ? (
-                          <CheckCircleIcon className="w-3.5 h-3.5" />
-                        ) : (
-                          <XCircleIcon className="w-3.5 h-3.5" />
-                        )}
-                        {user.status}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-right">
-                      <div className="flex justify-end gap-2">
-                        <button
-                          onClick={() => {
-                            setEditUser(user);
-                            setEditForm({
-                              fullName: user.fullName,
-                              role: user.role,
-                            });
-                          }}
-                          className="text-xs px-2 py-1 rounded bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200"
-                        >
-                          Edit
-                        </button>
-                        {user.role === "INVESTOR" && (
-                          <>
-                            <button
-                              onClick={() => void openAssignModal(user)}
-                              className="text-xs px-2 py-1 rounded bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300"
-                            >
-                              Assign
-                            </button>
-                            <button
-                              onClick={() => {
-                                setCreditUser(user);
-                                setCreditAmount("");
-                              }}
-                              className="text-xs px-2 py-1 rounded bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300"
-                            >
-                              Credit
-                            </button>
-                          </>
-                        )}
-                        {user.status === "active" ? (
-                          <button
-                            onClick={() => handleSuspend(user.id, "suspend")}
-                            className="text-xs px-2 py-1 rounded bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300"
-                          >
-                            Suspend
-                          </button>
-                        ) : (
-                          <button
-                            onClick={() => handleSuspend(user.id, "activate")}
-                            className="text-xs px-2 py-1 rounded bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300"
-                          >
-                            Activate
-                          </button>
-                        )}
-                        <button
-                          onClick={() => handleDelete(user.id)}
-                          className="p-1.5 rounded hover:bg-red-100 dark:hover:bg-red-900/30"
-                          title="Delete"
-                        >
-                          <TrashIcon className="w-4 h-4 text-red-600" />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
+                    user={user}
+                    onEdit={(u) => {
+                      setEditUser(u);
+                      setEditForm({
+                        fullName: u.fullName,
+                        role: u.role,
+                      });
+                    }}
+                    onAssign={(u) => void openAssignModal(u)}
+                    onCredit={(u) => {
+                      setCreditUser(u);
+                      setCreditAmount("");
+                    }}
+                    onSuspend={handleSuspend}
+                    onDelete={handleDelete}
+                  />
                 ))}
               </tbody>
             </table>
@@ -345,91 +269,14 @@ export default function UserManagementPage() {
         </div>
       )}
 
-      {showAddModal && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-md w-full p-6">
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-              Add User
-            </h2>
-            <form onSubmit={handleCreate} className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  value={form.fullName}
-                  onChange={(e) =>
-                    setForm((f) => ({ ...f, fullName: e.target.value }))
-                  }
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  value={form.email}
-                  onChange={(e) =>
-                    setForm((f) => ({ ...f, email: e.target.value }))
-                  }
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Temporary Password
-                </label>
-                <input
-                  type="password"
-                  value={form.password}
-                  onChange={(e) =>
-                    setForm((f) => ({ ...f, password: e.target.value }))
-                  }
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
-                  minLength={8}
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Role
-                </label>
-                <select
-                  value={form.role}
-                  onChange={(e) =>
-                    setForm((f) => ({ ...f, role: e.target.value }))
-                  }
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
-                >
-                  <option value="INVESTOR">Investor</option>
-                  <option value="ADMIN">Admin</option>
-                </select>
-              </div>
-              <div className="flex gap-3 pt-2">
-                <button
-                  type="button"
-                  onClick={() => setShowAddModal(false)}
-                  className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-700 dark:text-gray-300"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="flex-1 px-4 py-2 bg-[#00a76f] hover:bg-emerald-700 disabled:opacity-60 text-white rounded-lg font-semibold"
-                >
-                  {submitting ? "Creating…" : "Create User"}
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
+      <AddUserModal
+        open={showAddModal}
+        form={form}
+        setForm={setForm}
+        submitting={submitting}
+        onSubmit={handleCreate}
+        onCancel={() => setShowAddModal(false)}
+      />
 
       {editUser && (
         <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
