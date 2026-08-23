@@ -1000,26 +1000,7 @@ describe("api client (MSW exhaustive smoke test)", () => {
       });
     });
 
-    // REAL GAP, not a test bug: `admin.wallets.getPendingWithdrawals` calls
-    // GET /admin/wallets/withdrawals/pending, which is meant to be served
-    // by the `http.get("*/admin/wallets/withdrawals/pending", ...)`
-    // handler in src/mocks/handlers/admin.ts (returning
-    // `{ withdrawals: [], total: 0 }`). But `src/mocks/handlers/index.ts`
-    // registers `withdrawalsHandlers` (src/mocks/handlers/withdrawals.ts)
-    // before `adminHandlers`, and that file's
-    // `http.get("*/withdrawals/:withdrawalId", ...)` handler's wildcard
-    // "*" prefix also matches "/admin/wallets/withdrawals/pending" (with
-    // "pending" captured as `:withdrawalId`) — MSW dispatches to the first
-    // matching handler in registration order, so this request is
-    // incorrectly intercepted by the withdrawals-status handler and
-    // resolves with `{ id: "pending", status: "PENDING" }` instead of the
-    // admin fixture. This is a genuine handler-ordering/specificity bug in
-    // src/mocks/handlers/* (out of scope for this test file to fix per
-    // task constraints) — flagged here rather than masked. See PR/task
-    // notes for triage; likely fix is reordering `adminHandlers` before
-    // `withdrawalsHandlers`, or making the withdrawals handler's path
-    // pattern more specific.
-    it.skip("wallets.getPendingWithdrawals resolves with an empty withdrawals fixture", async () => {
+    it("wallets.getPendingWithdrawals resolves with an empty withdrawals fixture", async () => {
       const response = await api.admin.wallets.getPendingWithdrawals();
       expect(response.status).toBe(200);
       expect(response.data).toEqual({ withdrawals: [], total: 0 });

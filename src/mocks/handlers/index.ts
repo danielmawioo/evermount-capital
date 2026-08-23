@@ -14,6 +14,13 @@
  *
  * Handlers are grouped one file per src/lib/api/* module, mirroring that
  * directory's own layout.
+ *
+ * Order matters: MSW dispatches to the first matching handler, and several
+ * wildcard-prefixed patterns (e.g. "*\/withdrawals/:withdrawalId") match any
+ * path ending in that shape — including more specific admin sub-resources
+ * like "/admin/wallets/withdrawals/pending". adminHandlers is composed
+ * first so its more specific "/admin/..." routes are matched before a
+ * shorter, more generic pattern from another domain can swallow them.
  */
 import { authHandlers } from "./auth";
 import { usersHandlers } from "./users";
@@ -37,6 +44,7 @@ import { complianceHandlers } from "./compliance";
 import { adminHandlers } from "./admin";
 
 export const handlers = [
+  ...adminHandlers,
   ...authHandlers,
   ...usersHandlers,
   ...kycHandlers,
@@ -56,5 +64,4 @@ export const handlers = [
   ...securityHandlers,
   ...statementsHandlers,
   ...complianceHandlers,
-  ...adminHandlers,
 ];
