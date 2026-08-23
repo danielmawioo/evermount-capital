@@ -172,4 +172,53 @@ describe("ManagerStrategiesPage", () => {
     });
     expect(toastSuccess).toHaveBeenCalledWith("Strategy deactivated");
   });
+
+  it("shows an error toast when switching the running strategy fails", async () => {
+    const user = userEvent.setup();
+    const toastError = jest.spyOn(toast, "error");
+    const toastSuccess = jest.spyOn(toast, "success");
+    mock.onGet("/portfolio-manager/strategies").reply(200, {
+      strategies: [STRATEGY],
+      combined: COMBINED,
+    });
+    mock.onPost("/portfolio-manager/strategies/momentum/switch").reply(500);
+
+    render(<ManagerStrategiesPage />);
+
+    const runButton = await screen.findByRole("button", { name: /run/i });
+    await user.click(runButton);
+
+    await waitFor(() =>
+      expect(toastError).toHaveBeenCalledWith("Failed to switch strategy"),
+    );
+    expect(toastSuccess).not.toHaveBeenCalled();
+    expect(screen.queryByText("Running")).not.toBeInTheDocument();
+    expect(
+      await screen.findByRole("button", { name: /run/i }),
+    ).not.toBeDisabled();
+  });
+
+  it("shows an error toast when toggling strategy active state fails", async () => {
+    const user = userEvent.setup();
+    const toastError = jest.spyOn(toast, "error");
+    const toastSuccess = jest.spyOn(toast, "success");
+    mock.onGet("/portfolio-manager/strategies").reply(200, {
+      strategies: [STRATEGY],
+      combined: COMBINED,
+    });
+    mock.onPost("/portfolio-manager/strategies/momentum/active").reply(500);
+
+    render(<ManagerStrategiesPage />);
+
+    const stopButton = await screen.findByRole("button", { name: /stop/i });
+    await user.click(stopButton);
+
+    await waitFor(() =>
+      expect(toastError).toHaveBeenCalledWith("Failed to update strategy"),
+    );
+    expect(toastSuccess).not.toHaveBeenCalled();
+    expect(
+      await screen.findByRole("button", { name: /stop/i }),
+    ).not.toBeDisabled();
+  });
 });
