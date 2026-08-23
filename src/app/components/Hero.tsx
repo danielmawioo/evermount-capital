@@ -7,12 +7,12 @@ import {
   CurrencyDollarIcon,
   ClockIcon,
   UserGroupIcon,
+  LifebuoyIcon,
+  RocketLaunchIcon,
 } from "@heroicons/react/24/outline";
 import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
 
-import SupportAgentIcon from "@mui/icons-material/SupportAgent";
-import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import LiveMarketTicker from "./LiveMarketTicker";
 
 export default function Hero() {
@@ -102,7 +102,7 @@ export default function Hero() {
                 whileTap={{ scale: 0.95 }}
                 className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-[#00a76f] text-white rounded-md font-semibold hover:bg-emerald-700 transition shadow-md"
               >
-                <SupportAgentIcon fontSize="small" />
+                <LifebuoyIcon className="w-5 h-5" />
                 Talk to Our Team
               </motion.button>
             </Link>
@@ -113,7 +113,7 @@ export default function Hero() {
               onClick={() => window.dispatchEvent(new Event("openWaitlist"))}
               className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 border border-[#00a76f] dark:border-emerald-400 text-[#00a76f] dark:text-emerald-400 rounded-md font-semibold hover:bg-[#e6f5f0] dark:hover:bg-emerald-400/20 transition shadow-md"
             >
-              <RocketLaunchIcon fontSize="small" />
+              <RocketLaunchIcon className="w-5 h-5" />
               Get Early Access
             </motion.button>
           </motion.div>
