@@ -6,6 +6,14 @@ import { FaLinkedinIn, FaTiktok, FaDiscord, FaXTwitter } from "react-icons/fa6";
 import { api } from "@/lib/api-client";
 import { logger } from "@/lib/logger";
 import { EmailSchema } from "@/lib/schemas";
+import FooterColumn from "./FooterColumn";
+import {
+  marketsColumn,
+  educationColumn,
+  importantLinksColumn,
+  legalComplianceColumn,
+  communityColumn,
+} from "./footerColumns";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -31,186 +39,10 @@ export default function Footer() {
         <div className="pt-16 pb-12">
           {/* Grid Sections */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12 text-sm mb-16">
-            <div>
-              <h4 className="text-gray-900 dark:text-gray-900 dark:text-white font-semibold mb-5 text-base">
-                Markets
-              </h4>
-              <ul className="space-y-3">
-                <li>
-                  <Link
-                    href="#"
-                    className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Evermount CFDs
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#"
-                    className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Future Markets
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-gray-900 dark:text-white font-semibold mb-5 text-base">
-                Education
-              </h4>
-              <ul className="space-y-3">
-                <li>
-                  <Link
-                    href="/investor-tour"
-                    className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Investor Tour
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#"
-                    className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    AI Trading Guide
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#"
-                    className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Growth Dashboard
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#"
-                    className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Insights Blog
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-gray-900 dark:text-white font-semibold mb-5 text-base">
-                Important Links
-              </h4>
-              <ul className="space-y-3">
-                <li>
-                  <Link
-                    href="#"
-                    className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    FAQs
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#"
-                    className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Partnerships
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#"
-                    className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Investor Events
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#"
-                    className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Risk Disclosure
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-gray-900 dark:text-white font-semibold mb-5 text-base">
-                Legal & Compliance
-              </h4>
-              <ul className="space-y-3">
-                <li>
-                  <Link
-                    href="/terms"
-                    className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Terms of Service
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/privacy"
-                    className="hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/cookie-policy"
-                    className="hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Cookie Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/investment-agreement"
-                    className="hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Investment Agreement
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/risk-disclosure"
-                    className="hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Risk Disclosure
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/aml-policy"
-                    className="hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    AML Statement
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/regulatory-compliance"
-                    className="hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Regulatory Compliance
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/conflict-of-interest"
-                    className="hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Conflict of Interest
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/best-execution"
-                    className="hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Best Execution Policy
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            <FooterColumn {...marketsColumn} />
+            <FooterColumn {...educationColumn} />
+            <FooterColumn {...importantLinksColumn} />
+            <FooterColumn {...legalComplianceColumn} />
             <div>
               <h4 className="text-gray-900 dark:text-white font-semibold mb-5 text-base">
                 Contact Us
@@ -252,37 +84,7 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            <div>
-              <h4 className="text-gray-900 dark:text-white font-semibold mb-5 text-base">
-                Community
-              </h4>
-              <ul className="space-y-3">
-                <li>
-                  <Link
-                    href="#"
-                    className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Local Communities
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#"
-                    className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Join Discord
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#"
-                    className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Join X
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            <FooterColumn {...communityColumn} />
           </div>
 
           {/* Newsletter Signup */}
