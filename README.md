@@ -45,6 +45,16 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## Run without a backend (mock mode)
+
+This repo talks to a separate backend that isn't included here (see [Prerequisites](#prerequisites)), so a fresh clone can't call the API until you have one running. To explore the UI or develop locally without that backend — no external accounts or services needed — run:
+
+```bash
+yarn dev:mock
+```
+
+This starts the app with every `src/lib/api/*` call served by a local [Mock Service Worker](https://mswjs.io/) (MSW) instead of a real backend. It sets `NEXT_PUBLIC_API_MOCKING=enabled`, which is read by `src/mocks/init.ts` to start the worker defined in `src/mocks/browser.ts`; request handlers for every endpoint live in `src/mocks/handlers.ts`. Mocking is off by default in `yarn dev`, `yarn build`/`yarn start`, and CI — this is purely additive, opt-in tooling that doesn't change any existing behavior.
+
 ## Test
 
 ```bash

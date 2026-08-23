@@ -5,6 +5,7 @@ import LayoutWrapper from "./components/LayoutWrapper";
 import { Metadata } from "next";
 import IntercomProvider from "./components/IntercomProvider";
 import Analytics from "./components/Analytics";
+import MockingProvider from "./components/MockingProvider";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -239,6 +240,7 @@ export default function RootLayout({
         <LayoutWrapper>{children}</LayoutWrapper>
         <IntercomProvider />
         <Analytics />
+        <MockingProvider />
       </body>
     </html>
   );

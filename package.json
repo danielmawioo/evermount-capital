@@ -21,6 +21,7 @@
   },
   "scripts": {
     "dev": "next dev --turbopack",
+    "dev:mock": "NEXT_PUBLIC_API_MOCKING=enabled next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -79,10 +80,16 @@
     "jest": "^30.4.2",
     "jest-canvas-mock": "^2.5.8",
     "jest-environment-jsdom": "^30.4.1",
+    "msw": "^2.15.0",
     "prettier": "^3.9.6",
     "tailwindcss": "^4.1.4",
     "tailwindcss-cli": "^0.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
