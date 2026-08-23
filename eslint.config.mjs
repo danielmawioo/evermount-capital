@@ -13,6 +13,21 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   prettierConfig,
+  {
+    rules: {
+      // Route all logging through src/lib/logger.ts so error reporting
+      // (Sentry forwarding) and log shape stay consistent app-wide.
+      "no-console": "error",
+    },
+  },
+  {
+    // logger.ts is the one place allowed to call console directly — it's
+    // the abstraction everything else routes through.
+    files: ["src/lib/logger.ts"],
+    rules: {
+      "no-console": "off",
+    },
+  },
 ];
 
 export default eslintConfig;
