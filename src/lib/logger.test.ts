@@ -1,5 +1,10 @@
 import { logger } from "./logger";
 
+jest.mock("@sentry/nextjs", () => ({
+  captureException: jest.fn(),
+  captureMessage: jest.fn(),
+}));
+
 describe("logger", () => {
   let consoleErrorSpy: jest.SpyInstance;
   let consoleWarnSpy: jest.SpyInstance;
@@ -63,5 +68,52 @@ describe("logger", () => {
     logger.error("some failure", new Error("x"));
     await Promise.resolve();
     expect(consoleErrorSpy).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe("logger (Sentry forwarding)", () => {
+  const originalEnv = { ...process.env };
+
+  beforeEach(() => {
+    jest.spyOn(console, "error").mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    process.env = { ...originalEnv };
+    jest.restoreAllMocks();
+  });
+
+  it("calls Sentry.captureException with the error when a DSN is configured", async () => {
+    process.env.NEXT_PUBLIC_SENTRY_DSN = "https://example@sentry.io/1";
+    jest.resetModules();
+
+    const Sentry = await import("@sentry/nextjs");
+    const { logger: dsnLogger } = await import("./logger");
+    const error = new Error("network down");
+
+    dsnLogger.error("Failed to load wallet", error);
+    await Promise.resolve();
+    await Promise.resolve();
+
+    expect(Sentry.captureException).toHaveBeenCalledWith(error);
+    expect(Sentry.captureMessage).not.toHaveBeenCalled();
+  });
+
+  it("calls Sentry.captureMessage when a DSN is configured but no Error was caught", async () => {
+    process.env.NEXT_PUBLIC_SENTRY_DSN = "https://example@sentry.io/1";
+    jest.resetModules();
+
+    const Sentry = await import("@sentry/nextjs");
+    const { logger: dsnLogger } = await import("./logger");
+
+    dsnLogger.error("Unexpected state");
+    await Promise.resolve();
+    await Promise.resolve();
+
+    expect(Sentry.captureMessage).toHaveBeenCalledWith(
+      "Unexpected state",
+      "error",
+    );
+    expect(Sentry.captureException).not.toHaveBeenCalled();
   });
 });
