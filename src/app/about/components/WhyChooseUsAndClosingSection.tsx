@@ -21,15 +21,15 @@ const WHY_CHOOSE_US_ITEMS = [
   },
   {
     icon: CurrencyDollarIcon,
-    title: "Performance Focus",
+    title: "Research-Driven Approach",
     description:
-      "Our systematic approach has delivered consistent risk-adjusted returns across various market conditions, demonstrating the robustness of our quantitative strategies.",
+      "Our systematic approach is grounded in rigorous quantitative research and modeling, designed to build robust, risk-managed trading strategies as we scale across African markets.",
   },
   {
     icon: GlobeAltIcon,
-    title: "Global Reach",
+    title: "Africa-First Focus",
     description:
-      "We trade across major global exchanges, providing diversified exposure to opportunities worldwide. Our systematic approach allows us to operate efficiently across multiple markets.",
+      "We're building our trading infrastructure and research capabilities specifically for African financial markets, with the long-term ambition of connecting them to global trading networks.",
   },
 ];
 
@@ -85,9 +85,9 @@ export default function WhyChooseUsAndClosingSection() {
       >
         <div className="max-w-3xl mx-auto">
           <blockquote className="text-xl text-gray-600 dark:text-gray-400 italic">
-            &quot;We&apos;re not just building portfolios, we&apos;re
-            engineering confidence, growth, and resilience — the future belongs
-            to empowered investors.&quot;
+            &quot;We&apos;re building the quantitative research, technology and
+            trading infrastructure to help create deeper, more efficient
+            African financial markets.&quot;
           </blockquote>
         </div>
       </motion.section>

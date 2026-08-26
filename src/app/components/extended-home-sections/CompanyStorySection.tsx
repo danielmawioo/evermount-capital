@@ -32,14 +32,13 @@ export default function CompanyStorySection() {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-              Systematic Alpha Generation Through Quantitative Excellence
+              Quantitative Trading Technology Built for Africa
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              Evermount Capital is a quantitative investment management firm
-              that applies systematic, data-driven approaches to generate alpha
-              across global markets. We combine machine learning, statistical
-              arbitrage, and proprietary research to deliver consistent
-              risk-adjusted returns.
+              Evermount is building an Africa-focused quantitative trading and
+              market-making technology company. We combine quantitative
+              research, machine learning, and statistical modeling to build
+              systematic trading infrastructure for African financial markets.
             </p>
             <motion.div
               whileHover={{ x: 5 }}
@@ -102,11 +101,12 @@ export default function CompanyStorySection() {
               Systematic Investment Philosophy
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              We believe markets contain systematic inefficiencies that can be
-              identified through rigorous quantitative analysis. Our entirely
-              systematic approach removes human emotion and bias, focusing on
-              superior data, advanced modeling, and execution excellence across
-              multiple asset classes.
+              We believe African financial markets contain structural
+              inefficiencies — around liquidity, market fragmentation, and
+              electronic execution — that create room for systematic,
+              technology-driven trading. Our approach removes human emotion
+              and bias, focusing on superior data, advanced modeling, and
+              execution engineering.
             </p>
             <motion.div
               variants={containerVariants}

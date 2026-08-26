@@ -149,7 +149,7 @@ export default function BookDemoModal() {
     "@type": "Event",
     name: "Evermount Capital Platform Demo",
     description:
-      "Schedule a personalized demo to learn about Evermount Capital's AI-powered hedge fund platform and investment strategies.",
+      "Schedule a personalized demo to learn about Evermount Capital's AI-powered trading platform and investment strategies.",
     organizer: {
       "@type": "Organization",
       name: "Evermount Capital",

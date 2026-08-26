@@ -4,35 +4,35 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   ChartBarIcon,
-  CurrencyDollarIcon,
+  CpuChipIcon,
   ShieldCheckIcon,
   BoltIcon,
 } from "@heroicons/react/24/outline";
 
 const PERFORMANCE_METRICS = [
   {
-    metric: "1.85+",
-    label: "Information Ratio",
+    metric: "Quantitative",
+    label: "Research Engine",
     icon: ChartBarIcon,
-    desc: "Risk-adjusted performance metric",
+    desc: "Systematic strategy research and backtesting infrastructure",
   },
   {
-    metric: "$300K",
-    label: "Assets Under Management",
-    icon: CurrencyDollarIcon,
-    desc: "Growing portfolio",
+    metric: "AI-Powered",
+    label: "Analytics",
+    icon: CpuChipIcon,
+    desc: "Machine learning models for market and portfolio analysis",
   },
   {
-    metric: "0.35",
-    label: "Maximum Drawdown",
+    metric: "Institutional-Grade",
+    label: "Risk Management",
     icon: ShieldCheckIcon,
-    desc: "Capital preservation focus",
+    desc: "Built-in risk controls and portfolio monitoring",
   },
   {
-    metric: "15%+",
-    label: "Annualized Alpha",
+    metric: "Automated",
+    label: "Execution Infrastructure",
     icon: BoltIcon,
-    desc: "Excess returns vs benchmark",
+    desc: "Systematic, rules-based trade execution",
   },
 ];
 
@@ -49,11 +49,12 @@ export default function MetricsAndCtaSection() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Performance Metrics & Track Record
+            The Technology Behind Evermount
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400">
-            Consistent risk-adjusted returns across various market conditions,
-            demonstrating the robustness of our quantitative strategies.
+            Evermount combines quantitative research, AI-driven analytics,
+            and automated execution to build systematic investment
+            infrastructure.
           </p>
         </motion.div>
 
@@ -78,7 +79,7 @@ export default function MetricsAndCtaSection() {
                   delay: i * 0.1 + 0.2,
                   type: "spring",
                 }}
-                className="text-4xl font-extrabold text-gray-900 dark:text-white mb-2"
+                className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white mb-2"
               >
                 {stat.metric}
               </motion.h3>
@@ -117,7 +118,7 @@ export default function MetricsAndCtaSection() {
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl font-bold mb-6"
           >
-            Partner with a Systematic Investment Leader
+            Building the Future of African Financial Markets
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -126,9 +127,9 @@ export default function MetricsAndCtaSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl mb-8 text-white/90"
           >
-            Discover how quantitative excellence and systematic strategies can
-            enhance your investment portfolio. Schedule a consultation to learn
-            more.
+            Discover how Evermount is building quantitative research, AI and
+            trading infrastructure for African financial markets. Schedule a
+            consultation to learn more.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

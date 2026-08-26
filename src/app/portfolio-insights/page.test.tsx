@@ -11,13 +11,12 @@ describe("PortfolioInsightsPage", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders the key performance metrics", () => {
+  it("renders the key capability tiles", () => {
     render(<PortfolioInsightsPage />);
-    expect(screen.getByText("Annualized Return")).toBeInTheDocument();
-    expect(screen.getByText("18.5%")).toBeInTheDocument();
-    expect(screen.getByText("Volatility Index")).toBeInTheDocument();
-    expect(screen.getByText("Max Drawdown")).toBeInTheDocument();
-    expect(screen.getByText("Sharpe Ratio")).toBeInTheDocument();
+    expect(screen.getByText("Return Analysis")).toBeInTheDocument();
+    expect(screen.getByText("Volatility Tracking")).toBeInTheDocument();
+    expect(screen.getByText("Drawdown Monitoring")).toBeInTheDocument();
+    expect(screen.getByText("Benchmark Comparison")).toBeInTheDocument();
   });
 
   it("renders the growth curve and risk distribution sections with a CTA", () => {

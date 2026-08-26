@@ -10,7 +10,6 @@ const FUND_POINTS = [
   "Performance Fee: 20% of profits",
   "Minimum Investment: $10,000",
   "Quarterly Performance Reports",
-  "Audited & Regulated",
   "6 Month Lock-In Period",
   "USD + Multi-Currency Support",
 ];

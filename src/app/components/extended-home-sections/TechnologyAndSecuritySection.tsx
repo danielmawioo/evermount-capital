@@ -15,14 +15,14 @@ const TECHNOLOGY_PILLARS = [
     icon: CpuChipIcon,
     title: "Quantitative Research & Modeling",
     description:
-      "Advanced statistical models and machine learning algorithms trained on decades of market data to generate consistent alpha.",
+      "Statistical models and machine learning algorithms applied to market data to identify systematic trading opportunities.",
     color: "from-blue-500 to-cyan-500",
   },
   {
     icon: ChartBarIcon,
     title: "High-Performance Computing",
     description:
-      "Ultra-low latency infrastructure processing millions of market events per second for real-time portfolio optimization.",
+      "High-performance infrastructure built to process market data and support systematic trading and risk management.",
     color: "from-purple-500 to-pink-500",
   },
   {
@@ -36,10 +36,7 @@ const TECHNOLOGY_PILLARS = [
 
 const SECURITY_FEATURES = [
   "256-bit AES encryption for data at rest and in transit",
-  "Segregated client accounts with independent custodians",
   "Multi-factor authentication and role-based access controls",
-  "SOC 2 Type II certified, GDPR compliant, MiFID II regulated",
-  "24/7 security operations center and real-time monitoring",
   "Independent risk oversight and compliance monitoring",
 ];
 
@@ -60,9 +57,9 @@ export default function TechnologyAndSecuritySection() {
               Proprietary Technology & Research Infrastructure
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Our technology stack processes terabytes of data daily, executing
-              millions of calculations per second to identify alpha
-              opportunities across global markets.
+              Our technology stack is built to process market data and
+              identify systematic trading opportunities across African
+              financial markets.
             </p>
           </motion.div>
 
@@ -118,10 +115,9 @@ export default function TechnologyAndSecuritySection() {
               Institutional-Grade Infrastructure & Risk Controls
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              We operate with the highest standards of operational excellence,
-              security, and regulatory compliance. Our infrastructure handles
-              institutional-scale assets with robust risk management and client
-              protection measures.
+              We&apos;re building our infrastructure to the highest standards
+              of operational excellence, security, and risk management as we
+              scale.
             </p>
             <motion.div
               variants={containerVariants}

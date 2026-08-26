@@ -4,9 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ChartBarIcon,
-  CurrencyDollarIcon,
+  CpuChipIcon,
   ClockIcon,
-  UserGroupIcon,
+  ShieldCheckIcon,
   LifebuoyIcon,
   RocketLaunchIcon,
 } from "@heroicons/react/24/outline";
@@ -61,16 +61,16 @@ export default function Hero() {
           className="space-y-6 text-center lg:text-left"
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight tracking-tight">
-            Building the Future of Investing
+            Building Africa&apos;s Quantitative Trading Infrastructure
           </h1>
 
           <h2 className="text-base sm:text-lg md:text-2xl font-medium text-[#00a76f] dark:text-emerald-400 min-h-[32px] sm:min-h-[40px]">
             <span className="inline-block min-w-[220px]">
               <Typewriter
                 words={[
-                  "Quantitative Strategies",
-                  "Systematic Alpha Generation",
-                  "Institutional-Grade Execution",
+                  "Quantitative Trading",
+                  "Systematic Market Making",
+                  "Electronic Trading Infrastructure",
                 ]}
                 loop
                 cursor
@@ -83,9 +83,11 @@ export default function Hero() {
           </h2>
 
           <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
-            A quantitative investment management firm combining systematic
-            research, proprietary algorithms, and institutional-grade execution
-            to deliver consistent risk-adjusted returns across global markets.
+            Evermount is building an Africa-focused quantitative trading and
+            market-making technology company — combining quantitative
+            research, machine learning, and high-performance trading
+            infrastructure to help build more liquid, efficient African
+            financial markets.
           </p>
 
           {/* CTA BUTTONS */}
@@ -131,16 +133,16 @@ export default function Hero() {
               Data-Driven Alpha
             </div>
             <div className="flex items-center gap-3">
-              <CurrencyDollarIcon className="w-5 h-5 text-[#00a76f]" />
-              $300K Assets Under Management
+              <CpuChipIcon className="w-5 h-5 text-[#00a76f]" />
+              AI-Powered Research
             </div>
             <div className="flex items-center gap-3">
               <ClockIcon className="w-5 h-5 text-[#00a76f]" />
               Systematic Execution
             </div>
             <div className="flex items-center gap-3">
-              <UserGroupIcon className="w-5 h-5 text-[#00a76f]" />
-              82 Investor Partners
+              <ShieldCheckIcon className="w-5 h-5 text-[#00a76f]" />
+              Risk-Managed Trading
             </div>
           </motion.div>
         </motion.div>

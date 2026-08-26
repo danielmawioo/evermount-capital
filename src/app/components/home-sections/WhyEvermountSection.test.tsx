@@ -15,7 +15,9 @@ describe("WhyEvermountSection", () => {
       ),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Global market access across multiple asset classes"),
+      screen.getByText(
+        "Building toward continent-wide market access across African financial markets",
+      ),
     ).toBeInTheDocument();
   });
 });

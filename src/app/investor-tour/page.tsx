@@ -14,7 +14,7 @@ export default function InvestorTourPage() {
     "@type": "HowTo",
     name: "How to Invest with Evermount Capital",
     description:
-      "Step-by-step guide to investing with Evermount Capital's AI-powered hedge fund platform.",
+      "Step-by-step guide to investing with Evermount Capital's AI-powered trading platform.",
     step: [
       {
         "@type": "HowToStep",

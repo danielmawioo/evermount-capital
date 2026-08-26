@@ -21,10 +21,12 @@ describe("PlatformPage", () => {
       screen.getByRole("heading", { name: /enterprise security/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /high-frequency trading/i }),
+      screen.getByRole("heading", {
+        name: /electronic trading infrastructure/i,
+      }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /global market access/i }),
+      screen.getByRole("heading", { name: /african market focus/i }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", { name: /risk management/i }),

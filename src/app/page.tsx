@@ -7,15 +7,15 @@ import ExtendedHomeSections from "./components/ExtendedHomeSections";
 import TrustLogos from "./components/TrustLogos";
 
 export const metadata: Metadata = {
-  title: "Evermount Capital | AI-Powered Hedge Fund Platform",
+  title: "Evermount Capital | Quantitative Trading Infrastructure for Africa",
   description:
-    "Accelerate your investment growth with Evermount Capital's AI-powered hedge fund platform. Trusted by investors worldwide for high-performance quantitative trading, portfolio management, and risk-optimized strategies.",
+    "Evermount is building an Africa-focused quantitative trading and market-making technology company — combining quantitative research, AI and high-performance trading infrastructure.",
   keywords: [
-    "hedge fund",
-    "AI trading",
-    "quantitative investing",
-    "portfolio management",
-    "alternative investments",
+    "quantitative trading",
+    "market making",
+    "Africa fintech",
+    "algorithmic trading",
+    "AI trading infrastructure",
     "Evermount Capital",
     "automated trading",
     "risk management",
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.evermount.co",
     siteName: "Evermount Capital",
-    title: "Evermount Capital | AI-Powered Hedge Fund Platform",
+    title: "Evermount Capital | Quantitative Trading Infrastructure for Africa",
     description:
-      "Accelerate your investment growth with AI-powered hedge fund strategies. Trusted by investors worldwide.",
+      "Building an Africa-focused quantitative trading and market-making technology company.",
     images: [
       {
         url: "https://www.evermount.co/og-image.png",
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@evermountcapital",
     creator: "@evermountcapital",
-    title: "Evermount Capital | AI-Powered Hedge Fund Platform",
+    title: "Evermount Capital | Quantitative Trading Infrastructure for Africa",
     description:
-      "Accelerate your investment growth with AI-powered hedge fund strategies.",
+      "Building an Africa-focused quantitative trading and market-making technology company.",
     images: ["https://www.evermount.co/og-image.png"],
   },
 };
@@ -60,7 +60,7 @@ export default function Home() {
         name: "What exactly does Evermount Capital do?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Evermount Capital is an AI-powered hedge fund platform that provides quantitative trading strategies, portfolio management, and risk-optimized investment solutions. We use machine learning and algorithmic trading to help investors grow their wealth through automated, data-driven investment strategies across global markets including forex, stocks, commodities, and cryptocurrencies.",
+          text: "Evermount is building quantitative trading and market-making technology focused on African financial markets. Our current platform provides systematic, AI-assisted investment strategies for individual and institutional investors; our long-term vision is to build institutional-grade trading and liquidity infrastructure for Africa.",
         },
       },
       {
@@ -68,7 +68,7 @@ export default function Home() {
         name: "How does Evermount Capital's AI trading work?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Our AI trading system uses proprietary machine learning models trained on over a decade of financial data. The system analyzes market patterns, volatility trends, and sentiment data in real-time to execute trades autonomously. It includes automatic risk management, portfolio rebalancing, and stress testing to optimize returns while minimizing risk.",
+          text: "Our AI trading system uses proprietary machine learning models trained on historical financial data. The system analyzes market patterns, volatility trends, and sentiment data in real-time to execute trades autonomously. It includes automatic risk management, portfolio rebalancing, and stress testing to help manage risk.",
         },
       },
       {
@@ -84,7 +84,7 @@ export default function Home() {
         name: "Is my money safe with Evermount Capital?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes, we use bank-level encryption and security measures. Funds are held in segregated accounts, and we're regulated by financial authorities. We also offer insurance coverage for eligible accounts. All transactions are secured and monitored 24/7.",
+          text: "We use bank-level encryption and security measures, and funds are held in segregated accounts. Evermount is not currently a licensed financial institution — see our Risk Disclosure and Terms pages for details. All transactions are monitored around the clock.",
         },
       },
       {
@@ -108,7 +108,7 @@ export default function Home() {
         name: "What investment strategies does Evermount Capital offer?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Evermount Capital offers diverse investment strategies including global forex trading, stocks and ETFs, commodities (gold, oil, agriculture), and cryptocurrency investments. All strategies are powered by AI and quantitative models for optimal performance.",
+          text: "Evermount Capital offers diverse investment strategies including global forex trading, stocks and ETFs, commodities (gold, oil, agriculture), and cryptocurrency investments. All strategies are powered by AI and quantitative models for systematic, risk-managed execution.",
         },
       },
       {
@@ -116,7 +116,7 @@ export default function Home() {
         name: "How does Evermount Capital ensure security?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "We use bank-level encryption, segregated accounts for client funds, regular security audits, and compliance with global financial regulations. Our platform includes multi-layer risk management, 24/7 monitoring, and investor capital protection through isolation and limits.",
+          text: "We use bank-level encryption, segregated accounts for client funds, and a multi-layered internal risk management framework, with 24/7 monitoring and capital protection controls.",
         },
       },
     ],
@@ -141,7 +141,7 @@ export default function Home() {
     url: "https://www.evermount.co",
     logo: "https://www.evermount.co/logos/logo.png",
     description:
-      "AI-powered hedge fund platform providing quantitative trading strategies and portfolio management services.",
+      "Africa-focused quantitative trading and market-making technology company, building AI-driven research, portfolio management, and trading infrastructure.",
     address: {
       "@type": "PostalAddress",
       addressCountry: "KE",
@@ -159,11 +159,6 @@ export default function Home() {
       "https://linkedin.com/company/evermount-capital",
       "https://x.com/evermountcapital",
     ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      reviewCount: "127",
-    },
   };
 
   return (

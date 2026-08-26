@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     "Explore how Evermount blends AI and Quantitative Models to build future-ready investment portfolios. Learn about our investment process, security, and performance.",
   keywords: [
     "how to invest",
-    "hedge fund process",
+    "quantitative trading process",
     "AI investing",
     "investment guide",
     "Evermount Capital guide",

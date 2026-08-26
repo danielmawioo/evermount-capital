@@ -4,7 +4,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Investor Portal Login | Evermount Capital",
   description:
-    "Login securely to the Evermount Capital investor portal. Manage your hedge fund portfolio, track returns, and access powerful investment tools.",
+    "Login securely to the Evermount Capital investor portal. Manage your investment portfolio, track returns, and access powerful investment tools.",
   openGraph: {
     title: "Investor Portal Login | Evermount Capital",
     description:
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Login | Evermount Capital",
     description:
-      "Secure investor login to your Evermount Capital hedge fund dashboard.",
+      "Secure investor login to your Evermount Capital investor dashboard.",
     images: ["/og-image.png"],
   },
 };

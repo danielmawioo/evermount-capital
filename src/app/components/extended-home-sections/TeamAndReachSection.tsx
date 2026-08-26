@@ -8,7 +8,7 @@ import { containerVariants, itemVariants } from "./motionVariants";
 const LEADERSHIP_TEAM = [
   {
     name: "Daniel Mawioo",
-    role: "CEO & Co-Founder",
+    role: "CEO, Co-Founder & Low-Latency Systems Engineer",
     bio: "Former quantitative researcher and portfolio manager with extensive experience in systematic trading strategies, factor investing, and risk management at leading hedge funds.",
     image: "/images/founder1.jpg",
   },
@@ -24,20 +24,32 @@ const LEADERSHIP_TEAM = [
     bio: "PhD in Financial Engineering with deep expertise in stochastic modeling, statistical arbitrage, and portfolio optimization. Published researcher in quantitative finance.",
     image: "/images/founder3.jpg",
   },
+  {
+    name: "Bonface Kuria",
+    role: "Head of Security & Infrastructure",
+    bio: "Cybersecurity and network engineering specialist with deep expertise in network security, Linux systems, and DevOps. CCNP and CCSA certified.",
+    image: "/images/founder4.jpg",
+  },
+  {
+    name: "John Esther",
+    role: "Senior AI Engineer",
+    bio: "Senior AI engineer specializing in agentic AI systems, retrieval-augmented generation, and production-grade machine learning infrastructure.",
+    image: "/images/founder5.jpg",
+  },
 ];
 
 const GLOBAL_REACH_STATS = [
-  { region: "Equities", markets: "50+ Exchanges", coverage: "Global" },
+  { region: "Today", markets: "African Markets", coverage: "Research & Infrastructure" },
   {
-    region: "Fixed Income",
-    markets: "Sovereign & Corporate",
-    coverage: "Multi-Currency",
+    region: "Next",
+    markets: "Systematic Trading",
+    coverage: "Selected African Markets",
   },
-  { region: "Currencies", markets: "Major & Emerging", coverage: "24/7 FX" },
+  { region: "Vision", markets: "Market Making", coverage: "Continent-Wide" },
   {
-    region: "Commodities",
-    markets: "Energy & Metals",
-    coverage: "Futures & Spot",
+    region: "Long-Term",
+    markets: "Global Connectivity",
+    coverage: "Africa ↔ Global Markets",
   },
 ];
 
@@ -116,12 +128,13 @@ export default function TeamAndReachSection() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Global Market Access & Diversification
+              Starting With African Markets
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              We trade across major global exchanges, providing diversified
-              exposure to opportunities worldwide through our systematic
-              approach.
+              We&apos;re starting with African financial markets — building
+              toward a continent-wide electronic trading network, with the
+              long-term ambition of connecting African markets to global
+              trading infrastructure.
             </p>
           </motion.div>
 

@@ -14,7 +14,7 @@ export default function AboutPage() {
     "@type": "AboutPage",
     name: "About Evermount Capital",
     description:
-      "Learn about Evermount Capital's mission, vision, and team of founders building the future of AI-powered hedge fund investing.",
+      "Learn about Evermount Capital's mission, vision, and team of founders building Africa-focused quantitative trading and market-making technology.",
     url: "https://www.evermount.co/about",
     mainEntity: {
       "@type": "Organization",
@@ -23,7 +23,7 @@ export default function AboutPage() {
         {
           "@type": "Person",
           name: "Daniel Mawioo",
-          jobTitle: "CEO & Co-Founder",
+          jobTitle: "CEO, Co-Founder & Low-Latency Systems Engineer",
           sameAs: "https://www.linkedin.com/in/danielmawioo/",
         },
         {

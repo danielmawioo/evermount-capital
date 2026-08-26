@@ -10,7 +10,9 @@ describe("TeamAndReachSection", () => {
     ).toBeInTheDocument();
 
     expect(screen.getByText("Daniel Mawioo")).toBeInTheDocument();
-    expect(screen.getByText("CEO & Co-Founder")).toBeInTheDocument();
+    expect(
+      screen.getByText("CEO, Co-Founder & Low-Latency Systems Engineer"),
+    ).toBeInTheDocument();
     expect(screen.getByText("Tony K.")).toBeInTheDocument();
     expect(
       screen.getByText("Head of Quantitative Research"),
@@ -21,12 +23,12 @@ describe("TeamAndReachSection", () => {
     render(<TeamAndReachSection />);
 
     expect(
-      screen.getByText("Global Market Access & Diversification"),
+      screen.getByText("Starting With African Markets"),
     ).toBeInTheDocument();
 
-    expect(screen.getByText("Equities")).toBeInTheDocument();
-    expect(screen.getByText("50+ Exchanges")).toBeInTheDocument();
-    expect(screen.getByText("Commodities")).toBeInTheDocument();
-    expect(screen.getByText("Futures & Spot")).toBeInTheDocument();
+    expect(screen.getByText("Today")).toBeInTheDocument();
+    expect(screen.getByText("African Markets")).toBeInTheDocument();
+    expect(screen.getByText("Vision")).toBeInTheDocument();
+    expect(screen.getByText("Continent-Wide")).toBeInTheDocument();
   });
 });

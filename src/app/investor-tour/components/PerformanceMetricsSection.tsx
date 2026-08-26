@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { containerVariants, itemVariants } from "./motionVariants";
 
 const METRICS = [
-  { value: "18.5%", label: "Annualized Returns" },
-  { value: "$300K", label: "Assets Under Management" },
-  { value: "82", label: "Investor Partners" },
+  { value: "2023", label: "Year Founded" },
+  { value: "Private Beta", label: "Current Stage" },
+  { value: "Systematic + AI", label: "Investment Approach" },
 ];
 
 export default function PerformanceMetricsSection() {
@@ -18,7 +18,7 @@ export default function PerformanceMetricsSection() {
           transition={{ duration: 0.6 }}
           className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white"
         >
-          Performance Snapshot
+          Where We Are Today
         </motion.h2>
         <motion.div
           variants={containerVariants}
@@ -43,7 +43,7 @@ export default function PerformanceMetricsSection() {
                   delay: i * 0.1,
                   type: "spring",
                 }}
-                className="text-4xl md:text-5xl font-extrabold text-[#00a76f]"
+                className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#00a76f]"
               >
                 {metric.value}
               </motion.h3>

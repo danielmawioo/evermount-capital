@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "portfolio analytics",
     "investment performance",
     "risk metrics",
-    "hedge fund analytics",
+    "quantitative trading analytics",
     "portfolio dashboard",
   ],
   openGraph: {

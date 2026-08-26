@@ -55,33 +55,33 @@ export default function FinalCtaSection() {
             whileHover={{ scale: 1.2, rotate: 5 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <FiShield title="ISO Certified" />
+            <FiShield title="Risk-Managed" />
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.2, rotate: -5 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <FiCheckCircle title="Financially Regulated" />
+            <FiCheckCircle title="Systematically Tested" />
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.2, rotate: 5 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <FiTrendingUp title="SOC Compliant" />
+            <FiTrendingUp title="Data-Driven" />
           </motion.div>
         </motion.div>
 
         {/* Headline */}
         <h2 className="text-4xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-white mb-6">
-          The future of <span className="text-[#00a76f]">your capital</span>{" "}
+          The future of <span className="text-[#00a76f]">African markets</span>{" "}
           <span className="text-[#00a76f]">starts here.</span>
         </h2>
 
         {/* Subtitle */}
         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">
-          Whether you&apos;re new to hedge funds or an institutional investor,
-          Evermount equips you with the insights, execution, and support to
-          outperform.
+          Evermount is building the quantitative research, technology, and
+          trading infrastructure for African financial markets — from
+          systematic strategies to institutional-grade execution.
         </p>
 
         {/* CTA Buttons */}

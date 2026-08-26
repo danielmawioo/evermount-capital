@@ -10,15 +10,15 @@ describe("WhyChooseUsAndClosingSection", () => {
     ).toBeInTheDocument();
     expect(screen.getByText("Proven Expertise")).toBeInTheDocument();
     expect(screen.getByText("Cutting-Edge Technology")).toBeInTheDocument();
-    expect(screen.getByText("Performance Focus")).toBeInTheDocument();
-    expect(screen.getByText("Global Reach")).toBeInTheDocument();
+    expect(screen.getByText("Research-Driven Approach")).toBeInTheDocument();
+    expect(screen.getByText("Africa-First Focus")).toBeInTheDocument();
   });
 
   it("renders the closing statement", () => {
     render(<WhyChooseUsAndClosingSection />);
 
     expect(
-      screen.getByText(/We're not just building portfolios/),
+      screen.getByText(/We're building the quantitative research, technology/),
     ).toBeInTheDocument();
   });
 });

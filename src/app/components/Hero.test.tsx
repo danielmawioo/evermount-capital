@@ -17,7 +17,7 @@ describe("Hero", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: "Building the Future of Investing",
+        name: "Building Africa's Quantitative Trading Infrastructure",
         level: 1,
       }),
     ).toBeInTheDocument();
@@ -32,10 +32,8 @@ describe("Hero", () => {
     ).toBeInTheDocument();
 
     expect(screen.getByText("Data-Driven Alpha")).toBeInTheDocument();
-    expect(
-      screen.getByText("$300K Assets Under Management"),
-    ).toBeInTheDocument();
-    expect(screen.getByText("82 Investor Partners")).toBeInTheDocument();
+    expect(screen.getByText("AI-Powered Research")).toBeInTheDocument();
+    expect(screen.getByText("Risk-Managed Trading")).toBeInTheDocument();
 
     expect(screen.getByTestId("live-market-ticker")).toBeInTheDocument();
   });

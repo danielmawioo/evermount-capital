@@ -125,7 +125,7 @@ export default function LoginPage() {
             name: "Investor Portal Login",
             url: "https://evermount.co/login",
             description:
-              "Login securely to the Evermount Capital investor portal and manage hedge fund investments.",
+              "Login securely to the Evermount Capital investor portal and manage your investments.",
             isPartOf: {
               "@type": "WebSite",
               name: "Evermount Capital",

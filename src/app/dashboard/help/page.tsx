@@ -70,7 +70,7 @@ export default function HelpCenterPage() {
       id: "6",
       question: "Is my money safe and secure?",
       answer:
-        "Yes, we use bank-level encryption and security measures. Funds are held in segregated accounts, and we're regulated by financial authorities. We also offer insurance coverage for eligible accounts.",
+        "We use bank-level encryption and security measures, and funds are held in segregated accounts. Evermount is not currently a licensed financial institution — see our Risk Disclosure and Terms pages for details.",
       category: "security",
     },
     {

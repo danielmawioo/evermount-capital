@@ -8,9 +8,7 @@ describe("ExtendedHomeSections", () => {
     render(<ExtendedHomeSections />);
 
     expect(
-      screen.getByText(
-        "Systematic Alpha Generation Through Quantitative Excellence",
-      ),
+      screen.getByText("Quantitative Trading Technology Built for Africa"),
     ).toBeInTheDocument();
     expect(
       screen.getByText("Proprietary Technology & Research Infrastructure"),
@@ -25,7 +23,7 @@ describe("ExtendedHomeSections", () => {
       screen.getByText("Institutional-Grade Infrastructure & Risk Controls"),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Performance Metrics & Track Record"),
+      screen.getByText("The Technology Behind Evermount"),
     ).toBeInTheDocument();
   });
 
@@ -33,7 +31,9 @@ describe("ExtendedHomeSections", () => {
     render(<ExtendedHomeSections />);
 
     expect(screen.getByText("Daniel Mawioo")).toBeInTheDocument();
-    expect(screen.getByText("CEO & Co-Founder")).toBeInTheDocument();
+    expect(
+      screen.getByText("CEO, Co-Founder & Low-Latency Systems Engineer"),
+    ).toBeInTheDocument();
     expect(screen.getByText("Evans Kipngetich")).toBeInTheDocument();
   });
 
@@ -48,10 +48,10 @@ describe("ExtendedHomeSections", () => {
     ).toHaveAttribute("href", "/register");
   });
 
-  it("renders performance metric stats", () => {
+  it("renders capability metric cards", () => {
     render(<ExtendedHomeSections />);
 
-    expect(screen.getByText("1.85+")).toBeInTheDocument();
-    expect(screen.getByText("Information Ratio")).toBeInTheDocument();
+    expect(screen.getByText("Quantitative")).toBeInTheDocument();
+    expect(screen.getByText("Research Engine")).toBeInTheDocument();
   });
 });

@@ -5,7 +5,7 @@ import { FaLinkedin } from "react-icons/fa";
 const FOUNDERS = [
   {
     name: "Daniel Mawioo",
-    role: "CEO & Co-Founder",
+    role: "CEO, Co-Founder & Low-Latency Systems Engineer",
     image: "/images/founder1.jpg",
     linkedin: "https://www.linkedin.com/in/danielmawioo/",
     bio: "Former quantitative researcher and portfolio manager with extensive experience in systematic trading strategies, factor investing, and risk management at leading hedge funds. Daniel brings deep expertise in quantitative finance and strategic leadership to Evermount Capital.",
@@ -23,6 +23,20 @@ const FOUNDERS = [
     image: "/images/founder3.jpg",
     linkedin: "#",
     bio: "PhD in Financial Engineering with deep expertise in stochastic modeling, statistical arbitrage, and portfolio optimization. Published researcher in quantitative finance. Tony leads our research team in developing proprietary trading strategies.",
+  },
+  {
+    name: "Bonface Kuria",
+    role: "Head of Security & Infrastructure",
+    image: "/images/founder4.jpg",
+    linkedin: "https://www.linkedin.com/in/bonface-kuria-4330b3154/",
+    bio: "Cybersecurity and network engineering specialist with a background in banking IT infrastructure. CCNP and CCSA certified, with deep expertise in network security, Linux systems, and DevOps. Bonface leads security and infrastructure for Evermount's trading systems.",
+  },
+  {
+    name: "John Esther",
+    role: "Senior AI Engineer",
+    image: "/images/founder5.jpg",
+    linkedin: "https://www.linkedin.com/in/john-esther/",
+    bio: "Senior AI engineer specializing in agentic AI systems, retrieval-augmented generation, and production-grade machine learning infrastructure across multi-cloud environments. John builds the AI systems powering Evermount's research and trading technology.",
   },
 ];
 

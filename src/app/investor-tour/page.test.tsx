@@ -18,7 +18,7 @@ describe("InvestorTourPage", () => {
       screen.getByRole("heading", { name: /investor journey roadmap/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /performance snapshot/i }),
+      screen.getByRole("heading", { name: /where we are today/i }),
     ).toBeInTheDocument();
   });
 

@@ -26,10 +26,12 @@ jest.mock("./components/Analytics", () => {
 describe("RootLayout", () => {
   it("exports metadata with the expected shape", () => {
     expect(metadata.title).toEqual({
-      default: "Evermount Capital | AI-Powered Hedge Fund Platform",
+      default: "Evermount Capital | Quantitative Trading Infrastructure for Africa",
       template: "%s | Evermount Capital",
     });
-    expect(metadata.description).toMatch(/AI-powered hedge fund platform/i);
+    expect(metadata.description).toMatch(
+      /quantitative trading and market-making/i,
+    );
     expect(metadata.alternates).toEqual({
       canonical: "https://www.evermount.co",
     });

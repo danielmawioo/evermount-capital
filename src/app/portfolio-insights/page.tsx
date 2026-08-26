@@ -81,10 +81,10 @@ export default function PortfolioInsightsPage() {
         className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24"
       >
         {[
-          { label: "Annualized Return", value: "18.5%" },
-          { label: "Volatility Index", value: "3.7%" },
-          { label: "Max Drawdown", value: "-5.2%" },
-          { label: "Sharpe Ratio", value: "1.98" },
+          { label: "Return Analysis", value: "Live" },
+          { label: "Volatility Tracking", value: "Live" },
+          { label: "Drawdown Monitoring", value: "Live" },
+          { label: "Benchmark Comparison", value: "Live" },
         ].map(({ label, value }, i) => (
           <motion.div
             key={i}
@@ -95,7 +95,7 @@ export default function PortfolioInsightsPage() {
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">
               {label}
             </p>
-            <p className="text-3xl font-bold text-[#00a76f]">{value}</p>
+            <p className="text-2xl font-bold text-[#00a76f]">{value}</p>
           </motion.div>
         ))}
       </motion.section>

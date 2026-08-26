@@ -7,17 +7,17 @@ describe("Home page", () => {
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: /Building the Future of Investing/i,
+        name: /Building Africa's Quantitative Trading Infrastructure/i,
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getAllByText(/quantitative investment management firm/i).length,
+      screen.getAllByText(/quantitative trading and market-making/i).length,
     ).toBeGreaterThan(0);
   });
 
   it("exports metadata with the expected title", () => {
     expect(metadata.title).toBe(
-      "Evermount Capital | AI-Powered Hedge Fund Platform",
+      "Evermount Capital | Quantitative Trading Infrastructure for Africa",
     );
   });
 });

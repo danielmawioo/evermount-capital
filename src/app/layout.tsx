@@ -10,22 +10,22 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
   title: {
-    default: "Evermount Capital | AI-Powered Hedge Fund Platform",
+    default: "Evermount Capital | Quantitative Trading Infrastructure for Africa",
     template: "%s | Evermount Capital",
   },
   description:
-    "Accelerate your investment growth with Evermount Capital's AI-powered hedge fund platform. Trusted by investors worldwide for high-performance quantitative trading, portfolio management, and risk-optimized strategies.",
+    "Evermount is building an Africa-focused quantitative trading and market-making technology company — combining quantitative research, AI and high-performance trading infrastructure.",
   keywords: [
-    "hedge fund",
-    "AI trading",
-    "quantitative investing",
-    "portfolio management",
-    "alternative investments",
+    "quantitative trading",
+    "market making",
+    "Africa fintech",
+    "algorithmic trading",
+    "AI trading infrastructure",
+    "electronic trading",
     "Evermount Capital",
-    "automated trading",
-    "risk management",
-    "investment platform",
-    "AI hedge fund",
+    "African financial markets",
+    "systematic trading",
+    "trading technology",
   ],
   authors: [{ name: "Evermount Capital" }],
   creator: "Evermount Capital",
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.evermount.co",
     siteName: "Evermount Capital",
-    title: "Evermount Capital | AI-Powered Hedge Fund Platform",
+    title: "Evermount Capital | Quantitative Trading Infrastructure for Africa",
     description:
-      "Accelerate your investment growth with AI-powered hedge fund strategies. Trusted by investors worldwide.",
+      "Building an Africa-focused quantitative trading and market-making technology company.",
     images: [
       {
         url: "https://www.evermount.co/og-image.png",
@@ -63,9 +63,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@evermountcapital",
     creator: "@evermountcapital",
-    title: "Evermount Capital | AI-Powered Hedge Fund Platform",
+    title: "Evermount Capital | Quantitative Trading Infrastructure for Africa",
     description:
-      "Accelerate your investment growth with AI-powered hedge fund strategies.",
+      "Building an Africa-focused quantitative trading and market-making technology company.",
     images: ["https://www.evermount.co/og-image.png"],
   },
   robots: {
@@ -154,13 +154,13 @@ export default function RootLayout({
               },
               image: "https://www.evermount.co/og-image.png",
               description:
-                "AI-powered hedge fund platform providing quantitative trading strategies, portfolio management, and risk-optimized investment solutions for global investors.",
+                "Africa-focused quantitative trading and market-making technology company, building AI-driven research, portfolio management, and trading infrastructure.",
               foundingDate: "2023",
               founder: [
                 {
                   "@type": "Person",
                   name: "Daniel Mawioo",
-                  jobTitle: "CEO & Co-Founder",
+                  jobTitle: "CEO, Co-Founder & Low-Latency Systems Engineer",
                 },
                 {
                   "@type": "Person",
@@ -195,18 +195,11 @@ export default function RootLayout({
                 "https://tiktok.com/@evermount",
                 "https://discord.gg/evermount",
               ],
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "4.8",
-                reviewCount: "127",
-                bestRating: "5",
-                worstRating: "1",
-              },
               offers: {
                 "@type": "Offer",
-                name: "Hedge Fund Investment Services",
+                name: "Quantitative Trading Technology",
                 description:
-                  "AI-powered quantitative trading and portfolio management",
+                  "AI-powered quantitative trading and portfolio management technology",
               },
             }),
           }}

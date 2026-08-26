@@ -21,12 +21,12 @@ describe("TechnologySection", () => {
 
     expect(
       screen.getByText(
-        "Machine learning models trained on decades of historical market data",
+        "Machine learning models trained on historical market data",
       ),
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        "High-frequency execution capabilities across global exchanges",
+        "Systematic, low-latency electronic trading infrastructure",
       ),
     ).toBeInTheDocument();
   });

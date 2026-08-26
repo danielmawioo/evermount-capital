@@ -9,7 +9,7 @@ describe("HomeSections", () => {
     render(<HomeSectionsWithImages />);
 
     expect(
-      screen.getByText("Our Numbers Speak For Themselves"),
+      screen.getByText("The Infrastructure Behind Evermount"),
     ).toBeInTheDocument();
     expect(screen.getByText("Key Highlights")).toBeInTheDocument();
     expect(
@@ -34,8 +34,8 @@ describe("HomeSections", () => {
   it("renders the key stats", () => {
     render(<HomeSectionsWithImages />);
 
-    expect(screen.getByText("82")).toBeInTheDocument();
-    expect(screen.getByText("Investor Partners")).toBeInTheDocument();
-    expect(screen.getByText("18.5%")).toBeInTheDocument();
+    expect(screen.getByText("Quantitative")).toBeInTheDocument();
+    expect(screen.getByText("Research & Modeling")).toBeInTheDocument();
+    expect(screen.getByText("AI-Powered")).toBeInTheDocument();
   });
 });

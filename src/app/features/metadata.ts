@@ -3,11 +3,11 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Platform Features | Evermount Capital",
   description:
-    "Explore the proprietary strategies and trading infrastructure that give Evermount its performance edge.",
+    "Explore the quantitative research and trading infrastructure Evermount is building for African financial markets.",
   openGraph: {
     title: "Platform Features | Evermount Capital",
     description:
-      "Discover the systems powering Evermount — from AI trading engines to real-time dashboards and compliance tools.",
+      "Discover the systems powering Evermount — from AI-driven trading research engines to real-time dashboards.",
     url: "https://evermount.co/features",
     siteName: "Evermount Capital",
     images: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Platform Features | Evermount Capital",
     description:
-      "Explore the AI and quant tech powering Evermount’s hedge fund strategies.",
+      "Explore the AI and quant tech powering Evermount's trading strategies.",
     images: ["/og-image.png"],
   },
 };

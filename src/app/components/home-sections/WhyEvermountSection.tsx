@@ -7,7 +7,7 @@ import { CheckCircleIcon } from "@heroicons/react/24/outline";
 const POINTS = [
   "Proprietary quantitative models with machine learning and statistical arbitrage",
   "Institutional-grade risk management and portfolio optimization",
-  "Global market access across multiple asset classes",
+  "Building toward continent-wide market access across African financial markets",
 ];
 
 export default function WhyEvermountSection() {

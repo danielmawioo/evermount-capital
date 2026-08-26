@@ -5,7 +5,9 @@ describe("AboutPage", () => {
   it("renders without crashing and shows the main heading", () => {
     render(<AboutPage />);
     expect(
-      screen.getByRole("heading", { name: /a new breed of hedge fund/i }),
+      screen.getByRole("heading", {
+        name: /an africa-focused quantitative trading company/i,
+      }),
     ).toBeInTheDocument();
   });
 

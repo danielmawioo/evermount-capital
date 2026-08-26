@@ -6,12 +6,12 @@ describe("StatsSection", () => {
     render(<StatsSection />);
 
     expect(
-      screen.getByText("Our Numbers Speak For Themselves"),
+      screen.getByText("The Infrastructure Behind Evermount"),
     ).toBeInTheDocument();
 
-    expect(screen.getByText("82")).toBeInTheDocument();
-    expect(screen.getByText("Investor Partners")).toBeInTheDocument();
-    expect(screen.getByText("40+")).toBeInTheDocument();
-    expect(screen.getByText("Global Markets")).toBeInTheDocument();
+    expect(screen.getByText("Quantitative")).toBeInTheDocument();
+    expect(screen.getByText("Research & Modeling")).toBeInTheDocument();
+    expect(screen.getByText("Institutional-Grade")).toBeInTheDocument();
+    expect(screen.getByText("Risk Management")).toBeInTheDocument();
   });
 });

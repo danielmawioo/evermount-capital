@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import SEOHead from "./SEOHead";
 
 describe("SEOHead", () => {
-  it("injects review and breadcrumb JSON-LD structured data scripts", () => {
+  it("injects breadcrumb JSON-LD structured data script", () => {
     render(<SEOHead />);
 
     const reviewScript = document.body.querySelector("#review-structured-data");
@@ -10,11 +10,7 @@ describe("SEOHead", () => {
       "#breadcrumb-structured-data",
     );
 
-    expect(reviewScript).toBeInTheDocument();
-    expect(reviewScript?.getAttribute("type")).toBe("application/ld+json");
-    const reviewData = JSON.parse(reviewScript?.innerHTML ?? "{}");
-    expect(reviewData["@type"]).toBe("Review");
-    expect(reviewData.itemReviewed.name).toBe("Evermount Capital");
+    expect(reviewScript).not.toBeInTheDocument();
 
     expect(breadcrumbScript).toBeInTheDocument();
     const breadcrumbData = JSON.parse(breadcrumbScript?.innerHTML ?? "{}");

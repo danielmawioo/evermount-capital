@@ -24,12 +24,12 @@ describe("StoryAndMissionSection", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        /To unlock elite investing opportunities for all growth-focused/,
+        /To build the quantitative research, AI and trading infrastructure/,
       ),
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        /To be Africa's most trusted AI-powered alternative investment/,
+        /To become one of Africa's leading quantitative trading/,
       ),
     ).toBeInTheDocument();
   });

@@ -46,7 +46,7 @@ export default function FeaturesPage() {
             name: "Platform Features",
             url: "https://evermount.co/features",
             description:
-              "Explore the proprietary strategies and infrastructure powering Evermount Capital's hedge fund performance.",
+              "Explore the proprietary quantitative strategies and trading infrastructure Evermount is building for African financial markets.",
             isPartOf: {
               "@type": "WebSite",
               name: "Evermount Capital",
@@ -85,7 +85,7 @@ export default function FeaturesPage() {
           {
             icon: CpuChipIcon,
             title: "Quantitative Trading Models",
-            desc: "Systematic, data-driven execution powered by proprietary algorithms. Trained on decades of financial data.",
+            desc: "Systematic, data-driven execution powered by proprietary algorithms trained on historical market data.",
           },
           {
             icon: ChartBarIcon,
@@ -94,8 +94,8 @@ export default function FeaturesPage() {
           },
           {
             icon: CheckCircleIcon,
-            title: "Compliance Intelligence",
-            desc: "Built for security, audited regularly, and aligned with global financial regulations.",
+            title: "Security & Risk Controls",
+            desc: "Built with strong security practices and a rigorous internal risk and compliance framework.",
           },
         ].map(({ icon: Icon, title, desc }, i) => (
           <motion.div
@@ -129,8 +129,9 @@ export default function FeaturesPage() {
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-base">
             Our proprietary quantitative models analyze market patterns,
-            volatility regimes, and cross-asset relationships to generate alpha
-            through systematic execution across global markets.
+            volatility regimes, and cross-asset relationships to identify
+            systematic trading opportunities across African financial
+            markets.
           </p>
           <motion.ul
             variants={containerVariants}
@@ -140,7 +141,7 @@ export default function FeaturesPage() {
             className="space-y-3 text-gray-800 dark:text-gray-200 text-sm"
           >
             {[
-              "Statistical pattern recognition based on decades of market data",
+              "Statistical pattern recognition based on historical market data",
               "Dynamic volatility regime detection and portfolio rebalancing",
               "Systematic strategy optimization with real-time risk monitoring",
             ].map((item, i) => (

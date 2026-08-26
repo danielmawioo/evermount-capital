@@ -7,9 +7,7 @@ describe("CompanyStorySection", () => {
 
     expect(screen.getByText("About Evermount")).toBeInTheDocument();
     expect(
-      screen.getByText(
-        "Systematic Alpha Generation Through Quantitative Excellence",
-      ),
+      screen.getByText("Quantitative Trading Technology Built for Africa"),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /Learn More About Us/ }),

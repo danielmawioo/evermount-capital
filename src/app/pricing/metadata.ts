@@ -3,13 +3,13 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Pricing | Evermount Capital - Investment Plans & Fees",
   description:
-    "Transparent pricing tiers with flexible capital entry, performance expectations, and advisory levels. Choose from $500 to $50,000+ investment plans with AI-driven strategies.",
+    "Transparent pricing tiers with flexible capital entry, fee structures, and advisory levels. Choose from $10,000 to $1,000,000+ investment plans with AI-driven strategies.",
   keywords: [
-    "hedge fund pricing",
+    "quantitative trading pricing",
     "investment fees",
     "Evermount Capital pricing",
     "investment plans",
-    "hedge fund costs",
+    "investment plan costs",
   ],
   openGraph: {
     title: "Pricing | Evermount Capital - Investment Plans & Fees",

@@ -23,13 +23,8 @@ export default function PlatformPage() {
       price: "0",
       priceCurrency: "USD",
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      reviewCount: "127",
-    },
     description:
-      "AI-powered hedge fund platform providing quantitative trading strategies, portfolio management, and real-time analytics.",
+      "Quantitative trading and market-making technology platform for African financial markets, providing systematic strategies, portfolio management, and real-time analytics.",
   };
 
   const platformFeatures = [
@@ -53,14 +48,15 @@ export default function PlatformPage() {
     },
     {
       icon: BoltIcon,
-      title: "High-Frequency Trading",
-      description: "Sub-millisecond execution speeds for optimal trade timing.",
+      title: "Electronic Trading Infrastructure",
+      description:
+        "Systematic, low-latency execution built for reliability and speed.",
     },
     {
       icon: GlobeAltIcon,
-      title: "Global Market Access",
+      title: "African Market Focus",
       description:
-        "Trade across forex, equities, commodities, and crypto markets worldwide.",
+        "Purpose-built for African financial markets, with a roadmap toward broader market connectivity.",
     },
     {
       icon: LockClosedIcon,
@@ -146,10 +142,9 @@ export default function PlatformPage() {
                 The Platform
               </h1>
               <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                Evermount delivers consistent risk-adjusted returns through
-                systematic quantitative strategies, proprietary execution
-                algorithms, and institutional-grade investor dashboards. Serving
-                global investors with institutional-quality infrastructure.
+                Evermount is building systematic quantitative strategies,
+                proprietary execution technology, and institutional-grade
+                infrastructure — purpose-built for African financial markets.
               </p>
             </motion.div>
 

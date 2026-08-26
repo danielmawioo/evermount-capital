@@ -5,10 +5,10 @@ describe("FinalCtaSection", () => {
   it("renders the headline and subtitle copy", () => {
     render(<FinalCtaSection />);
 
-    expect(screen.getByText("your capital")).toBeInTheDocument();
+    expect(screen.getByText("African markets")).toBeInTheDocument();
     expect(screen.getByText("starts here.")).toBeInTheDocument();
     expect(
-      screen.getByText(/Evermount equips you with the insights/),
+      screen.getByText(/Evermount is building the quantitative research/),
     ).toBeInTheDocument();
   });
 

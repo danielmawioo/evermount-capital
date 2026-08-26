@@ -6,20 +6,20 @@ describe("MetricsAndCtaSection", () => {
     render(<MetricsAndCtaSection />);
 
     expect(
-      screen.getByText("Performance Metrics & Track Record"),
+      screen.getByText("The Technology Behind Evermount"),
     ).toBeInTheDocument();
 
-    expect(screen.getByText("1.85+")).toBeInTheDocument();
-    expect(screen.getByText("Information Ratio")).toBeInTheDocument();
-    expect(screen.getByText("15%+")).toBeInTheDocument();
-    expect(screen.getByText("Annualized Alpha")).toBeInTheDocument();
+    expect(screen.getByText("Quantitative")).toBeInTheDocument();
+    expect(screen.getByText("Research Engine")).toBeInTheDocument();
+    expect(screen.getByText("Automated")).toBeInTheDocument();
+    expect(screen.getByText("Execution Infrastructure")).toBeInTheDocument();
   });
 
   it("renders the call-to-action heading, copy, and buttons", () => {
     render(<MetricsAndCtaSection />);
 
     expect(
-      screen.getByText("Partner with a Systematic Investment Leader"),
+      screen.getByText("Building the Future of African Financial Markets"),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: "Schedule a Demo" }),

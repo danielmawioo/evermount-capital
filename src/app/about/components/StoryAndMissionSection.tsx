@@ -16,27 +16,26 @@ export default function StoryAndMissionSection() {
         </h2>
         <div className="space-y-4 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
           <p>
-            Founded in 2023, Evermount Capital emerged from a vision to
-            democratize access to sophisticated quantitative investment
-            strategies. Our founders, combining decades of experience in
-            quantitative finance, data science, and technology, recognized that
-            institutional-grade investment management could be made accessible
-            to a broader range of investors.
+            Founded in 2023, Evermount Capital emerged from a vision to build
+            institutional-grade quantitative trading and market-making
+            technology purpose-built for African financial markets. Our
+            founders combine experience in quantitative finance, data
+            science, and technology.
           </p>
           <p>
-            We began with a simple yet powerful premise: markets contain
-            systematic inefficiencies that can be identified and exploited
-            through rigorous quantitative analysis. By leveraging cutting-edge
-            machine learning, statistical modeling, and high-performance
-            computing, we&apos;ve built a platform that processes terabytes of
-            market data daily to generate alpha opportunities.
+            We started with a simple premise: African financial markets have
+            enormous potential but remain fragmented, less electronically
+            sophisticated, and less liquid than major global markets. By
+            leveraging machine learning, statistical modeling, and
+            high-performance computing, we&apos;re building the research and
+            trading infrastructure needed to help change that.
           </p>
           <p>
-            Today, Evermount Capital manages assets across multiple asset
-            classes, serving investors globally with systematic strategies that
-            adapt to changing market conditions. Our commitment to transparency,
-            risk management, and technological innovation continues to drive our
-            growth and success.
+            Today, we&apos;re building our systematic trading strategies and
+            technology platform. Our long-term ambition is to become a
+            leading quantitative trading and market-making firm for African
+            markets, with the potential to eventually connect those markets
+            to global trading infrastructure.
           </p>
         </div>
       </motion.section>
@@ -55,15 +54,14 @@ export default function StoryAndMissionSection() {
             Our Mission
           </h2>
           <p className="leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
-            To unlock elite investing opportunities for all growth-focused
-            investors, combining algorithmic performance with risk-managed
-            systems across emerging and developed markets.
+            To build the quantitative research, AI and trading infrastructure
+            required to participate in and improve liquidity across African
+            financial markets.
           </p>
           <p className="leading-relaxed text-gray-600 dark:text-gray-400 text-sm">
-            We believe that sophisticated investment strategies should not be
-            limited to institutional investors. Through technology and
-            systematic approaches, we make institutional-grade quantitative
-            investing accessible to all.
+            We believe institutional-grade trading technology shouldn&apos;t
+            be limited to major global markets. Through systematic research
+            and engineering, we&apos;re building that technology for Africa.
           </p>
         </motion.div>
         <motion.div
@@ -76,15 +74,14 @@ export default function StoryAndMissionSection() {
         >
           <h2 className="text-2xl font-bold text-[#00a76f] mb-3">Our Vision</h2>
           <p className="leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
-            To be Africa&apos;s most trusted AI-powered alternative investment
-            ecosystem — enabling secure, scalable, and borderless capital
-            growth.
+            To become one of Africa&apos;s leading quantitative trading and
+            market-making firms — helping build deeper, more efficient
+            African financial markets.
           </p>
           <p className="leading-relaxed text-gray-600 dark:text-gray-400 text-sm">
-            We envision a future where quantitative excellence and systematic
-            investment strategies are the standard, empowering investors
-            worldwide to achieve their financial goals through data-driven
-            decision-making.
+            We envision a future where systematic, technology-driven trading
+            is standard infrastructure for African markets, with the
+            long-term potential to connect them to global capital.
           </p>
         </motion.div>
       </section>

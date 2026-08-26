@@ -5,15 +5,15 @@ describe("PerformanceMetricsSection", () => {
   it("renders the section heading and all metric cards", () => {
     render(<PerformanceMetricsSection />);
 
-    expect(screen.getByText("Performance Snapshot")).toBeInTheDocument();
+    expect(screen.getByText("Where We Are Today")).toBeInTheDocument();
 
-    expect(screen.getByText("18.5%")).toBeInTheDocument();
-    expect(screen.getByText("Annualized Returns")).toBeInTheDocument();
+    expect(screen.getByText("2023")).toBeInTheDocument();
+    expect(screen.getByText("Year Founded")).toBeInTheDocument();
 
-    expect(screen.getByText("$300K")).toBeInTheDocument();
-    expect(screen.getByText("Assets Under Management")).toBeInTheDocument();
+    expect(screen.getByText("Private Beta")).toBeInTheDocument();
+    expect(screen.getByText("Current Stage")).toBeInTheDocument();
 
-    expect(screen.getByText("82")).toBeInTheDocument();
-    expect(screen.getByText("Investor Partners")).toBeInTheDocument();
+    expect(screen.getByText("Systematic + AI")).toBeInTheDocument();
+    expect(screen.getByText("Investment Approach")).toBeInTheDocument();
   });
 });

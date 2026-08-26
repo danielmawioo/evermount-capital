@@ -89,7 +89,7 @@ Common issues and resolutions:
 2. Deposit pending → Bank transfers take 1-3 business days. Card/crypto are usually instant. Check status at /dashboard/wallets and /dashboard/transactions.
 3. How to withdraw → Go to /dashboard/withdraw, select method (M-Pesa at /dashboard/withdraw/mpesa, bank, or crypto). M-Pesa withdrawals are usually instant; bank takes 1-5 business days.
 4. Withdrawal delayed → Verify KYC is complete at /dashboard/kyc. Large withdrawals may require additional review.
-5. Fees → 2% annual management fee, 20% performance fee above high-water mark. No deposit/withdrawal fees for most methods. Details at /pricing.
+5. Fees → Management fee ranges 1.0%-2.5% annually depending on tier, plus a 20% performance fee above high-water mark. No deposit/withdrawal fees for most methods. Details at /pricing.
 6. Transaction not showing → Check /dashboard/transactions and /dashboard/wallets/history. Allow up to 24h for processing.
 7. Card payment failed → Verify card details, sufficient funds, and 3D Secure. Try bank transfer as alternative.
 8. Large transactions ($100K+) → Contact payments@evermount.co for wire transfer instructions.
@@ -152,9 +152,9 @@ Common issues and resolutions:
 8. Detailed strategy review → Book a demo at https://www.evermount.co/book-demo for personalized consultation.
 
 Resolution approach:
-- Use accurate metrics: 1.85+ Information Ratio, 0.35 max drawdown, 15%+ annualized alpha.
+- Do not state specific performance figures (returns, Sharpe/Information Ratio, drawdown, alpha) — we do not publish unverified numbers publicly.
 - Always include risk disclaimers when discussing performance.
-- Direct complex strategy questions to book-demo or support@evermount.co.`,
+- Direct complex strategy or performance questions to book-demo or support@evermount.co.`,
   },
   {
     id: "account",
