@@ -6,7 +6,7 @@ describe("ApproachAndValuesSection", () => {
     render(<ApproachAndValuesSection />);
 
     expect(
-      screen.getByRole("heading", { name: "Our Investment Approach" }),
+      screen.getByRole("heading", { name: "Our Technology Approach" }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", { name: "Our Core Values" }),

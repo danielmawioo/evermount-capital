@@ -39,17 +39,25 @@ const LEADERSHIP_TEAM = [
 ];
 
 const GLOBAL_REACH_STATS = [
-  { region: "Today", markets: "African Markets", coverage: "Research & Infrastructure" },
   {
-    region: "Next",
-    markets: "Systematic Trading",
-    coverage: "Selected African Markets",
+    region: "NOW",
+    markets: "AI + Quant Research",
+    coverage: "Market intelligence, quantitative research and financial technology infrastructure.",
   },
-  { region: "Vision", markets: "Market Making", coverage: "Continent-Wide" },
   {
-    region: "Long-Term",
-    markets: "Global Connectivity",
-    coverage: "Africa ↔ Global Markets",
+    region: "NEXT",
+    markets: "Systematic Trading",
+    coverage: "Electronic trading systems and systematic execution across selected African markets.",
+  },
+  {
+    region: "THEN",
+    markets: "Market Infrastructure",
+    coverage: "Market-making technology, liquidity infrastructure and broader exchange connectivity.",
+  },
+  {
+    region: "VISION",
+    markets: "Africa ↔ Global Markets",
+    coverage: "Connecting African financial markets with global financial infrastructure.",
   },
 ];
 
@@ -72,7 +80,7 @@ export default function TeamAndReachSection() {
             <p className="text-xl text-gray-600 dark:text-gray-400">
               Experienced professionals combining expertise in quantitative
               finance, computer science, and engineering to drive innovation in
-              systematic investing.
+              systematic trading technology.
             </p>
           </motion.div>
 
@@ -118,7 +126,10 @@ export default function TeamAndReachSection() {
       </section>
 
       {/* === GLOBAL REACH === */}
-      <section className="py-16 px-6 bg-gradient-to-br from-[#00a76f]/10 via-white to-emerald-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800">
+      <section
+        id="markets"
+        className="py-16 px-6 bg-gradient-to-br from-[#00a76f]/10 via-white to-emerald-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800"
+      >
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -128,13 +139,12 @@ export default function TeamAndReachSection() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Starting With African Markets
+              Starting With Africa. Building Global Financial Infrastructure.
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              We&apos;re starting with African financial markets — building
-              toward a continent-wide electronic trading network, with the
-              long-term ambition of connecting African markets to global
-              trading infrastructure.
+              A technology roadmap from AI-assisted research today toward
+              systematic execution, market infrastructure, and global market
+              connectivity.
             </p>
           </motion.div>
 

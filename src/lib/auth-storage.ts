@@ -4,7 +4,9 @@ const TOKEN_KEY = "token";
 const REFRESH_TOKEN_KEY = "refreshToken";
 const USER_KEY = "user";
 const AUTH_COOKIE = "evermount_token";
-const ACCESS_TOKEN_MAX_AGE = 15 * 60; // 15 minutes, matches backend JWT
+// Fallback only, used if the JWT's own exp claim can't be read — keep in sync
+// with the backend's JWT_EXPIRES_IN (evermount-backend/.env), default 3600s.
+const FALLBACK_TOKEN_MAX_AGE = 60 * 60;
 
 export function getAccessToken(): string | null {
   if (typeof window === "undefined") return null;
@@ -19,13 +21,29 @@ export function getRefreshToken(): string | null {
   );
 }
 
+function getTokenMaxAge(token: string): number {
+  try {
+    const payload = token.split(".")[1];
+    const decoded = JSON.parse(
+      atob(payload.replace(/-/g, "+").replace(/_/g, "/")),
+    ) as { exp?: number };
+    if (typeof decoded.exp === "number") {
+      const secondsRemaining = decoded.exp - Math.floor(Date.now() / 1000);
+      if (secondsRemaining > 0) return secondsRemaining;
+    }
+  } catch {
+    // fall through to fallback below
+  }
+  return FALLBACK_TOKEN_MAX_AGE;
+}
+
 function setAuthCookie(token: string) {
   if (typeof document === "undefined") return;
   const secure =
     typeof window !== "undefined" && window.location.protocol === "https:"
       ? "; Secure"
       : "";
-  document.cookie = `${AUTH_COOKIE}=${encodeURIComponent(token)}; path=/; max-age=${ACCESS_TOKEN_MAX_AGE}; SameSite=Lax${secure}`;
+  document.cookie = `${AUTH_COOKIE}=${encodeURIComponent(token)}; path=/; max-age=${getTokenMaxAge(token)}; SameSite=Lax${secure}`;
 }
 
 function clearAuthCookie() {

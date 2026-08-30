@@ -17,46 +17,79 @@ const hoverClass =
 const headingClassName =
   "text-gray-900 dark:text-white font-semibold mb-5 text-base";
 
-export const marketsColumn: FooterColumnData = {
-  title: "Markets",
-  // Note: pre-existing markup has a redundant "dark:text-gray-900" here
-  // (overridden by the following dark:text-white); preserved as-is.
-  headingClassName:
-    "text-gray-900 dark:text-gray-900 dark:text-white font-semibold mb-5 text-base",
-  links: [
-    { label: "Evermount CFDs", href: "#", className: dupHoverClass },
-    { label: "Future Markets", href: "#", className: dupHoverClass },
-  ],
-};
-
-export const educationColumn: FooterColumnData = {
-  title: "Education",
+export const platformColumn: FooterColumnData = {
+  title: "Platform",
   headingClassName,
   links: [
     {
-      label: "Investor Tour",
-      href: "/investor-tour",
+      label: "AI Intelligence",
+      href: "/#evermount-ai",
       className: dupHoverClass,
     },
-    { label: "AI Trading Guide", href: "#", className: dupHoverClass },
-    { label: "Growth Dashboard", href: "#", className: dupHoverClass },
-    { label: "Insights Blog", href: "#", className: dupHoverClass },
+    {
+      label: "Quant Research",
+      href: "/#quant-research",
+      className: dupHoverClass,
+    },
+    {
+      label: "Market Data",
+      href: "/#platform-systems",
+      className: dupHoverClass,
+    },
+    {
+      label: "Risk Intelligence",
+      href: "/#quant-research",
+      className: dupHoverClass,
+    },
+    {
+      label: "Execution Infrastructure",
+      href: "/platform",
+      className: dupHoverClass,
+    },
   ],
 };
 
-export const importantLinksColumn: FooterColumnData = {
-  title: "Important Links",
+export const marketsColumn: FooterColumnData = {
+  title: "Markets",
+  headingClassName:
+    "text-gray-900 dark:text-gray-900 dark:text-white font-semibold mb-5 text-base",
+  links: [
+    { label: "African Markets", href: "/#markets", className: dupHoverClass },
+    { label: "Future Markets", href: "/#markets", className: dupHoverClass },
+    {
+      label: "Market Infrastructure",
+      href: "/#markets",
+      className: dupHoverClass,
+    },
+  ],
+};
+
+export const companyColumn: FooterColumnData = {
+  title: "Company",
   headingClassName,
   links: [
-    { label: "FAQs", href: "#", className: dupHoverClass },
-    { label: "Partnerships", href: "#", className: dupHoverClass },
-    { label: "Investor Events", href: "#", className: dupHoverClass },
-    { label: "Risk Disclosure", href: "#", className: dupHoverClass },
+    { label: "About", href: "/about", className: dupHoverClass },
+    { label: "Technology", href: "/#technology", className: dupHoverClass },
+    { label: "Research", href: "/#quant-research", className: dupHoverClass },
+    { label: "Careers", href: "/careers", className: dupHoverClass },
+    { label: "Partnerships", href: "/book-demo", className: dupHoverClass },
+    { label: "Contact", href: "/book-demo", className: dupHoverClass },
+  ],
+};
+
+export const resourcesColumn: FooterColumnData = {
+  title: "Resources",
+  headingClassName,
+  links: [
+    { label: "Insights", href: "/investor-tour", className: dupHoverClass },
+    { label: "Research", href: "/platform", className: dupHoverClass },
+    { label: "AI Trading Guide", href: "/investor-tour", className: dupHoverClass },
+    { label: "Documentation", href: "/platform", className: dupHoverClass },
   ],
 };
 
 export const legalComplianceColumn: FooterColumnData = {
-  title: "Legal & Compliance",
+  title: "Legal",
   headingClassName,
   links: [
     { label: "Terms of Service", href: "/terms", className: dupHoverClass },
@@ -88,15 +121,5 @@ export const legalComplianceColumn: FooterColumnData = {
       href: "/best-execution",
       className: hoverClass,
     },
-  ],
-};
-
-export const communityColumn: FooterColumnData = {
-  title: "Community",
-  headingClassName,
-  links: [
-    { label: "Local Communities", href: "#", className: dupHoverClass },
-    { label: "Join Discord", href: "#", className: dupHoverClass },
-    { label: "Join X", href: "#", className: dupHoverClass },
   ],
 };

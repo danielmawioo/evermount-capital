@@ -6,6 +6,8 @@ import {
   BookOpenIcon,
   CpuChipIcon,
   PresentationChartLineIcon,
+  GlobeAltIcon,
+  BoltIcon,
 } from "@heroicons/react/24/outline";
 
 export interface NavSubItem {
@@ -23,71 +25,87 @@ export interface NavItem {
 
 export const navItems: NavItem[] = [
   {
-    label: "Strategies",
-    href: "/features",
+    label: "Platform",
+    href: "/platform",
     submenu: [
       {
-        label: "Quantitative Trading",
-        description: "AI-powered algorithmic strategies",
-        href: "/features",
+        label: "AI Intelligence",
+        description: "AI-native market and research intelligence",
+        href: "/#evermount-ai",
         icon: CpuChipIcon,
       },
       {
-        label: "Risk Management",
-        description: "Real-time portfolio risk analytics",
-        href: "/portfolio-insights",
+        label: "Quant Research",
+        description: "Strategy discovery, simulation and validation",
+        href: "/#quant-research",
+        icon: PresentationChartLineIcon,
+      },
+      {
+        label: "Market Data",
+        description: "Research-ready financial data infrastructure",
+        href: "/#platform-systems",
+        icon: ChartBarIcon,
+      },
+      {
+        label: "Risk Intelligence",
+        description: "Exposure, liquidity and regime monitoring",
+        href: "/#quant-research",
         icon: ShieldCheckIcon,
       },
       {
-        label: "Portfolio Analytics",
-        description: "Advanced performance insights",
-        href: "/portfolio-insights",
-        icon: PresentationChartLineIcon,
+        label: "Execution Infrastructure",
+        description: "Systematic, controlled trading systems",
+        href: "/platform",
+        icon: BoltIcon,
       },
     ],
   },
   {
-    label: "Performance",
-    href: "/portfolio-insights",
+    label: "Markets",
+    href: "/#markets",
   },
   {
-    label: "Institutional",
-    href: "/pricing",
+    label: "Technology",
+    href: "/#technology",
   },
   {
-    label: "Investors",
+    label: "About",
     href: "/about",
     submenu: [
       {
         label: "Our Story",
-        description: "Learn about our mission and team",
+        description: "Mission, team and long-term vision",
         href: "/about",
         icon: BuildingOfficeIcon,
       },
       {
         label: "Careers",
-        description: "Join our quantitative team",
+        description: "Join the research and engineering team",
         href: "/careers",
         icon: BuildingOfficeIcon,
       },
     ],
   },
   {
-    label: "Resources",
+    label: "Insights",
     href: "/investor-tour",
     submenu: [
       {
-        label: "Investor Tour",
-        description: "Explore our platform",
+        label: "Platform Tour",
+        description: "Explore how Evermount technology works",
         href: "/investor-tour",
         icon: BookOpenIcon,
       },
       {
-        label: "Platform",
-        description: "Technology and infrastructure",
-        href: "/platform",
-        icon: ChartBarIcon,
+        label: "African Markets",
+        description: "The intelligence layer for African markets",
+        href: "/#markets",
+        icon: GlobeAltIcon,
       },
     ],
+  },
+  {
+    label: "Capital",
+    href: "/capital",
   },
 ];

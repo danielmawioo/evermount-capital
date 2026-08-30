@@ -10,22 +10,23 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
   title: {
-    default: "Evermount Capital | Quantitative Trading Infrastructure for Africa",
-    template: "%s | Evermount Capital",
+    default:
+      "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
+    template: "%s | Evermount",
   },
   description:
-    "Evermount is building an Africa-focused quantitative trading and market-making technology company — combining quantitative research, AI and high-performance trading infrastructure.",
+    "Evermount builds AI-powered financial intelligence, quantitative research, risk and trading infrastructure for Africa's financial markets.",
   keywords: [
-    "quantitative trading",
-    "market making",
-    "Africa fintech",
-    "algorithmic trading",
+    "AI financial infrastructure Africa",
+    "quantitative trading Africa",
     "AI trading infrastructure",
-    "electronic trading",
-    "Evermount Capital",
     "African financial markets",
-    "systematic trading",
-    "trading technology",
+    "quantitative research Africa",
+    "financial AI Africa",
+    "algorithmic trading infrastructure",
+    "African market data",
+    "systematic trading Africa",
+    "financial intelligence platform",
   ],
   authors: [{ name: "Evermount Capital" }],
   creator: "Evermount Capital",
@@ -46,9 +47,10 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.evermount.co",
     siteName: "Evermount Capital",
-    title: "Evermount Capital | Quantitative Trading Infrastructure for Africa",
+    title:
+      "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
     description:
-      "Building an Africa-focused quantitative trading and market-making technology company.",
+      "Evermount builds AI-powered financial intelligence, quantitative research, risk and trading infrastructure for Africa's financial markets.",
     images: [
       {
         url: "https://www.evermount.co/og-image.png",
@@ -63,9 +65,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@evermountcapital",
     creator: "@evermountcapital",
-    title: "Evermount Capital | Quantitative Trading Infrastructure for Africa",
+    title:
+      "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
     description:
-      "Building an Africa-focused quantitative trading and market-making technology company.",
+      "Evermount builds AI-powered financial intelligence, quantitative research, risk and trading infrastructure for Africa's financial markets.",
     images: ["https://www.evermount.co/og-image.png"],
   },
   robots: {
@@ -141,10 +144,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "FinancialService",
+              "@type": "Organization",
               "@id": "https://www.evermount.co/#organization",
-              name: "Evermount Capital",
-              alternateName: "Evermount",
+              name: "Evermount",
+              alternateName: "Evermount Capital",
               url: "https://www.evermount.co",
               logo: {
                 "@type": "ImageObject",
@@ -154,7 +157,7 @@ export default function RootLayout({
               },
               image: "https://www.evermount.co/og-image.png",
               description:
-                "Africa-focused quantitative trading and market-making technology company, building AI-driven research, portfolio management, and trading infrastructure.",
+                "The AI financial intelligence and trading infrastructure company for Africa.",
               foundingDate: "2023",
               founder: [
                 {
@@ -197,9 +200,9 @@ export default function RootLayout({
               ],
               offers: {
                 "@type": "Offer",
-                name: "Quantitative Trading Technology",
+                name: "AI Financial Intelligence & Trading Infrastructure",
                 description:
-                  "AI-powered quantitative trading and portfolio management technology",
+                  "AI-powered financial intelligence, quantitative research, risk and trading infrastructure",
               },
             }),
           }}

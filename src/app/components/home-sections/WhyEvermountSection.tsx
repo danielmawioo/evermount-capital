@@ -5,9 +5,14 @@ import { motion } from "framer-motion";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 
 const POINTS = [
-  "Proprietary quantitative models with machine learning and statistical arbitrage",
-  "Institutional-grade risk management and portfolio optimization",
-  "Building toward continent-wide market access across African financial markets",
+  "AI-powered market intelligence",
+  "Quantitative strategy research",
+  "Automated backtesting and simulation",
+  "Portfolio optimization",
+  "Real-time risk intelligence",
+  "Systematic execution",
+  "Market-making infrastructure",
+  "African market connectivity",
 ];
 
 export default function WhyEvermountSection() {
@@ -35,7 +40,7 @@ export default function WhyEvermountSection() {
         >
           <Image
             src="/images/section3.png"
-            alt="Why Evermount"
+            alt="Evermount intelligence to execution"
             width={600}
             height={400}
             className="rounded-xl shadow-xl max-w-full h-auto"
@@ -58,18 +63,24 @@ export default function WhyEvermountSection() {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="md:w-1/2 space-y-8"
+        className="md:w-1/2 space-y-6"
       >
-        <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
-          Systematic Investment Excellence
+        <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+          From Financial Intelligence to Execution
         </h2>
+        <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+          Evermount combines artificial intelligence, quantitative research and
+          trading infrastructure to create intelligent systems capable of
+          continuously analyzing markets, discovering opportunities, managing
+          risk and executing systematic strategies.
+        </p>
         {POINTS.map((text, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
+            transition={{ duration: 0.5, delay: i * 0.05 }}
             className="flex items-start gap-4"
           >
             <CheckCircleIcon className="w-6 h-6 text-[#00a76f] mt-1 flex-shrink-0" />

@@ -6,7 +6,7 @@ describe("AboutPage", () => {
     render(<AboutPage />);
     expect(
       screen.getByRole("heading", {
-        name: /an africa-focused quantitative trading company/i,
+        name: /Evermount — The AI Financial Intelligence & Trading Infrastructure Company for Africa/i,
       }),
     ).toBeInTheDocument();
   });

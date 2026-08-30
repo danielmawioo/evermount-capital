@@ -5,20 +5,20 @@ import { motion } from "framer-motion";
 
 const STEPS = [
   {
-    title: "Step 1 – Investor Onboarding",
-    desc: "KYC verification, risk profiling, and investment mandate alignment.",
+    title: "01 — Understand",
+    desc: "Our systems ingest and analyze market, macroeconomic, fundamental and alternative data.",
   },
   {
-    title: "Step 2 – Portfolio Allocation",
-    desc: "Systematic allocation across quantitative strategies based on risk-return objectives.",
+    title: "02 — Discover",
+    desc: "AI and quantitative research systems identify patterns, opportunities and potential strategies.",
   },
   {
-    title: "Step 3 – Systematic Execution",
-    desc: "Proprietary algorithms execute trades across global markets with precision.",
+    title: "03 — Manage Risk",
+    desc: "Institutional-grade risk systems evaluate exposure, liquidity, volatility, correlation and downside scenarios.",
   },
   {
-    title: "Step 4 – Performance Monitoring",
-    desc: "Real-time portfolio analytics and quarterly performance attribution reports.",
+    title: "04 — Execute",
+    desc: "Validated strategies move through systematic execution infrastructure with defined controls and monitoring.",
   },
 ];
 
@@ -32,7 +32,7 @@ export default function InvestmentTimelineSection() {
         transition={{ duration: 0.6 }}
         className="text-4xl lg:text-5xl font-bold text-center mb-12"
       >
-        How We Manage Your Capital
+        How Evermount Turns Intelligence Into Action
       </motion.h2>
       <div className="flex flex-col md:flex-row gap-12 items-center">
         <motion.div
@@ -80,7 +80,7 @@ export default function InvestmentTimelineSection() {
           >
             <Image
               src="/images/section3.png"
-              alt="Capital Management"
+              alt="Intelligence to execution pipeline"
               width={600}
               height={400}
               className="rounded-xl shadow-xl max-w-full h-auto"

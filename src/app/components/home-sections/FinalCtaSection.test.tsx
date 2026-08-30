@@ -5,22 +5,22 @@ describe("FinalCtaSection", () => {
   it("renders the headline and subtitle copy", () => {
     render(<FinalCtaSection />);
 
-    expect(screen.getByText("African markets")).toBeInTheDocument();
-    expect(screen.getByText("starts here.")).toBeInTheDocument();
     expect(
-      screen.getByText(/Evermount is building the quantitative research/),
+      screen.getByText(/The Intelligence Layer for/),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Africa's financial markets are fragmented/),
     ).toBeInTheDocument();
   });
 
   it("renders the CTA buttons linking to the right pages", () => {
     render(<FinalCtaSection />);
 
-    expect(screen.getByRole("link", { name: "Book a Demo" })).toHaveAttribute(
-      "href",
-      "/book-demo",
-    );
     expect(
-      screen.getByRole("link", { name: "See Performance" }),
-    ).toHaveAttribute("href", "/portfolio-insights");
+      screen.getByRole("link", { name: "Explore Evermount Technology" }),
+    ).toHaveAttribute("href", "/platform");
+    expect(
+      screen.getByRole("link", { name: "Talk to Our Team" }),
+    ).toHaveAttribute("href", "/book-demo");
   });
 });

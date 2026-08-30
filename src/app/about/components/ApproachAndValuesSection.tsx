@@ -62,7 +62,7 @@ export default function ApproachAndValuesSection() {
         className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 md:p-12"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-          Our Investment Approach
+          Our Technology Approach
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
           {APPROACH_ITEMS.map((item, i) => (

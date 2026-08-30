@@ -7,16 +7,31 @@ import { ArrowRightIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
 import { containerVariants, itemVariants } from "./motionVariants";
 
 const PHILOSOPHY_PRINCIPLES = [
-  "Multi-strategy approach across asset classes",
-  "Systematic signal generation and validation",
-  "Dynamic portfolio optimization",
-  "Risk-adjusted return maximization",
+  {
+    title: "Intelligence First",
+    desc: "Understand the market before acting.",
+  },
+  {
+    title: "Research Driven",
+    desc: "Every strategy begins with measurable evidence and rigorous validation.",
+  },
+  {
+    title: "Risk First",
+    desc: "Every opportunity must be evaluated through a disciplined risk framework.",
+  },
+  {
+    title: "Systematic by Design",
+    desc: "Reduce unnecessary human bias through rules, models and automation.",
+  },
+  {
+    title: "Infrastructure Over Products",
+    desc: "Build technology that can power multiple financial applications.",
+  },
 ];
 
 export default function CompanyStorySection() {
   return (
     <>
-      {/* === COMPANY OVERVIEW === */}
       <section className="py-16 px-6 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -32,13 +47,23 @@ export default function CompanyStorySection() {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-              Quantitative Trading Technology Built for Africa
+              Evermount — The AI Financial Intelligence & Trading Infrastructure
+              Company for Africa
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              Evermount is building an Africa-focused quantitative trading and
-              market-making technology company. We combine quantitative
-              research, machine learning, and statistical modeling to build
-              systematic trading infrastructure for African financial markets.
+              We build intelligent financial systems that understand markets,
+              discover opportunities, manage risk and execute capital.
+            </p>
+            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+              Evermount combines artificial intelligence, quantitative research,
+              financial data and high-performance trading infrastructure to
+              build the next generation of African financial markets.
+            </p>
+            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+              We are starting with quantitative research and systematic trading
+              infrastructure and building toward a broader financial
+              intelligence platform connecting data, capital, liquidity and
+              execution across African markets.
             </p>
             <motion.div
               whileHover={{ x: 5 }}
@@ -61,7 +86,7 @@ export default function CompanyStorySection() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/section1.png"
-                alt="Company Overview"
+                alt="Evermount company overview"
                 width={600}
                 height={400}
                 className="w-full h-auto object-cover"
@@ -82,7 +107,6 @@ export default function CompanyStorySection() {
         </div>
       </section>
 
-      {/* === INVESTMENT PHILOSOPHY === */}
       <section className="py-16 px-6 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -98,15 +122,18 @@ export default function CompanyStorySection() {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-              Systematic Investment Philosophy
+              Our Technology Philosophy
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              We believe African financial markets contain structural
-              inefficiencies — around liquidity, market fragmentation, and
-              electronic execution — that create room for systematic,
-              technology-driven trading. Our approach removes human emotion
-              and bias, focusing on superior data, advanced modeling, and
-              execution engineering.
+              Financial markets are complex systems. We believe the next
+              generation of financial infrastructure will be built by combining
+              large-scale data, artificial intelligence, quantitative research
+              and automated execution.
+            </p>
+            <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+              Evermount is building systems that continuously learn from
+              financial data, generate hypotheses, evaluate risk and translate
+              validated intelligence into controlled action.
             </p>
             <motion.div
               variants={containerVariants}
@@ -119,11 +146,14 @@ export default function CompanyStorySection() {
                 <motion.div
                   key={i}
                   variants={itemVariants}
-                  className="flex items-center gap-3"
+                  className="flex items-start gap-3"
                 >
-                  <CheckCircleIcon className="w-6 h-6 text-[#00a76f] flex-shrink-0" />
+                  <CheckCircleIcon className="w-6 h-6 text-[#00a76f] flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700 dark:text-gray-300">
-                    {principle}
+                    <strong className="text-gray-900 dark:text-white">
+                      {principle.title}.
+                    </strong>{" "}
+                    {principle.desc}
                   </span>
                 </motion.div>
               ))}
@@ -139,7 +169,7 @@ export default function CompanyStorySection() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/section1.png"
-                alt="Investment Philosophy"
+                alt="Evermount technology philosophy"
                 width={600}
                 height={400}
                 className="w-full h-auto object-cover"

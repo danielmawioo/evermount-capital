@@ -43,7 +43,6 @@ export default function FinalCtaSection() {
         transition={{ duration: 0.6 }}
         className="relative z-10 max-w-4xl mx-auto"
       >
-        {/* React Icons Badge Row */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -55,53 +54,51 @@ export default function FinalCtaSection() {
             whileHover={{ scale: 1.2, rotate: 5 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <FiShield title="Risk-Managed" />
+            <FiShield title="Risk Intelligence" />
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.2, rotate: -5 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <FiCheckCircle title="Systematically Tested" />
+            <FiCheckCircle title="Research Driven" />
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.2, rotate: 5 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <FiTrendingUp title="Data-Driven" />
+            <FiTrendingUp title="Market Intelligence" />
           </motion.div>
         </motion.div>
 
-        {/* Headline */}
         <h2 className="text-4xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-white mb-6">
-          The future of <span className="text-[#00a76f]">African markets</span>{" "}
-          <span className="text-[#00a76f]">starts here.</span>
+          The Intelligence Layer for{" "}
+          <span className="text-[#00a76f]">Africa&apos;s Financial Markets</span>
         </h2>
 
-        {/* Subtitle */}
         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">
-          Evermount is building the quantitative research, technology, and
-          trading infrastructure for African financial markets — from
-          systematic strategies to institutional-grade execution.
+          Africa&apos;s financial markets are fragmented, data-rich and
+          increasingly digital. Evermount is building the infrastructure that
+          connects financial data, artificial intelligence, quantitative
+          research, risk intelligence and systematic execution.
         </p>
 
-        {/* CTA Buttons */}
         <div className="flex justify-center gap-4 flex-wrap">
-          <Link href="/book-demo">
+          <Link href="/platform">
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               className="bg-[#00a76f] hover:bg-emerald-700 text-white px-8 py-3 rounded-md text-lg font-semibold shadow-sm transition"
             >
-              Book a Demo
+              Explore Evermount Technology
             </motion.button>
           </Link>
-          <Link href="/portfolio-insights">
+          <Link href="/book-demo">
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-3 border border-[#00a76f] text-[#00a76f] hover:bg-[#00a76f0d] dark:hover:bg-[#00a76f22] rounded-md text-lg font-semibold transition shadow-sm"
             >
-              See Performance
+              Talk to Our Team
             </motion.button>
           </Link>
         </div>

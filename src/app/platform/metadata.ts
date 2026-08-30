@@ -1,13 +1,13 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Platform | Evermount Capital - AI-Powered Investment Platform",
+  title: "Platform | Evermount AI Financial Intelligence",
   description:
-    "Explore how Evermount Capital delivers quant-driven alpha across Africa and beyond. AI-powered trading, real-time dashboards, and institutional-grade security.",
+    "Explore Evermount's AI financial intelligence, quantitative research, risk and trading infrastructure for African markets.",
   openGraph: {
-    title: "Platform | Evermount Capital - AI-Powered Investment Platform",
+    title: "Platform | Evermount AI Financial Intelligence",
     description:
-      "Explore how Evermount Capital delivers quant-driven alpha across Africa and beyond.",
+      "Explore Evermount's AI financial intelligence, quantitative research, risk and trading infrastructure for African markets.",
     url: "https://www.evermount.co/platform",
     type: "website",
   },

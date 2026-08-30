@@ -2,19 +2,15 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { CheckCircleIcon } from "@heroicons/react/24/outline";
-import { containerVariants, itemVariants } from "./motionVariants";
 
-const FUND_POINTS = [
-  "Management Fee: 1.5% - 2.5%",
-  "Performance Fee: 20% of profits",
-  "Minimum Investment: $10,000",
-  "Quarterly Performance Reports",
-  "6 Month Lock-In Period",
-  "USD + Multi-Currency Support",
+const LAYERS = [
+  ["Market Intelligence", "Quant Research", "Risk Intelligence"],
+  ["Portfolio Engine"],
+  ["Execution Engine"],
+  ["African Financial Markets"],
 ];
 
-export default function FundHighlightsSection() {
+export default function PlatformArchitectureSection() {
   return (
     <section className="bg-gray-50 dark:bg-gray-800 py-16 px-6 max-w-7xl mx-auto flex flex-col md:flex-row-reverse gap-12 items-center">
       <motion.div
@@ -22,13 +18,12 @@ export default function FundHighlightsSection() {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        whileHover={{ scale: 1.05, rotate: -2 }}
+        whileHover={{ scale: 1.02 }}
         className="md:w-1/2 relative"
       >
         <motion.div
           animate={{
             scale: [1, 1.02, 1],
-            rotate: [0, -1, 0],
           }}
           transition={{
             duration: 6,
@@ -39,7 +34,7 @@ export default function FundHighlightsSection() {
         >
           <Image
             src="/images/section2.png"
-            alt="Fund Features"
+            alt="Evermount financial intelligence platform"
             width={600}
             height={400}
             className="rounded-xl shadow-xl max-w-full h-auto"
@@ -66,31 +61,41 @@ export default function FundHighlightsSection() {
         className="md:w-1/2"
       >
         <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-          Evermount Capital
+          Evermount Platform
         </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
-          Systematic capital management powered by Evermount technology —
-          one application of the broader intelligence and trading
-          infrastructure platform.
+        <p className="text-gray-600 dark:text-gray-400 mb-8 text-lg leading-relaxed">
+          A conceptual architecture connecting AI, research, risk and
+          execution into one institutional technology platform.
         </p>
-        <motion.ul
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="space-y-5 text-gray-700 dark:text-gray-300 text-lg"
-        >
-          {FUND_POINTS.map((point, i) => (
-            <motion.li
-              key={i}
-              variants={itemVariants}
-              className="flex items-start gap-3"
-            >
-              <CheckCircleIcon className="w-5 h-5 text-[#00a76f] mt-1 flex-shrink-0" />
-              {point}
-            </motion.li>
+        <div className="rounded-2xl bg-[#0d1b2a] text-white p-6 space-y-3 font-mono text-sm shadow-lg">
+          <div className="text-center text-[#00a76f] font-semibold tracking-[0.2em] text-xs uppercase">
+            Evermount AI
+          </div>
+          <div className="h-px bg-[#00a76f]/40 mx-auto w-8" />
+          {LAYERS.map((row, i) => (
+            <div key={i}>
+              <div
+                className={`grid gap-2 ${
+                  row.length === 3 ? "grid-cols-3" : "grid-cols-1"
+                }`}
+              >
+                {row.map((node) => (
+                  <div
+                    key={node}
+                    className="rounded-lg border border-[#00a76f]/30 bg-[#11263a] px-3 py-3 text-center text-xs sm:text-sm"
+                  >
+                    {node}
+                  </div>
+                ))}
+              </div>
+              {i < LAYERS.length - 1 && (
+                <div className="text-center text-[#00a76f] py-1" aria-hidden>
+                  ↓
+                </div>
+              )}
+            </div>
           ))}
-        </motion.ul>
+        </div>
       </motion.div>
     </section>
   );

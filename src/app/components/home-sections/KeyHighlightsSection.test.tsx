@@ -2,29 +2,22 @@ import { render, screen } from "@testing-library/react";
 import KeyHighlightsSection from "./KeyHighlightsSection";
 
 describe("KeyHighlightsSection", () => {
-  it("renders the heading, subtitle, and all highlight cards", () => {
+  it("renders the heading, subtitle, and capability cards", () => {
     render(<KeyHighlightsSection />);
 
-    expect(screen.getByText("Key Highlights")).toBeInTheDocument();
+    expect(screen.getByText("What Evermount Builds")).toBeInTheDocument();
     expect(
       screen.getByText(
-        "Power up your investing journey with Evermount's most valuable features.",
+        "AI financial intelligence, quantitative research and trading infrastructure for African markets.",
       ),
     ).toBeInTheDocument();
 
-    expect(screen.getByText("Transparent Fee Structure")).toBeInTheDocument();
+    expect(screen.getByText("Market Intelligence")).toBeInTheDocument();
+    expect(screen.getByText("AI Quant Research")).toBeInTheDocument();
+    expect(screen.getByText("Market Infrastructure")).toBeInTheDocument();
     expect(
       screen.getByText(
-        "Clear management and performance fees aligned with investor interests.",
-      ),
-    ).toBeInTheDocument();
-
-    expect(
-      screen.getByText("Dedicated Relationship Management"),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        "Direct access to portfolio managers and research team.",
+        "Build toward deeper electronic connectivity and liquidity across African financial markets.",
       ),
     ).toBeInTheDocument();
   });

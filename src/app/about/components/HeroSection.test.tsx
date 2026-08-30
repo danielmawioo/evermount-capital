@@ -7,11 +7,11 @@ describe("HeroSection", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: "An Africa-Focused Quantitative Trading Company",
+        name: /Evermount — The AI Financial Intelligence & Trading Infrastructure Company for Africa/i,
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/We're building the quantitative research, AI and/),
+      screen.getByText(/We build intelligent financial systems that understand markets/),
     ).toBeInTheDocument();
   });
 });

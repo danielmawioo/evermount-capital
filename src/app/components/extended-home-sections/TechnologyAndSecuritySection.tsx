@@ -7,30 +7,46 @@ import {
   ChartBarIcon,
   ShieldCheckIcon,
   LockClosedIcon,
+  BoltIcon,
+  CircleStackIcon,
 } from "@heroicons/react/24/outline";
 import { containerVariants, itemVariants } from "./motionVariants";
 
 const TECHNOLOGY_PILLARS = [
   {
     icon: CpuChipIcon,
-    title: "Quantitative Research & Modeling",
+    title: "AI Financial Intelligence",
     description:
-      "Statistical models and machine learning algorithms applied to market data to identify systematic trading opportunities.",
+      "AI systems analyze market information, news, macroeconomic conditions and alternative data to generate structured financial intelligence.",
     color: "from-blue-500 to-cyan-500",
   },
   {
     icon: ChartBarIcon,
-    title: "High-Performance Computing",
+    title: "Quantitative Research Engine",
     description:
-      "High-performance infrastructure built to process market data and support systematic trading and risk management.",
+      "Research infrastructure for factor discovery, hypothesis generation, backtesting, simulation and systematic strategy development.",
     color: "from-purple-500 to-pink-500",
   },
   {
-    icon: ShieldCheckIcon,
-    title: "Systematic Risk Management",
+    icon: CircleStackIcon,
+    title: "Market Data Infrastructure",
     description:
-      "Multi-layered risk framework with real-time monitoring and automatic position adjustments to protect capital.",
+      "Unified financial data pipelines designed to support research, analytics and real-time decision systems.",
+    color: "from-emerald-500 to-teal-500",
+  },
+  {
+    icon: ShieldCheckIcon,
+    title: "Risk Intelligence Engine",
+    description:
+      "Real-time monitoring of exposure, liquidity, volatility, correlation, drawdown and market regimes.",
     color: "from-green-500 to-emerald-500",
+  },
+  {
+    icon: BoltIcon,
+    title: "High-Performance Execution",
+    description:
+      "Systematic execution infrastructure designed for reliability, speed and controlled deployment.",
+    color: "from-amber-500 to-orange-500",
   },
 ];
 
@@ -43,8 +59,7 @@ const SECURITY_FEATURES = [
 export default function TechnologyAndSecuritySection() {
   return (
     <>
-      {/* === TECHNOLOGY & PLATFORM === */}
-      <section className="py-16 px-6 bg-gray-50 dark:bg-gray-800">
+      <section id="technology" className="py-16 px-6 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -54,12 +69,12 @@ export default function TechnologyAndSecuritySection() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Proprietary Technology & Research Infrastructure
+              The Evermount Technology Stack
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Our technology stack is built to process market data and
-              identify systematic trading opportunities across African
-              financial markets.
+              An AI-forward stack designed to turn financial data into
+              intelligence, validated research, risk decisions and controlled
+              execution.
             </p>
           </motion.div>
 
@@ -68,7 +83,7 @@ export default function TechnologyAndSecuritySection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-6"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {TECHNOLOGY_PILLARS.map((tech, i) => (
               <motion.div
@@ -96,7 +111,6 @@ export default function TechnologyAndSecuritySection() {
         </div>
       </section>
 
-      {/* === SECURITY & COMPLIANCE === */}
       <section className="py-16 px-6 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -161,7 +175,7 @@ export default function TechnologyAndSecuritySection() {
             >
               <Image
                 src="/images/section2.png"
-                alt="Security"
+                alt="Institutional infrastructure and risk controls"
                 width={600}
                 height={400}
                 className="w-full h-auto object-cover"

@@ -3,49 +3,50 @@
 import { motion } from "framer-motion";
 import {
   BoltIcon,
-  CurrencyDollarIcon,
-  DevicePhoneMobileIcon,
-  DocumentChartBarIcon,
-  UserGroupIcon,
+  ChartBarIcon,
+  CpuChipIcon,
+  GlobeAltIcon,
+  PresentationChartLineIcon,
+  ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
 import { containerVariants, itemVariants } from "./motionVariants";
 
 const HIGHLIGHTS = [
   {
-    icon: CurrencyDollarIcon,
-    title: "Transparent Fee Structure",
-    desc: "Clear management and performance fees aligned with investor interests.",
+    icon: ChartBarIcon,
+    title: "Market Intelligence",
+    desc: "Transform fragmented financial data into actionable intelligence.",
+  },
+  {
+    icon: CpuChipIcon,
+    title: "AI Quant Research",
+    desc: "Accelerate financial research using AI-assisted hypothesis generation, modeling and backtesting.",
+  },
+  {
+    icon: PresentationChartLineIcon,
+    title: "Portfolio Intelligence",
+    desc: "Understand portfolio exposure, correlations, volatility and changing market regimes.",
+  },
+  {
+    icon: ShieldCheckIcon,
+    title: "Risk Intelligence",
+    desc: "Continuously identify, quantify and manage financial risk.",
   },
   {
     icon: BoltIcon,
-    title: "Systematic Execution",
-    desc: "Proprietary algorithms executing trades with precision and speed.",
+    title: "Trading Infrastructure",
+    desc: "Build systematic execution systems designed for speed, reliability and control.",
   },
   {
-    icon: DevicePhoneMobileIcon,
-    title: "Multi-Asset Class Access",
-    desc: "Diversified exposure across equities, fixed income, currencies, and commodities.",
-  },
-  {
-    icon: DocumentChartBarIcon,
-    title: "Real-Time Portfolio Analytics",
-    desc: "Institutional-grade dashboards with comprehensive performance metrics.",
-  },
-  {
-    icon: DocumentChartBarIcon,
-    title: "Quarterly Performance Reports",
-    desc: "Detailed attribution analysis and risk-adjusted return reporting.",
-  },
-  {
-    icon: UserGroupIcon,
-    title: "Dedicated Relationship Management",
-    desc: "Direct access to portfolio managers and research team.",
+    icon: GlobeAltIcon,
+    title: "Market Infrastructure",
+    desc: "Build toward deeper electronic connectivity and liquidity across African financial markets.",
   },
 ];
 
 export default function KeyHighlightsSection() {
   return (
-    <section className="py-16 px-6 max-w-7xl mx-auto">
+    <section id="quant-research" className="py-16 px-6 max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -54,11 +55,11 @@ export default function KeyHighlightsSection() {
         className="text-center mb-12"
       >
         <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
-          Key Highlights
+          What Evermount Builds
         </h2>
-        <p className="text-xl text-gray-600 dark:text-gray-400">
-          Power up your investing journey with Evermount&apos;s most valuable
-          features.
+        <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          AI financial intelligence, quantitative research and trading
+          infrastructure for African markets.
         </p>
       </motion.div>
       <motion.div

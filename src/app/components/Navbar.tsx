@@ -78,16 +78,15 @@ export default function Navbar() {
         className="bg-gradient-to-r from-[#00a76f] via-emerald-500 to-green-400 text-white text-sm sm:text-base text-center px-4 py-2.5 font-medium relative z-[60]"
       >
         <p className="flex flex-wrap justify-center items-center gap-2">
-          <span className="font-semibold">🚀 New:</span>
+          <span className="font-semibold">Evermount</span>
           <span className="whitespace-nowrap">
-            We&apos;re open-sourcing our AI-powered quantitative trading
-            infrastructure.
+            Building the AI financial intelligence layer for African markets.
           </span>
           <Link
-            href="/book-demo"
+            href="/platform"
             className="ml-2 underline font-semibold hover:text-green-100 transition flex items-center gap-1"
           >
-            Try now
+            Explore the Platform
             <ArrowRightIcon className="w-4 h-4 inline" />
           </Link>
         </p>
@@ -180,13 +179,13 @@ export default function Navbar() {
                 )}
               </motion.button>
 
-              <Link href="/login">
+              <Link href="/book-demo">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white rounded-md transition-all shadow-md hover:shadow-lg bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:from-yellow-500 hover:via-yellow-600 hover:to-yellow-700"
+                  className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white rounded-md transition-all shadow-md hover:shadow-lg bg-[#00a76f] hover:bg-emerald-700"
                 >
-                  Invest
+                  Talk to Our Team
                   <ArrowRightIcon className="w-4 h-4" />
                 </motion.button>
               </Link>
@@ -272,12 +271,12 @@ export default function Navbar() {
                       </>
                     )}
                   </motion.button>
-                  <Link href="/login" onClick={() => setMenuOpen(false)}>
+                  <Link href="/book-demo" onClick={() => setMenuOpen(false)}>
                     <motion.button
                       whileTap={{ scale: 0.95 }}
-                      className="w-full flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-medium text-white rounded-md transition-all shadow-md hover:shadow-lg bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:from-yellow-500 hover:via-yellow-600 hover:to-yellow-700"
+                      className="w-full flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-medium text-white rounded-md transition-all shadow-md hover:shadow-lg bg-[#00a76f] hover:bg-emerald-700"
                     >
-                      Invest
+                      Talk to Our Team
                       <ArrowRightIcon className="w-4 h-4" />
                     </motion.button>
                   </Link>

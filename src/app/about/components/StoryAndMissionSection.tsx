@@ -16,9 +16,9 @@ export default function StoryAndMissionSection() {
         </h2>
         <div className="space-y-4 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
           <p>
-            Founded in 2023, Evermount Capital emerged from a vision to build
-            institutional-grade quantitative trading and market-making
-            technology purpose-built for African financial markets. Our
+            Founded in 2023, Evermount emerged from a vision to build
+            institutional-grade AI financial intelligence and trading
+            infrastructure purpose-built for African financial markets. Our
             founders combine experience in quantitative finance, data
             science, and technology.
           </p>
@@ -31,11 +31,10 @@ export default function StoryAndMissionSection() {
             trading infrastructure needed to help change that.
           </p>
           <p>
-            Today, we&apos;re building our systematic trading strategies and
-            technology platform. Our long-term ambition is to become a
-            leading quantitative trading and market-making firm for African
-            markets, with the potential to eventually connect those markets
-            to global trading infrastructure.
+            Today, we&apos;re building quantitative research and systematic
+            trading infrastructure, with a long-term ambition to become the
+            intelligence layer connecting African markets to global financial
+            systems.
           </p>
         </div>
       </motion.section>
@@ -54,9 +53,8 @@ export default function StoryAndMissionSection() {
             Our Mission
           </h2>
           <p className="leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
-            To build the quantitative research, AI and trading infrastructure
-            required to participate in and improve liquidity across African
-            financial markets.
+            To build the AI financial intelligence and trading infrastructure
+            required to participate in and improve African financial markets.
           </p>
           <p className="leading-relaxed text-gray-600 dark:text-gray-400 text-sm">
             We believe institutional-grade trading technology shouldn&apos;t
@@ -74,9 +72,9 @@ export default function StoryAndMissionSection() {
         >
           <h2 className="text-2xl font-bold text-[#00a76f] mb-3">Our Vision</h2>
           <p className="leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
-            To become one of Africa&apos;s leading quantitative trading and
-            market-making firms — helping build deeper, more efficient
-            African financial markets.
+            To become the intelligence layer for Africa&apos;s financial
+            markets — connecting data, research, risk, liquidity and
+            execution.
           </p>
           <p className="leading-relaxed text-gray-600 dark:text-gray-400 text-sm">
             We envision a future where systematic, technology-driven trading

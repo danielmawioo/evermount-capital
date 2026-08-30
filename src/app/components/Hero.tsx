@@ -8,12 +8,35 @@ import {
   ClockIcon,
   ShieldCheckIcon,
   LifebuoyIcon,
-  RocketLaunchIcon,
+  Squares2X2Icon,
 } from "@heroicons/react/24/outline";
 import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
 
 import LiveMarketTicker from "./LiveMarketTicker";
+
+const FEATURES = [
+  {
+    icon: ChartBarIcon,
+    title: "Market Intelligence",
+    desc: "AI systems continuously analyze markets, macro conditions, news and alternative data.",
+  },
+  {
+    icon: CpuChipIcon,
+    title: "Quantitative Research",
+    desc: "AI-assisted research discovers, tests and validates systematic strategies.",
+  },
+  {
+    icon: ShieldCheckIcon,
+    title: "Risk Intelligence",
+    desc: "Real-time systems monitor exposure, liquidity, volatility and market regimes.",
+  },
+  {
+    icon: ClockIcon,
+    title: "Intelligent Execution",
+    desc: "Institutional-grade infrastructure converts validated strategies into controlled execution.",
+  },
+];
 
 export default function Hero() {
   return (
@@ -60,17 +83,23 @@ export default function Hero() {
           viewport={{ once: true }}
           className="space-y-6 text-center lg:text-left"
         >
+          <p className="text-xs sm:text-sm font-semibold tracking-[0.18em] text-[#00a76f] uppercase">
+            AI Financial Intelligence × Trading Infrastructure
+          </p>
+
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight tracking-tight">
-            Building Africa&apos;s Quantitative Trading Infrastructure
+            We build intelligent financial systems that understand markets,
+            discover opportunities, manage risk and execute capital.
           </h1>
 
           <h2 className="text-base sm:text-lg md:text-2xl font-medium text-[#00a76f] dark:text-emerald-400 min-h-[32px] sm:min-h-[40px]">
             <span className="inline-block min-w-[220px]">
               <Typewriter
                 words={[
-                  "Quantitative Trading",
-                  "Systematic Market Making",
-                  "Electronic Trading Infrastructure",
+                  "Market Intelligence",
+                  "Quantitative Research",
+                  "Risk Intelligence",
+                  "Systematic Execution",
                 ]}
                 loop
                 cursor
@@ -83,11 +112,10 @@ export default function Hero() {
           </h2>
 
           <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
-            Evermount is building an Africa-focused quantitative trading and
-            market-making technology company — combining quantitative
-            research, machine learning, and high-performance trading
-            infrastructure to help build more liquid, efficient African
-            financial markets.
+            Evermount is building the AI financial intelligence and trading
+            infrastructure for Africa — combining artificial intelligence,
+            quantitative research, market data, risk intelligence and systematic
+            execution into a unified technology platform.
           </p>
 
           {/* CTA BUTTONS */}
@@ -98,52 +126,50 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2"
           >
-            <Link href="/book-demo">
+            <Link href="/platform">
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-[#00a76f] text-white rounded-md font-semibold hover:bg-emerald-700 transition shadow-md"
               >
+                <Squares2X2Icon className="w-5 h-5" />
+                Explore the Platform
+              </motion.button>
+            </Link>
+
+            <Link href="/book-demo">
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 border border-[#00a76f] dark:border-emerald-400 text-[#00a76f] dark:text-emerald-400 rounded-md font-semibold hover:bg-[#e6f5f0] dark:hover:bg-emerald-400/20 transition shadow-md"
+              >
                 <LifebuoyIcon className="w-5 h-5" />
                 Talk to Our Team
               </motion.button>
             </Link>
-
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => window.dispatchEvent(new Event("openWaitlist"))}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 border border-[#00a76f] dark:border-emerald-400 text-[#00a76f] dark:text-emerald-400 rounded-md font-semibold hover:bg-[#e6f5f0] dark:hover:bg-emerald-400/20 transition shadow-md"
-            >
-              <RocketLaunchIcon className="w-5 h-5" />
-              Get Early Access
-            </motion.button>
           </motion.div>
 
-          {/* TRUST METRICS */}
+          {/* FEATURE LABELS */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 text-sm text-gray-800 dark:text-gray-200 max-w-md mx-auto lg:mx-0"
+            className="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5 text-sm text-gray-800 dark:text-gray-200 max-w-xl mx-auto lg:mx-0"
           >
-            <div className="flex items-center gap-3">
-              <ChartBarIcon className="w-5 h-5 text-[#00a76f]" />
-              Data-Driven Alpha
-            </div>
-            <div className="flex items-center gap-3">
-              <CpuChipIcon className="w-5 h-5 text-[#00a76f]" />
-              AI-Powered Research
-            </div>
-            <div className="flex items-center gap-3">
-              <ClockIcon className="w-5 h-5 text-[#00a76f]" />
-              Systematic Execution
-            </div>
-            <div className="flex items-center gap-3">
-              <ShieldCheckIcon className="w-5 h-5 text-[#00a76f]" />
-              Risk-Managed Trading
-            </div>
+            {FEATURES.map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="flex items-start gap-3 text-left">
+                <Icon className="w-5 h-5 text-[#00a76f] mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-semibold text-gray-900 dark:text-white">
+                    {title}
+                  </p>
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-snug">
+                    {desc}
+                  </p>
+                </div>
+              </div>
+            ))}
           </motion.div>
         </motion.div>
 
@@ -162,7 +188,7 @@ export default function Hero() {
             >
               <Image
                 src="/images/section1.png"
-                alt="Main Dashboard Preview"
+                alt="Evermount financial intelligence platform"
                 width={930}
                 height={665}
                 className="rounded-xl shadow-2xl w-full h-auto object-contain"
@@ -178,7 +204,7 @@ export default function Hero() {
             >
               <Image
                 src="/images/section1.png"
-                alt="Mobile Preview"
+                alt="Evermount platform interface"
                 width={240}
                 height={380}
                 className="rounded-xl shadow-lg"

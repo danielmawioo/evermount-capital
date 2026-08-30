@@ -20,8 +20,8 @@
     "**/jest-util/picomatch": "^4.0.5"
   },
   "scripts": {
-    "dev": "next dev --turbopack",
-    "dev:mock": "NEXT_PUBLIC_API_MOCKING=enabled next dev --turbopack",
+    "dev": "next dev --turbopack -p 3001",
+    "dev:mock": "NEXT_PUBLIC_API_MOCKING=enabled next dev --turbopack -p 3001",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

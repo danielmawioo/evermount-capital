@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
           client_id: process.env.GITHUB_CLIENT_ID,
           client_secret: process.env.GITHUB_CLIENT_SECRET,
           code,
-          redirect_uri: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/auth/github/callback`,
+          redirect_uri: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3001"}/auth/github/callback`,
         }),
         signal: AbortSignal.timeout(GITHUB_TOKEN_REQUEST_TIMEOUT_MS),
       },

@@ -7,17 +7,17 @@ describe("Home page", () => {
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: /Building Africa's Quantitative Trading Infrastructure/i,
+        name: /We build intelligent financial systems/i,
       }),
     ).toBeInTheDocument();
     expect(
-      screen.getAllByText(/quantitative trading and market-making/i).length,
+      screen.getAllByText(/AI financial intelligence and trading/i).length,
     ).toBeGreaterThan(0);
   });
 
   it("exports metadata with the expected title", () => {
     expect(metadata.title).toBe(
-      "Evermount Capital | Quantitative Trading Infrastructure for Africa",
+      "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
     );
   });
 });

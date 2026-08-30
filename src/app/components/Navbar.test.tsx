@@ -46,19 +46,19 @@ describe("Navbar", () => {
     mock.restore();
   });
 
-  it("renders the logo, top-level nav links and invest CTA", () => {
+  it("renders the logo, top-level nav links and team CTA", () => {
     renderNavbar();
 
-    expect(screen.getByText("Evermount")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Performance" })).toHaveAttribute(
+    expect(screen.getAllByText("Evermount").length).toBeGreaterThan(0);
+    expect(screen.getByRole("link", { name: "Markets" })).toHaveAttribute(
       "href",
-      "/portfolio-insights",
+      "/#markets",
     );
-    expect(screen.getByRole("link", { name: "Institutional" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Capital" })).toHaveAttribute(
       "href",
-      "/pricing",
+      "/capital",
     );
-    expect(screen.getAllByText("Invest").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Talk to Our Team").length).toBeGreaterThan(0);
   });
 
   it("toggles the mobile menu open and closed", async () => {

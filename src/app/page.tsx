@@ -7,18 +7,20 @@ import ExtendedHomeSections from "./components/ExtendedHomeSections";
 import TrustLogos from "./components/TrustLogos";
 
 export const metadata: Metadata = {
-  title: "Evermount Capital | Quantitative Trading Infrastructure for Africa",
+  title: "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
   description:
-    "Evermount is building an Africa-focused quantitative trading and market-making technology company — combining quantitative research, AI and high-performance trading infrastructure.",
+    "Evermount builds AI-powered financial intelligence, quantitative research, risk and trading infrastructure for Africa's financial markets.",
   keywords: [
-    "quantitative trading",
-    "market making",
-    "Africa fintech",
-    "algorithmic trading",
+    "AI financial infrastructure Africa",
+    "quantitative trading Africa",
     "AI trading infrastructure",
-    "Evermount Capital",
-    "automated trading",
-    "risk management",
+    "African financial markets",
+    "quantitative research Africa",
+    "financial AI Africa",
+    "algorithmic trading infrastructure",
+    "African market data",
+    "systematic trading Africa",
+    "financial intelligence platform",
   ],
   alternates: {
     canonical: "https://www.evermount.co",
@@ -26,16 +28,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://www.evermount.co",
-    siteName: "Evermount Capital",
-    title: "Evermount Capital | Quantitative Trading Infrastructure for Africa",
+    siteName: "Evermount",
+    title:
+      "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
     description:
-      "Building an Africa-focused quantitative trading and market-making technology company.",
+      "Evermount builds AI-powered financial intelligence, quantitative research, risk and trading infrastructure for Africa's financial markets.",
     images: [
       {
         url: "https://www.evermount.co/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Evermount Capital Platform",
+        alt: "Evermount AI financial intelligence platform",
       },
     ],
   },
@@ -43,9 +46,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@evermountcapital",
     creator: "@evermountcapital",
-    title: "Evermount Capital | Quantitative Trading Infrastructure for Africa",
+    title:
+      "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
     description:
-      "Building an Africa-focused quantitative trading and market-making technology company.",
+      "Evermount builds AI-powered financial intelligence, quantitative research, risk and trading infrastructure for Africa's financial markets.",
     images: ["https://www.evermount.co/og-image.png"],
   },
 };
@@ -57,66 +61,42 @@ export default function Home() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "What exactly does Evermount Capital do?",
+        name: "What does Evermount do?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Evermount is building quantitative trading and market-making technology focused on African financial markets. Our current platform provides systematic, AI-assisted investment strategies for individual and institutional investors; our long-term vision is to build institutional-grade trading and liquidity infrastructure for Africa.",
+          text: "Evermount is an AI financial intelligence and trading infrastructure company for Africa. We build systems that understand markets, discover opportunities, manage risk and execute capital — combining AI, quantitative research, market data, risk intelligence and systematic execution.",
         },
       },
       {
         "@type": "Question",
-        name: "How does Evermount Capital's AI trading work?",
+        name: "Is Evermount a fund or a technology company?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Our AI trading system uses proprietary machine learning models trained on historical financial data. The system analyzes market patterns, volatility trends, and sentiment data in real-time to execute trades autonomously. It includes automatic risk management, portfolio rebalancing, and stress testing to help manage risk.",
+          text: "Evermount is primarily a technology company. Our platform includes intelligence, quantitative research, data, risk and execution infrastructure. Evermount Capital is one application of that stack: systematic capital management powered by the same technology.",
         },
       },
       {
         "@type": "Question",
-        name: "What is the minimum investment amount?",
+        name: "How does Evermount AI work?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "The minimum investment amount varies by strategy tier. Our entry-level tier requires $10,000, with higher tiers available at $50,000, $250,000, and $1,000,000+. Each tier offers different strategy access and fee structures. See our Pricing page for complete details.",
+          text: "Evermount AI is an intelligence layer designed to help financial systems understand markets, assist quantitative research and support risk-aware decisions. It is AI-assisted research and decision intelligence — we do not claim autonomous AI is currently trading live capital without human-designed controls.",
         },
       },
       {
         "@type": "Question",
-        name: "Is my money safe with Evermount Capital?",
+        name: "Where does Evermount operate?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "We use bank-level encryption and security measures, and funds are held in segregated accounts. Evermount is not currently a licensed financial institution — see our Risk Disclosure and Terms pages for details. All transactions are monitored around the clock.",
+          text: "We start with African financial markets and are building toward systematic trading, market infrastructure and connectivity between African and global financial systems.",
         },
       },
       {
         "@type": "Question",
-        name: "What fees does Evermount Capital charge?",
+        name: "Does Evermount manage capital?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "We charge management fees ranging from 1.0% to 2.5% annually (depending on investment tier) and a performance fee of 20% on realized profits above the high-water mark. Management fees are charged quarterly in advance. See our Pricing page for complete fee details.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How do I get started with Evermount Capital?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Getting started is easy. Simply create an account, complete the KYC verification process, deposit funds into your wallet, and start investing in our available funds. You can also book a demo to learn more about our platform and strategies.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What investment strategies does Evermount Capital offer?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Evermount Capital offers diverse investment strategies including global forex trading, stocks and ETFs, commodities (gold, oil, agriculture), and cryptocurrency investments. All strategies are powered by AI and quantitative models for systematic, risk-managed execution.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How does Evermount Capital ensure security?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "We use bank-level encryption, segregated accounts for client funds, and a multi-layered internal risk management framework, with 24/7 monitoring and capital protection controls.",
+          text: "Yes. Evermount Capital offers systematic investment strategies as one product of the broader Evermount platform. Fee structure, minimums and lock-in terms are documented on the Capital and Pricing pages.",
         },
       },
     ],
@@ -125,7 +105,7 @@ export default function Home() {
   const websiteStructuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Evermount Capital",
+    name: "Evermount",
     url: "https://www.evermount.co",
     potentialAction: {
       "@type": "SearchAction",
@@ -136,12 +116,12 @@ export default function Home() {
 
   const organizationStructuredData = {
     "@context": "https://schema.org",
-    "@type": "FinancialService",
-    name: "Evermount Capital",
+    "@type": "Organization",
+    name: "Evermount",
     url: "https://www.evermount.co",
     logo: "https://www.evermount.co/logos/logo.png",
     description:
-      "Africa-focused quantitative trading and market-making technology company, building AI-driven research, portfolio management, and trading infrastructure.",
+      "The AI financial intelligence and trading infrastructure company for Africa — combining artificial intelligence, quantitative research, market data, risk intelligence and systematic execution.",
     address: {
       "@type": "PostalAddress",
       addressCountry: "KE",
@@ -163,7 +143,6 @@ export default function Home() {
 
   return (
     <>
-      {/* FAQ Structured Data for "People also ask" */}
       <Script
         id="faq-structured-data"
         type="application/ld+json"
@@ -173,7 +152,6 @@ export default function Home() {
         }}
       />
 
-      {/* Website Structured Data */}
       <Script
         id="website-structured-data"
         type="application/ld+json"
@@ -183,7 +161,6 @@ export default function Home() {
         }}
       />
 
-      {/* Organization Structured Data */}
       <Script
         id="organization-structured-data"
         type="application/ld+json"

@@ -20,16 +20,16 @@ describe("StoryAndMissionSection", () => {
     render(<StoryAndMissionSection />);
 
     expect(
-      screen.getByText(/Founded in 2023, Evermount Capital emerged/),
+      screen.getByText(/Founded in 2023, Evermount emerged/),
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        /To build the quantitative research, AI and trading infrastructure/,
+        /To build the AI financial intelligence and trading infrastructure/,
       ),
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        /To become one of Africa's leading quantitative trading/,
+        /To become the intelligence layer for Africa's financial/,
       ),
     ).toBeInTheDocument();
   });

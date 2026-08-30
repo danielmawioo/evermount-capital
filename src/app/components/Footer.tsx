@@ -8,11 +8,11 @@ import { logger } from "@/lib/logger";
 import { EmailSchema } from "@/lib/schemas";
 import FooterColumn from "./FooterColumn";
 import {
+  platformColumn,
   marketsColumn,
-  educationColumn,
-  importantLinksColumn,
+  companyColumn,
+  resourcesColumn,
   legalComplianceColumn,
-  communityColumn,
 } from "./footerColumns";
 
 export default function Footer() {
@@ -39,9 +39,10 @@ export default function Footer() {
         <div className="pt-16 pb-12">
           {/* Grid Sections */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12 text-sm mb-16">
+            <FooterColumn {...platformColumn} />
             <FooterColumn {...marketsColumn} />
-            <FooterColumn {...educationColumn} />
-            <FooterColumn {...importantLinksColumn} />
+            <FooterColumn {...companyColumn} />
+            <FooterColumn {...resourcesColumn} />
             <FooterColumn {...legalComplianceColumn} />
             <div>
               <h4 className="text-gray-900 dark:text-white font-semibold mb-5 text-base">
@@ -84,7 +85,6 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            <FooterColumn {...communityColumn} />
           </div>
 
           {/* Newsletter Signup */}
@@ -93,8 +93,8 @@ export default function Footer() {
               Subscribe to our Newsletter
             </h4>
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 max-w-md mx-auto">
-              Get updates on new products, investor tools, and market
-              strategies.
+              Get updates on Evermount technology, research, and African
+              market infrastructure.
             </p>
             <form
               onSubmit={handleNewsletterSubmit}
