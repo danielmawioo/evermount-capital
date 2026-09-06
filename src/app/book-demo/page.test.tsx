@@ -233,8 +233,14 @@ async function pickDateAndTime(user: ReturnType<typeof userEvent.setup>) {
   const dateInput = screen.getByPlaceholderText(/select date & time/i);
   await user.click(dateInput);
 
-  const enabledDay = screen.getAllByRole("option", { name: /^Choose /i })[0];
-  await user.click(enabledDay);
+  const chooseDays = screen.queryAllByRole("option", { name: /^Choose /i });
+  const day =
+    chooseDays[0] ??
+    screen.getAllByRole("gridcell").find((el) => !el.hasAttribute("disabled"));
+  if (!day) {
+    throw new Error("No enabled date cell found in the date picker");
+  }
+  await user.click(day);
 
   const enabledTime = screen.getByText("10:00 AM");
   await user.click(enabledTime);
