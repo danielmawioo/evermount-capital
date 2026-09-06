@@ -7,8 +7,10 @@ import { LOCALES, LOCALE_META, type Locale } from "@/i18n/locales";
 
 export default function LanguageSwitcher({
   align = "right",
+  variant = "default",
 }: {
   align?: "left" | "right";
+  variant?: "default" | "compact" | "onBrand";
 }) {
   const { locale, setLocale, t } = useLocale();
   const [open, setOpen] = useState(false);
@@ -29,6 +31,13 @@ export default function LanguageSwitcher({
     setOpen(false);
   };
 
+  const triggerClass =
+    variant === "onBrand"
+      ? "flex items-center gap-1 px-2 py-1 text-xs font-medium text-white/95 hover:text-white hover:bg-white/15 rounded-md transition"
+      : variant === "compact"
+        ? "p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        : "flex items-center gap-1 px-2 py-1.5 text-xs sm:text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-white rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition";
+
   return (
     <div className="relative" ref={rootRef}>
       <button
@@ -37,11 +46,24 @@ export default function LanguageSwitcher({
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={t("common.language")}
-        className="flex items-center gap-1 px-2 py-1.5 text-xs sm:text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-white rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+        className={triggerClass}
       >
-        <GlobeAltIcon className="w-4 h-4 sm:w-5 sm:h-5" />
-        <span className="hidden sm:inline">{LOCALE_META[locale].name}</span>
-        <ChevronDownIcon className="w-3 h-3 sm:w-4 sm:h-4" />
+        <GlobeAltIcon
+          className={
+            variant === "compact" ? "w-5 h-5" : "w-4 h-4 sm:w-5 sm:h-5"
+          }
+        />
+        {variant === "default" && (
+          <span className="hidden sm:inline">{LOCALE_META[locale].name}</span>
+        )}
+        {variant === "onBrand" && (
+          <span className="uppercase tracking-wide">
+            {LOCALE_META[locale].code}
+          </span>
+        )}
+        {variant !== "compact" && (
+          <ChevronDownIcon className="w-3 h-3 sm:w-4 sm:h-4" />
+        )}
       </button>
 
       {open && (

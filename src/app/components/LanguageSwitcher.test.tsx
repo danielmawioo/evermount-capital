@@ -57,4 +57,15 @@ describe("LanguageSwitcher", () => {
     expect(document.documentElement.dir).toBe("rtl");
     expect(screen.getByLabelText("اللغة")).toBeInTheDocument();
   });
+
+  it("renders a compact on-brand trigger with the locale code instead of the language name", () => {
+    render(
+      <LocaleProvider>
+        <LanguageSwitcher variant="onBrand" />
+      </LocaleProvider>,
+    );
+
+    expect(screen.getByText("en")).toBeInTheDocument();
+    expect(screen.queryByText("English")).not.toBeInTheDocument();
+  });
 });
