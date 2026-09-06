@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useEffect, useState } from "react";
 import { api } from "@/lib/api-client";
 import { logger } from "@/lib/logger";
@@ -53,6 +55,7 @@ export default function RiskMetricsPage() {
     : [];
 
   return (
+    <TranslateTree>
     <div className="space-y-8">
       <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
         Risk Metrics Overview
@@ -89,5 +92,6 @@ export default function RiskMetricsPage() {
         </div>
       )}
     </div>
+      </TranslateTree>
   );
 }

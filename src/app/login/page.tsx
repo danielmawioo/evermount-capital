@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useCallback, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -112,6 +114,7 @@ export default function LoginPage() {
   }, []);
 
   return (
+    <TranslateTree>
     <>
       <Toaster position="top-center" />
       <Script
@@ -324,5 +327,7 @@ export default function LoginPage() {
         </div>
       </main>
     </>
+  
+    </TranslateTree>
   );
 }

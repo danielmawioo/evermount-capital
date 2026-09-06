@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useRouter } from "next/navigation";
 import {
   FaCreditCard,
@@ -30,6 +32,7 @@ const PaymentMethodsPage = ({ type }: PaymentMethodsPageProps) => {
   const cryptoAvailable = true;
 
   return (
+    <TranslateTree>
     <main className="min-h-screen flex flex-col items-center justify-center p-6 bg-[#f9fafb] dark:bg-[#0f1117]">
       <div className="max-w-2xl w-full">
         <h1 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-4">
@@ -105,6 +108,7 @@ const PaymentMethodsPage = ({ type }: PaymentMethodsPageProps) => {
         </div>
       </div>
     </main>
+      </TranslateTree>
   );
 };
 

@@ -1,8 +1,12 @@
+"use client";
+
+import TranslateTree from "@/app/components/TranslateTree";
 // components/AuthLeftPanel.tsx
 import Image from "next/image";
 
 export default function AuthLeftPanel({ title }: { title: string }) {
   return (
+    <TranslateTree>
     <div className="w-full md:w-1/2 flex flex-col justify-center items-center bg-[#f9fafb] p-10">
       <h2 className="text-3xl font-semibold text-gray-900 mb-4">{title}</h2>
       <p className="text-gray-500 text-sm text-center mb-8">
@@ -31,5 +35,7 @@ export default function AuthLeftPanel({ title }: { title: string }) {
         />
       </div>
     </div>
+  
+    </TranslateTree>
   );
 }

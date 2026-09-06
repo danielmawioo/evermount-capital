@@ -1,7 +1,10 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 export default function PrivacyPolicyPage() {
   return (
+    <TranslateTree>
     <main className="min-h-screen bg-gradient-to-br from-sky-100 via-sky-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-800 dark:text-gray-200 px-6 py-20">
       <div className="max-w-4xl mx-auto space-y-12">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -170,5 +173,7 @@ export default function PrivacyPolicyPage() {
         </section>
       </div>
     </main>
+  
+    </TranslateTree>
   );
 }

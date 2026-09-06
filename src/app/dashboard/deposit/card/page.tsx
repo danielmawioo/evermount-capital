@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -70,6 +72,7 @@ export default function CardDepositPage() {
 
   if (showPayment && amount) {
     return (
+    <TranslateTree>
       <div className="space-y-6">
         <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
           Complete Payment
@@ -111,10 +114,12 @@ export default function CardDepositPage() {
           </button>
         </div>
       </div>
-    );
+        </TranslateTree>
+  );
   }
 
   return (
+    <TranslateTree>
     <div className="space-y-6">
       <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
         Card Deposit
@@ -175,5 +180,6 @@ export default function CardDepositPage() {
         </Link>
       </div>
     </div>
+      </TranslateTree>
   );
 }

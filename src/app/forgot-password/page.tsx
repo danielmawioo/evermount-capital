@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -41,6 +43,7 @@ export default function ForgotPasswordPage() {
   };
 
   return (
+    <TranslateTree>
     <main className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white">
       <div className="absolute top-6 left-6 md:left-10 z-50">
         <Link href="/" className="flex items-center space-x-2">
@@ -122,5 +125,7 @@ export default function ForgotPasswordPage() {
         </div>
       </div>
     </main>
+  
+    </TranslateTree>
   );
 }

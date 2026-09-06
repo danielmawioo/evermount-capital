@@ -1,3 +1,7 @@
+"use client";
+
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronDownIcon,
@@ -25,6 +29,7 @@ export default function JobListings({
   onApply,
 }: JobListingsProps) {
   return (
+    <TranslateTree>
     <section>
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
@@ -245,5 +250,6 @@ export default function JobListings({
         </div>
       )}
     </section>
+      </TranslateTree>
   );
 }

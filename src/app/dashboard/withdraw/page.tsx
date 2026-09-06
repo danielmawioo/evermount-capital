@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import Link from "next/link";
 import { useState } from "react";
 import { formatSettlementDetails } from "@/lib/settlement-account";
@@ -15,6 +17,7 @@ export default function WithdrawPage() {
   };
 
   return (
+    <TranslateTree>
     <div className="space-y-8">
       {/* Page Heading */}
       <div>
@@ -146,5 +149,6 @@ export default function WithdrawPage() {
         </Link>
       </div>
     </div>
+      </TranslateTree>
   );
 }

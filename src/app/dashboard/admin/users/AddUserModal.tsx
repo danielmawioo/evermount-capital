@@ -1,3 +1,7 @@
+"use client";
+
+import TranslateTree from "@/app/components/TranslateTree";
+
 interface AddUserForm {
   fullName: string;
   email: string;
@@ -25,6 +29,7 @@ export default function AddUserModal({
   if (!open) return null;
 
   return (
+    <TranslateTree>
     <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl max-w-md w-full p-6">
         <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
@@ -106,5 +111,6 @@ export default function AddUserModal({
         </form>
       </div>
     </div>
+      </TranslateTree>
   );
 }

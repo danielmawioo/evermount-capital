@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
@@ -58,6 +60,7 @@ const SECURITY_FEATURES = [
 
 export default function TechnologyAndSecuritySection() {
   return (
+    <TranslateTree>
     <>
       <section
         id="technology"
@@ -187,5 +190,7 @@ export default function TechnologyAndSecuritySection() {
         </div>
       </section>
     </>
+  
+    </TranslateTree>
   );
 }

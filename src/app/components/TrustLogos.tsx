@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { motion } from "framer-motion";
 
 const LAYERS = [
@@ -13,6 +15,7 @@ const LAYERS = [
 
 export default function IntelligenceStack() {
   return (
+    <TranslateTree>
     <section
       id="intelligence-stack"
       className="py-20 max-w-6xl mx-auto px-6 text-center"
@@ -56,5 +59,7 @@ export default function IntelligenceStack() {
         ))}
       </div>
     </section>
+  
+    </TranslateTree>
   );
 }

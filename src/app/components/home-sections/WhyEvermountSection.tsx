@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
@@ -17,6 +19,7 @@ const POINTS = [
 
 export default function WhyEvermountSection() {
   return (
+    <TranslateTree>
     <section className="py-16 px-6 max-w-7xl mx-auto flex flex-col md:flex-row gap-12 items-center">
       <motion.div
         initial={{ opacity: 0, x: -50 }}
@@ -89,5 +92,7 @@ export default function WhyEvermountSection() {
         ))}
       </motion.div>
     </section>
+  
+    </TranslateTree>
   );
 }

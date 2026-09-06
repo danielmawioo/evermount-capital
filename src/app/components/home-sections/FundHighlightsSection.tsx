@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { motion } from "framer-motion";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import { containerVariants, itemVariants } from "./motionVariants";
@@ -22,6 +24,7 @@ const CAPABILITIES = [
 
 export default function FundHighlightsSection() {
   return (
+    <TranslateTree>
     <section className="bg-gray-50 dark:bg-gray-800 py-16 px-6 max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -56,5 +59,7 @@ export default function FundHighlightsSection() {
         </motion.ul>
       </motion.div>
     </section>
+  
+    </TranslateTree>
   );
 }

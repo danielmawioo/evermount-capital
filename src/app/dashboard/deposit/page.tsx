@@ -1,9 +1,12 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import Link from "next/link";
 
 export default function DepositPage() {
   return (
+    <TranslateTree>
     <div className="space-y-8">
       {/* Title */}
       <div>
@@ -131,5 +134,6 @@ export default function DepositPage() {
         </Link>
       </div>
     </div>
+      </TranslateTree>
   );
 }

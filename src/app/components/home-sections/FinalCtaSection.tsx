@@ -1,11 +1,14 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FiShield, FiCheckCircle, FiTrendingUp } from "react-icons/fi";
 
 export default function FinalCtaSection() {
   return (
+    <TranslateTree>
     <section className="relative py-32 px-6 bg-white dark:bg-gray-900 text-center overflow-hidden">
       {/* Decorative Background Bubbles */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -103,5 +106,7 @@ export default function FinalCtaSection() {
         </div>
       </motion.div>
     </section>
+  
+    </TranslateTree>
   );
 }

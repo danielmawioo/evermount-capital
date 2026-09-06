@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import type { TradingStatus } from "@/hooks/useTradingOps";
 
 export interface QuantConnectionCardProps {
@@ -12,6 +14,7 @@ export default function QuantConnectionCard({
   quant,
 }: QuantConnectionCardProps) {
   return (
+    <TranslateTree>
     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
       <h2 className="font-semibold text-gray-900 dark:text-white mb-3">
         Quant Connection
@@ -34,5 +37,6 @@ export default function QuantConnectionCard({
           : "—"}
       </p>
     </div>
+      </TranslateTree>
   );
 }

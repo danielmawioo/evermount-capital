@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useTradingOps } from "@/hooks/useTradingOps";
 import OpsHeader from "./components/OpsHeader";
 import QuantConnectionCard from "./components/QuantConnectionCard";
@@ -37,6 +39,7 @@ export default function TradingOpsPage() {
   } = useTradingOps();
 
   return (
+    <TranslateTree>
     <div className="space-y-6">
       <OpsHeader loading={loading} onRefresh={loadStatus} />
 
@@ -85,5 +88,6 @@ export default function TradingOpsPage() {
         onPromote={handlePromote}
       />
     </div>
+      </TranslateTree>
   );
 }

@@ -1,7 +1,11 @@
+"use client";
+
+import TranslateTree from "@/app/components/TranslateTree";
 import { motion } from "framer-motion";
 
 export default function StoryAndMissionSection() {
   return (
+    <TranslateTree>
     <>
       <motion.section
         initial={{ opacity: 0, y: 30 }}
@@ -63,5 +67,7 @@ export default function StoryAndMissionSection() {
         </motion.div>
       </section>
     </>
+  
+    </TranslateTree>
   );
 }

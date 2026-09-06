@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import type { RefObject } from "react";
 import { motion } from "framer-motion";
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
@@ -27,6 +29,7 @@ export default function ChatInputBar({
   inputRef,
 }: ChatInputBarProps) {
   return (
+    <TranslateTree>
     <div
       className={`px-4 py-4 border-t ${
         theme === "dark"
@@ -68,5 +71,7 @@ export default function ChatInputBar({
         {activeDepartment?.name} · Powered by AI
       </p>
     </div>
+  
+    </TranslateTree>
   );
 }

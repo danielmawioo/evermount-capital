@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useCallback, useEffect, useState } from "react";
 import {
   CheckCircleIcon,
@@ -69,26 +71,33 @@ export default function AdminKYCReviewPage() {
     const normalized = status.toUpperCase();
     if (normalized === "VERIFIED") {
       return (
+    <TranslateTree>
         <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300">
           <CheckCircleIcon className="w-3.5 h-3.5" /> Verified
         </span>
-      );
+          </TranslateTree>
+  );
     }
     if (normalized === "REJECTED") {
       return (
+    <TranslateTree>
         <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300">
           <XCircleIcon className="w-3.5 h-3.5" /> Rejected
         </span>
-      );
+          </TranslateTree>
+  );
     }
     return (
+    <TranslateTree>
       <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300">
         <ClockIcon className="w-3.5 h-3.5" /> Pending
       </span>
-    );
+        </TranslateTree>
+  );
   };
 
   return (
+    <TranslateTree>
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
@@ -211,5 +220,6 @@ export default function AdminKYCReviewPage() {
         </div>
       )}
     </div>
+      </TranslateTree>
   );
 }

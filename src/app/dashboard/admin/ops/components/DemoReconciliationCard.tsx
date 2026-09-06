@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 export interface ReconciliationRun {
   id: string;
   status: string;
@@ -21,6 +23,7 @@ export default function DemoReconciliationCard({
   onRunReconciliation,
 }: DemoReconciliationCardProps) {
   return (
+    <TranslateTree>
     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
         <h2 className="font-semibold text-gray-900 dark:text-white">
@@ -61,5 +64,6 @@ export default function DemoReconciliationCard({
         </ul>
       )}
     </div>
+      </TranslateTree>
   );
 }

@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useState } from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
@@ -61,6 +63,7 @@ export default function MpesaWithdrawPage() {
   };
 
   return (
+    <TranslateTree>
     <KycRequiredGate action="withdraw funds">
       <main className="min-h-screen flex flex-col px-6 md:px-10 py-8 bg-[#f9fafb] dark:bg-[#0f1117]">
         <div className="max-w-3xl w-full mx-auto space-y-8">
@@ -132,5 +135,6 @@ export default function MpesaWithdrawPage() {
         </div>
       </main>
     </KycRequiredGate>
+      </TranslateTree>
   );
 }

@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { ShieldExclamationIcon } from "@heroicons/react/24/outline";
 import type { TradingStatus } from "@/hooks/useTradingOps";
 
@@ -17,6 +19,7 @@ export default function KillSwitchCard({
   onToggle,
 }: KillSwitchCardProps) {
   return (
+    <TranslateTree>
     <div
       className={`rounded-xl border p-5 ${
         killActive
@@ -59,5 +62,6 @@ export default function KillSwitchCard({
         )}
       </div>
     </div>
+      </TranslateTree>
   );
 }

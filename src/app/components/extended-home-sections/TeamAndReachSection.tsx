@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { GlobeAltIcon } from "@heroicons/react/24/outline";
@@ -67,6 +69,7 @@ const GLOBAL_REACH_STATS = [
 
 export default function TeamAndReachSection() {
   return (
+    <TranslateTree>
     <>
       {/* === LEADERSHIP TEAM === */}
       <section className="py-16 px-6 bg-gray-50 dark:bg-gray-800">
@@ -182,5 +185,7 @@ export default function TeamAndReachSection() {
         </div>
       </section>
     </>
+  
+    </TranslateTree>
   );
 }

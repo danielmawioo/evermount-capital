@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { motion } from "framer-motion";
 import {
   ArrowTrendingUpIcon,
@@ -17,6 +19,7 @@ export default function LiveMarketTicker() {
   const { marketData } = useMarketTicker();
 
   return (
+    <TranslateTree>
     <div className="hidden lg:block w-56">
       <motion.div
         initial={{ opacity: 0, scale: 0.9, y: -10 }}
@@ -266,5 +269,7 @@ export default function LiveMarketTicker() {
         </motion.div>
       </motion.div>
     </div>
+  
+    </TranslateTree>
   );
 }

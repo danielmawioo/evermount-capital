@@ -1,3 +1,7 @@
+"use client";
+
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { motion } from "framer-motion";
 import {
   BriefcaseIcon,
@@ -25,6 +29,7 @@ const values = [
 
 export default function ValuesSection() {
   return (
+    <TranslateTree>
     <section className="text-center space-y-12">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
@@ -71,5 +76,6 @@ export default function ValuesSection() {
         ))}
       </motion.div>
     </section>
+      </TranslateTree>
   );
 }

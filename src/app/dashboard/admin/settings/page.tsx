@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import {
   Cog6ToothIcon,
   BellIcon,
@@ -21,6 +23,7 @@ export default function AdminSettingsPage() {
   } = useAdminSettings();
 
   return (
+    <TranslateTree>
     <div className="space-y-6">
       {/* Header */}
       <div>
@@ -419,5 +422,6 @@ export default function AdminSettingsPage() {
         </div>
       </div>
     </div>
+      </TranslateTree>
   );
 }

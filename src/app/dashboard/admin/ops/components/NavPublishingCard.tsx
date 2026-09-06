@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 export interface NavPublishingCardProps {
   actionLoading: boolean;
   onRunNavBatch: () => void;
@@ -10,6 +12,7 @@ export default function NavPublishingCard({
   onRunNavBatch,
 }: NavPublishingCardProps) {
   return (
+    <TranslateTree>
     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
       <div className="flex items-center justify-between mb-4">
         <h2 className="font-semibold text-gray-900 dark:text-white">
@@ -28,5 +31,6 @@ export default function NavPublishingCard({
         values.
       </p>
     </div>
+      </TranslateTree>
   );
 }

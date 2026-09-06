@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { motion } from "framer-motion";
 import {
   BoltIcon,
@@ -46,6 +48,7 @@ const HIGHLIGHTS = [
 
 export default function KeyHighlightsSection() {
   return (
+    <TranslateTree>
     <section id="quant-research" className="py-16 px-6 max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -85,5 +88,7 @@ export default function KeyHighlightsSection() {
         ))}
       </motion.div>
     </section>
+  
+    </TranslateTree>
   );
 }

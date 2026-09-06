@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
@@ -174,13 +176,16 @@ export default function BankDepositPage() {
 
   if (loadingData) {
     return (
+    <TranslateTree>
       <div className="flex items-center justify-center min-h-[40vh]">
         <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#00a76f]" />
       </div>
-    );
+        </TranslateTree>
+  );
   }
 
   return (
+    <TranslateTree>
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
@@ -398,5 +403,6 @@ export default function BankDepositPage() {
         </Link>
       </div>
     </div>
+      </TranslateTree>
   );
 }

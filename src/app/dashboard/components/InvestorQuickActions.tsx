@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import Link from "next/link";
 import {
   PlusIcon,
@@ -22,6 +24,7 @@ export default function InvestorQuickActions({
 }: InvestorQuickActionsProps) {
   if (!kycApproved) {
     return (
+    <TranslateTree>
       <Link
         href="/dashboard/kyc"
         className="flex items-center justify-center gap-2 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 text-amber-900 dark:text-amber-200 font-semibold py-4 px-4 transition hover:bg-amber-100 dark:hover:bg-amber-900/30"
@@ -29,7 +32,8 @@ export default function InvestorQuickActions({
         <ShieldCheckIcon className="w-5 h-5" />
         Complete verification to start investing
       </Link>
-    );
+        </TranslateTree>
+  );
   }
 
   const actions = [
@@ -74,6 +78,7 @@ export default function InvestorQuickActions({
   const showSupport = canPerformAction(tier, "dedicatedSupport");
 
   return (
+    <TranslateTree>
     <div className="space-y-3">
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {actions.map(({ id, label, href, icon: Icon, color }) => (
@@ -97,5 +102,6 @@ export default function InvestorQuickActions({
         </Link>
       )}
     </div>
+      </TranslateTree>
   );
 }

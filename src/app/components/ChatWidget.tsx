@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChatBubbleLeftRightIcon,
@@ -37,6 +39,7 @@ export default function ChatWidget() {
   } = useChatWidget();
 
   return (
+    <TranslateTree>
     <>
       <motion.button
         initial={{ scale: 0 }}
@@ -186,5 +189,7 @@ export default function ChatWidget() {
         )}
       </AnimatePresence>
     </>
+  
+    </TranslateTree>
   );
 }

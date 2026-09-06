@@ -1,3 +1,7 @@
+"use client";
+
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
 
 interface StatusBadgeProps {
@@ -6,6 +10,7 @@ interface StatusBadgeProps {
 
 export default function StatusBadge({ status }: StatusBadgeProps) {
   return (
+    <TranslateTree>
     <span
       className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${
         status === "active"
@@ -20,5 +25,6 @@ export default function StatusBadge({ status }: StatusBadgeProps) {
       )}
       {status}
     </span>
+      </TranslateTree>
   );
 }

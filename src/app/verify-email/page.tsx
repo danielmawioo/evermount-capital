@@ -1,10 +1,12 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function EmailVerificationPage() {
   return (
+    <TranslateTree>
     <main className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white">
       {/* Left Panel */}
       <div className="bg-[#f9fafb] flex flex-col justify-center items-center p-10">
@@ -73,5 +75,6 @@ export default function EmailVerificationPage() {
         </div>
       </div>
     </main>
+    </TranslateTree>
   );
 }

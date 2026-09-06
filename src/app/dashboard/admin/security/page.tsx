@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useCallback, useEffect, useState } from "react";
 import { ShieldCheckIcon, KeyIcon } from "@heroicons/react/24/outline";
 import toast from "react-hot-toast";
@@ -72,6 +74,7 @@ export default function AdminSecurityPage() {
   };
 
   return (
+    <TranslateTree>
     <div className="space-y-6 max-w-2xl">
       <div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
@@ -163,5 +166,6 @@ export default function AdminSecurityPage() {
         )}
       </div>
     </div>
+      </TranslateTree>
   );
 }

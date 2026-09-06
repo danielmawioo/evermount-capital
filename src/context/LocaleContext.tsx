@@ -16,7 +16,10 @@ import {
   localeFromBrowser,
 } from "@/i18n/locales";
 import { messages } from "@/i18n/messages";
+import { buildEnglishIndex, lookupTranslation } from "@/i18n/lookup";
 import { logger } from "@/lib/logger";
+
+const englishIndex = buildEnglishIndex(messages.en);
 
 type TranslateVars = Record<string, string | number>;
 
@@ -25,6 +28,7 @@ interface LocaleContextType {
   setLocale: (locale: Locale) => void;
   t: (key: string, vars?: TranslateVars) => string;
   tList: (key: string) => string[];
+  tx: (text: string) => string;
 }
 
 const LocaleContext = createContext<LocaleContextType | undefined>(undefined);
@@ -98,9 +102,14 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
     [locale],
   );
 
+  const tx = useCallback(
+    (text: string) => lookupTranslation(messages, englishIndex, locale, text),
+    [locale],
+  );
+
   const context = useMemo(
-    () => ({ locale, setLocale, t, tList }),
-    [locale, setLocale, t, tList],
+    () => ({ locale, setLocale, t, tList, tx }),
+    [locale, setLocale, t, tList, tx],
   );
 
   return (
@@ -122,6 +131,7 @@ export function useLocale(): LocaleContextType {
         const value = messages.en[key];
         return Array.isArray(value) ? value : [];
       },
+      tx: (text) => lookupTranslation(messages, englishIndex, "en", text),
     };
   }
   return context;

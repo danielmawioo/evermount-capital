@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import type { ComponentType } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -113,6 +115,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
   }
 
   return (
+    <TranslateTree>
     <aside className="h-screen w-64 bg-white dark:bg-[#0f1117] border-r border-gray-200 dark:border-gray-800 shadow-md flex flex-col p-6 overflow-y-auto">
       <div className="flex items-center justify-between mb-6">
         <Link
@@ -174,5 +177,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
         ))}
       </nav>
     </aside>
+  
+    </TranslateTree>
   );
 }

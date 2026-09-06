@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useCallback, useEffect, useState } from "react";
 import {
   DocumentTextIcon,
@@ -64,6 +66,7 @@ export default function StatementsPage() {
   };
 
   return (
+    <TranslateTree>
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
@@ -135,5 +138,6 @@ export default function StatementsPage() {
         )}
       </div>
     </div>
+      </TranslateTree>
   );
 }

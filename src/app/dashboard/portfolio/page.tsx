@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { api } from "@/lib/api-client";
@@ -78,24 +80,28 @@ export default function PortfolioPage() {
 
   if (loading) {
     return (
+    <TranslateTree>
       <div className="space-y-4">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
           Portfolio
         </h1>
         <p className="text-gray-500">Loading...</p>
       </div>
-    );
+        </TranslateTree>
+  );
   }
 
   if (error || !portfolio) {
     return (
+    <TranslateTree>
       <div className="space-y-4">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
           Portfolio
         </h1>
         <p className="text-red-500">{error || "No data"}</p>
       </div>
-    );
+        </TranslateTree>
+  );
   }
 
   const metrics = performance?.metrics ?? {
@@ -111,6 +117,7 @@ export default function PortfolioPage() {
   };
 
   return (
+    <TranslateTree>
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
@@ -224,5 +231,6 @@ export default function PortfolioPage() {
         </div>
       )}
     </div>
+      </TranslateTree>
   );
 }

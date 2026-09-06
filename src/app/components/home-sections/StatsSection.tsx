@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { motion } from "framer-motion";
 import { containerVariants, itemVariants } from "./motionVariants";
 
@@ -34,6 +36,7 @@ const STATS = [
 
 export default function StatsSection() {
   return (
+    <TranslateTree>
     <section id="platform-overview" className="py-16 px-6 max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -69,5 +72,7 @@ export default function StatsSection() {
         </motion.div>
       </motion.div>
     </section>
+  
+    </TranslateTree>
   );
 }

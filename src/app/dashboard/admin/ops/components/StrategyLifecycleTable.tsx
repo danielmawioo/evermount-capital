@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import type { LifecycleRow, TradingStatus } from "@/hooks/useTradingOps";
 
 export interface StrategyLifecycleTableProps {
@@ -18,6 +20,7 @@ export default function StrategyLifecycleTable({
   onPromote,
 }: StrategyLifecycleTableProps) {
   return (
+    <TranslateTree>
     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
       <h2 className="font-semibold text-gray-900 dark:text-white mb-4">
         Strategy lifecycle
@@ -95,5 +98,6 @@ export default function StrategyLifecycleTable({
         </table>
       )}
     </div>
+      </TranslateTree>
   );
 }

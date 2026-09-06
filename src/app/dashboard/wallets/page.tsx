@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
@@ -119,16 +121,19 @@ export default function WalletsPage() {
 
   if (loading) {
     return (
+    <TranslateTree>
       <div className="space-y-10">
         <div className="animate-pulse">
           <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-1/4 mb-4"></div>
           <div className="h-32 bg-gray-200 dark:bg-gray-700 rounded"></div>
         </div>
       </div>
-    );
+        </TranslateTree>
+  );
   }
 
   return (
+    <TranslateTree>
     <div className="space-y-8">
       {/* Page Heading */}
       <div className="flex flex-col gap-2">
@@ -407,5 +412,6 @@ export default function WalletsPage() {
         </ul>
       </div>
     </div>
+      </TranslateTree>
   );
 }

@@ -1,3 +1,6 @@
+"use client";
+
+import TranslateTree from "@/app/components/TranslateTree";
 import { motion } from "framer-motion";
 import {
   AcademicCapIcon,
@@ -35,6 +38,7 @@ const WHY_CHOOSE_US_ITEMS = [
 
 export default function WhyChooseUsAndClosingSection() {
   return (
+    <TranslateTree>
     <>
       {/* Why Choose Us */}
       <motion.section
@@ -92,5 +96,7 @@ export default function WhyChooseUsAndClosingSection() {
         </div>
       </motion.section>
     </>
+  
+    </TranslateTree>
   );
 }

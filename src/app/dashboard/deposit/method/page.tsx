@@ -1,3 +1,7 @@
+"use client";
+
+import TranslateTree from "@/app/components/TranslateTree";
+
 // Deposit Payment Selection Page
 "use client";
 

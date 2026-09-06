@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useState } from "react";
 
 export default function WithdrawCardPage() {
@@ -25,6 +27,7 @@ export default function WithdrawCardPage() {
   };
 
   return (
+    <TranslateTree>
     <main className="min-h-screen flex flex-col px-6 md:px-10 py-8 bg-[#f9fafb] dark:bg-[#0f1117]">
       <div className="max-w-3xl mx-auto w-full space-y-8">
         <div>
@@ -104,5 +107,6 @@ export default function WithdrawCardPage() {
         </form>
       </div>
     </main>
+      </TranslateTree>
   );
 }

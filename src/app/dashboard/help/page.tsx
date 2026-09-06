@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useState } from "react";
 import {
   QuestionMarkCircleIcon,
@@ -118,6 +120,7 @@ export default function HelpCenterPage() {
   };
 
   return (
+    <TranslateTree>
     <div className="space-y-8">
       {/* Header */}
       <div>
@@ -372,5 +375,6 @@ export default function HelpCenterPage() {
         </div>
       </div>
     </div>
+      </TranslateTree>
   );
 }

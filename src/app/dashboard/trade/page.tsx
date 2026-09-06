@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
@@ -114,14 +116,17 @@ export default function TradePage() {
 
   if (profileLoading || pageLoading) {
     return (
+    <TranslateTree>
       <div className="max-w-lg mx-auto py-12 text-center text-gray-500">
         Loading...
       </div>
-    );
+        </TranslateTree>
+  );
   }
 
   if (!kycApproved) {
     return (
+    <TranslateTree>
       <div className="max-w-lg mx-auto space-y-4 py-8">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
           Trade
@@ -134,10 +139,12 @@ export default function TradePage() {
           Complete verification to start trading
         </Link>
       </div>
-    );
+        </TranslateTree>
+  );
   }
 
   return (
+    <TranslateTree>
     <div className="max-w-lg mx-auto space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -308,5 +315,6 @@ export default function TradePage() {
         </div>
       )}
     </div>
+      </TranslateTree>
   );
 }

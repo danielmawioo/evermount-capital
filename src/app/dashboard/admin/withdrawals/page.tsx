@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useCallback, useEffect, useState } from "react";
 import {
   ArrowPathIcon,
@@ -85,6 +87,7 @@ export default function AdminWithdrawalsPage() {
   };
 
   return (
+    <TranslateTree>
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
@@ -178,5 +181,6 @@ export default function AdminWithdrawalsPage() {
         )}
       </div>
     </div>
+      </TranslateTree>
   );
 }

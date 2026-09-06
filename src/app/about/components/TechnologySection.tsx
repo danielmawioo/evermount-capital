@@ -1,9 +1,13 @@
+"use client";
+
+import TranslateTree from "@/app/components/TranslateTree";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 export default function TechnologySection() {
   return (
+    <TranslateTree>
     <motion.section
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -46,5 +50,7 @@ export default function TechnologySection() {
         </div>
       </div>
     </motion.section>
+  
+    </TranslateTree>
   );
 }

@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -38,6 +40,7 @@ const PERFORMANCE_METRICS = [
 
 export default function MetricsAndCtaSection() {
   return (
+    <TranslateTree>
     <>
       <section className="py-16 px-6 max-w-7xl mx-auto">
         <motion.div
@@ -165,5 +168,7 @@ export default function MetricsAndCtaSection() {
         </div>
       </section>
     </>
+  
+    </TranslateTree>
   );
 }

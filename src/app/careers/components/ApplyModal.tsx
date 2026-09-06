@@ -1,3 +1,7 @@
+"use client";
+
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { motion } from "framer-motion";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import type { JobOpening } from "./openings";
@@ -9,6 +13,7 @@ interface ApplyModalProps {
 
 export default function ApplyModal({ job, onClose }: ApplyModalProps) {
   return (
+    <TranslateTree>
     <>
       <motion.div
         initial={{ opacity: 0 }}
@@ -74,5 +79,6 @@ export default function ApplyModal({ job, onClose }: ApplyModalProps) {
         </div>
       </motion.div>
     </>
+      </TranslateTree>
   );
 }

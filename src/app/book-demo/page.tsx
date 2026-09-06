@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import DatePicker from "react-datepicker";
@@ -164,6 +166,7 @@ export default function BookDemoModal() {
   };
 
   return (
+    <TranslateTree>
     <>
       <Script
         id="book-demo-structured-data"
@@ -339,5 +342,6 @@ export default function BookDemoModal() {
         </div>
       </div>
     </>
+    </TranslateTree>
   );
 }

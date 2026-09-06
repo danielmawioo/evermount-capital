@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { motion } from "framer-motion";
 
 const MARKETS = [
@@ -31,6 +33,7 @@ const MARKETS = [
 
 export default function InvestmentTimelineSection() {
   return (
+    <TranslateTree>
     <section id="markets" className="py-16 px-6 max-w-7xl mx-auto">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
@@ -64,5 +67,7 @@ export default function InvestmentTimelineSection() {
         ))}
       </div>
     </section>
+  
+    </TranslateTree>
   );
 }

@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import Script from "next/script";
 import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
@@ -61,6 +63,7 @@ export default function CareersPage() {
   const applyJob = openings.find((job) => job.id === showApplyModal) ?? null;
 
   return (
+    <TranslateTree>
     <>
       <Script
         id="careers-structured-data"
@@ -88,5 +91,7 @@ export default function CareersPage() {
         </AnimatePresence>
       </main>
     </>
+  
+    </TranslateTree>
   );
 }

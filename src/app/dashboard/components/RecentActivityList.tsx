@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 interface ActivityItem {
   id: string;
   type: string;
@@ -29,13 +31,16 @@ function timeAgo(dateStr: string) {
 export default function RecentActivityList({ items }: RecentActivityListProps) {
   if (items.length === 0) {
     return (
+    <TranslateTree>
       <p className="text-sm text-gray-500 dark:text-gray-400 py-4">
         No recent activity.
       </p>
-    );
+        </TranslateTree>
+  );
   }
 
   return (
+    <TranslateTree>
     <ul className="divide-y divide-gray-100 dark:divide-gray-800">
       {items.map((item) => (
         <li
@@ -56,5 +61,6 @@ export default function RecentActivityList({ items }: RecentActivityListProps) {
         </li>
       ))}
     </ul>
+      </TranslateTree>
   );
 }

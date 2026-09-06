@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useState } from "react";
 import {
   BookOpenIcon,
@@ -143,6 +145,7 @@ export default function LibraryPage() {
   };
 
   return (
+    <TranslateTree>
     <div className="space-y-6">
       {/* Header */}
       <div>
@@ -273,5 +276,6 @@ export default function LibraryPage() {
         </div>
       )}
     </div>
+      </TranslateTree>
   );
 }

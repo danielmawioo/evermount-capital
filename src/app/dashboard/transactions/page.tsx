@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useCallback, useEffect, useState } from "react";
 import { api } from "@/lib/api-client";
 import { getApiErrorMessage } from "@/lib/api-error";
@@ -69,6 +71,7 @@ export default function TransactionsPage() {
   };
 
   return (
+    <TranslateTree>
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
@@ -163,5 +166,6 @@ export default function TransactionsPage() {
         </div>
       )}
     </div>
+      </TranslateTree>
   );
 }

@@ -1,7 +1,10 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 export default function CookiePolicyPage() {
   return (
+    <TranslateTree>
     <main className="min-h-screen bg-gradient-to-br from-sky-100 via-white to-sky-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-800 dark:text-gray-200 px-6 py-20">
       <div className="max-w-4xl mx-auto space-y-14">
         {/* HEADER */}
@@ -168,5 +171,7 @@ export default function CookiePolicyPage() {
         </footer>
       </div>
     </main>
+  
+    </TranslateTree>
   );
 }

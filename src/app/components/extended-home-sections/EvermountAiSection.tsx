@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { motion } from "framer-motion";
 import {
   BeakerIcon,
@@ -34,6 +36,7 @@ const AGENTS = [
 
 export default function EvermountAiSection() {
   return (
+    <TranslateTree>
     <section id="evermount-ai" className="py-16 px-6 max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -80,5 +83,7 @@ export default function EvermountAiSection() {
         ))}
       </motion.div>
     </section>
+  
+    </TranslateTree>
   );
 }

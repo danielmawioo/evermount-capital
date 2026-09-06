@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { motion } from "framer-motion";
 import {
   BoltIcon,
@@ -46,6 +48,7 @@ const SYSTEMS = [
 
 export default function PlatformSystemsSection() {
   return (
+    <TranslateTree>
     <section
       id="platform-systems"
       className="py-16 px-6 bg-gray-50 dark:bg-gray-800"
@@ -93,5 +96,7 @@ export default function PlatformSystemsSection() {
         </motion.div>
       </div>
     </section>
+  
+    </TranslateTree>
   );
 }

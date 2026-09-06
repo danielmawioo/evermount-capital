@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import Link from "next/link";
 
 export interface TradePreview {
@@ -47,6 +49,7 @@ export default function TradePreviewCard({
   tierLabel,
 }: TradePreviewCardProps) {
   return (
+    <TranslateTree>
     <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#161a23] overflow-hidden shadow-sm">
       <div className="px-5 py-4 border-b border-gray-100 dark:border-gray-800 bg-[#00a76f]/5">
         <p className="text-xs uppercase tracking-wide text-[#00a76f] font-semibold">
@@ -109,5 +112,6 @@ export default function TradePreviewCard({
         </Link>
       </div>
     </div>
+      </TranslateTree>
   );
 }

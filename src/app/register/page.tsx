@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -146,6 +148,7 @@ export default function RegisterPage() {
   }, []);
 
   return (
+    <TranslateTree>
     <main className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white dark:bg-gray-900 relative">
       <Toaster position="top-center" />
       {/* Logo & Theme Toggle */}
@@ -382,5 +385,7 @@ export default function RegisterPage() {
         </div>
       </div>
     </main>
+  
+    </TranslateTree>
   );
 }

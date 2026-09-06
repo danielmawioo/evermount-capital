@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import type { ExnessPartnerSummary } from "@/hooks/useTradingOps";
 
 export interface ExnessPartnerCardProps {
@@ -10,6 +12,7 @@ export default function ExnessPartnerCard({
   exnessPartner,
 }: ExnessPartnerCardProps) {
   return (
+    <TranslateTree>
     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
       <h2 className="font-semibold text-gray-900 dark:text-white mb-3">
         Exness Partner Broker
@@ -100,5 +103,6 @@ export default function ExnessPartnerCard({
           </p>
         )}
     </div>
+      </TranslateTree>
   );
 }

@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { motion } from "framer-motion";
 import {
   WrenchScrewdriverIcon,
@@ -37,6 +39,7 @@ export default function DepartmentPicker({
   onSelect,
 }: DepartmentPickerProps) {
   return (
+    <TranslateTree>
     <div className="space-y-3">
       <div className="text-center mb-4">
         <p
@@ -96,5 +99,7 @@ export default function DepartmentPicker({
         })}
       </div>
     </div>
+  
+    </TranslateTree>
   );
 }

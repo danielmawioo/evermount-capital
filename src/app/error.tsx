@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { logger } from "@/lib/logger";
+import TranslateTree from "@/app/components/TranslateTree";
 
 export default function ErrorBoundary({
   error,
@@ -16,6 +17,7 @@ export default function ErrorBoundary({
   }, [error]);
 
   return (
+    <TranslateTree>
     <main className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-[#0f1117] px-6 py-16 text-center">
       <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
         Something went wrong
@@ -39,5 +41,6 @@ export default function ErrorBoundary({
         </Link>
       </div>
     </main>
+    </TranslateTree>
   );
 }

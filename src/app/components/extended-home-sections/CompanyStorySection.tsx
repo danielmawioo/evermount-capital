@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -31,6 +33,7 @@ const PHILOSOPHY_PRINCIPLES = [
 
 export default function CompanyStorySection() {
   return (
+    <TranslateTree>
     <>
       <section className="py-16 px-6 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -189,5 +192,7 @@ export default function CompanyStorySection() {
         </div>
       </section>
     </>
+  
+    </TranslateTree>
   );
 }

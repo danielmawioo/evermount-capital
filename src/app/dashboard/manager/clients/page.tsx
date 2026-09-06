@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useEffect } from "react";
 import {
   ArrowPathIcon,
@@ -68,6 +70,7 @@ export default function ManagerClientsPage() {
   if (authLoading) return <p className="text-sm text-gray-500">Loading…</p>;
 
   return (
+    <TranslateTree>
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
@@ -484,5 +487,6 @@ export default function ManagerClientsPage() {
         </div>
       )}
     </div>
+      </TranslateTree>
   );
 }

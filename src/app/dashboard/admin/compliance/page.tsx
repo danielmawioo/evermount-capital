@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useCallback, useEffect, useState } from "react";
 import {
   ShieldCheckIcon,
@@ -79,6 +81,7 @@ export default function CompliancePage() {
   };
 
   return (
+    <TranslateTree>
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
@@ -175,5 +178,6 @@ export default function CompliancePage() {
         </>
       ) : null}
     </div>
+      </TranslateTree>
   );
 }

@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import {
   UsersIcon,
   MagnifyingGlassIcon,
@@ -52,6 +54,7 @@ export default function UserManagementPage() {
   } = useAdminUsers();
 
   return (
+    <TranslateTree>
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
@@ -336,5 +339,6 @@ export default function UserManagementPage() {
         </div>
       )}
     </div>
+      </TranslateTree>
   );
 }

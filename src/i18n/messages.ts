@@ -1,8 +1,8 @@
 import type { Locale } from "./locales";
+import type { Messages } from "./types";
+import { siteDe, siteEn, siteEs, siteFr, siteNl } from "./site-copy";
 
-export type Messages = {
-  [key: string]: string | string[];
-};
+export type { Messages } from "./types";
 
 const en: Messages = {
   "common.requestAccess": "Request Access",
@@ -827,9 +827,9 @@ const nl: Messages = {
 };
 
 export const messages: Record<Locale, Messages> = {
-  en,
-  fr,
-  es,
-  de,
-  nl,
+  en: { ...en, ...siteEn },
+  fr: { ...fr, ...siteFr },
+  es: { ...es, ...siteEs },
+  de: { ...de, ...siteDe },
+  nl: { ...nl, ...siteNl },
 };

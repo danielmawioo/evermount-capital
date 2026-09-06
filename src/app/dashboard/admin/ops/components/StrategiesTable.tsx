@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import type { TradingStatus } from "@/hooks/useTradingOps";
 
 export interface StrategiesTableProps {
@@ -8,6 +10,7 @@ export interface StrategiesTableProps {
 
 export default function StrategiesTable({ strategies }: StrategiesTableProps) {
   return (
+    <TranslateTree>
     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
       <h2 className="font-semibold text-gray-900 dark:text-white mb-4">
         Strategies
@@ -41,5 +44,6 @@ export default function StrategiesTable({ strategies }: StrategiesTableProps) {
         </div>
       )}
     </div>
+      </TranslateTree>
   );
 }

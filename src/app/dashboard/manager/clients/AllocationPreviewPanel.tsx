@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 export interface AllocationPreview {
   programName: string;
   strategyKey: string | null;
@@ -64,6 +66,7 @@ function Metric({
   valueClass?: string;
 }) {
   return (
+    <TranslateTree>
     <div className="px-3 py-2.5 border-r border-b border-gray-100 dark:border-gray-800">
       <p className="text-[10px] uppercase tracking-wide text-gray-500 mb-0.5">
         {label}
@@ -75,6 +78,7 @@ function Metric({
       </p>
       {sub && <p className="text-[10px] text-gray-400 mt-0.5">{sub}</p>}
     </div>
+      </TranslateTree>
   );
 }
 
@@ -89,10 +93,12 @@ export default function AllocationPreviewPanel({
 }: AllocationPreviewPanelProps) {
   if (loading) {
     return (
+    <TranslateTree>
       <div className="mt-4 rounded-lg border border-dashed border-gray-300 dark:border-gray-600 p-4 text-sm text-gray-500">
         Calculating allocation metrics…
       </div>
-    );
+        </TranslateTree>
+  );
   }
 
   if (!preview) return null;
@@ -103,6 +109,7 @@ export default function AllocationPreviewPanel({
       : "text-red-600 dark:text-red-400";
 
   return (
+    <TranslateTree>
     <div className="mt-4 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden bg-gray-50/80 dark:bg-gray-900/40">
       <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex flex-wrap items-center justify-between gap-2">
         <div>
@@ -211,5 +218,6 @@ export default function AllocationPreviewPanel({
         />
       </div>
     </div>
+      </TranslateTree>
   );
 }

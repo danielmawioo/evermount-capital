@@ -1,10 +1,12 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function NotFoundPage() {
   return (
+    <TranslateTree>
     <main className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-[#0f1117] px-6 py-16 text-center">
       {/* Image */}
       <div className="mb-8">
@@ -35,5 +37,6 @@ export default function NotFoundPage() {
         </button>
       </Link>
     </main>
+    </TranslateTree>
   );
 }

@@ -1,9 +1,12 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { BriefcaseIcon } from "@heroicons/react/24/outline";
 
 export default function ManagersPage() {
   return (
+    <TranslateTree>
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
@@ -33,5 +36,6 @@ export default function ManagersPage() {
         </p>
       </div>
     </div>
+      </TranslateTree>
   );
 }

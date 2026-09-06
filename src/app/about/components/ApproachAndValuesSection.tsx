@@ -1,3 +1,6 @@
+"use client";
+
+import TranslateTree from "@/app/components/TranslateTree";
 import { motion } from "framer-motion";
 import {
   CheckCircleIcon,
@@ -51,6 +54,7 @@ const CORE_VALUES = [
 
 export default function ApproachAndValuesSection() {
   return (
+    <TranslateTree>
     <>
       {/* Our Approach */}
       <motion.section
@@ -120,5 +124,7 @@ export default function ApproachAndValuesSection() {
         </div>
       </motion.section>
     </>
+  
+    </TranslateTree>
   );
 }

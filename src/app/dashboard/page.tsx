@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -111,6 +113,7 @@ export default function DashboardPage() {
   };
 
   return (
+    <TranslateTree>
     <div className="space-y-6">
       {/* Header */}
       <section className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
@@ -214,5 +217,6 @@ export default function DashboardPage() {
         <RecentActivityList items={recentActivity} />
       </div>
     </div>
+      </TranslateTree>
   );
 }

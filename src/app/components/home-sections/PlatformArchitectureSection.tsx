@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -15,6 +17,7 @@ const LAYERS = [
 
 export default function PlatformArchitectureSection() {
   return (
+    <TranslateTree>
     <section className="bg-gray-50 dark:bg-gray-800 py-16 px-6 max-w-7xl mx-auto flex flex-col md:flex-row-reverse gap-12 items-center">
       <motion.div
         initial={{ opacity: 0, x: 50 }}
@@ -101,5 +104,7 @@ export default function PlatformArchitectureSection() {
         </div>
       </motion.div>
     </section>
+  
+    </TranslateTree>
   );
 }

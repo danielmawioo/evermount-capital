@@ -1,3 +1,7 @@
+"use client";
+
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { TrashIcon } from "@heroicons/react/24/outline";
 import type { ApiUser } from "@/hooks/useAdminUsers";
 import StatusBadge from "./StatusBadge";
@@ -20,6 +24,7 @@ export default function UserRow({
   onDelete,
 }: UserRowProps) {
   return (
+    <TranslateTree>
     <tr className="hover:bg-gray-50 dark:hover:bg-gray-700/50">
       <td className="px-6 py-4">
         <div className="font-medium text-gray-900 dark:text-white">
@@ -88,5 +93,6 @@ export default function UserRow({
         </div>
       </td>
     </tr>
+      </TranslateTree>
   );
 }

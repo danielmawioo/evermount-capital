@@ -1,3 +1,6 @@
+"use client";
+
+import TranslateTree from "@/app/components/TranslateTree";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaLinkedin } from "react-icons/fa";
@@ -42,6 +45,7 @@ const FOUNDERS = [
 
 export default function FoundersSection() {
   return (
+    <TranslateTree>
     <section>
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
@@ -110,5 +114,7 @@ export default function FoundersSection() {
         ))}
       </motion.div>
     </section>
+  
+    </TranslateTree>
   );
 }

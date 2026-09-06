@@ -1,7 +1,12 @@
+"use client";
+
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { motion } from "framer-motion";
 
 export default function CtaSection() {
   return (
+    <TranslateTree>
     <motion.section
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -25,5 +30,6 @@ export default function CtaSection() {
         Email Us: careers@evermount.co
       </motion.a>
     </motion.section>
+      </TranslateTree>
   );
 }

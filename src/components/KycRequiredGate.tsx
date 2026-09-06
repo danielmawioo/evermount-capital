@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useInvestor } from "@/hooks/useInvestor";
+import TranslateTree from "@/app/components/TranslateTree";
 
 interface KycRequiredGateProps {
   children: React.ReactNode;
@@ -24,6 +25,7 @@ export default function KycRequiredGate({
 
   if (!kycApproved) {
     return (
+      <TranslateTree>
       <main className="min-h-screen flex flex-col items-center justify-center p-6">
         <div className="max-w-lg w-full bg-white dark:bg-[#161a23] p-8 rounded-lg border text-center">
           <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
@@ -40,6 +42,7 @@ export default function KycRequiredGate({
           </Link>
         </div>
       </main>
+      </TranslateTree>
     );
   }
 

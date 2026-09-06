@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useEffect, useState } from "react";
 import { FaUpload } from "react-icons/fa";
 import FileUpload from "@/components/FileUpload";
@@ -59,6 +61,7 @@ export default function InvestorKYCPage() {
 
   if (kycStatus === "rejected") {
     return (
+    <TranslateTree>
       <main className="min-h-screen flex flex-col items-center justify-center p-6 bg-[#f9fafb] dark:bg-[#0f1117]">
         <div className="w-full max-w-2xl bg-white dark:bg-[#161a23] p-8 rounded-lg shadow-md border border-gray-100 dark:border-gray-800">
           <div className="text-center mb-6">
@@ -119,11 +122,13 @@ export default function InvestorKYCPage() {
           </form>
         </div>
       </main>
-    );
+        </TranslateTree>
+  );
   }
 
   if (kycStatus === "verified") {
     return (
+    <TranslateTree>
       <main className="min-h-screen flex flex-col items-center justify-center p-6">
         <div className="max-w-lg w-full bg-white dark:bg-[#161a23] p-8 rounded-lg border border-gray-100 dark:border-gray-800 text-center">
           <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
@@ -135,11 +140,13 @@ export default function InvestorKYCPage() {
           </p>
         </div>
       </main>
-    );
+        </TranslateTree>
+  );
   }
 
   if (kycStatus === "pending") {
     return (
+    <TranslateTree>
       <main className="min-h-screen flex flex-col items-center justify-center p-6">
         <div className="max-w-lg w-full bg-white dark:bg-[#161a23] p-8 rounded-lg border border-gray-100 dark:border-gray-800 text-center">
           <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
@@ -151,10 +158,12 @@ export default function InvestorKYCPage() {
           </p>
         </div>
       </main>
-    );
+        </TranslateTree>
+  );
   }
 
   return (
+    <TranslateTree>
     <main className="min-h-screen flex flex-col items-center justify-center p-6 bg-[#f9fafb] dark:bg-[#0f1117]">
       <div className="w-full max-w-2xl bg-white dark:bg-[#161a23] p-8 rounded-lg shadow-md border border-gray-100 dark:border-gray-800">
         <h1 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-2">
@@ -211,5 +220,6 @@ export default function InvestorKYCPage() {
         </form>
       </div>
     </main>
+      </TranslateTree>
   );
 }

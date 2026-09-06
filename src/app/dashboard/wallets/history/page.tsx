@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { api } from "@/lib/api-client";
@@ -93,6 +95,7 @@ export default function WalletHistoryPage() {
       rejected: "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400",
     };
     return (
+    <TranslateTree>
       <span
         className={`px-2 py-1 rounded-full text-xs font-medium ${
           statusColors[status.toLowerCase()] ||
@@ -101,7 +104,8 @@ export default function WalletHistoryPage() {
       >
         {status.charAt(0).toUpperCase() + status.slice(1)}
       </span>
-    );
+        </TranslateTree>
+  );
   };
 
   const getTransactionTypeLabel = (type: string) => {
@@ -151,6 +155,7 @@ export default function WalletHistoryPage() {
   };
 
   return (
+    <TranslateTree>
     <div className="space-y-6">
       {/* Header */}
       <div className="flex items-center justify-between">
@@ -410,5 +415,6 @@ export default function WalletHistoryPage() {
         )}
       </div>
     </div>
+      </TranslateTree>
   );
 }

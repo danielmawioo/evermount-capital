@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useSettings } from "@/hooks/useSettings";
 import FileUpload from "@/components/FileUpload";
 
@@ -42,13 +44,16 @@ export default function SettingsPage() {
 
   if (profileLoading || prefsLoading) {
     return (
+    <TranslateTree>
       <div className="max-w-xl mx-auto space-y-8">
         <div className="animate-pulse">Loading...</div>
       </div>
-    );
+        </TranslateTree>
+  );
   }
 
   return (
+    <TranslateTree>
     <div className="max-w-xl mx-auto space-y-8">
       <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
         Account Settings
@@ -322,5 +327,6 @@ export default function SettingsPage() {
         </div>
       </form>
     </div>
+      </TranslateTree>
   );
 }

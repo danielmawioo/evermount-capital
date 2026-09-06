@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -104,6 +106,7 @@ export default function MpesaDepositPage() {
   };
 
   return (
+    <TranslateTree>
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
@@ -182,5 +185,6 @@ export default function MpesaDepositPage() {
         </Link>
       </div>
     </div>
+      </TranslateTree>
   );
 }

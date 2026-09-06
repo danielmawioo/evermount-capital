@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 interface TradingMetrics {
   gainPercent: number;
   absGain: number;
@@ -41,6 +43,7 @@ function MetricCell({
   valueClassName?: string;
 }) {
   return (
+    <TranslateTree>
     <div className="px-4 py-3 border-r border-b border-gray-100 dark:border-gray-800 last:border-r-0">
       <p className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-1">
         {label}
@@ -49,6 +52,7 @@ function MetricCell({
         {value}
       </p>
     </div>
+      </TranslateTree>
   );
 }
 
@@ -62,6 +66,7 @@ export default function TradingMetricsGrid({
       : "text-red-600 dark:text-red-400";
 
   return (
+    <TranslateTree>
     <div className="bg-white dark:bg-[#161a23] rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden shadow-sm">
       <div className="px-4 py-3 border-b border-gray-100 dark:border-gray-800">
         <h3 className="text-sm font-semibold text-gray-800 dark:text-white">
@@ -121,5 +126,6 @@ export default function TradingMetricsGrid({
         />
       </div>
     </div>
+      </TranslateTree>
   );
 }

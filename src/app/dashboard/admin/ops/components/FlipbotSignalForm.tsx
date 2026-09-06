@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import type { Dispatch, SetStateAction } from "react";
 import {
   FLIPBOT_STRATEGY_KEYS,
@@ -35,6 +37,7 @@ export default function FlipbotSignalForm({
   onSubmit,
 }: FlipbotSignalFormProps) {
   return (
+    <TranslateTree>
     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
       <h2 className="font-semibold text-gray-900 dark:text-white mb-3">
         Flipbot — Pooled Exness MT5 Demo Execution
@@ -212,5 +215,6 @@ export default function FlipbotSignalForm({
         </button>
       </div>
     </div>
+      </TranslateTree>
   );
 }

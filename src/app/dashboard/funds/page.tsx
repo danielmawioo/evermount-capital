@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useState } from "react";
 import {
   BanknotesIcon,
@@ -114,6 +116,7 @@ export default function FundsPage() {
   };
 
   return (
+    <TranslateTree>
     <div className="space-y-6">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -337,5 +340,6 @@ export default function FundsPage() {
         </div>
       )}
     </div>
+      </TranslateTree>
   );
 }

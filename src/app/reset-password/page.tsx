@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useState } from "react";
 import Link from "next/link";
 import { api } from "@/lib/api-client";
@@ -82,6 +84,7 @@ export default function ResetPasswordPage() {
   };
 
   return (
+    <TranslateTree>
     <main className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white">
       {/* Left Panel */}
       <AuthLeftPanel title="Manage the job" />
@@ -197,5 +200,7 @@ export default function ResetPasswordPage() {
         </div>
       </div>
     </main>
+  
+    </TranslateTree>
   );
 }

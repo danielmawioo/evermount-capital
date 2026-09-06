@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -149,13 +151,16 @@ export default function WithdrawBankPage() {
 
   if (loadingAccounts) {
     return (
+    <TranslateTree>
       <div className="flex items-center justify-center min-h-[40vh]">
         <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#00a76f]" />
       </div>
-    );
+        </TranslateTree>
+  );
   }
 
   return (
+    <TranslateTree>
     <KycRequiredGate action="withdraw funds">
       <main className="min-h-screen flex flex-col px-6 md:px-10 py-8 bg-[#f9fafb] dark:bg-[#0f1117]">
         <div className="max-w-3xl w-full mx-auto space-y-8">
@@ -357,5 +362,6 @@ export default function WithdrawBankPage() {
         </div>
       </main>
     </KycRequiredGate>
+      </TranslateTree>
   );
 }
