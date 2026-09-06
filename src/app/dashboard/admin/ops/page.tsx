@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useTradingOps } from "@/hooks/useTradingOps";
 import OpsHeader from "./components/OpsHeader";
 import QuantConnectionCard from "./components/QuantConnectionCard";
@@ -37,53 +39,55 @@ export default function TradingOpsPage() {
   } = useTradingOps();
 
   return (
-    <div className="space-y-6">
-      <OpsHeader loading={loading} onRefresh={loadStatus} />
+    <TranslateTree>
+      <div className="space-y-6">
+        <OpsHeader loading={loading} onRefresh={loadStatus} />
 
-      <div className="grid md:grid-cols-2 gap-4">
-        <QuantConnectionCard connected={status?.connected} quant={quant} />
-        <KillSwitchCard
-          killActive={killActive}
-          quant={quant}
+        <div className="grid md:grid-cols-2 gap-4">
+          <QuantConnectionCard connected={status?.connected} quant={quant} />
+          <KillSwitchCard
+            killActive={killActive}
+            quant={quant}
+            actionLoading={actionLoading}
+            onToggle={handleKillSwitch}
+          />
+        </div>
+
+        <NavPublishingCard
           actionLoading={actionLoading}
-          onToggle={handleKillSwitch}
+          onRunNavBatch={handleNavBatch}
+        />
+
+        <StrategiesTable strategies={quant?.strategies} />
+
+        <OpenPositionsCard positionsCount={quant?.positions?.length} />
+
+        <FlipbotSignalForm
+          flipbot={flipbot}
+          flipbotPool={flipbotPool}
+          signalForm={signalForm}
+          setSignalForm={setSignalForm}
+          actionLoading={actionLoading}
+          onSubmit={handlePushFlipbotSignal}
+        />
+
+        <ExnessPartnerCard exnessPartner={exnessPartner} />
+
+        <DemoReconciliationCard
+          reconHistory={reconHistory}
+          actionLoading={actionLoading}
+          onSyncPositions={handleSyncPositions}
+          onRunReconciliation={handleDemoReconciliation}
+        />
+
+        <StrategyLifecycleTable
+          lifecycle={lifecycle}
+          strategies={quant?.strategies}
+          actionLoading={actionLoading}
+          onPromotionCheck={handlePromotionCheck}
+          onPromote={handlePromote}
         />
       </div>
-
-      <NavPublishingCard
-        actionLoading={actionLoading}
-        onRunNavBatch={handleNavBatch}
-      />
-
-      <StrategiesTable strategies={quant?.strategies} />
-
-      <OpenPositionsCard positionsCount={quant?.positions?.length} />
-
-      <FlipbotSignalForm
-        flipbot={flipbot}
-        flipbotPool={flipbotPool}
-        signalForm={signalForm}
-        setSignalForm={setSignalForm}
-        actionLoading={actionLoading}
-        onSubmit={handlePushFlipbotSignal}
-      />
-
-      <ExnessPartnerCard exnessPartner={exnessPartner} />
-
-      <DemoReconciliationCard
-        reconHistory={reconHistory}
-        actionLoading={actionLoading}
-        onSyncPositions={handleSyncPositions}
-        onRunReconciliation={handleDemoReconciliation}
-      />
-
-      <StrategyLifecycleTable
-        lifecycle={lifecycle}
-        strategies={quant?.strategies}
-        actionLoading={actionLoading}
-        onPromotionCheck={handlePromotionCheck}
-        onPromote={handlePromote}
-      />
-    </div>
+    </TranslateTree>
   );
 }

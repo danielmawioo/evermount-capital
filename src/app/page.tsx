@@ -118,7 +118,7 @@ export default function Home() {
       contactType: "Customer Support",
       email: "info@evermount.co",
       areaServed: "Worldwide",
-      availableLanguage: ["English"],
+      availableLanguage: ["English", "French", "Spanish", "German", "Dutch"],
     },
     sameAs: [
       "https://twitter.com/evermountcapital",

@@ -2,6 +2,7 @@ import PageHero from "@/app/components/marketing/PageHero";
 import BulletSection from "@/app/components/marketing/BulletSection";
 import CapabilityGrid from "@/app/components/marketing/CapabilityGrid";
 import CtaBand from "@/app/components/marketing/CtaBand";
+import Tx from "@/app/components/Tx";
 import { pageMetadata } from "@/lib/page-metadata";
 
 export const metadata = pageMetadata(
@@ -40,9 +41,12 @@ export default function DevelopersPage() {
         items={["REST", "WebSockets", "Streaming", "Webhooks"]}
       />
       <section id="sdks" className="scroll-mt-28">
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6">
+        <Tx
+          as="h2"
+          className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6"
+        >
           SDKs
-        </h2>
+        </Tx>
         <CapabilityGrid
           columns="grid-cols-1 sm:grid-cols-2"
           items={[
@@ -88,15 +92,12 @@ export default function DevelopersPage() {
         body="Non-production environments for integration testing are planned for approved developers."
         items={["Sandbox access — coming soon"]}
       />
-      <section id="status" className="scroll-mt-28">
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
-          System Status
-        </h2>
-        <p className="text-gray-600 dark:text-gray-400">
-          A public status page is coming soon. For incidents, contact
-          support@evermount.co.
-        </p>
-      </section>
+      <BulletSection
+        id="status"
+        title="System Status"
+        body="A public status page is coming soon. For incidents, contact support@evermount.co."
+        items={[]}
+      />
       <CtaBand
         title="Request developer access"
         body="Share your company, role and API requirements so we can provision the right environment."

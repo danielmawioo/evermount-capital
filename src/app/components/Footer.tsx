@@ -15,11 +15,78 @@ import {
   researchColumn,
   companyColumn,
   legalComplianceColumn,
+  type FooterColumnData,
 } from "./footerColumns";
+import { useLocale } from "@/context/LocaleContext";
+
+const COLUMN_KEYS: Record<string, string> = {
+  Platform: "nav.platform",
+  Markets: "nav.markets",
+  Institutions: "nav.institutions",
+  Developers: "nav.developers",
+  Research: "nav.research",
+  Company: "nav.company",
+  Legal: "footer.legal",
+};
+
+const LINK_KEYS: Record<string, string> = {
+  "Market Data": "nav.marketData",
+  "Quant Research": "nav.quantResearch",
+  "AI & Analytics": "nav.aiAnalytics",
+  Execution: "nav.execution",
+  Risk: "nav.risk",
+  "Portfolio Infrastructure": "nav.portfolio",
+  Equities: "nav.equities",
+  FX: "nav.fx",
+  "Fixed Income": "nav.fixedIncome",
+  Commodities: "nav.commodities",
+  Derivatives: "nav.derivatives",
+  "Digital Assets": "nav.digitalAssets",
+  Banks: "nav.banks",
+  Brokers: "nav.brokers",
+  "Asset Managers": "nav.assetManagers",
+  Exchanges: "nav.exchanges",
+  "Market Makers": "nav.marketMakers",
+  Fintechs: "nav.fintechs",
+  "Trading Firms": "nav.tradingFirms",
+  API: "nav.api",
+  Documentation: "nav.documentation",
+  SDKs: "nav.sdks",
+  Sandbox: "nav.sandbox",
+  Status: "nav.status",
+  Research: "nav.research",
+  "Market Intelligence": "nav.marketIntelligence",
+  Insights: "nav.insights",
+  About: "nav.about",
+  Careers: "nav.careers",
+  Partners: "nav.partners",
+  Contact: "nav.contact",
+  Terms: "footer.terms",
+  Privacy: "footer.privacy",
+  "Risk Disclosure": "footer.riskDisclosure",
+  "Data Policy": "footer.dataPolicy",
+  "API Terms": "footer.apiTerms",
+  Compliance: "footer.compliance",
+};
+
+function translateColumn(
+  column: FooterColumnData,
+  t: (key: string) => string,
+): FooterColumnData {
+  return {
+    ...column,
+    title: t(COLUMN_KEYS[column.title] ?? column.title),
+    links: column.links.map((link) => ({
+      ...link,
+      label: t(LINK_KEYS[link.label] ?? link.label),
+    })),
+  };
+}
 
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const { t } = useLocale();
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,20 +108,20 @@ export default function Footer() {
         <div className="pt-16 pb-12">
           {/* Grid Sections */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 gap-8 lg:gap-10 text-sm mb-16">
-            <FooterColumn {...platformColumn} />
-            <FooterColumn {...marketsColumn} />
-            <FooterColumn {...institutionsColumn} />
-            <FooterColumn {...developersColumn} />
-            <FooterColumn {...researchColumn} />
-            <FooterColumn {...companyColumn} />
-            <FooterColumn {...legalComplianceColumn} />
+            <FooterColumn {...translateColumn(platformColumn, t)} />
+            <FooterColumn {...translateColumn(marketsColumn, t)} />
+            <FooterColumn {...translateColumn(institutionsColumn, t)} />
+            <FooterColumn {...translateColumn(developersColumn, t)} />
+            <FooterColumn {...translateColumn(researchColumn, t)} />
+            <FooterColumn {...translateColumn(companyColumn, t)} />
+            <FooterColumn {...translateColumn(legalComplianceColumn, t)} />
             <div>
               <h4 className="text-gray-900 dark:text-white font-semibold mb-5 text-base">
-                Contact Us
+                {t("footer.contactUs")}
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <span className="text-gray-500">Email: </span>
+                  <span className="text-gray-500">{t("footer.email")} </span>
                   <a
                     href="mailto:info@evermount.co"
                     className="hover:text-[#00a76f] transition-colors"
@@ -63,7 +130,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <span className="text-gray-500">Phone: </span>
+                  <span className="text-gray-500">{t("footer.phone")} </span>
                   <a
                     href="tel:+254758578816"
                     className="hover:text-[#00a76f] transition-colors"
@@ -76,7 +143,7 @@ export default function Footer() {
                     href="#"
                     className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors"
                   >
-                    Live Chat
+                    {t("footer.liveChat")}
                   </Link>
                 </li>
                 <li>
@@ -84,7 +151,7 @@ export default function Footer() {
                     href="#"
                     className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors"
                   >
-                    Messenger
+                    {t("footer.messenger")}
                   </Link>
                 </li>
               </ul>
@@ -94,11 +161,10 @@ export default function Footer() {
           {/* Newsletter Signup */}
           <div className="mb-16 text-center">
             <h4 className="text-xl text-gray-900 dark:text-white font-semibold mb-3">
-              Subscribe to our Newsletter
+              {t("footer.newsletterTitle")}
             </h4>
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 max-w-md mx-auto">
-              Get updates on Evermount technology, research, and market
-              infrastructure.
+              {t("footer.newsletterBody")}
             </p>
             <form
               onSubmit={handleNewsletterSubmit}
@@ -116,16 +182,14 @@ export default function Footer() {
                 type="submit"
                 className="bg-[#00a76f] hover:bg-emerald-600 text-white px-8 py-3 rounded-lg font-medium transition w-full sm:w-auto"
               >
-                {submitted ? "✓ Subscribed" : "Subscribe"}
+                {submitted ? t("footer.subscribed") : t("footer.subscribe")}
               </button>
             </form>
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
             <p className="text-sm text-gray-500 dark:text-gray-400 max-w-xl">
-              Evermount is a financial technology and infrastructure company.
-              Availability of specific services depends on jurisdiction and
-              applicable regulation.
+              {t("footer.disclaimer")}
             </p>
             <div className="flex justify-center gap-6 text-[#00a76f] text-xl">
               {[
@@ -167,7 +231,7 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className="border-t border-gray-300 dark:border-gray-800 pt-6 pb-6">
           <p className="text-center text-xs text-gray-500 dark:text-gray-400">
-            © {new Date().getFullYear()} Evermount. All rights reserved.
+            {t("footer.copyright", { year: new Date().getFullYear() })}
           </p>
         </div>
       </div>
