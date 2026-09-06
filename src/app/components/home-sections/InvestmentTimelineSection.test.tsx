@@ -2,25 +2,12 @@ import { render, screen } from "@testing-library/react";
 import InvestmentTimelineSection from "./InvestmentTimelineSection";
 
 describe("InvestmentTimelineSection", () => {
-  it("renders the heading and all pipeline stages", () => {
+  it("renders market-agnostic asset class cards", () => {
     render(<InvestmentTimelineSection />);
 
-    expect(
-      screen.getByText("How Evermount Turns Intelligence Into Action"),
-    ).toBeInTheDocument();
-
-    expect(screen.getByText("01 — Understand")).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        "Our systems ingest and analyze market, macroeconomic, fundamental and alternative data.",
-      ),
-    ).toBeInTheDocument();
-
-    expect(screen.getByText("04 — Execute")).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        "Validated strategies move through systematic execution infrastructure with defined controls and monitoring.",
-      ),
-    ).toBeInTheDocument();
+    expect(screen.getByText("Markets")).toBeInTheDocument();
+    expect(screen.getByText("Equities")).toBeInTheDocument();
+    expect(screen.getByText("Foreign Exchange")).toBeInTheDocument();
+    expect(screen.getByText("Digital Assets")).toBeInTheDocument();
   });
 });

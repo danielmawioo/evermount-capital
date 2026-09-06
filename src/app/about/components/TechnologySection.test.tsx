@@ -9,7 +9,7 @@ describe("TechnologySection", () => {
       screen.getByRole("heading", { name: "Technology & Innovation" }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/At the heart of Evermount Capital/),
+      screen.getByText(/At the heart of Evermount is a technology platform/),
     ).toBeInTheDocument();
     expect(
       screen.getByText("Our technology stack includes:"),

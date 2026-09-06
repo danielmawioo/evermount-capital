@@ -7,7 +7,10 @@ const COOKIE_ACCEPTED_KEY = "cookie-accepted";
 const COOKIE_REJECTED_KEY = "cookie-rejected";
 const REJECT_EXPIRY_HOURS = 24;
 
+import { useLocale } from "@/context/LocaleContext";
+
 export default function CookieConsent() {
+  const { t } = useLocale();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -49,13 +52,12 @@ export default function CookieConsent() {
       <div className="w-full max-w-4xl bg-gradient-to-r from-white via-[#f0fdf8] to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700 shadow-xl rounded-2xl px-6 py-5 animate-fade-in backdrop-blur-sm">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-5 text-sm sm:text-base text-gray-800 dark:text-gray-200">
           <p className="text-center sm:text-left leading-relaxed flex-1">
-            We use cookies to enhance your experience, analyze site usage, and
-            deliver personalized content.{" "}
+            {t("cookie.body")}{" "}
             <Link
               href="/privacy"
               className="underline text-[#00a76f] hover:text-emerald-700"
             >
-              Learn more
+              {t("common.learnMore")}
             </Link>
           </p>
 
@@ -64,13 +66,13 @@ export default function CookieConsent() {
               onClick={handleAccept}
               className="bg-[#00a76f] hover:bg-emerald-700 text-white px-5 py-2 rounded-md font-semibold text-sm shadow transition"
             >
-              Accept
+              {t("cookie.accept")}
             </button>
             <button
               onClick={handleReject}
               className="bg-red-100 hover:bg-red-200 dark:bg-red-900/30 dark:hover:bg-red-900/50 text-red-700 dark:text-red-300 px-5 py-2 rounded-md font-semibold text-sm border border-red-300 dark:border-red-800 transition"
             >
-              Reject
+              {t("cookie.reject")}
             </button>
           </div>
         </div>

@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useCallback, useEffect, useState } from "react";
 import {
   ArrowPathIcon,
@@ -85,98 +87,102 @@ export default function AdminWithdrawalsPage() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-            <BanknotesIcon className="w-8 h-8 text-[#00a76f]" />
-            Withdrawal Approvals
-          </h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">
-            Review and approve investor withdrawal requests.
-          </p>
+    <TranslateTree>
+      <div className="space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+              <BanknotesIcon className="w-8 h-8 text-[#00a76f]" />
+              Withdrawal Approvals
+            </h1>
+            <p className="text-gray-600 dark:text-gray-400 mt-1">
+              Review and approve investor withdrawal requests.
+            </p>
+          </div>
+          <button
+            onClick={load}
+            disabled={loading}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+          >
+            <ArrowPathIcon
+              className={`w-4 h-4 ${loading ? "animate-spin" : ""}`}
+            />
+            Refresh
+          </button>
         </div>
-        <button
-          onClick={load}
-          disabled={loading}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition"
-        >
-          <ArrowPathIcon
-            className={`w-4 h-4 ${loading ? "animate-spin" : ""}`}
-          />
-          Refresh
-        </button>
-      </div>
 
-      <div className="bg-white dark:bg-[#161a23] rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden">
-        {loading ? (
-          <div className="p-12 text-center text-gray-500">Loading...</div>
-        ) : withdrawals.length === 0 ? (
-          <div className="p-12 text-center text-gray-500 dark:text-gray-400">
-            No pending withdrawals.
-          </div>
-        ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead className="bg-gray-50 dark:bg-gray-800/50 text-left text-gray-600 dark:text-gray-400">
-                <tr>
-                  <th className="px-4 py-3 font-medium">Investor</th>
-                  <th className="px-4 py-3 font-medium">Method</th>
-                  <th className="px-4 py-3 font-medium">Amount</th>
-                  <th className="px-4 py-3 font-medium">Fee</th>
-                  <th className="px-4 py-3 font-medium">Requested</th>
-                  <th className="px-4 py-3 font-medium text-right">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
-                {withdrawals.map((w) => (
-                  <tr
-                    key={w.transactionId}
-                    className="hover:bg-gray-50/50 dark:hover:bg-gray-800/30"
-                  >
-                    <td className="px-4 py-3">
-                      <p className="font-medium text-gray-900 dark:text-white">
-                        {w.userName}
-                      </p>
-                      <p className="text-xs text-gray-500">{w.userEmail}</p>
-                    </td>
-                    <td className="px-4 py-3 capitalize">{w.method}</td>
-                    <td className="px-4 py-3 font-semibold">
-                      {formatMoney(w.amount, w.currency)}
-                    </td>
-                    <td className="px-4 py-3 text-gray-500">
-                      {formatMoney(w.fee, w.currency)}
-                    </td>
-                    <td className="px-4 py-3 text-gray-500">
-                      {new Date(w.createdAt).toLocaleString()}
-                    </td>
-                    <td className="px-4 py-3">
-                      <div className="flex justify-end gap-2">
-                        <button
-                          onClick={() => handleApprove(w.transactionId)}
-                          disabled={processingId === w.transactionId}
-                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-green-600 hover:bg-green-700 text-white text-xs font-medium disabled:opacity-50"
-                        >
-                          <CheckCircleIcon className="w-4 h-4" />
-                          Approve
-                        </button>
-                        <button
-                          onClick={() => handleReject(w.transactionId)}
-                          disabled={processingId === w.transactionId}
-                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-medium disabled:opacity-50"
-                        >
-                          <XCircleIcon className="w-4 h-4" />
-                          Reject
-                        </button>
-                      </div>
-                    </td>
+        <div className="bg-white dark:bg-[#161a23] rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+          {loading ? (
+            <div className="p-12 text-center text-gray-500">Loading...</div>
+          ) : withdrawals.length === 0 ? (
+            <div className="p-12 text-center text-gray-500 dark:text-gray-400">
+              No pending withdrawals.
+            </div>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-gray-50 dark:bg-gray-800/50 text-left text-gray-600 dark:text-gray-400">
+                  <tr>
+                    <th className="px-4 py-3 font-medium">Investor</th>
+                    <th className="px-4 py-3 font-medium">Method</th>
+                    <th className="px-4 py-3 font-medium">Amount</th>
+                    <th className="px-4 py-3 font-medium">Fee</th>
+                    <th className="px-4 py-3 font-medium">Requested</th>
+                    <th className="px-4 py-3 font-medium text-right">
+                      Actions
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
+                </thead>
+                <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
+                  {withdrawals.map((w) => (
+                    <tr
+                      key={w.transactionId}
+                      className="hover:bg-gray-50/50 dark:hover:bg-gray-800/30"
+                    >
+                      <td className="px-4 py-3">
+                        <p className="font-medium text-gray-900 dark:text-white">
+                          {w.userName}
+                        </p>
+                        <p className="text-xs text-gray-500">{w.userEmail}</p>
+                      </td>
+                      <td className="px-4 py-3 capitalize">{w.method}</td>
+                      <td className="px-4 py-3 font-semibold">
+                        {formatMoney(w.amount, w.currency)}
+                      </td>
+                      <td className="px-4 py-3 text-gray-500">
+                        {formatMoney(w.fee, w.currency)}
+                      </td>
+                      <td className="px-4 py-3 text-gray-500">
+                        {new Date(w.createdAt).toLocaleString()}
+                      </td>
+                      <td className="px-4 py-3">
+                        <div className="flex justify-end gap-2">
+                          <button
+                            onClick={() => handleApprove(w.transactionId)}
+                            disabled={processingId === w.transactionId}
+                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-green-600 hover:bg-green-700 text-white text-xs font-medium disabled:opacity-50"
+                          >
+                            <CheckCircleIcon className="w-4 h-4" />
+                            Approve
+                          </button>
+                          <button
+                            onClick={() => handleReject(w.transactionId)}
+                            disabled={processingId === w.transactionId}
+                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-medium disabled:opacity-50"
+                          >
+                            <XCircleIcon className="w-4 h-4" />
+                            Reject
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </TranslateTree>
   );
 }

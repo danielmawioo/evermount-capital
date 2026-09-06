@@ -6,10 +6,10 @@ describe("FinalCtaSection", () => {
     render(<FinalCtaSection />);
 
     expect(
-      screen.getByText(/The Intelligence Layer for/),
+      screen.getByText(/Financial Infrastructure for/),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/Africa's financial markets are fragmented/),
+      screen.getByText(/Financial markets are complex, fragmented/),
     ).toBeInTheDocument();
   });
 
@@ -17,10 +17,10 @@ describe("FinalCtaSection", () => {
     render(<FinalCtaSection />);
 
     expect(
-      screen.getByRole("link", { name: "Explore Evermount Technology" }),
+      screen.getByRole("link", { name: "Explore Platform" }),
     ).toHaveAttribute("href", "/platform");
     expect(
-      screen.getByRole("link", { name: "Talk to Our Team" }),
+      screen.getByRole("link", { name: "Request Access" }),
     ).toHaveAttribute("href", "/book-demo");
   });
 });

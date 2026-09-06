@@ -1,17 +1,7 @@
-import { Metadata } from "next";
+import { pageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
-  title: "Platform | Evermount AI Financial Intelligence",
-  description:
-    "Explore Evermount's AI financial intelligence, quantitative research, risk and trading infrastructure for African markets.",
-  openGraph: {
-    title: "Platform | Evermount AI Financial Intelligence",
-    description:
-      "Explore Evermount's AI financial intelligence, quantitative research, risk and trading infrastructure for African markets.",
-    url: "https://www.evermount.co/platform",
-    type: "website",
-  },
-  alternates: {
-    canonical: "https://www.evermount.co/platform",
-  },
-};
+export const metadata = pageMetadata(
+  "The Evermount Financial Infrastructure Platform",
+  "Explore Evermount market data, quantitative research, AI, risk, execution and portfolio infrastructure.",
+  "/platform",
+);

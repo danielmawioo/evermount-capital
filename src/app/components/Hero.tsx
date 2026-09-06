@@ -14,31 +14,32 @@ import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
 
 import LiveMarketTicker from "./LiveMarketTicker";
-
-const FEATURES = [
-  {
-    icon: ChartBarIcon,
-    title: "Market Intelligence",
-    desc: "AI systems continuously analyze markets, macro conditions, news and alternative data.",
-  },
-  {
-    icon: CpuChipIcon,
-    title: "Quantitative Research",
-    desc: "AI-assisted research discovers, tests and validates systematic strategies.",
-  },
-  {
-    icon: ShieldCheckIcon,
-    title: "Risk Intelligence",
-    desc: "Real-time systems monitor exposure, liquidity, volatility and market regimes.",
-  },
-  {
-    icon: ClockIcon,
-    title: "Intelligent Execution",
-    desc: "Institutional-grade infrastructure converts validated strategies into controlled execution.",
-  },
-];
+import { useLocale } from "@/context/LocaleContext";
 
 export default function Hero() {
+  const { t, tList } = useLocale();
+  const features = [
+    {
+      icon: ChartBarIcon,
+      title: t("hero.marketData"),
+      desc: t("hero.marketDataDesc"),
+    },
+    {
+      icon: CpuChipIcon,
+      title: t("hero.quant"),
+      desc: t("hero.quantDesc"),
+    },
+    {
+      icon: ShieldCheckIcon,
+      title: t("hero.risk"),
+      desc: t("hero.riskDesc"),
+    },
+    {
+      icon: ClockIcon,
+      title: t("hero.execution"),
+      desc: t("hero.executionDesc"),
+    },
+  ];
   return (
     <section className="bg-gradient-to-b from-white dark:from-gray-900 via-[#e8fdf4] dark:via-gray-800 to-white dark:to-gray-900 py-20 sm:py-28 transition-all relative overflow-hidden">
       {/* Animated background elements */}
@@ -84,23 +85,17 @@ export default function Hero() {
           className="space-y-6 text-center lg:text-left"
         >
           <p className="text-xs sm:text-sm font-semibold tracking-[0.18em] text-[#00a76f] uppercase">
-            AI Financial Intelligence × Trading Infrastructure
+            {t("hero.kicker")}
           </p>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight tracking-tight">
-            We build intelligent financial systems that understand markets,
-            discover opportunities, manage risk and execute capital.
+            {t("hero.headline")}
           </h1>
 
           <h2 className="text-base sm:text-lg md:text-2xl font-medium text-[#00a76f] dark:text-emerald-400 min-h-[32px] sm:min-h-[40px]">
             <span className="inline-block min-w-[220px]">
               <Typewriter
-                words={[
-                  "Market Intelligence",
-                  "Quantitative Research",
-                  "Risk Intelligence",
-                  "Systematic Execution",
-                ]}
+                words={tList("hero.words")}
                 loop
                 cursor
                 cursorStyle="|"
@@ -112,10 +107,7 @@ export default function Hero() {
           </h2>
 
           <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
-            Evermount is building the AI financial intelligence and trading
-            infrastructure for Africa — combining artificial intelligence,
-            quantitative research, market data, risk intelligence and systematic
-            execution into a unified technology platform.
+            {t("hero.body")}
           </p>
 
           {/* CTA BUTTONS */}
@@ -133,7 +125,7 @@ export default function Hero() {
                 className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-[#00a76f] text-white rounded-md font-semibold hover:bg-emerald-700 transition shadow-md"
               >
                 <Squares2X2Icon className="w-5 h-5" />
-                Explore the Platform
+                {t("common.explorePlatform")}
               </motion.button>
             </Link>
 
@@ -144,7 +136,7 @@ export default function Hero() {
                 className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 border border-[#00a76f] dark:border-emerald-400 text-[#00a76f] dark:text-emerald-400 rounded-md font-semibold hover:bg-[#e6f5f0] dark:hover:bg-emerald-400/20 transition shadow-md"
               >
                 <LifebuoyIcon className="w-5 h-5" />
-                Talk to Our Team
+                {t("common.requestAccess")}
               </motion.button>
             </Link>
           </motion.div>
@@ -157,7 +149,7 @@ export default function Hero() {
             viewport={{ once: true }}
             className="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5 text-sm text-gray-800 dark:text-gray-200 max-w-xl mx-auto lg:mx-0"
           >
-            {FEATURES.map(({ icon: Icon, title, desc }) => (
+            {features.map(({ icon: Icon, title, desc }) => (
               <div key={title} className="flex items-start gap-3 text-left">
                 <Icon className="w-5 h-5 text-[#00a76f] mt-0.5 flex-shrink-0" />
                 <div>

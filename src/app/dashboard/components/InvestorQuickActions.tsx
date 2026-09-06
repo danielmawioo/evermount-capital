@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import Link from "next/link";
 import {
   PlusIcon,
@@ -22,13 +24,15 @@ export default function InvestorQuickActions({
 }: InvestorQuickActionsProps) {
   if (!kycApproved) {
     return (
-      <Link
-        href="/dashboard/kyc"
-        className="flex items-center justify-center gap-2 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 text-amber-900 dark:text-amber-200 font-semibold py-4 px-4 transition hover:bg-amber-100 dark:hover:bg-amber-900/30"
-      >
-        <ShieldCheckIcon className="w-5 h-5" />
-        Complete verification to start investing
-      </Link>
+      <TranslateTree>
+        <Link
+          href="/dashboard/kyc"
+          className="flex items-center justify-center gap-2 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 text-amber-900 dark:text-amber-200 font-semibold py-4 px-4 transition hover:bg-amber-100 dark:hover:bg-amber-900/30"
+        >
+          <ShieldCheckIcon className="w-5 h-5" />
+          Complete verification to start investing
+        </Link>
+      </TranslateTree>
     );
   }
 
@@ -74,28 +78,30 @@ export default function InvestorQuickActions({
   const showSupport = canPerformAction(tier, "dedicatedSupport");
 
   return (
-    <div className="space-y-3">
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        {actions.map(({ id, label, href, icon: Icon, color }) => (
+    <TranslateTree>
+      <div className="space-y-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {actions.map(({ id, label, href, icon: Icon, color }) => (
+            <Link
+              key={id}
+              href={href}
+              className={`flex flex-col items-center justify-center gap-2 rounded-xl border font-semibold py-4 px-3 text-center transition ${color}`}
+            >
+              <Icon className="w-5 h-5" />
+              <span className="text-sm">{label}</span>
+            </Link>
+          ))}
+        </div>
+        {showSupport && (
           <Link
-            key={id}
-            href={href}
-            className={`flex flex-col items-center justify-center gap-2 rounded-xl border font-semibold py-4 px-3 text-center transition ${color}`}
+            href="/dashboard/help"
+            className="flex items-center justify-center gap-2 rounded-lg border border-[#00a76f]/30 bg-[#00a76f]/5 text-[#00a76f] text-sm font-medium py-2.5 hover:bg-[#00a76f]/10 transition"
           >
-            <Icon className="w-5 h-5" />
-            <span className="text-sm">{label}</span>
+            <UserGroupIcon className="w-4 h-4" />
+            Contact your {tier.support.toLowerCase()}
           </Link>
-        ))}
+        )}
       </div>
-      {showSupport && (
-        <Link
-          href="/dashboard/help"
-          className="flex items-center justify-center gap-2 rounded-lg border border-[#00a76f]/30 bg-[#00a76f]/5 text-[#00a76f] text-sm font-medium py-2.5 hover:bg-[#00a76f]/10 transition"
-        >
-          <UserGroupIcon className="w-4 h-4" />
-          Contact your {tier.support.toLowerCase()}
-        </Link>
-      )}
-    </div>
+    </TranslateTree>
   );
 }

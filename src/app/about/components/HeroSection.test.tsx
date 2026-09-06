@@ -2,16 +2,12 @@ import { render, screen } from "@testing-library/react";
 import HeroSection from "./HeroSection";
 
 describe("HeroSection", () => {
-  it("renders the heading and supporting copy", () => {
+  it("renders the about headline", () => {
     render(<HeroSection />);
-
     expect(
       screen.getByRole("heading", {
-        name: /Evermount — The AI Financial Intelligence & Trading Infrastructure Company for Africa/i,
+        name: /Building the Infrastructure for Modern Financial Markets/i,
       }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText(/We build intelligent financial systems that understand markets/),
     ).toBeInTheDocument();
   });
 });

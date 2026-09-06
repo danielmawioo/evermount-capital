@@ -18,8 +18,6 @@ describe("RiskDisclosurePage", () => {
   });
 
   it("exports metadata with the expected title", () => {
-    expect(metadata.title).toBe(
-      "Risk Disclosure Statement | Evermount Capital",
-    );
+    expect(metadata.title).toBe("Risk Disclosure | Evermount");
   });
 });

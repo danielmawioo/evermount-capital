@@ -10,27 +10,29 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
   title: {
-    default:
-      "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
+    default: "Evermount | Financial Infrastructure for Modern Markets",
     template: "%s | Evermount",
   },
   description:
-    "Evermount builds AI-powered financial intelligence, quantitative research, risk and trading infrastructure for Africa's financial markets.",
+    "Evermount builds the technology, data, intelligence, execution, risk and infrastructure that powers modern financial markets.",
   keywords: [
-    "AI financial infrastructure Africa",
-    "quantitative trading Africa",
-    "AI trading infrastructure",
-    "African financial markets",
-    "quantitative research Africa",
-    "financial AI Africa",
-    "algorithmic trading infrastructure",
-    "African market data",
-    "systematic trading Africa",
-    "financial intelligence platform",
+    "financial infrastructure",
+    "financial market infrastructure",
+    "market data infrastructure",
+    "quantitative research platform",
+    "trading infrastructure",
+    "financial APIs",
+    "risk infrastructure",
+    "execution infrastructure",
+    "quantitative trading technology",
+    "institutional trading technology",
+    "financial data APIs",
+    "market intelligence",
+    "financial technology infrastructure",
   ],
-  authors: [{ name: "Evermount Capital" }],
-  creator: "Evermount Capital",
-  publisher: "Evermount Capital",
+  authors: [{ name: "Evermount" }],
+  creator: "Evermount",
+  publisher: "Evermount",
   metadataBase: new URL("https://www.evermount.co"),
   alternates: {
     canonical: "https://www.evermount.co",
@@ -46,17 +48,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://www.evermount.co",
-    siteName: "Evermount Capital",
-    title:
-      "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
+    siteName: "Evermount",
+    title: "Evermount | Financial Infrastructure for Modern Markets",
     description:
-      "Evermount builds AI-powered financial intelligence, quantitative research, risk and trading infrastructure for Africa's financial markets.",
+      "Evermount builds the technology, data, intelligence, execution, risk and infrastructure that powers modern financial markets.",
     images: [
       {
         url: "https://www.evermount.co/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Evermount Capital Platform",
+        alt: "Evermount financial infrastructure platform",
       },
     ],
     locale: "en_US",
@@ -65,10 +66,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@evermountcapital",
     creator: "@evermountcapital",
-    title:
-      "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
+    title: "Evermount | Financial Infrastructure for Modern Markets",
     description:
-      "Evermount builds AI-powered financial intelligence, quantitative research, risk and trading infrastructure for Africa's financial markets.",
+      "Evermount builds the technology, data, intelligence, execution, risk and infrastructure that powers modern financial markets.",
     images: ["https://www.evermount.co/og-image.png"],
   },
   robots: {
@@ -121,6 +121,13 @@ export default function RootLayout({
                 } catch (e) {
                   console.error('Theme initialization error:', e);
                 }
+                try {
+                  const savedLocale = localStorage.getItem('evermount-locale');
+                  if (savedLocale === 'ar') {
+                    document.documentElement.lang = 'ar-AE';
+                    document.documentElement.dir = 'rtl';
+                  }
+                } catch (e) {}
               })();
             `,
           }}
@@ -132,7 +139,7 @@ export default function RootLayout({
           name="apple-mobile-web-app-status-bar-style"
           content="black-translucent"
         />
-        <meta name="apple-mobile-web-app-title" content="Evermount Capital" />
+        <meta name="apple-mobile-web-app-title" content="Evermount" />
         <link rel="manifest" href="/manifest.json" />
 
         {/* JSON-LD Rich Schema */}
@@ -157,7 +164,7 @@ export default function RootLayout({
               },
               image: "https://www.evermount.co/og-image.png",
               description:
-                "The AI financial intelligence and trading infrastructure company for Africa.",
+                "Evermount builds the technology, data, intelligence, execution, risk and infrastructure that powers modern financial markets.",
               foundingDate: "2023",
               founder: [
                 {
@@ -182,7 +189,13 @@ export default function RootLayout({
                   contactType: "Customer Support",
                   email: "info@evermount.co",
                   areaServed: "Worldwide",
-                  availableLanguage: ["English"],
+                  availableLanguage: [
+                    "English",
+                    "French",
+                    "Spanish",
+                    "German",
+                    "Dutch",
+                  ],
                 },
                 {
                   "@type": "ContactPoint",
@@ -200,9 +213,9 @@ export default function RootLayout({
               ],
               offers: {
                 "@type": "Offer",
-                name: "AI Financial Intelligence & Trading Infrastructure",
+                name: "Financial Infrastructure Platform",
                 description:
-                  "AI-powered financial intelligence, quantitative research, risk and trading infrastructure",
+                  "Market data, quantitative research, intelligence, risk, execution and connectivity infrastructure",
               },
             }),
           }}
