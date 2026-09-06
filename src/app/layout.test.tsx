@@ -30,6 +30,12 @@ describe("RootLayout", () => {
       template: "%s | Evermount",
     });
     expect(metadata.description).toMatch(/Africa/i);
+    expect(metadata.twitter).toEqual(
+      expect.objectContaining({
+        site: "@evermount",
+        creator: "@evermount",
+      }),
+    );
     expect(metadata.alternates).toEqual({
       canonical: "https://www.evermount.co",
     });

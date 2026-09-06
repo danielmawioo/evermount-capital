@@ -42,8 +42,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@evermountcapital",
-    creator: "@evermountcapital",
+    site: "@evermount",
+    creator: "@evermount",
     title: TITLE,
     description: DESCRIPTION,
     images: ["https://www.evermount.co/og-image.png"],
@@ -122,9 +122,9 @@ export default function Home() {
       availableLanguage: ["English", "French", "Spanish", "German", "Dutch"],
     },
     sameAs: [
-      "https://twitter.com/evermountcapital",
-      "https://linkedin.com/company/evermount-capital",
-      "https://x.com/evermountcapital",
+      "https://twitter.com/evermount",
+      "https://linkedin.com/company/evermount",
+      "https://x.com/evermount",
     ],
   };
 

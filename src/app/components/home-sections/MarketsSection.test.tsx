@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import InvestmentTimelineSection from "./InvestmentTimelineSection";
+import MarketsSection from "./MarketsSection";
 
-describe("InvestmentTimelineSection", () => {
+describe("MarketsSection", () => {
   it("renders market-agnostic asset class cards", () => {
-    render(<InvestmentTimelineSection />);
+    render(<MarketsSection />);
 
     expect(screen.getByText("Markets")).toBeInTheDocument();
     expect(screen.getByText("Equities")).toBeInTheDocument();

@@ -66,8 +66,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@evermountcapital",
-    creator: "@evermountcapital",
+    site: "@evermount",
+    creator: "@evermount",
     title:
       "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
     description:
@@ -208,9 +208,9 @@ export default function RootLayout({
                 },
               ],
               sameAs: [
-                "https://twitter.com/evermountcapital",
-                "https://x.com/evermountcapital",
-                "https://linkedin.com/company/evermount-capital",
+                "https://twitter.com/evermount",
+                "https://x.com/evermount",
+                "https://linkedin.com/company/evermount",
                 "https://tiktok.com/@evermount",
                 "https://discord.gg/evermount",
               ],

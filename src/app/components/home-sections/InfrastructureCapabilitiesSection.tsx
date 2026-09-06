@@ -22,7 +22,7 @@ const CAPABILITIES = [
   "Monitoring and observability",
 ];
 
-export default function FundHighlightsSection() {
+export default function InfrastructureCapabilitiesSection() {
   return (
     <TranslateTree>
       <section className="bg-gray-50 dark:bg-gray-800 py-16 px-6 max-w-7xl mx-auto">

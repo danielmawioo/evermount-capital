@@ -16,5 +16,11 @@ describe("Home page", () => {
     expect(metadata.title).toBe(
       "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
     );
+    expect(metadata.twitter).toEqual(
+      expect.objectContaining({
+        site: "@evermount",
+        creator: "@evermount",
+      }),
+    );
   });
 });

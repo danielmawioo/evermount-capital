@@ -31,7 +31,7 @@ const MARKETS = [
   },
 ];
 
-export default function InvestmentTimelineSection() {
+export default function MarketsSection() {
   return (
     <TranslateTree>
       <section id="markets" className="py-16 px-6 max-w-7xl mx-auto">

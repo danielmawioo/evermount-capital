@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import FundHighlightsSection from "./FundHighlightsSection";
+import InfrastructureCapabilitiesSection from "./InfrastructureCapabilitiesSection";
 
-describe("FundHighlightsSection", () => {
+describe("InfrastructureCapabilitiesSection", () => {
   it("renders infrastructure capabilities instead of fund fees", () => {
-    render(<FundHighlightsSection />);
+    render(<InfrastructureCapabilitiesSection />);
 
     expect(screen.getByText("Infrastructure Capabilities")).toBeInTheDocument();
     expect(screen.getByText("Real-time market data")).toBeInTheDocument();

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import FundHighlightsSection from "../components/home-sections/FundHighlightsSection";
+import InfrastructureCapabilitiesSection from "../components/home-sections/InfrastructureCapabilitiesSection";
 
 export default function CapitalPageContent() {
   return (
@@ -22,7 +22,7 @@ export default function CapitalPageContent() {
         </p>
       </section>
 
-      <FundHighlightsSection />
+      <InfrastructureCapabilitiesSection />
 
       <section className="px-6 pb-20 max-w-3xl mx-auto text-center space-y-6">
         <p className="text-gray-600 dark:text-gray-400">
