@@ -1,13 +1,13 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Careers | Evermount Capital - Join Our Team",
+  title: "Careers | Evermount",
   description:
-    "Join the Evermount mission. We're building Africa's quantitative trading and market-making infrastructure. Explore open positions in engineering, quantitative analysis, design, and marketing.",
+    "Build the infrastructure behind modern financial markets. Introduce yourself if you want to join engineering, quantitative research, AI or market infrastructure teams.",
   openGraph: {
-    title: "Careers | Evermount Capital - Join Our Team",
+    title: "Careers | Evermount",
     description:
-      "Join the Evermount mission. We're building Africa's quantitative trading and market-making infrastructure.",
+      "Build the infrastructure behind modern financial markets with Evermount.",
     url: "https://www.evermount.co/careers",
     type: "website",
   },

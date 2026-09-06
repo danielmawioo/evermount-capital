@@ -1,20 +1,22 @@
 import { render, screen } from "@testing-library/react";
 import ExtendedHomeSections from "./ExtendedHomeSections";
 
-// Content-heavy marketing composition with no interactive logic - smoke test
-// covering key headings, CTAs, and stats rather than deep interaction tests.
 describe("ExtendedHomeSections", () => {
   it("renders without throwing and shows key section headings", () => {
     render(<ExtendedHomeSections />);
 
     expect(
-      screen.getByText("Quantitative Trading Technology Built for Africa"),
+      screen.getByText(
+        /Infrastructure for Institutions, Developers and Researchers/,
+      ),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Proprietary Technology & Research Infrastructure"),
+      screen.getByText("The Evermount Technology Stack"),
     ).toBeInTheDocument();
+    expect(screen.getByText("Our Technology Philosophy")).toBeInTheDocument();
+    expect(screen.getByText("Evermount AI")).toBeInTheDocument();
     expect(
-      screen.getByText("Systematic Investment Philosophy"),
+      screen.getByText("One Platform. Multiple Financial Systems."),
     ).toBeInTheDocument();
     expect(
       screen.getByText("World-Class Research & Engineering Team"),
@@ -23,7 +25,7 @@ describe("ExtendedHomeSections", () => {
       screen.getByText("Institutional-Grade Infrastructure & Risk Controls"),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("The Technology Behind Evermount"),
+      screen.getByText("The Evermount Intelligence Stack"),
     ).toBeInTheDocument();
   });
 
@@ -37,21 +39,23 @@ describe("ExtendedHomeSections", () => {
     expect(screen.getByText("Evans Kipngetich")).toBeInTheDocument();
   });
 
-  it("renders the final CTA links to book-demo and register", () => {
+  it("renders the final CTA links", () => {
     render(<ExtendedHomeSections />);
 
     expect(
-      screen.getByRole("link", { name: "Schedule a Demo" }),
-    ).toHaveAttribute("href", "/book-demo");
+      screen.getByRole("link", { name: "Explore Platform" }),
+    ).toHaveAttribute("href", "/platform");
     expect(
-      screen.getByRole("link", { name: "Get Started Free" }),
-    ).toHaveAttribute("href", "/register");
+      screen.getByRole("link", { name: "Become a Partner" }),
+    ).toHaveAttribute("href", "/partners");
   });
 
   it("renders capability metric cards", () => {
     render(<ExtendedHomeSections />);
 
-    expect(screen.getByText("Quantitative")).toBeInTheDocument();
-    expect(screen.getByText("Research Engine")).toBeInTheDocument();
+    expect(
+      screen.getAllByText("AI Financial Intelligence").length,
+    ).toBeGreaterThan(0);
+    expect(screen.getByText("Intelligent Execution")).toBeInTheDocument();
   });
 });

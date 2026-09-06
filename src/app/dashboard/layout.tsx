@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Sidebar from "@/app/components/Sidebar";
 import Topbar from "@/app/components/Topbar";
+import TranslateTree from "@/app/components/TranslateTree";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 export default function DashboardLayout({
@@ -50,7 +51,9 @@ export default function DashboardLayout({
 
         <Topbar />
         <main className="flex-1 overflow-y-auto px-4 py-6 md:px-10 md:py-8 bg-[#f9fafb] dark:bg-[#0b0b12]">
-          <div className="max-w-7xl mx-auto">{children}</div>
+          <div className="max-w-7xl mx-auto">
+            <TranslateTree>{children}</TranslateTree>
+          </div>
         </main>
       </div>
     </div>

@@ -6,3 +6,4 @@ public
 yarn.lock
 package.json
 *.md
+**/.venv

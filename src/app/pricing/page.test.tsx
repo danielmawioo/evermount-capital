@@ -6,25 +6,17 @@ describe("PricingPage", () => {
     render(<PricingPage />);
     expect(
       screen.getByRole("heading", {
-        name: /investment minimums & fee structure/i,
+        name: /infrastructure pricing/i,
       }),
     ).toBeInTheDocument();
   });
 
-  it("renders a pricing tier column for each investment tier", () => {
+  it("renders access tiers without invented list prices", () => {
     render(<PricingPage />);
-    expect(screen.getByText("$10,000")).toBeInTheDocument();
-    expect(screen.getByText("$50,000")).toBeInTheDocument();
-    expect(screen.getByText("$250,000")).toBeInTheDocument();
-    expect(screen.getByText("$1,000,000+")).toBeInTheDocument();
-  });
-
-  it("renders fee and feature rows in the comparison table", () => {
-    render(<PricingPage />);
-    expect(screen.getByText("Management Fee (Annual)")).toBeInTheDocument();
-    expect(screen.getByText("Performance Fee")).toBeInTheDocument();
-    expect(screen.getByText("Portfolio Dashboard")).toBeInTheDocument();
-    // "dashboard: true" for every tier renders as a checkmark
-    expect(screen.getAllByText("✅")).toHaveLength(4);
+    expect(screen.getByText("Developer")).toBeInTheDocument();
+    expect(screen.getByText("Professional")).toBeInTheDocument();
+    expect(screen.getByText("Institutional")).toBeInTheDocument();
+    expect(screen.getByText("Enterprise")).toBeInTheDocument();
+    expect(screen.queryByText("$10,000")).not.toBeInTheDocument();
   });
 });

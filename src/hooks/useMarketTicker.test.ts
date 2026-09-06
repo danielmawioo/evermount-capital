@@ -1,4 +1,4 @@
-import { renderHook, act } from "@testing-library/react";
+import { renderHook } from "@testing-library/react";
 import {
   useMarketTicker,
   getMarketTypeColor,
@@ -6,15 +6,6 @@ import {
 } from "./useMarketTicker";
 
 describe("useMarketTicker", () => {
-  beforeEach(() => {
-    jest.useFakeTimers();
-  });
-
-  afterEach(() => {
-    jest.useRealTimers();
-    jest.restoreAllMocks();
-  });
-
   it("seeds the top 10 movers sorted by absolute change percent", () => {
     const { result } = renderHook(() => useMarketTicker());
 
@@ -22,26 +13,15 @@ describe("useMarketTicker", () => {
     expect(result.current.marketData[0].name).toBe("Solana");
   });
 
-  it("simulates a price movement on each interval tick", () => {
+  it("does not simulate live price movement", () => {
+    jest.useFakeTimers();
     jest.spyOn(Math, "random").mockReturnValue(1);
     const { result } = renderHook(() => useMarketTicker());
-
     const initialPercent = result.current.marketData[0].changePercent;
-
-    act(() => {
-      jest.advanceTimersByTime(5000);
-    });
-
-    expect(result.current.marketData[0].changePercent).not.toBe(initialPercent);
-  });
-
-  it("clears the interval on unmount", () => {
-    const clearIntervalSpy = jest.spyOn(global, "clearInterval");
-    const { unmount } = renderHook(() => useMarketTicker());
-
-    unmount();
-
-    expect(clearIntervalSpy).toHaveBeenCalled();
+    jest.advanceTimersByTime(30_000);
+    expect(result.current.marketData[0].changePercent).toBe(initialPercent);
+    jest.useRealTimers();
+    jest.restoreAllMocks();
   });
 });
 
