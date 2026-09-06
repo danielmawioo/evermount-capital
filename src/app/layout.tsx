@@ -10,11 +10,12 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
   title: {
-    default: "Evermount | Financial Infrastructure for Modern Markets",
+    default:
+      "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
     template: "%s | Evermount",
   },
   description:
-    "Evermount builds the technology, data, intelligence, execution, risk and infrastructure that powers modern financial markets.",
+    "Evermount is the AI financial intelligence and trading infrastructure company for Africa. We build systems that understand markets, manage risk and execute capital.",
   keywords: [
     "financial infrastructure",
     "financial market infrastructure",
@@ -49,9 +50,10 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.evermount.co",
     siteName: "Evermount",
-    title: "Evermount | Financial Infrastructure for Modern Markets",
+    title:
+      "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
     description:
-      "Evermount builds the technology, data, intelligence, execution, risk and infrastructure that powers modern financial markets.",
+      "Evermount is the AI financial intelligence and trading infrastructure company for Africa. We build systems that understand markets, manage risk and execute capital.",
     images: [
       {
         url: "https://www.evermount.co/og-image.png",
@@ -66,9 +68,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@evermountcapital",
     creator: "@evermountcapital",
-    title: "Evermount | Financial Infrastructure for Modern Markets",
+    title:
+      "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
     description:
-      "Evermount builds the technology, data, intelligence, execution, risk and infrastructure that powers modern financial markets.",
+      "Evermount is the AI financial intelligence and trading infrastructure company for Africa. We build systems that understand markets, manage risk and execute capital.",
     images: ["https://www.evermount.co/og-image.png"],
   },
   robots: {
@@ -164,7 +167,7 @@ export default function RootLayout({
               },
               image: "https://www.evermount.co/og-image.png",
               description:
-                "Evermount builds the technology, data, intelligence, execution, risk and infrastructure that powers modern financial markets.",
+                "Evermount is the AI financial intelligence and trading infrastructure company for Africa. We build systems that understand markets, manage risk and execute capital.",
               foundingDate: "2023",
               founder: [
                 {

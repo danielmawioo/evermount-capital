@@ -30,9 +30,8 @@ export default function StoryAndMissionSection() {
               institutions and developers can build on a common foundation.
             </p>
             <p>
-              The brand is globally oriented: infrastructure that can operate
-              across markets and jurisdictions as capabilities and licenses
-              allow.
+              The company is built from Africa, for African and global markets,
+              as capabilities and licenses allow.
             </p>
           </div>
         </motion.section>

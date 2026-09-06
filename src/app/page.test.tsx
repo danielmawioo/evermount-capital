@@ -7,14 +7,14 @@ describe("Home page", () => {
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: /Financial Infrastructure for Modern Markets/i,
+        name: /AI Financial Intelligence & Trading Infrastructure for Africa/i,
       }),
     ).toBeInTheDocument();
   });
 
   it("exports metadata with the expected title", () => {
     expect(metadata.title).toBe(
-      "Evermount | Financial Infrastructure for Modern Markets",
+      "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
     );
   });
 });

@@ -11,21 +11,13 @@ describe("ExtendedHomeSections", () => {
       ),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("The Evermount Technology Stack"),
-    ).toBeInTheDocument();
-    expect(screen.getByText("Our Technology Philosophy")).toBeInTheDocument();
-    expect(screen.getByText("Evermount AI")).toBeInTheDocument();
-    expect(
-      screen.getByText("One Platform. Multiple Financial Systems."),
+      screen.getByText("Our Technology Philosophy"),
     ).toBeInTheDocument();
     expect(
       screen.getByText("World-Class Research & Engineering Team"),
     ).toBeInTheDocument();
     expect(
       screen.getByText("Institutional-Grade Infrastructure & Risk Controls"),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText("The Evermount Intelligence Stack"),
     ).toBeInTheDocument();
   });
 
@@ -39,7 +31,7 @@ describe("ExtendedHomeSections", () => {
     expect(screen.getByText("Evans Kipngetich")).toBeInTheDocument();
   });
 
-  it("renders the final CTA links", () => {
+  it("renders the closing CTA", () => {
     render(<ExtendedHomeSections />);
 
     expect(
@@ -48,14 +40,5 @@ describe("ExtendedHomeSections", () => {
     expect(
       screen.getByRole("link", { name: "Become a Partner" }),
     ).toHaveAttribute("href", "/partners");
-  });
-
-  it("renders capability metric cards", () => {
-    render(<ExtendedHomeSections />);
-
-    expect(
-      screen.getAllByText("AI Financial Intelligence").length,
-    ).toBeGreaterThan(0);
-    expect(screen.getByText("Intelligent Execution")).toBeInTheDocument();
   });
 });

@@ -45,11 +45,6 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/capital",
-        destination: "/institutions",
-        permanent: true,
-      },
-      {
         source: "/features",
         destination: "/platform",
         permanent: true,

@@ -67,6 +67,9 @@ const LINK_KEYS: Record<string, string> = {
   "Risk Disclosure": "footer.riskDisclosure",
   "Data Policy": "footer.dataPolicy",
   "API Terms": "footer.apiTerms",
+  "Request Access": "common.requestAccess",
+  "Gold GEX": "nav.goldGex",
+  Capital: "nav.capital",
   Compliance: "footer.compliance",
 };
 

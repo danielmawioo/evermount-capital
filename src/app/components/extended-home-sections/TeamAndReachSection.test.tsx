@@ -19,16 +19,13 @@ describe("TeamAndReachSection", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders the technology roadmap heading and stages", () => {
+  it("does not publish a NOW / NEXT / THEN product roadmap", () => {
     render(<TeamAndReachSection />);
 
+    expect(screen.queryByText("NOW")).not.toBeInTheDocument();
+    expect(screen.queryByText("VISION")).not.toBeInTheDocument();
     expect(
-      screen.getByText("Cross-Market Financial Infrastructure"),
-    ).toBeInTheDocument();
-
-    expect(screen.getByText("NOW")).toBeInTheDocument();
-    expect(screen.getByText("AI + Quant Research")).toBeInTheDocument();
-    expect(screen.getByText("VISION")).toBeInTheDocument();
-    expect(screen.getByText("Cross-market infrastructure")).toBeInTheDocument();
+      screen.queryByText("Cross-Market Financial Infrastructure"),
+    ).not.toBeInTheDocument();
   });
 });

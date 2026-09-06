@@ -30,11 +30,20 @@ export default function CapitalPageContent() {
           published on the pricing page.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <Link href="/pricing">
+          <Link href="/login">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-[#00a76f] hover:bg-emerald-700 text-white px-8 py-3 rounded-md font-semibold"
+            >
+              Capital login
+            </motion.button>
+          </Link>
+          <Link href="/pricing">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="border border-[#00a76f] text-[#00a76f] px-8 py-3 rounded-md font-semibold"
             >
               View Capital Terms
             </motion.button>

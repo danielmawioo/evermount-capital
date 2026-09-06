@@ -16,7 +16,8 @@ const en: Messages = {
   "common.submitting": "Submitting...",
   "common.learnMore": "Learn more",
 
-  "banner.tagline": "Financial infrastructure for modern markets.",
+  "banner.tagline":
+    "AI financial intelligence and trading infrastructure for Africa.",
   "banner.explore": "Explore the Platform",
 
   "nav.platform": "Platform",
@@ -25,6 +26,11 @@ const en: Messages = {
   "nav.developers": "Developers",
   "nav.research": "Research",
   "nav.company": "Company",
+  "nav.capital": "Capital",
+  "nav.developerAccess": "Request Access",
+  "nav.developerAccessDesc": "Credentials after review — no public API catalog",
+  "nav.goldGex": "Gold GEX",
+  "nav.goldGexDesc": "Gold market-structure levels from the GEX engine",
 
   "nav.marketData": "Market Data",
   "nav.marketDataDesc": "Real-time and historical market data infrastructure",
@@ -106,10 +112,11 @@ const en: Messages = {
   "nav.waitlistBody":
     "Share your work email to request platform access. We will follow up with next steps.",
 
-  "hero.kicker": "Financial Technology × Market Infrastructure",
-  "hero.headline": "Financial Infrastructure for Modern Markets",
+  "hero.kicker": "AI Financial Intelligence × Africa",
+  "hero.headline":
+    "AI Financial Intelligence & Trading Infrastructure for Africa",
   "hero.body":
-    "Evermount builds the data, quantitative research, intelligence, execution and risk infrastructure powering the next generation of financial markets.",
+    "We build intelligent financial systems that understand markets, discover opportunities, manage risk and execute capital.",
   "hero.words": [
     "Market Data",
     "Quantitative Research",
@@ -186,7 +193,8 @@ const ar: Messages = {
   "common.submitting": "جاري الإرسال...",
   "common.learnMore": "اعرف المزيد",
 
-  "banner.tagline": "بنية تحتية مالية للأسواق الحديثة.",
+  "banner.tagline":
+    "الذكاء المالي بالذكاء الاصطناعي والبنية التحتية للتداول لأفريقيا.",
   "banner.explore": "استكشف المنصة",
 
   "nav.platform": "المنصة",
@@ -195,6 +203,11 @@ const ar: Messages = {
   "nav.developers": "المطوّرون",
   "nav.research": "البحوث",
   "nav.company": "الشركة",
+  "nav.capital": "رأس المال",
+  "nav.developerAccess": "طلب الوصول",
+  "nav.developerAccessDesc": "بيانات الاعتماد بعد المراجعة",
+  "nav.goldGex": "Gold GEX",
+  "nav.goldGexDesc": "مستويات هيكل سوق الذهب من محرك GEX",
 
   "nav.marketData": "بيانات السوق",
   "nav.marketDataDesc": "بنية تحتية لبيانات السوق الفورية والتاريخية",
@@ -274,10 +287,11 @@ const ar: Messages = {
   "nav.waitlistBody":
     "شارك بريد عملك لطلب الوصول إلى المنصة. سنتابع معك في الخطوات التالية.",
 
-  "hero.kicker": "تقنية مالية × بنية تحتية للأسواق",
-  "hero.headline": "بنية تحتية مالية للأسواق الحديثة",
+  "hero.kicker": "ذكاء مالي بالذكاء الاصطناعي × أفريقيا",
+  "hero.headline":
+    "الذكاء المالي بالذكاء الاصطناعي والبنية التحتية للتداول لأفريقيا",
   "hero.body":
-    "تبني Evermount بيانات السوق والبحث الكمي والاستخبارات والتنفيذ وبنية المخاطر التي تدعم الجيل التالي من الأسواق المالية.",
+    "نبني أنظمة مالية ذكية تفهم الأسواق وتكتشف الفرص وتدير المخاطر وتنفّذ رأس المال.",
   "hero.words": [
     "بيانات السوق",
     "البحث الكمي",
@@ -352,7 +366,8 @@ const fr: Messages = {
   "common.submit": "Envoyer",
   "common.submitting": "Envoi...",
   "common.learnMore": "En savoir plus",
-  "banner.tagline": "Infrastructure financière pour les marchés modernes.",
+  "banner.tagline":
+    "Intelligence financière par IA et infrastructure de trading pour l'Afrique.",
   "banner.explore": "Explorer la plateforme",
   "nav.platform": "Plateforme",
   "nav.markets": "Marchés",
@@ -360,6 +375,13 @@ const fr: Messages = {
   "nav.developers": "Développeurs",
   "nav.research": "Recherche",
   "nav.company": "Entreprise",
+  "nav.capital": "Capital",
+  "nav.developerAccess": "Demander l'accès",
+  "nav.developerAccessDesc":
+    "Identifiants après examen — pas de catalogue d'API public",
+  "nav.goldGex": "Gold GEX",
+  "nav.goldGexDesc":
+    "Niveaux de structure de marché de l'or depuis le moteur GEX",
   "nav.marketData": "Données de marché",
   "nav.marketDataDesc":
     "Infrastructure de données de marché en temps réel et historiques",
@@ -439,10 +461,11 @@ const fr: Messages = {
   "nav.waitlistTitle": "Demander l'accès",
   "nav.waitlistBody":
     "Indiquez votre e-mail professionnel pour demander l'accès à la plateforme. Nous reviendrons vers vous.",
-  "hero.kicker": "Technologie financière × Infrastructure de marché",
-  "hero.headline": "Infrastructure financière pour les marchés modernes",
+  "hero.kicker": "Intelligence financière par IA × Afrique",
+  "hero.headline":
+    "Intelligence financière par IA et infrastructure de trading pour l'Afrique",
   "hero.body":
-    "Evermount conçoit l'infrastructure de données, de recherche quantitative, d'intelligence, d'exécution et de risque pour la prochaine génération de marchés financiers.",
+    "Nous construisons des systèmes financiers intelligents qui comprennent les marchés, découvrent des opportunités, gèrent le risque et exécutent le capital.",
   "hero.words": [
     "Données de marché",
     "Recherche quantitative",
@@ -518,7 +541,8 @@ const es: Messages = {
   "common.submit": "Enviar",
   "common.submitting": "Enviando...",
   "common.learnMore": "Más información",
-  "banner.tagline": "Infraestructura financiera para mercados modernos.",
+  "banner.tagline":
+    "Inteligencia financiera con IA e infraestructura de trading para África.",
   "banner.explore": "Explorar la plataforma",
   "nav.platform": "Plataforma",
   "nav.markets": "Mercados",
@@ -526,6 +550,12 @@ const es: Messages = {
   "nav.developers": "Desarrolladores",
   "nav.research": "Investigación",
   "nav.company": "Empresa",
+  "nav.capital": "Capital",
+  "nav.developerAccess": "Solicitar acceso",
+  "nav.developerAccessDesc":
+    "Credenciales tras revisión — sin catálogo público de APIs",
+  "nav.goldGex": "Gold GEX",
+  "nav.goldGexDesc": "Niveles de estructura de mercado del oro del motor GEX",
   "nav.marketData": "Datos de mercado",
   "nav.marketDataDesc":
     "Infraestructura de datos de mercado en tiempo real e históricos",
@@ -604,10 +634,11 @@ const es: Messages = {
   "nav.waitlistTitle": "Solicitar acceso",
   "nav.waitlistBody":
     "Comparta su correo profesional para solicitar acceso a la plataforma. Le contactaremos con los siguientes pasos.",
-  "hero.kicker": "Tecnología financiera × Infraestructura de mercado",
-  "hero.headline": "Infraestructura financiera para mercados modernos",
+  "hero.kicker": "Inteligencia financiera con IA × África",
+  "hero.headline":
+    "Inteligencia financiera con IA e infraestructura de trading para África",
   "hero.body":
-    "Evermount construye la infraestructura de datos, investigación cuantitativa, inteligencia, ejecución y riesgo que impulsa la próxima generación de mercados financieros.",
+    "Construimos sistemas financieros inteligentes que entienden los mercados, descubren oportunidades, gestionan el riesgo y ejecutan capital.",
   "hero.words": [
     "Datos de mercado",
     "Investigación cuantitativa",
@@ -683,7 +714,8 @@ const de: Messages = {
   "common.submit": "Senden",
   "common.submitting": "Wird gesendet...",
   "common.learnMore": "Mehr erfahren",
-  "banner.tagline": "Finanzinfrastruktur für moderne Märkte.",
+  "banner.tagline":
+    "KI-Finanzintelligenz und Trading-Infrastruktur für Afrika.",
   "banner.explore": "Die Plattform erkunden",
   "nav.platform": "Plattform",
   "nav.markets": "Märkte",
@@ -691,6 +723,12 @@ const de: Messages = {
   "nav.developers": "Entwickler",
   "nav.research": "Research",
   "nav.company": "Unternehmen",
+  "nav.capital": "Capital",
+  "nav.developerAccess": "Zugang anfragen",
+  "nav.developerAccessDesc":
+    "Zugangsdaten nach Prüfung — kein öffentlicher API-Katalog",
+  "nav.goldGex": "Gold GEX",
+  "nav.goldGexDesc": "Gold-Marktstruktur-Niveaus aus der GEX-Engine",
   "nav.marketData": "Marktdaten",
   "nav.marketDataDesc":
     "Infrastruktur für Echtzeit- und historische Marktdaten",
@@ -766,10 +804,10 @@ const de: Messages = {
   "nav.waitlistTitle": "Zugang anfragen",
   "nav.waitlistBody":
     "Teilen Sie Ihre geschäftliche E-Mail, um Plattformzugang anzufragen. Wir melden uns mit den nächsten Schritten.",
-  "hero.kicker": "Finanztechnologie × Marktinfrastruktur",
-  "hero.headline": "Finanzinfrastruktur für moderne Märkte",
+  "hero.kicker": "KI-Finanzintelligenz × Afrika",
+  "hero.headline": "KI-Finanzintelligenz und Trading-Infrastruktur für Afrika",
   "hero.body":
-    "Evermount baut die Daten-, Quant-Research-, Intelligenz-, Execution- und Risiko-Infrastruktur für die nächste Generation der Finanzmärkte.",
+    "Wir bauen intelligente Finanzsysteme, die Märkte verstehen, Chancen finden, Risiko steuern und Kapital ausführen.",
   "hero.words": [
     "Marktdaten",
     "Quantitatives Research",
@@ -844,7 +882,8 @@ const nl: Messages = {
   "common.submit": "Verzenden",
   "common.submitting": "Verzenden...",
   "common.learnMore": "Meer informatie",
-  "banner.tagline": "Financiële infrastructuur voor moderne markten.",
+  "banner.tagline":
+    "AI-financiële intelligentie en trading-infrastructuur voor Afrika.",
   "banner.explore": "Het platform verkennen",
   "nav.platform": "Platform",
   "nav.markets": "Markten",
@@ -852,6 +891,12 @@ const nl: Messages = {
   "nav.developers": "Ontwikkelaars",
   "nav.research": "Research",
   "nav.company": "Bedrijf",
+  "nav.capital": "Capital",
+  "nav.developerAccess": "Toegang aanvragen",
+  "nav.developerAccessDesc":
+    "Inloggegevens na beoordeling — geen openbare API-catalogus",
+  "nav.goldGex": "Gold GEX",
+  "nav.goldGexDesc": "Goudmarktstructuurniveaus van de GEX-engine",
   "nav.marketData": "Marktdata",
   "nav.marketDataDesc": "Infrastructuur voor realtime en historische marktdata",
   "nav.quantResearch": "Quant-research",
@@ -926,10 +971,11 @@ const nl: Messages = {
   "nav.waitlistTitle": "Toegang aanvragen",
   "nav.waitlistBody":
     "Deel uw werk-e-mail om platformtoegang aan te vragen. Wij nemen contact op met de volgende stappen.",
-  "hero.kicker": "Financiële technologie × Marktinfrastructuur",
-  "hero.headline": "Financiële infrastructuur voor moderne markten",
+  "hero.kicker": "AI-financiële intelligentie × Afrika",
+  "hero.headline":
+    "AI-financiële intelligentie en trading-infrastructuur voor Afrika",
   "hero.body":
-    "Evermount bouwt de data-, quant-research-, intelligentie-, execution- en risico-infrastructuur voor de volgende generatie financiële markten.",
+    "Wij bouwen intelligente financiële systemen die markten begrijpen, kansen vinden, risico beheren en kapitaal uitvoeren.",
   "hero.words": [
     "Marktdata",
     "Kwantitatief research",

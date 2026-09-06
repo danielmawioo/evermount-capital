@@ -5,9 +5,10 @@ import HomeSectionsWithImages from "./components/HomeSections";
 import ExtendedHomeSections from "./components/ExtendedHomeSections";
 import TrustLogos from "./components/TrustLogos";
 
-const TITLE = "Evermount | Financial Infrastructure for Modern Markets";
+const TITLE =
+  "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa";
 const DESCRIPTION =
-  "Evermount builds the data, quantitative research, intelligence, execution and risk infrastructure powering the next generation of financial markets.";
+  "Evermount is the AI financial intelligence and trading infrastructure company for Africa. Capital management is one application of the platform, not the whole company.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -59,7 +60,7 @@ export default function Home() {
         name: "What does Evermount do?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Evermount is a financial technology and infrastructure company. We build data, quantitative research, intelligence, risk, execution and connectivity infrastructure for modern financial markets.",
+          text: "Evermount is a financial technology company built for African and global markets. We build data, quantitative research, intelligence, risk, execution and connectivity infrastructure. Evermount Capital is a separate product that applies that platform to systematic strategies.",
         },
       },
       {
@@ -67,7 +68,7 @@ export default function Home() {
         name: "Is Evermount a fund or a technology company?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Evermount is a technology and infrastructure provider. The website describes platform, data, research, risk and execution capabilities — not a public invitation to deposit capital for discretionary investment management.",
+          text: "Evermount Capital is an application of the platform. The public website describes infrastructure first. Capital accounts use a separate login.",
         },
       },
       {
@@ -91,7 +92,7 @@ export default function Home() {
         name: "Where does Evermount operate?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Evermount is positioned for global financial markets. Availability of specific services depends on jurisdiction and applicable regulation.",
+          text: "Evermount is positioned from Africa for global financial markets. Availability of specific services depends on jurisdiction and applicable regulation.",
         },
       },
     ],

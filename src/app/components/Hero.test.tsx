@@ -14,7 +14,7 @@ describe("Hero", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Financial Infrastructure for Modern Markets/i,
+        name: /AI Financial Intelligence & Trading Infrastructure for Africa/i,
         level: 1,
       }),
     ).toBeInTheDocument();

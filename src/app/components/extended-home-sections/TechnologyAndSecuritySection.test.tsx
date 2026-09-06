@@ -2,18 +2,6 @@ import { render, screen } from "@testing-library/react";
 import TechnologyAndSecuritySection from "./TechnologyAndSecuritySection";
 
 describe("TechnologyAndSecuritySection", () => {
-  it("renders the technology pillars heading and all pillars", () => {
-    render(<TechnologyAndSecuritySection />);
-
-    expect(
-      screen.getByText("The Evermount Technology Stack"),
-    ).toBeInTheDocument();
-
-    expect(screen.getByText("AI Financial Intelligence")).toBeInTheDocument();
-    expect(screen.getByText("Risk Intelligence Engine")).toBeInTheDocument();
-    expect(screen.getByText("High-Performance Execution")).toBeInTheDocument();
-  });
-
   it("renders the security heading and all security features", () => {
     render(<TechnologyAndSecuritySection />);
 
@@ -29,5 +17,8 @@ describe("TechnologyAndSecuritySection", () => {
     expect(
       screen.getByText("Independent risk oversight and compliance monitoring"),
     ).toBeInTheDocument();
+    expect(
+      screen.queryByText("The Evermount Technology Stack"),
+    ).not.toBeInTheDocument();
   });
 });

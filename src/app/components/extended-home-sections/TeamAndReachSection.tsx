@@ -4,7 +4,6 @@ import TranslateTree from "@/app/components/TranslateTree";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { GlobeAltIcon } from "@heroicons/react/24/outline";
 import { containerVariants, itemVariants } from "./motionVariants";
 
 const LEADERSHIP_TEAM = [
@@ -37,33 +36,6 @@ const LEADERSHIP_TEAM = [
     role: "Senior AI Engineer",
     bio: "Senior AI engineer specializing in agentic AI systems, retrieval-augmented generation, and production-grade machine learning infrastructure.",
     image: "/images/founder5.jpg",
-  },
-];
-
-const GLOBAL_REACH_STATS = [
-  {
-    region: "NOW",
-    markets: "AI + Quant Research",
-    coverage:
-      "Market intelligence, quantitative research and financial technology infrastructure.",
-  },
-  {
-    region: "NEXT",
-    markets: "Systematic Trading",
-    coverage:
-      "Electronic trading systems and systematic execution infrastructure.",
-  },
-  {
-    region: "THEN",
-    markets: "Market Infrastructure",
-    coverage:
-      "Market-making technology, liquidity infrastructure and venue connectivity.",
-  },
-  {
-    region: "VISION",
-    markets: "Cross-market infrastructure",
-    coverage:
-      "Infrastructure designed to operate across markets and jurisdictions.",
   },
 ];
 
@@ -125,59 +97,6 @@ export default function TeamAndReachSection() {
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
                     {member.bio}
-                  </p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
-
-        {/* === GLOBAL REACH === */}
-        <section
-          id="markets"
-          className="py-16 px-6 bg-gradient-to-br from-[#00a76f]/10 via-white to-emerald-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800"
-        >
-          <div className="max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-                Cross-Market Financial Infrastructure
-              </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-                A technology roadmap from AI-assisted research today toward
-                systematic execution, market infrastructure, and global market
-                connectivity.
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="grid sm:grid-cols-2 md:grid-cols-4 gap-6"
-            >
-              {GLOBAL_REACH_STATS.map((stat, i) => (
-                <motion.div
-                  key={i}
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg text-center border border-gray-200 dark:border-gray-700"
-                >
-                  <GlobeAltIcon className="w-12 h-12 text-[#00a76f] mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                    {stat.region}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-2">
-                    {stat.markets}
-                  </p>
-                  <p className="text-sm text-[#00a76f] font-semibold">
-                    {stat.coverage}
                   </p>
                 </motion.div>
               ))}

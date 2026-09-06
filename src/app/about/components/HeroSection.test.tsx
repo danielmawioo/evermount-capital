@@ -6,7 +6,7 @@ describe("HeroSection", () => {
     render(<HeroSection />);
     expect(
       screen.getByRole("heading", {
-        name: /Building the Infrastructure for Modern Financial Markets/i,
+        name: /Building the AI Financial Intelligence Company for Africa/i,
       }),
     ).toBeInTheDocument();
   });

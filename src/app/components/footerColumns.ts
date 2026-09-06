@@ -111,15 +111,18 @@ export const developersColumn: FooterColumnData = {
   title: "Developers",
   headingClassName,
   links: [
-    { label: "API", href: "/developers#apis", className: hoverClass },
+    { label: "Request Access", href: "/developers", className: hoverClass },
+    {
+      label: "Gold GEX",
+      href: "/research#gold-gex",
+      className: hoverClass,
+    },
     {
       label: "Documentation",
       href: "/developers#documentation",
       className: hoverClass,
     },
-    { label: "SDKs", href: "/developers#sdks", className: hoverClass },
-    { label: "Sandbox", href: "/developers#sandbox", className: hoverClass },
-    { label: "Status", href: "/developers#status", className: hoverClass },
+    { label: "API Terms", href: "/api-terms", className: hoverClass },
   ],
 };
 
@@ -129,11 +132,10 @@ export const researchColumn: FooterColumnData = {
   links: [
     { label: "Research", href: "/research", className: hoverClass },
     {
-      label: "Market Intelligence",
-      href: "/research#market-intelligence",
+      label: "Gold GEX",
+      href: "/research#gold-gex",
       className: hoverClass,
     },
-    { label: "Insights", href: "/research", className: hoverClass },
   ],
 };
 
@@ -145,6 +147,7 @@ export const companyColumn: FooterColumnData = {
     { label: "Careers", href: "/careers", className: hoverClass },
     { label: "Partners", href: "/partners", className: hoverClass },
     { label: "Contact", href: "/book-demo", className: hoverClass },
+    { label: "Capital", href: "/capital", className: hoverClass },
   ],
 };
 
