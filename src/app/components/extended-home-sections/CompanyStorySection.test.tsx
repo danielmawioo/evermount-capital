@@ -7,25 +7,23 @@ describe("CompanyStorySection", () => {
 
     expect(screen.getByText("About Evermount")).toBeInTheDocument();
     expect(
-      screen.getByText("Quantitative Trading Technology Built for Africa"),
+      screen.getByText(
+        /Infrastructure for Institutions, Developers and Researchers/,
+      ),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /Learn More About Us/ }),
     ).toHaveAttribute("href", "/about");
   });
 
-  it("renders the investment philosophy heading and all principles", () => {
+  it("renders the technology philosophy heading and principles", () => {
     render(<CompanyStorySection />);
 
     expect(screen.getByText("Our Approach")).toBeInTheDocument();
+    expect(screen.getByText("Our Technology Philosophy")).toBeInTheDocument();
+    expect(screen.getByText(/Intelligence First/)).toBeInTheDocument();
     expect(
-      screen.getByText("Systematic Investment Philosophy"),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText("Multi-strategy approach across asset classes"),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText("Risk-adjusted return maximization"),
+      screen.getByText(/Infrastructure Over Products/),
     ).toBeInTheDocument();
   });
 });

@@ -46,19 +46,14 @@ describe("Navbar", () => {
     mock.restore();
   });
 
-  it("renders the logo, top-level nav links and invest CTA", () => {
+  it("renders the logo, top-level nav links and team CTA", () => {
     renderNavbar();
 
-    expect(screen.getByText("Evermount")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Performance" })).toHaveAttribute(
-      "href",
-      "/portfolio-insights",
-    );
-    expect(screen.getByRole("link", { name: "Institutional" })).toHaveAttribute(
-      "href",
-      "/pricing",
-    );
-    expect(screen.getAllByText("Invest").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Evermount").length).toBeGreaterThan(0);
+    expect(screen.getByText("Platform")).toBeInTheDocument();
+    expect(screen.getByText("Markets")).toBeInTheDocument();
+    expect(screen.getByText("Institutions")).toBeInTheDocument();
+    expect(screen.getAllByText("Request Access").length).toBeGreaterThan(0);
   });
 
   it("toggles the mobile menu open and closed", async () => {
@@ -91,13 +86,17 @@ describe("Navbar", () => {
   it("opens the waitlist modal when the openWaitlist event fires", async () => {
     renderNavbar();
 
-    expect(screen.queryByText("Join the Waitlist")).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("heading", { name: "Request Access" }),
+    ).not.toBeInTheDocument();
 
     act(() => {
       window.dispatchEvent(new Event("openWaitlist"));
     });
 
-    expect(await screen.findByText("Join the Waitlist")).toBeInTheDocument();
+    expect(
+      await screen.findByRole("heading", { name: "Request Access" }),
+    ).toBeInTheDocument();
   });
 
   it("shows a validation error toast for an invalid email in the waitlist form", async () => {
@@ -107,7 +106,7 @@ describe("Navbar", () => {
     act(() => {
       window.dispatchEvent(new Event("openWaitlist"));
     });
-    await screen.findByText("Join the Waitlist");
+    await screen.findByRole("heading", { name: "Request Access" });
 
     await user.type(
       screen.getByPlaceholderText("you@example.com"),
@@ -129,7 +128,7 @@ describe("Navbar", () => {
     act(() => {
       window.dispatchEvent(new Event("openWaitlist"));
     });
-    await screen.findByText("Join the Waitlist");
+    await screen.findByRole("heading", { name: "Request Access" });
 
     await user.type(
       screen.getByPlaceholderText("you@example.com"),
@@ -146,7 +145,9 @@ describe("Navbar", () => {
       email: "investor@example.com",
     });
     await waitFor(() => {
-      expect(screen.queryByText("Join the Waitlist")).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole("heading", { name: "Request Access" }),
+      ).not.toBeInTheDocument();
     });
   });
 
@@ -160,7 +161,7 @@ describe("Navbar", () => {
     act(() => {
       window.dispatchEvent(new Event("openWaitlist"));
     });
-    await screen.findByText("Join the Waitlist");
+    await screen.findByRole("heading", { name: "Request Access" });
 
     await user.type(
       screen.getByPlaceholderText("you@example.com"),
@@ -171,7 +172,9 @@ describe("Navbar", () => {
     await waitFor(() => {
       expect(toastFn.error).toHaveBeenCalledWith("Server exploded");
     });
-    expect(screen.getByText("Join the Waitlist")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Request Access" }),
+    ).toBeInTheDocument();
   });
 
   it("closes the waitlist modal via the close button and clears the email", async () => {
@@ -181,7 +184,7 @@ describe("Navbar", () => {
     act(() => {
       window.dispatchEvent(new Event("openWaitlist"));
     });
-    await screen.findByText("Join the Waitlist");
+    await screen.findByRole("heading", { name: "Request Access" });
 
     await user.type(
       screen.getByPlaceholderText("you@example.com"),
@@ -199,7 +202,9 @@ describe("Navbar", () => {
     await user.click(modalCloseButton as HTMLElement);
 
     await waitFor(() => {
-      expect(screen.queryByText("Join the Waitlist")).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole("heading", { name: "Request Access" }),
+      ).not.toBeInTheDocument();
     });
   });
 });

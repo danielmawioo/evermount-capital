@@ -8,16 +8,85 @@ import { logger } from "@/lib/logger";
 import { EmailSchema } from "@/lib/schemas";
 import FooterColumn from "./FooterColumn";
 import {
+  platformColumn,
   marketsColumn,
-  educationColumn,
-  importantLinksColumn,
+  institutionsColumn,
+  developersColumn,
+  researchColumn,
+  companyColumn,
   legalComplianceColumn,
-  communityColumn,
+  type FooterColumnData,
 } from "./footerColumns";
+import { useLocale } from "@/context/LocaleContext";
+
+const COLUMN_KEYS: Record<string, string> = {
+  Platform: "nav.platform",
+  Markets: "nav.markets",
+  Institutions: "nav.institutions",
+  Developers: "nav.developers",
+  Research: "nav.research",
+  Company: "nav.company",
+  Legal: "footer.legal",
+};
+
+const LINK_KEYS: Record<string, string> = {
+  "Market Data": "nav.marketData",
+  "Quant Research": "nav.quantResearch",
+  "AI & Analytics": "nav.aiAnalytics",
+  Execution: "nav.execution",
+  Risk: "nav.risk",
+  "Portfolio Infrastructure": "nav.portfolio",
+  Equities: "nav.equities",
+  FX: "nav.fx",
+  "Fixed Income": "nav.fixedIncome",
+  Commodities: "nav.commodities",
+  Derivatives: "nav.derivatives",
+  "Digital Assets": "nav.digitalAssets",
+  Banks: "nav.banks",
+  Brokers: "nav.brokers",
+  "Asset Managers": "nav.assetManagers",
+  Exchanges: "nav.exchanges",
+  "Market Makers": "nav.marketMakers",
+  Fintechs: "nav.fintechs",
+  "Trading Firms": "nav.tradingFirms",
+  API: "nav.api",
+  Documentation: "nav.documentation",
+  SDKs: "nav.sdks",
+  Sandbox: "nav.sandbox",
+  Status: "nav.status",
+  Research: "nav.research",
+  "Market Intelligence": "nav.marketIntelligence",
+  Insights: "nav.insights",
+  About: "nav.about",
+  Careers: "nav.careers",
+  Partners: "nav.partners",
+  Contact: "nav.contact",
+  Terms: "footer.terms",
+  Privacy: "footer.privacy",
+  "Risk Disclosure": "footer.riskDisclosure",
+  "Data Policy": "footer.dataPolicy",
+  "API Terms": "footer.apiTerms",
+  Compliance: "footer.compliance",
+};
+
+function translateColumn(
+  column: FooterColumnData,
+  t: (key: string) => string,
+): FooterColumnData {
+  return {
+    ...column,
+    title: t(COLUMN_KEYS[column.title] ?? column.title),
+    links: column.links.map((link) => ({
+      ...link,
+      label: t(LINK_KEYS[link.label] ?? link.label),
+    })),
+  };
+}
 
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const { t } = useLocale();
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,18 +107,21 @@ export default function Footer() {
         {/* Main Footer Content */}
         <div className="pt-16 pb-12">
           {/* Grid Sections */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12 text-sm mb-16">
-            <FooterColumn {...marketsColumn} />
-            <FooterColumn {...educationColumn} />
-            <FooterColumn {...importantLinksColumn} />
-            <FooterColumn {...legalComplianceColumn} />
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 gap-8 lg:gap-10 text-sm mb-16">
+            <FooterColumn {...translateColumn(platformColumn, t)} />
+            <FooterColumn {...translateColumn(marketsColumn, t)} />
+            <FooterColumn {...translateColumn(institutionsColumn, t)} />
+            <FooterColumn {...translateColumn(developersColumn, t)} />
+            <FooterColumn {...translateColumn(researchColumn, t)} />
+            <FooterColumn {...translateColumn(companyColumn, t)} />
+            <FooterColumn {...translateColumn(legalComplianceColumn, t)} />
             <div>
               <h4 className="text-gray-900 dark:text-white font-semibold mb-5 text-base">
-                Contact Us
+                {t("footer.contactUs")}
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <span className="text-gray-500">Email: </span>
+                  <span className="text-gray-500">{t("footer.email")} </span>
                   <a
                     href="mailto:info@evermount.co"
                     className="hover:text-[#00a76f] transition-colors"
@@ -58,7 +130,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <span className="text-gray-500">Phone: </span>
+                  <span className="text-gray-500">{t("footer.phone")} </span>
                   <a
                     href="tel:+254758578816"
                     className="hover:text-[#00a76f] transition-colors"
@@ -71,7 +143,7 @@ export default function Footer() {
                     href="#"
                     className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors"
                   >
-                    Live Chat
+                    {t("footer.liveChat")}
                   </Link>
                 </li>
                 <li>
@@ -79,22 +151,20 @@ export default function Footer() {
                     href="#"
                     className="hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white transition-colors"
                   >
-                    Messenger
+                    {t("footer.messenger")}
                   </Link>
                 </li>
               </ul>
             </div>
-            <FooterColumn {...communityColumn} />
           </div>
 
           {/* Newsletter Signup */}
           <div className="mb-16 text-center">
             <h4 className="text-xl text-gray-900 dark:text-white font-semibold mb-3">
-              Subscribe to our Newsletter
+              {t("footer.newsletterTitle")}
             </h4>
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 max-w-md mx-auto">
-              Get updates on new products, investor tools, and market
-              strategies.
+              {t("footer.newsletterBody")}
             </p>
             <form
               onSubmit={handleNewsletterSubmit}
@@ -112,87 +182,15 @@ export default function Footer() {
                 type="submit"
                 className="bg-[#00a76f] hover:bg-emerald-600 text-white px-8 py-3 rounded-lg font-medium transition w-full sm:w-auto"
               >
-                {submitted ? "✓ Subscribed" : "Subscribe"}
+                {submitted ? t("footer.subscribed") : t("footer.subscribe")}
               </button>
             </form>
           </div>
 
-          {/* App Store Badges & Social Icons Row */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
-            {/* App Store Badges */}
-            <div className="flex flex-col sm:flex-row items-center gap-4">
-              <p className="text-sm text-gray-400 mb-2 sm:mb-0">
-                Download our app:
-              </p>
-              <div className="flex flex-row gap-3">
-                {/* Apple App Store Badge */}
-                <a
-                  href="https://apps.apple.com/app/evermount-capital"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-black text-white px-4 py-2.5 rounded-lg hover:opacity-90 transition-opacity"
-                  aria-label="Download on the App Store"
-                >
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="flex-shrink-0"
-                  >
-                    <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-                  </svg>
-                  <div className="flex flex-col leading-tight">
-                    <span className="text-[10px]">Download on the</span>
-                    <span className="text-sm font-semibold -mt-0.5">
-                      App Store
-                    </span>
-                  </div>
-                </a>
-
-                {/* Google Play Store Badge */}
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.evermount.capital"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-black text-white px-4 py-2.5 rounded-lg hover:opacity-90 transition-opacity"
-                  aria-label="Get it on Google Play"
-                >
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    className="flex-shrink-0"
-                  >
-                    <path
-                      d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.6 3 21.09 3 20.5Z"
-                      fill="#00D9FF"
-                    />
-                    <path
-                      d="M16.81 15.12L6.05 21.34L14.54 12.85L16.81 15.12Z"
-                      fill="#00FF88"
-                    />
-                    <path
-                      d="M16.81 8.88L14.54 11.15L6.05 2.66L16.81 8.88Z"
-                      fill="#FFD000"
-                    />
-                    <path
-                      d="M20.16 10.81L17.19 12L20.16 13.19C20.66 13.44 21 13.96 21 14.55V9.45C21 8.86 20.66 8.34 20.16 8.09L20.16 10.81Z"
-                      fill="#FF3838"
-                    />
-                  </svg>
-                  <div className="flex flex-col leading-tight">
-                    <span className="text-[10px]">GET IT ON</span>
-                    <span className="text-sm font-semibold -mt-0.5">
-                      Google Play
-                    </span>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            {/* Social Icons */}
+            <p className="text-sm text-gray-500 dark:text-gray-400 max-w-xl">
+              {t("footer.disclaimer")}
+            </p>
             <div className="flex justify-center gap-6 text-[#00a76f] text-xl">
               {[
                 {
@@ -233,7 +231,7 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className="border-t border-gray-300 dark:border-gray-800 pt-6 pb-6">
           <p className="text-center text-xs text-gray-500 dark:text-gray-400">
-            © {new Date().getFullYear()} Evermount Capital. All rights reserved.
+            {t("footer.copyright", { year: new Date().getFullYear() })}
           </p>
         </div>
       </div>
