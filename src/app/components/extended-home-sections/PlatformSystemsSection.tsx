@@ -46,7 +46,10 @@ const SYSTEMS = [
 
 export default function PlatformSystemsSection() {
   return (
-    <section id="platform-systems" className="py-16 px-6 bg-gray-50 dark:bg-gray-800">
+    <section
+      id="platform-systems"
+      className="py-16 px-6 bg-gray-50 dark:bg-gray-800"
+    >
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -71,7 +74,7 @@ export default function PlatformSystemsSection() {
           viewport={{ once: true }}
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {SYSTEMS.map((system, i) => (
+          {SYSTEMS.map((system) => (
             <motion.div
               key={system.title}
               variants={itemVariants}
