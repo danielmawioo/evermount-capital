@@ -1,3 +1,6 @@
+"use client";
+
+import TranslateTree from "@/app/components/TranslateTree";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaLinkedin } from "react-icons/fa";
@@ -8,7 +11,7 @@ const FOUNDERS = [
     role: "CEO, Co-Founder & Low-Latency Systems Engineer",
     image: "/images/founder1.jpg",
     linkedin: "https://www.linkedin.com/in/danielmawioo/",
-    bio: "Former quantitative researcher and portfolio manager with extensive experience in systematic trading strategies, factor investing, and risk management at leading hedge funds. Daniel brings deep expertise in quantitative finance and strategic leadership to Evermount Capital.",
+    bio: "Former quantitative researcher and portfolio manager with extensive experience in systematic trading strategies, factor investing, and risk management at leading hedge funds. Daniel brings deep expertise in quantitative finance and strategic leadership to Evermount.",
   },
   {
     name: "Evans Kipngetich",
@@ -42,73 +45,77 @@ const FOUNDERS = [
 
 export default function FoundersSection() {
   return (
-    <section>
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12"
-      >
-        Meet Our Founders
-      </motion.h2>
+    <TranslateTree>
+      <section>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12"
+        >
+          Meet Our Founders
+        </motion.h2>
 
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={{
-          hidden: { opacity: 0 },
-          visible: {
-            opacity: 1,
-            transition: {
-              staggerChildren: 0.2,
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.2,
+              },
             },
-          },
-        }}
-        className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 text-center"
-      >
-        {FOUNDERS.map(({ name, role, image, linkedin, bio }, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            whileHover={{ y: -5, scale: 1.02 }}
-            className="flex flex-col items-center space-y-4 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition"
-          >
+          }}
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 text-center"
+        >
+          {FOUNDERS.map(({ name, role, image, linkedin, bio }, i) => (
             <motion.div
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="w-32 h-32 relative rounded-full overflow-hidden shadow-lg"
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              whileHover={{ y: -5, scale: 1.02 }}
+              className="flex flex-col items-center space-y-4 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition"
             >
-              <Image src={image} alt={name} fill className="object-cover" />
-            </motion.div>
-            <div className="text-center">
-              <h4 className="font-semibold text-xl text-gray-900 dark:text-white mb-1">
-                {name}
-              </h4>
-              <p className="text-sm text-[#00a76f] font-medium mb-3">{role}</p>
-              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                {bio}
-              </p>
-            </div>
-            {linkedin !== "#" && (
-              <motion.a
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-                href={linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#0077b5] hover:text-[#005983] transition"
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="w-32 h-32 relative rounded-full overflow-hidden shadow-lg"
               >
-                <FaLinkedin className="text-2xl" />
-              </motion.a>
-            )}
-          </motion.div>
-        ))}
-      </motion.div>
-    </section>
+                <Image src={image} alt={name} fill className="object-cover" />
+              </motion.div>
+              <div className="text-center">
+                <h4 className="font-semibold text-xl text-gray-900 dark:text-white mb-1">
+                  {name}
+                </h4>
+                <p className="text-sm text-[#00a76f] font-medium mb-3">
+                  {role}
+                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                  {bio}
+                </p>
+              </div>
+              {linkedin !== "#" && (
+                <motion.a
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                  href={linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#0077b5] hover:text-[#005983] transition"
+                >
+                  <FaLinkedin className="text-2xl" />
+                </motion.a>
+              )}
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+    </TranslateTree>
   );
 }

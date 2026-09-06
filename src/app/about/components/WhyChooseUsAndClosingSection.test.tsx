@@ -6,19 +6,19 @@ describe("WhyChooseUsAndClosingSection", () => {
     render(<WhyChooseUsAndClosingSection />);
 
     expect(
-      screen.getByRole("heading", { name: "Why Choose Evermount Capital" }),
+      screen.getByRole("heading", { name: "Why Choose Evermount" }),
     ).toBeInTheDocument();
     expect(screen.getByText("Proven Expertise")).toBeInTheDocument();
-    expect(screen.getByText("Cutting-Edge Technology")).toBeInTheDocument();
+    expect(screen.getByText("Technology Driven")).toBeInTheDocument();
     expect(screen.getByText("Research-Driven Approach")).toBeInTheDocument();
-    expect(screen.getByText("Africa-First Focus")).toBeInTheDocument();
+    expect(screen.getByText("Globally Oriented")).toBeInTheDocument();
   });
 
   it("renders the closing statement", () => {
     render(<WhyChooseUsAndClosingSection />);
 
     expect(
-      screen.getByText(/We're building the quantitative research, technology/),
+      screen.getByText(/We're building the data, research, intelligence/),
     ).toBeInTheDocument();
   });
 });

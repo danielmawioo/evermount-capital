@@ -5,31 +5,22 @@ describe("PlatformPage", () => {
   it("renders without crashing and shows the main heading", () => {
     render(<PlatformPage />);
     expect(
-      screen.getByRole("heading", { name: /the platform/i }),
+      screen.getByRole("heading", {
+        name: /the evermount financial infrastructure platform/i,
+      }),
     ).toBeInTheDocument();
   });
 
-  it("renders all platform feature cards", () => {
+  it("renders platform capability sections", () => {
     render(<PlatformPage />);
     expect(
-      screen.getByRole("heading", { name: /ai-powered execution/i }),
+      screen.getByRole("heading", { name: /market data infrastructure/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /real-time analytics/i }),
+      screen.getByRole("heading", { name: /quantitative research/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /enterprise security/i }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("heading", {
-        name: /electronic trading infrastructure/i,
-      }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("heading", { name: /african market focus/i }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("heading", { name: /risk management/i }),
+      screen.getByRole("heading", { name: /risk infrastructure/i }),
     ).toBeInTheDocument();
   });
 });

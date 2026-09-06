@@ -91,11 +91,11 @@ const DEPARTMENT_FALLBACKS: Record<string, FallbackEntry[]> = {
   general: [
     {
       keywords: ["start", "begin", "new", "register", "sign up", "how do i"],
-      answer: `Getting started:\n1. Register at ${BASE_URL}/register\n2. Verify email at ${BASE_URL}/verify-email\n3. Complete KYC at ${BASE_URL}/dashboard/kyc\n4. Deposit at ${BASE_URL}/dashboard/deposit\n5. Invest at ${BASE_URL}/dashboard/invest\n6. Take the tour: ${BASE_URL}/investor-tour`,
+      answer: `Getting started:\n1. Register at ${BASE_URL}/register\n2. Verify email at ${BASE_URL}/verify-email\n3. Complete KYC at ${BASE_URL}/dashboard/kyc\n4. Deposit at ${BASE_URL}/dashboard/deposit\n5. Invest at ${BASE_URL}/dashboard/invest\n6. Take the tour: ${BASE_URL}/platform-tour`,
     },
     {
       keywords: ["service", "offer", "what is", "about"],
-      answer: `Evermount Capital offers AI-powered quantitative trading across equities, fixed income, currencies, and commodities.\n\nLearn more:\n• Features: ${BASE_URL}/features\n• Platform: ${BASE_URL}/platform\n• Pricing: ${BASE_URL}/pricing\n• Book a demo: ${BASE_URL}/book-demo`,
+      answer: `Evermount builds financial infrastructure for market data, quantitative research, intelligence, risk and execution.\n\nLearn more:\n• Platform: ${BASE_URL}/platform\n• Developers: ${BASE_URL}/developers\n• Pricing: ${BASE_URL}/pricing\n• Request access: ${BASE_URL}/book-demo`,
     },
     {
       keywords: ["contact", "reach", "email", "phone", "support"],

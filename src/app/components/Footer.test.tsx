@@ -18,15 +18,18 @@ describe("Footer", () => {
   it("renders the footer link sections and copyright", () => {
     render(<Footer />);
 
+    expect(screen.getByText("Platform")).toBeInTheDocument();
     expect(screen.getByText("Markets")).toBeInTheDocument();
-    expect(screen.getByText("Education")).toBeInTheDocument();
-    expect(screen.getByText("Legal & Compliance")).toBeInTheDocument();
+    expect(screen.getByText("Company")).toBeInTheDocument();
+    expect(screen.getByText("Legal")).toBeInTheDocument();
     expect(screen.getByText("Contact Us")).toBeInTheDocument();
-    expect(screen.getByText("Community")).toBeInTheDocument();
+    expect(screen.getByText("Developers")).toBeInTheDocument();
+    expect(screen.getByText("Institutions")).toBeInTheDocument();
+    expect(screen.queryByText("Resources")).not.toBeInTheDocument();
 
     const year = new Date().getFullYear().toString();
     expect(
-      screen.getByText(new RegExp(`© ${year} Evermount Capital`)),
+      screen.getByText(new RegExp(`© ${year} Evermount`)),
     ).toBeInTheDocument();
   });
 
