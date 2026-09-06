@@ -55,12 +55,12 @@ describe("BookDemoPage", () => {
     render(<BookDemoPage />);
 
     expect(
-      screen.getByRole("heading", { name: /book a demo/i }),
+      screen.getByRole("heading", { name: /request access/i }),
     ).toBeInTheDocument();
     expect(screen.getByPlaceholderText("Jane Doe")).toBeInTheDocument();
     expect(screen.getByPlaceholderText("you@example.com")).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: /book demo/i }),
+      screen.getByRole("button", { name: /request access/i }),
     ).toBeInTheDocument();
 
     // Fetches previously booked slots on mount so they can be excluded.
@@ -93,7 +93,7 @@ describe("BookDemoPage", () => {
 
     expect(push).toHaveBeenCalledWith("/");
     expect(
-      screen.queryByRole("heading", { name: /book a demo/i }),
+      screen.queryByRole("heading", { name: /request access/i }),
     ).not.toBeInTheDocument();
   });
 
@@ -157,7 +157,7 @@ describe("BookDemoPage", () => {
         "jane@example.com",
       );
       await user.type(
-        screen.getByPlaceholderText("Evermount Capital"),
+        screen.getByPlaceholderText("Your institution"),
         "Acme Corp",
       );
       await user.type(
@@ -167,7 +167,7 @@ describe("BookDemoPage", () => {
 
       await pickDateAndTime(user);
 
-      await user.click(screen.getByRole("button", { name: /book demo/i }));
+      await user.click(screen.getByRole("button", { name: /request access/i }));
 
       await waitFor(() => {
         expect(mock.history.post?.length).toBe(1);
@@ -218,7 +218,7 @@ describe("BookDemoPage", () => {
     );
     await pickDateAndTime(user);
 
-    await user.click(screen.getByRole("button", { name: /book demo/i }));
+    await user.click(screen.getByRole("button", { name: /request access/i }));
 
     await waitFor(() => {
       expect(toastFn.error).toHaveBeenCalledWith("Slot no longer available");

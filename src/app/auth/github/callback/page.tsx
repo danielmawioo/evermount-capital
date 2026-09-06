@@ -1,90 +1,22 @@
 "use client";
 
-import { useEffect, useState, Suspense } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useEffect, Suspense } from "react";
+import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import { api } from "@/lib/api-client";
-import { setAuthTokens, setUser } from "@/lib/auth-storage";
-import { getApiErrorMessage } from "@/lib/api-error";
-import { logger } from "@/lib/logger";
 
 function GitHubCallbackContent() {
-  const searchParams = useSearchParams();
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const handleCallback = async () => {
-      const code = searchParams.get("code");
-      const error = searchParams.get("error");
-
-      if (error) {
-        toast.error("GitHub authentication failed");
-        router.push("/login");
-        return;
-      }
-
-      if (!code) {
-        toast.error("No authorization code received");
-        router.push("/login");
-        return;
-      }
-
-      try {
-        // Exchange code for access token
-        const response = await fetch("/api/auth/github/callback", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ code }),
-        });
-
-        if (!response.ok) {
-          throw new Error("Failed to authenticate");
-        }
-
-        const data = await response.json();
-        const { accessToken } = data;
-
-        // Call backend with access token
-        const { data: authData } = await api.auth.githubAuth({ accessToken });
-
-        setAuthTokens(authData.token, authData.refreshToken, true);
-        if (authData.user) {
-          setUser(authData.user, true);
-        }
-
-        toast.success("Login successful!");
-        router.push("/dashboard");
-      } catch (err: unknown) {
-        logger.error("GitHub callback error", err);
-        toast.error(
-          getApiErrorMessage(err, "Authentication failed. Please try again."),
-        );
-        router.push("/login");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    handleCallback();
-  }, [searchParams, router]);
+    toast.error("Social sign-in is not available. Use email and password.");
+    router.push("/login");
+  }, [router]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
-      <div className="text-center">
-        {loading ? (
-          <>
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#00a76f] mx-auto mb-4"></div>
-            <p className="text-gray-600 dark:text-gray-400">
-              Completing authentication...
-            </p>
-          </>
-        ) : (
-          <p className="text-gray-600 dark:text-gray-400">Redirecting...</p>
-        )}
-      </div>
+      <p className="text-gray-600 dark:text-gray-400">
+        Redirecting to sign in…
+      </p>
     </div>
   );
 }
@@ -94,10 +26,7 @@ export default function GitHubCallbackPage() {
     <Suspense
       fallback={
         <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#00a76f] mx-auto mb-4"></div>
-            <p className="text-gray-600 dark:text-gray-400">Loading...</p>
-          </div>
+          <p className="text-gray-600 dark:text-gray-400">Loading...</p>
         </div>
       }
     >

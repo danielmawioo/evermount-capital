@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useInvestor } from "@/hooks/useInvestor";
+import TranslateTree from "@/app/components/TranslateTree";
 
 interface KycRequiredGateProps {
   children: React.ReactNode;
@@ -24,22 +25,24 @@ export default function KycRequiredGate({
 
   if (!kycApproved) {
     return (
-      <main className="min-h-screen flex flex-col items-center justify-center p-6">
-        <div className="max-w-lg w-full bg-white dark:bg-[#161a23] p-8 rounded-lg border text-center">
-          <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
-            Verification Required
-          </h1>
-          <p className="text-gray-600 dark:text-gray-400 mb-6">
-            Complete KYC verification before you can {action}.
-          </p>
-          <Link
-            href="/dashboard/kyc"
-            className="inline-block bg-[#00a76f] text-white px-6 py-2.5 rounded-lg font-semibold"
-          >
-            Complete Verification
-          </Link>
-        </div>
-      </main>
+      <TranslateTree>
+        <main className="min-h-screen flex flex-col items-center justify-center p-6">
+          <div className="max-w-lg w-full bg-white dark:bg-[#161a23] p-8 rounded-lg border text-center">
+            <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+              Verification Required
+            </h1>
+            <p className="text-gray-600 dark:text-gray-400 mb-6">
+              Complete KYC verification before you can {action}.
+            </p>
+            <Link
+              href="/dashboard/kyc"
+              className="inline-block bg-[#00a76f] text-white px-6 py-2.5 rounded-lg font-semibold"
+            >
+              Complete Verification
+            </Link>
+          </div>
+        </main>
+      </TranslateTree>
     );
   }
 

@@ -5,12 +5,14 @@ import type { NavSubItem } from "./navItems";
 
 const items: NavSubItem[] = [
   {
+    id: "quantTrading",
     label: "Quantitative Trading",
     description: "AI-powered algorithmic strategies",
     href: "/features",
     icon: CpuChipIcon,
   },
   {
+    id: "riskManagement",
     label: "Risk Management",
     description: "Real-time portfolio risk analytics",
     href: "/portfolio-insights",

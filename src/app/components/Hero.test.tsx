@@ -1,9 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Hero from "./Hero";
 
-// LiveMarketTicker owns its own polling/animation logic and isn't part of
-// this batch's assigned components; stub it so Hero can be tested in
-// isolation without leaking timers.
 jest.mock("./LiveMarketTicker", () => {
   function MockLiveMarketTicker() {
     return <div data-testid="live-market-ticker">Ticker</div>;
@@ -12,41 +9,29 @@ jest.mock("./LiveMarketTicker", () => {
 });
 
 describe("Hero", () => {
-  it("renders the headline, CTA links and trust metrics", () => {
+  it("renders the headline, CTA links and capability labels", () => {
     render(<Hero />);
 
     expect(
       screen.getByRole("heading", {
-        name: "Building Africa's Quantitative Trading Infrastructure",
+        name: /Financial Infrastructure for Modern Markets/i,
         level: 1,
       }),
     ).toBeInTheDocument();
 
-    const talkToTeamLink = screen.getByRole("link", {
-      name: /Talk to Our Team/i,
-    });
-    expect(talkToTeamLink).toHaveAttribute("href", "/book-demo");
-
     expect(
-      screen.getByRole("button", { name: /Get Early Access/i }),
-    ).toBeInTheDocument();
+      screen.getByRole("link", { name: /Explore Platform/i }),
+    ).toHaveAttribute("href", "/platform");
 
-    expect(screen.getByText("Data-Driven Alpha")).toBeInTheDocument();
-    expect(screen.getByText("AI-Powered Research")).toBeInTheDocument();
-    expect(screen.getByText("Risk-Managed Trading")).toBeInTheDocument();
+    const requestAccess = screen.getByRole("link", {
+      name: /Request Access/i,
+    });
+    expect(requestAccess).toHaveAttribute("href", "/book-demo");
+
+    expect(screen.getByText("Market Data")).toBeInTheDocument();
+    expect(screen.getByText("Quantitative Research")).toBeInTheDocument();
+    expect(screen.getByText("Risk Infrastructure")).toBeInTheDocument();
 
     expect(screen.getByTestId("live-market-ticker")).toBeInTheDocument();
-  });
-
-  it("dispatches an openWaitlist window event when the early access CTA is clicked", () => {
-    const dispatchSpy = jest.spyOn(window, "dispatchEvent");
-    render(<Hero />);
-
-    screen.getByRole("button", { name: /Get Early Access/i }).click();
-
-    expect(dispatchSpy).toHaveBeenCalledWith(
-      expect.objectContaining({ type: "openWaitlist" }),
-    );
-    dispatchSpy.mockRestore();
   });
 });
