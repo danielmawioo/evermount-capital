@@ -200,7 +200,7 @@ export const navItems: NavItem[] = [
       {
         id: "goldGex",
         label: "Gold GEX overlay",
-        description: "Public subset of the GEX engine",
+        description: "Levels, analytics, and paper risk — not the decision API",
         href: "/research#gold-gex",
         icon: ChartBarIcon,
       },
@@ -221,7 +221,7 @@ export const navItems: NavItem[] = [
       {
         id: "goldGex",
         label: "Gold GEX",
-        description: "Live or fixture gold market-structure levels",
+        description: "Live or fixture gold levels, analytics, paper risk",
         href: "/research#gold-gex",
         icon: ChartBarIcon,
       },

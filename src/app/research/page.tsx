@@ -5,7 +5,7 @@ import GexLevelsPanel from "./GexLevelsPanel";
 
 export const metadata = pageMetadata(
   "Gold GEX research",
-  "Evermount publishes gold market-structure levels from its GEX engine: spot, COMEX basis, gamma flip and max pain.",
+  "Evermount publishes gold market-structure levels plus a public analytics and paper-risk overlay from its GEX engine — not a trade signal.",
   "/research",
 );
 
@@ -15,7 +15,7 @@ export default function ResearchPage() {
       <PageHero
         eyebrow="Research"
         title="Gold market structure"
-        body="This page shows levels from Evermount’s GEX engine for XAU / COMEX gold. When the engine is connected, numbers refresh from the live overlay. Otherwise you see the published fixture snapshot — not invented performance."
+        body="This page shows levels from Evermount’s GEX engine for XAU / COMEX gold, plus a public analytics overlay and a paper risk envelope. When the engine is connected, numbers refresh from the live overlay. Otherwise you see the published fixture — not invented performance."
         primaryHref="/book-demo"
         primaryLabel="Talk to research"
         secondaryHref="/markets#commodities"
@@ -24,7 +24,7 @@ export default function ResearchPage() {
       <GexLevelsPanel />
       <CtaBand
         title="Institutional research access"
-        body="The public board is a subset of the overlay (spot, futures, gamma flip, max pain). Deeper chain analytics stay behind access review."
+        body="The public board is a subset of the overlay (levels, session, expected move, paper risk caps). The decision state machine and sizing stay private. Deeper chain analytics stay behind access review."
         primaryLabel="Request Access"
         secondaryHref="/partners"
         secondaryLabel="Research Partnerships"

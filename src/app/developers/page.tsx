@@ -27,11 +27,12 @@ export default function DevelopersPage() {
         <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
           The GEX engine exposes an overlay used by research and (internally)
           MetaTrader. The website proxies a public subset — spot, futures, gamma
-          flip, max pain — at{" "}
+          flip, max pain, session, expected move, and paper risk caps — at{" "}
           <code className="text-sm bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">
             GET /api/research/gex
           </code>
-          . That is not a general SDK, sandbox, or webhook platform.
+          . That is not a general SDK, sandbox, webhook platform, or the
+          private decision/OMS API.
         </p>
       </section>
       <section id="documentation" className="scroll-mt-28 space-y-4">

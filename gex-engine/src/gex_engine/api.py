@@ -7,7 +7,7 @@ from pydantic import BaseModel, Field
 
 from gex_engine.decision import build_decision
 from gex_engine.live import feed
-from gex_engine.overlay_export import overlay_payload
+from gex_engine.overlay_export import overlay_payload, public_overlay_payload
 from gex_engine.models import (
     AnalyticsSnapshot,
     EventRisk,
@@ -85,6 +85,13 @@ def mt5_overlay() -> dict:
     """Flat payload for the MetaTrader 5 overlay (MQL5-friendly)."""
     state = _require_underlying()
     return overlay_payload(state)
+
+
+@app.get("/api/public/overlay")
+def public_overlay() -> dict:
+    """Gold research overlay: levels, analytics, paper risk. Not /api/decision."""
+    state = _require_underlying()
+    return public_overlay_payload(state)
 
 
 @app.get("/api/positioning")

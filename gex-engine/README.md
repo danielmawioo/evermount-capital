@@ -294,6 +294,7 @@ Default: `http://127.0.0.1:8088`
 | `GET` | `/api/positioning` | COT always; inferred signs when chain is up |
 | `POST` | `/api/refresh` | No |
 | `GET` | `/api/mt5` | No — overlay for EvermountGexZones |
+| `GET` | `/api/public/overlay` | No — research subset (levels, analytics, paper risk; not `/api/decision`) |
 | `GET` | `/api/options` | Yes |
 | `GET` | `/api/levels` | Yes |
 | `GET` | `/api/gex` | Yes |

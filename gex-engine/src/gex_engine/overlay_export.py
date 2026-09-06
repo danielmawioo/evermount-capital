@@ -1,8 +1,12 @@
 from __future__ import annotations
 
+from datetime import datetime, timezone
 from pathlib import Path
 
 from gex_engine.live import LiveState
+from gex_engine.models import CalibrationStatus
+from gex_engine.risk import assess_risk, default_account, default_caps
+from gex_engine.session import build_session
 from gex_engine.settings import GEX_MT5_FILES
 from gex_engine.volatility import atr
 
@@ -48,6 +52,41 @@ def overlay_payload(state: LiveState) -> dict:
         "regime": snapshot.dealer_regime.value if snapshot else "",
         "note": note,
     }
+
+
+def public_overlay_payload(state: LiveState) -> dict:
+    """Research-safe overlay: analytics + paper risk, no decision/OMS fields."""
+    payload = overlay_payload(state)
+    underlying = state.underlying
+    if underlying is None:
+        raise RuntimeError("No underlying")
+    snapshot = state.snapshot
+    now = state.updated_at or datetime.now(timezone.utc)
+    session = build_session(state.bars, now=now, spot=underlying.spot)
+    caps = default_caps()
+    account = default_account()
+    assessment = assess_risk(account=account, caps=caps, updated_at=state.updated_at)
+    risk_budget = min(caps.max_risk_per_trade, account.equity * caps.max_risk_pct)
+    expected_move = snapshot.expected_move if snapshot else None
+    confidence = (
+        snapshot.positioning.confidence
+        if snapshot and snapshot.positioning
+        else None
+    )
+    payload.update(
+        {
+            "expected_move": round(expected_move, 4) if expected_move else None,
+            "session": session.current.value,
+            "confidence": round(confidence, 4) if confidence is not None else None,
+            "calibration": CalibrationStatus.PLACEHOLDER_PRIORS.value,
+            "mode": "PAPER",
+            "halt": assessment.halt,
+            "halt_reason": assessment.reasons[0] if assessment.reasons else None,
+            "risk_budget_usd": round(risk_budget, 2),
+            "max_daily_loss_usd": round(caps.max_daily_loss, 2),
+        }
+    )
+    return payload
 
 
 def write_mt5_overlay(state: LiveState) -> Path | None:

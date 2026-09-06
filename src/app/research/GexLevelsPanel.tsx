@@ -12,6 +12,39 @@ function formatLevel(value: number | null): string {
   });
 }
 
+function formatUsd(value: number | null): string {
+  if (value === null) return "—";
+  return value.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  });
+}
+
+function formatPct(value: number | null): string {
+  if (value === null) return "—";
+  return `${Math.round(value * 100)}%`;
+}
+
+function Metric({
+  label,
+  children,
+}: {
+  label: string;
+  children: string;
+}) {
+  return (
+    <div className="rounded-xl bg-white dark:bg-gray-900 px-4 py-3 border border-gray-100 dark:border-gray-700">
+      <p className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+        {label}
+      </p>
+      <p className="text-lg font-semibold text-gray-900 dark:text-white mt-1">
+        {children}
+      </p>
+    </div>
+  );
+}
+
 export default function GexLevelsPanel() {
   const [snapshot, setSnapshot] = useState<GexPublicSnapshot>(GEX_FIXTURE);
   const [loaded, setLoaded] = useState(false);
@@ -34,12 +67,27 @@ export default function GexLevelsPanel() {
     };
   }, []);
 
-  const rows = [
-    { label: "XAU spot", value: snapshot.spot },
-    { label: "COMEX GC", value: snapshot.futures },
-    { label: "Basis", value: snapshot.basis },
-    { label: "Gamma flip", value: snapshot.gammaFlip },
-    { label: "Max pain", value: snapshot.maxPain },
+  const levelRows = [
+    { label: "XAU spot", value: formatLevel(snapshot.spot) },
+    { label: "COMEX GC", value: formatLevel(snapshot.futures) },
+    { label: "Basis", value: formatLevel(snapshot.basis) },
+    { label: "Gamma flip", value: formatLevel(snapshot.gammaFlip) },
+    { label: "Max pain", value: formatLevel(snapshot.maxPain) },
+  ];
+
+  const analyticsRows = [
+    { label: "Regime", value: snapshot.regime ?? "—" },
+    { label: "Session", value: snapshot.session ?? "—" },
+    { label: "Expected move", value: formatLevel(snapshot.expectedMove) },
+    { label: "Confidence", value: formatPct(snapshot.confidence) },
+    { label: "Calibration", value: snapshot.calibration ?? "—" },
+  ];
+
+  const riskRows = [
+    { label: "Mode", value: snapshot.mode ?? "—" },
+    { label: "Halt", value: snapshot.halt === null ? "—" : snapshot.halt ? "Yes" : "No" },
+    { label: "Risk budget", value: formatUsd(snapshot.riskBudgetUsd) },
+    { label: "Max daily loss", value: formatUsd(snapshot.maxDailyLossUsd) },
   ];
 
   return (
@@ -60,30 +108,40 @@ export default function GexLevelsPanel() {
           {snapshot.live ? "Live engine" : "Fixture snapshot"}
         </span>
       </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
-        {rows.map((row) => (
-          <div
-            key={row.label}
-            className="rounded-xl bg-white dark:bg-gray-900 px-4 py-3 border border-gray-100 dark:border-gray-700"
-          >
-            <p className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-              {row.label}
-            </p>
-            <p className="text-lg font-semibold text-gray-900 dark:text-white mt-1">
-              {formatLevel(row.value)}
-            </p>
-          </div>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+        {levelRows.map((row) => (
+          <Metric key={row.label} label={row.label}>
+            {row.value}
+          </Metric>
+        ))}
+      </div>
+      <h3 className="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">
+        Analytics overlay
+      </h3>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+        {analyticsRows.map((row) => (
+          <Metric key={row.label} label={row.label}>
+            {row.value}
+          </Metric>
+        ))}
+      </div>
+      <h3 className="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">
+        Paper risk envelope
+      </h3>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        {riskRows.map((row) => (
+          <Metric key={row.label} label={row.label}>
+            {row.value}
+          </Metric>
         ))}
       </div>
       <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
         {snapshot.note}
-        {snapshot.regime && snapshot.regime !== "illustrative"
-          ? ` Dealer regime: ${snapshot.regime}.`
-          : ""}
+        {snapshot.haltReason ? ` Halt reason: ${snapshot.haltReason}.` : ""}
       </p>
       <p className="text-xs text-gray-500 dark:text-gray-500 mt-3">
-        Analytics only. Not an offer to trade, not a signal, and not investment
-        advice.
+        Analytics and paper risk only. Not an offer to trade, not a signal, and
+        not investment advice. Order intent stays on the private decision API.
         {loaded ? "" : " Loading…"}
       </p>
     </section>

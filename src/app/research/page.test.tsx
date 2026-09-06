@@ -15,6 +15,15 @@ describe("Research page", () => {
         maxPain: 4350,
         gex: 0,
         regime: "illustrative",
+        expectedMove: 18.6,
+        session: "NEW_YORK",
+        confidence: 0.35,
+        calibration: "PLACEHOLDER_PRIORS",
+        mode: "PAPER",
+        halt: false,
+        riskBudgetUsd: 750,
+        maxDailyLossUsd: 1500,
+        haltReason: null,
         note: "Illustrative snapshot from the GEX engine fixture.",
       }),
     }) as unknown as typeof fetch;
@@ -38,5 +47,9 @@ describe("Research page", () => {
       expect(screen.getByText("XAU spot")).toBeInTheDocument();
     });
     expect(screen.getByText("Gamma flip")).toBeInTheDocument();
+    expect(screen.getByText("Analytics overlay")).toBeInTheDocument();
+    expect(screen.getByText("Paper risk envelope")).toBeInTheDocument();
+    expect(screen.getByText("PAPER")).toBeInTheDocument();
+    expect(screen.getByText("PLACEHOLDER_PRIORS")).toBeInTheDocument();
   });
 });
