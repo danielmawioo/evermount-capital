@@ -6,18 +6,14 @@ describe("WhyEvermountSection", () => {
     render(<WhyEvermountSection />);
 
     expect(
-      screen.getByText("Systematic Investment Excellence"),
+      screen.getByText("From Financial Intelligence to Execution"),
     ).toBeInTheDocument();
 
     expect(
-      screen.getByText(
-        "Proprietary quantitative models with machine learning and statistical arbitrage",
-      ),
+      screen.getByText("AI-powered market intelligence"),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(
-        "Building toward continent-wide market access across African financial markets",
-      ),
+      screen.getByText("Market connectivity infrastructure"),
     ).toBeInTheDocument();
   });
 });

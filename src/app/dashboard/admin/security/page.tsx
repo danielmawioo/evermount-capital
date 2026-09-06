@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useCallback, useEffect, useState } from "react";
 import { ShieldCheckIcon, KeyIcon } from "@heroicons/react/24/outline";
 import toast from "react-hot-toast";
@@ -72,96 +74,98 @@ export default function AdminSecurityPage() {
   };
 
   return (
-    <div className="space-y-6 max-w-2xl">
-      <div>
-        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-          <ShieldCheckIcon className="w-8 h-8 text-[#00a76f]" />
-          Admin Security
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400 mt-1">
-          TOTP two-factor authentication for admin accounts
-        </p>
-      </div>
+    <TranslateTree>
+      <div className="space-y-6 max-w-2xl">
+        <div>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+            <ShieldCheckIcon className="w-8 h-8 text-[#00a76f]" />
+            Admin Security
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-1">
+            TOTP two-factor authentication for admin accounts
+          </p>
+        </div>
 
-      <div className="bg-white dark:bg-gray-800 rounded-xl border p-5 space-y-4">
-        {loading ? (
-          <p className="text-sm text-gray-500">Loading…</p>
-        ) : (
-          <>
-            <p className="text-sm">
-              MFA status:{" "}
-              <span
-                className={
-                  status?.mfaEnabled
-                    ? "text-green-600 font-medium"
-                    : "text-amber-600 font-medium"
-                }
-              >
-                {status?.mfaEnabled ? "Enabled" : "Disabled"}
-              </span>
-            </p>
-
-            {!status?.mfaEnabled && !setup && (
-              <button
-                onClick={handleSetup}
-                className="flex items-center gap-2 px-4 py-2 bg-[#00a76f] text-white rounded-lg text-sm"
-              >
-                <KeyIcon className="w-4 h-4" />
-                Set up MFA
-              </button>
-            )}
-
-            {setup && (
-              <div className="space-y-3 text-sm">
-                <p className="font-medium">
-                  Add this secret to Google Authenticator / 1Password:
-                </p>
-                <code className="block p-3 bg-gray-100 dark:bg-gray-900 rounded break-all">
-                  {setup.secret}
-                </code>
-                <p className="text-xs text-gray-500 break-all">
-                  {setup.otpauthUrl}
-                </p>
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  placeholder="6-digit code"
-                  value={token}
-                  onChange={(e) => setToken(e.target.value)}
-                  className="w-full px-3 py-2 border rounded-lg dark:bg-gray-900 dark:border-gray-700"
-                />
-                <button
-                  onClick={handleEnable}
-                  disabled={token.length < 6}
-                  className="px-4 py-2 bg-[#00a76f] text-white rounded-lg text-sm disabled:opacity-50"
+        <div className="bg-white dark:bg-gray-800 rounded-xl border p-5 space-y-4">
+          {loading ? (
+            <p className="text-sm text-gray-500">Loading…</p>
+          ) : (
+            <>
+              <p className="text-sm">
+                MFA status:{" "}
+                <span
+                  className={
+                    status?.mfaEnabled
+                      ? "text-green-600 font-medium"
+                      : "text-amber-600 font-medium"
+                  }
                 >
-                  Enable MFA
-                </button>
-              </div>
-            )}
+                  {status?.mfaEnabled ? "Enabled" : "Disabled"}
+                </span>
+              </p>
 
-            {status?.mfaEnabled && (
-              <div className="space-y-3">
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  placeholder="6-digit code to disable"
-                  value={token}
-                  onChange={(e) => setToken(e.target.value)}
-                  className="w-full px-3 py-2 border rounded-lg dark:bg-gray-900 dark:border-gray-700 text-sm"
-                />
+              {!status?.mfaEnabled && !setup && (
                 <button
-                  onClick={handleDisable}
-                  disabled={token.length < 6}
-                  className="px-4 py-2 border border-red-300 text-red-600 rounded-lg text-sm disabled:opacity-50"
+                  onClick={handleSetup}
+                  className="flex items-center gap-2 px-4 py-2 bg-[#00a76f] text-white rounded-lg text-sm"
                 >
-                  Disable MFA
+                  <KeyIcon className="w-4 h-4" />
+                  Set up MFA
                 </button>
-              </div>
-            )}
-          </>
-        )}
+              )}
+
+              {setup && (
+                <div className="space-y-3 text-sm">
+                  <p className="font-medium">
+                    Add this secret to Google Authenticator / 1Password:
+                  </p>
+                  <code className="block p-3 bg-gray-100 dark:bg-gray-900 rounded break-all">
+                    {setup.secret}
+                  </code>
+                  <p className="text-xs text-gray-500 break-all">
+                    {setup.otpauthUrl}
+                  </p>
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    placeholder="6-digit code"
+                    value={token}
+                    onChange={(e) => setToken(e.target.value)}
+                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-900 dark:border-gray-700"
+                  />
+                  <button
+                    onClick={handleEnable}
+                    disabled={token.length < 6}
+                    className="px-4 py-2 bg-[#00a76f] text-white rounded-lg text-sm disabled:opacity-50"
+                  >
+                    Enable MFA
+                  </button>
+                </div>
+              )}
+
+              {status?.mfaEnabled && (
+                <div className="space-y-3">
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    placeholder="6-digit code to disable"
+                    value={token}
+                    onChange={(e) => setToken(e.target.value)}
+                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-900 dark:border-gray-700 text-sm"
+                  />
+                  <button
+                    onClick={handleDisable}
+                    disabled={token.length < 6}
+                    className="px-4 py-2 border border-red-300 text-red-600 rounded-lg text-sm disabled:opacity-50"
+                  >
+                    Disable MFA
+                  </button>
+                </div>
+              )}
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </TranslateTree>
   );
 }
