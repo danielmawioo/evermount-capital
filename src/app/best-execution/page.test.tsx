@@ -11,6 +11,6 @@ describe("BestExecutionPage", () => {
   });
 
   it("exports metadata with the expected title", () => {
-    expect(metadata.title).toBe("Best Execution Policy | Evermount Capital");
+    expect(metadata.title).toBe("Execution Infrastructure Disclosure | Evermount");
   });
 });

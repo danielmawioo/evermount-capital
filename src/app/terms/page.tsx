@@ -1,184 +1,90 @@
-"use client";
+import LegalNotice from "@/app/components/marketing/LegalNotice";
+import { pageMetadata } from "@/lib/page-metadata";
+
+export const metadata = pageMetadata(
+  "Platform Services Agreement",
+  "Terms governing platform access, software services, APIs, data and infrastructure provided by Evermount.",
+  "/terms",
+);
 
 export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-sky-100 via-sky-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-800 dark:text-gray-200 px-6 py-20">
-      <div className="max-w-4xl mx-auto space-y-12">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          Terms & Conditions
+    <main className="min-h-screen px-6 py-20 bg-white dark:bg-gray-900">
+      <div className="max-w-4xl mx-auto space-y-10">
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
+          Platform Services Agreement
         </h1>
-        <p className="text-sm text-gray-500 dark:text-gray-400">
-          Last updated: April 25, 2025
-        </p>
-
-        <section className="space-y-8 text-base leading-7 text-gray-700 dark:text-gray-300">
+        <p className="text-sm text-gray-500">Last updated: September 6, 2026</p>
+        <LegalNotice />
+        <div className="space-y-8 text-base leading-7 text-gray-700 dark:text-gray-300">
           <p>
-            These Terms and Conditions (&quot;Terms&quot;) govern your use of
-            Evermount Capital, a hedge fund technology platform offering
-            investment analytics, automation, and performance monitoring tools.
+            These terms govern access to Evermount software, APIs, data and
+            infrastructure services. They do not constitute an investment
+            management agreement, subscription to a fund, or an invitation to
+            deposit client money with Evermount.
           </p>
-
-          <ol className="space-y-6 list-decimal pl-5 text-gray-700 dark:text-gray-300">
+          <ol className="space-y-6 list-decimal pl-5">
             <li>
-              <strong className="text-gray-900 dark:text-white">
-                Eligibility:
-              </strong>{" "}
-              You must be at least 18 years of age or legally permitted to
-              invest in your jurisdiction.
+              <strong>Platform access.</strong> We may grant access to
+              environments, credentials and documentation subject to approval
+              and applicable law.
             </li>
-
             <li>
-              <strong>Account Registration:</strong> You agree to provide
-              accurate and complete information during sign-up and to keep it
-              updated.
+              <strong>Software services.</strong> Services are provided on a
+              technology basis. Features may be in preview, limited, or
+              unavailable in some jurisdictions.
             </li>
-
             <li>
-              <strong>Account Responsibility:</strong> You are responsible for
-              securing your credentials and any actions taken via your account.
+              <strong>APIs.</strong> Use of APIs is also subject to the API
+              Terms.
             </li>
-
             <li>
-              <strong>Platform Purpose:</strong> The platform provides
-              informational and analytical services and is not a licensed
-              broker-dealer.
+              <strong>Data.</strong> Market data and third-party data are
+              subject to the Data Policy and any vendor licenses.
             </li>
-
             <li>
-              <strong>Investment Risk:</strong> Investing involves financial
-              risk. Past performance does not guarantee future results.
+              <strong>Infrastructure.</strong> Hosting, connectivity and
+              operational arrangements are described in the applicable order
+              form or statement of work.
             </li>
-
             <li>
-              <strong>Licensing:</strong> Evermount is not regulated as a
-              financial institution; services are provided under a technology
-              license model.
+              <strong>Customer responsibilities.</strong> Customers remain
+              responsible for their own trading, regulatory, KYC/AML and
+              fiduciary obligations. Evermount is not a broker-dealer, bank,
+              custodian, exchange or investment adviser unless expressly stated
+              in a signed agreement.
             </li>
-
             <li>
-              <strong>Not Financial Advice:</strong> No content constitutes
-              legal, financial, tax, or investment advice.
+              <strong>Intellectual property.</strong> Evermount retains rights
+              in its software, models and documentation. Customers retain rights
+              in their own data, subject to licenses granted to operate the
+              service.
             </li>
-
             <li>
-              <strong>Automated Execution:</strong> If enabled, automated
-              strategies are executed based on your selected rules and
-              preferences.
+              <strong>Security.</strong> Each party will implement reasonable
+              security measures. Customers must protect credentials and report
+              suspected compromise.
             </li>
-
             <li>
-              <strong>Platform Availability:</strong> We do not guarantee uptime
-              and may suspend access for maintenance or emergencies.
+              <strong>Fees.</strong> Fees, if any, are set out in an order form.
+              This website does not list fund management or performance fees.
             </li>
-
             <li>
-              <strong>Acceptable Use:</strong> You may not use bots, scrapers,
-              exploit bugs, or engage in unauthorized activities.
+              <strong>Availability.</strong> We do not guarantee uninterrupted
+              service. Maintenance, vendor outages and force majeure may affect
+              access.
             </li>
-
             <li>
-              <strong>Compliance:</strong> You are responsible for ensuring your
-              use complies with applicable laws and regulations.
+              <strong>Liability.</strong> Liability is limited to the extent
+              permitted by law and as set out in the signed commercial terms.
             </li>
-
             <li>
-              <strong>Intellectual Property:</strong> All content, design, and
-              systems remain the property of Evermount and its partners.
-            </li>
-
-            <li>
-              <strong>Third-Party Services:</strong> The platform may integrate
-              with external APIs. We are not responsible for third-party
-              outages.
-            </li>
-
-            <li>
-              <strong>Termination:</strong> We may suspend or terminate accounts
-              suspected of violating these Terms.
-            </li>
-
-            <li>
-              <strong>Data Usage:</strong> You grant us rights to use anonymized
-              data for insights, benchmarking, and model optimization.
-            </li>
-
-            <li>
-              <strong>Fee Structure:</strong> Certain premium features may incur
-              fees. You will be notified before charges apply.
-            </li>
-
-            <li>
-              <strong>Content Accuracy:</strong> While we strive for accuracy,
-              we do not warrant the reliability of any specific dataset or
-              model.
-            </li>
-
-            <li>
-              <strong>Disclosure:</strong> We reserve the right to disclose user
-              data to comply with legal or regulatory requirements.
-            </li>
-
-            <li>
-              <strong>Client Suitability:</strong> You confirm your investment
-              decisions are suitable for your financial circumstances.
-            </li>
-
-            <li>
-              <strong>Tax Obligations:</strong> You are solely responsible for
-              understanding and fulfilling any applicable tax requirements.
-            </li>
-
-            <li>
-              <strong>Service Modifications:</strong> Features may be updated,
-              modified, or discontinued without prior notice.
-            </li>
-
-            <li>
-              <strong>Account Suspension:</strong> Repeated login failures,
-              suspicious activities, or chargebacks may lead to temporary holds.
-            </li>
-
-            <li>
-              <strong>Jurisdiction:</strong> These Terms are governed by the
-              laws of your country of incorporation or residence.
-            </li>
-
-            <li>
-              <strong>Dispute Resolution:</strong> Any dispute will be resolved
-              through arbitration or a competent court, as per jurisdiction.
-            </li>
-
-            <li>
-              <strong>Force Majeure:</strong> We are not liable for failure due
-              to events beyond our control (natural disasters, blackouts, etc).
-            </li>
-
-            <li>
-              <strong>Data Backup:</strong> While we take precautions, you are
-              responsible for backing up any essential exported data.
-            </li>
-
-            <li>
-              <strong>Reselling Prohibited:</strong> The platform is for
-              personal or internal institutional use only.
-            </li>
-
-            <li>
-              <strong>Updates to Terms:</strong> We may update these Terms and
-              will notify users through the platform or email.
-            </li>
-
-            <li>
-              <strong>Entire Agreement:</strong> These Terms constitute the
-              complete agreement between you and Evermount.
-            </li>
-
-            <li>
-              <strong>Contact:</strong> You may contact support at
-              legal@evermount.com for questions related to these Terms.
+              <strong>Termination.</strong> Either party may terminate as
+              provided in the commercial agreement. Access may be suspended for
+              abuse, security risk or legal requirement.
             </li>
           </ol>
-        </section>
+        </div>
       </div>
     </main>
   );

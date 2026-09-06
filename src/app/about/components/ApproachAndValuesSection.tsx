@@ -11,42 +11,42 @@ const APPROACH_ITEMS = [
     icon: CpuChipIcon,
     title: "Systematic & Data-Driven",
     description:
-      "We remove human emotion and bias from investment decisions through entirely systematic processes. Every strategy is built on rigorous quantitative research and validated through extensive backtesting.",
+      "We design systems around data quality, research evidence and measurable risk — not discretionary fund marketing.",
   },
   {
     icon: ChartBarIcon,
-    title: "Multi-Strategy Diversification",
+    title: "API First",
     description:
-      "Our portfolios span multiple asset classes including equities, fixed income, currencies, and commodities. This diversification helps capture alpha across different market regimes while managing risk.",
+      "Financial infrastructure should be programmable. APIs, streaming and integrations are first-class.",
   },
   {
     icon: ShieldCheckIcon,
-    title: "Risk-First Philosophy",
+    title: "Risk First",
     description:
-      "Capital preservation is paramount. Our multi-layered risk management framework continuously monitors portfolio exposure and automatically adjusts positions to maintain target risk parameters.",
+      "Risk controls should be embedded directly into systems, including pre-trade and real-time monitoring.",
   },
 ];
 
 const CORE_VALUES = [
   {
-    title: "Transparency",
+    title: "Infrastructure First",
     description:
-      "We believe in complete transparency with our investors. Regular reporting, clear communication, and open dialogue about our strategies and performance.",
+      "Build reliable foundations before financial applications.",
   },
   {
-    title: "Innovation",
+    title: "Data Driven",
     description:
-      "We continuously invest in research and technology to stay at the forefront of quantitative finance, ensuring our strategies remain competitive and effective.",
+      "High-quality financial infrastructure begins with high-quality data.",
   },
   {
-    title: "Integrity",
+    title: "Globally Oriented",
     description:
-      "Ethical conduct and regulatory compliance are non-negotiable. We operate with the highest standards of professionalism and accountability.",
+      "Build infrastructure that can operate across markets and jurisdictions.",
   },
   {
-    title: "Excellence",
+    title: "Technology Driven",
     description:
-      "We strive for excellence in everything we do—from research and technology to client service and risk management. Good enough is never enough.",
+      "Use modern engineering, quantitative methods and AI to solve complex financial problems.",
   },
 ];
 
@@ -95,7 +95,7 @@ export default function ApproachAndValuesSection() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-          Our Core Values
+          Our Principles
         </h2>
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {CORE_VALUES.map((value, i) => (

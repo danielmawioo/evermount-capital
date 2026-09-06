@@ -14,23 +14,23 @@ describe("Hero", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /We build intelligent financial systems that understand markets/i,
+        name: /Financial Infrastructure for Modern Markets/i,
         level: 1,
       }),
     ).toBeInTheDocument();
 
     expect(
-      screen.getByRole("link", { name: /Explore the Platform/i }),
+      screen.getByRole("link", { name: /Explore Platform/i }),
     ).toHaveAttribute("href", "/platform");
 
-    const talkToTeamLink = screen.getByRole("link", {
-      name: /Talk to Our Team/i,
+    const requestAccess = screen.getByRole("link", {
+      name: /Request Access/i,
     });
-    expect(talkToTeamLink).toHaveAttribute("href", "/book-demo");
+    expect(requestAccess).toHaveAttribute("href", "/book-demo");
 
-    expect(screen.getByText("Market Intelligence")).toBeInTheDocument();
+    expect(screen.getByText("Market Data")).toBeInTheDocument();
     expect(screen.getByText("Quantitative Research")).toBeInTheDocument();
-    expect(screen.getByText("Risk Intelligence")).toBeInTheDocument();
+    expect(screen.getByText("Risk Infrastructure")).toBeInTheDocument();
 
     expect(screen.getByTestId("live-market-ticker")).toBeInTheDocument();
   });

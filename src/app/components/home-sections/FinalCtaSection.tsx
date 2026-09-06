@@ -71,15 +71,14 @@ export default function FinalCtaSection() {
         </motion.div>
 
         <h2 className="text-4xl lg:text-5xl font-bold leading-tight text-gray-900 dark:text-white mb-6">
-          The Intelligence Layer for{" "}
-          <span className="text-[#00a76f]">Africa&apos;s Financial Markets</span>
+          Financial Infrastructure for{" "}
+          <span className="text-[#00a76f]">Modern Markets</span>
         </h2>
 
         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">
-          Africa&apos;s financial markets are fragmented, data-rich and
-          increasingly digital. Evermount is building the infrastructure that
-          connects financial data, artificial intelligence, quantitative
-          research, risk intelligence and systematic execution.
+          Financial markets are complex, fragmented and technically difficult to
+          build on. Evermount provides infrastructure that makes market
+          technology easier to build, integrate and operate.
         </p>
 
         <div className="flex justify-center gap-4 flex-wrap">
@@ -89,7 +88,7 @@ export default function FinalCtaSection() {
               whileTap={{ scale: 0.95 }}
               className="bg-[#00a76f] hover:bg-emerald-700 text-white px-8 py-3 rounded-md text-lg font-semibold shadow-sm transition"
             >
-              Explore Evermount Technology
+              Explore Platform
             </motion.button>
           </Link>
           <Link href="/book-demo">
@@ -98,7 +97,7 @@ export default function FinalCtaSection() {
               whileTap={{ scale: 0.95 }}
               className="px-8 py-3 border border-[#00a76f] text-[#00a76f] hover:bg-[#00a76f0d] dark:hover:bg-[#00a76f22] rounded-md text-lg font-semibold transition shadow-sm"
             >
-              Talk to Our Team
+              Request Access
             </motion.button>
           </Link>
         </div>

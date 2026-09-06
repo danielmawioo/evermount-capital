@@ -80,7 +80,7 @@ export default function Navbar() {
         <p className="flex flex-wrap justify-center items-center gap-2">
           <span className="font-semibold">Evermount</span>
           <span className="whitespace-nowrap">
-            Building the AI financial intelligence layer for African markets.
+            Financial infrastructure for modern markets.
           </span>
           <Link
             href="/platform"
@@ -179,13 +179,18 @@ export default function Navbar() {
                 )}
               </motion.button>
 
+              <Link href="/platform" className="hidden xl:inline-flex">
+                <span className="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+                  Explore Platform
+                </span>
+              </Link>
               <Link href="/book-demo">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white rounded-md transition-all shadow-md hover:shadow-lg bg-[#00a76f] hover:bg-emerald-700"
                 >
-                  Talk to Our Team
+                  Request Access
                   <ArrowRightIcon className="w-4 h-4" />
                 </motion.button>
               </Link>
@@ -276,7 +281,7 @@ export default function Navbar() {
                       whileTap={{ scale: 0.95 }}
                       className="w-full flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-medium text-white rounded-md transition-all shadow-md hover:shadow-lg bg-[#00a76f] hover:bg-emerald-700"
                     >
-                      Talk to Our Team
+                      Request Access
                       <ArrowRightIcon className="w-4 h-4" />
                     </motion.button>
                   </Link>
@@ -319,10 +324,11 @@ export default function Navbar() {
                   <XMarkIcon className="w-5 h-5" />
                 </button>
                 <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
-                  Join the Waitlist
+                  Request Access
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
-                  Get early access to our beta and priority onboarding.
+                  Share your work email to request platform access. We will
+                  follow up with next steps.
                 </p>
                 <input
                   type="email"

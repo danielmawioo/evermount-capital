@@ -13,9 +13,9 @@ export default function PrivacyPolicyPage() {
 
         <section className="space-y-8 text-base leading-7 text-gray-700 dark:text-gray-300">
           <p>
-            This Privacy Policy outlines how Evermount Capital collects, uses,
-            stores, and protects your information. Your privacy is critically
-            important to us.
+            This Privacy Policy outlines how Evermount collects, uses, stores,
+            and protects your information. Your privacy is critically important
+            to us.
           </p>
 
           <ol className="space-y-6 list-decimal pl-5 text-gray-700 dark:text-gray-300">
@@ -23,8 +23,8 @@ export default function PrivacyPolicyPage() {
               <strong className="text-gray-900 dark:text-white">
                 Data Collected:
               </strong>{" "}
-              Name, email, IP address, device type, portfolio selections, and
-              behavior.
+              Name, work email, company, role, technical requirements, IP
+              address, device type, and usage of the website or platform.
             </li>
 
             <li>

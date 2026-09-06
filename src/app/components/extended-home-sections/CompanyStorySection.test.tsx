@@ -8,7 +8,7 @@ describe("CompanyStorySection", () => {
     expect(screen.getByText("About Evermount")).toBeInTheDocument();
     expect(
       screen.getByText(
-        /Evermount — The AI Financial Intelligence & Trading Infrastructure Company for Africa/,
+        /Infrastructure for Institutions, Developers and Researchers/,
       ),
     ).toBeInTheDocument();
     expect(

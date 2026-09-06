@@ -35,6 +35,13 @@ export default function JobListings({
       >
         Open Positions
       </motion.h2>
+        {openings.length === 0 ? (
+          <p className="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            No open roles are currently listed. Introduce yourself at
+            careers@evermount.co if you want to help build financial
+            infrastructure.
+          </p>
+        ) : (
       <div className="space-y-4 max-w-4xl mx-auto">
         {openings.map((job, idx) => (
           <motion.div
@@ -236,6 +243,7 @@ export default function JobListings({
           </motion.div>
         ))}
       </div>
+        )}
     </section>
   );
 }

@@ -4,10 +4,13 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const LAYERS = [
-  ["Market Intelligence", "Quant Research", "Risk Intelligence"],
-  ["Portfolio Engine"],
+  ["Market Data"],
+  ["Data Platform"],
+  ["Quant Research + AI"],
+  ["Risk Engine"],
   ["Execution Engine"],
-  ["African Financial Markets"],
+  ["Brokers / Exchanges / Venues"],
+  ["Financial Applications"],
 ];
 
 export default function PlatformArchitectureSection() {

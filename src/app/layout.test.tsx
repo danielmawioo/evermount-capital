@@ -27,11 +27,11 @@ describe("RootLayout", () => {
   it("exports metadata with the expected shape", () => {
     expect(metadata.title).toEqual({
       default:
-        "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
+        "Evermount | Financial Infrastructure for Modern Markets",
       template: "%s | Evermount",
     });
     expect(metadata.description).toMatch(
-      /AI-powered financial intelligence/i,
+      /financial markets/i,
     );
     expect(metadata.alternates).toEqual({
       canonical: "https://www.evermount.co",

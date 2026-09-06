@@ -8,18 +8,18 @@ import {
 const values = [
   {
     icon: RocketLaunchIcon,
-    title: "Impactful Mission",
-    desc: "Help investors worldwide optimize returns through systematic quantitative strategies and transparency.",
+    title: "Engineering",
+    desc: "Backend, distributed systems, data engineering, SRE and frontend.",
   },
   {
     icon: BriefcaseIcon,
-    title: "Growth Culture",
-    desc: "We invest in you. Mentorship, ownership, and constant learning opportunities.",
+    title: "Quantitative Research",
+    desc: "Quant research, quant development, financial engineering and market microstructure.",
   },
   {
     icon: ArrowRightIcon,
-    title: "Global Collaboration",
-    desc: "Work with brilliant minds across continents — remote-friendly & async-first culture.",
+    title: "AI & Market Infrastructure",
+    desc: "Machine learning, market connectivity, trading systems and execution technology.",
   },
 ];
 

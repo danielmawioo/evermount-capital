@@ -6,12 +6,12 @@ describe("StatsSection", () => {
     render(<StatsSection />);
 
     expect(
-      screen.getByText("The Intelligence Infrastructure Behind Evermount"),
+      screen.getByText("The Infrastructure Behind Modern Markets"),
     ).toBeInTheDocument();
 
-    expect(screen.getByText("Financial Data")).toBeInTheDocument();
-    expect(screen.getByText("AI & Machine Intelligence")).toBeInTheDocument();
-    expect(screen.getByText("Quantitative Research")).toBeInTheDocument();
-    expect(screen.getByText("Risk & Execution")).toBeInTheDocument();
+    expect(screen.getByText("Market Data")).toBeInTheDocument();
+    expect(screen.getByText("Quant Research")).toBeInTheDocument();
+    expect(screen.getByText("AI & Intelligence")).toBeInTheDocument();
+    expect(screen.getByText("Connectivity")).toBeInTheDocument();
   });
 });

@@ -11,8 +11,8 @@ const POINTS = [
   "Portfolio optimization",
   "Real-time risk intelligence",
   "Systematic execution",
-  "Market-making infrastructure",
-  "African market connectivity",
+  "Market connectivity infrastructure",
+  "APIs and institutional integrations",
 ];
 
 export default function WhyEvermountSection() {

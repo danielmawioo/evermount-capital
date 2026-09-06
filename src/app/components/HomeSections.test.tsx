@@ -6,34 +6,34 @@ describe("HomeSections", () => {
     render(<HomeSectionsWithImages />);
 
     expect(
-      screen.getByText("The Intelligence Infrastructure Behind Evermount"),
+      screen.getByText("The Infrastructure Behind Modern Markets"),
     ).toBeInTheDocument();
     expect(screen.getByText("What Evermount Builds")).toBeInTheDocument();
     expect(
       screen.getByText("From Financial Intelligence to Execution"),
     ).toBeInTheDocument();
     expect(screen.getByText("Evermount Platform")).toBeInTheDocument();
-    expect(
-      screen.getByText("How Evermount Turns Intelligence Into Action"),
-    ).toBeInTheDocument();
+    expect(screen.getByText("Markets")).toBeInTheDocument();
   });
 
   it("renders the mid-page CTA links to platform and book-demo", () => {
     render(<HomeSectionsWithImages />);
 
     expect(
-      screen.getByRole("link", { name: "Explore Evermount Technology" }),
+      screen.getByRole("link", { name: "Explore Platform" }),
     ).toHaveAttribute("href", "/platform");
     expect(
-      screen.getByRole("link", { name: "Talk to Our Team" }),
+      screen.getByRole("link", { name: "Request Access" }),
     ).toHaveAttribute("href", "/book-demo");
   });
 
   it("renders the infrastructure categories", () => {
     render(<HomeSectionsWithImages />);
 
-    expect(screen.getByText("Financial Data")).toBeInTheDocument();
-    expect(screen.getByText("AI & Machine Intelligence")).toBeInTheDocument();
-    expect(screen.getByText("Quantitative Research")).toBeInTheDocument();
+    expect(screen.getAllByText("Market Data").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("AI & Intelligence").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Quantitative Research").length).toBeGreaterThan(
+      0,
+    );
   });
 });

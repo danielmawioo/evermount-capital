@@ -1,4 +1,3 @@
-// src/app/page.tsx
 import { Metadata } from "next";
 import Script from "next/script";
 import Hero from "./components/Hero";
@@ -6,21 +5,21 @@ import HomeSectionsWithImages from "./components/HomeSections";
 import ExtendedHomeSections from "./components/ExtendedHomeSections";
 import TrustLogos from "./components/TrustLogos";
 
+const TITLE = "Evermount | Financial Infrastructure for Modern Markets";
+const DESCRIPTION =
+  "Evermount builds the data, quantitative research, intelligence, execution and risk infrastructure powering the next generation of financial markets.";
+
 export const metadata: Metadata = {
-  title: "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
-  description:
-    "Evermount builds AI-powered financial intelligence, quantitative research, risk and trading infrastructure for Africa's financial markets.",
+  title: TITLE,
+  description: DESCRIPTION,
   keywords: [
-    "AI financial infrastructure Africa",
-    "quantitative trading Africa",
-    "AI trading infrastructure",
-    "African financial markets",
-    "quantitative research Africa",
-    "financial AI Africa",
-    "algorithmic trading infrastructure",
-    "African market data",
-    "systematic trading Africa",
-    "financial intelligence platform",
+    "financial infrastructure",
+    "market data infrastructure",
+    "quantitative research platform",
+    "trading infrastructure",
+    "risk infrastructure",
+    "execution infrastructure",
+    "financial APIs",
   ],
   alternates: {
     canonical: "https://www.evermount.co",
@@ -29,16 +28,14 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.evermount.co",
     siteName: "Evermount",
-    title:
-      "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
-    description:
-      "Evermount builds AI-powered financial intelligence, quantitative research, risk and trading infrastructure for Africa's financial markets.",
+    title: TITLE,
+    description: DESCRIPTION,
     images: [
       {
         url: "https://www.evermount.co/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Evermount AI financial intelligence platform",
+        alt: "Evermount financial infrastructure platform",
       },
     ],
   },
@@ -46,10 +43,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@evermountcapital",
     creator: "@evermountcapital",
-    title:
-      "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
-    description:
-      "Evermount builds AI-powered financial intelligence, quantitative research, risk and trading infrastructure for Africa's financial markets.",
+    title: TITLE,
+    description: DESCRIPTION,
     images: ["https://www.evermount.co/og-image.png"],
   },
 };
@@ -64,7 +59,7 @@ export default function Home() {
         name: "What does Evermount do?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Evermount is an AI financial intelligence and trading infrastructure company for Africa. We build systems that understand markets, discover opportunities, manage risk and execute capital — combining AI, quantitative research, market data, risk intelligence and systematic execution.",
+          text: "Evermount is a financial technology and infrastructure company. We build data, quantitative research, intelligence, risk, execution and connectivity infrastructure for modern financial markets.",
         },
       },
       {
@@ -72,15 +67,23 @@ export default function Home() {
         name: "Is Evermount a fund or a technology company?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Evermount is primarily a technology company. Our platform includes intelligence, quantitative research, data, risk and execution infrastructure. Evermount Capital is one application of that stack: systematic capital management powered by the same technology.",
+          text: "Evermount is a technology and infrastructure provider. The website describes platform, data, research, risk and execution capabilities — not a public invitation to deposit capital for discretionary investment management.",
         },
       },
       {
         "@type": "Question",
-        name: "How does Evermount AI work?",
+        name: "Who is Evermount for?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Evermount AI is an intelligence layer designed to help financial systems understand markets, assist quantitative research and support risk-aware decisions. It is AI-assisted research and decision intelligence — we do not claim autonomous AI is currently trading live capital without human-designed controls.",
+          text: "Evermount is designed for institutions, financial technology companies, trading firms, developers and researchers who need programmable market infrastructure.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does Evermount operate as an exchange, broker or custodian?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No. Evermount provides technology and infrastructure services. It does not claim to be an exchange, broker, bank, custodian or regulated investment manager unless separately and expressly stated.",
         },
       },
       {
@@ -88,15 +91,7 @@ export default function Home() {
         name: "Where does Evermount operate?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "We start with African financial markets and are building toward systematic trading, market infrastructure and connectivity between African and global financial systems.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Does Evermount manage capital?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. Evermount Capital offers systematic investment strategies as one product of the broader Evermount platform. Fee structure, minimums and lock-in terms are documented on the Capital and Pricing pages.",
+          text: "Evermount is positioned for global financial markets. Availability of specific services depends on jurisdiction and applicable regulation.",
         },
       },
     ],
@@ -107,11 +102,6 @@ export default function Home() {
     "@type": "WebSite",
     name: "Evermount",
     url: "https://www.evermount.co",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://www.evermount.co/search?q={search_term_string}",
-      "query-input": "required name=search_term_string",
-    },
   };
 
   const organizationStructuredData = {
@@ -121,11 +111,7 @@ export default function Home() {
     url: "https://www.evermount.co",
     logo: "https://www.evermount.co/logos/logo.png",
     description:
-      "The AI financial intelligence and trading infrastructure company for Africa — combining artificial intelligence, quantitative research, market data, risk intelligence and systematic execution.",
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "KE",
-    },
+      "Financial infrastructure for modern markets — market data, quantitative research, intelligence, risk, execution and connectivity.",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+254758578816",
