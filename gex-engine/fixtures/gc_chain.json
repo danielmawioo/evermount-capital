@@ -1,0 +1,179 @@
+{
+  "underlying": {
+    "timestamp": "2026-09-01T12:07:00Z",
+    "spot": 4367.86,
+    "futures_price": 4372.4,
+    "volume": 18420
+  },
+  "iv_history": [0.14, 0.16, 0.18, 0.17, 0.19, 0.15],
+  "bars": {
+    "highs": [
+      4340, 4355, 4368, 4379, 4388, 4392, 4384, 4376, 4381, 4390, 4395, 4386,
+      4378, 4388, 4394
+    ],
+    "lows": [
+      4318, 4330, 4342, 4351, 4360, 4366, 4358, 4350, 4355, 4364, 4370, 4362,
+      4354, 4366, 4372
+    ],
+    "closes": [
+      4326, 4348, 4359, 4371, 4377, 4380, 4366, 4358, 4372, 4381, 4376, 4368,
+      4362, 4379, 4374
+    ]
+  },
+  "quotes": [
+    {
+      "expiry": "2026-09-25T18:30:00Z",
+      "strike": 4300,
+      "option_type": "put",
+      "bid": 12.4,
+      "ask": 12.8,
+      "last": 12.6,
+      "volume": 2100,
+      "open_interest": 18400,
+      "implied_volatility": 0.18
+    },
+    {
+      "expiry": "2026-09-25T18:30:00Z",
+      "strike": 4300,
+      "option_type": "call",
+      "bid": 78.1,
+      "ask": 79.0,
+      "last": 78.4,
+      "volume": 420,
+      "open_interest": 4100,
+      "implied_volatility": 0.17
+    },
+    {
+      "expiry": "2026-09-25T18:30:00Z",
+      "strike": 4330,
+      "option_type": "put",
+      "bid": 18.2,
+      "ask": 18.7,
+      "last": 18.4,
+      "volume": 1600,
+      "open_interest": 12100,
+      "implied_volatility": 0.175
+    },
+    {
+      "expiry": "2026-09-25T18:30:00Z",
+      "strike": 4330,
+      "option_type": "call",
+      "bid": 58.0,
+      "ask": 58.8,
+      "last": 58.3,
+      "volume": 510,
+      "open_interest": 5200,
+      "implied_volatility": 0.168
+    },
+    {
+      "expiry": "2026-09-25T18:30:00Z",
+      "strike": 4350,
+      "option_type": "put",
+      "bid": 24.1,
+      "ask": 24.6,
+      "last": 24.3,
+      "volume": 3400,
+      "open_interest": 22100,
+      "implied_volatility": 0.172
+    },
+    {
+      "expiry": "2026-09-25T18:30:00Z",
+      "strike": 4350,
+      "option_type": "call",
+      "bid": 46.2,
+      "ask": 46.9,
+      "last": 46.5,
+      "volume": 980,
+      "open_interest": 7400,
+      "implied_volatility": 0.166
+    },
+    {
+      "expiry": "2026-09-25T18:30:00Z",
+      "strike": 4375,
+      "option_type": "put",
+      "bid": 32.8,
+      "ask": 33.4,
+      "last": 33.0,
+      "volume": 4100,
+      "open_interest": 19800,
+      "implied_volatility": 0.17
+    },
+    {
+      "expiry": "2026-09-25T18:30:00Z",
+      "strike": 4375,
+      "option_type": "call",
+      "bid": 34.6,
+      "ask": 35.2,
+      "last": 34.9,
+      "volume": 3900,
+      "open_interest": 18600,
+      "implied_volatility": 0.169
+    },
+    {
+      "expiry": "2026-09-25T18:30:00Z",
+      "strike": 4385,
+      "option_type": "put",
+      "bid": 36.4,
+      "ask": 37.0,
+      "last": 36.7,
+      "volume": 1500,
+      "open_interest": 9200,
+      "implied_volatility": 0.169
+    },
+    {
+      "expiry": "2026-09-25T18:30:00Z",
+      "strike": 4385,
+      "option_type": "call",
+      "bid": 31.1,
+      "ask": 31.7,
+      "last": 31.4,
+      "volume": 1700,
+      "open_interest": 10100,
+      "implied_volatility": 0.168
+    },
+    {
+      "expiry": "2026-09-25T18:30:00Z",
+      "strike": 4400,
+      "option_type": "put",
+      "bid": 42.0,
+      "ask": 42.7,
+      "last": 42.3,
+      "volume": 1200,
+      "open_interest": 8100,
+      "implied_volatility": 0.171
+    },
+    {
+      "expiry": "2026-09-25T18:30:00Z",
+      "strike": 4400,
+      "option_type": "call",
+      "bid": 25.4,
+      "ask": 26.0,
+      "last": 25.7,
+      "volume": 5200,
+      "open_interest": 27400,
+      "implied_volatility": 0.167
+    },
+    {
+      "expiry": "2026-09-25T18:30:00Z",
+      "strike": 4450,
+      "option_type": "put",
+      "bid": 68.2,
+      "ask": 69.1,
+      "last": 68.6,
+      "volume": 400,
+      "open_interest": 3600,
+      "implied_volatility": 0.176
+    },
+    {
+      "expiry": "2026-09-25T18:30:00Z",
+      "strike": 4450,
+      "option_type": "call",
+      "bid": 12.8,
+      "ask": 13.3,
+      "last": 13.0,
+      "volume": 2800,
+      "open_interest": 19200,
+      "implied_volatility": 0.173
+    }
+  ]
+}
