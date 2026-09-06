@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { LocaleProvider } from "@/context/LocaleContext";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import CookieConsent from "./CookieConsent"; // ✅ Optional: include if you're using it
@@ -31,13 +32,14 @@ export default function LayoutWrapper({
   const hideChat = isAuthRoute;
 
   return (
-    <ThemeProvider>
-      {!hideNavbar && <Navbar />}
-      {children}
-      {!hideFooter && <Footer />}
-      {!hideFooter && <CookieConsent />}{" "}
-      {/* ✅ Optional: display cookie banner */}
-      {!hideChat && <ChatWidget />}
-    </ThemeProvider>
+    <LocaleProvider>
+      <ThemeProvider>
+        {!hideNavbar && <Navbar />}
+        {children}
+        {!hideFooter && <Footer />}
+        {!hideFooter && <CookieConsent />}
+        {!hideChat && <ChatWidget />}
+      </ThemeProvider>
+    </LocaleProvider>
   );
 }

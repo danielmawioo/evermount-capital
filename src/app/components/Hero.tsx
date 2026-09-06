@@ -14,31 +14,32 @@ import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
 
 import LiveMarketTicker from "./LiveMarketTicker";
-
-const FEATURES = [
-  {
-    icon: ChartBarIcon,
-    title: "Market Data",
-    desc: "Real-time and historical market data infrastructure.",
-  },
-  {
-    icon: CpuChipIcon,
-    title: "Quantitative Research",
-    desc: "Research, modeling, simulation and backtesting infrastructure.",
-  },
-  {
-    icon: ShieldCheckIcon,
-    title: "Risk Infrastructure",
-    desc: "Real-time exposure, limits, monitoring and stress testing.",
-  },
-  {
-    icon: ClockIcon,
-    title: "Execution",
-    desc: "Algorithmic execution, order management and execution analytics.",
-  },
-];
+import { useLocale } from "@/context/LocaleContext";
 
 export default function Hero() {
+  const { t, tList } = useLocale();
+  const features = [
+    {
+      icon: ChartBarIcon,
+      title: t("hero.marketData"),
+      desc: t("hero.marketDataDesc"),
+    },
+    {
+      icon: CpuChipIcon,
+      title: t("hero.quant"),
+      desc: t("hero.quantDesc"),
+    },
+    {
+      icon: ShieldCheckIcon,
+      title: t("hero.risk"),
+      desc: t("hero.riskDesc"),
+    },
+    {
+      icon: ClockIcon,
+      title: t("hero.execution"),
+      desc: t("hero.executionDesc"),
+    },
+  ];
   return (
     <section className="bg-gradient-to-b from-white dark:from-gray-900 via-[#e8fdf4] dark:via-gray-800 to-white dark:to-gray-900 py-20 sm:py-28 transition-all relative overflow-hidden">
       {/* Animated background elements */}
@@ -84,23 +85,17 @@ export default function Hero() {
           className="space-y-6 text-center lg:text-left"
         >
           <p className="text-xs sm:text-sm font-semibold tracking-[0.18em] text-[#00a76f] uppercase">
-            Financial Technology × Market Infrastructure
+            {t("hero.kicker")}
           </p>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight tracking-tight">
-            Financial Infrastructure for Modern Markets
+            {t("hero.headline")}
           </h1>
 
           <h2 className="text-base sm:text-lg md:text-2xl font-medium text-[#00a76f] dark:text-emerald-400 min-h-[32px] sm:min-h-[40px]">
             <span className="inline-block min-w-[220px]">
               <Typewriter
-                words={[
-                  "Market Data",
-                  "Quantitative Research",
-                  "AI & Intelligence",
-                  "Risk Infrastructure",
-                  "Execution",
-                ]}
+                words={tList("hero.words")}
                 loop
                 cursor
                 cursorStyle="|"
@@ -112,9 +107,7 @@ export default function Hero() {
           </h2>
 
           <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
-            Evermount builds the data, quantitative research, intelligence,
-            execution and risk infrastructure powering the next generation of
-            financial markets.
+            {t("hero.body")}
           </p>
 
           {/* CTA BUTTONS */}
@@ -132,7 +125,7 @@ export default function Hero() {
                 className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-[#00a76f] text-white rounded-md font-semibold hover:bg-emerald-700 transition shadow-md"
               >
                 <Squares2X2Icon className="w-5 h-5" />
-                Explore Platform
+                {t("common.explorePlatform")}
               </motion.button>
             </Link>
 
@@ -143,7 +136,7 @@ export default function Hero() {
                 className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 border border-[#00a76f] dark:border-emerald-400 text-[#00a76f] dark:text-emerald-400 rounded-md font-semibold hover:bg-[#e6f5f0] dark:hover:bg-emerald-400/20 transition shadow-md"
               >
                 <LifebuoyIcon className="w-5 h-5" />
-                Request Access
+                {t("common.requestAccess")}
               </motion.button>
             </Link>
           </motion.div>
@@ -156,7 +149,7 @@ export default function Hero() {
             viewport={{ once: true }}
             className="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5 text-sm text-gray-800 dark:text-gray-200 max-w-xl mx-auto lg:mx-0"
           >
-            {FEATURES.map(({ icon: Icon, title, desc }) => (
+            {features.map(({ icon: Icon, title, desc }) => (
               <div key={title} className="flex items-start gap-3 text-left">
                 <Icon className="w-5 h-5 text-[#00a76f] mt-0.5 flex-shrink-0" />
                 <div>

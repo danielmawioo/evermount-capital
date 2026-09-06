@@ -182,7 +182,13 @@ export default function RootLayout({
                   contactType: "Customer Support",
                   email: "info@evermount.co",
                   areaServed: "Worldwide",
-                  availableLanguage: ["English"],
+                  availableLanguage: [
+                    "English",
+                    "French",
+                    "Spanish",
+                    "German",
+                    "Dutch",
+                  ],
                 },
                 {
                   "@type": "ContactPoint",
