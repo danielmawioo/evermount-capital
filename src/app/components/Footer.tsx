@@ -18,6 +18,7 @@ import {
   type FooterColumnData,
 } from "./footerColumns";
 import { useLocale } from "@/context/LocaleContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const COLUMN_KEYS: Record<string, string> = {
   Platform: "nav.platform",
@@ -229,10 +230,11 @@ export default function Footer() {
         </div>
 
         {/* Footer Bottom */}
-        <div className="border-t border-gray-300 dark:border-gray-800 pt-6 pb-6">
+        <div className="border-t border-gray-300 dark:border-gray-800 pt-6 pb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-center text-xs text-gray-500 dark:text-gray-400">
             {t("footer.copyright", { year: new Date().getFullYear() })}
           </p>
+          <LanguageSwitcher align="right" />
         </div>
       </div>
     </footer>

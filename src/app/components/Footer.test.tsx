@@ -15,7 +15,7 @@ describe("Footer", () => {
     mock.restore();
   });
 
-  it("renders the footer link sections and copyright", () => {
+  it("renders the footer link sections, copyright and language switcher", () => {
     render(<Footer />);
 
     expect(screen.getByText("Platform")).toBeInTheDocument();
@@ -26,6 +26,7 @@ describe("Footer", () => {
     expect(screen.getByText("Developers")).toBeInTheDocument();
     expect(screen.getByText("Institutions")).toBeInTheDocument();
     expect(screen.queryByText("Resources")).not.toBeInTheDocument();
+    expect(screen.getByLabelText("Language")).toBeInTheDocument();
 
     const year = new Date().getFullYear().toString();
     expect(

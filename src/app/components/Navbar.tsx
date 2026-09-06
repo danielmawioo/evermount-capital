@@ -81,7 +81,7 @@ export default function Navbar() {
         transition={{ duration: 0.4 }}
         className="bg-gradient-to-r from-[#00a76f] via-emerald-500 to-green-400 text-white text-sm sm:text-base text-center px-4 py-2.5 font-medium relative z-[60]"
       >
-        <p className="flex flex-wrap justify-center items-center gap-2">
+        <p className="flex flex-wrap justify-center items-center gap-2 lg:px-20">
           <span className="font-semibold">Evermount</span>
           <span className="whitespace-nowrap">{t("banner.tagline")}</span>
           <Link
@@ -92,6 +92,9 @@ export default function Navbar() {
             <ArrowRightIcon className="w-4 h-4 inline" />
           </Link>
         </p>
+        <div className="hidden lg:block absolute end-4 top-1/2 -translate-y-1/2">
+          <LanguageSwitcher variant="onBrand" />
+        </div>
       </motion.div>
 
       {/* Main Navbar */}
@@ -106,7 +109,7 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center h-16 gap-3">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2 group">
               <motion.div
@@ -128,7 +131,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Navigation - Scale AI Style */}
-            <div className="hidden lg:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center justify-center space-x-6 xl:space-x-8 min-w-0">
               {translatedNav.map((item) => (
                 <div
                   key={item.id}
@@ -160,7 +163,7 @@ export default function Navbar() {
             </div>
 
             {/* Right Side Actions - Scale AI Style */}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-2 sm:space-x-3">
               {/* Theme Toggle Button */}
               <motion.button
                 whileHover={{ scale: 1.1 }}
@@ -180,8 +183,6 @@ export default function Navbar() {
                   <MoonIcon className="w-5 h-5" />
                 )}
               </motion.button>
-
-              <LanguageSwitcher />
 
               <Link href="/platform" className="hidden xl:inline-flex">
                 <span className="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
@@ -281,7 +282,7 @@ export default function Navbar() {
                     )}
                   </motion.button>
                   <div className="flex justify-center py-1">
-                    <LanguageSwitcher />
+                    <LanguageSwitcher variant="default" />
                   </div>
                   <Link href="/book-demo" onClick={() => setMenuOpen(false)}>
                     <motion.button
