@@ -1,5 +1,7 @@
 "use client";
 
+import TranslateTree from "@/app/components/TranslateTree";
+
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -104,83 +106,85 @@ export default function MpesaDepositPage() {
   };
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
-          M-Pesa Deposit
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400 mt-2">
-          Fund your KES wallet instantly via M-Pesa. You will receive an STK
-          push on your phone to confirm the payment.
-        </p>
-      </div>
+    <TranslateTree>
+      <div className="space-y-6">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
+            M-Pesa Deposit
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-2">
+            Fund your KES wallet instantly via M-Pesa. You will receive an STK
+            push on your phone to confirm the payment.
+          </p>
+        </div>
 
-      <div className="bg-white dark:bg-gray-900 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm max-w-lg mx-auto">
-        {pending ? (
-          <div className="text-center space-y-4 py-6">
-            <div className="animate-pulse text-4xl">📱</div>
-            <p className="text-gray-700 dark:text-gray-300 font-medium">
-              Waiting for M-Pesa confirmation...
-            </p>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-              Enter your M-Pesa PIN on your phone to complete the deposit.
-            </p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                M-Pesa Phone Number
-              </label>
-              <input
-                type="tel"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                placeholder="07XX XXX XXX"
-                required
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#00a76f] focus:outline-none"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Deposit Amount (KES)
-              </label>
-              <input
-                type="number"
-                step="1"
-                min="10"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-                placeholder="1000"
-                required
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#00a76f] focus:outline-none"
-              />
-              <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                Minimum deposit: KES 10
+        <div className="bg-white dark:bg-gray-900 p-8 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm max-w-lg mx-auto">
+          {pending ? (
+            <div className="text-center space-y-4 py-6">
+              <div className="animate-pulse text-4xl">📱</div>
+              <p className="text-gray-700 dark:text-gray-300 font-medium">
+                Waiting for M-Pesa confirmation...
+              </p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                Enter your M-Pesa PIN on your phone to complete the deposit.
               </p>
             </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  M-Pesa Phone Number
+                </label>
+                <input
+                  type="tel"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  placeholder="07XX XXX XXX"
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#00a76f] focus:outline-none"
+                />
+              </div>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className={`w-full py-3 rounded-lg font-semibold transition ${
-                loading
-                  ? "bg-[#8cd9c0] text-white cursor-not-allowed"
-                  : "bg-[#00a76f] hover:bg-[#029866] text-white"
-              }`}
-            >
-              {loading ? "Sending STK Push..." : "Pay with M-Pesa"}
-            </button>
-          </form>
-        )}
-      </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Deposit Amount (KES)
+                </label>
+                <input
+                  type="number"
+                  step="1"
+                  min="10"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                  placeholder="1000"
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#00a76f] focus:outline-none"
+                />
+                <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                  Minimum deposit: KES 10
+                </p>
+              </div>
 
-      <div className="text-center text-sm text-gray-500 dark:text-gray-400">
-        <Link href="/dashboard/deposit" className="hover:underline">
-          ← Back to Deposit Methods
-        </Link>
+              <button
+                type="submit"
+                disabled={loading}
+                className={`w-full py-3 rounded-lg font-semibold transition ${
+                  loading
+                    ? "bg-[#8cd9c0] text-white cursor-not-allowed"
+                    : "bg-[#00a76f] hover:bg-[#029866] text-white"
+                }`}
+              >
+                {loading ? "Sending STK Push..." : "Pay with M-Pesa"}
+              </button>
+            </form>
+          )}
+        </div>
+
+        <div className="text-center text-sm text-gray-500 dark:text-gray-400">
+          <Link href="/dashboard/deposit" className="hover:underline">
+            ← Back to Deposit Methods
+          </Link>
+        </div>
       </div>
-    </div>
+    </TranslateTree>
   );
 }

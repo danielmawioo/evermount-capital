@@ -38,6 +38,10 @@ yarn-error.log*
 .env.production.local
 !.env.example
 
+# i18n generation cache
+/scripts/.i18n-cache.json
+/scripts/.site-copy-missing.json
+
 # vercel
 .vercel
 
