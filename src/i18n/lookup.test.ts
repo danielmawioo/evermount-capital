@@ -8,7 +8,7 @@ describe("copy lookup", () => {
     expect(normalizeCopy("  Market   Data  ")).toBe("Market Data");
   });
 
-  it("translates known English UI copy into German and Dutch", () => {
+  it("translates known English UI copy into German, Dutch and Arabic", () => {
     expect(
       lookupTranslation(
         messages,
@@ -20,5 +20,13 @@ describe("copy lookup", () => {
     expect(lookupTranslation(messages, index, "nl", "Coming soon")).toBe(
       "Binnenkort",
     );
+    expect(
+      lookupTranslation(
+        messages,
+        index,
+        "ar",
+        "The Infrastructure Behind Modern Markets",
+      ),
+    ).toBe("البنية التحتية وراء الأسواق الحديثة");
   });
 });

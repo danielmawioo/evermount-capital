@@ -57,7 +57,9 @@ function interpolate(value: string, vars?: TranslateVars): string {
 
 function applyHtmlLang(locale: Locale) {
   if (typeof document === "undefined") return;
-  document.documentElement.lang = LOCALE_META[locale].htmlLang;
+  const meta = LOCALE_META[locale];
+  document.documentElement.lang = meta.htmlLang;
+  document.documentElement.dir = meta.dir;
 }
 
 export function LocaleProvider({ children }: { children: React.ReactNode }) {

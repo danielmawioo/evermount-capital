@@ -48,8 +48,8 @@ export default function LanguageSwitcher({
         <ul
           role="listbox"
           aria-label={t("common.language")}
-          className={`absolute mt-2 w-40 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-md shadow-md text-sm z-50 ${
-            align === "left" ? "left-0" : "right-0"
+          className={`absolute mt-2 w-48 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-md shadow-md text-sm z-50 ${
+            align === "left" ? "start-0" : "end-0"
           }`}
         >
           {LOCALES.map((code) => (
@@ -59,7 +59,7 @@ export default function LanguageSwitcher({
                 role="option"
                 aria-selected={locale === code}
                 onClick={() => selectLocale(code)}
-                className={`w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 ${
+                className={`w-full text-start px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 ${
                   locale === code
                     ? "bg-gray-100 dark:bg-gray-800 font-semibold"
                     : ""

@@ -8,7 +8,7 @@ describe("LanguageSwitcher", () => {
     localStorage.clear();
   });
 
-  it("lists English, French, Spanish, German and Dutch and applies a selection", async () => {
+  it("lists supported languages including Arabic for the UAE and applies a selection", async () => {
     const user = userEvent.setup();
     render(
       <LocaleProvider>
@@ -27,6 +27,9 @@ describe("LanguageSwitcher", () => {
     expect(
       screen.getByRole("option", { name: "Nederlands" }),
     ).toBeInTheDocument();
+    expect(
+      screen.getByRole("option", { name: "العربية" }),
+    ).toBeInTheDocument();
 
     await user.click(screen.getByRole("option", { name: "Deutsch" }));
 
@@ -34,6 +37,26 @@ describe("LanguageSwitcher", () => {
       expect(localStorage.getItem("evermount-locale")).toBe("de"),
     );
     expect(document.documentElement.lang).toBe("de");
+    expect(document.documentElement.dir).toBe("ltr");
     expect(screen.getByLabelText("Sprache")).toBeInTheDocument();
+  });
+
+  it("applies Arabic as UAE locale with RTL document direction", async () => {
+    const user = userEvent.setup();
+    render(
+      <LocaleProvider>
+        <LanguageSwitcher />
+      </LocaleProvider>,
+    );
+
+    await user.click(screen.getByLabelText("Language"));
+    await user.click(screen.getByRole("option", { name: "العربية" }));
+
+    await waitFor(() =>
+      expect(localStorage.getItem("evermount-locale")).toBe("ar"),
+    );
+    expect(document.documentElement.lang).toBe("ar-AE");
+    expect(document.documentElement.dir).toBe("rtl");
+    expect(screen.getByLabelText("اللغة")).toBeInTheDocument();
   });
 });

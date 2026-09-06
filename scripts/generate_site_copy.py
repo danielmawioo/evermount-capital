@@ -262,6 +262,7 @@ def parse_existing_block(lang: str) -> dict[str, str]:
         "es": "siteEs",
         "de": "siteDe",
         "nl": "siteNl",
+        "ar": "siteAr",
     }
     name = names[lang]
     m = re.search(rf"export const {name}: Messages = \{{(.*?)\n\}};", text, re.S)

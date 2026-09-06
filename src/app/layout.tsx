@@ -121,6 +121,13 @@ export default function RootLayout({
                 } catch (e) {
                   console.error('Theme initialization error:', e);
                 }
+                try {
+                  const savedLocale = localStorage.getItem('evermount-locale');
+                  if (savedLocale === 'ar') {
+                    document.documentElement.lang = 'ar-AE';
+                    document.documentElement.dir = 'rtl';
+                  }
+                } catch (e) {}
               })();
             `,
           }}
