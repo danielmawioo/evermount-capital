@@ -7,7 +7,9 @@ export default function AMLPolicyPage() {
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
           Anti-Money Laundering (AML) Policy
         </h1>
-        <p className="text-sm text-gray-500">Effective Date: September 6, 2026</p>
+        <p className="text-sm text-gray-500">
+          Effective Date: September 6, 2026
+        </p>
         <LegalNotice />
         <p>
           This statement describes financial-crime controls appropriate to a
@@ -19,9 +21,13 @@ export default function AMLPolicyPage() {
           <li>Customer onboarding for institutional and developer accounts.</li>
           <li>Institutional due diligence where commercially required.</li>
           <li>Sanctions screening where applicable.</li>
-          <li>Partner due diligence for connectivity and data relationships.</li>
+          <li>
+            Partner due diligence for connectivity and data relationships.
+          </li>
           <li>Fraud prevention on accounts, APIs and billing.</li>
-          <li>Financial crime controls proportional to the services offered.</li>
+          <li>
+            Financial crime controls proportional to the services offered.
+          </li>
           <li>Regulatory cooperation where legally required.</li>
         </ul>
       </div>

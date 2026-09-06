@@ -50,9 +50,9 @@ export default function CompanyStorySection() {
               Infrastructure for Institutions, Developers and Researchers
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              Evermount is a financial technology company building infrastructure
-              for market data, quantitative research, artificial intelligence,
-              risk and execution.
+              Evermount is a financial technology company building
+              infrastructure for market data, quantitative research, artificial
+              intelligence, risk and execution.
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
               The platform is market-agnostic: designed to support equities, FX,

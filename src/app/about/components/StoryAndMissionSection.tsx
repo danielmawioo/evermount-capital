@@ -39,7 +39,9 @@ export default function StoryAndMissionSection() {
           transition={{ duration: 0.6 }}
           className="bg-[#f5fdfb] dark:bg-gray-800 p-8 rounded-xl shadow"
         >
-          <h2 className="text-2xl font-bold text-[#00a76f] mb-3">Our Mission</h2>
+          <h2 className="text-2xl font-bold text-[#00a76f] mb-3">
+            Our Mission
+          </h2>
           <p className="leading-relaxed">
             Make sophisticated financial infrastructure more accessible,
             programmable and scalable.

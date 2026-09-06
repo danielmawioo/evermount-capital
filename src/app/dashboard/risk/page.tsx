@@ -63,7 +63,9 @@ export default function RiskMetricsPage() {
         portfolio&apos;s daily returns over the last 90 days.
       </p>
 
-      {loading && <p className="text-gray-500 dark:text-gray-400">Loading...</p>}
+      {loading && (
+        <p className="text-gray-500 dark:text-gray-400">Loading...</p>
+      )}
 
       {!loading && (error || !metrics) && (
         <p className="text-red-500">{error || "No data available yet."}</p>

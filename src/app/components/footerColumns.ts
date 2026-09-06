@@ -19,7 +19,11 @@ export const platformColumn: FooterColumnData = {
   title: "Platform",
   headingClassName,
   links: [
-    { label: "Market Data", href: "/platform#market-data", className: hoverClass },
+    {
+      label: "Market Data",
+      href: "/platform#market-data",
+      className: hoverClass,
+    },
     {
       label: "Quant Research",
       href: "/platform#quantitative-research",
@@ -90,7 +94,11 @@ export const institutionsColumn: FooterColumnData = {
       href: "/institutions#market-makers",
       className: hoverClass,
     },
-    { label: "Fintechs", href: "/institutions#fintechs", className: hoverClass },
+    {
+      label: "Fintechs",
+      href: "/institutions#fintechs",
+      className: hoverClass,
+    },
     {
       label: "Trading Firms",
       href: "/institutions#trading-firms",
@@ -146,9 +154,17 @@ export const legalComplianceColumn: FooterColumnData = {
   links: [
     { label: "Terms", href: "/terms", className: hoverClass },
     { label: "Privacy", href: "/privacy", className: hoverClass },
-    { label: "Risk Disclosure", href: "/risk-disclosure", className: hoverClass },
+    {
+      label: "Risk Disclosure",
+      href: "/risk-disclosure",
+      className: hoverClass,
+    },
     { label: "Data Policy", href: "/data-policy", className: hoverClass },
     { label: "API Terms", href: "/api-terms", className: hoverClass },
-    { label: "Compliance", href: "/regulatory-compliance", className: hoverClass },
+    {
+      label: "Compliance",
+      href: "/regulatory-compliance",
+      className: hoverClass,
+    },
   ],
 };

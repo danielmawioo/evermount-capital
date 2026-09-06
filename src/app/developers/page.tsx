@@ -48,7 +48,8 @@ export default function DevelopersPage() {
           items={[
             {
               title: "Python",
-              description: "Primary research and integration language internally.",
+              description:
+                "Primary research and integration language internally.",
               badge: "Coming soon",
             },
             {

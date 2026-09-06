@@ -43,7 +43,8 @@ export default function PartnersPage() {
           },
           {
             title: "Distribution Partnerships",
-            description: "Channels that bring Evermount infrastructure to users.",
+            description:
+              "Channels that bring Evermount infrastructure to users.",
           },
         ]}
       />

@@ -49,9 +49,7 @@ export default function RegulatoryCompliancePage() {
           <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
             Privacy
           </h2>
-          <p>
-            Personal data handling is described in the Privacy Policy.
-          </p>
+          <p>Personal data handling is described in the Privacy Policy.</p>
         </section>
         <section>
           <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">

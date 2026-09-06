@@ -21,14 +21,12 @@ export default function TechnologySection() {
         </p>
         <p>
           We use machine learning, statistical models and modern software
-          engineering. Specific performance characteristics are not published
-          as marketing statistics.
+          engineering. Specific performance characteristics are not published as
+          marketing statistics.
         </p>
         <p>Our technology stack includes:</p>
         <ul className="list-disc list-inside space-y-2 ml-4 text-gray-700 dark:text-gray-300">
-          <li>
-            Machine learning models trained on historical market data
-          </li>
+          <li>Machine learning models trained on historical market data</li>
           <li>Real-time data processing and analysis infrastructure</li>
           <li>Automated risk management and portfolio optimization systems</li>
           <li>Systematic, low-latency electronic trading infrastructure</li>

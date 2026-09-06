@@ -14,7 +14,8 @@ const STATS = [
   },
   {
     value: "AI & Intelligence",
-    label: "Machine learning, market intelligence, signal generation and analytics.",
+    label:
+      "Machine learning, market intelligence, signal generation and analytics.",
   },
   {
     value: "Risk",

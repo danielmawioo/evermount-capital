@@ -86,7 +86,8 @@ export default function WhyChooseUsAndClosingSection() {
         <div className="max-w-3xl mx-auto">
           <blockquote className="text-xl text-gray-600 dark:text-gray-400 italic">
             &quot;We&apos;re building the data, research, intelligence, risk and
-            execution infrastructure institutions and developers can build on.&quot;
+            execution infrastructure institutions and developers can build
+            on.&quot;
           </blockquote>
         </div>
       </motion.section>

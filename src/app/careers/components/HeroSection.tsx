@@ -14,8 +14,8 @@ export default function HeroSection() {
         Build the Infrastructure Behind Modern Financial Markets
       </h1>
       <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-        We&apos;re building the infrastructure behind modern financial markets
-        — and we&apos;re just getting started. Join engineers, researchers and
+        We&apos;re building the infrastructure behind modern financial markets —
+        and we&apos;re just getting started. Join engineers, researchers and
         operators who care about data, risk and systems.
       </p>
       <motion.div

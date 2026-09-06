@@ -59,7 +59,10 @@ const SECURITY_FEATURES = [
 export default function TechnologyAndSecuritySection() {
   return (
     <>
-      <section id="technology" className="py-16 px-6 bg-gray-50 dark:bg-gray-800">
+      <section
+        id="technology"
+        className="py-16 px-6 bg-gray-50 dark:bg-gray-800"
+      >
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -129,9 +132,8 @@ export default function TechnologyAndSecuritySection() {
               Institutional-Grade Infrastructure & Risk Controls
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              We&apos;re building our infrastructure to the highest standards
-              of operational excellence, security, and risk management as we
-              scale.
+              We&apos;re building our infrastructure to the highest standards of
+              operational excellence, security, and risk management as we scale.
             </p>
             <motion.div
               variants={containerVariants}

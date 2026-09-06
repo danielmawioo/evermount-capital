@@ -118,7 +118,8 @@ export const navItems: NavItem[] = [
     submenu: [
       {
         label: "Banks",
-        description: "Market data, analytics, risk and execution infrastructure",
+        description:
+          "Market data, analytics, risk and execution infrastructure",
         href: "/institutions#banks",
         icon: BuildingOfficeIcon,
       },

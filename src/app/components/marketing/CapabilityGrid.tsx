@@ -23,7 +23,9 @@ export default function CapabilityGrid({
           className="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 scroll-mt-28"
         >
           <div className="flex items-start justify-between gap-3 mb-2">
-            <h3 className="text-xl font-semibold text-[#00a76f]">{item.title}</h3>
+            <h3 className="text-xl font-semibold text-[#00a76f]">
+              {item.title}
+            </h3>
             {item.badge ? (
               <span className="text-[11px] uppercase tracking-wide px-2 py-1 rounded-md bg-[#00a76f]/10 text-[#00a76f]">
                 {item.badge}

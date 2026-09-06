@@ -62,8 +62,8 @@ export default function PlatformSystemsSection() {
             One Platform. Multiple Financial Systems.
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            A technology stack for data, research, intelligence, risk,
-            execution and connectivity — not a request to deposit capital.
+            A technology stack for data, research, intelligence, risk, execution
+            and connectivity — not a request to deposit capital.
           </p>
         </motion.div>
 

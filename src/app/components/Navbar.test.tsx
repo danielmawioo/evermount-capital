@@ -94,7 +94,9 @@ describe("Navbar", () => {
       window.dispatchEvent(new Event("openWaitlist"));
     });
 
-    expect(await screen.findByRole("heading", { name: "Request Access" })).toBeInTheDocument();
+    expect(
+      await screen.findByRole("heading", { name: "Request Access" }),
+    ).toBeInTheDocument();
   });
 
   it("shows a validation error toast for an invalid email in the waitlist form", async () => {
@@ -144,8 +146,8 @@ describe("Navbar", () => {
     });
     await waitFor(() => {
       expect(
-      screen.queryByRole("heading", { name: "Request Access" }),
-    ).not.toBeInTheDocument();
+        screen.queryByRole("heading", { name: "Request Access" }),
+      ).not.toBeInTheDocument();
     });
   });
 
@@ -170,7 +172,9 @@ describe("Navbar", () => {
     await waitFor(() => {
       expect(toastFn.error).toHaveBeenCalledWith("Server exploded");
     });
-    expect(screen.getByRole("heading", { name: "Request Access" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Request Access" }),
+    ).toBeInTheDocument();
   });
 
   it("closes the waitlist modal via the close button and clears the email", async () => {
@@ -199,8 +203,8 @@ describe("Navbar", () => {
 
     await waitFor(() => {
       expect(
-      screen.queryByRole("heading", { name: "Request Access" }),
-    ).not.toBeInTheDocument();
+        screen.queryByRole("heading", { name: "Request Access" }),
+      ).not.toBeInTheDocument();
     });
   });
 });

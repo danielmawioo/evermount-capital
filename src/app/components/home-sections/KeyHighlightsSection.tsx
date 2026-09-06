@@ -77,7 +77,9 @@ export default function KeyHighlightsSection() {
             className="bg-gray-50 dark:bg-gray-800 p-10 rounded-2xl shadow hover:shadow-lg transition duration-300"
           >
             <Icon className="h-8 w-8 text-[#00a76f] mb-4" />
-            <h4 className="text-xl font-semibold text-[#00a76f] mb-2">{title}</h4>
+            <h4 className="text-xl font-semibold text-[#00a76f] mb-2">
+              {title}
+            </h4>
             <p className="text-gray-700 dark:text-gray-300 text-base">{desc}</p>
           </motion.div>
         ))}

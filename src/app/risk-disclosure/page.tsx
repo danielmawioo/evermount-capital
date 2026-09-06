@@ -16,8 +16,8 @@ export default function RiskDisclosurePage() {
         <p className="text-sm text-gray-500">Last updated: September 6, 2026</p>
         <p>
           IMPORTANT: Please read this risk disclosure carefully. Using financial
-          technology involves risk. This is not an investment product
-          disclosure for a fund.
+          technology involves risk. This is not an investment product disclosure
+          for a fund.
         </p>
         <LegalNotice />
         <ul className="list-disc pl-5 space-y-3">

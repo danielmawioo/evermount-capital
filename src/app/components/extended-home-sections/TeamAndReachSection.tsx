@@ -42,22 +42,26 @@ const GLOBAL_REACH_STATS = [
   {
     region: "NOW",
     markets: "AI + Quant Research",
-    coverage: "Market intelligence, quantitative research and financial technology infrastructure.",
+    coverage:
+      "Market intelligence, quantitative research and financial technology infrastructure.",
   },
   {
     region: "NEXT",
     markets: "Systematic Trading",
-    coverage: "Electronic trading systems and systematic execution infrastructure.",
+    coverage:
+      "Electronic trading systems and systematic execution infrastructure.",
   },
   {
     region: "THEN",
     markets: "Market Infrastructure",
-    coverage: "Market-making technology, liquidity infrastructure and venue connectivity.",
+    coverage:
+      "Market-making technology, liquidity infrastructure and venue connectivity.",
   },
   {
     region: "VISION",
     markets: "Cross-market infrastructure",
-    coverage: "Infrastructure designed to operate across markets and jurisdictions.",
+    coverage:
+      "Infrastructure designed to operate across markets and jurisdictions.",
   },
 ];
 

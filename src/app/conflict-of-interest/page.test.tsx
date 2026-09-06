@@ -14,8 +14,6 @@ describe("ConflictOfInterestPage", () => {
   });
 
   it("exports metadata with the expected title", () => {
-    expect(metadata.title).toBe(
-      "Conflict of Interest Policy | Evermount",
-    );
+    expect(metadata.title).toBe("Conflict of Interest Policy | Evermount");
   });
 });

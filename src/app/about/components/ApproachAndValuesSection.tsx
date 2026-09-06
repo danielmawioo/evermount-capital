@@ -30,8 +30,7 @@ const APPROACH_ITEMS = [
 const CORE_VALUES = [
   {
     title: "Infrastructure First",
-    description:
-      "Build reliable foundations before financial applications.",
+    description: "Build reliable foundations before financial applications.",
   },
   {
     title: "Data Driven",

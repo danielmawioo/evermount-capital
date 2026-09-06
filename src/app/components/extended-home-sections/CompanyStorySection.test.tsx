@@ -22,6 +22,8 @@ describe("CompanyStorySection", () => {
     expect(screen.getByText("Our Approach")).toBeInTheDocument();
     expect(screen.getByText("Our Technology Philosophy")).toBeInTheDocument();
     expect(screen.getByText(/Intelligence First/)).toBeInTheDocument();
-    expect(screen.getByText(/Infrastructure Over Products/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Infrastructure Over Products/),
+    ).toBeInTheDocument();
   });
 });

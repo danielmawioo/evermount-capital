@@ -34,8 +34,7 @@ export default function MarketsPage() {
           {
             id: "fixed-income",
             title: "Fixed Income",
-            description:
-              "Infrastructure for rates, bonds and credit markets.",
+            description: "Infrastructure for rates, bonds and credit markets.",
           },
           {
             id: "commodities",

@@ -11,6 +11,8 @@ describe("BestExecutionPage", () => {
   });
 
   it("exports metadata with the expected title", () => {
-    expect(metadata.title).toBe("Execution Infrastructure Disclosure | Evermount");
+    expect(metadata.title).toBe(
+      "Execution Infrastructure Disclosure | Evermount",
+    );
   });
 });

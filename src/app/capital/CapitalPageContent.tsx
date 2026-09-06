@@ -16,9 +16,9 @@ export default function CapitalPageContent() {
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
           Evermount Capital applies the company&apos;s AI financial
-          intelligence, quantitative research, risk and execution
-          infrastructure to systematic investment strategies. It is one
-          product of the Evermount platform — not the entire company.
+          intelligence, quantitative research, risk and execution infrastructure
+          to systematic investment strategies. It is one product of the
+          Evermount platform — not the entire company.
         </p>
       </section>
 
