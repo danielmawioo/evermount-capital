@@ -273,7 +273,9 @@ export default function BookDemoModal() {
                     <div className="relative mt-1">
                       <DatePicker
                         selected={form.date}
-                        onChange={(date) => handleChange("date", date)}
+                        onChange={(date: Date | null) =>
+                          handleChange("date", date)
+                        }
                         showTimeSelect
                         minDate={new Date()}
                         dateFormat="Pp"
