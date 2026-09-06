@@ -2,13 +2,11 @@ import { render, screen } from "@testing-library/react";
 import FundHighlightsSection from "./FundHighlightsSection";
 
 describe("FundHighlightsSection", () => {
-  it("renders the capital heading and all fund points", () => {
+  it("renders infrastructure capabilities instead of fund fees", () => {
     render(<FundHighlightsSection />);
 
-    expect(screen.getByText("Evermount Capital")).toBeInTheDocument();
-    expect(screen.getByText("Management Fee: 1.5% - 2.5%")).toBeInTheDocument();
-    expect(
-      screen.getByText("USD + Multi-Currency Support"),
-    ).toBeInTheDocument();
+    expect(screen.getByText("Infrastructure Capabilities")).toBeInTheDocument();
+    expect(screen.getByText("Real-time market data")).toBeInTheDocument();
+    expect(screen.getByText("APIs")).toBeInTheDocument();
   });
 });

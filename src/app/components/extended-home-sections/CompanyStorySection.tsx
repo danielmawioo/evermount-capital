@@ -47,23 +47,22 @@ export default function CompanyStorySection() {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-              Evermount — The AI Financial Intelligence & Trading Infrastructure
-              Company for Africa
+              Infrastructure for Institutions, Developers and Researchers
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              We build intelligent financial systems that understand markets,
-              discover opportunities, manage risk and execute capital.
+              Evermount is a financial technology company building
+              infrastructure for market data, quantitative research, artificial
+              intelligence, risk and execution.
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              Evermount combines artificial intelligence, quantitative research,
-              financial data and high-performance trading infrastructure to
-              build the next generation of African financial markets.
+              The platform is market-agnostic: designed to support equities, FX,
+              fixed income, commodities, derivatives and digital assets where
+              those capabilities are available.
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              We are starting with quantitative research and systematic trading
-              infrastructure and building toward a broader financial
-              intelligence platform connecting data, capital, liquidity and
-              execution across African markets.
+              We serve banks, brokers, exchanges, asset managers, hedge funds,
+              proprietary trading firms, market makers, fintechs, family offices
+              and developers who need programmable market infrastructure.
             </p>
             <motion.div
               whileHover={{ x: 5 }}

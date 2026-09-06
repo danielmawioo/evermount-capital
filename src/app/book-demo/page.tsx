@@ -147,12 +147,12 @@ export default function BookDemoModal() {
   const eventStructuredData = {
     "@context": "https://schema.org",
     "@type": "Event",
-    name: "Evermount Capital Platform Demo",
+    name: "Evermount Platform Demo",
     description:
-      "Schedule a personalized demo to learn about Evermount Capital's AI-powered trading platform and investment strategies.",
+      "Schedule a conversation about Evermount data, research, risk and execution infrastructure.",
     organizer: {
       "@type": "Organization",
-      name: "Evermount Capital",
+      name: "Evermount",
       url: "https://www.evermount.co",
     },
     eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
@@ -199,11 +199,11 @@ export default function BookDemoModal() {
           ) : (
             <>
               <h2 className="text-xl sm:text-2xl font-bold text-center text-[#00a76f] dark:text-green-400">
-                Book a Demo
+                Request Access
               </h2>
               <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 text-center mb-4 sm:mb-6 mt-1">
-                Choose a date and time that works best. We&apos;ll send you a
-                meeting invite.
+                Tell us about your institution and infrastructure needs. We will
+                follow up with next steps.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-5">
@@ -255,7 +255,7 @@ export default function BookDemoModal() {
                     value={form.company}
                     onChange={(e) => handleChange("company", e.target.value)}
                     className="mt-1 w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 dark:border-gray-700 rounded-lg text-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-white shadow-sm outline-none focus:ring-[#00a76f] focus:border-[#00a76f]"
-                    placeholder="Evermount Capital"
+                    placeholder="Your institution"
                   />
                 </div>
 
@@ -296,7 +296,7 @@ export default function BookDemoModal() {
                     rows={3}
                     value={form.message}
                     onChange={(e) => handleChange("message", e.target.value)}
-                    placeholder="Your message..."
+                    placeholder="Your message — role, company type, markets, data/API needs, expected scale..."
                     className="mt-1 w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 dark:border-gray-700 rounded-lg text-sm bg-white dark:bg-gray-900 text-gray-900 dark:text-white shadow-sm outline-none focus:ring-[#00a76f] focus:border-[#00a76f]"
                   />
                 </div>
@@ -331,7 +331,7 @@ export default function BookDemoModal() {
                       ></path>
                     </svg>
                   )}
-                  {loading ? "Booking..." : "Book Demo"}
+                  {loading ? "Submitting..." : "Request Access"}
                 </button>
               </form>
             </>

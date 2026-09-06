@@ -8,7 +8,7 @@ describe("CompanyStorySection", () => {
     expect(screen.getByText("About Evermount")).toBeInTheDocument();
     expect(
       screen.getByText(
-        /Evermount — The AI Financial Intelligence & Trading Infrastructure Company for Africa/,
+        /Infrastructure for Institutions, Developers and Researchers/,
       ),
     ).toBeInTheDocument();
     expect(
@@ -22,6 +22,8 @@ describe("CompanyStorySection", () => {
     expect(screen.getByText("Our Approach")).toBeInTheDocument();
     expect(screen.getByText("Our Technology Philosophy")).toBeInTheDocument();
     expect(screen.getByText(/Intelligence First/)).toBeInTheDocument();
-    expect(screen.getByText(/Infrastructure Over Products/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Infrastructure Over Products/),
+    ).toBeInTheDocument();
   });
 });

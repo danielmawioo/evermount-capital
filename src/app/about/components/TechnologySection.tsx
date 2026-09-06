@@ -16,23 +16,17 @@ export default function TechnologySection() {
       </h2>
       <div className="max-w-4xl mx-auto space-y-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
         <p>
-          At the heart of Evermount Capital is our proprietary technology
-          platform, designed to process and analyze market data in real-time
-          and identify systematic trading opportunities across African
-          financial markets.
+          At the heart of Evermount is a technology platform for market data,
+          quantitative research, intelligence, risk and execution.
         </p>
         <p>
-          We leverage advanced machine learning algorithms, statistical models,
-          and high-performance computing to develop and deploy systematic
-          trading strategies. Our research team continuously refines these
-          models, incorporating new data sources and adapting to evolving market
-          conditions.
+          We use machine learning, statistical models and modern software
+          engineering. Specific performance characteristics are not published as
+          marketing statistics.
         </p>
         <p>Our technology stack includes:</p>
         <ul className="list-disc list-inside space-y-2 ml-4 text-gray-700 dark:text-gray-300">
-          <li>
-            Machine learning models trained on historical market data
-          </li>
+          <li>Machine learning models trained on historical market data</li>
           <li>Real-time data processing and analysis infrastructure</li>
           <li>Automated risk management and portfolio optimization systems</li>
           <li>Systematic, low-latency electronic trading infrastructure</li>

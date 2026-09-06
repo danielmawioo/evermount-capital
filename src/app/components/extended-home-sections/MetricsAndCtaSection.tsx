@@ -115,7 +115,7 @@ export default function MetricsAndCtaSection() {
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl font-bold mb-6"
           >
-            Building the Future of African Financial Markets
+            Building Financial Infrastructure for Modern Markets
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -124,9 +124,8 @@ export default function MetricsAndCtaSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl mb-8 text-white/90"
           >
-            Evermount is building the AI financial intelligence and trading
-            infrastructure that will power the next generation of African
-            financial markets.
+            Request access to discuss data, research, risk, execution and
+            connectivity infrastructure with the Evermount team.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -141,16 +140,16 @@ export default function MetricsAndCtaSection() {
                 whileTap={{ scale: 0.95 }}
                 className="bg-white text-[#00a76f] px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl transition"
               >
-                Explore the Platform
+                Explore Platform
               </motion.button>
             </Link>
-            <Link href="/book-demo">
+            <Link href="/partners">
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/10 transition"
               >
-                Partner With Evermount
+                Become a Partner
               </motion.button>
             </Link>
             <Link href="/book-demo">
@@ -159,7 +158,7 @@ export default function MetricsAndCtaSection() {
                 whileTap={{ scale: 0.95 }}
                 className="bg-transparent border-2 border-white/70 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/10 transition"
               >
-                Talk to Our Team
+                Request Access
               </motion.button>
             </Link>
           </motion.div>

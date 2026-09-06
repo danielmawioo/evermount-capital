@@ -6,11 +6,13 @@ describe("HeroSection", () => {
     render(<HeroSection />);
 
     expect(
-      screen.getByRole("heading", { name: "Join the Evermount Mission" }),
+      screen.getByRole("heading", {
+        name: /Build the Infrastructure Behind Modern Financial Markets/i,
+      }),
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        /We're building the future of quantitative investment management/,
+        /We're building the infrastructure behind modern financial markets/,
       ),
     ).toBeInTheDocument();
   });

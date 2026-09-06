@@ -19,13 +19,13 @@ describe("MetricsAndCtaSection", () => {
     render(<MetricsAndCtaSection />);
 
     expect(
-      screen.getByText("Building the Future of African Financial Markets"),
+      screen.getByText("Building Financial Infrastructure for Modern Markets"),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: "Explore the Platform" }),
+      screen.getByRole("link", { name: "Explore Platform" }),
     ).toHaveAttribute("href", "/platform");
     expect(
-      screen.getByRole("link", { name: "Partner With Evermount" }),
-    ).toHaveAttribute("href", "/book-demo");
+      screen.getByRole("link", { name: "Become a Partner" }),
+    ).toHaveAttribute("href", "/partners");
   });
 });

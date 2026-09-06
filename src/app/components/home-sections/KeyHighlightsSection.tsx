@@ -14,33 +14,33 @@ import { containerVariants, itemVariants } from "./motionVariants";
 const HIGHLIGHTS = [
   {
     icon: ChartBarIcon,
-    title: "Market Intelligence",
-    desc: "Transform fragmented financial data into actionable intelligence.",
-  },
-  {
-    icon: CpuChipIcon,
-    title: "AI Quant Research",
-    desc: "Accelerate financial research using AI-assisted hypothesis generation, modeling and backtesting.",
+    title: "Market Data",
+    desc: "Real-time and historical market data infrastructure.",
   },
   {
     icon: PresentationChartLineIcon,
-    title: "Portfolio Intelligence",
-    desc: "Understand portfolio exposure, correlations, volatility and changing market regimes.",
+    title: "Quantitative Research",
+    desc: "Research, modeling, simulation and backtesting infrastructure.",
+  },
+  {
+    icon: CpuChipIcon,
+    title: "AI & Intelligence",
+    desc: "Machine learning, market intelligence, signal generation and analytics.",
   },
   {
     icon: ShieldCheckIcon,
-    title: "Risk Intelligence",
-    desc: "Continuously identify, quantify and manage financial risk.",
+    title: "Risk",
+    desc: "Real-time exposure, limits, monitoring and stress testing.",
   },
   {
     icon: BoltIcon,
-    title: "Trading Infrastructure",
-    desc: "Build systematic execution systems designed for speed, reliability and control.",
+    title: "Execution",
+    desc: "Algorithmic execution, order management and execution analytics.",
   },
   {
     icon: GlobeAltIcon,
-    title: "Market Infrastructure",
-    desc: "Build toward deeper electronic connectivity and liquidity across African financial markets.",
+    title: "Connectivity",
+    desc: "Infrastructure connecting institutions, brokers, venues and financial systems.",
   },
 ];
 
@@ -58,8 +58,8 @@ export default function KeyHighlightsSection() {
           What Evermount Builds
         </h2>
         <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-          AI financial intelligence, quantitative research and trading
-          infrastructure for African markets.
+          Data, quantitative research, intelligence, risk, execution and
+          connectivity infrastructure for modern financial markets.
         </p>
       </motion.div>
       <motion.div
@@ -69,9 +69,9 @@ export default function KeyHighlightsSection() {
         viewport={{ once: true }}
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10"
       >
-        {HIGHLIGHTS.map(({ icon: Icon, title, desc }, i) => (
+        {HIGHLIGHTS.map(({ icon: Icon, title, desc }) => (
           <motion.div
-            key={i}
+            key={title}
             variants={itemVariants}
             whileHover={{ y: -5, scale: 1.02 }}
             className="bg-gray-50 dark:bg-gray-800 p-10 rounded-2xl shadow hover:shadow-lg transition duration-300"

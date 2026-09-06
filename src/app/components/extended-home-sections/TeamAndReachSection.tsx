@@ -42,22 +42,26 @@ const GLOBAL_REACH_STATS = [
   {
     region: "NOW",
     markets: "AI + Quant Research",
-    coverage: "Market intelligence, quantitative research and financial technology infrastructure.",
+    coverage:
+      "Market intelligence, quantitative research and financial technology infrastructure.",
   },
   {
     region: "NEXT",
     markets: "Systematic Trading",
-    coverage: "Electronic trading systems and systematic execution across selected African markets.",
+    coverage:
+      "Electronic trading systems and systematic execution infrastructure.",
   },
   {
     region: "THEN",
     markets: "Market Infrastructure",
-    coverage: "Market-making technology, liquidity infrastructure and broader exchange connectivity.",
+    coverage:
+      "Market-making technology, liquidity infrastructure and venue connectivity.",
   },
   {
     region: "VISION",
-    markets: "Africa ↔ Global Markets",
-    coverage: "Connecting African financial markets with global financial infrastructure.",
+    markets: "Cross-market infrastructure",
+    coverage:
+      "Infrastructure designed to operate across markets and jurisdictions.",
   },
 ];
 
@@ -139,7 +143,7 @@ export default function TeamAndReachSection() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Starting With Africa. Building Global Financial Infrastructure.
+              Cross-Market Financial Infrastructure
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
               A technology roadmap from AI-assisted research today toward

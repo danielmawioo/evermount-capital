@@ -11,12 +11,12 @@ export default function HeroSection() {
       className="text-center space-y-6"
     >
       <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight">
-        Join the <span className="text-[#00a76f]">Evermount</span> Mission
+        Build the Infrastructure Behind Modern Financial Markets
       </h1>
       <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-        We&apos;re building the future of quantitative investment management —
-        and we&apos;re just getting started. Join a team of world-class
-        engineers, researchers, and designers.
+        We&apos;re building the infrastructure behind modern financial markets —
+        and we&apos;re just getting started. Join engineers, researchers and
+        operators who care about data, risk and systems.
       </p>
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}

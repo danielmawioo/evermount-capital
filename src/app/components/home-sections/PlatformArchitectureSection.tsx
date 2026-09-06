@@ -4,10 +4,13 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const LAYERS = [
-  ["Market Intelligence", "Quant Research", "Risk Intelligence"],
-  ["Portfolio Engine"],
+  ["Market Data"],
+  ["Data Platform"],
+  ["Quant Research + AI"],
+  ["Risk Engine"],
   ["Execution Engine"],
-  ["African Financial Markets"],
+  ["Brokers / Exchanges / Venues"],
+  ["Financial Applications"],
 ];
 
 export default function PlatformArchitectureSection() {
@@ -64,8 +67,8 @@ export default function PlatformArchitectureSection() {
           Evermount Platform
         </h2>
         <p className="text-gray-600 dark:text-gray-400 mb-8 text-lg leading-relaxed">
-          A conceptual architecture connecting AI, research, risk and
-          execution into one institutional technology platform.
+          A conceptual architecture connecting AI, research, risk and execution
+          into one institutional technology platform.
         </p>
         <div className="rounded-2xl bg-[#0d1b2a] text-white p-6 space-y-3 font-mono text-sm shadow-lg">
           <div className="text-center text-[#00a76f] font-semibold tracking-[0.2em] text-xs uppercase">

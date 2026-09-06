@@ -8,7 +8,7 @@ const FOUNDERS = [
     role: "CEO, Co-Founder & Low-Latency Systems Engineer",
     image: "/images/founder1.jpg",
     linkedin: "https://www.linkedin.com/in/danielmawioo/",
-    bio: "Former quantitative researcher and portfolio manager with extensive experience in systematic trading strategies, factor investing, and risk management at leading hedge funds. Daniel brings deep expertise in quantitative finance and strategic leadership to Evermount Capital.",
+    bio: "Former quantitative researcher and portfolio manager with extensive experience in systematic trading strategies, factor investing, and risk management at leading hedge funds. Daniel brings deep expertise in quantitative finance and strategic leadership to Evermount.",
   },
   {
     name: "Evans Kipngetich",

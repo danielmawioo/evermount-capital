@@ -25,7 +25,7 @@ const SYSTEMS = [
   {
     icon: CircleStackIcon,
     title: "Evermount Data",
-    desc: "Financial market data infrastructure for African markets.",
+    desc: "Financial market data infrastructure for modern markets.",
   },
   {
     icon: ShieldCheckIcon,
@@ -39,14 +39,17 @@ const SYSTEMS = [
   },
   {
     icon: BuildingLibraryIcon,
-    title: "Evermount Capital",
-    desc: "Systematic investment strategies powered by Evermount's technology.",
+    title: "Evermount Connectivity",
+    desc: "Infrastructure connecting institutions, brokers, venues and applications.",
   },
 ];
 
 export default function PlatformSystemsSection() {
   return (
-    <section id="platform-systems" className="py-16 px-6 bg-gray-50 dark:bg-gray-800">
+    <section
+      id="platform-systems"
+      className="py-16 px-6 bg-gray-50 dark:bg-gray-800"
+    >
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -59,8 +62,8 @@ export default function PlatformSystemsSection() {
             One Platform. Multiple Financial Systems.
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Capital management is one application of the Evermount technology
-            stack — not the entire company.
+            A technology stack for data, research, intelligence, risk, execution
+            and connectivity — not a request to deposit capital.
           </p>
         </motion.div>
 
@@ -71,7 +74,7 @@ export default function PlatformSystemsSection() {
           viewport={{ once: true }}
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {SYSTEMS.map((system, i) => (
+          {SYSTEMS.map((system) => (
             <motion.div
               key={system.title}
               variants={itemVariants}

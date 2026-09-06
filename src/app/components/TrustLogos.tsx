@@ -3,11 +3,12 @@
 import { motion } from "framer-motion";
 
 const LAYERS = [
-  { key: "Data", label: "Data" },
-  { key: "Intelligence", label: "Intelligence" },
-  { key: "Research", label: "Research" },
+  { key: "Market Data", label: "Market Data" },
+  { key: "Data Platform", label: "Data Platform" },
+  { key: "Quant + AI", label: "Quant + AI" },
   { key: "Risk", label: "Risk" },
   { key: "Execution", label: "Execution" },
+  { key: "Venues", label: "Venues" },
 ];
 
 export default function IntelligenceStack() {
@@ -17,10 +18,10 @@ export default function IntelligenceStack() {
       className="py-20 max-w-6xl mx-auto px-6 text-center"
     >
       <p className="text-[#00a76f] text-sm font-semibold uppercase tracking-[0.2em] mb-3">
-        The Evermount Intelligence Stack
+        The Evermount Infrastructure Stack
       </p>
       <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">
-        DATA → INTELLIGENCE → RESEARCH → RISK → EXECUTION
+        MARKET DATA → DATA PLATFORM → QUANT + AI → RISK → EXECUTION → VENUES
       </h2>
       <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg max-w-3xl mx-auto mb-12 leading-relaxed">
         A unified technology stack designed to transform financial data into

@@ -18,23 +18,23 @@ import LiveMarketTicker from "./LiveMarketTicker";
 const FEATURES = [
   {
     icon: ChartBarIcon,
-    title: "Market Intelligence",
-    desc: "AI systems continuously analyze markets, macro conditions, news and alternative data.",
+    title: "Market Data",
+    desc: "Real-time and historical market data infrastructure.",
   },
   {
     icon: CpuChipIcon,
     title: "Quantitative Research",
-    desc: "AI-assisted research discovers, tests and validates systematic strategies.",
+    desc: "Research, modeling, simulation and backtesting infrastructure.",
   },
   {
     icon: ShieldCheckIcon,
-    title: "Risk Intelligence",
-    desc: "Real-time systems monitor exposure, liquidity, volatility and market regimes.",
+    title: "Risk Infrastructure",
+    desc: "Real-time exposure, limits, monitoring and stress testing.",
   },
   {
     icon: ClockIcon,
-    title: "Intelligent Execution",
-    desc: "Institutional-grade infrastructure converts validated strategies into controlled execution.",
+    title: "Execution",
+    desc: "Algorithmic execution, order management and execution analytics.",
   },
 ];
 
@@ -84,22 +84,22 @@ export default function Hero() {
           className="space-y-6 text-center lg:text-left"
         >
           <p className="text-xs sm:text-sm font-semibold tracking-[0.18em] text-[#00a76f] uppercase">
-            AI Financial Intelligence × Trading Infrastructure
+            Financial Technology × Market Infrastructure
           </p>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight tracking-tight">
-            We build intelligent financial systems that understand markets,
-            discover opportunities, manage risk and execute capital.
+            Financial Infrastructure for Modern Markets
           </h1>
 
           <h2 className="text-base sm:text-lg md:text-2xl font-medium text-[#00a76f] dark:text-emerald-400 min-h-[32px] sm:min-h-[40px]">
             <span className="inline-block min-w-[220px]">
               <Typewriter
                 words={[
-                  "Market Intelligence",
+                  "Market Data",
                   "Quantitative Research",
-                  "Risk Intelligence",
-                  "Systematic Execution",
+                  "AI & Intelligence",
+                  "Risk Infrastructure",
+                  "Execution",
                 ]}
                 loop
                 cursor
@@ -112,10 +112,9 @@ export default function Hero() {
           </h2>
 
           <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
-            Evermount is building the AI financial intelligence and trading
-            infrastructure for Africa — combining artificial intelligence,
-            quantitative research, market data, risk intelligence and systematic
-            execution into a unified technology platform.
+            Evermount builds the data, quantitative research, intelligence,
+            execution and risk infrastructure powering the next generation of
+            financial markets.
           </p>
 
           {/* CTA BUTTONS */}
@@ -133,7 +132,7 @@ export default function Hero() {
                 className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-[#00a76f] text-white rounded-md font-semibold hover:bg-emerald-700 transition shadow-md"
               >
                 <Squares2X2Icon className="w-5 h-5" />
-                Explore the Platform
+                Explore Platform
               </motion.button>
             </Link>
 
@@ -144,7 +143,7 @@ export default function Hero() {
                 className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 border border-[#00a76f] dark:border-emerald-400 text-[#00a76f] dark:text-emerald-400 rounded-md font-semibold hover:bg-[#e6f5f0] dark:hover:bg-emerald-400/20 transition shadow-md"
               >
                 <LifebuoyIcon className="w-5 h-5" />
-                Talk to Our Team
+                Request Access
               </motion.button>
             </Link>
           </motion.div>

@@ -23,14 +23,12 @@ describe("TeamAndReachSection", () => {
     render(<TeamAndReachSection />);
 
     expect(
-      screen.getByText(
-        "Starting With Africa. Building Global Financial Infrastructure.",
-      ),
+      screen.getByText("Cross-Market Financial Infrastructure"),
     ).toBeInTheDocument();
 
     expect(screen.getByText("NOW")).toBeInTheDocument();
     expect(screen.getByText("AI + Quant Research")).toBeInTheDocument();
     expect(screen.getByText("VISION")).toBeInTheDocument();
-    expect(screen.getByText("Africa ↔ Global Markets")).toBeInTheDocument();
+    expect(screen.getByText("Cross-market infrastructure")).toBeInTheDocument();
   });
 });

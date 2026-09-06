@@ -11,25 +11,25 @@ const WHY_CHOOSE_US_ITEMS = [
     icon: AcademicCapIcon,
     title: "Proven Expertise",
     description:
-      "Our team combines decades of experience in quantitative finance, data science, and technology. We've worked at leading hedge funds and financial institutions before founding Evermount.",
+      "Our team combines experience in quantitative finance, data science and systems engineering.",
   },
   {
     icon: BoltIcon,
-    title: "Cutting-Edge Technology",
+    title: "Technology Driven",
     description:
-      "We invest heavily in technology and research, ensuring our strategies leverage the latest advances in machine learning, data science, and computational finance.",
+      "We invest in research and engineering so infrastructure stays programmable and reliable.",
   },
   {
     icon: CurrencyDollarIcon,
     title: "Research-Driven Approach",
     description:
-      "Our systematic approach is grounded in rigorous quantitative research and modeling, designed to build robust, risk-managed trading strategies as we scale across African markets.",
+      "Quantitative methods and data quality sit at the center of the platform.",
   },
   {
     icon: GlobeAltIcon,
-    title: "Africa-First Focus",
+    title: "Globally Oriented",
     description:
-      "We're building our trading infrastructure and research capabilities specifically for African financial markets, with the long-term ambition of connecting them to global trading networks.",
+      "Infrastructure designed to operate across markets and jurisdictions as capabilities allow.",
   },
 ];
 
@@ -45,7 +45,7 @@ export default function WhyChooseUsAndClosingSection() {
         className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 md:p-12"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-          Why Choose Evermount Capital
+          Why Choose Evermount
         </h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {WHY_CHOOSE_US_ITEMS.map((item, i) => (
@@ -85,9 +85,9 @@ export default function WhyChooseUsAndClosingSection() {
       >
         <div className="max-w-3xl mx-auto">
           <blockquote className="text-xl text-gray-600 dark:text-gray-400 italic">
-            &quot;We&apos;re building the quantitative research, technology and
-            trading infrastructure to help create deeper, more efficient
-            African financial markets.&quot;
+            &quot;We&apos;re building the data, research, intelligence, risk and
+            execution infrastructure institutions and developers can build
+            on.&quot;
           </blockquote>
         </div>
       </motion.section>

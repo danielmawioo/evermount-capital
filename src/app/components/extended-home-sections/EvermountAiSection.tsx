@@ -50,8 +50,8 @@ export default function EvermountAiSection() {
         </h2>
         <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
           An AI-native intelligence layer designed to help financial systems
-          understand markets, research opportunities and make better
-          risk-aware decisions.
+          understand markets, research opportunities and make better risk-aware
+          decisions.
         </p>
       </motion.div>
 
@@ -62,7 +62,7 @@ export default function EvermountAiSection() {
         viewport={{ once: true }}
         className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
       >
-        {AGENTS.map((agent, i) => (
+        {AGENTS.map((agent) => (
           <motion.div
             key={agent.title}
             variants={itemVariants}
