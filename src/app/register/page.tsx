@@ -2,7 +2,7 @@
 
 import TranslateTree from "@/app/components/TranslateTree";
 
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
@@ -109,43 +109,6 @@ export default function RegisterPage() {
       setLoading(false);
     }
   };
-
-  const handleSocialSignup = useCallback(async (provider: string) => {
-    setLoading(true);
-    try {
-      if (provider === "github") {
-        // GitHub OAuth - redirects to callback which handles both login and signup
-        const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID}&redirect_uri=${encodeURIComponent(window.location.origin + "/auth/github/callback")}&scope=user:email`;
-        window.location.href = githubAuthUrl;
-        return;
-      } else if (provider === "google") {
-        // Google OAuth - placeholder for future implementation
-        toast("Google Sign-In integration in progress", {
-          icon: "ℹ️",
-        });
-        setLoading(false);
-        return;
-      } else if (provider === "x") {
-        // X (Twitter) OAuth - placeholder for future implementation
-        toast("X (Twitter) Sign-In integration in progress", {
-          icon: "ℹ️",
-        });
-        setLoading(false);
-        return;
-      } else if (provider === "apple") {
-        // Apple Sign-In - placeholder for future implementation
-        toast("Apple Sign-In integration in progress", {
-          icon: "ℹ️",
-        });
-        setLoading(false);
-        return;
-      }
-    } catch (error) {
-      logger.error(`${provider} sign up failed`, error);
-      toast.error(`${provider} sign up failed`);
-      setLoading(false);
-    }
-  }, []);
 
   return (
     <TranslateTree>
@@ -333,55 +296,6 @@ export default function RegisterPage() {
               {loading ? "Creating account..." : "Create account"}
             </button>
           </form>
-
-          <div className="flex items-center gap-2 my-6">
-            <hr className="flex-grow border-gray-200 dark:border-gray-700" />
-            <span className="text-sm text-gray-500 dark:text-gray-400">OR</span>
-            <hr className="flex-grow border-gray-200 dark:border-gray-700" />
-          </div>
-
-          <div className="grid grid-cols-4 gap-3">
-            {[
-              {
-                label: "Google",
-                icon: "/icons/google.png",
-                displayText: "G Google",
-              },
-              {
-                label: "GitHub",
-                icon: "/icons/github.png",
-                displayText: "GitHub",
-              },
-              { label: "X", icon: "/icons/twitter.png", displayText: "X" },
-              {
-                label: "Apple",
-                icon: "/icons/apple.png",
-                displayText: "Apple",
-              },
-            ].map(({ label, icon, displayText }) => (
-              <button
-                key={label}
-                type="button"
-                onClick={() => {
-                  const provider = label.toLowerCase();
-                  handleSocialSignup(provider);
-                }}
-                disabled={loading}
-                className="flex flex-col items-center justify-center gap-1.5 border border-gray-300 dark:border-gray-700 px-3 py-3 rounded-md text-xs font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition shadow-sm bg-white dark:bg-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <Image
-                  src={icon}
-                  alt={label}
-                  width={20}
-                  height={20}
-                  className="object-contain"
-                />
-                <span className="text-[10px] sm:text-xs text-gray-700 dark:text-gray-300">
-                  {displayText}
-                </span>
-              </button>
-            ))}
-          </div>
         </div>
       </div>
     </main>

@@ -11,6 +11,11 @@ import apiClient from "@/lib/api-client";
 import toast from "react-hot-toast";
 import RegisterPage from "./page";
 
+jest.mock("@/app/components/TranslateTree", () => ({
+  __esModule: true,
+  default: ({ children }: { children: React.ReactNode }) => children,
+}));
+
 jest.mock("react-hot-toast", () => {
   const fn = jest.fn() as jest.Mock & { success: jest.Mock; error: jest.Mock };
   fn.success = jest.fn();
@@ -198,25 +203,13 @@ describe("RegisterPage", () => {
     );
   });
 
-  it("attempts a GitHub OAuth redirect for signup without erroring", async () => {
-    const user = userEvent.setup();
+  it("does not offer social sign-up", () => {
     render(<RegisterPage />);
-
-    const githubButton = screen.getByRole("button", { name: /github/i });
-    await user.click(githubButton);
-
-    expect(toastFn.error).not.toHaveBeenCalled();
-  });
-
-  it("shows an in-progress toast for the Google signup placeholder", async () => {
-    const user = userEvent.setup();
-    render(<RegisterPage />);
-
-    await user.click(screen.getByRole("button", { name: /google/i }));
-
-    expect(toastFn).toHaveBeenCalledWith(
-      "Google Sign-In integration in progress",
-      expect.objectContaining({ icon: expect.any(String) }),
-    );
+    expect(
+      screen.queryByRole("button", { name: /github/i }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("button", { name: /google/i }),
+    ).not.toBeInTheDocument();
   });
 });

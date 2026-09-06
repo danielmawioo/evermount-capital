@@ -75,44 +75,6 @@ export default function LoginPage() {
     [email, password, rememberMe, validateForm],
   );
 
-  const handleSocialLogin = useCallback(async (provider: string) => {
-    setLoading(true);
-    try {
-      if (provider === "google") {
-        toast("Google Sign-In integration in progress", {
-          icon: "ℹ️",
-        });
-        return;
-      }
-
-      if (provider === "github") {
-        window.location.href = `https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID}&redirect_uri=${window.location.origin}/auth/github/callback&scope=user:email`;
-        return;
-      }
-
-      if (provider === "x") {
-        toast("X (Twitter) Sign-In integration in progress", {
-          icon: "ℹ️",
-        });
-        return;
-      }
-
-      if (provider === "apple") {
-        toast("Apple Sign-In integration in progress", {
-          icon: "ℹ️",
-        });
-        return;
-      }
-
-      toast.error("Unsupported sign-in provider.");
-    } catch (err: unknown) {
-      logger.error(`${provider} login failed`, err);
-      toast.error(getApiErrorMessage(err, `${provider} login failed`));
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
   return (
     <TranslateTree>
     <>
@@ -266,63 +228,6 @@ export default function LoginPage() {
                 {loading ? "Signing in..." : "Sign in"}
               </button>
             </form>
-
-            <div className="flex items-center gap-2 my-6">
-              <hr className="flex-grow border-gray-200" />
-              <span className="text-sm text-gray-500">OR</span>
-              <hr className="flex-grow border-gray-200" />
-            </div>
-
-            <div className="grid grid-cols-4 gap-3">
-              {[
-                {
-                  label: "Google",
-                  icon: "/icons/google.png",
-                  displayText: "G Google",
-                },
-                {
-                  label: "GitHub",
-                  icon: "/icons/github.png",
-                  displayText: "GitHub",
-                },
-                { label: "X", icon: "/icons/twitter.png", displayText: "X" },
-                {
-                  label: "Apple",
-                  icon: "/icons/apple.png",
-                  displayText: "Apple",
-                },
-              ].map(({ label, icon, displayText }) => (
-                <button
-                  key={label}
-                  type="button"
-                  onClick={() => {
-                    const provider = label.toLowerCase();
-                    if (provider === "google") {
-                      handleSocialLogin("google");
-                    } else if (provider === "github") {
-                      handleSocialLogin("github");
-                    } else if (provider === "x") {
-                      handleSocialLogin("x");
-                    } else if (provider === "apple") {
-                      handleSocialLogin("apple");
-                    }
-                  }}
-                  disabled={loading}
-                  className="flex flex-col items-center justify-center gap-1.5 border border-gray-300 dark:border-gray-700 px-3 py-3 rounded-md text-xs font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition shadow-sm bg-white dark:bg-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  <Image
-                    src={icon}
-                    alt={label}
-                    width={20}
-                    height={20}
-                    className="object-contain"
-                  />
-                  <span className="text-[10px] sm:text-xs text-gray-700 dark:text-gray-300">
-                    {displayText}
-                  </span>
-                </button>
-              ))}
-            </div>
           </div>
         </div>
       </main>

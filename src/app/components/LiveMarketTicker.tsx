@@ -68,14 +68,21 @@ export default function LiveMarketTicker() {
             >
               Top Movers
             </h3>
-            <motion.div
-              animate={{ opacity: [1, 0.5, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-1.5 h-1.5 bg-green-500 rounded-full shadow-lg"
+            <span
+              className="text-[9px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded"
               style={{
-                boxShadow: "0 0 8px rgba(34, 197, 94, 0.6)",
+                color:
+                  theme === "dark"
+                    ? "rgba(255, 255, 255, 0.65)"
+                    : "rgba(0, 0, 0, 0.55)",
+                border:
+                  theme === "dark"
+                    ? "1px solid rgba(255, 255, 255, 0.15)"
+                    : "1px solid rgba(0, 0, 0, 0.12)",
               }}
-            />
+            >
+              Sample
+            </span>
           </div>
         </div>
 
