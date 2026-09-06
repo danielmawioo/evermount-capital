@@ -11,7 +11,7 @@ yarn dev
 ## Before opening a PR
 
 ```bash
-yarn lint          # next lint --max-warnings=0 in CI
+yarn lint          # eslint . --max-warnings=0 in CI
 yarn format:check  # prettier --check .; run `yarn format` to fix
 yarn typecheck     # tsc --noEmit
 yarn test          # jest --coverage; CI enforces a coverage floor (jest.config.js)

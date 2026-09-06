@@ -60,7 +60,7 @@ This starts the app with every `src/lib/api/*` call served by a local [Mock Serv
 ```bash
 yarn test        # Jest + React Testing Library, with coverage
 yarn typecheck   # tsc --noEmit
-yarn lint        # next lint
+yarn lint        # eslint . --max-warnings=0
 ```
 
 `yarn test` enforces a coverage floor (`coverageThreshold` in `jest.config.js`) and fails if coverage regresses below it.
@@ -89,7 +89,7 @@ The app is served at [http://localhost:3000](http://localhost:3000). `NEXT_PUBLI
 
 - **App Router** under `src/app`: marketing pages at the root, authenticated dashboards under `src/app/dashboard/{admin,manager,...}`, and a couple of server-side API routes under `src/app/api` (chat proxy, GitHub OAuth callback).
 - **API layer**: `src/lib/api/client.ts` holds the single Axios instance and its interceptors (a request interceptor attaches the bearer token; a response interceptor handles `401`s by refreshing the access token once via `/auth/refresh` and retrying, or clearing auth and redirecting to `/login` if the refresh itself fails). Each backend domain (`auth`, `wallets`, `admin`, `portfolioManager`, …) has its own file under `src/lib/api/`; `src/lib/api-client.ts` composes them into the typed `api.*` surface everything else imports.
-- **Auth storage** (`src/lib/auth-storage.ts`): tokens live in `localStorage` (remember-me) or `sessionStorage`, mirrored into a short-lived cookie so middleware can read auth state without an API round trip.
+- **Auth storage** (`src/lib/auth-storage.ts`): tokens live in `localStorage` (remember-me) or `sessionStorage`, mirrored into a short-lived cookie so the proxy can read auth state without an API round trip.
 - **Validation** (`src/lib/schemas.ts`): Zod schemas for form inputs that reach the API layer (e.g. wallet credit amounts), used alongside `getApiErrorMessage` (`src/lib/api-error.ts`) for consistent error surfacing across dashboard pages.
 - **Deployment**: GitHub Actions builds, lints, typechecks, and tests on push to `main`, then triggers a Vercel deploy hook. The backend is deployed separately (see `DEPLOYMENT_SETUP.md` and `nginx-api.evermount.co.conf`).
 
