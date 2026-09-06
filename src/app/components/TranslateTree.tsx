@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  Children,
-  cloneElement,
-  isValidElement,
-  type ReactNode,
-} from "react";
+import { Children, cloneElement, isValidElement, type ReactNode } from "react";
 import { useLocale } from "@/context/LocaleContext";
 
 const TRANSLATABLE_PROPS = new Set([
@@ -16,7 +11,10 @@ const TRANSLATABLE_PROPS = new Set([
   "label",
 ]);
 
-function translateNode(node: ReactNode, tx: (value: string) => string): ReactNode {
+function translateNode(
+  node: ReactNode,
+  tx: (value: string) => string,
+): ReactNode {
   if (node == null || typeof node === "boolean") return node;
   if (typeof node === "string") return tx(node);
   if (typeof node === "number") return node;

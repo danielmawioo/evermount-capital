@@ -64,34 +64,35 @@ export default function CareersPage() {
 
   return (
     <TranslateTree>
-    <>
-      <Script
-        id="careers-structured-data"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jobPostingsStructuredData),
-        }}
-      />
-      <main className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-sky-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 px-6 py-20 text-gray-800 dark:text-gray-200">
-        <div className="max-w-6xl mx-auto space-y-24">
-          <HeroSection />
-          <ValuesSection />
-          <JobListings
-            openings={openings}
-            expandedJob={expandedJob}
-            onToggleJob={toggleJob}
-            onApply={handleApply}
-          />
-          <CtaSection />
-        </div>
+      <>
+        <Script
+          id="careers-structured-data"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jobPostingsStructuredData),
+          }}
+        />
+        <main className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-sky-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 px-6 py-20 text-gray-800 dark:text-gray-200">
+          <div className="max-w-6xl mx-auto space-y-24">
+            <HeroSection />
+            <ValuesSection />
+            <JobListings
+              openings={openings}
+              expandedJob={expandedJob}
+              onToggleJob={toggleJob}
+              onApply={handleApply}
+            />
+            <CtaSection />
+          </div>
 
-        <AnimatePresence>
-          {applyJob && <ApplyModal job={applyJob} onClose={closeApplyModal} />}
-        </AnimatePresence>
-      </main>
-    </>
-  
+          <AnimatePresence>
+            {applyJob && (
+              <ApplyModal job={applyJob} onClose={closeApplyModal} />
+            )}
+          </AnimatePresence>
+        </main>
+      </>
     </TranslateTree>
   );
 }

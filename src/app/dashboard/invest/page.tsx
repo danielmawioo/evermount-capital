@@ -14,9 +14,9 @@ export default function InvestRedirectPage() {
 
   return (
     <TranslateTree>
-    <div className="py-12 text-center text-gray-500">
-      Redirecting to Trade...
-    </div>
-      </TranslateTree>
+      <div className="py-12 text-center text-gray-500">
+        Redirecting to Trade...
+      </div>
+    </TranslateTree>
   );
 }

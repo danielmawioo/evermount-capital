@@ -72,100 +72,100 @@ export default function TransactionsPage() {
 
   return (
     <TranslateTree>
-    <div className="space-y-8">
-      <div>
-        <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
-          Transaction History
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm">
-          All wallet deposits, withdrawals, investments, and adjustments.
-        </p>
-      </div>
+      <div className="space-y-8">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
+            Transaction History
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm">
+            All wallet deposits, withdrawals, investments, and adjustments.
+          </p>
+        </div>
 
-      <div className="overflow-auto rounded-lg shadow">
-        <table className="min-w-full text-sm bg-white dark:bg-gray-900 text-left border border-gray-100 dark:border-gray-800">
-          <thead className="bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 uppercase text-xs tracking-wider">
-            <tr>
-              <th className="p-4">Date</th>
-              <th className="p-4">Type</th>
-              <th className="p-4">Description</th>
-              <th className="p-4">Status</th>
-              <th className="p-4">Amount</th>
-            </tr>
-          </thead>
-          <tbody className="text-gray-700 dark:text-gray-200 divide-y divide-gray-100 dark:divide-gray-800">
-            {loading ? (
+        <div className="overflow-auto rounded-lg shadow">
+          <table className="min-w-full text-sm bg-white dark:bg-gray-900 text-left border border-gray-100 dark:border-gray-800">
+            <thead className="bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 uppercase text-xs tracking-wider">
               <tr>
-                <td colSpan={5} className="p-8 text-center text-gray-500">
-                  Loading transactions...
-                </td>
+                <th className="p-4">Date</th>
+                <th className="p-4">Type</th>
+                <th className="p-4">Description</th>
+                <th className="p-4">Status</th>
+                <th className="p-4">Amount</th>
               </tr>
-            ) : transactions.length === 0 ? (
-              <tr>
-                <td colSpan={5} className="p-8 text-center text-gray-500">
-                  No transactions yet. Make a deposit or investment to get
-                  started.
-                </td>
-              </tr>
-            ) : (
-              transactions.map((txn) => (
-                <tr
-                  key={txn.id}
-                  className="hover:bg-gray-50 dark:hover:bg-gray-800 transition"
-                >
-                  <td className="p-4 whitespace-nowrap">
-                    {formatDate(txn.createdAt)}
-                  </td>
-                  <td className="p-4 capitalize">
-                    {txn.type.replace(/_/g, " ")}
-                  </td>
-                  <td className="p-4">
-                    {txn.description || txn.reference || "—"}
-                  </td>
-                  <td className="p-4">
-                    <span
-                      className={`px-2 py-1 rounded-full text-xs font-medium ${statusClass(txn.status)}`}
-                    >
-                      {txn.status}
-                    </span>
-                  </td>
-                  <td className="p-4 font-semibold whitespace-nowrap">
-                    {formatCurrency(txn.amount, txn.currency)}
+            </thead>
+            <tbody className="text-gray-700 dark:text-gray-200 divide-y divide-gray-100 dark:divide-gray-800">
+              {loading ? (
+                <tr>
+                  <td colSpan={5} className="p-8 text-center text-gray-500">
+                    Loading transactions...
                   </td>
                 </tr>
-              ))
-            )}
-          </tbody>
-        </table>
-      </div>
-
-      {total > limit && (
-        <div className="flex items-center justify-between text-sm">
-          <p className="text-gray-500">
-            Showing {(page - 1) * limit + 1}–{Math.min(page * limit, total)} of{" "}
-            {total}
-          </p>
-          <div className="flex gap-2">
-            <button
-              type="button"
-              disabled={page <= 1}
-              onClick={() => setPage((p) => p - 1)}
-              className="px-3 py-1 rounded border border-gray-300 dark:border-gray-600 disabled:opacity-40"
-            >
-              Previous
-            </button>
-            <button
-              type="button"
-              disabled={page * limit >= total}
-              onClick={() => setPage((p) => p + 1)}
-              className="px-3 py-1 rounded border border-gray-300 dark:border-gray-600 disabled:opacity-40"
-            >
-              Next
-            </button>
-          </div>
+              ) : transactions.length === 0 ? (
+                <tr>
+                  <td colSpan={5} className="p-8 text-center text-gray-500">
+                    No transactions yet. Make a deposit or investment to get
+                    started.
+                  </td>
+                </tr>
+              ) : (
+                transactions.map((txn) => (
+                  <tr
+                    key={txn.id}
+                    className="hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+                  >
+                    <td className="p-4 whitespace-nowrap">
+                      {formatDate(txn.createdAt)}
+                    </td>
+                    <td className="p-4 capitalize">
+                      {txn.type.replace(/_/g, " ")}
+                    </td>
+                    <td className="p-4">
+                      {txn.description || txn.reference || "—"}
+                    </td>
+                    <td className="p-4">
+                      <span
+                        className={`px-2 py-1 rounded-full text-xs font-medium ${statusClass(txn.status)}`}
+                      >
+                        {txn.status}
+                      </span>
+                    </td>
+                    <td className="p-4 font-semibold whitespace-nowrap">
+                      {formatCurrency(txn.amount, txn.currency)}
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
         </div>
-      )}
-    </div>
-      </TranslateTree>
+
+        {total > limit && (
+          <div className="flex items-center justify-between text-sm">
+            <p className="text-gray-500">
+              Showing {(page - 1) * limit + 1}–{Math.min(page * limit, total)}{" "}
+              of {total}
+            </p>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                disabled={page <= 1}
+                onClick={() => setPage((p) => p - 1)}
+                className="px-3 py-1 rounded border border-gray-300 dark:border-gray-600 disabled:opacity-40"
+              >
+                Previous
+              </button>
+              <button
+                type="button"
+                disabled={page * limit >= total}
+                onClick={() => setPage((p) => p + 1)}
+                className="px-3 py-1 rounded border border-gray-300 dark:border-gray-600 disabled:opacity-40"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </TranslateTree>
   );
 }

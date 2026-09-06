@@ -118,19 +118,20 @@ export default function EquityCurveChart({
 
   if (data.length === 0) {
     return (
-    <TranslateTree>
-      <div className="h-64 flex items-center justify-center text-sm text-gray-500 dark:text-gray-400">
-        No performance history yet. Invest to start tracking your equity curve.
-      </div>
-        </TranslateTree>
-  );
+      <TranslateTree>
+        <div className="h-64 flex items-center justify-center text-sm text-gray-500 dark:text-gray-400">
+          No performance history yet. Invest to start tracking your equity
+          curve.
+        </div>
+      </TranslateTree>
+    );
   }
 
   return (
     <TranslateTree>
-    <div className="h-64 sm:h-72">
-      <Line data={chartData} options={options} />
-    </div>
-      </TranslateTree>
+      <div className="h-64 sm:h-72">
+        <Line data={chartData} options={options} />
+      </div>
+    </TranslateTree>
   );
 }

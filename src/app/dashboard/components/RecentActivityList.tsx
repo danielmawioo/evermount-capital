@@ -31,36 +31,36 @@ function timeAgo(dateStr: string) {
 export default function RecentActivityList({ items }: RecentActivityListProps) {
   if (items.length === 0) {
     return (
-    <TranslateTree>
-      <p className="text-sm text-gray-500 dark:text-gray-400 py-4">
-        No recent activity.
-      </p>
-        </TranslateTree>
-  );
+      <TranslateTree>
+        <p className="text-sm text-gray-500 dark:text-gray-400 py-4">
+          No recent activity.
+        </p>
+      </TranslateTree>
+    );
   }
 
   return (
     <TranslateTree>
-    <ul className="divide-y divide-gray-100 dark:divide-gray-800">
-      {items.map((item) => (
-        <li
-          key={item.id}
-          className="flex items-center justify-between py-3 text-sm"
-        >
-          <div>
-            <p className="font-medium text-gray-800 dark:text-gray-200">
-              {formatType(item.type)}
-            </p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">
-              {timeAgo(item.createdAt)} · {item.status}
-            </p>
-          </div>
-          <span className="font-semibold tabular-nums text-gray-900 dark:text-white">
-            ${Number(item.amount).toLocaleString()}
-          </span>
-        </li>
-      ))}
-    </ul>
-      </TranslateTree>
+      <ul className="divide-y divide-gray-100 dark:divide-gray-800">
+        {items.map((item) => (
+          <li
+            key={item.id}
+            className="flex items-center justify-between py-3 text-sm"
+          >
+            <div>
+              <p className="font-medium text-gray-800 dark:text-gray-200">
+                {formatType(item.type)}
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                {timeAgo(item.createdAt)} · {item.status}
+              </p>
+            </div>
+            <span className="font-semibold tabular-nums text-gray-900 dark:text-white">
+              ${Number(item.amount).toLocaleString()}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </TranslateTree>
   );
 }

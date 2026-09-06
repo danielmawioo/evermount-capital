@@ -218,7 +218,8 @@ const ar: Messages = {
   "nav.commodities": "السلع",
   "nav.commoditiesDesc": "بنية تحتية لأسواق السلع",
   "nav.derivatives": "المشتقات",
-  "nav.derivativesDesc": "بنية تحتية للعقود الآجلة والخيارات والأسواق ذات الصلة",
+  "nav.derivativesDesc":
+    "بنية تحتية للعقود الآجلة والخيارات والأسواق ذات الصلة",
   "nav.digitalAssets": "الأصول الرقمية",
   "nav.digitalAssetsDesc": "بنية تحتية لأسواق الأصول الرقمية حيثما تُدعم",
 
@@ -291,8 +292,7 @@ const ar: Messages = {
   "hero.risk": "بنية المخاطر",
   "hero.riskDesc": "التعرض الفوري والحدود والمراقبة واختبارات الضغط.",
   "hero.execution": "التنفيذ",
-  "hero.executionDesc":
-    "التنفيذ الخوارزمي وإدارة الأوامر وتحليلات التنفيذ.",
+  "hero.executionDesc": "التنفيذ الخوارزمي وإدارة الأوامر وتحليلات التنفيذ.",
 
   "footer.contactUs": "تواصل معنا",
   "footer.email": "البريد:",

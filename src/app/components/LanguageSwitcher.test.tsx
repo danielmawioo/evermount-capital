@@ -27,9 +27,7 @@ describe("LanguageSwitcher", () => {
     expect(
       screen.getByRole("option", { name: "Nederlands" }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole("option", { name: "العربية" }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("option", { name: "العربية" })).toBeInTheDocument();
 
     await user.click(screen.getByRole("option", { name: "Deutsch" }));
 

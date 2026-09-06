@@ -2,11 +2,14 @@ import type { Messages } from "./types";
 
 export const siteEn: Messages = {
   "site.0": "The Evermount Financial Infrastructure Platform",
-  "site.1": "Market data, quantitative research, AI, execution, risk and portfolio infrastructure for modern financial markets.",
-  "site.2": "Build, connect, analyze and execute across financial markets using Evermount infrastructure.",
+  "site.1":
+    "Market data, quantitative research, AI, execution, risk and portfolio infrastructure for modern financial markets.",
+  "site.2":
+    "Build, connect, analyze and execute across financial markets using Evermount infrastructure.",
   "site.3": "Explore APIs",
   "site.4": "Market Data Infrastructure",
-  "site.5": "Infrastructure for ingesting, normalizing and distributing market data.",
+  "site.5":
+    "Infrastructure for ingesting, normalizing and distributing market data.",
   "site.6": "Real-time data",
   "site.7": "Historical data",
   "site.8": "Data normalization",
@@ -61,241 +64,476 @@ export const siteEn: Messages = {
   "site.57": "Platform architecture",
   "site.58": "How the stack connects",
   "site.59": "Last updated: September 6, 2026",
-  "site.60": "This page is a product-facing summary and is not legal advice. Legal and regulatory terms should be reviewed and approved by qualified counsel before publication. Evermount does not claim SEC, FCA, CMA, MiFID, or similar authorization unless separately and expressly stated by the company.",
-  "site.61": "Evermount may provide execution infrastructure, order-management software and analytics. Where a customer is a regulated firm with best-execution obligations, those obligations remain with the customer. Evermount does not represent that it is a broker executing client orders as an investment firm unless a signed agreement says otherwise.",
-  "site.62": "Evermount is a technology provider. Conflicts may arise between commercial interests, vendor relationships and customer interests. We aim to identify, manage and disclose material conflicts in customer agreements rather than act as a discretionary investment manager for website visitors.",
-  "site.63": "Evermount combines artificial intelligence, quantitative research and trading infrastructure to create intelligent systems capable of continuously analyzing markets, discovering opportunities, managing risk and executing systematic strategies.",
-  "site.64": "Financial markets are complex, fragmented and technically difficult to build on. We combine data engineering, quantitative research, machine learning and execution technology so institutions and developers can build on a common foundation.",
-  "site.65": "Analytics capabilities for performance, risk and exposure. Figures shown in product demos are illustrative unless labeled as a customer's own data. Evermount does not publish investment returns or Sharpe ratios as company performance.",
-  "site.66": "This statement describes financial-crime controls appropriate to a technology and infrastructure provider. It is not a fund-administrator AML manual and does not mean Evermount accepts investor subscriptions or holds client money.",
-  "site.67": "These terms govern access to Evermount software, APIs, data and infrastructure services. They do not constitute an investment management agreement, subscription to a fund, or an invitation to deposit client money with Evermount.",
-  "site.68": "Customers remain responsible for their own trading, regulatory, KYC/AML and fiduciary obligations. Evermount is not a broker-dealer, bank, custodian, exchange or investment adviser unless expressly stated in a signed agreement.",
-  "site.69": "Evermount provides technology and infrastructure services. This page does not claim SEC registration, FCA authorization, CMA authorization, MiFID authorization, broker-dealer status, investment adviser status, or custody.",
-  "site.70": "Financial markets are complex systems. We believe the next generation of financial infrastructure will be built by combining large-scale data, artificial intelligence, quantitative research and automated execution.",
-  "site.71": "We work with banks, brokers, exchanges, market data providers, fintechs, technology providers, liquidity providers and institutions. Named partnerships are listed only when they are real and approved to be public.",
-  "site.72": "Institutional customers remain responsible for their own regulatory obligations, including trading permissions, best execution where they are a regulated firm, and client-asset rules that apply to them.",
-  "site.73": "Evermount is a quantitative research and financial technology organization. Public research notes will be listed here when published. We do not fabricate papers, performance or customer results.",
-  "site.74": "We serve banks, brokers, exchanges, asset managers, hedge funds, proprietary trading firms, market makers, fintechs, family offices and developers who need programmable market infrastructure.",
-  "site.75": "For large-scale deployments. Potential capabilities: dedicated deployment, private connectivity, custom integrations, high availability, dedicated engineering and SLA — subject to contract.",
-  "site.76": "For banks, brokers and asset managers. Potential capabilities: institutional APIs, dedicated infrastructure, market connectivity, risk and execution infrastructure, and enterprise support.",
-  "site.77": "Evermount is positioned as market-agnostic. The sections below describe infrastructure for each market — not a claim that Evermount provides regulated access to every venue or instrument.",
-  "site.78": "Financial markets are complex, fragmented and technically difficult to build on. Evermount provides infrastructure that makes market technology easier to build, integrate and operate.",
-  "site.79": "We're building the infrastructure behind modern financial markets — and we're just getting started. Join engineers, researchers and operators who care about data, risk and systems.",
-  "site.80": "The stack below reflects systems we use today and capabilities on the engineering roadmap. We do not publish latency, uptime or throughput figures unless independently verified.",
-  "site.81": "Programmatic access to financial data, analytics, intelligence and infrastructure. Public API documentation and production credentials are provided after access is approved.",
-  "site.82": "Evermount is building systems that continuously learn from financial data, generate hypotheses, evaluate risk and translate validated intelligence into controlled action.",
-  "site.83": "For trading firms, fintechs and professional users. Potential capabilities: real-time data, advanced APIs, analytics, risk APIs and execution capabilities where enabled.",
-  "site.84": "The platform is market-agnostic: designed to support equities, FX, fixed income, commodities, derivatives and digital assets where those capabilities are available.",
-  "site.85": "Evermount retains rights in its software, models and documentation. Customers retain rights in their own data, subject to licenses granted to operate the service.",
-  "site.86": "Evermount is market-agnostic. We provide infrastructure for asset classes — we do not imply that Evermount operates or provides regulated access to every market.",
-  "site.87": "Experienced professionals combining expertise in quantitative finance, computer science, and engineering to drive innovation in systematic trading technology.",
-  "site.88": "Algorithmic execution, order management and execution analytics. Connectivity to brokers and venues depends on integration status and applicable regulation.",
-  "site.89": "Evermount provides technology and infrastructure services. Institutional customers remain responsible for their own regulatory obligations where applicable.",
-  "site.90": "We use machine learning, statistical models and modern software engineering. Specific performance characteristics are not published as marketing statistics.",
-  "site.91": "IMPORTANT: Please read this risk disclosure carefully. Using financial technology involves risk. This is not an investment product disclosure for a fund.",
-  "site.92": "Evermount is a financial technology company building infrastructure for market data, quantitative research, artificial intelligence, risk and execution.",
-  "site.93": "Yes, you can reallocate your investments at any time through the Portfolio page. You can also set up automatic rebalancing based on your preferences.",
-  "site.94": "A unified technology stack designed to transform financial data into intelligence, quantitative strategies, risk decisions and systematic execution.",
-  "site.95": "This Cookie Policy explains how Evermount (\"we\", \"our\", or \"us\") uses cookies and similar technologies to recognize you when you visit our platform.",
-  "site.96": "An AI-native intelligence layer designed to help financial systems understand markets, research opportunities and make better risk-aware decisions.",
-  "site.97": "Access controls, encryption and monitoring practices are implemented according to the systems in production and the applicable customer agreement.",
-  "site.98": "Commercial terms depend on data, markets, API volume and deployment model. We do not publish invented list prices. Contact sales for a proposal.",
-  "site.99": "This Privacy Policy outlines how Evermount collects, uses, stores, and protects your information. Your privacy is critically important to us.",
-  "site.100": "A financial ecosystem where institutions, developers and researchers can build sophisticated market applications on reliable infrastructure.",
-  "site.101": "Either party may terminate as provided in the commercial agreement. Access may be suspended for abuse, security risk or legal requirement.",
-  "site.102": "AI systems analyze market information, news, macroeconomic conditions and alternative data to generate structured financial intelligence.",
-  "site.103": "A technology roadmap from AI-assisted research today toward systematic execution, market infrastructure, and global market connectivity.",
-  "site.104": "For developers and researchers. Potential capabilities: sandbox, limited API access, historical data, research tools and documentation.",
-  "site.105": "Availability of specific services depends on jurisdiction and applicable regulation. Evermount is not regulated in every jurisdiction.",
-  "site.106": "Developer, Professional, Institutional and Enterprise access tiers. Commercial terms are provided by sales — no invented list prices.",
-  "site.107": "Planned and in-development API surfaces. Availability is confirmed during onboarding — do not assume every API is live in production.",
-  "site.108": "FlipbotEA polls the signal queue and executes on the logged-in Exness MT5 demo. Successful fills bump investor NAV via FillRecorded.",
-  "site.109": "The brand is globally oriented: infrastructure that can operate across markets and jurisdictions as capabilities and licenses allow.",
-  "site.110": "An AI-forward stack designed to turn financial data into intelligence, validated research, risk decisions and controlled execution.",
-  "site.111": "No open roles are currently listed. Introduce yourself at careers@evermount.co if you want to help build financial infrastructure.",
-  "site.112": "Financial infrastructure for modern markets — market data, quantitative research, intelligence, risk, execution and connectivity.",
-  "site.113": "Founded in 2023, Evermount was created to make sophisticated financial infrastructure more accessible, programmable and scalable.",
-  "site.114": "Research infrastructure for factor discovery, hypothesis generation, backtesting, simulation and systematic strategy development.",
-  "site.115": "Partnership API for referral links, client reports, and commission data. Trading execution uses Exness MT5 above — not this API.",
-  "site.116": "We're building our infrastructure to the highest standards of operational excellence, security, and risk management as we scale.",
-  "site.117": "\"We're building the data, research, intelligence, risk and execution infrastructure institutions and developers can build on.\"",
-  "site.118": "Market data, analytics, risk, execution and connectivity infrastructure for banks, brokers, asset managers and trading firms.",
-  "site.119": "Typical permitted use includes internal research, risk, analytics and application features you operate for your organization.",
-  "site.120": "At the heart of Evermount is a technology platform for market data, quantitative research, intelligence, risk and execution.",
-  "site.121": "Withdraw USD to your linked bank account. Requests are reviewed and approved by our team (typically within 2 business days).",
-  "site.122": "Each party will implement reasonable security measures. Customers must protect credentials and report suspected compromise.",
-  "site.123": "A technology stack for data, research, intelligence, risk, execution and connectivity — not a request to deposit capital.",
-  "site.124": "Deposit funds to your wallet using supported cryptocurrencies. Funds will be available in your wallet after confirmation.",
-  "site.125": "Data, quantitative research, intelligence, risk, execution and connectivity infrastructure for modern financial markets.",
-  "site.126": "Used when you click Trade. Your capital stays invested for the period you choose. Early withdrawal may not be available.",
-  "site.127": "Withdraw funds from your wallet to your preferred bank or crypto wallet. Only available wallet balance can be withdrawn.",
-  "site.128": "Choose your preferred deposit method to add funds to your wallet. Funds will be available for withdrawal or investment.",
-  "site.129": "Data may be delayed, incomplete or incorrect. It is not a substitute for official venue feeds where those are required.",
-  "site.130": "Services are provided on a technology basis. Features may be in preview, limited, or unavailable in some jurisdictions.",
-  "site.131": "Orders may be delayed, rejected, partially filled or filled at unexpected prices where execution connectivity exists.",
-  "site.132": "Authentication, API keys, rate limits and examples are published to approved developers. Until then, request access.",
-  "site.133": "Hosting, connectivity and operational arrangements are described in the applicable order form or statement of work.",
-  "site.134": "Request access to discuss data, research, risk, execution and connectivity infrastructure with the Evermount team.",
-  "site.135": "A conceptual architecture connecting AI, research, risk and execution into one institutional technology platform.",
-  "site.136": "A practical journey for institutions and developers using Evermount infrastructure — not a fund onboarding flow.",
-  "site.137": "Evermount technology architecture across data engineering, quantitative computing, AI, trading systems and risk.",
-  "site.138": "We design systems around data quality, research evidence and measurable risk — not discretionary fund marketing.",
-  "site.139": "Build the financial ecosystem with Evermount through data, connectivity, technology and research partnerships.",
-  "site.140": "Drawdown, volatility, and Sharpe ratio computed from your own portfolio's daily returns over the last 90 days.",
-  "site.141": "Withdraw KES from your wallet directly to your M-Pesa account. Only available wallet balance can be withdrawn.",
-  "site.142": "Fund your KES wallet instantly via M-Pesa. You will receive an STK push on your phone to confirm the payment.",
-  "site.143": "Performance, risk, exposure, attribution and stress-testing analytics capabilities in the Evermount platform.",
-  "site.144": "A conceptual architecture. Specific deployments, venues and integrations vary by customer and jurisdiction.",
-  "site.145": "Fees, if any, are set out in an order form. This website does not list fund management or performance fees.",
-  "site.146": "Market-agnostic infrastructure for equities, FX, fixed income, commodities, derivatives and digital assets.",
-  "site.147": "We do not guarantee uninterrupted service. Maintenance, vendor outages and force majeure may affect access.",
-  "site.148": "Share expected scale, markets and infrastructure requirements. Pricing is quoted, not listed as fund fees.",
-  "site.149": "We may grant access to environments, credentials and documentation subject to approval and applicable law.",
-  "site.150": "We're always looking for passionate people. If you're excited by our mission, we'd love to hear from you.",
-  "site.151": "Unified financial data pipelines designed to support research, analytics and real-time decision systems.",
-  "site.152": "Capabilities of the Evermount platform. Specific availability depends on access tier and jurisdiction.",
-  "site.153": "Set EXNESS_PARTNER_REFERRAL_LINK or enable EXNESS_PARTNER_ENABLED with PPA credentials in backend env.",
-  "site.154": "Withdraw funds from your wallet to your crypto wallet. Only available wallet balance can be withdrawn.",
-  "site.155": "Four capabilities that turn financial data into intelligence, research, risk decisions and execution.",
-  "site.156": "Risk controls should be embedded directly into systems, including pre-trade and real-time monitoring.",
-  "site.157": "Software defects, outages and configuration errors can interrupt access or produce incorrect outputs.",
-  "site.158": "A seven-step journey from connecting systems to monitoring markets, risk and execution on Evermount.",
-  "site.159": "Financial infrastructure should be programmable. APIs, streaming and integrations are first-class.",
-  "site.160": "Liability is limited to the extent permitted by law and as set out in the signed commercial terms.",
-  "site.161": "Production hosting and operations details are confirmed with customers during deployment planning.",
-  "site.162": "Real-time monitoring of exposure, liquidity, volatility, correlation, drawdown and market regimes.",
-  "site.163": "We couldn’t find the page you were looking for. Maybe you mistyped the URL, or the page has moved.",
-  "site.164": "A technology foundation for market data, quantitative research, intelligence, risk and execution.",
-  "site.165": "To optimize site performance, personalize user experience, enhance security, and analyze traffic.",
-  "site.166": "Access educational resources, guides, videos, and webinars to enhance your investment knowledge.",
-  "site.167": "Can't find what you're looking for? Send us a message and we'll get back to you within 24 hours.",
-  "site.168": "Languages in active use include TypeScript and Python. C++ and Rust are on the systems roadmap.",
-  "site.169": "Enter the email associated with your account and we'll send you an OTP to reset your password.",
-  "site.170": "Systematic execution infrastructure designed for reliability, speed and controlled deployment.",
-  "site.171": "Meet the Evermount team and how we are building financial infrastructure for modern markets.",
-  "site.172": "Small data files placed on your device to track behavior, preferences, and session activity.",
-  "site.173": "Manage investor accounts and access. Portfolio managers are created under Admin → Managers.",
-  "site.174": "Our team combines experience in quantitative finance, data science and systems engineering.",
-  "site.175": "Tell us about your institution and infrastructure needs. We will follow up with next steps.",
-  "site.176": "Infrastructure designed to operate across markets and jurisdictions as capabilities allow.",
-  "site.177": "Schedule a conversation about Evermount data, research, risk and execution infrastructure.",
-  "site.178": "Set by Evermount directly for login sessions, saving theme preferences, and chart states.",
-  "site.179": "APIs may change, be versioned, or be withdrawn with notice where reasonably practicable.",
-  "site.180": "Connect data sources, brokers, venues or institutional systems where integrations exist.",
-  "site.181": "Market data and third-party data are subject to the Data Policy and any vendor licenses.",
-  "site.182": "Non-production environments for integration testing are planned for approved developers.",
-  "site.183": "Quantitative research, market structure, AI, risk and execution research from Evermount.",
-  "site.184": "Share your company, role and API requirements so we can provision the right environment.",
-  "site.185": "Use modern engineering, quantitative methods and AI to solve complex financial problems.",
-  "site.186": "We invest in research and engineering so infrastructure stays programmable and reliable.",
-  "site.187": "Make sophisticated financial infrastructure more accessible, programmable and scalable.",
-  "site.188": "Research into how venues, liquidity and market microstructure interact with technology.",
-  "site.189": "Your wallet acts as an escrow account where you can safely store funds before investing",
-  "site.190": "Portfolio construction, optimization and analytics — not a managed investment product.",
-  "site.191": "Institutions and researchers can discuss data, methods and partnership opportunities.",
-  "site.192": "Learn about Evermount's mission to build financial infrastructure for modern markets.",
-  "site.193": "Manage your wallet balance, deposits, withdrawals, and transfer funds to investments.",
-  "site.194": "We’ve emailed a 6-digit confirmation code. Enter the code below to verify your email.",
-  "site.195": "Dedicated relationship manager assignments are available for institutional accounts.",
-  "site.196": "Login securely to the Evermount Capital investor portal and manage your investments.",
-  "site.197": "Market data and third-party data are subject to vendor licenses and the Data Policy.",
-  "site.198": "Market intelligence, quantitative research and financial technology infrastructure.",
-  "site.199": "Required for basic functions — e.g., sign-in, portfolio access. Cannot be disabled.",
-  "site.200": "Data is licensed, not sold. Rights are limited to the use cases in your agreement.",
-  "site.201": "Deposits go directly to your wallet and are available for withdrawal or investment",
-  "site.202": "Essential cookies are used for functionality. You may opt out of tracking cookies.",
-  "site.203": "Programmatic access to financial data, analytics, intelligence and infrastructure.",
-  "site.204": "Redistribution to third parties is prohibited unless expressly allowed in writing.",
-  "site.205": "Unauthorized access, malware and credential theft can compromise systems and data.",
-  "site.206": "Your identity has been verified. You have full access to deposits and investments.",
-  "site.207": "A public status page is coming soon. For incidents, contact support@evermount.co.",
-  "site.208": "All payment methods (card, bank, crypto) can be used for deposits and withdrawals",
-  "site.209": "Share your institution type, markets of interest and infrastructure requirements.",
-  "site.210": "Withdrawn profits from investments are automatically added to your wallet balance",
-  "site.211": "Card, M-Pesa, and crypto deposits are available. Bank transfers are coming soon.",
-  "site.212": "Discuss architecture, APIs and integration requirements with the Evermount team.",
-  "site.213": "Your previous submission was rejected. Please upload new documents to try again.",
-  "site.214": "Exchange, vendor and alternative data remain subject to those providers' terms.",
-  "site.215": "Portfolio activity, risk profile, and execution timing are logged for accuracy.",
-  "site.216": "Quantitative and AI models can be misspecified, overfit or fail in new regimes.",
-  "site.217": "You may not scrape, reverse engineer, or redistribute data beyond your license.",
-  "site.218": "Capital stays invested for this period. Early withdrawal may not be available.",
-  "site.219": "Feeds may be delayed, missing or wrong. Decisions based on data can be flawed.",
-  "site.220": "Infrastructure connecting institutions, brokers, venues and financial systems.",
-  "site.221": "Pulls strategy NAV from evermount-quant and updates investor portfolio values.",
-  "site.222": "Request access to discuss how analytics APIs and dashboards fit your workflow.",
-  "site.223": "Tell us which asset classes and data requirements matter for your institution.",
-  "site.224": "Join our experts for an in-depth analysis of market trends and opportunities.",
-  "site.225": "Your documents are being reviewed. We will notify you by email once complete.",
-  "site.226": "Your message — role, company type, markets, data/API needs, expected scale...",
-  "site.227": "Assigned investors, balances, and strategy allocation with live risk metrics",
-  "site.228": "Explore how market data, research, intelligence, risk and execution connect.",
-  "site.229": "Learn the fundamentals of quantitative trading strategies and how they work.",
-  "site.230": "Temporary and deleted when the browser closes. Maintains login across pages.",
-  "site.231": "All data is encrypted in transit and at rest using industry best practices.",
-  "site.232": "Download PDF statements with portfolio summary and performance attribution.",
-  "site.233": "flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition",
-  "site.234": "Modeling, simulation, factor research and strategy research infrastructure.",
-  "site.235": "We may use analytics and performance SDKs (e.g., Google Analytics, Sentry).",
-  "site.236": "Bank, M-Pesa, and crypto withdrawals are available after KYC verification.",
-  "site.237": "Brokers, venues, networks and vendors can fail independently of Evermount.",
-  "site.238": "Market data, analytics and execution infrastructure for commodity markets.",
-  "site.239": "Market-making technology, liquidity infrastructure and venue connectivity.",
-  "site.240": "Discuss architecture and integration without invented performance claims.",
-  "site.241": "We may revise this Privacy Policy. Changes will be communicated to users.",
-  "site.242": "You may request access, correction, or deletion of your data at any time.",
-  "site.243": "Quantitative methods and data quality sit at the center of the platform.",
-  "site.244": "Shown at first entry with opt-in/out options — compliant with GDPR/CCPA.",
-  "site.245": "APIs and financial infrastructure that can be integrated into products.",
-  "site.246": "Build infrastructure that can operate across markets and jurisdictions.",
-  "site.247": "Machine learning, market intelligence, signal generation and analytics.",
-  "site.248": "Methods for regime detection, NLP, forecasting and research assistants.",
-  "site.249": "No performance history yet. Invest to start tracking your equity curve.",
-  "site.250": "Step-by-step guide to building a well-diversified investment portfolio.",
-  "site.251": "To improve user experience, run analytics, and comply with regulations.",
-  "site.252": "We retain user data as long as necessary to comply with financial laws.",
-  "site.253": "Login timestamps, IP, and geolocation are stored for fraud prevention.",
-  "site.254": "Password must be strong. Include uppercase, number, special character.",
-  "site.255": "Used for storing dashboard filters, mode settings, and session tokens.",
-  "site.256": "We do not sell cookie-collected data. Used solely for your experience.",
-  "site.257": "A comprehensive guide to managing portfolio risk in volatile markets.",
-  "site.258": "Everything you need to know about investing in digital assets safely.",
-  "site.259": "In case of a breach, affected users will be notified within 72 hours.",
-  "site.260": "Manage your investments across different funds and track performance.",
-  "site.261": "Most browsers let you block cookies from settings > privacy/security.",
-  "site.262": "View running strategies, switch execution, and monitor pooled metrics",
-  "site.263": "Attempts to circumvent security, quotas or licensing are prohibited.",
-  "site.264": "High-quality financial infrastructure begins with high-quality data.",
-  "site.265": "Infrastructure designed to operate across markets and jurisdictions.",
-  "site.266": "MARKET DATA → DATA PLATFORM → QUANT + AI → RISK → EXECUTION → VENUES",
-  "site.267": "No statements yet. Statements are generated monthly by the platform.",
-  "site.268": "People, process and third-party failures can affect service quality.",
-  "site.269": "Technology infrastructure for digital asset markets where supported.",
-  "site.270": "We anonymize all data used for benchmarks and research publications.",
-  "site.271": "We may email you regarding platform changes, promotions, or reports.",
-  "site.272": "Create and manage portfolio managers who onboard and serve clients.",
-  "site.273": "Electronic trading systems and systematic execution infrastructure.",
-  "site.274": "High-performance data, research, execution and risk infrastructure.",
-  "site.275": "Initiate a bank deposit, then wire funds to our settlement account.",
-  "site.276": "Thank you for contacting us! We'll get back to you within 24 hours.",
-  "site.277": "APIs may only be used for permitted purposes in your access grant.",
-  "site.278": "Enter an amount — we match you to the best strategy for your plan.",
-  "site.279": "Master advanced trading techniques used by professional investors.",
-  "site.280": "Structured intelligence from market data and alternative datasets.",
-  "site.281": "Tools like uBlock or browser settings can block analytics cookies.",
-  "site.282": "Used for analytics (Google), payments (Stripe), and social logins.",
-  "site.283": "We maintain redundant secure backups to ensure service continuity.",
-  "site.284": "You can transfer funds from your wallet to investments at any time",
-  "site.285": "You may withdraw data use consent, subject to feature limitations.",
-  "site.286": "Currently not used. We will ask for consent if we introduce them.",
-  "site.287": "Exposure, stress testing, scenario analysis and limit frameworks.",
-  "site.288": "Market data, analytics, risk and execution infrastructure for FX.",
-  "site.289": "No transactions yet. Make a deposit or investment to get started.",
-  "site.290": "We comply with GDPR, CCPA, and Kenyan Data Protection guidelines.",
-  "site.291": "We may disclose data when required by legal process or subpoenas.",
-  "site.292": "Enter the 6-digit code sent to your email and your new password.",
-  "site.293": "Role-based controls govern internal access to your account data.",
-  "site.294": "Withdrawal submitted. It will be processed after admin approval.",
+  "site.60":
+    "This page is a product-facing summary and is not legal advice. Legal and regulatory terms should be reviewed and approved by qualified counsel before publication. Evermount does not claim SEC, FCA, CMA, MiFID, or similar authorization unless separately and expressly stated by the company.",
+  "site.61":
+    "Evermount may provide execution infrastructure, order-management software and analytics. Where a customer is a regulated firm with best-execution obligations, those obligations remain with the customer. Evermount does not represent that it is a broker executing client orders as an investment firm unless a signed agreement says otherwise.",
+  "site.62":
+    "Evermount is a technology provider. Conflicts may arise between commercial interests, vendor relationships and customer interests. We aim to identify, manage and disclose material conflicts in customer agreements rather than act as a discretionary investment manager for website visitors.",
+  "site.63":
+    "Evermount combines artificial intelligence, quantitative research and trading infrastructure to create intelligent systems capable of continuously analyzing markets, discovering opportunities, managing risk and executing systematic strategies.",
+  "site.64":
+    "Financial markets are complex, fragmented and technically difficult to build on. We combine data engineering, quantitative research, machine learning and execution technology so institutions and developers can build on a common foundation.",
+  "site.65":
+    "Analytics capabilities for performance, risk and exposure. Figures shown in product demos are illustrative unless labeled as a customer's own data. Evermount does not publish investment returns or Sharpe ratios as company performance.",
+  "site.66":
+    "This statement describes financial-crime controls appropriate to a technology and infrastructure provider. It is not a fund-administrator AML manual and does not mean Evermount accepts investor subscriptions or holds client money.",
+  "site.67":
+    "These terms govern access to Evermount software, APIs, data and infrastructure services. They do not constitute an investment management agreement, subscription to a fund, or an invitation to deposit client money with Evermount.",
+  "site.68":
+    "Customers remain responsible for their own trading, regulatory, KYC/AML and fiduciary obligations. Evermount is not a broker-dealer, bank, custodian, exchange or investment adviser unless expressly stated in a signed agreement.",
+  "site.69":
+    "Evermount provides technology and infrastructure services. This page does not claim SEC registration, FCA authorization, CMA authorization, MiFID authorization, broker-dealer status, investment adviser status, or custody.",
+  "site.70":
+    "Financial markets are complex systems. We believe the next generation of financial infrastructure will be built by combining large-scale data, artificial intelligence, quantitative research and automated execution.",
+  "site.71":
+    "We work with banks, brokers, exchanges, market data providers, fintechs, technology providers, liquidity providers and institutions. Named partnerships are listed only when they are real and approved to be public.",
+  "site.72":
+    "Institutional customers remain responsible for their own regulatory obligations, including trading permissions, best execution where they are a regulated firm, and client-asset rules that apply to them.",
+  "site.73":
+    "Evermount is a quantitative research and financial technology organization. Public research notes will be listed here when published. We do not fabricate papers, performance or customer results.",
+  "site.74":
+    "We serve banks, brokers, exchanges, asset managers, hedge funds, proprietary trading firms, market makers, fintechs, family offices and developers who need programmable market infrastructure.",
+  "site.75":
+    "For large-scale deployments. Potential capabilities: dedicated deployment, private connectivity, custom integrations, high availability, dedicated engineering and SLA — subject to contract.",
+  "site.76":
+    "For banks, brokers and asset managers. Potential capabilities: institutional APIs, dedicated infrastructure, market connectivity, risk and execution infrastructure, and enterprise support.",
+  "site.77":
+    "Evermount is positioned as market-agnostic. The sections below describe infrastructure for each market — not a claim that Evermount provides regulated access to every venue or instrument.",
+  "site.78":
+    "Financial markets are complex, fragmented and technically difficult to build on. Evermount provides infrastructure that makes market technology easier to build, integrate and operate.",
+  "site.79":
+    "We're building the infrastructure behind modern financial markets — and we're just getting started. Join engineers, researchers and operators who care about data, risk and systems.",
+  "site.80":
+    "The stack below reflects systems we use today and capabilities on the engineering roadmap. We do not publish latency, uptime or throughput figures unless independently verified.",
+  "site.81":
+    "Programmatic access to financial data, analytics, intelligence and infrastructure. Public API documentation and production credentials are provided after access is approved.",
+  "site.82":
+    "Evermount is building systems that continuously learn from financial data, generate hypotheses, evaluate risk and translate validated intelligence into controlled action.",
+  "site.83":
+    "For trading firms, fintechs and professional users. Potential capabilities: real-time data, advanced APIs, analytics, risk APIs and execution capabilities where enabled.",
+  "site.84":
+    "The platform is market-agnostic: designed to support equities, FX, fixed income, commodities, derivatives and digital assets where those capabilities are available.",
+  "site.85":
+    "Evermount retains rights in its software, models and documentation. Customers retain rights in their own data, subject to licenses granted to operate the service.",
+  "site.86":
+    "Evermount is market-agnostic. We provide infrastructure for asset classes — we do not imply that Evermount operates or provides regulated access to every market.",
+  "site.87":
+    "Experienced professionals combining expertise in quantitative finance, computer science, and engineering to drive innovation in systematic trading technology.",
+  "site.88":
+    "Algorithmic execution, order management and execution analytics. Connectivity to brokers and venues depends on integration status and applicable regulation.",
+  "site.89":
+    "Evermount provides technology and infrastructure services. Institutional customers remain responsible for their own regulatory obligations where applicable.",
+  "site.90":
+    "We use machine learning, statistical models and modern software engineering. Specific performance characteristics are not published as marketing statistics.",
+  "site.91":
+    "IMPORTANT: Please read this risk disclosure carefully. Using financial technology involves risk. This is not an investment product disclosure for a fund.",
+  "site.92":
+    "Evermount is a financial technology company building infrastructure for market data, quantitative research, artificial intelligence, risk and execution.",
+  "site.93":
+    "Yes, you can reallocate your investments at any time through the Portfolio page. You can also set up automatic rebalancing based on your preferences.",
+  "site.94":
+    "A unified technology stack designed to transform financial data into intelligence, quantitative strategies, risk decisions and systematic execution.",
+  "site.95":
+    'This Cookie Policy explains how Evermount ("we", "our", or "us") uses cookies and similar technologies to recognize you when you visit our platform.',
+  "site.96":
+    "An AI-native intelligence layer designed to help financial systems understand markets, research opportunities and make better risk-aware decisions.",
+  "site.97":
+    "Access controls, encryption and monitoring practices are implemented according to the systems in production and the applicable customer agreement.",
+  "site.98":
+    "Commercial terms depend on data, markets, API volume and deployment model. We do not publish invented list prices. Contact sales for a proposal.",
+  "site.99":
+    "This Privacy Policy outlines how Evermount collects, uses, stores, and protects your information. Your privacy is critically important to us.",
+  "site.100":
+    "A financial ecosystem where institutions, developers and researchers can build sophisticated market applications on reliable infrastructure.",
+  "site.101":
+    "Either party may terminate as provided in the commercial agreement. Access may be suspended for abuse, security risk or legal requirement.",
+  "site.102":
+    "AI systems analyze market information, news, macroeconomic conditions and alternative data to generate structured financial intelligence.",
+  "site.103":
+    "A technology roadmap from AI-assisted research today toward systematic execution, market infrastructure, and global market connectivity.",
+  "site.104":
+    "For developers and researchers. Potential capabilities: sandbox, limited API access, historical data, research tools and documentation.",
+  "site.105":
+    "Availability of specific services depends on jurisdiction and applicable regulation. Evermount is not regulated in every jurisdiction.",
+  "site.106":
+    "Developer, Professional, Institutional and Enterprise access tiers. Commercial terms are provided by sales — no invented list prices.",
+  "site.107":
+    "Planned and in-development API surfaces. Availability is confirmed during onboarding — do not assume every API is live in production.",
+  "site.108":
+    "FlipbotEA polls the signal queue and executes on the logged-in Exness MT5 demo. Successful fills bump investor NAV via FillRecorded.",
+  "site.109":
+    "The brand is globally oriented: infrastructure that can operate across markets and jurisdictions as capabilities and licenses allow.",
+  "site.110":
+    "An AI-forward stack designed to turn financial data into intelligence, validated research, risk decisions and controlled execution.",
+  "site.111":
+    "No open roles are currently listed. Introduce yourself at careers@evermount.co if you want to help build financial infrastructure.",
+  "site.112":
+    "Financial infrastructure for modern markets — market data, quantitative research, intelligence, risk, execution and connectivity.",
+  "site.113":
+    "Founded in 2023, Evermount was created to make sophisticated financial infrastructure more accessible, programmable and scalable.",
+  "site.114":
+    "Research infrastructure for factor discovery, hypothesis generation, backtesting, simulation and systematic strategy development.",
+  "site.115":
+    "Partnership API for referral links, client reports, and commission data. Trading execution uses Exness MT5 above — not this API.",
+  "site.116":
+    "We're building our infrastructure to the highest standards of operational excellence, security, and risk management as we scale.",
+  "site.117":
+    '"We\'re building the data, research, intelligence, risk and execution infrastructure institutions and developers can build on."',
+  "site.118":
+    "Market data, analytics, risk, execution and connectivity infrastructure for banks, brokers, asset managers and trading firms.",
+  "site.119":
+    "Typical permitted use includes internal research, risk, analytics and application features you operate for your organization.",
+  "site.120":
+    "At the heart of Evermount is a technology platform for market data, quantitative research, intelligence, risk and execution.",
+  "site.121":
+    "Withdraw USD to your linked bank account. Requests are reviewed and approved by our team (typically within 2 business days).",
+  "site.122":
+    "Each party will implement reasonable security measures. Customers must protect credentials and report suspected compromise.",
+  "site.123":
+    "A technology stack for data, research, intelligence, risk, execution and connectivity — not a request to deposit capital.",
+  "site.124":
+    "Deposit funds to your wallet using supported cryptocurrencies. Funds will be available in your wallet after confirmation.",
+  "site.125":
+    "Data, quantitative research, intelligence, risk, execution and connectivity infrastructure for modern financial markets.",
+  "site.126":
+    "Used when you click Trade. Your capital stays invested for the period you choose. Early withdrawal may not be available.",
+  "site.127":
+    "Withdraw funds from your wallet to your preferred bank or crypto wallet. Only available wallet balance can be withdrawn.",
+  "site.128":
+    "Choose your preferred deposit method to add funds to your wallet. Funds will be available for withdrawal or investment.",
+  "site.129":
+    "Data may be delayed, incomplete or incorrect. It is not a substitute for official venue feeds where those are required.",
+  "site.130":
+    "Services are provided on a technology basis. Features may be in preview, limited, or unavailable in some jurisdictions.",
+  "site.131":
+    "Orders may be delayed, rejected, partially filled or filled at unexpected prices where execution connectivity exists.",
+  "site.132":
+    "Authentication, API keys, rate limits and examples are published to approved developers. Until then, request access.",
+  "site.133":
+    "Hosting, connectivity and operational arrangements are described in the applicable order form or statement of work.",
+  "site.134":
+    "Request access to discuss data, research, risk, execution and connectivity infrastructure with the Evermount team.",
+  "site.135":
+    "A conceptual architecture connecting AI, research, risk and execution into one institutional technology platform.",
+  "site.136":
+    "A practical journey for institutions and developers using Evermount infrastructure — not a fund onboarding flow.",
+  "site.137":
+    "Evermount technology architecture across data engineering, quantitative computing, AI, trading systems and risk.",
+  "site.138":
+    "We design systems around data quality, research evidence and measurable risk — not discretionary fund marketing.",
+  "site.139":
+    "Build the financial ecosystem with Evermount through data, connectivity, technology and research partnerships.",
+  "site.140":
+    "Drawdown, volatility, and Sharpe ratio computed from your own portfolio's daily returns over the last 90 days.",
+  "site.141":
+    "Withdraw KES from your wallet directly to your M-Pesa account. Only available wallet balance can be withdrawn.",
+  "site.142":
+    "Fund your KES wallet instantly via M-Pesa. You will receive an STK push on your phone to confirm the payment.",
+  "site.143":
+    "Performance, risk, exposure, attribution and stress-testing analytics capabilities in the Evermount platform.",
+  "site.144":
+    "A conceptual architecture. Specific deployments, venues and integrations vary by customer and jurisdiction.",
+  "site.145":
+    "Fees, if any, are set out in an order form. This website does not list fund management or performance fees.",
+  "site.146":
+    "Market-agnostic infrastructure for equities, FX, fixed income, commodities, derivatives and digital assets.",
+  "site.147":
+    "We do not guarantee uninterrupted service. Maintenance, vendor outages and force majeure may affect access.",
+  "site.148":
+    "Share expected scale, markets and infrastructure requirements. Pricing is quoted, not listed as fund fees.",
+  "site.149":
+    "We may grant access to environments, credentials and documentation subject to approval and applicable law.",
+  "site.150":
+    "We're always looking for passionate people. If you're excited by our mission, we'd love to hear from you.",
+  "site.151":
+    "Unified financial data pipelines designed to support research, analytics and real-time decision systems.",
+  "site.152":
+    "Capabilities of the Evermount platform. Specific availability depends on access tier and jurisdiction.",
+  "site.153":
+    "Set EXNESS_PARTNER_REFERRAL_LINK or enable EXNESS_PARTNER_ENABLED with PPA credentials in backend env.",
+  "site.154":
+    "Withdraw funds from your wallet to your crypto wallet. Only available wallet balance can be withdrawn.",
+  "site.155":
+    "Four capabilities that turn financial data into intelligence, research, risk decisions and execution.",
+  "site.156":
+    "Risk controls should be embedded directly into systems, including pre-trade and real-time monitoring.",
+  "site.157":
+    "Software defects, outages and configuration errors can interrupt access or produce incorrect outputs.",
+  "site.158":
+    "A seven-step journey from connecting systems to monitoring markets, risk and execution on Evermount.",
+  "site.159":
+    "Financial infrastructure should be programmable. APIs, streaming and integrations are first-class.",
+  "site.160":
+    "Liability is limited to the extent permitted by law and as set out in the signed commercial terms.",
+  "site.161":
+    "Production hosting and operations details are confirmed with customers during deployment planning.",
+  "site.162":
+    "Real-time monitoring of exposure, liquidity, volatility, correlation, drawdown and market regimes.",
+  "site.163":
+    "We couldn’t find the page you were looking for. Maybe you mistyped the URL, or the page has moved.",
+  "site.164":
+    "A technology foundation for market data, quantitative research, intelligence, risk and execution.",
+  "site.165":
+    "To optimize site performance, personalize user experience, enhance security, and analyze traffic.",
+  "site.166":
+    "Access educational resources, guides, videos, and webinars to enhance your investment knowledge.",
+  "site.167":
+    "Can't find what you're looking for? Send us a message and we'll get back to you within 24 hours.",
+  "site.168":
+    "Languages in active use include TypeScript and Python. C++ and Rust are on the systems roadmap.",
+  "site.169":
+    "Enter the email associated with your account and we'll send you an OTP to reset your password.",
+  "site.170":
+    "Systematic execution infrastructure designed for reliability, speed and controlled deployment.",
+  "site.171":
+    "Meet the Evermount team and how we are building financial infrastructure for modern markets.",
+  "site.172":
+    "Small data files placed on your device to track behavior, preferences, and session activity.",
+  "site.173":
+    "Manage investor accounts and access. Portfolio managers are created under Admin → Managers.",
+  "site.174":
+    "Our team combines experience in quantitative finance, data science and systems engineering.",
+  "site.175":
+    "Tell us about your institution and infrastructure needs. We will follow up with next steps.",
+  "site.176":
+    "Infrastructure designed to operate across markets and jurisdictions as capabilities allow.",
+  "site.177":
+    "Schedule a conversation about Evermount data, research, risk and execution infrastructure.",
+  "site.178":
+    "Set by Evermount directly for login sessions, saving theme preferences, and chart states.",
+  "site.179":
+    "APIs may change, be versioned, or be withdrawn with notice where reasonably practicable.",
+  "site.180":
+    "Connect data sources, brokers, venues or institutional systems where integrations exist.",
+  "site.181":
+    "Market data and third-party data are subject to the Data Policy and any vendor licenses.",
+  "site.182":
+    "Non-production environments for integration testing are planned for approved developers.",
+  "site.183":
+    "Quantitative research, market structure, AI, risk and execution research from Evermount.",
+  "site.184":
+    "Share your company, role and API requirements so we can provision the right environment.",
+  "site.185":
+    "Use modern engineering, quantitative methods and AI to solve complex financial problems.",
+  "site.186":
+    "We invest in research and engineering so infrastructure stays programmable and reliable.",
+  "site.187":
+    "Make sophisticated financial infrastructure more accessible, programmable and scalable.",
+  "site.188":
+    "Research into how venues, liquidity and market microstructure interact with technology.",
+  "site.189":
+    "Your wallet acts as an escrow account where you can safely store funds before investing",
+  "site.190":
+    "Portfolio construction, optimization and analytics — not a managed investment product.",
+  "site.191":
+    "Institutions and researchers can discuss data, methods and partnership opportunities.",
+  "site.192":
+    "Learn about Evermount's mission to build financial infrastructure for modern markets.",
+  "site.193":
+    "Manage your wallet balance, deposits, withdrawals, and transfer funds to investments.",
+  "site.194":
+    "We’ve emailed a 6-digit confirmation code. Enter the code below to verify your email.",
+  "site.195":
+    "Dedicated relationship manager assignments are available for institutional accounts.",
+  "site.196":
+    "Login securely to the Evermount Capital investor portal and manage your investments.",
+  "site.197":
+    "Market data and third-party data are subject to vendor licenses and the Data Policy.",
+  "site.198":
+    "Market intelligence, quantitative research and financial technology infrastructure.",
+  "site.199":
+    "Required for basic functions — e.g., sign-in, portfolio access. Cannot be disabled.",
+  "site.200":
+    "Data is licensed, not sold. Rights are limited to the use cases in your agreement.",
+  "site.201":
+    "Deposits go directly to your wallet and are available for withdrawal or investment",
+  "site.202":
+    "Essential cookies are used for functionality. You may opt out of tracking cookies.",
+  "site.203":
+    "Programmatic access to financial data, analytics, intelligence and infrastructure.",
+  "site.204":
+    "Redistribution to third parties is prohibited unless expressly allowed in writing.",
+  "site.205":
+    "Unauthorized access, malware and credential theft can compromise systems and data.",
+  "site.206":
+    "Your identity has been verified. You have full access to deposits and investments.",
+  "site.207":
+    "A public status page is coming soon. For incidents, contact support@evermount.co.",
+  "site.208":
+    "All payment methods (card, bank, crypto) can be used for deposits and withdrawals",
+  "site.209":
+    "Share your institution type, markets of interest and infrastructure requirements.",
+  "site.210":
+    "Withdrawn profits from investments are automatically added to your wallet balance",
+  "site.211":
+    "Card, M-Pesa, and crypto deposits are available. Bank transfers are coming soon.",
+  "site.212":
+    "Discuss architecture, APIs and integration requirements with the Evermount team.",
+  "site.213":
+    "Your previous submission was rejected. Please upload new documents to try again.",
+  "site.214":
+    "Exchange, vendor and alternative data remain subject to those providers' terms.",
+  "site.215":
+    "Portfolio activity, risk profile, and execution timing are logged for accuracy.",
+  "site.216":
+    "Quantitative and AI models can be misspecified, overfit or fail in new regimes.",
+  "site.217":
+    "You may not scrape, reverse engineer, or redistribute data beyond your license.",
+  "site.218":
+    "Capital stays invested for this period. Early withdrawal may not be available.",
+  "site.219":
+    "Feeds may be delayed, missing or wrong. Decisions based on data can be flawed.",
+  "site.220":
+    "Infrastructure connecting institutions, brokers, venues and financial systems.",
+  "site.221":
+    "Pulls strategy NAV from evermount-quant and updates investor portfolio values.",
+  "site.222":
+    "Request access to discuss how analytics APIs and dashboards fit your workflow.",
+  "site.223":
+    "Tell us which asset classes and data requirements matter for your institution.",
+  "site.224":
+    "Join our experts for an in-depth analysis of market trends and opportunities.",
+  "site.225":
+    "Your documents are being reviewed. We will notify you by email once complete.",
+  "site.226":
+    "Your message — role, company type, markets, data/API needs, expected scale...",
+  "site.227":
+    "Assigned investors, balances, and strategy allocation with live risk metrics",
+  "site.228":
+    "Explore how market data, research, intelligence, risk and execution connect.",
+  "site.229":
+    "Learn the fundamentals of quantitative trading strategies and how they work.",
+  "site.230":
+    "Temporary and deleted when the browser closes. Maintains login across pages.",
+  "site.231":
+    "All data is encrypted in transit and at rest using industry best practices.",
+  "site.232":
+    "Download PDF statements with portfolio summary and performance attribution.",
+  "site.233":
+    "flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition",
+  "site.234":
+    "Modeling, simulation, factor research and strategy research infrastructure.",
+  "site.235":
+    "We may use analytics and performance SDKs (e.g., Google Analytics, Sentry).",
+  "site.236":
+    "Bank, M-Pesa, and crypto withdrawals are available after KYC verification.",
+  "site.237":
+    "Brokers, venues, networks and vendors can fail independently of Evermount.",
+  "site.238":
+    "Market data, analytics and execution infrastructure for commodity markets.",
+  "site.239":
+    "Market-making technology, liquidity infrastructure and venue connectivity.",
+  "site.240":
+    "Discuss architecture and integration without invented performance claims.",
+  "site.241":
+    "We may revise this Privacy Policy. Changes will be communicated to users.",
+  "site.242":
+    "You may request access, correction, or deletion of your data at any time.",
+  "site.243":
+    "Quantitative methods and data quality sit at the center of the platform.",
+  "site.244":
+    "Shown at first entry with opt-in/out options — compliant with GDPR/CCPA.",
+  "site.245":
+    "APIs and financial infrastructure that can be integrated into products.",
+  "site.246":
+    "Build infrastructure that can operate across markets and jurisdictions.",
+  "site.247":
+    "Machine learning, market intelligence, signal generation and analytics.",
+  "site.248":
+    "Methods for regime detection, NLP, forecasting and research assistants.",
+  "site.249":
+    "No performance history yet. Invest to start tracking your equity curve.",
+  "site.250":
+    "Step-by-step guide to building a well-diversified investment portfolio.",
+  "site.251":
+    "To improve user experience, run analytics, and comply with regulations.",
+  "site.252":
+    "We retain user data as long as necessary to comply with financial laws.",
+  "site.253":
+    "Login timestamps, IP, and geolocation are stored for fraud prevention.",
+  "site.254":
+    "Password must be strong. Include uppercase, number, special character.",
+  "site.255":
+    "Used for storing dashboard filters, mode settings, and session tokens.",
+  "site.256":
+    "We do not sell cookie-collected data. Used solely for your experience.",
+  "site.257":
+    "A comprehensive guide to managing portfolio risk in volatile markets.",
+  "site.258":
+    "Everything you need to know about investing in digital assets safely.",
+  "site.259":
+    "In case of a breach, affected users will be notified within 72 hours.",
+  "site.260":
+    "Manage your investments across different funds and track performance.",
+  "site.261":
+    "Most browsers let you block cookies from settings > privacy/security.",
+  "site.262":
+    "View running strategies, switch execution, and monitor pooled metrics",
+  "site.263":
+    "Attempts to circumvent security, quotas or licensing are prohibited.",
+  "site.264":
+    "High-quality financial infrastructure begins with high-quality data.",
+  "site.265":
+    "Infrastructure designed to operate across markets and jurisdictions.",
+  "site.266":
+    "MARKET DATA → DATA PLATFORM → QUANT + AI → RISK → EXECUTION → VENUES",
+  "site.267":
+    "No statements yet. Statements are generated monthly by the platform.",
+  "site.268":
+    "People, process and third-party failures can affect service quality.",
+  "site.269":
+    "Technology infrastructure for digital asset markets where supported.",
+  "site.270":
+    "We anonymize all data used for benchmarks and research publications.",
+  "site.271":
+    "We may email you regarding platform changes, promotions, or reports.",
+  "site.272":
+    "Create and manage portfolio managers who onboard and serve clients.",
+  "site.273":
+    "Electronic trading systems and systematic execution infrastructure.",
+  "site.274":
+    "High-performance data, research, execution and risk infrastructure.",
+  "site.275":
+    "Initiate a bank deposit, then wire funds to our settlement account.",
+  "site.276":
+    "Thank you for contacting us! We'll get back to you within 24 hours.",
+  "site.277":
+    "APIs may only be used for permitted purposes in your access grant.",
+  "site.278":
+    "Enter an amount — we match you to the best strategy for your plan.",
+  "site.279":
+    "Master advanced trading techniques used by professional investors.",
+  "site.280":
+    "Structured intelligence from market data and alternative datasets.",
+  "site.281":
+    "Tools like uBlock or browser settings can block analytics cookies.",
+  "site.282":
+    "Used for analytics (Google), payments (Stripe), and social logins.",
+  "site.283":
+    "We maintain redundant secure backups to ensure service continuity.",
+  "site.284":
+    "You can transfer funds from your wallet to investments at any time",
+  "site.285":
+    "You may withdraw data use consent, subject to feature limitations.",
+  "site.286":
+    "Currently not used. We will ask for consent if we introduce them.",
+  "site.287":
+    "Exposure, stress testing, scenario analysis and limit frameworks.",
+  "site.288":
+    "Market data, analytics, risk and execution infrastructure for FX.",
+  "site.289":
+    "No transactions yet. Make a deposit or investment to get started.",
+  "site.290":
+    "We comply with GDPR, CCPA, and Kenyan Data Protection guidelines.",
+  "site.291":
+    "We may disclose data when required by legal process or subpoenas.",
+  "site.292":
+    "Enter the 6-digit code sent to your email and your new password.",
+  "site.293":
+    "Role-based controls govern internal access to your account data.",
+  "site.294":
+    "Withdrawal submitted. It will be processed after admin approval.",
   "site.295": "All wallet deposits, withdrawals, investments, and adjustments.",
   "site.296": "Any external integrations via our API are logged and monitored.",
   "site.297": "Bank deposit initiated — transfer funds using the details below",
@@ -412,7 +650,7 @@ export const siteEn: Messages = {
   "site.408": "Build the Financial Ecosystem With Evermount",
   "site.409": "Funds available for withdrawal or investment",
   "site.410": "Used to detect suspicious activity or abuse.",
-  "site.411": "; case \"pending\": case \"processing\": return",
+  "site.411": '; case "pending": case "processing": return',
   "site.412": "Evermount financial infrastructure platform",
   "site.413": "How is my portfolio performance calculated?",
   "site.414": "Instant deposit via STK push to your phone.",
@@ -425,7 +663,7 @@ export const siteEn: Messages = {
   "site.421": "Evermount financial intelligence platform",
   "site.422": "Infrastructure for Financial Institutions",
   "site.423": "One Platform. Multiple Financial Systems.",
-  "site.424": "; case \"failed\": case \"rejected\": return",
+  "site.424": '; case "failed": case "rejected": return',
   "site.425": "Complete verification to start investing",
   "site.426": "From Financial Intelligence to Execution",
   "site.427": "How do I update my personal information?",
@@ -569,8 +807,8 @@ export const siteEn: Messages = {
   "site.565": "Wire reference (optional)",
   "site.566": "Withdraw to Crypto Wallet",
   "site.567": "← Back to Deposit Methods",
-  "site.568": "; case \"article\": return",
-  "site.569": "; case \"webinar\": return",
+  "site.568": '; case "article": return',
+  "site.569": '; case "webinar": return',
   "site.570": "Assign investor by email",
   "site.571": "Execution infrastructure",
   "site.572": "execution infrastructure",
@@ -609,7 +847,7 @@ export const siteEn: Messages = {
   "site.605": "Technology Architecture",
   "site.606": "TypeScript / JavaScript",
   "site.607": "Wallet + Invested funds",
-  "site.608": "; case \"guide\": return",
+  "site.608": '; case "guide": return',
   "site.609": "AI research assistants",
   "site.610": "Default lock-in period",
   "site.611": "Discovering strategies",
@@ -1262,11 +1500,14 @@ export const siteEn: Messages = {
 
 export const siteFr: Messages = {
   "site.0": "La plateforme d'infrastructure financière Evermount",
-  "site.1": "Données de marché, recherche quantitative, IA, exécution, risque et infrastructure de portefeuille pour les marchés modernes.",
-  "site.2": "Construisez, connectez, analysez et exécutez sur les marchés financiers avec l'infrastructure Evermount.",
+  "site.1":
+    "Données de marché, recherche quantitative, IA, exécution, risque et infrastructure de portefeuille pour les marchés modernes.",
+  "site.2":
+    "Construisez, connectez, analysez et exécutez sur les marchés financiers avec l'infrastructure Evermount.",
   "site.3": "Explorer les API",
   "site.4": "Infrastructure de données de marché",
-  "site.5": "Infrastructure d'ingestion, de normalisation et de distribution des données de marché.",
+  "site.5":
+    "Infrastructure d'ingestion, de normalisation et de distribution des données de marché.",
   "site.6": "Données en temps réel",
   "site.7": "Données historiques",
   "site.8": "Normalisation des données",
@@ -1321,358 +1562,681 @@ export const siteFr: Messages = {
   "site.57": "Architecture de la plateforme",
   "site.58": "Comment la pile se connecte",
   "site.59": "Dernière mise à jour : 6 septembre 2026",
-  "site.60": "Cette page est un résumé produit et ne constitue pas un conseil juridique. Les conditions juridiques et réglementaires doivent être examinées par un conseil qualifié avant publication. Evermount ne revendique aucune autorisation SEC, FCA, CMA, MiFID ou similaire, sauf mention expresse séparée.",
-  "site.61": "Evermount peut fournir une infrastructure d'exécution, un logiciel de gestion des commandes et des analyses. Lorsqu’un client est une entreprise réglementée ayant des obligations de meilleure exécution, ces obligations restent à la charge du client. Evermount ne prétend pas être un courtier exécutant les ordres des clients en tant qu'entreprise d'investissement, sauf indication contraire dans un accord signé.",
-  "site.62": "Evermount est un fournisseur de technologie. Des conflits peuvent surgir entre les intérêts commerciaux, les relations avec les fournisseurs et les intérêts des clients. Notre objectif est d'identifier, de gérer et de divulguer les conflits importants dans les accords clients plutôt que d'agir en tant que gestionnaire d'investissement discrétionnaire pour les visiteurs du site Web.",
-  "site.63": "Evermount combine l'intelligence artificielle, la recherche quantitative et l'infrastructure de trading pour créer des systèmes intelligents capables d'analyser en permanence les marchés, de découvrir des opportunités, de gérer les risques et d'exécuter des stratégies systématiques.",
-  "site.64": "Les marchés financiers sont complexes, fragmentés et techniquement difficiles à exploiter. Nous combinons l'ingénierie des données, la recherche quantitative, l'apprentissage automatique et la technologie d'exécution afin que les institutions et les développeurs puissent s'appuyer sur une base commune.",
-  "site.65": "Capacités d’analyse pour les performances, les risques et l’exposition. Les chiffres présentés dans les démonstrations de produits sont indicatifs, sauf s'ils sont étiquetés comme étant les propres données du client. Evermount ne publie pas les retours sur investissement ni les ratios de Sharpe en tant que performance de l'entreprise.",
-  "site.66": "Cette déclaration décrit les contrôles de criminalité financière appropriés à un fournisseur de technologie et d'infrastructure. Il ne s'agit pas d'un manuel AML destiné aux administrateurs de fonds et ne signifie pas qu'Evermount accepte les souscriptions des investisseurs ou détient l'argent des clients.",
-  "site.67": "Ces conditions régissent l'accès aux logiciels, aux API, aux données et aux services d'infrastructure d'Evermount. Ils ne constituent pas un contrat de gestion d'investissement, une souscription à un fonds ou une invitation à déposer de l'argent du client auprès d'Evermount.",
-  "site.68": "Les clients restent responsables de leurs propres obligations commerciales, réglementaires, KYC/AML et fiduciaires. Evermount n'est pas un courtier, une banque, un dépositaire, une bourse ou un conseiller en investissement, sauf indication expresse dans un accord signé.",
-  "site.69": "Evermount fournit des services de technologie et d'infrastructure. Cette page ne revendique pas l'enregistrement auprès de la SEC, l'autorisation FCA, l'autorisation CMA, l'autorisation MiFID, le statut de courtier-négociant, le statut de conseiller en investissement ou la garde.",
-  "site.70": "Les marchés financiers sont des systèmes complexes. Nous pensons que la prochaine génération d’infrastructures financières sera construite en combinant des données à grande échelle, l’intelligence artificielle, la recherche quantitative et l’exécution automatisée.",
-  "site.71": "Nous travaillons avec des banques, des courtiers, des bourses, des fournisseurs de données de marché, des fintechs, des fournisseurs de technologies, des fournisseurs de liquidités et des institutions. Les partenariats nommés ne sont répertoriés que lorsqu'ils sont réels et approuvés pour être publics.",
-  "site.72": "Les clients institutionnels restent responsables de leurs propres obligations réglementaires, y compris les autorisations de négociation, la meilleure exécution lorsqu'ils sont une entreprise réglementée et les règles relatives aux actifs des clients qui s'appliquent à eux.",
-  "site.73": "Evermount est une organisation de recherche quantitative et de technologie financière. Les notes de recherche publique seront répertoriées ici une fois publiées. Nous ne fabriquons pas de documents, de performances ou de résultats clients.",
-  "site.74": "Nous servons les banques, les courtiers, les bourses, les gestionnaires d'actifs, les hedge funds, les sociétés de négociation pour compte propre, les teneurs de marché, les fintechs, les family offices et les développeurs qui ont besoin d'une infrastructure de marché programmable.",
-  "site.75": "Pour les déploiements à grande échelle. Capacités potentielles : déploiement dédié, connectivité privée, intégrations personnalisées, haute disponibilité, ingénierie dédiée et SLA – sous réserve de contrat.",
-  "site.76": "Pour les banques, les courtiers et les gestionnaires d'actifs. Capacités potentielles : API institutionnelles, infrastructure dédiée, connectivité du marché, infrastructure de risque et d'exécution et support d'entreprise.",
-  "site.77": "Evermount se positionne comme indépendant du marché. Les sections ci-dessous décrivent l'infrastructure de chaque marché – et ne prétendent pas qu'Evermount fournit un accès réglementé à chaque lieu ou instrument.",
-  "site.78": "Les marchés financiers sont complexes, fragmentés et techniquement difficiles à exploiter. Evermount fournit une infrastructure qui facilite la construction, l'intégration et l'exploitation des technologies du marché.",
-  "site.79": "Nous construisons l’infrastructure derrière les marchés financiers modernes – et nous ne faisons que commencer. Rejoignez des ingénieurs, des chercheurs et des opérateurs soucieux des données, des risques et des systèmes.",
-  "site.80": "La pile ci-dessous reflète les systèmes que nous utilisons aujourd'hui et les capacités figurant sur la feuille de route d'ingénierie. Nous ne publions pas de chiffres de latence, de disponibilité ou de débit, sauf vérification indépendante.",
-  "site.81": "Accès programmatique aux données financières, aux analyses, aux renseignements et à l'infrastructure. La documentation publique de l'API et les informations d'identification de production sont fournies une fois l'accès approuvé.",
-  "site.82": "Evermount construit des systèmes qui apprennent en permanence à partir des données financières, génèrent des hypothèses, évaluent les risques et traduisent les informations validées en actions contrôlées.",
-  "site.83": "Pour les sociétés commerciales, les fintechs et les utilisateurs professionnels. Capacités potentielles : données en temps réel, API avancées, analyses, API de risque et capacités d'exécution lorsqu'elles sont activées.",
-  "site.84": "La plateforme est indépendante du marché : conçue pour prendre en charge les actions, les devises, les titres à revenu fixe, les matières premières, les produits dérivés et les actifs numériques là où ces capacités sont disponibles.",
-  "site.85": "Evermount conserve les droits sur ses logiciels, modèles et documentation. Les clients conservent des droits sur leurs propres données, sous réserve des licences accordées pour exploiter le service.",
-  "site.86": "Evermount est indépendant du marché. Nous fournissons une infrastructure pour les classes d'actifs - nous n'impliquons pas qu'Evermount exploite ou fournit un accès réglementé à tous les marchés.",
-  "site.87": "Des professionnels expérimentés combinant leur expertise en finance quantitative, en informatique et en ingénierie pour stimuler l'innovation dans la technologie du trading systématique.",
-  "site.88": "Exécution algorithmique, gestion des commandes et analyse d’exécution. La connectivité aux courtiers et aux sites dépend du statut d'intégration et de la réglementation applicable.",
-  "site.89": "Evermount fournit des services de technologie et d'infrastructure. Les clients institutionnels restent responsables de leurs propres obligations réglementaires, le cas échéant.",
-  "site.90": "Nous utilisons l'apprentissage automatique, des modèles statistiques et l'ingénierie logicielle moderne. Les caractéristiques de performance spécifiques ne sont pas publiées sous forme de statistiques marketing.",
-  "site.91": "IMPORTANT : Veuillez lire attentivement cette information sur les risques. L’utilisation de la technologie financière comporte des risques. Il ne s’agit pas d’une information sur un produit d’investissement pour un fonds.",
-  "site.92": "Evermount est une société de technologie financière qui construit une infrastructure pour les données de marché, la recherche quantitative, l'intelligence artificielle, le risque et l'exécution.",
-  "site.93": "Oui, vous pouvez réaffecter vos investissements à tout moment via la page Portefeuille. Vous pouvez également mettre en place un rééquilibrage automatique en fonction de vos préférences.",
-  "site.94": "Une pile technologique unifiée conçue pour transformer les données financières en renseignements, stratégies quantitatives, décisions en matière de risques et exécution systématique.",
-  "site.95": "Cette politique en matière de cookies explique comment Evermount (« nous », « notre » ou « nos ») utilise des cookies et des technologies similaires pour vous reconnaître lorsque vous visitez notre plateforme.",
-  "site.96": "Une couche de renseignement native basée sur l'IA conçue pour aider les systèmes financiers à comprendre les marchés, à rechercher des opportunités et à prendre de meilleures décisions en tenant compte des risques.",
-  "site.97": "Les contrôles d'accès, les pratiques de cryptage et de surveillance sont mis en œuvre conformément aux systèmes en production et à l'accord client applicable.",
-  "site.98": "Les conditions commerciales dépendent des données, des marchés, du volume d'API et du modèle de déploiement. Nous ne publions pas de prix catalogue inventés. Contactez le service commercial pour une proposition.",
-  "site.99": "Cette politique de confidentialité décrit comment Evermount collecte, utilise, stocke et protège vos informations. Votre vie privée est d’une importance cruciale pour nous.",
-  "site.100": "Un écosystème financier où les institutions, les développeurs et les chercheurs peuvent créer des applications de marché sophistiquées sur une infrastructure fiable.",
-  "site.101": "Chaque partie peut résilier dans les conditions prévues par l'accord commercial. L'accès peut être suspendu en cas d'abus, de risque de sécurité ou d'exigence légale.",
-  "site.102": "Les systèmes d'IA analysent les informations de marché, les actualités, les conditions macroéconomiques et les données alternatives pour générer des informations financières structurées.",
-  "site.103": "Une feuille de route technologique issue de la recherche assistée par l'IA aujourd'hui vers une exécution systématique, une infrastructure de marché et une connectivité au marché mondial.",
-  "site.104": "Pour les développeurs et les chercheurs. Capacités potentielles : bac à sable, accès API limité, données historiques, outils de recherche et documentation.",
-  "site.105": "La disponibilité de services spécifiques dépend de la juridiction et de la réglementation applicable. Evermount n'est pas réglementé dans toutes les juridictions.",
-  "site.106": "Niveaux d’accès Développeur, Professionnel, Institutionnel et Entreprise. Les conditions commerciales sont fournies par les ventes – pas de prix catalogue inventés.",
-  "site.107": "Surfaces API planifiées et en cours de développement. La disponibilité est confirmée lors de l'intégration. Ne présumez pas que chaque API est en production.",
-  "site.108": "FlipbotEA interroge la file d'attente des signaux et s'exécute sur la démo Exness MT5 connectée. Les remplissages réussis augmentent la valeur liquidative de l'investisseur via FillRecorded.",
-  "site.109": "La marque est orientée vers le monde : une infrastructure qui peut fonctionner sur tous les marchés et juridictions dans la mesure où les capacités et les licences le permettent.",
-  "site.110": "Une pile d'IA avancée conçue pour transformer les données financières en renseignements, recherches validées, décisions en matière de risques et exécution contrôlée.",
-  "site.111": "Aucun poste ouvert n'est actuellement répertorié. Présentez-vous à Careers@evermount.co si vous souhaitez contribuer à la construction d'une infrastructure financière.",
-  "site.112": "Infrastructure financière pour les marchés modernes : données de marché, recherche quantitative, intelligence, risque, exécution et connectivité.",
-  "site.113": "Fondée en 2023, Evermount a été créée pour rendre les infrastructures financières sophistiquées plus accessibles, programmables et évolutives.",
-  "site.114": "Infrastructure de recherche pour la découverte de facteurs, la génération d'hypothèses, le backtesting, la simulation et le développement de stratégies systématiques.",
-  "site.115": "API de partenariat pour les liens de référence, les rapports clients et les données de commission. L'exécution du trading utilise Exness MT5 ci-dessus – pas cette API.",
-  "site.116": "Nous construisons notre infrastructure selon les normes les plus élevées d’excellence opérationnelle, de sécurité et de gestion des risques à mesure que nous évoluons.",
-  "site.117": "\"Nous construisons l'infrastructure de données, de recherche, de renseignement, de risque et d'exécution sur laquelle les institutions et les développeurs peuvent s'appuyer.\"",
-  "site.118": "Infrastructure de données de marché, d'analyse, de risque, d'exécution et de connectivité pour les banques, les courtiers, les gestionnaires d'actifs et les sociétés de trading.",
-  "site.119": "L'utilisation généralement autorisée inclut les fonctionnalités internes de recherche, de risque, d'analyse et d'application que vous exploitez pour votre organisation.",
-  "site.120": "Au cœur d'Evermount se trouve une plateforme technologique pour les données de marché, la recherche quantitative, l'intelligence, les risques et l'exécution.",
-  "site.121": "Retirez des USD sur votre compte bancaire lié. Les demandes sont examinées et approuvées par notre équipe (généralement dans un délai de 2 jours ouvrables).",
-  "site.122": "Chaque partie mettra en œuvre des mesures de sécurité raisonnables. Les clients doivent protéger leurs informations d’identification et signaler toute compromission suspectée.",
-  "site.123": "Une pile technologique pour les données, la recherche, l’intelligence, le risque, l’exécution et la connectivité – et non une demande de dépôt de capital.",
-  "site.124": "Déposez des fonds sur votre portefeuille en utilisant les crypto-monnaies prises en charge. Les fonds seront disponibles dans votre portefeuille après confirmation.",
-  "site.125": "Infrastructure de données, de recherche quantitative, de renseignement, de risque, d’exécution et de connectivité pour les marchés financiers modernes.",
-  "site.126": "Utilisé lorsque vous cliquez sur Trade. Votre capital reste investi pendant la durée que vous choisissez. Le retrait anticipé peut ne pas être disponible.",
-  "site.127": "Retirez des fonds de votre portefeuille vers votre banque ou votre portefeuille crypto préféré. Seul le solde disponible du portefeuille peut être retiré.",
-  "site.128": "Choisissez votre méthode de dépôt préférée pour ajouter des fonds à votre portefeuille. Les fonds seront disponibles pour le retrait ou l'investissement.",
-  "site.129": "Les données peuvent être retardées, incomplètes ou incorrectes. Il ne remplace pas les flux officiels des sites lorsque ceux-ci sont requis.",
-  "site.130": "Les services sont fournis sur une base technologique. Les fonctionnalités peuvent être en version préliminaire, limitées ou indisponibles dans certaines juridictions.",
-  "site.131": "Les ordres peuvent être retardés, rejetés, partiellement exécutés ou exécutés à des prix inattendus lorsqu'une connectivité d'exécution existe.",
-  "site.132": "L'authentification, les clés API, les limites de débit et les exemples sont publiés aux développeurs approuvés. D’ici là, demandez l’accès.",
-  "site.133": "L'hébergement, la connectivité et les modalités opérationnelles sont décrits dans le bon de commande ou l'énoncé des travaux applicable.",
-  "site.134": "Request access to discuss data, research, risk, execution and connectivity infrastructure with the Evermount team.",
-  "site.135": "A conceptual architecture connecting AI, research, risk and execution into one institutional technology platform.",
-  "site.136": "A practical journey for institutions and developers using Evermount infrastructure — not a fund onboarding flow.",
-  "site.137": "Evermount technology architecture across data engineering, quantitative computing, AI, trading systems and risk.",
-  "site.138": "We design systems around data quality, research evidence and measurable risk — not discretionary fund marketing.",
-  "site.139": "Build the financial ecosystem with Evermount through data, connectivity, technology and research partnerships.",
-  "site.140": "Drawdown, volatilité et ratio de Sharpe calculés à partir des rendements quotidiens de votre propre portefeuille au cours des 90 derniers jours.",
-  "site.141": "Retirez des KES de votre portefeuille directement sur votre compte M-Pesa. Seul le solde disponible du portefeuille peut être retiré.",
-  "site.142": "Financez votre portefeuille KES instantanément via M-Pesa. Vous recevrez un push STK sur votre téléphone pour confirmer le paiement.",
-  "site.143": "Capacités d’analyse des performances, des risques, de l’exposition, de l’attribution et des tests de résistance dans la plateforme Evermount.",
-  "site.144": "Une architecture conceptuelle. Les déploiements, sites et intégrations spécifiques varient selon le client et la juridiction.",
-  "site.145": "Les frais, le cas échéant, sont indiqués dans un bon de commande. Ce site Web ne répertorie pas les frais de gestion de fonds ni les commissions de performance.",
-  "site.146": "Infrastructure indépendante du marché pour les actions, les changes, les titres à revenu fixe, les matières premières, les produits dérivés et les actifs numériques.",
-  "site.147": "Nous ne garantissons pas un service ininterrompu. La maintenance, les pannes des fournisseurs et les cas de force majeure peuvent affecter l'accès.",
-  "site.148": "Partagez l’échelle attendue, les marchés et les exigences en matière d’infrastructure. Les prix sont indiqués et non répertoriés comme frais de fonds.",
-  "site.149": "Nous pouvons accorder l'accès à des environnements, des informations d'identification et de la documentation sous réserve de l'approbation et de la loi applicable.",
-  "site.150": "Nous sommes toujours à la recherche de personnes passionnées. Si vous êtes enthousiasmé par notre mission, nous serions ravis de vous entendre.",
-  "site.151": "Pipelines de données financières unifiées conçus pour prendre en charge les systèmes de recherche, d’analyse et de décision en temps réel.",
-  "site.152": "Capacités de la plateforme Evermount. La disponibilité spécifique dépend du niveau d’accès et de la juridiction.",
-  "site.153": "Set EXNESS_PARTNER_REFERRAL_LINK or enable EXNESS_PARTNER_ENABLED with PPA credentials in backend env.",
-  "site.154": "Retirez des fonds de votre portefeuille vers votre portefeuille crypto. Seul le solde disponible du portefeuille peut être retiré.",
-  "site.155": "Quatre fonctionnalités qui transforment les données financières en renseignements, recherches, décisions en matière de risques et exécution.",
-  "site.156": "Les contrôles des risques doivent être intégrés directement dans les systèmes, y compris la surveillance avant les transactions et en temps réel.",
-  "site.157": "Les défauts logiciels, les pannes et les erreurs de configuration peuvent interrompre l'accès ou produire des sorties incorrectes.",
-  "site.158": "Un parcours en sept étapes depuis la connexion des systèmes jusqu'à la surveillance des marchés, des risques et de l'exécution sur Evermount.",
-  "site.159": "L'infrastructure financière doit être programmable. Les API, le streaming et les intégrations sont de première classe.",
-  "site.160": "La responsabilité est limitée dans la mesure permise par la loi et comme indiqué dans les conditions commerciales signées.",
-  "site.161": "Les détails de l'hébergement et des opérations de production sont confirmés avec les clients lors de la planification du déploiement.",
-  "site.162": "Surveillance en temps réel de l'exposition, de la liquidité, de la volatilité, de la corrélation, des pertes et des régimes de marché.",
-  "site.163": "Nous n'avons pas trouvé la page que vous recherchiez. Peut-être avez-vous mal saisi l'URL ou la page a-t-elle été déplacée.",
-  "site.164": "Une base technologique pour les données de marché, la recherche quantitative, l'intelligence, le risque et l'exécution.",
-  "site.165": "Pour optimiser les performances du site, personnaliser l'expérience utilisateur, améliorer la sécurité et analyser le trafic.",
-  "site.166": "Accédez à des ressources pédagogiques, des guides, des vidéos et des webinaires pour améliorer vos connaissances en investissement.",
-  "site.167": "Vous ne trouvez pas ce que vous cherchez ? Envoyez-nous un message et nous vous répondrons dans les 24 heures.",
-  "site.168": "Les langages activement utilisés incluent TypeScript et Python. C++ et Rust figurent sur la feuille de route des systèmes.",
-  "site.169": "Entrez l'e-mail associé à votre compte et nous vous enverrons un OTP pour réinitialiser votre mot de passe.",
-  "site.170": "Infrastructure d'exécution systématique conçue pour la fiabilité, la rapidité et un déploiement contrôlé.",
-  "site.171": "Rencontrez l'équipe d'Evermount et découvrez comment nous construisons une infrastructure financière pour les marchés modernes.",
-  "site.172": "Petits fichiers de données placés sur votre appareil pour suivre le comportement, les préférences et l'activité de la session.",
-  "site.173": "Gérez les comptes et les accès des investisseurs. Les gestionnaires de portefeuille sont créés sous Admin → Gestionnaires.",
-  "site.174": "Notre équipe combine une expérience en finance quantitative, en science des données et en ingénierie des systèmes.",
-  "site.175": "Parlez-nous de vos besoins en institution et en infrastructure. Nous suivrons les prochaines étapes.",
-  "site.176": "Infrastructure conçue pour fonctionner sur tous les marchés et juridictions dans la mesure où les capacités le permettent.",
-  "site.177": "Planifiez une conversation sur l'infrastructure de données, de recherche, de risque et d'exécution d'Evermount.",
-  "site.178": "Défini par Evermount directement pour les sessions de connexion, l'enregistrement des préférences de thème et les états des graphiques.",
-  "site.179": "Les API peuvent changer, être versionnées ou être retirées avec préavis lorsque cela est raisonnablement possible.",
-  "site.180": "Connectez des sources de données, des courtiers, des sites ou des systèmes institutionnels là où des intégrations existent.",
-  "site.181": "Les données de marché et les données de tiers sont soumises à la politique de données et aux licences des fournisseurs.",
-  "site.182": "Des environnements de non-production pour les tests d'intégration sont prévus pour les développeurs agréés.",
-  "site.183": "Recherche quantitative, structure du marché, IA, recherche sur les risques et l'exécution d'Evermount.",
-  "site.184": "Partagez les exigences de votre entreprise, de votre rôle et de votre API afin que nous puissions fournir le bon environnement.",
-  "site.185": "Utilisez l’ingénierie moderne, les méthodes quantitatives et l’IA pour résoudre des problèmes financiers complexes.",
-  "site.186": "Nous investissons dans la recherche et l’ingénierie afin que l’infrastructure reste programmable et fiable.",
-  "site.187": "Rendre l’infrastructure financière sophistiquée plus accessible, programmable et évolutive.",
-  "site.188": "Recherche sur la façon dont les lieux, la liquidité et la microstructure du marché interagissent avec la technologie.",
-  "site.189": "Votre portefeuille agit comme un compte séquestre où vous pouvez stocker des fonds en toute sécurité avant d'investir",
-  "site.190": "Construction, optimisation et analyse de portefeuille – il ne s'agit pas d'un produit d'investissement géré.",
-  "site.191": "Les institutions et les chercheurs peuvent discuter des données, des méthodes et des opportunités de partenariat.",
-  "site.192": "Découvrez la mission d'Evermount qui consiste à construire une infrastructure financière pour les marchés modernes.",
-  "site.193": "Gérez le solde de votre portefeuille, vos dépôts, vos retraits et transférez des fonds vers des investissements.",
-  "site.194": "Nous avons envoyé par e-mail un code de confirmation à 6 chiffres. Entrez le code ci-dessous pour vérifier votre email.",
-  "site.195": "Des missions de gestionnaire de relations dédiées sont disponibles pour les comptes institutionnels.",
-  "site.196": "Connectez-vous en toute sécurité au portail des investisseurs d'Evermount Capital et gérez vos investissements.",
-  "site.197": "Les données de marché et les données de tiers sont soumises aux licences des fournisseurs et à la Politique en matière de données.",
-  "site.198": "Intelligence de marché, recherche quantitative et infrastructure de technologie financière.",
-  "site.199": "Requis pour les fonctions de base – par exemple, connexion, accès au portefeuille. Ne peut pas être désactivé.",
-  "site.200": "Les données sont sous licence et non vendues. Les droits sont limités aux cas d’utilisation prévus dans votre accord.",
-  "site.201": "Les dépôts vont directement dans votre portefeuille et sont disponibles pour le retrait ou l'investissement",
-  "site.202": "Les cookies essentiels sont utilisés pour la fonctionnalité. Vous pouvez refuser les cookies de suivi.",
-  "site.203": "Accès programmatique aux données financières, aux analyses, aux renseignements et à l'infrastructure.",
-  "site.204": "La redistribution à des tiers est interdite sauf autorisation expresse écrite.",
-  "site.205": "Les accès non autorisés, les logiciels malveillants et le vol d'identifiants peuvent compromettre les systèmes et les données.",
-  "site.206": "Votre identité a été vérifiée. Vous avez un accès complet aux dépôts et aux investissements.",
-  "site.207": "Une page de statut publique sera bientôt disponible. Pour les incidents, contactez support@evermount.co.",
-  "site.208": "Tous les moyens de paiement (carte, bancaire, crypto) peuvent être utilisés pour les dépôts et retraits",
-  "site.209": "Partagez votre type d’institution, vos marchés d’intérêt et vos exigences en matière d’infrastructure.",
-  "site.210": "Les bénéfices retirés des investissements sont automatiquement ajoutés au solde de votre portefeuille",
-  "site.211": "Les dépôts par carte, M-Pesa et crypto sont disponibles. Les virements bancaires arrivent bientôt.",
-  "site.212": "Discutez de l'architecture, des API et des exigences d'intégration avec l'équipe Evermount.",
-  "site.213": "Votre soumission précédente a été rejetée. Veuillez télécharger de nouveaux documents pour réessayer.",
-  "site.214": "Les données d'échange, de fournisseur et alternatives restent soumises aux conditions de ces fournisseurs.",
-  "site.215": "L'activité du portefeuille, le profil de risque et le calendrier d'exécution sont enregistrés pour plus de précision.",
-  "site.216": "Les modèles quantitatifs et d’IA peuvent être mal spécifiés, surajustés ou échouer dans les nouveaux régimes.",
-  "site.217": "Vous ne pouvez pas récupérer, procéder à une ingénierie inverse ou redistribuer des données au-delà de votre licence.",
-  "site.218": "Le capital reste investi pendant cette période. Le retrait anticipé peut ne pas être disponible.",
-  "site.219": "Les flux peuvent être retardés, manquants ou erronés. Les décisions basées sur des données peuvent être erronées.",
-  "site.220": "Infrastructure reliant les institutions, les courtiers, les sites et les systèmes financiers.",
-  "site.221": "Extrait la valeur liquidative de la stratégie d'evermount-quant et met à jour les valeurs du portefeuille des investisseurs.",
-  "site.222": "Demandez l'accès pour discuter de la manière dont les API et les tableaux de bord d'analyse s'adaptent à votre flux de travail.",
-  "site.223": "Dites-nous quelles classes d'actifs et exigences en matière de données sont importantes pour votre institution.",
-  "site.224": "Rejoignez nos experts pour une analyse approfondie des tendances et des opportunités du marché.",
-  "site.225": "Vos documents sont en cours d'examen. Nous vous informerons par e-mail une fois terminé.",
-  "site.226": "Votre message : rôle, type d'entreprise, marchés, besoins en données/API, échelle attendue...",
-  "site.227": "Investisseurs assignés, soldes et allocation stratégique avec mesures de risque en direct",
-  "site.228": "Découvrez comment les données de marché, la recherche, les renseignements, les risques et l'exécution se connectent.",
-  "site.229": "Apprenez les principes fondamentaux des stratégies de trading quantitatives et leur fonctionnement.",
-  "site.230": "Temporaire et supprimé à la fermeture du navigateur. Maintient la connexion sur toutes les pages.",
-  "site.231": "Toutes les données sont cryptées en transit et au repos selon les meilleures pratiques du secteur.",
-  "site.232": "Téléchargez les relevés PDF avec résumé du portefeuille et attribution de performance.",
-  "site.233": "éléments flexibles-centre écart-3 px-3 py-2 arrondi-md texte-sm police-moyenne transition",
-  "site.234": "Infrastructure de modélisation, simulation, recherche factorielle et recherche stratégique.",
-  "site.235": "Nous pouvons utiliser des SDK d'analyse et de performance (par exemple, Google Analytics, Sentry).",
-  "site.236": "Les retraits bancaires, M-Pesa et crypto sont disponibles après vérification KYC.",
-  "site.237": "Les courtiers, les sites, les réseaux et les fournisseurs peuvent échouer indépendamment d'Evermount.",
-  "site.238": "Données de marché, analyses et infrastructure d'exécution pour les marchés de matières premières.",
-  "site.239": "Technologie de tenue de marché, infrastructure de liquidité et connectivité des sites.",
-  "site.240": "Discutez de l’architecture et de l’intégration sans inventions de performances.",
-  "site.241": "Nous pouvons réviser cette politique de confidentialité. Les modifications seront communiquées aux utilisateurs.",
-  "site.242": "Vous pouvez demander l'accès, la rectification ou la suppression de vos données à tout moment.",
-  "site.243": "Les méthodes quantitatives et la qualité des données sont au centre de la plateforme.",
-  "site.244": "Affiché lors de la première entrée avec des options d'inscription/de désinscription — conforme au RGPD/CCPA.",
-  "site.245": "API et infrastructure financière pouvant être intégrées aux produits.",
-  "site.246": "Construisez une infrastructure capable de fonctionner sur tous les marchés et juridictions.",
-  "site.247": "Apprentissage automatique, intelligence du marché, génération de signaux et analyses.",
-  "site.248": "Méthodes de détection de régime, PNL, prévisions et assistants de recherche.",
-  "site.249": "Pas d'historique de performances pour l'instant. Investissez pour commencer à suivre la courbe de vos actions.",
-  "site.250": "Guide étape par étape pour créer un portefeuille d’investissement bien diversifié.",
-  "site.251": "Pour améliorer l'expérience utilisateur, exécuter des analyses et respecter les réglementations.",
-  "site.252": "Nous conservons les données des utilisateurs aussi longtemps que nécessaire pour nous conformer aux lois financières.",
-  "site.253": "Les horodatages de connexion, l'adresse IP et la géolocalisation sont stockés pour la prévention de la fraude.",
-  "site.254": "Le mot de passe doit être fort. Incluez les majuscules, les chiffres et les caractères spéciaux.",
-  "site.255": "Utilisé pour stocker les filtres du tableau de bord, les paramètres de mode et les jetons de session.",
-  "site.256": "Nous ne vendons pas les données collectées par les cookies. Utilisé uniquement pour votre expérience.",
-  "site.257": "Un guide complet pour gérer le risque de portefeuille sur des marchés volatils.",
-  "site.258": "Tout ce que vous devez savoir pour investir en toute sécurité dans les actifs numériques.",
-  "site.259": "En cas de violation, les utilisateurs concernés seront informés dans les 72 heures.",
-  "site.260": "Gérez vos investissements dans différents fonds et suivez les performances.",
-  "site.261": "La plupart des navigateurs vous permettent de bloquer les cookies depuis les paramètres > confidentialité/sécurité.",
-  "site.262": "Affichez les stratégies en cours d'exécution, changez d'exécution et surveillez les métriques regroupées.",
-  "site.263": "Les tentatives visant à contourner la sécurité, les quotas ou les licences sont interdites.",
-  "site.264": "Une infrastructure financière de haute qualité commence par des données de haute qualité.",
-  "site.265": "Infrastructure conçue pour fonctionner sur tous les marchés et juridictions.",
-  "site.266": "DONNÉES DE MARCHÉ → PLATEFORME DE DONNÉES → QUANT + AI → RISQUE → EXÉCUTION → LIEUX",
-  "site.267": "Aucune déclaration pour l'instant. Les relevés sont générés mensuellement par la plateforme.",
-  "site.268": "Les défaillances des personnes, des processus et des tiers peuvent affecter la qualité du service.",
-  "site.269": "Infrastructure technologique pour les marchés d’actifs numériques, là où elle est prise en charge.",
-  "site.270": "Nous anonymisons toutes les données utilisées pour les benchmarks et les publications de recherche.",
-  "site.271": "Nous pouvons vous envoyer des e-mails concernant les modifications de la plateforme, les promotions ou les rapports.",
-  "site.272": "Créez et gérez des gestionnaires de portefeuille qui intègrent et servent les clients.",
-  "site.273": "Systèmes de négociation électronique et infrastructure d'exécution systématique.",
-  "site.274": "Infrastructure de données, de recherche, d’exécution et de risque haute performance.",
-  "site.275": "Effectuez un dépôt bancaire, puis virez les fonds sur notre compte de règlement.",
-  "site.276": "Merci de nous avoir contactés ! Nous vous répondrons dans les 24 heures.",
-  "site.277": "Les API ne peuvent être utilisées qu'aux fins autorisées dans votre autorisation d'accès.",
-  "site.278": "Entrez un montant – nous vous proposons la meilleure stratégie pour votre plan.",
-  "site.279": "Maîtrisez les techniques de trading avancées utilisées par les investisseurs professionnels.",
-  "site.280": "Intelligence structurée à partir de données de marché et d’ensembles de données alternatifs.",
-  "site.281": "Des outils comme uBlock ou les paramètres du navigateur peuvent bloquer les cookies d'analyse.",
-  "site.282": "Utilisé pour l'analyse (Google), les paiements (Stripe) et les connexions sociales.",
-  "site.283": "Nous maintenons des sauvegardes sécurisées redondantes pour assurer la continuité du service.",
-  "site.284": "Vous pouvez transférer des fonds de votre portefeuille vers des investissements à tout moment",
-  "site.285": "Vous pouvez retirer votre consentement à l'utilisation des données, sous réserve des limitations des fonctionnalités.",
-  "site.286": "Actuellement non utilisé. Nous demanderons le consentement si nous les présentons.",
-  "site.287": "Exposition, tests de résistance, analyse de scénarios et cadres de limites.",
-  "site.288": "Données de marché, analyses, risques et infrastructure d'exécution pour le Forex.",
-  "site.289": "Aucune transaction pour l'instant. Effectuez un dépôt ou un investissement pour commencer.",
-  "site.290": "Nous nous conformons aux directives RGPD, CCPA et kenyanes en matière de protection des données.",
-  "site.291": "Nous pouvons divulguer des données lorsque cela est requis par une procédure judiciaire ou une assignation à comparaître.",
-  "site.292": "Saisissez le code à 6 chiffres envoyé à votre email et votre nouveau mot de passe.",
-  "site.293": "Les contrôles basés sur les rôles régissent l'accès interne aux données de votre compte.",
-  "site.294": "Retrait soumis. Il sera traité après l'approbation de l'administrateur.",
-  "site.295": "Tous les dépôts, retraits, investissements et ajustements du portefeuille.",
-  "site.296": "Toutes les intégrations externes via notre API sont enregistrées et surveillées.",
-  "site.297": "Dépôt bancaire initié – transférez des fonds en utilisant les détails ci-dessous",
-  "site.298": "Activez les personnalisations du thème, de la devise, de la langue et de l'interface.",
-  "site.299": "Analyse d'exécution, recherche de routage et contrôles opérationnels.",
-  "site.300": "Les paiements sont traités via des tiers sécurisés et conformes à la norme PCI.",
-  "site.301": "Contrôles des risques avant transaction et en temps réel intégrés à la plateforme.",
-  "site.302": "Recherche quantitative, données, exécution et infrastructure de risque.",
-  "site.303": "Examinez les détails de l’allocation avant d’engager le capital du client.",
-  "site.304": "Discutez avec Evermount de vos exigences en matière de données, d'API et de risques.",
-  "site.305": "Téléchargez vos documents pour vérifier votre identité avant d'investir.",
-  "site.306": "Nous pouvons utiliser les actions des utilisateurs pour suggérer des modèles d'investissement optimisés.",
-  "site.307": "Votre comportement anonymisé peut être utilisé pour former des modèles de portefeuille.",
-  "site.308": "Configurez les paramètres système, la sécurité et les préférences de la plate-forme.",
-  "site.309": "Entrez les détails de votre Visa ou Mastercard pour finaliser le dépôt.",
-  "site.310": "Contrôles de la criminalité financière proportionnés aux services offerts.",
-  "site.311": "Diligence raisonnable des partenaires pour la connectivité et les relations de données.",
-  "site.312": "Transférez votre solde disponible directement sur votre compte bancaire.",
-  "site.313": "Nous ne répondons actuellement pas aux signaux « Do Not Track » du navigateur.",
-  "site.314": "Nous mettons à jour cette politique en cas de modifications importantes – consultez le journal des modifications.",
-  "site.315": "Intégration des clients pour les comptes institutionnels et développeurs.",
-  "site.316": "Modaux améliorés pour l’UE, la Californie, le Kenya et d’autres régions.",
-  "site.317": "Trouvez des réponses aux questions courantes ou contactez notre équipe d'assistance.",
-  "site.318": "En cas d'acquisition, les données des utilisateurs peuvent être transférées.",
-  "site.319": "Des intégrations comme Okra, Plaid peuvent supprimer des cookies basés sur la session.",
-  "site.320": "Infrastructure de marché, analyses et intégrations technologiques.",
-  "site.321": "Nous enregistrons l'IP, le système d'exploitation et la version du navigateur pour aider à protéger les comptes d'utilisateurs.",
-  "site.322": "Votre opt-in est mémorisé pendant 6 mois, sauf réinitialisation manuelle.",
-  "site.323": "Systèmes automatisés de gestion des risques et d’optimisation de portefeuille",
-  "site.324": "Entrez votre code PIN M-Pesa sur votre téléphone pour finaliser le dépôt.",
-  "site.325": "Pour tout problème de confidentialité, envoyez-nous un e-mail à Privacy@evermount.com.",
-  "site.326": "Ratio de Sharpe (en tant que mesure analytique sur les portefeuilles clients)",
-  "site.327": "Stocké à long terme pour les préférences de langue, de thème et d’appareil.",
-  "site.328": "Décrivez le type de partenariat, les marchés et la portée technique.",
-  "site.329": "Regroupés par type : analyses, préférences, authentification, appareil, etc.",
-  "site.330": "Infrastructure pour les institutions, les développeurs et les chercheurs",
-  "site.331": "Notre plateforme n'est pas destinée aux utilisateurs de moins de 18 ans.",
-  "site.332": "Recevez vos fonds dans votre portefeuille crypto personnel en toute sécurité.",
-  "site.333": "Infrastructure technologique et analytique pour les marchés boursiers.",
-  "site.334": "Vous pouvez à tout moment ajuster vos préférences via le pied de page.",
-  "site.335": "Infrastructure pour les contrats à terme, les options et autres produits dérivés.",
-  "site.336": "Infrastructure de données de marché, d’analyse, de risque et d’exécution.",
-  "site.337": "Authentification multifacteur et contrôles d'accès basés sur les rôles",
-  "site.338": "Le traitement des données personnelles est décrit dans la politique de confidentialité.",
-  "site.339": "Outils de recherche, d’analyse de portefeuille, de risque et d’exécution.",
-  "site.340": "Certaines fonctionnalités peuvent utiliser l'IA pour ajuster automatiquement les informations stratégiques.",
-  "site.341": "Construisez des bases fiables avant les applications financières.",
+  "site.60":
+    "Cette page est un résumé produit et ne constitue pas un conseil juridique. Les conditions juridiques et réglementaires doivent être examinées par un conseil qualifié avant publication. Evermount ne revendique aucune autorisation SEC, FCA, CMA, MiFID ou similaire, sauf mention expresse séparée.",
+  "site.61":
+    "Evermount peut fournir une infrastructure d'exécution, un logiciel de gestion des commandes et des analyses. Lorsqu’un client est une entreprise réglementée ayant des obligations de meilleure exécution, ces obligations restent à la charge du client. Evermount ne prétend pas être un courtier exécutant les ordres des clients en tant qu'entreprise d'investissement, sauf indication contraire dans un accord signé.",
+  "site.62":
+    "Evermount est un fournisseur de technologie. Des conflits peuvent surgir entre les intérêts commerciaux, les relations avec les fournisseurs et les intérêts des clients. Notre objectif est d'identifier, de gérer et de divulguer les conflits importants dans les accords clients plutôt que d'agir en tant que gestionnaire d'investissement discrétionnaire pour les visiteurs du site Web.",
+  "site.63":
+    "Evermount combine l'intelligence artificielle, la recherche quantitative et l'infrastructure de trading pour créer des systèmes intelligents capables d'analyser en permanence les marchés, de découvrir des opportunités, de gérer les risques et d'exécuter des stratégies systématiques.",
+  "site.64":
+    "Les marchés financiers sont complexes, fragmentés et techniquement difficiles à exploiter. Nous combinons l'ingénierie des données, la recherche quantitative, l'apprentissage automatique et la technologie d'exécution afin que les institutions et les développeurs puissent s'appuyer sur une base commune.",
+  "site.65":
+    "Capacités d’analyse pour les performances, les risques et l’exposition. Les chiffres présentés dans les démonstrations de produits sont indicatifs, sauf s'ils sont étiquetés comme étant les propres données du client. Evermount ne publie pas les retours sur investissement ni les ratios de Sharpe en tant que performance de l'entreprise.",
+  "site.66":
+    "Cette déclaration décrit les contrôles de criminalité financière appropriés à un fournisseur de technologie et d'infrastructure. Il ne s'agit pas d'un manuel AML destiné aux administrateurs de fonds et ne signifie pas qu'Evermount accepte les souscriptions des investisseurs ou détient l'argent des clients.",
+  "site.67":
+    "Ces conditions régissent l'accès aux logiciels, aux API, aux données et aux services d'infrastructure d'Evermount. Ils ne constituent pas un contrat de gestion d'investissement, une souscription à un fonds ou une invitation à déposer de l'argent du client auprès d'Evermount.",
+  "site.68":
+    "Les clients restent responsables de leurs propres obligations commerciales, réglementaires, KYC/AML et fiduciaires. Evermount n'est pas un courtier, une banque, un dépositaire, une bourse ou un conseiller en investissement, sauf indication expresse dans un accord signé.",
+  "site.69":
+    "Evermount fournit des services de technologie et d'infrastructure. Cette page ne revendique pas l'enregistrement auprès de la SEC, l'autorisation FCA, l'autorisation CMA, l'autorisation MiFID, le statut de courtier-négociant, le statut de conseiller en investissement ou la garde.",
+  "site.70":
+    "Les marchés financiers sont des systèmes complexes. Nous pensons que la prochaine génération d’infrastructures financières sera construite en combinant des données à grande échelle, l’intelligence artificielle, la recherche quantitative et l’exécution automatisée.",
+  "site.71":
+    "Nous travaillons avec des banques, des courtiers, des bourses, des fournisseurs de données de marché, des fintechs, des fournisseurs de technologies, des fournisseurs de liquidités et des institutions. Les partenariats nommés ne sont répertoriés que lorsqu'ils sont réels et approuvés pour être publics.",
+  "site.72":
+    "Les clients institutionnels restent responsables de leurs propres obligations réglementaires, y compris les autorisations de négociation, la meilleure exécution lorsqu'ils sont une entreprise réglementée et les règles relatives aux actifs des clients qui s'appliquent à eux.",
+  "site.73":
+    "Evermount est une organisation de recherche quantitative et de technologie financière. Les notes de recherche publique seront répertoriées ici une fois publiées. Nous ne fabriquons pas de documents, de performances ou de résultats clients.",
+  "site.74":
+    "Nous servons les banques, les courtiers, les bourses, les gestionnaires d'actifs, les hedge funds, les sociétés de négociation pour compte propre, les teneurs de marché, les fintechs, les family offices et les développeurs qui ont besoin d'une infrastructure de marché programmable.",
+  "site.75":
+    "Pour les déploiements à grande échelle. Capacités potentielles : déploiement dédié, connectivité privée, intégrations personnalisées, haute disponibilité, ingénierie dédiée et SLA – sous réserve de contrat.",
+  "site.76":
+    "Pour les banques, les courtiers et les gestionnaires d'actifs. Capacités potentielles : API institutionnelles, infrastructure dédiée, connectivité du marché, infrastructure de risque et d'exécution et support d'entreprise.",
+  "site.77":
+    "Evermount se positionne comme indépendant du marché. Les sections ci-dessous décrivent l'infrastructure de chaque marché – et ne prétendent pas qu'Evermount fournit un accès réglementé à chaque lieu ou instrument.",
+  "site.78":
+    "Les marchés financiers sont complexes, fragmentés et techniquement difficiles à exploiter. Evermount fournit une infrastructure qui facilite la construction, l'intégration et l'exploitation des technologies du marché.",
+  "site.79":
+    "Nous construisons l’infrastructure derrière les marchés financiers modernes – et nous ne faisons que commencer. Rejoignez des ingénieurs, des chercheurs et des opérateurs soucieux des données, des risques et des systèmes.",
+  "site.80":
+    "La pile ci-dessous reflète les systèmes que nous utilisons aujourd'hui et les capacités figurant sur la feuille de route d'ingénierie. Nous ne publions pas de chiffres de latence, de disponibilité ou de débit, sauf vérification indépendante.",
+  "site.81":
+    "Accès programmatique aux données financières, aux analyses, aux renseignements et à l'infrastructure. La documentation publique de l'API et les informations d'identification de production sont fournies une fois l'accès approuvé.",
+  "site.82":
+    "Evermount construit des systèmes qui apprennent en permanence à partir des données financières, génèrent des hypothèses, évaluent les risques et traduisent les informations validées en actions contrôlées.",
+  "site.83":
+    "Pour les sociétés commerciales, les fintechs et les utilisateurs professionnels. Capacités potentielles : données en temps réel, API avancées, analyses, API de risque et capacités d'exécution lorsqu'elles sont activées.",
+  "site.84":
+    "La plateforme est indépendante du marché : conçue pour prendre en charge les actions, les devises, les titres à revenu fixe, les matières premières, les produits dérivés et les actifs numériques là où ces capacités sont disponibles.",
+  "site.85":
+    "Evermount conserve les droits sur ses logiciels, modèles et documentation. Les clients conservent des droits sur leurs propres données, sous réserve des licences accordées pour exploiter le service.",
+  "site.86":
+    "Evermount est indépendant du marché. Nous fournissons une infrastructure pour les classes d'actifs - nous n'impliquons pas qu'Evermount exploite ou fournit un accès réglementé à tous les marchés.",
+  "site.87":
+    "Des professionnels expérimentés combinant leur expertise en finance quantitative, en informatique et en ingénierie pour stimuler l'innovation dans la technologie du trading systématique.",
+  "site.88":
+    "Exécution algorithmique, gestion des commandes et analyse d’exécution. La connectivité aux courtiers et aux sites dépend du statut d'intégration et de la réglementation applicable.",
+  "site.89":
+    "Evermount fournit des services de technologie et d'infrastructure. Les clients institutionnels restent responsables de leurs propres obligations réglementaires, le cas échéant.",
+  "site.90":
+    "Nous utilisons l'apprentissage automatique, des modèles statistiques et l'ingénierie logicielle moderne. Les caractéristiques de performance spécifiques ne sont pas publiées sous forme de statistiques marketing.",
+  "site.91":
+    "IMPORTANT : Veuillez lire attentivement cette information sur les risques. L’utilisation de la technologie financière comporte des risques. Il ne s’agit pas d’une information sur un produit d’investissement pour un fonds.",
+  "site.92":
+    "Evermount est une société de technologie financière qui construit une infrastructure pour les données de marché, la recherche quantitative, l'intelligence artificielle, le risque et l'exécution.",
+  "site.93":
+    "Oui, vous pouvez réaffecter vos investissements à tout moment via la page Portefeuille. Vous pouvez également mettre en place un rééquilibrage automatique en fonction de vos préférences.",
+  "site.94":
+    "Une pile technologique unifiée conçue pour transformer les données financières en renseignements, stratégies quantitatives, décisions en matière de risques et exécution systématique.",
+  "site.95":
+    "Cette politique en matière de cookies explique comment Evermount (« nous », « notre » ou « nos ») utilise des cookies et des technologies similaires pour vous reconnaître lorsque vous visitez notre plateforme.",
+  "site.96":
+    "Une couche de renseignement native basée sur l'IA conçue pour aider les systèmes financiers à comprendre les marchés, à rechercher des opportunités et à prendre de meilleures décisions en tenant compte des risques.",
+  "site.97":
+    "Les contrôles d'accès, les pratiques de cryptage et de surveillance sont mis en œuvre conformément aux systèmes en production et à l'accord client applicable.",
+  "site.98":
+    "Les conditions commerciales dépendent des données, des marchés, du volume d'API et du modèle de déploiement. Nous ne publions pas de prix catalogue inventés. Contactez le service commercial pour une proposition.",
+  "site.99":
+    "Cette politique de confidentialité décrit comment Evermount collecte, utilise, stocke et protège vos informations. Votre vie privée est d’une importance cruciale pour nous.",
+  "site.100":
+    "Un écosystème financier où les institutions, les développeurs et les chercheurs peuvent créer des applications de marché sophistiquées sur une infrastructure fiable.",
+  "site.101":
+    "Chaque partie peut résilier dans les conditions prévues par l'accord commercial. L'accès peut être suspendu en cas d'abus, de risque de sécurité ou d'exigence légale.",
+  "site.102":
+    "Les systèmes d'IA analysent les informations de marché, les actualités, les conditions macroéconomiques et les données alternatives pour générer des informations financières structurées.",
+  "site.103":
+    "Une feuille de route technologique issue de la recherche assistée par l'IA aujourd'hui vers une exécution systématique, une infrastructure de marché et une connectivité au marché mondial.",
+  "site.104":
+    "Pour les développeurs et les chercheurs. Capacités potentielles : bac à sable, accès API limité, données historiques, outils de recherche et documentation.",
+  "site.105":
+    "La disponibilité de services spécifiques dépend de la juridiction et de la réglementation applicable. Evermount n'est pas réglementé dans toutes les juridictions.",
+  "site.106":
+    "Niveaux d’accès Développeur, Professionnel, Institutionnel et Entreprise. Les conditions commerciales sont fournies par les ventes – pas de prix catalogue inventés.",
+  "site.107":
+    "Surfaces API planifiées et en cours de développement. La disponibilité est confirmée lors de l'intégration. Ne présumez pas que chaque API est en production.",
+  "site.108":
+    "FlipbotEA interroge la file d'attente des signaux et s'exécute sur la démo Exness MT5 connectée. Les remplissages réussis augmentent la valeur liquidative de l'investisseur via FillRecorded.",
+  "site.109":
+    "La marque est orientée vers le monde : une infrastructure qui peut fonctionner sur tous les marchés et juridictions dans la mesure où les capacités et les licences le permettent.",
+  "site.110":
+    "Une pile d'IA avancée conçue pour transformer les données financières en renseignements, recherches validées, décisions en matière de risques et exécution contrôlée.",
+  "site.111":
+    "Aucun poste ouvert n'est actuellement répertorié. Présentez-vous à Careers@evermount.co si vous souhaitez contribuer à la construction d'une infrastructure financière.",
+  "site.112":
+    "Infrastructure financière pour les marchés modernes : données de marché, recherche quantitative, intelligence, risque, exécution et connectivité.",
+  "site.113":
+    "Fondée en 2023, Evermount a été créée pour rendre les infrastructures financières sophistiquées plus accessibles, programmables et évolutives.",
+  "site.114":
+    "Infrastructure de recherche pour la découverte de facteurs, la génération d'hypothèses, le backtesting, la simulation et le développement de stratégies systématiques.",
+  "site.115":
+    "API de partenariat pour les liens de référence, les rapports clients et les données de commission. L'exécution du trading utilise Exness MT5 ci-dessus – pas cette API.",
+  "site.116":
+    "Nous construisons notre infrastructure selon les normes les plus élevées d’excellence opérationnelle, de sécurité et de gestion des risques à mesure que nous évoluons.",
+  "site.117":
+    "\"Nous construisons l'infrastructure de données, de recherche, de renseignement, de risque et d'exécution sur laquelle les institutions et les développeurs peuvent s'appuyer.\"",
+  "site.118":
+    "Infrastructure de données de marché, d'analyse, de risque, d'exécution et de connectivité pour les banques, les courtiers, les gestionnaires d'actifs et les sociétés de trading.",
+  "site.119":
+    "L'utilisation généralement autorisée inclut les fonctionnalités internes de recherche, de risque, d'analyse et d'application que vous exploitez pour votre organisation.",
+  "site.120":
+    "Au cœur d'Evermount se trouve une plateforme technologique pour les données de marché, la recherche quantitative, l'intelligence, les risques et l'exécution.",
+  "site.121":
+    "Retirez des USD sur votre compte bancaire lié. Les demandes sont examinées et approuvées par notre équipe (généralement dans un délai de 2 jours ouvrables).",
+  "site.122":
+    "Chaque partie mettra en œuvre des mesures de sécurité raisonnables. Les clients doivent protéger leurs informations d’identification et signaler toute compromission suspectée.",
+  "site.123":
+    "Une pile technologique pour les données, la recherche, l’intelligence, le risque, l’exécution et la connectivité – et non une demande de dépôt de capital.",
+  "site.124":
+    "Déposez des fonds sur votre portefeuille en utilisant les crypto-monnaies prises en charge. Les fonds seront disponibles dans votre portefeuille après confirmation.",
+  "site.125":
+    "Infrastructure de données, de recherche quantitative, de renseignement, de risque, d’exécution et de connectivité pour les marchés financiers modernes.",
+  "site.126":
+    "Utilisé lorsque vous cliquez sur Trade. Votre capital reste investi pendant la durée que vous choisissez. Le retrait anticipé peut ne pas être disponible.",
+  "site.127":
+    "Retirez des fonds de votre portefeuille vers votre banque ou votre portefeuille crypto préféré. Seul le solde disponible du portefeuille peut être retiré.",
+  "site.128":
+    "Choisissez votre méthode de dépôt préférée pour ajouter des fonds à votre portefeuille. Les fonds seront disponibles pour le retrait ou l'investissement.",
+  "site.129":
+    "Les données peuvent être retardées, incomplètes ou incorrectes. Il ne remplace pas les flux officiels des sites lorsque ceux-ci sont requis.",
+  "site.130":
+    "Les services sont fournis sur une base technologique. Les fonctionnalités peuvent être en version préliminaire, limitées ou indisponibles dans certaines juridictions.",
+  "site.131":
+    "Les ordres peuvent être retardés, rejetés, partiellement exécutés ou exécutés à des prix inattendus lorsqu'une connectivité d'exécution existe.",
+  "site.132":
+    "L'authentification, les clés API, les limites de débit et les exemples sont publiés aux développeurs approuvés. D’ici là, demandez l’accès.",
+  "site.133":
+    "L'hébergement, la connectivité et les modalités opérationnelles sont décrits dans le bon de commande ou l'énoncé des travaux applicable.",
+  "site.134":
+    "Request access to discuss data, research, risk, execution and connectivity infrastructure with the Evermount team.",
+  "site.135":
+    "A conceptual architecture connecting AI, research, risk and execution into one institutional technology platform.",
+  "site.136":
+    "A practical journey for institutions and developers using Evermount infrastructure — not a fund onboarding flow.",
+  "site.137":
+    "Evermount technology architecture across data engineering, quantitative computing, AI, trading systems and risk.",
+  "site.138":
+    "We design systems around data quality, research evidence and measurable risk — not discretionary fund marketing.",
+  "site.139":
+    "Build the financial ecosystem with Evermount through data, connectivity, technology and research partnerships.",
+  "site.140":
+    "Drawdown, volatilité et ratio de Sharpe calculés à partir des rendements quotidiens de votre propre portefeuille au cours des 90 derniers jours.",
+  "site.141":
+    "Retirez des KES de votre portefeuille directement sur votre compte M-Pesa. Seul le solde disponible du portefeuille peut être retiré.",
+  "site.142":
+    "Financez votre portefeuille KES instantanément via M-Pesa. Vous recevrez un push STK sur votre téléphone pour confirmer le paiement.",
+  "site.143":
+    "Capacités d’analyse des performances, des risques, de l’exposition, de l’attribution et des tests de résistance dans la plateforme Evermount.",
+  "site.144":
+    "Une architecture conceptuelle. Les déploiements, sites et intégrations spécifiques varient selon le client et la juridiction.",
+  "site.145":
+    "Les frais, le cas échéant, sont indiqués dans un bon de commande. Ce site Web ne répertorie pas les frais de gestion de fonds ni les commissions de performance.",
+  "site.146":
+    "Infrastructure indépendante du marché pour les actions, les changes, les titres à revenu fixe, les matières premières, les produits dérivés et les actifs numériques.",
+  "site.147":
+    "Nous ne garantissons pas un service ininterrompu. La maintenance, les pannes des fournisseurs et les cas de force majeure peuvent affecter l'accès.",
+  "site.148":
+    "Partagez l’échelle attendue, les marchés et les exigences en matière d’infrastructure. Les prix sont indiqués et non répertoriés comme frais de fonds.",
+  "site.149":
+    "Nous pouvons accorder l'accès à des environnements, des informations d'identification et de la documentation sous réserve de l'approbation et de la loi applicable.",
+  "site.150":
+    "Nous sommes toujours à la recherche de personnes passionnées. Si vous êtes enthousiasmé par notre mission, nous serions ravis de vous entendre.",
+  "site.151":
+    "Pipelines de données financières unifiées conçus pour prendre en charge les systèmes de recherche, d’analyse et de décision en temps réel.",
+  "site.152":
+    "Capacités de la plateforme Evermount. La disponibilité spécifique dépend du niveau d’accès et de la juridiction.",
+  "site.153":
+    "Set EXNESS_PARTNER_REFERRAL_LINK or enable EXNESS_PARTNER_ENABLED with PPA credentials in backend env.",
+  "site.154":
+    "Retirez des fonds de votre portefeuille vers votre portefeuille crypto. Seul le solde disponible du portefeuille peut être retiré.",
+  "site.155":
+    "Quatre fonctionnalités qui transforment les données financières en renseignements, recherches, décisions en matière de risques et exécution.",
+  "site.156":
+    "Les contrôles des risques doivent être intégrés directement dans les systèmes, y compris la surveillance avant les transactions et en temps réel.",
+  "site.157":
+    "Les défauts logiciels, les pannes et les erreurs de configuration peuvent interrompre l'accès ou produire des sorties incorrectes.",
+  "site.158":
+    "Un parcours en sept étapes depuis la connexion des systèmes jusqu'à la surveillance des marchés, des risques et de l'exécution sur Evermount.",
+  "site.159":
+    "L'infrastructure financière doit être programmable. Les API, le streaming et les intégrations sont de première classe.",
+  "site.160":
+    "La responsabilité est limitée dans la mesure permise par la loi et comme indiqué dans les conditions commerciales signées.",
+  "site.161":
+    "Les détails de l'hébergement et des opérations de production sont confirmés avec les clients lors de la planification du déploiement.",
+  "site.162":
+    "Surveillance en temps réel de l'exposition, de la liquidité, de la volatilité, de la corrélation, des pertes et des régimes de marché.",
+  "site.163":
+    "Nous n'avons pas trouvé la page que vous recherchiez. Peut-être avez-vous mal saisi l'URL ou la page a-t-elle été déplacée.",
+  "site.164":
+    "Une base technologique pour les données de marché, la recherche quantitative, l'intelligence, le risque et l'exécution.",
+  "site.165":
+    "Pour optimiser les performances du site, personnaliser l'expérience utilisateur, améliorer la sécurité et analyser le trafic.",
+  "site.166":
+    "Accédez à des ressources pédagogiques, des guides, des vidéos et des webinaires pour améliorer vos connaissances en investissement.",
+  "site.167":
+    "Vous ne trouvez pas ce que vous cherchez ? Envoyez-nous un message et nous vous répondrons dans les 24 heures.",
+  "site.168":
+    "Les langages activement utilisés incluent TypeScript et Python. C++ et Rust figurent sur la feuille de route des systèmes.",
+  "site.169":
+    "Entrez l'e-mail associé à votre compte et nous vous enverrons un OTP pour réinitialiser votre mot de passe.",
+  "site.170":
+    "Infrastructure d'exécution systématique conçue pour la fiabilité, la rapidité et un déploiement contrôlé.",
+  "site.171":
+    "Rencontrez l'équipe d'Evermount et découvrez comment nous construisons une infrastructure financière pour les marchés modernes.",
+  "site.172":
+    "Petits fichiers de données placés sur votre appareil pour suivre le comportement, les préférences et l'activité de la session.",
+  "site.173":
+    "Gérez les comptes et les accès des investisseurs. Les gestionnaires de portefeuille sont créés sous Admin → Gestionnaires.",
+  "site.174":
+    "Notre équipe combine une expérience en finance quantitative, en science des données et en ingénierie des systèmes.",
+  "site.175":
+    "Parlez-nous de vos besoins en institution et en infrastructure. Nous suivrons les prochaines étapes.",
+  "site.176":
+    "Infrastructure conçue pour fonctionner sur tous les marchés et juridictions dans la mesure où les capacités le permettent.",
+  "site.177":
+    "Planifiez une conversation sur l'infrastructure de données, de recherche, de risque et d'exécution d'Evermount.",
+  "site.178":
+    "Défini par Evermount directement pour les sessions de connexion, l'enregistrement des préférences de thème et les états des graphiques.",
+  "site.179":
+    "Les API peuvent changer, être versionnées ou être retirées avec préavis lorsque cela est raisonnablement possible.",
+  "site.180":
+    "Connectez des sources de données, des courtiers, des sites ou des systèmes institutionnels là où des intégrations existent.",
+  "site.181":
+    "Les données de marché et les données de tiers sont soumises à la politique de données et aux licences des fournisseurs.",
+  "site.182":
+    "Des environnements de non-production pour les tests d'intégration sont prévus pour les développeurs agréés.",
+  "site.183":
+    "Recherche quantitative, structure du marché, IA, recherche sur les risques et l'exécution d'Evermount.",
+  "site.184":
+    "Partagez les exigences de votre entreprise, de votre rôle et de votre API afin que nous puissions fournir le bon environnement.",
+  "site.185":
+    "Utilisez l’ingénierie moderne, les méthodes quantitatives et l’IA pour résoudre des problèmes financiers complexes.",
+  "site.186":
+    "Nous investissons dans la recherche et l’ingénierie afin que l’infrastructure reste programmable et fiable.",
+  "site.187":
+    "Rendre l’infrastructure financière sophistiquée plus accessible, programmable et évolutive.",
+  "site.188":
+    "Recherche sur la façon dont les lieux, la liquidité et la microstructure du marché interagissent avec la technologie.",
+  "site.189":
+    "Votre portefeuille agit comme un compte séquestre où vous pouvez stocker des fonds en toute sécurité avant d'investir",
+  "site.190":
+    "Construction, optimisation et analyse de portefeuille – il ne s'agit pas d'un produit d'investissement géré.",
+  "site.191":
+    "Les institutions et les chercheurs peuvent discuter des données, des méthodes et des opportunités de partenariat.",
+  "site.192":
+    "Découvrez la mission d'Evermount qui consiste à construire une infrastructure financière pour les marchés modernes.",
+  "site.193":
+    "Gérez le solde de votre portefeuille, vos dépôts, vos retraits et transférez des fonds vers des investissements.",
+  "site.194":
+    "Nous avons envoyé par e-mail un code de confirmation à 6 chiffres. Entrez le code ci-dessous pour vérifier votre email.",
+  "site.195":
+    "Des missions de gestionnaire de relations dédiées sont disponibles pour les comptes institutionnels.",
+  "site.196":
+    "Connectez-vous en toute sécurité au portail des investisseurs d'Evermount Capital et gérez vos investissements.",
+  "site.197":
+    "Les données de marché et les données de tiers sont soumises aux licences des fournisseurs et à la Politique en matière de données.",
+  "site.198":
+    "Intelligence de marché, recherche quantitative et infrastructure de technologie financière.",
+  "site.199":
+    "Requis pour les fonctions de base – par exemple, connexion, accès au portefeuille. Ne peut pas être désactivé.",
+  "site.200":
+    "Les données sont sous licence et non vendues. Les droits sont limités aux cas d’utilisation prévus dans votre accord.",
+  "site.201":
+    "Les dépôts vont directement dans votre portefeuille et sont disponibles pour le retrait ou l'investissement",
+  "site.202":
+    "Les cookies essentiels sont utilisés pour la fonctionnalité. Vous pouvez refuser les cookies de suivi.",
+  "site.203":
+    "Accès programmatique aux données financières, aux analyses, aux renseignements et à l'infrastructure.",
+  "site.204":
+    "La redistribution à des tiers est interdite sauf autorisation expresse écrite.",
+  "site.205":
+    "Les accès non autorisés, les logiciels malveillants et le vol d'identifiants peuvent compromettre les systèmes et les données.",
+  "site.206":
+    "Votre identité a été vérifiée. Vous avez un accès complet aux dépôts et aux investissements.",
+  "site.207":
+    "Une page de statut publique sera bientôt disponible. Pour les incidents, contactez support@evermount.co.",
+  "site.208":
+    "Tous les moyens de paiement (carte, bancaire, crypto) peuvent être utilisés pour les dépôts et retraits",
+  "site.209":
+    "Partagez votre type d’institution, vos marchés d’intérêt et vos exigences en matière d’infrastructure.",
+  "site.210":
+    "Les bénéfices retirés des investissements sont automatiquement ajoutés au solde de votre portefeuille",
+  "site.211":
+    "Les dépôts par carte, M-Pesa et crypto sont disponibles. Les virements bancaires arrivent bientôt.",
+  "site.212":
+    "Discutez de l'architecture, des API et des exigences d'intégration avec l'équipe Evermount.",
+  "site.213":
+    "Votre soumission précédente a été rejetée. Veuillez télécharger de nouveaux documents pour réessayer.",
+  "site.214":
+    "Les données d'échange, de fournisseur et alternatives restent soumises aux conditions de ces fournisseurs.",
+  "site.215":
+    "L'activité du portefeuille, le profil de risque et le calendrier d'exécution sont enregistrés pour plus de précision.",
+  "site.216":
+    "Les modèles quantitatifs et d’IA peuvent être mal spécifiés, surajustés ou échouer dans les nouveaux régimes.",
+  "site.217":
+    "Vous ne pouvez pas récupérer, procéder à une ingénierie inverse ou redistribuer des données au-delà de votre licence.",
+  "site.218":
+    "Le capital reste investi pendant cette période. Le retrait anticipé peut ne pas être disponible.",
+  "site.219":
+    "Les flux peuvent être retardés, manquants ou erronés. Les décisions basées sur des données peuvent être erronées.",
+  "site.220":
+    "Infrastructure reliant les institutions, les courtiers, les sites et les systèmes financiers.",
+  "site.221":
+    "Extrait la valeur liquidative de la stratégie d'evermount-quant et met à jour les valeurs du portefeuille des investisseurs.",
+  "site.222":
+    "Demandez l'accès pour discuter de la manière dont les API et les tableaux de bord d'analyse s'adaptent à votre flux de travail.",
+  "site.223":
+    "Dites-nous quelles classes d'actifs et exigences en matière de données sont importantes pour votre institution.",
+  "site.224":
+    "Rejoignez nos experts pour une analyse approfondie des tendances et des opportunités du marché.",
+  "site.225":
+    "Vos documents sont en cours d'examen. Nous vous informerons par e-mail une fois terminé.",
+  "site.226":
+    "Votre message : rôle, type d'entreprise, marchés, besoins en données/API, échelle attendue...",
+  "site.227":
+    "Investisseurs assignés, soldes et allocation stratégique avec mesures de risque en direct",
+  "site.228":
+    "Découvrez comment les données de marché, la recherche, les renseignements, les risques et l'exécution se connectent.",
+  "site.229":
+    "Apprenez les principes fondamentaux des stratégies de trading quantitatives et leur fonctionnement.",
+  "site.230":
+    "Temporaire et supprimé à la fermeture du navigateur. Maintient la connexion sur toutes les pages.",
+  "site.231":
+    "Toutes les données sont cryptées en transit et au repos selon les meilleures pratiques du secteur.",
+  "site.232":
+    "Téléchargez les relevés PDF avec résumé du portefeuille et attribution de performance.",
+  "site.233":
+    "éléments flexibles-centre écart-3 px-3 py-2 arrondi-md texte-sm police-moyenne transition",
+  "site.234":
+    "Infrastructure de modélisation, simulation, recherche factorielle et recherche stratégique.",
+  "site.235":
+    "Nous pouvons utiliser des SDK d'analyse et de performance (par exemple, Google Analytics, Sentry).",
+  "site.236":
+    "Les retraits bancaires, M-Pesa et crypto sont disponibles après vérification KYC.",
+  "site.237":
+    "Les courtiers, les sites, les réseaux et les fournisseurs peuvent échouer indépendamment d'Evermount.",
+  "site.238":
+    "Données de marché, analyses et infrastructure d'exécution pour les marchés de matières premières.",
+  "site.239":
+    "Technologie de tenue de marché, infrastructure de liquidité et connectivité des sites.",
+  "site.240":
+    "Discutez de l’architecture et de l’intégration sans inventions de performances.",
+  "site.241":
+    "Nous pouvons réviser cette politique de confidentialité. Les modifications seront communiquées aux utilisateurs.",
+  "site.242":
+    "Vous pouvez demander l'accès, la rectification ou la suppression de vos données à tout moment.",
+  "site.243":
+    "Les méthodes quantitatives et la qualité des données sont au centre de la plateforme.",
+  "site.244":
+    "Affiché lors de la première entrée avec des options d'inscription/de désinscription — conforme au RGPD/CCPA.",
+  "site.245":
+    "API et infrastructure financière pouvant être intégrées aux produits.",
+  "site.246":
+    "Construisez une infrastructure capable de fonctionner sur tous les marchés et juridictions.",
+  "site.247":
+    "Apprentissage automatique, intelligence du marché, génération de signaux et analyses.",
+  "site.248":
+    "Méthodes de détection de régime, PNL, prévisions et assistants de recherche.",
+  "site.249":
+    "Pas d'historique de performances pour l'instant. Investissez pour commencer à suivre la courbe de vos actions.",
+  "site.250":
+    "Guide étape par étape pour créer un portefeuille d’investissement bien diversifié.",
+  "site.251":
+    "Pour améliorer l'expérience utilisateur, exécuter des analyses et respecter les réglementations.",
+  "site.252":
+    "Nous conservons les données des utilisateurs aussi longtemps que nécessaire pour nous conformer aux lois financières.",
+  "site.253":
+    "Les horodatages de connexion, l'adresse IP et la géolocalisation sont stockés pour la prévention de la fraude.",
+  "site.254":
+    "Le mot de passe doit être fort. Incluez les majuscules, les chiffres et les caractères spéciaux.",
+  "site.255":
+    "Utilisé pour stocker les filtres du tableau de bord, les paramètres de mode et les jetons de session.",
+  "site.256":
+    "Nous ne vendons pas les données collectées par les cookies. Utilisé uniquement pour votre expérience.",
+  "site.257":
+    "Un guide complet pour gérer le risque de portefeuille sur des marchés volatils.",
+  "site.258":
+    "Tout ce que vous devez savoir pour investir en toute sécurité dans les actifs numériques.",
+  "site.259":
+    "En cas de violation, les utilisateurs concernés seront informés dans les 72 heures.",
+  "site.260":
+    "Gérez vos investissements dans différents fonds et suivez les performances.",
+  "site.261":
+    "La plupart des navigateurs vous permettent de bloquer les cookies depuis les paramètres > confidentialité/sécurité.",
+  "site.262":
+    "Affichez les stratégies en cours d'exécution, changez d'exécution et surveillez les métriques regroupées.",
+  "site.263":
+    "Les tentatives visant à contourner la sécurité, les quotas ou les licences sont interdites.",
+  "site.264":
+    "Une infrastructure financière de haute qualité commence par des données de haute qualité.",
+  "site.265":
+    "Infrastructure conçue pour fonctionner sur tous les marchés et juridictions.",
+  "site.266":
+    "DONNÉES DE MARCHÉ → PLATEFORME DE DONNÉES → QUANT + AI → RISQUE → EXÉCUTION → LIEUX",
+  "site.267":
+    "Aucune déclaration pour l'instant. Les relevés sont générés mensuellement par la plateforme.",
+  "site.268":
+    "Les défaillances des personnes, des processus et des tiers peuvent affecter la qualité du service.",
+  "site.269":
+    "Infrastructure technologique pour les marchés d’actifs numériques, là où elle est prise en charge.",
+  "site.270":
+    "Nous anonymisons toutes les données utilisées pour les benchmarks et les publications de recherche.",
+  "site.271":
+    "Nous pouvons vous envoyer des e-mails concernant les modifications de la plateforme, les promotions ou les rapports.",
+  "site.272":
+    "Créez et gérez des gestionnaires de portefeuille qui intègrent et servent les clients.",
+  "site.273":
+    "Systèmes de négociation électronique et infrastructure d'exécution systématique.",
+  "site.274":
+    "Infrastructure de données, de recherche, d’exécution et de risque haute performance.",
+  "site.275":
+    "Effectuez un dépôt bancaire, puis virez les fonds sur notre compte de règlement.",
+  "site.276":
+    "Merci de nous avoir contactés ! Nous vous répondrons dans les 24 heures.",
+  "site.277":
+    "Les API ne peuvent être utilisées qu'aux fins autorisées dans votre autorisation d'accès.",
+  "site.278":
+    "Entrez un montant – nous vous proposons la meilleure stratégie pour votre plan.",
+  "site.279":
+    "Maîtrisez les techniques de trading avancées utilisées par les investisseurs professionnels.",
+  "site.280":
+    "Intelligence structurée à partir de données de marché et d’ensembles de données alternatifs.",
+  "site.281":
+    "Des outils comme uBlock ou les paramètres du navigateur peuvent bloquer les cookies d'analyse.",
+  "site.282":
+    "Utilisé pour l'analyse (Google), les paiements (Stripe) et les connexions sociales.",
+  "site.283":
+    "Nous maintenons des sauvegardes sécurisées redondantes pour assurer la continuité du service.",
+  "site.284":
+    "Vous pouvez transférer des fonds de votre portefeuille vers des investissements à tout moment",
+  "site.285":
+    "Vous pouvez retirer votre consentement à l'utilisation des données, sous réserve des limitations des fonctionnalités.",
+  "site.286":
+    "Actuellement non utilisé. Nous demanderons le consentement si nous les présentons.",
+  "site.287":
+    "Exposition, tests de résistance, analyse de scénarios et cadres de limites.",
+  "site.288":
+    "Données de marché, analyses, risques et infrastructure d'exécution pour le Forex.",
+  "site.289":
+    "Aucune transaction pour l'instant. Effectuez un dépôt ou un investissement pour commencer.",
+  "site.290":
+    "Nous nous conformons aux directives RGPD, CCPA et kenyanes en matière de protection des données.",
+  "site.291":
+    "Nous pouvons divulguer des données lorsque cela est requis par une procédure judiciaire ou une assignation à comparaître.",
+  "site.292":
+    "Saisissez le code à 6 chiffres envoyé à votre email et votre nouveau mot de passe.",
+  "site.293":
+    "Les contrôles basés sur les rôles régissent l'accès interne aux données de votre compte.",
+  "site.294":
+    "Retrait soumis. Il sera traité après l'approbation de l'administrateur.",
+  "site.295":
+    "Tous les dépôts, retraits, investissements et ajustements du portefeuille.",
+  "site.296":
+    "Toutes les intégrations externes via notre API sont enregistrées et surveillées.",
+  "site.297":
+    "Dépôt bancaire initié – transférez des fonds en utilisant les détails ci-dessous",
+  "site.298":
+    "Activez les personnalisations du thème, de la devise, de la langue et de l'interface.",
+  "site.299":
+    "Analyse d'exécution, recherche de routage et contrôles opérationnels.",
+  "site.300":
+    "Les paiements sont traités via des tiers sécurisés et conformes à la norme PCI.",
+  "site.301":
+    "Contrôles des risques avant transaction et en temps réel intégrés à la plateforme.",
+  "site.302":
+    "Recherche quantitative, données, exécution et infrastructure de risque.",
+  "site.303":
+    "Examinez les détails de l’allocation avant d’engager le capital du client.",
+  "site.304":
+    "Discutez avec Evermount de vos exigences en matière de données, d'API et de risques.",
+  "site.305":
+    "Téléchargez vos documents pour vérifier votre identité avant d'investir.",
+  "site.306":
+    "Nous pouvons utiliser les actions des utilisateurs pour suggérer des modèles d'investissement optimisés.",
+  "site.307":
+    "Votre comportement anonymisé peut être utilisé pour former des modèles de portefeuille.",
+  "site.308":
+    "Configurez les paramètres système, la sécurité et les préférences de la plate-forme.",
+  "site.309":
+    "Entrez les détails de votre Visa ou Mastercard pour finaliser le dépôt.",
+  "site.310":
+    "Contrôles de la criminalité financière proportionnés aux services offerts.",
+  "site.311":
+    "Diligence raisonnable des partenaires pour la connectivité et les relations de données.",
+  "site.312":
+    "Transférez votre solde disponible directement sur votre compte bancaire.",
+  "site.313":
+    "Nous ne répondons actuellement pas aux signaux « Do Not Track » du navigateur.",
+  "site.314":
+    "Nous mettons à jour cette politique en cas de modifications importantes – consultez le journal des modifications.",
+  "site.315":
+    "Intégration des clients pour les comptes institutionnels et développeurs.",
+  "site.316":
+    "Modaux améliorés pour l’UE, la Californie, le Kenya et d’autres régions.",
+  "site.317":
+    "Trouvez des réponses aux questions courantes ou contactez notre équipe d'assistance.",
+  "site.318":
+    "En cas d'acquisition, les données des utilisateurs peuvent être transférées.",
+  "site.319":
+    "Des intégrations comme Okra, Plaid peuvent supprimer des cookies basés sur la session.",
+  "site.320":
+    "Infrastructure de marché, analyses et intégrations technologiques.",
+  "site.321":
+    "Nous enregistrons l'IP, le système d'exploitation et la version du navigateur pour aider à protéger les comptes d'utilisateurs.",
+  "site.322":
+    "Votre opt-in est mémorisé pendant 6 mois, sauf réinitialisation manuelle.",
+  "site.323":
+    "Systèmes automatisés de gestion des risques et d’optimisation de portefeuille",
+  "site.324":
+    "Entrez votre code PIN M-Pesa sur votre téléphone pour finaliser le dépôt.",
+  "site.325":
+    "Pour tout problème de confidentialité, envoyez-nous un e-mail à Privacy@evermount.com.",
+  "site.326":
+    "Ratio de Sharpe (en tant que mesure analytique sur les portefeuilles clients)",
+  "site.327":
+    "Stocké à long terme pour les préférences de langue, de thème et d’appareil.",
+  "site.328":
+    "Décrivez le type de partenariat, les marchés et la portée technique.",
+  "site.329":
+    "Regroupés par type : analyses, préférences, authentification, appareil, etc.",
+  "site.330":
+    "Infrastructure pour les institutions, les développeurs et les chercheurs",
+  "site.331":
+    "Notre plateforme n'est pas destinée aux utilisateurs de moins de 18 ans.",
+  "site.332":
+    "Recevez vos fonds dans votre portefeuille crypto personnel en toute sécurité.",
+  "site.333":
+    "Infrastructure technologique et analytique pour les marchés boursiers.",
+  "site.334":
+    "Vous pouvez à tout moment ajuster vos préférences via le pied de page.",
+  "site.335":
+    "Infrastructure pour les contrats à terme, les options et autres produits dérivés.",
+  "site.336":
+    "Infrastructure de données de marché, d’analyse, de risque et d’exécution.",
+  "site.337":
+    "Authentification multifacteur et contrôles d'accès basés sur les rôles",
+  "site.338":
+    "Le traitement des données personnelles est décrit dans la politique de confidentialité.",
+  "site.339":
+    "Outils de recherche, d’analyse de portefeuille, de risque et d’exécution.",
+  "site.340":
+    "Certaines fonctionnalités peuvent utiliser l'IA pour ajuster automatiquement les informations stratégiques.",
+  "site.341":
+    "Construisez des bases fiables avant les applications financières.",
   "site.342": "Le trafic excessif ou abusif peut être limité ou bloqué.",
-  "site.343": "Modèles d'apprentissage automatique formés sur des données historiques de marché",
-  "site.344": "Code QR indisponible dans le développement local – utilisez l'adresse ci-dessus.",
-  "site.345": "Les cookies de session expirent après 2h d'inactivité par défaut.",
-  "site.346": "Infrastructure de trading électronique systématique et à faible latence",
+  "site.343":
+    "Modèles d'apprentissage automatique formés sur des données historiques de marché",
+  "site.344":
+    "Code QR indisponible dans le développement local – utilisez l'adresse ci-dessus.",
+  "site.345":
+    "Les cookies de session expirent après 2h d'inactivité par défaut.",
+  "site.346":
+    "Infrastructure de trading électronique systématique et à faible latence",
   "site.347": "0 1px 3px rgba(0, 0, 0, 0,5), 0 0 8px rgba(0, 0, 0, 0,3)",
-  "site.348": "Tous les consentements aux cookies sont stockés en toute sécurité et horodatés.",
-  "site.349": "Construire l’infrastructure derrière les marchés financiers modernes",
-  "site.350": "Construire l’infrastructure pour des marchés financiers modernes",
-  "site.351": "Les données peuvent être stockées dans plusieurs juridictions sécurisées.",
-  "site.352": "Recueillez des données pour améliorer les performances et les informations des produits.",
-  "site.353": "Diligence institutionnelle lorsque cela est commercialement requis.",
-  "site.354": "Mesures de performance similaires aux comptes de trading vérifiés",
-  "site.355": "Push STK envoyé. Vérifiez votre téléphone pour finaliser le paiement.",
-  "site.356": "Stockez les préférences de taille de police, de contraste et de navigation du clavier.",
-  "site.357": "Nous ne suivons pas sciemment les enfants de moins de 18 ans via les cookies.",
-  "site.358": "Vous pouvez vous désinscrire des e-mails promotionnels à tout moment.",
-  "site.359": "Nous ne suivons pas les utilisateurs sur tous les appareils, sauf si vous y consentez.",
+  "site.348":
+    "Tous les consentements aux cookies sont stockés en toute sécurité et horodatés.",
+  "site.349":
+    "Construire l’infrastructure derrière les marchés financiers modernes",
+  "site.350":
+    "Construire l’infrastructure pour des marchés financiers modernes",
+  "site.351":
+    "Les données peuvent être stockées dans plusieurs juridictions sécurisées.",
+  "site.352":
+    "Recueillez des données pour améliorer les performances et les informations des produits.",
+  "site.353":
+    "Diligence institutionnelle lorsque cela est commercialement requis.",
+  "site.354":
+    "Mesures de performance similaires aux comptes de trading vérifiés",
+  "site.355":
+    "Push STK envoyé. Vérifiez votre téléphone pour finaliser le paiement.",
+  "site.356":
+    "Stockez les préférences de taille de police, de contraste et de navigation du clavier.",
+  "site.357":
+    "Nous ne suivons pas sciemment les enfants de moins de 18 ans via les cookies.",
+  "site.358":
+    "Vous pouvez vous désinscrire des e-mails promotionnels à tout moment.",
+  "site.359":
+    "Nous ne suivons pas les utilisateurs sur tous les appareils, sauf si vous y consentez.",
   "site.360": "Cryptage AES 256 bits pour les données au repos et en transit",
-  "site.361": "Des canaux qui mettent l'infrastructure Evermount à la disposition des utilisateurs.",
-  "site.362": "Reprise après sinistre – prévue pour les déploiements en entreprise",
-  "site.363": "Haute disponibilité – prévue pour les déploiements en entreprise",
-  "site.364": "Surveillez le moteur quantitatif, le kill switch et la publication NAV",
-  "site.365": "Aucun responsable des relations n'est encore affecté à votre compte.",
+  "site.361":
+    "Des canaux qui mettent l'infrastructure Evermount à la disposition des utilisateurs.",
+  "site.362":
+    "Reprise après sinistre – prévue pour les déploiements en entreprise",
+  "site.363":
+    "Haute disponibilité – prévue pour les déploiements en entreprise",
+  "site.364":
+    "Surveillez le moteur quantitatif, le kill switch et la publication NAV",
+  "site.365":
+    "Aucun responsable des relations n'est encore affecté à votre compte.",
   "site.366": "Langage de recherche primaire et d'intégration en interne.",
   "site.367": "Contactez-nous à cookies@evermount.com pour toute question.",
-  "site.368": "Infrastructure de traitement et d’analyse des données en temps réel",
+  "site.368":
+    "Infrastructure de traitement et d’analyse des données en temps réel",
   "site.369": "Essayez d'ajuster vos filtres ou effectuez votre premier dépôt",
   "site.370": "Ajoutez ce secret à Google Authenticator / 1Password :",
-  "site.371": "Construire une infrastructure financière pour les marchés modernes",
-  "site.372": "Surveillance indépendante des risques et contrôle de la conformité",
-  "site.373": "Des frais de traitement de 5,00 $ s'appliquent aux retraits bancaires.",
-  "site.374": "Analysez le temps de chargement, la réponse du serveur et l'UX globale.",
+  "site.371":
+    "Construire une infrastructure financière pour les marchés modernes",
+  "site.372":
+    "Surveillance indépendante des risques et contrôle de la conformité",
+  "site.373":
+    "Des frais de traitement de 5,00 $ s'appliquent aux retraits bancaires.",
+  "site.374":
+    "Analysez le temps de chargement, la réponse du serveur et l'UX globale.",
   "site.375": "Cadres complets de backtesting et de validation",
-  "site.376": "Les informations d'identification sont confidentielles et ne peuvent pas être partagées.",
-  "site.377": "Infrastructure pour les marchés des taux, des obligations et du crédit.",
-  "site.378": "Déploiements pour les banques, les courtiers et les gestionnaires d'actifs.",
-  "site.379": "Infrastructure de niveau institutionnel et contrôles des risques",
+  "site.376":
+    "Les informations d'identification sont confidentielles et ne peuvent pas être partagées.",
+  "site.377":
+    "Infrastructure pour les marchés des taux, des obligations et du crédit.",
+  "site.378":
+    "Déploiements pour les banques, les courtiers et les gestionnaires d'actifs.",
+  "site.379":
+    "Infrastructure de niveau institutionnel et contrôles des risques",
   "site.380": "Exportations d’audit et instantané des contrôles orientés SOC2",
   "site.381": "Choisissez comment vous souhaitez postuler à ce poste.",
   "site.382": "Infrastructure conçue pour les marchés financiers modernes",
-  "site.383": "Recevez des KES directement sur votre numéro de téléphone M-Pesa.",
-  "site.384": "Examiner et approuver les soumissions d’identité des investisseurs.",
-  "site.385": "Authentification TOTP à deux facteurs pour les comptes administrateur",
+  "site.383":
+    "Recevez des KES directement sur votre numéro de téléphone M-Pesa.",
+  "site.384":
+    "Examiner et approuver les soumissions d’identité des investisseurs.",
+  "site.385":
+    "Authentification TOTP à deux facteurs pour les comptes administrateur",
   "site.386": "API, plateformes et intégrations d'infrastructures.",
   "site.387": "Infrastructure de connectivité, d’exécution et de risque.",
   "site.388": "Fournissez les détails de votre carte pour recevoir vos fonds.",
   "site.389": "Collaboration quantitative et structure du marché.",
   "site.390": "Signalez les vulnérabilités à security@evermount.co.",
-  "site.391": "Examiner et approuver les demandes de retrait des investisseurs.",
-  "site.392": "Facture de services publics ou relevé bancaire (dans les 3 mois)",
+  "site.391":
+    "Examiner et approuver les demandes de retrait des investisseurs.",
+  "site.392":
+    "Facture de services publics ou relevé bancaire (dans les 3 mois)",
   "site.393": "Portefeuille diversifié d'actions mondiales et d'ETF",
-  "site.394": "Prévention de la fraude sur les comptes, les API et la facturation.",
+  "site.394":
+    "Prévention de la fraude sur les comptes, les API et la facturation.",
   "site.395": "Titres et performances de la VNI de la stratégie en direct",
-  "site.396": "Les systèmes à faible latence sur la feuille de route d’ingénierie.",
-  "site.397": "Programmation des systèmes sur la feuille de route de l'ingénierie.",
-  "site.398": "Selfie clair en tenant votre pièce d'identité à côté de votre visage",
+  "site.396":
+    "Les systèmes à faible latence sur la feuille de route d’ingénierie.",
+  "site.397":
+    "Programmation des systèmes sur la feuille de route de l'ingénierie.",
+  "site.398":
+    "Selfie clair en tenant votre pièce d'identité à côté de votre visage",
   "site.399": "Premiers pas avec la diversification de portefeuille",
   "site.400": "Infrastructure institutionnelle et contrôles des risques",
   "site.401": "Données de marché et intégrations de données alternatives.",
   "site.402": "Coopération réglementaire lorsque la loi l’exige.",
-  "site.403": "Utilisez votre Visa, Mastercard ou Amex pour effectuer un dépôt.",
-  "site.404": "Afficher toutes les transactions et activités de votre portefeuille",
+  "site.403":
+    "Utilisez votre Visa, Mastercard ou Amex pour effectuer un dépôt.",
+  "site.404":
+    "Afficher toutes les transactions et activités de votre portefeuille",
   "site.405": "Connectivité des courtiers, des lieux et des institutions.",
   "site.406": "Recherche quantitative et intelligence de marché",
   "site.407": "L'utilisation des API est également soumise aux Conditions API.",
   "site.408": "Construisez l’écosystème financier avec Evermount",
   "site.409": "Fonds disponibles pour retrait ou investissement",
   "site.410": "Utilisé pour détecter une activité suspecte ou un abus.",
-  "site.411": "; cas \"en attente\": cas \"traitement\": retour",
+  "site.411": '; cas "en attente": cas "traitement": retour',
   "site.412": "Plateforme d'infrastructure financière Evermount",
   "site.413": "Comment est calculée la performance de mon portefeuille ?",
   "site.414": "Dépôt instantané via STK push sur votre téléphone.",
@@ -1685,7 +2249,7 @@ export const siteFr: Messages = {
   "site.421": "Plateforme de renseignement financier Evermount",
   "site.422": "Infrastructure pour les institutions financières",
   "site.423": "Une seule plateforme. Systèmes financiers multiples.",
-  "site.424": "; cas \"échec\": cas \"rejeté\": retour",
+  "site.424": '; cas "échec": cas "rejeté": retour',
   "site.425": "Vérification complète pour commencer à investir",
   "site.426": "Du renseignement financier à l’exécution",
   "site.427": "Comment mettre à jour mes informations personnelles ?",
@@ -1829,8 +2393,8 @@ export const siteFr: Messages = {
   "site.565": "Référence de fil (facultatif)",
   "site.566": "Retirer vers le portefeuille crypto",
   "site.567": "← Retour aux méthodes de dépôt",
-  "site.568": "; cas \"article\": retour",
-  "site.569": "; cas \"webinaire\" : retour",
+  "site.568": '; cas "article": retour',
+  "site.569": '; cas "webinaire" : retour',
   "site.570": "Attribuer un investisseur par email",
   "site.571": "Infrastructure d'exécution",
   "site.572": "infrastructure d'exécution",
@@ -1869,7 +2433,7 @@ export const siteFr: Messages = {
   "site.605": "Architecture technologique",
   "site.606": "TypeScript/JavaScript",
   "site.607": "Portefeuille + Fonds investis",
-  "site.608": "; cas \"guide\": retour",
+  "site.608": '; cas "guide": retour',
   "site.609": "Assistants de recherche en IA",
   "site.610": "Période de blocage par défaut",
   "site.611": "Découvrir des stratégies",
@@ -2522,11 +3086,14 @@ export const siteFr: Messages = {
 
 export const siteEs: Messages = {
   "site.0": "La plataforma de infraestructura financiera de Evermount",
-  "site.1": "Datos de mercado, investigación cuantitativa, IA, ejecución, riesgo e infraestructura de cartera para mercados modernos.",
-  "site.2": "Construya, conecte, analice y ejecute en los mercados financieros con la infraestructura de Evermount.",
+  "site.1":
+    "Datos de mercado, investigación cuantitativa, IA, ejecución, riesgo e infraestructura de cartera para mercados modernos.",
+  "site.2":
+    "Construya, conecte, analice y ejecute en los mercados financieros con la infraestructura de Evermount.",
   "site.3": "Explorar APIs",
   "site.4": "Infraestructura de datos de mercado",
-  "site.5": "Infraestructura para ingerir, normalizar y distribuir datos de mercado.",
+  "site.5":
+    "Infraestructura para ingerir, normalizar y distribuir datos de mercado.",
   "site.6": "Datos en tiempo real",
   "site.7": "Datos históricos",
   "site.8": "Normalización de datos",
@@ -2581,339 +3148,651 @@ export const siteEs: Messages = {
   "site.57": "Arquitectura de la plataforma",
   "site.58": "Cómo se conecta la pila",
   "site.59": "Última actualización: 6 de septiembre de 2026",
-  "site.60": "Esta página es un resumen de producto y no constituye asesoramiento jurídico. Los términos legales y regulatorios deben ser revisados por un abogado cualificado antes de su publicación. Evermount no afirma autorización de la SEC, FCA, CMA, MiFID o similar salvo declaración expresa y separada.",
-  "site.61": "Evermount puede proporcionar infraestructura de ejecución, software de gestión de órdenes y análisis. Cuando un cliente es una empresa regulada con obligaciones de mejor ejecución, esas obligaciones permanecen con el cliente. Evermount no declara ser un corredor que ejecuta órdenes de clientes como una empresa de inversión a menos que un acuerdo firmado indique lo contrario.",
-  "site.62": "Evermount es un proveedor de tecnología. Pueden surgir conflictos entre intereses comerciales, relaciones con proveedores e intereses de clientes. Nuestro objetivo es identificar, gestionar y divulgar conflictos materiales en los acuerdos con los clientes en lugar de actuar como un administrador de inversiones discrecional para los visitantes del sitio web.",
-  "site.63": "Evermount combina inteligencia artificial, investigación cuantitativa e infraestructura comercial para crear sistemas inteligentes capaces de analizar mercados continuamente, descubrir oportunidades, gestionar riesgos y ejecutar estrategias sistemáticas.",
-  "site.64": "Los mercados financieros son complejos, fragmentados y técnicamente difíciles de aprovechar. Combinamos ingeniería de datos, investigación cuantitativa, aprendizaje automático y tecnología de ejecución para que las instituciones y los desarrolladores puedan construir sobre una base común.",
-  "site.65": "Capacidades de análisis de rendimiento, riesgo y exposición. Las cifras que se muestran en las demostraciones de productos son ilustrativas a menos que estén etiquetadas como datos propios del cliente. Evermount no publica los rendimientos de las inversiones ni los índices de Sharpe como desempeño de la empresa.",
-  "site.66": "Esta declaración describe los controles de delitos financieros apropiados para un proveedor de tecnología e infraestructura. No es un manual ALD para administradores de fondos y no significa que Evermount acepte suscripciones de inversores o retenga dinero de clientes.",
-  "site.67": "Estos términos rigen el acceso al software, las API, los datos y los servicios de infraestructura de Evermount. No constituyen un acuerdo de gestión de inversiones, una suscripción a un fondo ni una invitación a depositar dinero de un cliente en Evermount.",
-  "site.68": "Los clientes siguen siendo responsables de sus propias obligaciones comerciales, regulatorias, KYC/AML y fiduciarias. Evermount no es un corredor de bolsa, banco, custodio, bolsa o asesor de inversiones a menos que se indique expresamente en un acuerdo firmado.",
-  "site.69": "Evermount proporciona servicios de tecnología e infraestructura. Esta página no reclama el registro de la SEC, la autorización de la FCA, la autorización de la CMA, la autorización de MiFID, el estatus de corredor de bolsa, el estatus de asesor de inversiones ni la custodia.",
-  "site.70": "Los mercados financieros son sistemas complejos. Creemos que la próxima generación de infraestructura financiera se construirá combinando datos a gran escala, inteligencia artificial, investigación cuantitativa y ejecución automatizada.",
-  "site.71": "Trabajamos con bancos, corredores, bolsas, proveedores de datos de mercado, fintechs, proveedores de tecnología, proveedores de liquidez e instituciones. Las asociaciones nombradas se enumeran sólo cuando son reales y están aprobadas para ser públicas.",
-  "site.72": "Los clientes institucionales siguen siendo responsables de sus propias obligaciones regulatorias, incluidos los permisos comerciales, la mejor ejecución cuando son una empresa regulada y las reglas sobre activos de los clientes que se les aplican.",
-  "site.73": "Evermount es una organización de investigación cuantitativa y tecnología financiera. Las notas de investigación públicas se enumerarán aquí cuando se publiquen. No fabricamos documentos, rendimiento o resultados para el cliente.",
-  "site.74": "Prestamos servicios a bancos, corredores, bolsas, administradores de activos, fondos de cobertura, empresas comerciales por cuenta propia, creadores de mercado, fintechs, oficinas familiares y desarrolladores que necesitan una infraestructura de mercado programable.",
-  "site.75": "Para implementaciones a gran escala. Capacidades potenciales: implementación dedicada, conectividad privada, integraciones personalizadas, alta disponibilidad, ingeniería dedicada y SLA, sujeto a contrato.",
-  "site.76": "Para bancos, corredores y gestores de activos. Capacidades potenciales: API institucionales, infraestructura dedicada, conectividad de mercado, infraestructura de riesgo y ejecución y soporte empresarial.",
-  "site.77": "Evermount se posiciona como independiente del mercado. Las secciones siguientes describen la infraestructura para cada mercado, no una afirmación de que Evermount proporcione acceso regulado a cada lugar o instrumento.",
-  "site.78": "Los mercados financieros son complejos, fragmentados y técnicamente difíciles de aprovechar. Evermount proporciona infraestructura que hace que la tecnología del mercado sea más fácil de construir, integrar y operar.",
-  "site.79": "Estamos construyendo la infraestructura detrás de los mercados financieros modernos, y apenas estamos comenzando. Únase a ingenieros, investigadores y operadores que se preocupan por los datos, los riesgos y los sistemas.",
-  "site.80": "La siguiente pila refleja los sistemas que utilizamos hoy y las capacidades en la hoja de ruta de ingeniería. No publicamos cifras de latencia, tiempo de actividad o rendimiento a menos que se verifiquen de forma independiente.",
-  "site.81": "Acceso programático a datos financieros, análisis, inteligencia e infraestructura. La documentación de la API pública y las credenciales de producción se proporcionan una vez aprobado el acceso.",
-  "site.82": "Evermount está construyendo sistemas que aprenden continuamente de datos financieros, generan hipótesis, evalúan riesgos y traducen inteligencia validada en acciones controladas.",
-  "site.83": "Para empresas comerciales, fintechs y usuarios profesionales. Capacidades potenciales: datos en tiempo real, API avanzadas, análisis, API de riesgo y capacidades de ejecución cuando estén habilitadas.",
-  "site.84": "La plataforma es independiente del mercado: está diseñada para respaldar acciones, divisas, renta fija, materias primas, derivados y activos digitales donde esas capacidades estén disponibles.",
-  "site.85": "Evermount conserva los derechos sobre su software, modelos y documentación. Los clientes conservan los derechos sobre sus propios datos, sujetos a las licencias otorgadas para operar el servicio.",
-  "site.86": "Evermount es independiente del mercado. Proporcionamos infraestructura para clases de activos; no damos a entender que Evermount opere o proporcione acceso regulado a todos los mercados.",
-  "site.87": "Profesionales experimentados que combinan experiencia en finanzas cuantitativas, informática e ingeniería para impulsar la innovación en la tecnología de comercio sistemático.",
-  "site.88": "Ejecución algorítmica, gestión de órdenes y análisis de ejecución. La conectividad con corredores y lugares depende del estado de integración y la regulación aplicable.",
-  "site.89": "Evermount proporciona servicios de tecnología e infraestructura. Los clientes institucionales siguen siendo responsables de sus propias obligaciones regulatorias cuando corresponda.",
-  "site.90": "Utilizamos aprendizaje automático, modelos estadísticos e ingeniería de software moderna. Las características de desempeño específicas no se publican como estadísticas de marketing.",
-  "site.91": "IMPORTANTE: lea atentamente esta divulgación de riesgos. El uso de tecnología financiera implica riesgos. Esta no es una divulgación de productos de inversión para un fondo.",
-  "site.92": "Evermount es una empresa de tecnología financiera que construye infraestructura para datos de mercado, investigación cuantitativa, inteligencia artificial, riesgo y ejecución.",
-  "site.93": "Sí, puede reasignar sus inversiones en cualquier momento a través de la página Portafolio. También puede configurar el reequilibrio automático según sus preferencias.",
-  "site.94": "Una pila de tecnología unificada diseñada para transformar datos financieros en inteligencia, estrategias cuantitativas, decisiones de riesgo y ejecución sistemática.",
-  "site.95": "Esta Política de cookies explica cómo Evermount (\"nosotros\", \"nuestro\" o \"nos\") utiliza cookies y tecnologías similares para reconocerlo cuando visita nuestra plataforma.",
-  "site.96": "Una capa de inteligencia nativa de IA diseñada para ayudar a los sistemas financieros a comprender los mercados, investigar oportunidades y tomar mejores decisiones conscientes de los riesgos.",
-  "site.97": "Los controles de acceso, el cifrado y las prácticas de monitoreo se implementan de acuerdo con los sistemas en producción y el acuerdo aplicable con el cliente.",
-  "site.98": "Los términos comerciales dependen de los datos, los mercados, el volumen de API y el modelo de implementación. No publicamos precios de lista inventados. Comuníquese con ventas para obtener una propuesta.",
-  "site.99": "Esta Política de privacidad describe cómo Evermount recopila, usa, almacena y protege su información. Su privacidad es de vital importancia para nosotros.",
-  "site.100": "Un ecosistema financiero donde las instituciones, los desarrolladores y los investigadores pueden crear aplicaciones de mercado sofisticadas sobre una infraestructura confiable.",
-  "site.101": "Cualquiera de las partes podrá rescindir según lo previsto en el acuerdo comercial. El acceso podrá suspenderse por abuso, riesgo de seguridad o exigencia legal.",
-  "site.102": "Los sistemas de IA analizan información de mercado, noticias, condiciones macroeconómicas y datos alternativos para generar inteligencia financiera estructurada.",
-  "site.103": "Una hoja de ruta tecnológica desde la investigación actual asistida por IA hacia la ejecución sistemática, la infraestructura de mercado y la conectividad del mercado global.",
-  "site.104": "Para desarrolladores e investigadores. Capacidades potenciales: sandbox, acceso API limitado, datos históricos, herramientas de investigación y documentación.",
-  "site.105": "La disponibilidad de servicios específicos depende de la jurisdicción y la regulación aplicable. Evermount no está regulado en todas las jurisdicciones.",
-  "site.106": "Niveles de acceso de desarrollador, profesional, institucional y empresarial. Los términos comerciales los proporcionan las ventas, no precios de lista inventados.",
-  "site.107": "Superficies API planificadas y en desarrollo. La disponibilidad se confirma durante la incorporación; no asuma que todas las API están activas en producción.",
-  "site.108": "FlipbotEA sondea la cola de señales y la ejecuta en la demostración de Exness MT5 iniciada. Los rellenos exitosos aumentan el NAV de los inversores a través de FillRecorded.",
-  "site.109": "La marca tiene una orientación global: infraestructura que puede operar en mercados y jurisdicciones según lo permitan las capacidades y las licencias.",
-  "site.110": "Una pila de IA diseñada para convertir datos financieros en inteligencia, investigación validada, decisiones de riesgo y ejecución controlada.",
-  "site.111": "Actualmente no hay puestos vacantes en la lista. Preséntese encareers@evermount.co si desea ayudar a construir una infraestructura financiera.",
-  "site.112": "Infraestructura financiera para mercados modernos: datos de mercado, investigación cuantitativa, inteligencia, riesgo, ejecución y conectividad.",
-  "site.113": "Fundada en 2023, Evermount se creó para hacer que la infraestructura financiera sofisticada sea más accesible, programable y escalable.",
-  "site.114": "Infraestructura de investigación para descubrimiento de factores, generación de hipótesis, backtesting, simulación y desarrollo sistemático de estrategias.",
-  "site.115": "API de asociación para enlaces de referencia, informes de clientes y datos de comisiones. La ejecución comercial utiliza Exness MT5 anterior, no esta API.",
-  "site.116": "Estamos construyendo nuestra infraestructura con los más altos estándares de excelencia operativa, seguridad y gestión de riesgos a medida que escalamos.",
-  "site.117": "\"Estamos construyendo la infraestructura de datos, investigación, inteligencia, riesgo y ejecución que las instituciones y los desarrolladores pueden aprovechar\".",
-  "site.118": "Infraestructura de datos de mercado, análisis, riesgo, ejecución y conectividad para bancos, corredores, administradores de activos y empresas comerciales.",
-  "site.119": "El uso típico permitido incluye investigación interna, riesgos, análisis y funciones de aplicaciones que usted opera para su organización.",
-  "site.120": "En el corazón de Evermount se encuentra una plataforma tecnológica para datos de mercado, investigación cuantitativa, inteligencia, riesgo y ejecución.",
-  "site.121": "Retira USD a tu cuenta bancaria vinculada. Nuestro equipo revisa y aprueba las solicitudes (normalmente en un plazo de 2 días hábiles).",
-  "site.122": "Cada parte implementará medidas de seguridad razonables. Los clientes deben proteger las credenciales e informar sospechas de compromiso.",
-  "site.123": "Una pila de tecnología para datos, investigación, inteligencia, riesgo, ejecución y conectividad, no una solicitud para depositar capital.",
-  "site.124": "Deposite fondos en su billetera utilizando criptomonedas admitidas. Los fondos estarán disponibles en su billetera después de la confirmación.",
-  "site.125": "Infraestructura de datos, investigación cuantitativa, inteligencia, riesgo, ejecución y conectividad para los mercados financieros modernos.",
-  "site.126": "Se utiliza al hacer clic en Comercio. Tu capital permanece invertido durante el período que elijas. Es posible que el retiro anticipado no esté disponible.",
-  "site.127": "Retire fondos de su billetera a su banco preferido o billetera criptográfica. Sólo se puede retirar el saldo disponible de la billetera.",
-  "site.128": "Elija su método de depósito preferido para agregar fondos a su billetera. Los fondos estarán disponibles para retiro o inversión.",
-  "site.129": "Los datos pueden estar retrasados, incompletos o incorrectos. No sustituye a las transmisiones oficiales del lugar cuando sean necesarias.",
-  "site.130": "Los servicios se proporcionan sobre una base tecnológica. Las funciones pueden estar en versión preliminar, limitadas o no disponibles en algunas jurisdicciones.",
-  "site.131": "Las órdenes pueden retrasarse, rechazarse, ejecutarse parcialmente o ejecutarse a precios inesperados cuando existe conectividad de ejecución.",
-  "site.132": "La autenticación, las claves API, los límites de velocidad y los ejemplos se publican para los desarrolladores aprobados. Hasta entonces, solicita acceso.",
-  "site.133": "El hospedaje, la conectividad y los arreglos operativos se describen en el formulario de pedido o declaración de trabajo correspondiente.",
-  "site.134": "Solicite acceso para discutir la infraestructura de datos, investigación, riesgo, ejecución y conectividad con el equipo de Evermount.",
-  "site.135": "Una arquitectura conceptual que conecta la IA, la investigación, el riesgo y la ejecución en una plataforma tecnológica institucional.",
-  "site.136": "Un viaje práctico para instituciones y desarrolladores que utilizan la infraestructura de Evermount, no un flujo de incorporación de fondos.",
-  "site.137": "Arquitectura tecnológica de Evermount en ingeniería de datos, computación cuantitativa, inteligencia artificial, sistemas comerciales y riesgos.",
-  "site.138": "Diseñamos sistemas en torno a la calidad de los datos, la evidencia de la investigación y el riesgo mensurable, no en marketing de fondos discrecional.",
-  "site.139": "Construya el ecosistema financiero con Evermount a través de asociaciones de datos, conectividad, tecnología y investigación.",
-  "site.140": "La reducción, la volatilidad y el índice de Sharpe se calculan a partir de los rendimientos diarios de su propia cartera durante los últimos 90 días.",
-  "site.141": "Retire KES de su billetera directamente a su cuenta M-Pesa. Sólo se puede retirar el saldo disponible de la billetera.",
-  "site.142": "Deposite fondos en su billetera KES al instante a través de M-Pesa. Recibirá un mensaje STK en su teléfono para confirmar el pago.",
-  "site.143": "Capacidades de análisis de rendimiento, riesgo, exposición, atribución y pruebas de estrés en la plataforma Evermount.",
-  "site.144": "Una arquitectura conceptual. Las implementaciones, lugares e integraciones específicos varían según el cliente y la jurisdicción.",
-  "site.145": "Las tarifas, si las hubiera, se establecen en un formulario de pedido. Este sitio web no incluye comisiones de gestión de fondos ni de rendimiento.",
-  "site.146": "Infraestructura independiente del mercado para acciones, divisas, renta fija, materias primas, derivados y activos digitales.",
-  "site.147": "No garantizamos un servicio ininterrumpido. El mantenimiento, las interrupciones de los proveedores y los casos de fuerza mayor pueden afectar el acceso.",
-  "site.148": "Compartir la escala esperada, los mercados y los requisitos de infraestructura. Los precios se cotizan, no figuran como tarifas de fondos.",
-  "site.149": "Podemos otorgar acceso a entornos, credenciales y documentación sujetos a la aprobación y la ley aplicable.",
-  "site.150": "Siempre estamos buscando gente apasionada. Si está entusiasmado con nuestra misión, nos encantaría saber de usted.",
-  "site.151": "Canales de datos financieros unificados diseñados para respaldar la investigación, el análisis y los sistemas de toma de decisiones en tiempo real.",
-  "site.152": "Capacidades de la plataforma Evermount. La disponibilidad específica depende del nivel de acceso y la jurisdicción.",
-  "site.153": "Configure EXNESS_PARTNER_REFERRAL_LINK o habilite EXNESS_PARTNER_ENABLED con credenciales de PPA en el entorno de backend.",
-  "site.154": "Retire fondos de su billetera a su billetera criptográfica. Sólo se puede retirar el saldo disponible de la billetera.",
-  "site.155": "Cuatro capacidades que convierten los datos financieros en inteligencia, investigación, decisiones de riesgo y ejecución.",
-  "site.156": "Los controles de riesgo deben integrarse directamente en los sistemas, incluido el monitoreo previo a la negociación y en tiempo real.",
-  "site.157": "Los defectos del software, las interrupciones y los errores de configuración pueden interrumpir el acceso o producir resultados incorrectos.",
-  "site.158": "Un viaje de siete pasos desde la conexión de sistemas hasta el seguimiento de los mercados, el riesgo y la ejecución en Evermount.",
-  "site.159": "La infraestructura financiera debe ser programable. Las API, la transmisión y las integraciones son de primera clase.",
-  "site.160": "La responsabilidad está limitada en la medida permitida por la ley y según lo establecido en los términos comerciales firmados.",
-  "site.161": "Los detalles de operaciones y alojamiento de producción se confirman con los clientes durante la planificación de la implementación.",
-  "site.162": "Monitoreo en tiempo real de exposición, liquidez, volatilidad, correlación, reducción y regímenes de mercado.",
-  "site.163": "No pudimos encontrar la página que estabas buscando. Quizás haya escrito mal la URL o la página se haya movido.",
-  "site.164": "Una base tecnológica para datos de mercado, investigación cuantitativa, inteligencia, riesgo y ejecución.",
-  "site.165": "Para optimizar el rendimiento del sitio, personalizar la experiencia del usuario, mejorar la seguridad y analizar el tráfico.",
-  "site.166": "Acceda a recursos educativos, guías, videos y seminarios web para mejorar su conocimiento sobre inversiones.",
-  "site.167": "¿No encuentras lo que estás buscando? Envíenos un mensaje y nos comunicaremos con usted dentro de las 24 horas.",
-  "site.168": "Los lenguajes en uso activo incluyen TypeScript y Python. C++ y Rust están en la hoja de ruta de los sistemas.",
-  "site.169": "Ingresa el correo electrónico asociado a tu cuenta y te enviaremos una OTP para restablecer tu contraseña.",
-  "site.170": "Infraestructura de ejecución sistemática diseñada para brindar confiabilidad, velocidad y despliegue controlado.",
-  "site.171": "Conozca al equipo de Evermount y cómo estamos construyendo infraestructura financiera para los mercados modernos.",
-  "site.172": "Pequeños archivos de datos colocados en su dispositivo para rastrear el comportamiento, las preferencias y la actividad de la sesión.",
-  "site.173": "Gestionar cuentas de inversores y acceso. Los administradores de cartera se crean en Admin → Administradores.",
-  "site.174": "Nuestro equipo combina experiencia en finanzas cuantitativas, ciencia de datos e ingeniería de sistemas.",
-  "site.175": "Cuéntenos sobre su institución y sus necesidades de infraestructura. Seguiremos con los próximos pasos.",
-  "site.176": "Infraestructura diseñada para operar en mercados y jurisdicciones según lo permitan las capacidades.",
-  "site.177": "Programe una conversación sobre la infraestructura de ejecución, riesgo, investigación y datos de Evermount.",
-  "site.178": "Configurado por Evermount directamente para iniciar sesión, guardar preferencias de temas y estados de gráficos.",
-  "site.179": "Las API pueden cambiar, tener versiones o retirarse con previo aviso cuando sea razonablemente posible.",
-  "site.180": "Conecte fuentes de datos, corredores, lugares o sistemas institucionales donde existan integraciones.",
-  "site.181": "Los datos de mercado y los datos de terceros están sujetos a la Política de datos y a cualquier licencia de proveedor.",
-  "site.182": "Se planean entornos no productivos para pruebas de integración para desarrolladores aprobados.",
-  "site.183": "Investigación cuantitativa, estructura de mercado, inteligencia artificial, investigación de riesgos y ejecución de Evermount.",
-  "site.184": "Comparta los requisitos de su empresa, función y API para que podamos aprovisionar el entorno adecuado.",
-  "site.185": "Utilice ingeniería moderna, métodos cuantitativos e inteligencia artificial para resolver problemas financieros complejos.",
-  "site.186": "Invertimos en investigación e ingeniería para que la infraestructura siga siendo programable y confiable.",
-  "site.187": "Hacer que la infraestructura financiera sofisticada sea más accesible, programable y escalable.",
-  "site.188": "Investigación sobre cómo interactúan los lugares, la liquidez y la microestructura del mercado con la tecnología.",
-  "site.189": "Su billetera actúa como una cuenta de depósito en garantía donde puede almacenar fondos de manera segura antes de invertir",
-  "site.190": "Construcción, optimización y análisis de carteras: no es un producto de inversión administrado.",
-  "site.191": "Las instituciones y los investigadores pueden discutir datos, métodos y oportunidades de asociación.",
-  "site.192": "Conozca la misión de Evermount de construir infraestructura financiera para los mercados modernos.",
-  "site.193": "Administre el saldo de su billetera, depósitos, retiros y transfiera fondos a inversiones.",
-  "site.194": "Le enviamos por correo electrónico un código de confirmación de 6 dígitos. Ingrese el código a continuación para verificar su correo electrónico.",
-  "site.195": "Se encuentran disponibles asignaciones de gerentes de relaciones dedicados para cuentas institucionales.",
-  "site.196": "Inicie sesión de forma segura en el portal de inversores de Evermount Capital y administre sus inversiones.",
-  "site.197": "Los datos de mercado y los datos de terceros están sujetos a las licencias de los proveedores y a la Política de datos.",
-  "site.198": "Inteligencia de mercados, investigación cuantitativa e infraestructura de tecnología financiera.",
-  "site.199": "Requerido para funciones básicas, por ejemplo, inicio de sesión, acceso a cartera. No se puede desactivar.",
-  "site.200": "Los datos se licencian, no se venden. Los derechos se limitan a los casos de uso en su acuerdo.",
-  "site.201": "Los depósitos van directamente a su billetera y están disponibles para retiro o inversión.",
-  "site.202": "Las cookies esenciales se utilizan para la funcionalidad. Puede optar por no recibir cookies de seguimiento.",
-  "site.203": "Acceso programático a datos financieros, análisis, inteligencia e infraestructura.",
-  "site.204": "La redistribución a terceros está prohibida a menos que se permita expresamente por escrito.",
-  "site.205": "El acceso no autorizado, el malware y el robo de credenciales pueden comprometer los sistemas y los datos.",
-  "site.206": "Su identidad ha sido verificada. Tiene acceso completo a depósitos e inversiones.",
-  "site.207": "Próximamente habrá una página de estado público. Para incidencias contactar con support@evermount.co.",
-  "site.208": "Todos los métodos de pago (tarjeta, banco, criptografía) se pueden utilizar para depósitos y retiros.",
-  "site.209": "Comparta su tipo de institución, mercados de interés y requisitos de infraestructura.",
-  "site.210": "Las ganancias retiradas de las inversiones se agregan automáticamente al saldo de su billetera",
-  "site.211": "Se encuentran disponibles depósitos con tarjeta, M-Pesa y criptomonedas. Las transferencias bancarias llegarán pronto.",
-  "site.212": "Analice la arquitectura, las API y los requisitos de integración con el equipo de Evermount.",
-  "site.213": "Su envío anterior fue rechazado. Cargue nuevos documentos para volver a intentarlo.",
-  "site.214": "Los datos de intercambio, proveedores y alternativos permanecen sujetos a los términos de dichos proveedores.",
-  "site.215": "La actividad de la cartera, el perfil de riesgo y el momento de ejecución se registran para mayor precisión.",
-  "site.216": "Los modelos cuantitativos y de inteligencia artificial pueden estar mal especificados, sobreajustados o fallar en nuevos regímenes.",
-  "site.217": "No puede extraer, realizar ingeniería inversa ni redistribuir datos más allá de su licencia.",
-  "site.218": "El capital permanece invertido durante este período. Es posible que el retiro anticipado no esté disponible.",
-  "site.219": "Las transmisiones pueden retrasarse, faltar o ser incorrectas. Las decisiones basadas en datos pueden ser erróneas.",
-  "site.220": "Infraestructura que conecta instituciones, corredores, lugares y sistemas financieros.",
-  "site.221": "Extrae el NAV estratégico de evermount-quant y actualiza los valores de la cartera de inversores.",
-  "site.222": "Solicite acceso para analizar cómo las API de análisis y los paneles se adaptan a su flujo de trabajo.",
-  "site.223": "Díganos qué clases de activos y requisitos de datos son importantes para su institución.",
-  "site.224": "Únase a nuestros expertos para un análisis en profundidad de las tendencias y oportunidades del mercado.",
-  "site.225": "Sus documentos están siendo revisados. Le notificaremos por correo electrónico una vez completado.",
-  "site.226": "Su mensaje: función, tipo de empresa, mercados, necesidades de datos/API, escala esperada...",
-  "site.227": "Inversores asignados, saldos y asignación de estrategias con métricas de riesgo en vivo",
-  "site.228": "Explore cómo se conectan los datos de mercado, la investigación, la inteligencia, el riesgo y la ejecución.",
-  "site.229": "Conozca los fundamentos de las estrategias comerciales cuantitativas y cómo funcionan.",
-  "site.230": "Temporal y eliminado cuando se cierra el navegador. Mantiene el inicio de sesión en todas las páginas.",
-  "site.231": "Todos los datos se cifran en tránsito y en reposo utilizando las mejores prácticas de la industria.",
-  "site.232": "Descargue estados de cuenta en PDF con resumen de cartera y atribución de desempeño.",
-  "site.233": "elementos flexibles-espacio central-3 px-3 py-2 redondeado-md texto-sm fuente-transición media",
-  "site.234": "Modelado, simulación, investigación de factores e infraestructura de investigación de estrategias.",
-  "site.235": "Podemos utilizar SDK de análisis y rendimiento (por ejemplo, Google Analytics, Sentry).",
-  "site.236": "Los retiros bancarios, M-Pesa y criptomonedas están disponibles después de la verificación KYC.",
-  "site.237": "Los corredores, lugares, redes y proveedores pueden fracasar independientemente de Evermount.",
-  "site.238": "Datos de mercado, análisis e infraestructura de ejecución para mercados de productos básicos.",
-  "site.239": "Tecnología de creación de mercado, infraestructura de liquidez y conectividad de lugares.",
-  "site.240": "Analice la arquitectura y la integración sin afirmaciones de rendimiento inventadas.",
-  "site.241": "Podemos revisar esta Política de Privacidad. Los cambios se comunicarán a los usuarios.",
-  "site.242": "Podrás solicitar el acceso, rectificación o supresión de tus datos en cualquier momento.",
-  "site.243": "Los métodos cuantitativos y la calidad de los datos se encuentran en el centro de la plataforma.",
-  "site.244": "Se muestra en la primera entrada con opciones de participación/no participación, conforme con GDPR/CCPA.",
-  "site.245": "API e infraestructura financiera que se pueden integrar en productos.",
-  "site.246": "Construir infraestructura que pueda operar en todos los mercados y jurisdicciones.",
-  "site.247": "Aprendizaje automático, inteligencia de mercado, generación de señales y análisis.",
-  "site.248": "Métodos de detección de regímenes, PNL, previsión y asistentes de investigación.",
-  "site.249": "Aún no hay historial de rendimiento. Invierta para comenzar a seguir su curva de capital.",
-  "site.250": "Guía paso a paso para construir una cartera de inversiones bien diversificada.",
-  "site.251": "Para mejorar la experiencia del usuario, ejecutar análisis y cumplir con las regulaciones.",
-  "site.252": "Conservamos los datos de los usuarios el tiempo que sea necesario para cumplir con las leyes financieras.",
-  "site.253": "Las marcas de tiempo de inicio de sesión, la IP y la geolocalización se almacenan para prevenir el fraude.",
-  "site.254": "La contraseña debe ser segura. Incluya mayúsculas, números y caracteres especiales.",
-  "site.255": "Se utiliza para almacenar filtros del panel, configuraciones de modo y tokens de sesión.",
-  "site.256": "No vendemos datos recopilados mediante cookies. Usado únicamente para su experiencia.",
-  "site.257": "Una guía completa para gestionar el riesgo de cartera en mercados volátiles.",
-  "site.258": "Todo lo que necesitas saber sobre invertir en activos digitales de forma segura.",
-  "site.259": "En caso de incumplimiento, los usuarios afectados serán notificados dentro de las 72 horas.",
-  "site.260": "Administre sus inversiones en diferentes fondos y realice un seguimiento del rendimiento.",
-  "site.261": "La mayoría de los navegadores le permiten bloquear las cookies desde configuración > privacidad/seguridad.",
-  "site.262": "Ver estrategias en ejecución, cambiar la ejecución y monitorear métricas agrupadas",
-  "site.263": "Están prohibidos los intentos de eludir la seguridad, las cuotas o las licencias.",
-  "site.264": "La infraestructura financiera de alta calidad comienza con datos de alta calidad.",
-  "site.265": "Infraestructura diseñada para operar en todos los mercados y jurisdicciones.",
-  "site.266": "DATOS DE MERCADO → PLATAFORMA DE DATOS → CANTIDAD + IA → RIESGO → EJECUCIÓN → LUGARES",
-  "site.267": "Aún no hay declaraciones. Los estados de cuenta son generados mensualmente por la plataforma.",
-  "site.268": "Las fallas de personas, procesos y terceros pueden afectar la calidad del servicio.",
-  "site.269": "Se apoyó la infraestructura tecnológica para los mercados de activos digitales.",
-  "site.270": "Mantenemos anónimos todos los datos utilizados para evaluaciones comparativas y publicaciones de investigación.",
-  "site.271": "Es posible que le enviemos correos electrónicos sobre cambios, promociones o informes de la plataforma.",
-  "site.272": "Cree y administre administradores de cartera que incorporen y atiendan a los clientes.",
-  "site.273": "Sistemas de negociación electrónica e infraestructura de ejecución sistemática.",
-  "site.274": "Infraestructura de datos, investigación, ejecución y riesgos de alto rendimiento.",
-  "site.275": "Inicie un depósito bancario y luego transfiera fondos a nuestra cuenta de liquidación.",
-  "site.276": "¡Gracias por contactarnos! Nos comunicaremos con usted dentro de las 24 horas.",
-  "site.277": "Las API solo se pueden utilizar para los fines permitidos en su concesión de acceso.",
-  "site.278": "Ingrese una cantidad: lo emparejaremos con la mejor estrategia para su plan.",
-  "site.279": "Domine las técnicas comerciales avanzadas utilizadas por inversores profesionales.",
-  "site.280": "Inteligencia estructurada a partir de datos de mercado y conjuntos de datos alternativos.",
-  "site.281": "Herramientas como uBlock o la configuración del navegador pueden bloquear las cookies analíticas.",
-  "site.282": "Se utiliza para análisis (Google), pagos (Stripe) e inicios de sesión sociales.",
-  "site.283": "Mantenemos copias de seguridad redundantes y seguras para garantizar la continuidad del servicio.",
-  "site.284": "Puede transferir fondos desde su billetera a inversiones en cualquier momento",
-  "site.285": "Puede retirar el consentimiento para el uso de datos, sujeto a limitaciones de funciones.",
-  "site.286": "Actualmente no se utiliza. Le pediremos consentimiento si los presentamos.",
-  "site.287": "Exposición, pruebas de estrés, análisis de escenarios y marcos de límites.",
-  "site.288": "Datos de mercado, análisis, riesgo e infraestructura de ejecución para FX.",
-  "site.289": "Aún no hay transacciones. Haga un depósito o una inversión para comenzar.",
-  "site.290": "Cumplimos con GDPR, CCPA y las pautas de protección de datos de Kenia.",
-  "site.291": "Podemos divulgar datos cuando así lo requiera un proceso legal o citaciones.",
-  "site.292": "Ingresa el código de 6 dígitos enviado a tu correo electrónico y tu nueva contraseña.",
-  "site.293": "Los controles basados ​​en roles rigen el acceso interno a los datos de su cuenta.",
-  "site.294": "Retiro presentado. Se procesará después de la aprobación del administrador.",
-  "site.295": "Todos los depósitos, retiros, inversiones y ajustes de billetera.",
-  "site.296": "Cualquier integración externa a través de nuestra API se registra y monitorea.",
-  "site.297": "Depósito bancario iniciado: transfiera fondos utilizando los detalles a continuación",
+  "site.60":
+    "Esta página es un resumen de producto y no constituye asesoramiento jurídico. Los términos legales y regulatorios deben ser revisados por un abogado cualificado antes de su publicación. Evermount no afirma autorización de la SEC, FCA, CMA, MiFID o similar salvo declaración expresa y separada.",
+  "site.61":
+    "Evermount puede proporcionar infraestructura de ejecución, software de gestión de órdenes y análisis. Cuando un cliente es una empresa regulada con obligaciones de mejor ejecución, esas obligaciones permanecen con el cliente. Evermount no declara ser un corredor que ejecuta órdenes de clientes como una empresa de inversión a menos que un acuerdo firmado indique lo contrario.",
+  "site.62":
+    "Evermount es un proveedor de tecnología. Pueden surgir conflictos entre intereses comerciales, relaciones con proveedores e intereses de clientes. Nuestro objetivo es identificar, gestionar y divulgar conflictos materiales en los acuerdos con los clientes en lugar de actuar como un administrador de inversiones discrecional para los visitantes del sitio web.",
+  "site.63":
+    "Evermount combina inteligencia artificial, investigación cuantitativa e infraestructura comercial para crear sistemas inteligentes capaces de analizar mercados continuamente, descubrir oportunidades, gestionar riesgos y ejecutar estrategias sistemáticas.",
+  "site.64":
+    "Los mercados financieros son complejos, fragmentados y técnicamente difíciles de aprovechar. Combinamos ingeniería de datos, investigación cuantitativa, aprendizaje automático y tecnología de ejecución para que las instituciones y los desarrolladores puedan construir sobre una base común.",
+  "site.65":
+    "Capacidades de análisis de rendimiento, riesgo y exposición. Las cifras que se muestran en las demostraciones de productos son ilustrativas a menos que estén etiquetadas como datos propios del cliente. Evermount no publica los rendimientos de las inversiones ni los índices de Sharpe como desempeño de la empresa.",
+  "site.66":
+    "Esta declaración describe los controles de delitos financieros apropiados para un proveedor de tecnología e infraestructura. No es un manual ALD para administradores de fondos y no significa que Evermount acepte suscripciones de inversores o retenga dinero de clientes.",
+  "site.67":
+    "Estos términos rigen el acceso al software, las API, los datos y los servicios de infraestructura de Evermount. No constituyen un acuerdo de gestión de inversiones, una suscripción a un fondo ni una invitación a depositar dinero de un cliente en Evermount.",
+  "site.68":
+    "Los clientes siguen siendo responsables de sus propias obligaciones comerciales, regulatorias, KYC/AML y fiduciarias. Evermount no es un corredor de bolsa, banco, custodio, bolsa o asesor de inversiones a menos que se indique expresamente en un acuerdo firmado.",
+  "site.69":
+    "Evermount proporciona servicios de tecnología e infraestructura. Esta página no reclama el registro de la SEC, la autorización de la FCA, la autorización de la CMA, la autorización de MiFID, el estatus de corredor de bolsa, el estatus de asesor de inversiones ni la custodia.",
+  "site.70":
+    "Los mercados financieros son sistemas complejos. Creemos que la próxima generación de infraestructura financiera se construirá combinando datos a gran escala, inteligencia artificial, investigación cuantitativa y ejecución automatizada.",
+  "site.71":
+    "Trabajamos con bancos, corredores, bolsas, proveedores de datos de mercado, fintechs, proveedores de tecnología, proveedores de liquidez e instituciones. Las asociaciones nombradas se enumeran sólo cuando son reales y están aprobadas para ser públicas.",
+  "site.72":
+    "Los clientes institucionales siguen siendo responsables de sus propias obligaciones regulatorias, incluidos los permisos comerciales, la mejor ejecución cuando son una empresa regulada y las reglas sobre activos de los clientes que se les aplican.",
+  "site.73":
+    "Evermount es una organización de investigación cuantitativa y tecnología financiera. Las notas de investigación públicas se enumerarán aquí cuando se publiquen. No fabricamos documentos, rendimiento o resultados para el cliente.",
+  "site.74":
+    "Prestamos servicios a bancos, corredores, bolsas, administradores de activos, fondos de cobertura, empresas comerciales por cuenta propia, creadores de mercado, fintechs, oficinas familiares y desarrolladores que necesitan una infraestructura de mercado programable.",
+  "site.75":
+    "Para implementaciones a gran escala. Capacidades potenciales: implementación dedicada, conectividad privada, integraciones personalizadas, alta disponibilidad, ingeniería dedicada y SLA, sujeto a contrato.",
+  "site.76":
+    "Para bancos, corredores y gestores de activos. Capacidades potenciales: API institucionales, infraestructura dedicada, conectividad de mercado, infraestructura de riesgo y ejecución y soporte empresarial.",
+  "site.77":
+    "Evermount se posiciona como independiente del mercado. Las secciones siguientes describen la infraestructura para cada mercado, no una afirmación de que Evermount proporcione acceso regulado a cada lugar o instrumento.",
+  "site.78":
+    "Los mercados financieros son complejos, fragmentados y técnicamente difíciles de aprovechar. Evermount proporciona infraestructura que hace que la tecnología del mercado sea más fácil de construir, integrar y operar.",
+  "site.79":
+    "Estamos construyendo la infraestructura detrás de los mercados financieros modernos, y apenas estamos comenzando. Únase a ingenieros, investigadores y operadores que se preocupan por los datos, los riesgos y los sistemas.",
+  "site.80":
+    "La siguiente pila refleja los sistemas que utilizamos hoy y las capacidades en la hoja de ruta de ingeniería. No publicamos cifras de latencia, tiempo de actividad o rendimiento a menos que se verifiquen de forma independiente.",
+  "site.81":
+    "Acceso programático a datos financieros, análisis, inteligencia e infraestructura. La documentación de la API pública y las credenciales de producción se proporcionan una vez aprobado el acceso.",
+  "site.82":
+    "Evermount está construyendo sistemas que aprenden continuamente de datos financieros, generan hipótesis, evalúan riesgos y traducen inteligencia validada en acciones controladas.",
+  "site.83":
+    "Para empresas comerciales, fintechs y usuarios profesionales. Capacidades potenciales: datos en tiempo real, API avanzadas, análisis, API de riesgo y capacidades de ejecución cuando estén habilitadas.",
+  "site.84":
+    "La plataforma es independiente del mercado: está diseñada para respaldar acciones, divisas, renta fija, materias primas, derivados y activos digitales donde esas capacidades estén disponibles.",
+  "site.85":
+    "Evermount conserva los derechos sobre su software, modelos y documentación. Los clientes conservan los derechos sobre sus propios datos, sujetos a las licencias otorgadas para operar el servicio.",
+  "site.86":
+    "Evermount es independiente del mercado. Proporcionamos infraestructura para clases de activos; no damos a entender que Evermount opere o proporcione acceso regulado a todos los mercados.",
+  "site.87":
+    "Profesionales experimentados que combinan experiencia en finanzas cuantitativas, informática e ingeniería para impulsar la innovación en la tecnología de comercio sistemático.",
+  "site.88":
+    "Ejecución algorítmica, gestión de órdenes y análisis de ejecución. La conectividad con corredores y lugares depende del estado de integración y la regulación aplicable.",
+  "site.89":
+    "Evermount proporciona servicios de tecnología e infraestructura. Los clientes institucionales siguen siendo responsables de sus propias obligaciones regulatorias cuando corresponda.",
+  "site.90":
+    "Utilizamos aprendizaje automático, modelos estadísticos e ingeniería de software moderna. Las características de desempeño específicas no se publican como estadísticas de marketing.",
+  "site.91":
+    "IMPORTANTE: lea atentamente esta divulgación de riesgos. El uso de tecnología financiera implica riesgos. Esta no es una divulgación de productos de inversión para un fondo.",
+  "site.92":
+    "Evermount es una empresa de tecnología financiera que construye infraestructura para datos de mercado, investigación cuantitativa, inteligencia artificial, riesgo y ejecución.",
+  "site.93":
+    "Sí, puede reasignar sus inversiones en cualquier momento a través de la página Portafolio. También puede configurar el reequilibrio automático según sus preferencias.",
+  "site.94":
+    "Una pila de tecnología unificada diseñada para transformar datos financieros en inteligencia, estrategias cuantitativas, decisiones de riesgo y ejecución sistemática.",
+  "site.95":
+    'Esta Política de cookies explica cómo Evermount ("nosotros", "nuestro" o "nos") utiliza cookies y tecnologías similares para reconocerlo cuando visita nuestra plataforma.',
+  "site.96":
+    "Una capa de inteligencia nativa de IA diseñada para ayudar a los sistemas financieros a comprender los mercados, investigar oportunidades y tomar mejores decisiones conscientes de los riesgos.",
+  "site.97":
+    "Los controles de acceso, el cifrado y las prácticas de monitoreo se implementan de acuerdo con los sistemas en producción y el acuerdo aplicable con el cliente.",
+  "site.98":
+    "Los términos comerciales dependen de los datos, los mercados, el volumen de API y el modelo de implementación. No publicamos precios de lista inventados. Comuníquese con ventas para obtener una propuesta.",
+  "site.99":
+    "Esta Política de privacidad describe cómo Evermount recopila, usa, almacena y protege su información. Su privacidad es de vital importancia para nosotros.",
+  "site.100":
+    "Un ecosistema financiero donde las instituciones, los desarrolladores y los investigadores pueden crear aplicaciones de mercado sofisticadas sobre una infraestructura confiable.",
+  "site.101":
+    "Cualquiera de las partes podrá rescindir según lo previsto en el acuerdo comercial. El acceso podrá suspenderse por abuso, riesgo de seguridad o exigencia legal.",
+  "site.102":
+    "Los sistemas de IA analizan información de mercado, noticias, condiciones macroeconómicas y datos alternativos para generar inteligencia financiera estructurada.",
+  "site.103":
+    "Una hoja de ruta tecnológica desde la investigación actual asistida por IA hacia la ejecución sistemática, la infraestructura de mercado y la conectividad del mercado global.",
+  "site.104":
+    "Para desarrolladores e investigadores. Capacidades potenciales: sandbox, acceso API limitado, datos históricos, herramientas de investigación y documentación.",
+  "site.105":
+    "La disponibilidad de servicios específicos depende de la jurisdicción y la regulación aplicable. Evermount no está regulado en todas las jurisdicciones.",
+  "site.106":
+    "Niveles de acceso de desarrollador, profesional, institucional y empresarial. Los términos comerciales los proporcionan las ventas, no precios de lista inventados.",
+  "site.107":
+    "Superficies API planificadas y en desarrollo. La disponibilidad se confirma durante la incorporación; no asuma que todas las API están activas en producción.",
+  "site.108":
+    "FlipbotEA sondea la cola de señales y la ejecuta en la demostración de Exness MT5 iniciada. Los rellenos exitosos aumentan el NAV de los inversores a través de FillRecorded.",
+  "site.109":
+    "La marca tiene una orientación global: infraestructura que puede operar en mercados y jurisdicciones según lo permitan las capacidades y las licencias.",
+  "site.110":
+    "Una pila de IA diseñada para convertir datos financieros en inteligencia, investigación validada, decisiones de riesgo y ejecución controlada.",
+  "site.111":
+    "Actualmente no hay puestos vacantes en la lista. Preséntese encareers@evermount.co si desea ayudar a construir una infraestructura financiera.",
+  "site.112":
+    "Infraestructura financiera para mercados modernos: datos de mercado, investigación cuantitativa, inteligencia, riesgo, ejecución y conectividad.",
+  "site.113":
+    "Fundada en 2023, Evermount se creó para hacer que la infraestructura financiera sofisticada sea más accesible, programable y escalable.",
+  "site.114":
+    "Infraestructura de investigación para descubrimiento de factores, generación de hipótesis, backtesting, simulación y desarrollo sistemático de estrategias.",
+  "site.115":
+    "API de asociación para enlaces de referencia, informes de clientes y datos de comisiones. La ejecución comercial utiliza Exness MT5 anterior, no esta API.",
+  "site.116":
+    "Estamos construyendo nuestra infraestructura con los más altos estándares de excelencia operativa, seguridad y gestión de riesgos a medida que escalamos.",
+  "site.117":
+    '"Estamos construyendo la infraestructura de datos, investigación, inteligencia, riesgo y ejecución que las instituciones y los desarrolladores pueden aprovechar".',
+  "site.118":
+    "Infraestructura de datos de mercado, análisis, riesgo, ejecución y conectividad para bancos, corredores, administradores de activos y empresas comerciales.",
+  "site.119":
+    "El uso típico permitido incluye investigación interna, riesgos, análisis y funciones de aplicaciones que usted opera para su organización.",
+  "site.120":
+    "En el corazón de Evermount se encuentra una plataforma tecnológica para datos de mercado, investigación cuantitativa, inteligencia, riesgo y ejecución.",
+  "site.121":
+    "Retira USD a tu cuenta bancaria vinculada. Nuestro equipo revisa y aprueba las solicitudes (normalmente en un plazo de 2 días hábiles).",
+  "site.122":
+    "Cada parte implementará medidas de seguridad razonables. Los clientes deben proteger las credenciales e informar sospechas de compromiso.",
+  "site.123":
+    "Una pila de tecnología para datos, investigación, inteligencia, riesgo, ejecución y conectividad, no una solicitud para depositar capital.",
+  "site.124":
+    "Deposite fondos en su billetera utilizando criptomonedas admitidas. Los fondos estarán disponibles en su billetera después de la confirmación.",
+  "site.125":
+    "Infraestructura de datos, investigación cuantitativa, inteligencia, riesgo, ejecución y conectividad para los mercados financieros modernos.",
+  "site.126":
+    "Se utiliza al hacer clic en Comercio. Tu capital permanece invertido durante el período que elijas. Es posible que el retiro anticipado no esté disponible.",
+  "site.127":
+    "Retire fondos de su billetera a su banco preferido o billetera criptográfica. Sólo se puede retirar el saldo disponible de la billetera.",
+  "site.128":
+    "Elija su método de depósito preferido para agregar fondos a su billetera. Los fondos estarán disponibles para retiro o inversión.",
+  "site.129":
+    "Los datos pueden estar retrasados, incompletos o incorrectos. No sustituye a las transmisiones oficiales del lugar cuando sean necesarias.",
+  "site.130":
+    "Los servicios se proporcionan sobre una base tecnológica. Las funciones pueden estar en versión preliminar, limitadas o no disponibles en algunas jurisdicciones.",
+  "site.131":
+    "Las órdenes pueden retrasarse, rechazarse, ejecutarse parcialmente o ejecutarse a precios inesperados cuando existe conectividad de ejecución.",
+  "site.132":
+    "La autenticación, las claves API, los límites de velocidad y los ejemplos se publican para los desarrolladores aprobados. Hasta entonces, solicita acceso.",
+  "site.133":
+    "El hospedaje, la conectividad y los arreglos operativos se describen en el formulario de pedido o declaración de trabajo correspondiente.",
+  "site.134":
+    "Solicite acceso para discutir la infraestructura de datos, investigación, riesgo, ejecución y conectividad con el equipo de Evermount.",
+  "site.135":
+    "Una arquitectura conceptual que conecta la IA, la investigación, el riesgo y la ejecución en una plataforma tecnológica institucional.",
+  "site.136":
+    "Un viaje práctico para instituciones y desarrolladores que utilizan la infraestructura de Evermount, no un flujo de incorporación de fondos.",
+  "site.137":
+    "Arquitectura tecnológica de Evermount en ingeniería de datos, computación cuantitativa, inteligencia artificial, sistemas comerciales y riesgos.",
+  "site.138":
+    "Diseñamos sistemas en torno a la calidad de los datos, la evidencia de la investigación y el riesgo mensurable, no en marketing de fondos discrecional.",
+  "site.139":
+    "Construya el ecosistema financiero con Evermount a través de asociaciones de datos, conectividad, tecnología y investigación.",
+  "site.140":
+    "La reducción, la volatilidad y el índice de Sharpe se calculan a partir de los rendimientos diarios de su propia cartera durante los últimos 90 días.",
+  "site.141":
+    "Retire KES de su billetera directamente a su cuenta M-Pesa. Sólo se puede retirar el saldo disponible de la billetera.",
+  "site.142":
+    "Deposite fondos en su billetera KES al instante a través de M-Pesa. Recibirá un mensaje STK en su teléfono para confirmar el pago.",
+  "site.143":
+    "Capacidades de análisis de rendimiento, riesgo, exposición, atribución y pruebas de estrés en la plataforma Evermount.",
+  "site.144":
+    "Una arquitectura conceptual. Las implementaciones, lugares e integraciones específicos varían según el cliente y la jurisdicción.",
+  "site.145":
+    "Las tarifas, si las hubiera, se establecen en un formulario de pedido. Este sitio web no incluye comisiones de gestión de fondos ni de rendimiento.",
+  "site.146":
+    "Infraestructura independiente del mercado para acciones, divisas, renta fija, materias primas, derivados y activos digitales.",
+  "site.147":
+    "No garantizamos un servicio ininterrumpido. El mantenimiento, las interrupciones de los proveedores y los casos de fuerza mayor pueden afectar el acceso.",
+  "site.148":
+    "Compartir la escala esperada, los mercados y los requisitos de infraestructura. Los precios se cotizan, no figuran como tarifas de fondos.",
+  "site.149":
+    "Podemos otorgar acceso a entornos, credenciales y documentación sujetos a la aprobación y la ley aplicable.",
+  "site.150":
+    "Siempre estamos buscando gente apasionada. Si está entusiasmado con nuestra misión, nos encantaría saber de usted.",
+  "site.151":
+    "Canales de datos financieros unificados diseñados para respaldar la investigación, el análisis y los sistemas de toma de decisiones en tiempo real.",
+  "site.152":
+    "Capacidades de la plataforma Evermount. La disponibilidad específica depende del nivel de acceso y la jurisdicción.",
+  "site.153":
+    "Configure EXNESS_PARTNER_REFERRAL_LINK o habilite EXNESS_PARTNER_ENABLED con credenciales de PPA en el entorno de backend.",
+  "site.154":
+    "Retire fondos de su billetera a su billetera criptográfica. Sólo se puede retirar el saldo disponible de la billetera.",
+  "site.155":
+    "Cuatro capacidades que convierten los datos financieros en inteligencia, investigación, decisiones de riesgo y ejecución.",
+  "site.156":
+    "Los controles de riesgo deben integrarse directamente en los sistemas, incluido el monitoreo previo a la negociación y en tiempo real.",
+  "site.157":
+    "Los defectos del software, las interrupciones y los errores de configuración pueden interrumpir el acceso o producir resultados incorrectos.",
+  "site.158":
+    "Un viaje de siete pasos desde la conexión de sistemas hasta el seguimiento de los mercados, el riesgo y la ejecución en Evermount.",
+  "site.159":
+    "La infraestructura financiera debe ser programable. Las API, la transmisión y las integraciones son de primera clase.",
+  "site.160":
+    "La responsabilidad está limitada en la medida permitida por la ley y según lo establecido en los términos comerciales firmados.",
+  "site.161":
+    "Los detalles de operaciones y alojamiento de producción se confirman con los clientes durante la planificación de la implementación.",
+  "site.162":
+    "Monitoreo en tiempo real de exposición, liquidez, volatilidad, correlación, reducción y regímenes de mercado.",
+  "site.163":
+    "No pudimos encontrar la página que estabas buscando. Quizás haya escrito mal la URL o la página se haya movido.",
+  "site.164":
+    "Una base tecnológica para datos de mercado, investigación cuantitativa, inteligencia, riesgo y ejecución.",
+  "site.165":
+    "Para optimizar el rendimiento del sitio, personalizar la experiencia del usuario, mejorar la seguridad y analizar el tráfico.",
+  "site.166":
+    "Acceda a recursos educativos, guías, videos y seminarios web para mejorar su conocimiento sobre inversiones.",
+  "site.167":
+    "¿No encuentras lo que estás buscando? Envíenos un mensaje y nos comunicaremos con usted dentro de las 24 horas.",
+  "site.168":
+    "Los lenguajes en uso activo incluyen TypeScript y Python. C++ y Rust están en la hoja de ruta de los sistemas.",
+  "site.169":
+    "Ingresa el correo electrónico asociado a tu cuenta y te enviaremos una OTP para restablecer tu contraseña.",
+  "site.170":
+    "Infraestructura de ejecución sistemática diseñada para brindar confiabilidad, velocidad y despliegue controlado.",
+  "site.171":
+    "Conozca al equipo de Evermount y cómo estamos construyendo infraestructura financiera para los mercados modernos.",
+  "site.172":
+    "Pequeños archivos de datos colocados en su dispositivo para rastrear el comportamiento, las preferencias y la actividad de la sesión.",
+  "site.173":
+    "Gestionar cuentas de inversores y acceso. Los administradores de cartera se crean en Admin → Administradores.",
+  "site.174":
+    "Nuestro equipo combina experiencia en finanzas cuantitativas, ciencia de datos e ingeniería de sistemas.",
+  "site.175":
+    "Cuéntenos sobre su institución y sus necesidades de infraestructura. Seguiremos con los próximos pasos.",
+  "site.176":
+    "Infraestructura diseñada para operar en mercados y jurisdicciones según lo permitan las capacidades.",
+  "site.177":
+    "Programe una conversación sobre la infraestructura de ejecución, riesgo, investigación y datos de Evermount.",
+  "site.178":
+    "Configurado por Evermount directamente para iniciar sesión, guardar preferencias de temas y estados de gráficos.",
+  "site.179":
+    "Las API pueden cambiar, tener versiones o retirarse con previo aviso cuando sea razonablemente posible.",
+  "site.180":
+    "Conecte fuentes de datos, corredores, lugares o sistemas institucionales donde existan integraciones.",
+  "site.181":
+    "Los datos de mercado y los datos de terceros están sujetos a la Política de datos y a cualquier licencia de proveedor.",
+  "site.182":
+    "Se planean entornos no productivos para pruebas de integración para desarrolladores aprobados.",
+  "site.183":
+    "Investigación cuantitativa, estructura de mercado, inteligencia artificial, investigación de riesgos y ejecución de Evermount.",
+  "site.184":
+    "Comparta los requisitos de su empresa, función y API para que podamos aprovisionar el entorno adecuado.",
+  "site.185":
+    "Utilice ingeniería moderna, métodos cuantitativos e inteligencia artificial para resolver problemas financieros complejos.",
+  "site.186":
+    "Invertimos en investigación e ingeniería para que la infraestructura siga siendo programable y confiable.",
+  "site.187":
+    "Hacer que la infraestructura financiera sofisticada sea más accesible, programable y escalable.",
+  "site.188":
+    "Investigación sobre cómo interactúan los lugares, la liquidez y la microestructura del mercado con la tecnología.",
+  "site.189":
+    "Su billetera actúa como una cuenta de depósito en garantía donde puede almacenar fondos de manera segura antes de invertir",
+  "site.190":
+    "Construcción, optimización y análisis de carteras: no es un producto de inversión administrado.",
+  "site.191":
+    "Las instituciones y los investigadores pueden discutir datos, métodos y oportunidades de asociación.",
+  "site.192":
+    "Conozca la misión de Evermount de construir infraestructura financiera para los mercados modernos.",
+  "site.193":
+    "Administre el saldo de su billetera, depósitos, retiros y transfiera fondos a inversiones.",
+  "site.194":
+    "Le enviamos por correo electrónico un código de confirmación de 6 dígitos. Ingrese el código a continuación para verificar su correo electrónico.",
+  "site.195":
+    "Se encuentran disponibles asignaciones de gerentes de relaciones dedicados para cuentas institucionales.",
+  "site.196":
+    "Inicie sesión de forma segura en el portal de inversores de Evermount Capital y administre sus inversiones.",
+  "site.197":
+    "Los datos de mercado y los datos de terceros están sujetos a las licencias de los proveedores y a la Política de datos.",
+  "site.198":
+    "Inteligencia de mercados, investigación cuantitativa e infraestructura de tecnología financiera.",
+  "site.199":
+    "Requerido para funciones básicas, por ejemplo, inicio de sesión, acceso a cartera. No se puede desactivar.",
+  "site.200":
+    "Los datos se licencian, no se venden. Los derechos se limitan a los casos de uso en su acuerdo.",
+  "site.201":
+    "Los depósitos van directamente a su billetera y están disponibles para retiro o inversión.",
+  "site.202":
+    "Las cookies esenciales se utilizan para la funcionalidad. Puede optar por no recibir cookies de seguimiento.",
+  "site.203":
+    "Acceso programático a datos financieros, análisis, inteligencia e infraestructura.",
+  "site.204":
+    "La redistribución a terceros está prohibida a menos que se permita expresamente por escrito.",
+  "site.205":
+    "El acceso no autorizado, el malware y el robo de credenciales pueden comprometer los sistemas y los datos.",
+  "site.206":
+    "Su identidad ha sido verificada. Tiene acceso completo a depósitos e inversiones.",
+  "site.207":
+    "Próximamente habrá una página de estado público. Para incidencias contactar con support@evermount.co.",
+  "site.208":
+    "Todos los métodos de pago (tarjeta, banco, criptografía) se pueden utilizar para depósitos y retiros.",
+  "site.209":
+    "Comparta su tipo de institución, mercados de interés y requisitos de infraestructura.",
+  "site.210":
+    "Las ganancias retiradas de las inversiones se agregan automáticamente al saldo de su billetera",
+  "site.211":
+    "Se encuentran disponibles depósitos con tarjeta, M-Pesa y criptomonedas. Las transferencias bancarias llegarán pronto.",
+  "site.212":
+    "Analice la arquitectura, las API y los requisitos de integración con el equipo de Evermount.",
+  "site.213":
+    "Su envío anterior fue rechazado. Cargue nuevos documentos para volver a intentarlo.",
+  "site.214":
+    "Los datos de intercambio, proveedores y alternativos permanecen sujetos a los términos de dichos proveedores.",
+  "site.215":
+    "La actividad de la cartera, el perfil de riesgo y el momento de ejecución se registran para mayor precisión.",
+  "site.216":
+    "Los modelos cuantitativos y de inteligencia artificial pueden estar mal especificados, sobreajustados o fallar en nuevos regímenes.",
+  "site.217":
+    "No puede extraer, realizar ingeniería inversa ni redistribuir datos más allá de su licencia.",
+  "site.218":
+    "El capital permanece invertido durante este período. Es posible que el retiro anticipado no esté disponible.",
+  "site.219":
+    "Las transmisiones pueden retrasarse, faltar o ser incorrectas. Las decisiones basadas en datos pueden ser erróneas.",
+  "site.220":
+    "Infraestructura que conecta instituciones, corredores, lugares y sistemas financieros.",
+  "site.221":
+    "Extrae el NAV estratégico de evermount-quant y actualiza los valores de la cartera de inversores.",
+  "site.222":
+    "Solicite acceso para analizar cómo las API de análisis y los paneles se adaptan a su flujo de trabajo.",
+  "site.223":
+    "Díganos qué clases de activos y requisitos de datos son importantes para su institución.",
+  "site.224":
+    "Únase a nuestros expertos para un análisis en profundidad de las tendencias y oportunidades del mercado.",
+  "site.225":
+    "Sus documentos están siendo revisados. Le notificaremos por correo electrónico una vez completado.",
+  "site.226":
+    "Su mensaje: función, tipo de empresa, mercados, necesidades de datos/API, escala esperada...",
+  "site.227":
+    "Inversores asignados, saldos y asignación de estrategias con métricas de riesgo en vivo",
+  "site.228":
+    "Explore cómo se conectan los datos de mercado, la investigación, la inteligencia, el riesgo y la ejecución.",
+  "site.229":
+    "Conozca los fundamentos de las estrategias comerciales cuantitativas y cómo funcionan.",
+  "site.230":
+    "Temporal y eliminado cuando se cierra el navegador. Mantiene el inicio de sesión en todas las páginas.",
+  "site.231":
+    "Todos los datos se cifran en tránsito y en reposo utilizando las mejores prácticas de la industria.",
+  "site.232":
+    "Descargue estados de cuenta en PDF con resumen de cartera y atribución de desempeño.",
+  "site.233":
+    "elementos flexibles-espacio central-3 px-3 py-2 redondeado-md texto-sm fuente-transición media",
+  "site.234":
+    "Modelado, simulación, investigación de factores e infraestructura de investigación de estrategias.",
+  "site.235":
+    "Podemos utilizar SDK de análisis y rendimiento (por ejemplo, Google Analytics, Sentry).",
+  "site.236":
+    "Los retiros bancarios, M-Pesa y criptomonedas están disponibles después de la verificación KYC.",
+  "site.237":
+    "Los corredores, lugares, redes y proveedores pueden fracasar independientemente de Evermount.",
+  "site.238":
+    "Datos de mercado, análisis e infraestructura de ejecución para mercados de productos básicos.",
+  "site.239":
+    "Tecnología de creación de mercado, infraestructura de liquidez y conectividad de lugares.",
+  "site.240":
+    "Analice la arquitectura y la integración sin afirmaciones de rendimiento inventadas.",
+  "site.241":
+    "Podemos revisar esta Política de Privacidad. Los cambios se comunicarán a los usuarios.",
+  "site.242":
+    "Podrás solicitar el acceso, rectificación o supresión de tus datos en cualquier momento.",
+  "site.243":
+    "Los métodos cuantitativos y la calidad de los datos se encuentran en el centro de la plataforma.",
+  "site.244":
+    "Se muestra en la primera entrada con opciones de participación/no participación, conforme con GDPR/CCPA.",
+  "site.245":
+    "API e infraestructura financiera que se pueden integrar en productos.",
+  "site.246":
+    "Construir infraestructura que pueda operar en todos los mercados y jurisdicciones.",
+  "site.247":
+    "Aprendizaje automático, inteligencia de mercado, generación de señales y análisis.",
+  "site.248":
+    "Métodos de detección de regímenes, PNL, previsión y asistentes de investigación.",
+  "site.249":
+    "Aún no hay historial de rendimiento. Invierta para comenzar a seguir su curva de capital.",
+  "site.250":
+    "Guía paso a paso para construir una cartera de inversiones bien diversificada.",
+  "site.251":
+    "Para mejorar la experiencia del usuario, ejecutar análisis y cumplir con las regulaciones.",
+  "site.252":
+    "Conservamos los datos de los usuarios el tiempo que sea necesario para cumplir con las leyes financieras.",
+  "site.253":
+    "Las marcas de tiempo de inicio de sesión, la IP y la geolocalización se almacenan para prevenir el fraude.",
+  "site.254":
+    "La contraseña debe ser segura. Incluya mayúsculas, números y caracteres especiales.",
+  "site.255":
+    "Se utiliza para almacenar filtros del panel, configuraciones de modo y tokens de sesión.",
+  "site.256":
+    "No vendemos datos recopilados mediante cookies. Usado únicamente para su experiencia.",
+  "site.257":
+    "Una guía completa para gestionar el riesgo de cartera en mercados volátiles.",
+  "site.258":
+    "Todo lo que necesitas saber sobre invertir en activos digitales de forma segura.",
+  "site.259":
+    "En caso de incumplimiento, los usuarios afectados serán notificados dentro de las 72 horas.",
+  "site.260":
+    "Administre sus inversiones en diferentes fondos y realice un seguimiento del rendimiento.",
+  "site.261":
+    "La mayoría de los navegadores le permiten bloquear las cookies desde configuración > privacidad/seguridad.",
+  "site.262":
+    "Ver estrategias en ejecución, cambiar la ejecución y monitorear métricas agrupadas",
+  "site.263":
+    "Están prohibidos los intentos de eludir la seguridad, las cuotas o las licencias.",
+  "site.264":
+    "La infraestructura financiera de alta calidad comienza con datos de alta calidad.",
+  "site.265":
+    "Infraestructura diseñada para operar en todos los mercados y jurisdicciones.",
+  "site.266":
+    "DATOS DE MERCADO → PLATAFORMA DE DATOS → CANTIDAD + IA → RIESGO → EJECUCIÓN → LUGARES",
+  "site.267":
+    "Aún no hay declaraciones. Los estados de cuenta son generados mensualmente por la plataforma.",
+  "site.268":
+    "Las fallas de personas, procesos y terceros pueden afectar la calidad del servicio.",
+  "site.269":
+    "Se apoyó la infraestructura tecnológica para los mercados de activos digitales.",
+  "site.270":
+    "Mantenemos anónimos todos los datos utilizados para evaluaciones comparativas y publicaciones de investigación.",
+  "site.271":
+    "Es posible que le enviemos correos electrónicos sobre cambios, promociones o informes de la plataforma.",
+  "site.272":
+    "Cree y administre administradores de cartera que incorporen y atiendan a los clientes.",
+  "site.273":
+    "Sistemas de negociación electrónica e infraestructura de ejecución sistemática.",
+  "site.274":
+    "Infraestructura de datos, investigación, ejecución y riesgos de alto rendimiento.",
+  "site.275":
+    "Inicie un depósito bancario y luego transfiera fondos a nuestra cuenta de liquidación.",
+  "site.276":
+    "¡Gracias por contactarnos! Nos comunicaremos con usted dentro de las 24 horas.",
+  "site.277":
+    "Las API solo se pueden utilizar para los fines permitidos en su concesión de acceso.",
+  "site.278":
+    "Ingrese una cantidad: lo emparejaremos con la mejor estrategia para su plan.",
+  "site.279":
+    "Domine las técnicas comerciales avanzadas utilizadas por inversores profesionales.",
+  "site.280":
+    "Inteligencia estructurada a partir de datos de mercado y conjuntos de datos alternativos.",
+  "site.281":
+    "Herramientas como uBlock o la configuración del navegador pueden bloquear las cookies analíticas.",
+  "site.282":
+    "Se utiliza para análisis (Google), pagos (Stripe) e inicios de sesión sociales.",
+  "site.283":
+    "Mantenemos copias de seguridad redundantes y seguras para garantizar la continuidad del servicio.",
+  "site.284":
+    "Puede transferir fondos desde su billetera a inversiones en cualquier momento",
+  "site.285":
+    "Puede retirar el consentimiento para el uso de datos, sujeto a limitaciones de funciones.",
+  "site.286":
+    "Actualmente no se utiliza. Le pediremos consentimiento si los presentamos.",
+  "site.287":
+    "Exposición, pruebas de estrés, análisis de escenarios y marcos de límites.",
+  "site.288":
+    "Datos de mercado, análisis, riesgo e infraestructura de ejecución para FX.",
+  "site.289":
+    "Aún no hay transacciones. Haga un depósito o una inversión para comenzar.",
+  "site.290":
+    "Cumplimos con GDPR, CCPA y las pautas de protección de datos de Kenia.",
+  "site.291":
+    "Podemos divulgar datos cuando así lo requiera un proceso legal o citaciones.",
+  "site.292":
+    "Ingresa el código de 6 dígitos enviado a tu correo electrónico y tu nueva contraseña.",
+  "site.293":
+    "Los controles basados ​​en roles rigen el acceso interno a los datos de su cuenta.",
+  "site.294":
+    "Retiro presentado. Se procesará después de la aprobación del administrador.",
+  "site.295":
+    "Todos los depósitos, retiros, inversiones y ajustes de billetera.",
+  "site.296":
+    "Cualquier integración externa a través de nuestra API se registra y monitorea.",
+  "site.297":
+    "Depósito bancario iniciado: transfiera fondos utilizando los detalles a continuación",
   "site.298": "Habilite personalizaciones de tema, moneda, idioma e interfaz.",
-  "site.299": "Análisis de ejecución, investigación de enrutamiento y controles operativos.",
-  "site.300": "Los pagos se procesan a través de terceros seguros que cumplen con PCI.",
-  "site.301": "Controles de riesgo previos a la negociación y en tiempo real integrados en la plataforma.",
-  "site.302": "Investigación cuantitativa, datos, ejecución e infraestructura de riesgos.",
-  "site.303": "Revise los detalles de la asignación antes de comprometer el capital del cliente.",
-  "site.304": "Hable con Evermount sobre sus datos, API y requisitos de riesgo.",
-  "site.305": "Cargue sus documentos para verificar su identidad antes de invertir.",
-  "site.306": "Podemos utilizar acciones de los usuarios para sugerir modelos de inversión optimizados.",
-  "site.307": "Su comportamiento anónimo se puede utilizar para entrenar modelos de cartera.",
-  "site.308": "Configure los ajustes del sistema, la seguridad y las preferencias de plataforma.",
-  "site.309": "Ingrese los datos de su Visa o Mastercard para completar el depósito.",
-  "site.310": "Controles de delitos financieros proporcionales a los servicios ofrecidos.",
-  "site.311": "Due diligence de socios para conectividad y relaciones de datos.",
-  "site.312": "Transfiera su saldo disponible directamente a su cuenta bancaria.",
-  "site.313": "Actualmente no respondemos a las señales de \"No rastrear\" del navegador.",
-  "site.314": "Actualizamos esta política sobre cambios materiales; consulte el registro de cambios.",
-  "site.315": "Incorporación de clientes para cuentas institucionales y de desarrolladores.",
-  "site.316": "Modales mejorados para la UE, California, Kenia y otras regiones.",
-  "site.317": "Encuentre respuestas a preguntas comunes o comuníquese con nuestro equipo de soporte.",
-  "site.318": "En caso de adquisición, los datos del usuario podrán ser transferidos.",
-  "site.319": "Integraciones como Okra y Plaid pueden eliminar cookies basadas en sesiones.",
-  "site.320": "Infraestructura de mercado, análisis e integraciones tecnológicas.",
-  "site.321": "Registramos IP, sistema operativo y versión del navegador para ayudar a proteger las cuentas de usuario.",
-  "site.322": "Su suscripción se recuerda durante 6 meses a menos que se restablezca manualmente.",
-  "site.323": "Sistemas automatizados de gestión de riesgos y optimización de carteras.",
-  "site.324": "Ingrese su PIN de M-Pesa en su teléfono para completar el depósito.",
-  "site.325": "Si tiene alguna inquietud sobre la privacidad, envíenos un correo electrónico a privacidad@evermount.com.",
-  "site.326": "Ratio de Sharpe (como métrica analítica de las carteras de clientes)",
-  "site.327": "Almacenado a largo plazo según preferencia de idioma, tema y dispositivo.",
-  "site.328": "Describa el tipo de asociación, los mercados y el alcance técnico.",
-  "site.329": "Agrupados por tipo: análisis, preferencias, autenticación, dispositivo, etc.",
-  "site.330": "Infraestructura para Instituciones, Desarrolladores e Investigadores",
-  "site.331": "Nuestra plataforma no está destinada a usuarios menores de 18 años.",
-  "site.332": "Reciba sus fondos en su billetera criptográfica personal de forma segura.",
-  "site.333": "Infraestructura tecnológica y analítica para los mercados de valores.",
-  "site.334": "Puede ajustar sus preferencias a través del pie de página en cualquier momento.",
+  "site.299":
+    "Análisis de ejecución, investigación de enrutamiento y controles operativos.",
+  "site.300":
+    "Los pagos se procesan a través de terceros seguros que cumplen con PCI.",
+  "site.301":
+    "Controles de riesgo previos a la negociación y en tiempo real integrados en la plataforma.",
+  "site.302":
+    "Investigación cuantitativa, datos, ejecución e infraestructura de riesgos.",
+  "site.303":
+    "Revise los detalles de la asignación antes de comprometer el capital del cliente.",
+  "site.304":
+    "Hable con Evermount sobre sus datos, API y requisitos de riesgo.",
+  "site.305":
+    "Cargue sus documentos para verificar su identidad antes de invertir.",
+  "site.306":
+    "Podemos utilizar acciones de los usuarios para sugerir modelos de inversión optimizados.",
+  "site.307":
+    "Su comportamiento anónimo se puede utilizar para entrenar modelos de cartera.",
+  "site.308":
+    "Configure los ajustes del sistema, la seguridad y las preferencias de plataforma.",
+  "site.309":
+    "Ingrese los datos de su Visa o Mastercard para completar el depósito.",
+  "site.310":
+    "Controles de delitos financieros proporcionales a los servicios ofrecidos.",
+  "site.311":
+    "Due diligence de socios para conectividad y relaciones de datos.",
+  "site.312":
+    "Transfiera su saldo disponible directamente a su cuenta bancaria.",
+  "site.313":
+    'Actualmente no respondemos a las señales de "No rastrear" del navegador.',
+  "site.314":
+    "Actualizamos esta política sobre cambios materiales; consulte el registro de cambios.",
+  "site.315":
+    "Incorporación de clientes para cuentas institucionales y de desarrolladores.",
+  "site.316":
+    "Modales mejorados para la UE, California, Kenia y otras regiones.",
+  "site.317":
+    "Encuentre respuestas a preguntas comunes o comuníquese con nuestro equipo de soporte.",
+  "site.318":
+    "En caso de adquisición, los datos del usuario podrán ser transferidos.",
+  "site.319":
+    "Integraciones como Okra y Plaid pueden eliminar cookies basadas en sesiones.",
+  "site.320":
+    "Infraestructura de mercado, análisis e integraciones tecnológicas.",
+  "site.321":
+    "Registramos IP, sistema operativo y versión del navegador para ayudar a proteger las cuentas de usuario.",
+  "site.322":
+    "Su suscripción se recuerda durante 6 meses a menos que se restablezca manualmente.",
+  "site.323":
+    "Sistemas automatizados de gestión de riesgos y optimización de carteras.",
+  "site.324":
+    "Ingrese su PIN de M-Pesa en su teléfono para completar el depósito.",
+  "site.325":
+    "Si tiene alguna inquietud sobre la privacidad, envíenos un correo electrónico a privacidad@evermount.com.",
+  "site.326":
+    "Ratio de Sharpe (como métrica analítica de las carteras de clientes)",
+  "site.327":
+    "Almacenado a largo plazo según preferencia de idioma, tema y dispositivo.",
+  "site.328":
+    "Describa el tipo de asociación, los mercados y el alcance técnico.",
+  "site.329":
+    "Agrupados por tipo: análisis, preferencias, autenticación, dispositivo, etc.",
+  "site.330":
+    "Infraestructura para Instituciones, Desarrolladores e Investigadores",
+  "site.331":
+    "Nuestra plataforma no está destinada a usuarios menores de 18 años.",
+  "site.332":
+    "Reciba sus fondos en su billetera criptográfica personal de forma segura.",
+  "site.333":
+    "Infraestructura tecnológica y analítica para los mercados de valores.",
+  "site.334":
+    "Puede ajustar sus preferencias a través del pie de página en cualquier momento.",
   "site.335": "Infraestructura para futuros, opciones y otros derivados.",
-  "site.336": "Datos de mercado, análisis, riesgo e infraestructura de ejecución.",
-  "site.337": "Autenticación multifactor y controles de acceso basados ​​en roles",
-  "site.338": "El tratamiento de datos personales se describe en la Política de Privacidad.",
-  "site.339": "Investigación, análisis de cartera, herramientas de riesgo y ejecución.",
-  "site.340": "Algunas funciones pueden utilizar IA para ajustar automáticamente los conocimientos de la estrategia.",
-  "site.341": "Construya bases confiables antes de las aplicaciones financieras.",
+  "site.336":
+    "Datos de mercado, análisis, riesgo e infraestructura de ejecución.",
+  "site.337":
+    "Autenticación multifactor y controles de acceso basados ​​en roles",
+  "site.338":
+    "El tratamiento de datos personales se describe en la Política de Privacidad.",
+  "site.339":
+    "Investigación, análisis de cartera, herramientas de riesgo y ejecución.",
+  "site.340":
+    "Algunas funciones pueden utilizar IA para ajustar automáticamente los conocimientos de la estrategia.",
+  "site.341":
+    "Construya bases confiables antes de las aplicaciones financieras.",
   "site.342": "El tráfico excesivo o abusivo puede ser limitado o bloqueado.",
-  "site.343": "Modelos de aprendizaje automático entrenados con datos históricos del mercado",
-  "site.344": "El código QR no está disponible en el desarrollador local: use la dirección anterior.",
-  "site.345": "Las cookies de sesión caducan después de 2 horas de inactividad de forma predeterminada.",
-  "site.346": "Infraestructura de comercio electrónico sistemática y de baja latencia",
+  "site.343":
+    "Modelos de aprendizaje automático entrenados con datos históricos del mercado",
+  "site.344":
+    "El código QR no está disponible en el desarrollador local: use la dirección anterior.",
+  "site.345":
+    "Las cookies de sesión caducan después de 2 horas de inactividad de forma predeterminada.",
+  "site.346":
+    "Infraestructura de comercio electrónico sistemática y de baja latencia",
   "site.347": "0 1px 3px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 0, 0, 0.3)",
-  "site.348": "Todos los consentimientos de cookies se almacenan de forma segura y tienen una marca de tiempo.",
-  "site.349": "Construir la infraestructura detrás de los mercados financieros modernos",
-  "site.350": "Construyendo la infraestructura para los mercados financieros modernos",
-  "site.351": "Los datos pueden almacenarse en múltiples jurisdicciones seguras.",
-  "site.352": "Recopile datos para mejorar el rendimiento y la información del producto.",
-  "site.353": "Due diligence institucional cuando sea comercialmente requerido.",
-  "site.354": "Métricas de rendimiento similares a las de las cuentas comerciales verificadas",
+  "site.348":
+    "Todos los consentimientos de cookies se almacenan de forma segura y tienen una marca de tiempo.",
+  "site.349":
+    "Construir la infraestructura detrás de los mercados financieros modernos",
+  "site.350":
+    "Construyendo la infraestructura para los mercados financieros modernos",
+  "site.351":
+    "Los datos pueden almacenarse en múltiples jurisdicciones seguras.",
+  "site.352":
+    "Recopile datos para mejorar el rendimiento y la información del producto.",
+  "site.353":
+    "Due diligence institucional cuando sea comercialmente requerido.",
+  "site.354":
+    "Métricas de rendimiento similares a las de las cuentas comerciales verificadas",
   "site.355": "Empuje STK enviado. Revisa tu teléfono para completar el pago.",
-  "site.356": "Almacene las preferencias de tamaño de fuente, contraste y navegación del teclado.",
-  "site.357": "No rastreamos intencionadamente a niños menores de 18 años a través de cookies.",
-  "site.358": "Puede darse de baja de los correos electrónicos promocionales en cualquier momento.",
-  "site.359": "No rastreamos a los usuarios en todos los dispositivos a menos que usted opte por hacerlo.",
+  "site.356":
+    "Almacene las preferencias de tamaño de fuente, contraste y navegación del teclado.",
+  "site.357":
+    "No rastreamos intencionadamente a niños menores de 18 años a través de cookies.",
+  "site.358":
+    "Puede darse de baja de los correos electrónicos promocionales en cualquier momento.",
+  "site.359":
+    "No rastreamos a los usuarios en todos los dispositivos a menos que usted opte por hacerlo.",
   "site.360": "Cifrado AES de 256 bits para datos en reposo y en tránsito",
-  "site.361": "Canales que acercan la infraestructura de Evermount a los usuarios.",
-  "site.362": "Recuperación ante desastres: planificada para implementaciones empresariales",
-  "site.363": "Alta disponibilidad: planificada para implementaciones empresariales",
-  "site.364": "Supervise el motor cuantitativo, el interruptor de apagado y la publicación NAV",
-  "site.365": "Aún no hay ningún administrador de relaciones asignado a su cuenta.",
+  "site.361":
+    "Canales que acercan la infraestructura de Evermount a los usuarios.",
+  "site.362":
+    "Recuperación ante desastres: planificada para implementaciones empresariales",
+  "site.363":
+    "Alta disponibilidad: planificada para implementaciones empresariales",
+  "site.364":
+    "Supervise el motor cuantitativo, el interruptor de apagado y la publicación NAV",
+  "site.365":
+    "Aún no hay ningún administrador de relaciones asignado a su cuenta.",
   "site.366": "Lenguaje primario de investigación e integración interna.",
-  "site.367": "Comuníquese con nosotros a cookies@evermount.com si tiene alguna pregunta.",
-  "site.368": "Infraestructura de procesamiento y análisis de datos en tiempo real",
+  "site.367":
+    "Comuníquese con nosotros a cookies@evermount.com si tiene alguna pregunta.",
+  "site.368":
+    "Infraestructura de procesamiento y análisis de datos en tiempo real",
   "site.369": "Intenta ajustar tus filtros o haz tu primer depósito",
   "site.370": "Agregue este secreto a Google Authenticator/1Password:",
-  "site.371": "Construyendo infraestructura financiera para los mercados modernos",
-  "site.372": "Supervisión independiente de riesgos y seguimiento del cumplimiento",
-  "site.373": "Se aplica una tarifa de procesamiento de $5.00 a los retiros bancarios.",
-  "site.374": "Analice el tiempo de carga, la respuesta del servidor y la UX general.",
+  "site.371":
+    "Construyendo infraestructura financiera para los mercados modernos",
+  "site.372":
+    "Supervisión independiente de riesgos y seguimiento del cumplimiento",
+  "site.373":
+    "Se aplica una tarifa de procesamiento de $5.00 a los retiros bancarios.",
+  "site.374":
+    "Analice el tiempo de carga, la respuesta del servidor y la UX general.",
   "site.375": "Marcos integrales de backtesting y validación.",
   "site.376": "Las credenciales son confidenciales y no pueden compartirse.",
   "site.377": "Infraestructura para tipos, bonos y mercados de crédito.",
-  "site.378": "Implementaciones para bancos, corredores y administradores de activos.",
+  "site.378":
+    "Implementaciones para bancos, corredores y administradores de activos.",
   "site.379": "Infraestructura de nivel institucional y controles de riesgo",
-  "site.380": "Exportaciones de auditoría y instantánea de controles orientados a SOC2",
+  "site.380":
+    "Exportaciones de auditoría y instantánea de controles orientados a SOC2",
   "site.381": "Elija cómo le gustaría postularse para este puesto.",
-  "site.382": "Infraestructura construida para los mercados financieros modernos",
+  "site.382":
+    "Infraestructura construida para los mercados financieros modernos",
   "site.383": "Reciba KES directamente en su número de teléfono de M-Pesa.",
-  "site.384": "Revisar y aprobar las presentaciones de identidad de inversionistas.",
-  "site.385": "Autenticación TOTP de dos factores para cuentas de administrador",
+  "site.384":
+    "Revisar y aprobar las presentaciones de identidad de inversionistas.",
+  "site.385":
+    "Autenticación TOTP de dos factores para cuentas de administrador",
   "site.386": "API, plataformas e integraciones de infraestructura.",
   "site.387": "Conectividad, ejecución e infraestructura de riesgos.",
   "site.388": "Proporcione los datos de su tarjeta para recibir sus fondos.",
   "site.389": "Colaboración cuantitativa y de estructura de mercado.",
   "site.390": "Informe las vulnerabilidades a security@evermount.co.",
   "site.391": "Revisar y aprobar las solicitudes de retiro de inversionistas.",
-  "site.392": "Factura de servicios públicos o extracto bancario (dentro de los 3 meses)",
+  "site.392":
+    "Factura de servicios públicos o extracto bancario (dentro de los 3 meses)",
   "site.393": "Cartera diversificada de acciones globales y ETF",
   "site.394": "Prevención de fraude en cuentas, API y facturación.",
   "site.395": "Participaciones y rendimiento del NAV de estrategia en vivo",
@@ -2928,11 +3807,12 @@ export const siteEs: Messages = {
   "site.404": "Ver todas las transacciones y actividad de su billetera",
   "site.405": "Broker, sede y conectividad institucional.",
   "site.406": "Investigación Cuantitativa e Inteligencia de Mercado",
-  "site.407": "El uso de las API también está sujeto a los Términos de las API.",
+  "site.407":
+    "El uso de las API también está sujeto a los Términos de las API.",
   "site.408": "Construya el ecosistema financiero con Evermount",
   "site.409": "Fondos disponibles para retiro o inversión",
   "site.410": "Se utiliza para detectar actividad sospechosa o abuso.",
-  "site.411": "; caso \"pendiente\": caso \"procesando\": devolución",
+  "site.411": '; caso "pendiente": caso "procesando": devolución',
   "site.412": "Plataforma de infraestructura financiera Evermount",
   "site.413": "¿Cómo se calcula el rendimiento de mi cartera?",
   "site.414": "Depósito instantáneo mediante STK push en su teléfono.",
@@ -2945,7 +3825,7 @@ export const siteEs: Messages = {
   "site.421": "Plataforma de inteligencia financiera Evermount",
   "site.422": "Infraestructura para Instituciones Financieras",
   "site.423": "Una plataforma. Múltiples sistemas financieros.",
-  "site.424": "; caso \"fallido\": caso \"rechazado\": devolución",
+  "site.424": '; caso "fallido": caso "rechazado": devolución',
   "site.425": "Verificación completa para comenzar a invertir",
   "site.426": "De la inteligencia financiera a la ejecución",
   "site.427": "¿Cómo actualizo mi información personal?",
@@ -2993,7 +3873,8 @@ export const siteEs: Messages = {
   "site.469": "): retiros.longitud === 0? (",
   "site.470": "¿Algo que quieras que cubramos?",
   "site.471": "Identificación o pasaporte emitido por el gobierno",
-  "site.472": "Seminario web sobre análisis de mercado: segundo trimestre de 2024",
+  "site.472":
+    "Seminario web sobre análisis de mercado: segundo trimestre de 2024",
   "site.473": "El monto mínimo de depósito es KES 10",
   "site.474": "Iniciar una conversación de asociación",
   "site.475": "La pila de inteligencia de Evermount",
@@ -3089,8 +3970,8 @@ export const siteEs: Messages = {
   "site.565": "Wire reference (optional)",
   "site.566": "Withdraw to Crypto Wallet",
   "site.567": "← Back to Deposit Methods",
-  "site.568": "; case \"article\": return",
-  "site.569": "; case \"webinar\": return",
+  "site.568": '; case "article": return',
+  "site.569": '; case "webinar": return',
   "site.570": "Assign investor by email",
   "site.571": "Execution infrastructure",
   "site.572": "execution infrastructure",
@@ -3129,7 +4010,7 @@ export const siteEs: Messages = {
   "site.605": "Arquitectura Tecnológica",
   "site.606": "Mecanografiado/JavaScript",
   "site.607": "Monedero + Fondos invertidos",
-  "site.608": "; caso \"guía\": volver",
+  "site.608": '; caso "guía": volver',
   "site.609": "Asistentes de investigación de IA",
   "site.610": "Período de bloqueo predeterminado",
   "site.611": "Descubriendo estrategias",
@@ -3782,11 +4663,14 @@ export const siteEs: Messages = {
 
 export const siteDe: Messages = {
   "site.0": "Die Evermount-Finanzinfrastrukturplattform",
-  "site.1": "Marktdaten, Quant-Research, KI, Execution, Risiko und Portfolioinfrastruktur für moderne Finanzmärkte.",
-  "site.2": "Bauen, verbinden, analysieren und ausführen über Finanzmärkte mit Evermount-Infrastruktur.",
+  "site.1":
+    "Marktdaten, Quant-Research, KI, Execution, Risiko und Portfolioinfrastruktur für moderne Finanzmärkte.",
+  "site.2":
+    "Bauen, verbinden, analysieren und ausführen über Finanzmärkte mit Evermount-Infrastruktur.",
   "site.3": "APIs erkunden",
   "site.4": "Marktdateninfrastruktur",
-  "site.5": "Infrastruktur zur Aufnahme, Normalisierung und Verteilung von Marktdaten.",
+  "site.5":
+    "Infrastruktur zur Aufnahme, Normalisierung und Verteilung von Marktdaten.",
   "site.6": "Echtzeitdaten",
   "site.7": "Historische Daten",
   "site.8": "Datennormalisierung",
@@ -3841,323 +4725,611 @@ export const siteDe: Messages = {
   "site.57": "Plattformarchitektur",
   "site.58": "Wie der Stack verbunden ist",
   "site.59": "Zuletzt aktualisiert: 6. September 2026",
-  "site.60": "Diese Seite ist eine produktbezogene Zusammenfassung und keine Rechtsberatung. Rechtliche und regulatorische Bedingungen sollten vor der Veröffentlichung von qualifizierter Rechtsberatung geprüft werden. Evermount beansprucht keine SEC-, FCA-, CMA-, MiFID- oder vergleichbare Zulassung, sofern nicht gesondert ausdrücklich erklärt.",
-  "site.61": "Evermount kann Ausführungsinfrastruktur, Auftragsverwaltungssoftware und Analysen bereitstellen. Handelt es sich bei einem Kunden um ein reguliertes Unternehmen mit Best-Execution-Verpflichtungen, verbleiben diese Verpflichtungen beim Kunden. Evermount gibt nicht zu, dass es sich um einen Broker handelt, der als Wertpapierfirma Kundenaufträge ausführt, es sei denn, in einer unterzeichneten Vereinbarung ist etwas anderes festgelegt.",
-  "site.62": "Evermount ist ein Technologieanbieter. Es kann zu Konflikten zwischen kommerziellen Interessen, Lieferantenbeziehungen und Kundeninteressen kommen. Unser Ziel ist es, wesentliche Konflikte in Kundenvereinbarungen zu identifizieren, zu verwalten und offenzulegen, anstatt als diskretionärer Anlageverwalter für Website-Besucher zu agieren.",
-  "site.63": "Evermount kombiniert künstliche Intelligenz, quantitative Forschung und Handelsinfrastruktur, um intelligente Systeme zu schaffen, die in der Lage sind, Märkte kontinuierlich zu analysieren, Chancen zu entdecken, Risiken zu verwalten und systematische Strategien umzusetzen.",
-  "site.64": "Finanzmärkte sind komplex, fragmentiert und technisch schwierig aufzubauen. Wir kombinieren Datentechnik, quantitative Forschung, maschinelles Lernen und Ausführungstechnologie, damit Institutionen und Entwickler auf einer gemeinsamen Grundlage aufbauen können.",
-  "site.65": "Analysefunktionen für Leistung, Risiko und Gefährdung. Die in Produktdemos gezeigten Zahlen dienen der Veranschaulichung, sofern sie nicht als eigene Daten des Kunden gekennzeichnet sind. Evermount veröffentlicht keine Anlagerenditen oder Sharpe-Ratios als Unternehmensleistung.",
-  "site.66": "Diese Erklärung beschreibt die für einen Technologie- und Infrastrukturanbieter angemessenen Kontrollen zur Bekämpfung von Finanzkriminalität. Es handelt sich nicht um ein AML-Handbuch für Fondsverwalter und bedeutet nicht, dass Evermount Anlegerzeichnungen akzeptiert oder Kundengelder hält.",
-  "site.67": "Diese Bedingungen regeln den Zugriff auf Software, APIs, Daten und Infrastrukturdienste von Evermount. Sie stellen keinen Anlageverwaltungsvertrag, keine Zeichnung eines Fonds und keine Aufforderung dar, Kundengelder bei Evermount einzuzahlen.",
-  "site.68": "Kunden bleiben für ihre eigenen Handels-, Regulierungs-, KYC/AML- und Treuepflichten verantwortlich. Evermount ist kein Broker-Dealer, keine Bank, Depotbank, Börse oder Anlageberater, sofern dies nicht ausdrücklich in einer unterzeichneten Vereinbarung festgelegt ist.",
-  "site.69": "Evermount bietet Technologie- und Infrastrukturdienstleistungen an. Diese Seite erhebt keinen Anspruch auf eine SEC-Registrierung, FCA-Autorisierung, CMA-Autorisierung, MiFID-Autorisierung, Broker-Dealer-Status, Anlageberaterstatus oder Verwahrung.",
-  "site.70": "Finanzmärkte sind komplexe Systeme. Wir glauben, dass die nächste Generation der Finanzinfrastruktur durch die Kombination großer Datenmengen, künstlicher Intelligenz, quantitativer Forschung und automatisierter Ausführung aufgebaut wird.",
-  "site.71": "Wir arbeiten mit Banken, Brokern, Börsen, Marktdatenanbietern, Fintechs, Technologieanbietern, Liquiditätsanbietern und Institutionen zusammen. Genannte Partnerschaften werden nur dann aufgeführt, wenn sie real und für die Öffentlichkeit freigegeben sind.",
-  "site.72": "Institutionelle Kunden bleiben für ihre eigenen regulatorischen Verpflichtungen verantwortlich, einschließlich Handelsgenehmigungen, Best Execution, wenn sie ein reguliertes Unternehmen sind, und für sie geltende Kundenvermögensregeln.",
-  "site.73": "Evermount ist ein Unternehmen für quantitative Forschung und Finanztechnologie. Öffentliche Forschungsnotizen werden hier aufgeführt, wenn sie veröffentlicht werden. Wir fabrizieren keine Papiere, Leistungen oder Kundenergebnisse.",
-  "site.74": "Wir bedienen Banken, Broker, Börsen, Vermögensverwalter, Hedgefonds, Eigenhandelsfirmen, Market Maker, Fintechs, Family Offices und Entwickler, die eine programmierbare Marktinfrastruktur benötigen.",
-  "site.75": "Für groß angelegte Einsätze. Mögliche Funktionen: dedizierte Bereitstellung, private Konnektivität, benutzerdefinierte Integrationen, hohe Verfügbarkeit, dediziertes Engineering und SLA – je nach Vertrag.",
-  "site.76": "Für Banken, Makler und Vermögensverwalter. Mögliche Fähigkeiten: institutionelle APIs, dedizierte Infrastruktur, Marktkonnektivität, Risiko- und Ausführungsinfrastruktur und Unternehmensunterstützung.",
-  "site.77": "Evermount ist als marktunabhängig positioniert. In den folgenden Abschnitten wird die Infrastruktur für jeden Markt beschrieben – es wird nicht behauptet, dass Evermount regulierten Zugang zu jedem Veranstaltungsort oder Instrument bietet.",
-  "site.78": "Finanzmärkte sind komplex, fragmentiert und technisch schwierig aufzubauen. Evermount bietet eine Infrastruktur, die den Aufbau, die Integration und den Betrieb von Markttechnologie erleichtert.",
-  "site.79": "Wir bauen die Infrastruktur hinter modernen Finanzmärkten auf – und wir fangen gerade erst an. Schließen Sie sich Ingenieuren, Forschern und Betreibern an, denen Daten, Risiken und Systeme am Herzen liegen.",
-  "site.80": "Der folgende Stapel spiegelt die Systeme wider, die wir heute verwenden, und die Fähigkeiten auf der Engineering-Roadmap. Wir veröffentlichen keine Latenz-, Betriebszeit- oder Durchsatzzahlen, es sei denn, dies wurde unabhängig überprüft.",
-  "site.81": "Programmgesteuerter Zugriff auf Finanzdaten, Analysen, Informationen und Infrastruktur. Öffentliche API-Dokumentation und Produktionsanmeldeinformationen werden bereitgestellt, nachdem der Zugriff genehmigt wurde.",
-  "site.82": "Evermount baut Systeme auf, die kontinuierlich aus Finanzdaten lernen, Hypothesen erstellen, Risiken bewerten und validierte Informationen in kontrollierte Maßnahmen umsetzen.",
-  "site.83": "Für Handelsunternehmen, Fintechs und professionelle Anwender. Mögliche Funktionen: Echtzeitdaten, erweiterte APIs, Analysen, Risiko-APIs und Ausführungsfunktionen, sofern aktiviert.",
-  "site.84": "Die Plattform ist marktunabhängig: Sie ist darauf ausgelegt, Aktien, Devisen, festverzinsliche Wertpapiere, Rohstoffe, Derivate und digitale Vermögenswerte zu unterstützen, sofern diese Funktionen verfügbar sind.",
-  "site.85": "Evermount behält sich die Rechte an seiner Software, seinen Modellen und seiner Dokumentation vor. Kunden behalten die Rechte an ihren eigenen Daten, vorbehaltlich der erteilten Lizenzen für den Betrieb des Dienstes.",
-  "site.86": "Evermount ist marktunabhängig. Wir stellen Infrastruktur für Anlageklassen bereit – wir implizieren nicht, dass Evermount jeden Markt betreibt oder einen regulierten Zugang zu ihm bietet.",
-  "site.87": "Erfahrene Fachleute, die Fachwissen in den Bereichen quantitative Finanzen, Informatik und Ingenieurwesen vereinen, um Innovationen in der systematischen Handelstechnologie voranzutreiben.",
-  "site.88": "Algorithmische Ausführung, Auftragsverwaltung und Ausführungsanalyse. Die Konnektivität zu Brokern und Veranstaltungsorten hängt vom Integrationsstatus und den geltenden Vorschriften ab.",
-  "site.89": "Evermount bietet Technologie- und Infrastrukturdienstleistungen an. Institutionelle Kunden bleiben gegebenenfalls für ihre eigenen regulatorischen Verpflichtungen verantwortlich.",
-  "site.90": "Wir nutzen maschinelles Lernen, statistische Modelle und modernes Software-Engineering. Spezifische Leistungsmerkmale werden nicht als Marketingstatistik veröffentlicht.",
-  "site.91": "WICHTIG: Bitte lesen Sie diese Risikohinweise sorgfältig durch. Der Einsatz von Finanztechnologie ist mit Risiken verbunden. Dies ist keine Offenlegung eines Anlageprodukts für einen Fonds.",
-  "site.92": "Evermount ist ein Finanztechnologieunternehmen, das eine Infrastruktur für Marktdaten, quantitative Forschung, künstliche Intelligenz, Risiko und Ausführung aufbaut.",
-  "site.93": "Ja, Sie können Ihre Anlagen jederzeit über die Portfolio-Seite neu zuordnen. Sie können auch eine automatische Neuausrichtung basierend auf Ihren Präferenzen einrichten.",
-  "site.94": "Ein einheitlicher Technologie-Stack, der darauf ausgelegt ist, Finanzdaten in Informationen, quantitative Strategien, Risikoentscheidungen und systematische Umsetzung umzuwandeln.",
-  "site.95": "In dieser Cookie-Richtlinie wird erläutert, wie Evermount („wir“, „unser“ oder „uns“) Cookies und ähnliche Technologien verwendet, um Sie zu erkennen, wenn Sie unsere Plattform besuchen.",
-  "site.96": "Eine KI-native Intelligenzebene, die Finanzsystemen dabei helfen soll, Märkte zu verstehen, Möglichkeiten zu recherchieren und bessere risikobewusste Entscheidungen zu treffen.",
-  "site.97": "Zugriffskontrollen, Verschlüsselung und Überwachungspraktiken werden gemäß den Systemen in der Produktion und der geltenden Kundenvereinbarung implementiert.",
-  "site.98": "Die kommerziellen Bedingungen hängen von Daten, Märkten, API-Volumen und Bereitstellungsmodell ab. Wir veröffentlichen keine erfundenen Listenpreise. Kontaktieren Sie den Vertrieb für ein Angebot.",
-  "site.99": "Diese Datenschutzrichtlinie beschreibt, wie Evermount Ihre Daten erhebt, verwendet, speichert und schützt. Ihre Privatsphäre ist für uns von entscheidender Bedeutung.",
-  "site.100": "Ein Finanzökosystem, in dem Institutionen, Entwickler und Forscher anspruchsvolle Marktanwendungen auf einer zuverlässigen Infrastruktur aufbauen können.",
-  "site.101": "Jede Partei kann gemäß den Bestimmungen der Handelsvereinbarung kündigen. Der Zugriff kann aufgrund von Missbrauch, Sicherheitsrisiken oder rechtlichen Anforderungen gesperrt werden.",
-  "site.102": "KI-Systeme analysieren Marktinformationen, Nachrichten, makroökonomische Bedingungen und alternative Daten, um strukturierte Finanzinformationen zu generieren.",
-  "site.103": "Eine Technologie-Roadmap von der heutigen KI-gestützten Forschung hin zu systematischer Umsetzung, Marktinfrastruktur und globaler Marktkonnektivität.",
-  "site.104": "Für Entwickler und Forscher. Mögliche Funktionen: Sandbox, eingeschränkter API-Zugriff, historische Daten, Recherchetools und Dokumentation.",
-  "site.105": "Die Verfügbarkeit bestimmter Dienste hängt von der Gerichtsbarkeit und den geltenden Vorschriften ab. Evermount ist nicht in jeder Gerichtsbarkeit reguliert.",
-  "site.106": "Zugriffsstufen „Developer“, „Professional“, „Institutional“ und „Enterprise“. Kommerzielle Konditionen werden durch Verkäufe bereitgestellt – keine erfundenen Listenpreise.",
-  "site.107": "Geplante und in der Entwicklung befindliche API-Oberflächen. Die Verfügbarkeit wird beim Onboarding bestätigt. Gehen Sie nicht davon aus, dass jede API live in der Produktion ist.",
-  "site.108": "FlipbotEA fragt die Signalwarteschlange ab und führt es auf der angemeldeten Exness MT5-Demo aus. Erfolgreiche Abfüllungen steigern den Nettoinventarwert der Anleger über FillRecorded.",
-  "site.109": "Die Marke ist global ausgerichtet: eine Infrastruktur, die in allen Märkten und Gerichtsbarkeiten betrieben werden kann, sofern Fähigkeiten und Lizenzen dies zulassen.",
-  "site.110": "Ein AI-Forward-Stack, der Finanzdaten in Informationen, validierte Forschung, Risikoentscheidungen und kontrollierte Ausführung umwandelt.",
-  "site.111": "Derzeit sind keine offenen Stellen aufgeführt. Wenn Sie beim Aufbau einer Finanzinfrastruktur mithelfen möchten, stellen Sie sich unter Career@evermount.co vor.",
-  "site.112": "Finanzinfrastruktur für moderne Märkte – Marktdaten, quantitative Forschung, Informationen, Risiko, Ausführung und Konnektivität.",
-  "site.113": "Evermount wurde 2023 gegründet, um anspruchsvolle Finanzinfrastrukturen zugänglicher, programmierbarer und skalierbarer zu machen.",
-  "site.114": "Forschungsinfrastruktur für Faktorentdeckung, Hypothesengenerierung, Backtesting, Simulation und systematische Strategieentwicklung.",
-  "site.115": "Partnerschafts-API für Empfehlungslinks, Kundenberichte und Provisionsdaten. Die Handelsausführung verwendet Exness MT5 oben – nicht diese API.",
-  "site.116": "Während wir skalieren, bauen wir unsere Infrastruktur nach den höchsten Standards in Bezug auf betriebliche Exzellenz, Sicherheit und Risikomanagement auf.",
-  "site.117": "„Wir bauen die Daten-, Forschungs-, Informations-, Risiko- und Ausführungsinfrastruktur auf, auf die Institutionen und Entwickler aufbauen können.“",
-  "site.118": "Marktdaten-, Analyse-, Risiko-, Ausführungs- und Konnektivitätsinfrastruktur für Banken, Broker, Vermögensverwalter und Handelsunternehmen.",
-  "site.119": "Zu den typischen zulässigen Nutzungen gehören interne Forschungs-, Risiko-, Analyse- und Anwendungsfunktionen, die Sie für Ihr Unternehmen betreiben.",
-  "site.120": "Das Herzstück von Evermount ist eine Technologieplattform für Marktdaten, quantitative Forschung, Intelligenz, Risiko und Ausführung.",
-  "site.121": "Überweisen Sie USD auf Ihr verknüpftes Bankkonto. Anfragen werden von unserem Team geprüft und genehmigt (normalerweise innerhalb von 2 Werktagen).",
-  "site.122": "Jede Partei wird angemessene Sicherheitsmaßnahmen ergreifen. Kunden müssen ihre Anmeldedaten schützen und vermutete Kompromittierung melden.",
-  "site.123": "Ein Technologie-Stack für Daten, Forschung, Intelligenz, Risiko, Ausführung und Konnektivität – keine Aufforderung zur Einzahlung von Kapital.",
-  "site.124": "Zahlen Sie mit unterstützten Kryptowährungen Geld auf Ihr Wallet ein. Nach der Bestätigung ist das Guthaben in Ihrem Wallet verfügbar.",
-  "site.125": "Daten-, quantitative Forschungs-, Informations-, Risiko-, Ausführungs- und Konnektivitätsinfrastruktur für moderne Finanzmärkte.",
-  "site.126": "Wird verwendet, wenn Sie auf „Handel“ klicken. Ihr Kapital bleibt für den von Ihnen gewählten Zeitraum investiert. Eine vorzeitige Auszahlung ist möglicherweise nicht möglich.",
-  "site.127": "Heben Sie Geld von Ihrem Wallet auf Ihre bevorzugte Bank oder Krypto-Wallet ab. Es kann nur das verfügbare Wallet-Guthaben abgehoben werden.",
-  "site.128": "Wählen Sie Ihre bevorzugte Einzahlungsmethode, um Ihrem Guthaben Geld hinzuzufügen. Die Mittel stehen zum Abheben oder Investieren zur Verfügung.",
-  "site.129": "Die Daten können verzögert, unvollständig oder falsch sein. Es ist kein Ersatz für offizielle Veranstaltungsort-Feeds, sofern diese erforderlich sind.",
-  "site.130": "Die Dienstleistungen werden auf Technologiebasis erbracht. In einigen Gerichtsbarkeiten sind die Funktionen möglicherweise in der Vorschau verfügbar, eingeschränkt oder nicht verfügbar.",
-  "site.131": "Aufträge können verzögert, abgelehnt, teilweise oder zu unerwarteten Preisen ausgeführt werden, sofern eine Ausführungskonnektivität besteht.",
-  "site.132": "Authentifizierung, API-Schlüssel, Ratenbeschränkungen und Beispiele werden zugelassenen Entwicklern veröffentlicht. Bis dahin beantragen Sie den Zugang.",
-  "site.133": "Hosting-, Konnektivitäts- und Betriebsvereinbarungen werden im jeweiligen Auftragsformular oder in der Leistungsbeschreibung beschrieben.",
-  "site.134": "Fordern Sie Zugang an, um Daten, Forschung, Risiko, Ausführung und Konnektivitätsinfrastruktur mit dem Evermount-Team zu besprechen.",
-  "site.135": "Eine konzeptionelle Architektur, die KI, Forschung, Risiko und Ausführung in einer institutionellen Technologieplattform verbindet.",
-  "site.136": "Eine praktische Reise für Institutionen und Entwickler, die die Evermount-Infrastruktur nutzen – kein Fonds-Onboarding-Ablauf.",
-  "site.137": "Evermount-Technologiearchitektur für Datentechnik, quantitatives Computing, KI, Handelssysteme und Risiko.",
-  "site.138": "Wir entwerfen Systeme, die auf Datenqualität, Forschungsergebnissen und messbarem Risiko basieren – nicht auf diskretionärem Fondsmarketing.",
-  "site.139": "Bauen Sie mit Evermount das Finanzökosystem durch Daten-, Konnektivitäts-, Technologie- und Forschungspartnerschaften auf.",
-  "site.140": "Drawdown, Volatilität und Sharpe Ratio werden aus den täglichen Erträgen Ihres eigenen Portfolios der letzten 90 Tage berechnet.",
-  "site.141": "Heben Sie KES von Ihrem Wallet direkt auf Ihr M-Pesa-Konto ab. Es kann nur das verfügbare Wallet-Guthaben abgehoben werden.",
-  "site.142": "Laden Sie Ihr KES-Wallet sofort über M-Pesa auf. Sie erhalten einen STK-Push auf Ihrem Telefon, um die Zahlung zu bestätigen.",
-  "site.143": "Leistungs-, Risiko-, Gefährdungs-, Attributions- und Stresstest-Analysefunktionen in der Evermount-Plattform.",
-  "site.144": "Eine konzeptionelle Architektur. Spezifische Bereitstellungen, Veranstaltungsorte und Integrationen variieren je nach Kunde und Gerichtsbarkeit.",
-  "site.145": "Etwaige Gebühren werden in einem Bestellformular festgelegt. Auf dieser Website werden keine Fondsverwaltungs- oder Performancegebühren aufgeführt.",
-  "site.146": "Marktunabhängige Infrastruktur für Aktien, Devisen, festverzinsliche Wertpapiere, Rohstoffe, Derivate und digitale Vermögenswerte.",
-  "site.147": "Wir garantieren keinen unterbrechungsfreien Service. Wartungsarbeiten, Ausfälle von Anbietern und höhere Gewalt können den Zugang beeinträchtigen.",
-  "site.148": "Teilen Sie die erwartete Größe, Märkte und Infrastrukturanforderungen mit. Es handelt sich um Preisangaben, nicht um Fondsgebühren.",
-  "site.149": "Vorbehaltlich der Genehmigung und des geltenden Rechts können wir Zugang zu Umgebungen, Anmeldeinformationen und Dokumentation gewähren.",
-  "site.150": "Wir sind immer auf der Suche nach leidenschaftlichen Menschen. Wenn Sie von unserer Mission begeistert sind, würden wir uns freuen, von Ihnen zu hören.",
-  "site.151": "Einheitliche Finanzdaten-Pipelines zur Unterstützung von Forschung, Analyse und Echtzeit-Entscheidungssystemen.",
-  "site.152": "Funktionen der Evermount-Plattform. Die spezifische Verfügbarkeit hängt von der Zugriffsstufe und der Gerichtsbarkeit ab.",
-  "site.153": "Legen Sie EXNESS_PARTNER_REFERRAL_LINK fest oder aktivieren Sie EXNESS_PARTNER_ENABLED mit PPA-Anmeldeinformationen in der Backend-Umgebung.",
-  "site.154": "Heben Sie Geld von Ihrem Wallet auf Ihr Krypto-Wallet ab. Es kann nur das verfügbare Wallet-Guthaben abgehoben werden.",
-  "site.155": "Vier Funktionen, die Finanzdaten in Informationen, Forschung, Risikoentscheidungen und Ausführung umwandeln.",
-  "site.156": "Risikokontrollen sollten direkt in die Systeme eingebettet werden, einschließlich Pre-Trade- und Echtzeitüberwachung.",
-  "site.157": "Softwarefehler, Ausfälle und Konfigurationsfehler können den Zugriff unterbrechen oder zu falschen Ausgaben führen.",
-  "site.158": "Eine siebenstufige Reise von der Verbindung von Systemen bis zur Überwachung von Märkten, Risiken und Ausführung auf Evermount.",
-  "site.159": "Die Finanzinfrastruktur sollte programmierbar sein. APIs, Streaming und Integrationen sind erstklassig.",
-  "site.160": "Die Haftung ist auf den gesetzlich zulässigen Umfang und die in den unterzeichneten Geschäftsbedingungen festgelegten Grenzen beschränkt.",
-  "site.161": "Produktionshosting- und Betriebsdetails werden mit den Kunden während der Bereitstellungsplanung bestätigt.",
-  "site.162": "Echtzeitüberwachung von Exposure, Liquidität, Volatilität, Korrelation, Drawdown und Marktregimen.",
-  "site.163": "Wir konnten die von Ihnen gesuchte Seite nicht finden. Möglicherweise haben Sie die URL falsch eingegeben oder die Seite wurde verschoben.",
-  "site.164": "Eine Technologiegrundlage für Marktdaten, quantitative Forschung, Intelligenz, Risiko und Ausführung.",
-  "site.165": "Um die Leistung der Website zu optimieren, das Benutzererlebnis zu personalisieren, die Sicherheit zu erhöhen und den Datenverkehr zu analysieren.",
-  "site.166": "Greifen Sie auf Bildungsressourcen, Leitfäden, Videos und Webinare zu, um Ihr Anlagewissen zu erweitern.",
-  "site.167": "Sie können nicht finden, was Sie suchen? Senden Sie uns eine Nachricht und wir werden uns innerhalb von 24 Stunden bei Ihnen melden.",
-  "site.168": "Zu den aktiv genutzten Sprachen gehören TypeScript und Python. C++ und Rust stehen auf der System-Roadmap.",
-  "site.169": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein und wir senden Ihnen ein OTP zum Zurücksetzen Ihres Passworts.",
-  "site.170": "Systematische Ausführungsinfrastruktur, die auf Zuverlässigkeit, Geschwindigkeit und kontrollierte Bereitstellung ausgelegt ist.",
-  "site.171": "Lernen Sie das Evermount-Team kennen und erfahren Sie, wie wir eine Finanzinfrastruktur für moderne Märkte aufbauen.",
-  "site.172": "Kleine Datendateien, die auf Ihrem Gerät abgelegt werden, um Verhalten, Präferenzen und Sitzungsaktivitäten zu verfolgen.",
-  "site.173": "Verwalten Sie Anlegerkonten und -zugriffe. Portfoliomanager werden unter Admin → Manager erstellt.",
-  "site.174": "Unser Team vereint Erfahrung in den Bereichen Quantitative Finance, Data Science und Systems Engineering.",
-  "site.175": "Erzählen Sie uns von Ihren institutionellen und infrastrukturellen Anforderungen. Wir werden die nächsten Schritte verfolgen.",
-  "site.176": "Infrastruktur, die für den markt- und rechtsgebietsübergreifenden Betrieb ausgelegt ist, sofern die Möglichkeiten dies zulassen.",
-  "site.177": "Vereinbaren Sie ein Gespräch über die Daten-, Forschungs-, Risiko- und Ausführungsinfrastruktur von Evermount.",
-  "site.178": "Wird von Evermount direkt für Anmeldesitzungen, das Speichern von Designeinstellungen und Diagrammzuständen festgelegt.",
-  "site.179": "APIs können geändert, versioniert oder mit Vorankündigung zurückgezogen werden, soweit dies vernünftigerweise möglich ist.",
-  "site.180": "Verbinden Sie Datenquellen, Broker, Veranstaltungsorte oder institutionelle Systeme, sofern Integrationen vorhanden sind.",
-  "site.181": "Marktdaten und Daten Dritter unterliegen der Datenrichtlinie und etwaigen Anbieterlizenzen.",
-  "site.182": "Für zugelassene Entwickler sind Nicht-Produktionsumgebungen für Integrationstests geplant.",
-  "site.183": "Quantitative Forschung, Marktstruktur, KI, Risiko- und Ausführungsforschung von Evermount.",
-  "site.184": "Teilen Sie uns Ihr Unternehmen, Ihre Rolle und Ihre API-Anforderungen mit, damit wir die richtige Umgebung bereitstellen können.",
-  "site.185": "Nutzen Sie moderne Technik, quantitative Methoden und KI, um komplexe Finanzprobleme zu lösen.",
-  "site.186": "Wir investieren in Forschung und Technik, damit die Infrastruktur programmierbar und zuverlässig bleibt.",
-  "site.187": "Machen Sie anspruchsvolle Finanzinfrastruktur zugänglicher, programmierbarer und skalierbarer.",
-  "site.188": "Erforschen Sie, wie Veranstaltungsorte, Liquidität und Marktmikrostruktur mit Technologie interagieren.",
-  "site.189": "Ihr Wallet fungiert als Treuhandkonto, auf dem Sie Gelder sicher aufbewahren können, bevor Sie investieren",
-  "site.190": "Portfolioaufbau, -optimierung und -analyse – kein verwaltetes Anlageprodukt.",
-  "site.191": "Institutionen und Forscher können Daten, Methoden und Partnerschaftsmöglichkeiten diskutieren.",
-  "site.192": "Erfahren Sie mehr über die Mission von Evermount, eine Finanzinfrastruktur für moderne Märkte aufzubauen.",
-  "site.193": "Verwalten Sie Ihr Wallet-Guthaben, Einzahlungen, Abhebungen und überweisen Sie Gelder in Investitionen.",
-  "site.194": "Wir haben einen 6-stelligen Bestätigungscode per E-Mail gesendet. Geben Sie den Code unten ein, um Ihre E-Mail-Adresse zu bestätigen.",
-  "site.195": "Für institutionelle Konten stehen dedizierte Relationship-Manager-Zuweisungen zur Verfügung.",
-  "site.196": "Melden Sie sich sicher beim Anlegerportal von Evermount Capital an und verwalten Sie Ihre Investitionen.",
-  "site.197": "Marktdaten und Daten Dritter unterliegen den Anbieterlizenzen und der Datenrichtlinie.",
-  "site.198": "Marktinformationen, quantitative Forschung und Finanztechnologie-Infrastruktur.",
-  "site.199": "Erforderlich für Grundfunktionen – z. B. Anmeldung, Portfoliozugriff. Kann nicht deaktiviert werden.",
-  "site.200": "Daten werden lizenziert, nicht verkauft. Die Rechte sind auf die Anwendungsfälle in Ihrer Vereinbarung beschränkt.",
-  "site.201": "Einzahlungen landen direkt auf Ihrem Wallet und können abgehoben oder investiert werden",
-  "site.202": "Für die Funktionalität werden unbedingt erforderliche Cookies verwendet. Sie können Tracking-Cookies deaktivieren.",
-  "site.203": "Programmgesteuerter Zugriff auf Finanzdaten, Analysen, Informationen und Infrastruktur.",
-  "site.204": "Eine Weitergabe an Dritte ist untersagt, sofern nicht ausdrücklich schriftlich gestattet.",
-  "site.205": "Unbefugter Zugriff, Malware und Zugangsdatendiebstahl können Systeme und Daten gefährden.",
-  "site.206": "Ihre Identität wurde überprüft. Sie haben vollen Zugriff auf Einlagen und Anlagen.",
-  "site.207": "Eine öffentliche Statusseite folgt in Kürze. Bei Vorfällen wenden Sie sich bitte an support@evermount.co.",
-  "site.208": "Für Ein- und Auszahlungen können alle Zahlungsmethoden (Karte, Bank, Krypto) genutzt werden",
-  "site.209": "Teilen Sie Ihren Institutionstyp, Ihre Interessenmärkte und Ihre Infrastrukturanforderungen mit.",
-  "site.210": "Abgezogene Gewinne aus Investitionen werden automatisch Ihrem Wallet-Guthaben gutgeschrieben",
-  "site.211": "Karten-, M-Pesa- und Krypto-Einzahlungen sind verfügbar. Banküberweisungen folgen bald.",
-  "site.212": "Besprechen Sie Architektur, APIs und Integrationsanforderungen mit dem Evermount-Team.",
-  "site.213": "Ihre vorherige Einreichung wurde abgelehnt. Bitte laden Sie neue Dokumente hoch, um es erneut zu versuchen.",
-  "site.214": "Börsen-, Anbieter- und alternative Daten unterliegen weiterhin den Bedingungen dieser Anbieter.",
-  "site.215": "Portfolioaktivitäten, Risikoprofil und Ausführungszeitpunkt werden aus Gründen der Genauigkeit protokolliert.",
-  "site.216": "Quantitative und KI-Modelle können in neuen Systemen falsch spezifiziert werden, überpassen oder versagen.",
-  "site.217": "Es ist Ihnen nicht gestattet, Daten über Ihre Lizenz hinaus zu scrapen, zurückzuentwickeln oder weiterzuverbreiten.",
-  "site.218": "Das Kapital bleibt für diesen Zeitraum investiert. Eine vorzeitige Auszahlung ist möglicherweise nicht möglich.",
-  "site.219": "Feeds können verzögert, fehlen oder falsch sein. Auf Daten basierende Entscheidungen können fehlerhaft sein.",
-  "site.220": "Infrastruktur, die Institutionen, Makler, Veranstaltungsorte und Finanzsysteme verbindet.",
-  "site.221": "Zieht den Strategie-NAV von Evermount-Quant ab und aktualisiert die Portfoliowerte der Anleger.",
-  "site.222": "Fordern Sie Zugang an, um zu besprechen, wie Analyse-APIs und Dashboards zu Ihrem Workflow passen.",
-  "site.223": "Sagen Sie uns, welche Anlageklassen und Datenanforderungen für Ihr Institut wichtig sind.",
-  "site.224": "Begleiten Sie unsere Experten zu einer detaillierten Analyse der Markttrends und -chancen.",
-  "site.225": "Ihre Unterlagen werden geprüft. Sobald der Vorgang abgeschlossen ist, benachrichtigen wir Sie per E-Mail.",
-  "site.226": "Ihre Botschaft – Rolle, Unternehmenstyp, Märkte, Daten-/API-Anforderungen, erwartete Größe ...",
-  "site.227": "Zugeordnete Investoren, Salden und Strategiezuordnung mit Live-Risikokennzahlen",
-  "site.228": "Entdecken Sie, wie Marktdaten, Forschung, Informationen, Risiko und Ausführung zusammenhängen.",
-  "site.229": "Lernen Sie die Grundlagen quantitativer Handelsstrategien und deren Funktionsweise kennen.",
-  "site.230": "Temporär und gelöscht, wenn der Browser geschlossen wird. Behält die Anmeldung seitenübergreifend bei.",
-  "site.231": "Alle Daten werden während der Übertragung und im Ruhezustand unter Verwendung der Best Practices der Branche verschlüsselt.",
-  "site.232": "Laden Sie PDF-Kontoauszüge mit Portfoliozusammenfassung und Leistungszuordnung herunter.",
-  "site.233": "Flex Items-Center Gap-3 px-3 py-2 abgerundet-md Text-sm Schriftart-Medium-Übergang",
-  "site.234": "Infrastruktur für Modellierung, Simulation, Faktorforschung und Strategieforschung.",
-  "site.235": "Wir können Analyse- und Leistungs-SDKs (z. B. Google Analytics, Sentry) verwenden.",
-  "site.236": "Bank-, M-Pesa- und Krypto-Abhebungen sind nach KYC-Überprüfung möglich.",
-  "site.237": "Makler, Veranstaltungsorte, Netzwerke und Anbieter können unabhängig von Evermount scheitern.",
-  "site.238": "Marktdaten-, Analyse- und Ausführungsinfrastruktur für Rohstoffmärkte.",
-  "site.239": "Market-Making-Technologie, Liquiditätsinfrastruktur und Veranstaltungsortkonnektivität.",
-  "site.240": "Besprechen Sie Architektur und Integration ohne erfundene Leistungsansprüche.",
-  "site.241": "Wir können diese Datenschutzrichtlinie überarbeiten. Änderungen werden den Benutzern mitgeteilt.",
-  "site.242": "Sie können jederzeit Auskunft, Berichtigung oder Löschung Ihrer Daten verlangen.",
-  "site.243": "Quantitative Methoden und Datenqualität stehen im Mittelpunkt der Plattform.",
-  "site.244": "Wird beim ersten Eintrag mit Opt-in/Out-Optionen angezeigt – konform mit DSGVO/CCPA.",
-  "site.245": "APIs und Finanzinfrastruktur, die in Produkte integriert werden können.",
-  "site.246": "Bauen Sie eine Infrastruktur auf, die über Märkte und Gerichtsbarkeiten hinweg betrieben werden kann.",
-  "site.247": "Maschinelles Lernen, Marktinformationen, Signalgenerierung und Analyse.",
-  "site.248": "Methoden zur Regimeerkennung, NLP, Prognose und Forschungsassistenten.",
-  "site.249": "Noch keine Leistungshistorie. Investieren Sie, um Ihre Eigenkapitalkurve zu verfolgen.",
-  "site.250": "Schritt-für-Schritt-Anleitung zum Aufbau eines gut diversifizierten Anlageportfolios.",
-  "site.251": "Um die Benutzererfahrung zu verbessern, Analysen durchzuführen und Vorschriften einzuhalten.",
-  "site.252": "Wir bewahren Benutzerdaten so lange auf, wie es zur Einhaltung der Finanzgesetze erforderlich ist.",
-  "site.253": "Anmeldezeitstempel, IP und Geolokalisierung werden zur Betrugsprävention gespeichert.",
-  "site.254": "Das Passwort muss sicher sein. Schließen Sie Großbuchstaben, Zahlen und Sonderzeichen ein.",
-  "site.255": "Wird zum Speichern von Dashboard-Filtern, Moduseinstellungen und Sitzungstokens verwendet.",
-  "site.256": "Wir verkaufen keine durch Cookies gesammelten Daten. Wird ausschließlich für Ihr Erlebnis verwendet.",
-  "site.257": "Ein umfassender Leitfaden zum Management des Portfoliorisikos in volatilen Märkten.",
-  "site.258": "Alles, was Sie über sichere Investitionen in digitale Vermögenswerte wissen müssen.",
-  "site.259": "Im Falle eines Verstoßes werden die betroffenen Benutzer innerhalb von 72 Stunden benachrichtigt.",
-  "site.260": "Verwalten Sie Ihre Investitionen über verschiedene Fonds hinweg und verfolgen Sie die Performance.",
-  "site.261": "In den meisten Browsern können Sie Cookies unter „Einstellungen“ > „Datenschutz/Sicherheit“ blockieren.",
-  "site.262": "Sehen Sie sich Laufstrategien an, wechseln Sie die Ausführung und überwachen Sie gepoolte Metriken",
-  "site.263": "Versuche zur Umgehung von Sicherheit, Quoten oder Lizenzen sind verboten.",
-  "site.264": "Eine hochwertige Finanzinfrastruktur beginnt mit hochwertigen Daten.",
-  "site.265": "Infrastruktur, die für den markt- und rechtsgebietsübergreifenden Betrieb konzipiert ist.",
-  "site.266": "MARKTDATEN → DATENPLATTFORM → QUANT + KI → RISIKO → AUSFÜHRUNG → VERANSTALTUNGSORTE",
-  "site.267": "Noch keine Aussagen. Kontoauszüge werden monatlich von der Plattform generiert.",
-  "site.268": "Ausfälle von Personen, Prozessen und Dritten können die Servicequalität beeinträchtigen.",
-  "site.269": "Technologieinfrastruktur für Märkte für digitale Vermögenswerte, sofern unterstützt.",
-  "site.270": "Wir anonymisieren alle Daten, die für Benchmarks und Forschungspublikationen verwendet werden.",
-  "site.271": "Wir können Ihnen E-Mails zu Plattformänderungen, Werbeaktionen oder Berichten senden.",
-  "site.272": "Erstellen und verwalten Sie Portfoliomanager, die Kunden an Bord nehmen und betreuen.",
-  "site.273": "Elektronische Handelssysteme und systematische Ausführungsinfrastruktur.",
-  "site.274": "Leistungsstarke Daten-, Forschungs-, Ausführungs- und Risikoinfrastruktur.",
-  "site.275": "Veranlassen Sie eine Bankeinzahlung und überweisen Sie dann den Betrag auf unser Abrechnungskonto.",
-  "site.276": "Vielen Dank, dass Sie uns kontaktiert haben! Wir werden uns innerhalb von 24 Stunden bei Ihnen melden.",
-  "site.277": "APIs dürfen nur für die in Ihrer Zugriffsgewährung zulässigen Zwecke verwendet werden.",
-  "site.278": "Geben Sie einen Betrag ein – wir finden für Sie die beste Strategie für Ihren Plan.",
-  "site.279": "Beherrschen Sie fortgeschrittene Handelstechniken, die von professionellen Anlegern verwendet werden.",
-  "site.280": "Strukturierte Intelligenz aus Marktdaten und alternativen Datensätzen.",
-  "site.281": "Tools wie uBlock oder Browsereinstellungen können Analysecookies blockieren.",
-  "site.282": "Wird für Analysen (Google), Zahlungen (Stripe) und soziale Anmeldungen verwendet.",
-  "site.283": "Wir unterhalten redundante sichere Backups, um die Servicekontinuität sicherzustellen.",
-  "site.284": "Sie können jederzeit Geld von Ihrem Wallet in Investitionen überweisen",
-  "site.285": "Sie können Ihre Einwilligung zur Datennutzung vorbehaltlich Funktionseinschränkungen widerrufen.",
-  "site.286": "Derzeit nicht verwendet. Wir werden Sie um Ihr Einverständnis bitten, wenn wir sie vorstellen.",
+  "site.60":
+    "Diese Seite ist eine produktbezogene Zusammenfassung und keine Rechtsberatung. Rechtliche und regulatorische Bedingungen sollten vor der Veröffentlichung von qualifizierter Rechtsberatung geprüft werden. Evermount beansprucht keine SEC-, FCA-, CMA-, MiFID- oder vergleichbare Zulassung, sofern nicht gesondert ausdrücklich erklärt.",
+  "site.61":
+    "Evermount kann Ausführungsinfrastruktur, Auftragsverwaltungssoftware und Analysen bereitstellen. Handelt es sich bei einem Kunden um ein reguliertes Unternehmen mit Best-Execution-Verpflichtungen, verbleiben diese Verpflichtungen beim Kunden. Evermount gibt nicht zu, dass es sich um einen Broker handelt, der als Wertpapierfirma Kundenaufträge ausführt, es sei denn, in einer unterzeichneten Vereinbarung ist etwas anderes festgelegt.",
+  "site.62":
+    "Evermount ist ein Technologieanbieter. Es kann zu Konflikten zwischen kommerziellen Interessen, Lieferantenbeziehungen und Kundeninteressen kommen. Unser Ziel ist es, wesentliche Konflikte in Kundenvereinbarungen zu identifizieren, zu verwalten und offenzulegen, anstatt als diskretionärer Anlageverwalter für Website-Besucher zu agieren.",
+  "site.63":
+    "Evermount kombiniert künstliche Intelligenz, quantitative Forschung und Handelsinfrastruktur, um intelligente Systeme zu schaffen, die in der Lage sind, Märkte kontinuierlich zu analysieren, Chancen zu entdecken, Risiken zu verwalten und systematische Strategien umzusetzen.",
+  "site.64":
+    "Finanzmärkte sind komplex, fragmentiert und technisch schwierig aufzubauen. Wir kombinieren Datentechnik, quantitative Forschung, maschinelles Lernen und Ausführungstechnologie, damit Institutionen und Entwickler auf einer gemeinsamen Grundlage aufbauen können.",
+  "site.65":
+    "Analysefunktionen für Leistung, Risiko und Gefährdung. Die in Produktdemos gezeigten Zahlen dienen der Veranschaulichung, sofern sie nicht als eigene Daten des Kunden gekennzeichnet sind. Evermount veröffentlicht keine Anlagerenditen oder Sharpe-Ratios als Unternehmensleistung.",
+  "site.66":
+    "Diese Erklärung beschreibt die für einen Technologie- und Infrastrukturanbieter angemessenen Kontrollen zur Bekämpfung von Finanzkriminalität. Es handelt sich nicht um ein AML-Handbuch für Fondsverwalter und bedeutet nicht, dass Evermount Anlegerzeichnungen akzeptiert oder Kundengelder hält.",
+  "site.67":
+    "Diese Bedingungen regeln den Zugriff auf Software, APIs, Daten und Infrastrukturdienste von Evermount. Sie stellen keinen Anlageverwaltungsvertrag, keine Zeichnung eines Fonds und keine Aufforderung dar, Kundengelder bei Evermount einzuzahlen.",
+  "site.68":
+    "Kunden bleiben für ihre eigenen Handels-, Regulierungs-, KYC/AML- und Treuepflichten verantwortlich. Evermount ist kein Broker-Dealer, keine Bank, Depotbank, Börse oder Anlageberater, sofern dies nicht ausdrücklich in einer unterzeichneten Vereinbarung festgelegt ist.",
+  "site.69":
+    "Evermount bietet Technologie- und Infrastrukturdienstleistungen an. Diese Seite erhebt keinen Anspruch auf eine SEC-Registrierung, FCA-Autorisierung, CMA-Autorisierung, MiFID-Autorisierung, Broker-Dealer-Status, Anlageberaterstatus oder Verwahrung.",
+  "site.70":
+    "Finanzmärkte sind komplexe Systeme. Wir glauben, dass die nächste Generation der Finanzinfrastruktur durch die Kombination großer Datenmengen, künstlicher Intelligenz, quantitativer Forschung und automatisierter Ausführung aufgebaut wird.",
+  "site.71":
+    "Wir arbeiten mit Banken, Brokern, Börsen, Marktdatenanbietern, Fintechs, Technologieanbietern, Liquiditätsanbietern und Institutionen zusammen. Genannte Partnerschaften werden nur dann aufgeführt, wenn sie real und für die Öffentlichkeit freigegeben sind.",
+  "site.72":
+    "Institutionelle Kunden bleiben für ihre eigenen regulatorischen Verpflichtungen verantwortlich, einschließlich Handelsgenehmigungen, Best Execution, wenn sie ein reguliertes Unternehmen sind, und für sie geltende Kundenvermögensregeln.",
+  "site.73":
+    "Evermount ist ein Unternehmen für quantitative Forschung und Finanztechnologie. Öffentliche Forschungsnotizen werden hier aufgeführt, wenn sie veröffentlicht werden. Wir fabrizieren keine Papiere, Leistungen oder Kundenergebnisse.",
+  "site.74":
+    "Wir bedienen Banken, Broker, Börsen, Vermögensverwalter, Hedgefonds, Eigenhandelsfirmen, Market Maker, Fintechs, Family Offices und Entwickler, die eine programmierbare Marktinfrastruktur benötigen.",
+  "site.75":
+    "Für groß angelegte Einsätze. Mögliche Funktionen: dedizierte Bereitstellung, private Konnektivität, benutzerdefinierte Integrationen, hohe Verfügbarkeit, dediziertes Engineering und SLA – je nach Vertrag.",
+  "site.76":
+    "Für Banken, Makler und Vermögensverwalter. Mögliche Fähigkeiten: institutionelle APIs, dedizierte Infrastruktur, Marktkonnektivität, Risiko- und Ausführungsinfrastruktur und Unternehmensunterstützung.",
+  "site.77":
+    "Evermount ist als marktunabhängig positioniert. In den folgenden Abschnitten wird die Infrastruktur für jeden Markt beschrieben – es wird nicht behauptet, dass Evermount regulierten Zugang zu jedem Veranstaltungsort oder Instrument bietet.",
+  "site.78":
+    "Finanzmärkte sind komplex, fragmentiert und technisch schwierig aufzubauen. Evermount bietet eine Infrastruktur, die den Aufbau, die Integration und den Betrieb von Markttechnologie erleichtert.",
+  "site.79":
+    "Wir bauen die Infrastruktur hinter modernen Finanzmärkten auf – und wir fangen gerade erst an. Schließen Sie sich Ingenieuren, Forschern und Betreibern an, denen Daten, Risiken und Systeme am Herzen liegen.",
+  "site.80":
+    "Der folgende Stapel spiegelt die Systeme wider, die wir heute verwenden, und die Fähigkeiten auf der Engineering-Roadmap. Wir veröffentlichen keine Latenz-, Betriebszeit- oder Durchsatzzahlen, es sei denn, dies wurde unabhängig überprüft.",
+  "site.81":
+    "Programmgesteuerter Zugriff auf Finanzdaten, Analysen, Informationen und Infrastruktur. Öffentliche API-Dokumentation und Produktionsanmeldeinformationen werden bereitgestellt, nachdem der Zugriff genehmigt wurde.",
+  "site.82":
+    "Evermount baut Systeme auf, die kontinuierlich aus Finanzdaten lernen, Hypothesen erstellen, Risiken bewerten und validierte Informationen in kontrollierte Maßnahmen umsetzen.",
+  "site.83":
+    "Für Handelsunternehmen, Fintechs und professionelle Anwender. Mögliche Funktionen: Echtzeitdaten, erweiterte APIs, Analysen, Risiko-APIs und Ausführungsfunktionen, sofern aktiviert.",
+  "site.84":
+    "Die Plattform ist marktunabhängig: Sie ist darauf ausgelegt, Aktien, Devisen, festverzinsliche Wertpapiere, Rohstoffe, Derivate und digitale Vermögenswerte zu unterstützen, sofern diese Funktionen verfügbar sind.",
+  "site.85":
+    "Evermount behält sich die Rechte an seiner Software, seinen Modellen und seiner Dokumentation vor. Kunden behalten die Rechte an ihren eigenen Daten, vorbehaltlich der erteilten Lizenzen für den Betrieb des Dienstes.",
+  "site.86":
+    "Evermount ist marktunabhängig. Wir stellen Infrastruktur für Anlageklassen bereit – wir implizieren nicht, dass Evermount jeden Markt betreibt oder einen regulierten Zugang zu ihm bietet.",
+  "site.87":
+    "Erfahrene Fachleute, die Fachwissen in den Bereichen quantitative Finanzen, Informatik und Ingenieurwesen vereinen, um Innovationen in der systematischen Handelstechnologie voranzutreiben.",
+  "site.88":
+    "Algorithmische Ausführung, Auftragsverwaltung und Ausführungsanalyse. Die Konnektivität zu Brokern und Veranstaltungsorten hängt vom Integrationsstatus und den geltenden Vorschriften ab.",
+  "site.89":
+    "Evermount bietet Technologie- und Infrastrukturdienstleistungen an. Institutionelle Kunden bleiben gegebenenfalls für ihre eigenen regulatorischen Verpflichtungen verantwortlich.",
+  "site.90":
+    "Wir nutzen maschinelles Lernen, statistische Modelle und modernes Software-Engineering. Spezifische Leistungsmerkmale werden nicht als Marketingstatistik veröffentlicht.",
+  "site.91":
+    "WICHTIG: Bitte lesen Sie diese Risikohinweise sorgfältig durch. Der Einsatz von Finanztechnologie ist mit Risiken verbunden. Dies ist keine Offenlegung eines Anlageprodukts für einen Fonds.",
+  "site.92":
+    "Evermount ist ein Finanztechnologieunternehmen, das eine Infrastruktur für Marktdaten, quantitative Forschung, künstliche Intelligenz, Risiko und Ausführung aufbaut.",
+  "site.93":
+    "Ja, Sie können Ihre Anlagen jederzeit über die Portfolio-Seite neu zuordnen. Sie können auch eine automatische Neuausrichtung basierend auf Ihren Präferenzen einrichten.",
+  "site.94":
+    "Ein einheitlicher Technologie-Stack, der darauf ausgelegt ist, Finanzdaten in Informationen, quantitative Strategien, Risikoentscheidungen und systematische Umsetzung umzuwandeln.",
+  "site.95":
+    "In dieser Cookie-Richtlinie wird erläutert, wie Evermount („wir“, „unser“ oder „uns“) Cookies und ähnliche Technologien verwendet, um Sie zu erkennen, wenn Sie unsere Plattform besuchen.",
+  "site.96":
+    "Eine KI-native Intelligenzebene, die Finanzsystemen dabei helfen soll, Märkte zu verstehen, Möglichkeiten zu recherchieren und bessere risikobewusste Entscheidungen zu treffen.",
+  "site.97":
+    "Zugriffskontrollen, Verschlüsselung und Überwachungspraktiken werden gemäß den Systemen in der Produktion und der geltenden Kundenvereinbarung implementiert.",
+  "site.98":
+    "Die kommerziellen Bedingungen hängen von Daten, Märkten, API-Volumen und Bereitstellungsmodell ab. Wir veröffentlichen keine erfundenen Listenpreise. Kontaktieren Sie den Vertrieb für ein Angebot.",
+  "site.99":
+    "Diese Datenschutzrichtlinie beschreibt, wie Evermount Ihre Daten erhebt, verwendet, speichert und schützt. Ihre Privatsphäre ist für uns von entscheidender Bedeutung.",
+  "site.100":
+    "Ein Finanzökosystem, in dem Institutionen, Entwickler und Forscher anspruchsvolle Marktanwendungen auf einer zuverlässigen Infrastruktur aufbauen können.",
+  "site.101":
+    "Jede Partei kann gemäß den Bestimmungen der Handelsvereinbarung kündigen. Der Zugriff kann aufgrund von Missbrauch, Sicherheitsrisiken oder rechtlichen Anforderungen gesperrt werden.",
+  "site.102":
+    "KI-Systeme analysieren Marktinformationen, Nachrichten, makroökonomische Bedingungen und alternative Daten, um strukturierte Finanzinformationen zu generieren.",
+  "site.103":
+    "Eine Technologie-Roadmap von der heutigen KI-gestützten Forschung hin zu systematischer Umsetzung, Marktinfrastruktur und globaler Marktkonnektivität.",
+  "site.104":
+    "Für Entwickler und Forscher. Mögliche Funktionen: Sandbox, eingeschränkter API-Zugriff, historische Daten, Recherchetools und Dokumentation.",
+  "site.105":
+    "Die Verfügbarkeit bestimmter Dienste hängt von der Gerichtsbarkeit und den geltenden Vorschriften ab. Evermount ist nicht in jeder Gerichtsbarkeit reguliert.",
+  "site.106":
+    "Zugriffsstufen „Developer“, „Professional“, „Institutional“ und „Enterprise“. Kommerzielle Konditionen werden durch Verkäufe bereitgestellt – keine erfundenen Listenpreise.",
+  "site.107":
+    "Geplante und in der Entwicklung befindliche API-Oberflächen. Die Verfügbarkeit wird beim Onboarding bestätigt. Gehen Sie nicht davon aus, dass jede API live in der Produktion ist.",
+  "site.108":
+    "FlipbotEA fragt die Signalwarteschlange ab und führt es auf der angemeldeten Exness MT5-Demo aus. Erfolgreiche Abfüllungen steigern den Nettoinventarwert der Anleger über FillRecorded.",
+  "site.109":
+    "Die Marke ist global ausgerichtet: eine Infrastruktur, die in allen Märkten und Gerichtsbarkeiten betrieben werden kann, sofern Fähigkeiten und Lizenzen dies zulassen.",
+  "site.110":
+    "Ein AI-Forward-Stack, der Finanzdaten in Informationen, validierte Forschung, Risikoentscheidungen und kontrollierte Ausführung umwandelt.",
+  "site.111":
+    "Derzeit sind keine offenen Stellen aufgeführt. Wenn Sie beim Aufbau einer Finanzinfrastruktur mithelfen möchten, stellen Sie sich unter Career@evermount.co vor.",
+  "site.112":
+    "Finanzinfrastruktur für moderne Märkte – Marktdaten, quantitative Forschung, Informationen, Risiko, Ausführung und Konnektivität.",
+  "site.113":
+    "Evermount wurde 2023 gegründet, um anspruchsvolle Finanzinfrastrukturen zugänglicher, programmierbarer und skalierbarer zu machen.",
+  "site.114":
+    "Forschungsinfrastruktur für Faktorentdeckung, Hypothesengenerierung, Backtesting, Simulation und systematische Strategieentwicklung.",
+  "site.115":
+    "Partnerschafts-API für Empfehlungslinks, Kundenberichte und Provisionsdaten. Die Handelsausführung verwendet Exness MT5 oben – nicht diese API.",
+  "site.116":
+    "Während wir skalieren, bauen wir unsere Infrastruktur nach den höchsten Standards in Bezug auf betriebliche Exzellenz, Sicherheit und Risikomanagement auf.",
+  "site.117":
+    "„Wir bauen die Daten-, Forschungs-, Informations-, Risiko- und Ausführungsinfrastruktur auf, auf die Institutionen und Entwickler aufbauen können.“",
+  "site.118":
+    "Marktdaten-, Analyse-, Risiko-, Ausführungs- und Konnektivitätsinfrastruktur für Banken, Broker, Vermögensverwalter und Handelsunternehmen.",
+  "site.119":
+    "Zu den typischen zulässigen Nutzungen gehören interne Forschungs-, Risiko-, Analyse- und Anwendungsfunktionen, die Sie für Ihr Unternehmen betreiben.",
+  "site.120":
+    "Das Herzstück von Evermount ist eine Technologieplattform für Marktdaten, quantitative Forschung, Intelligenz, Risiko und Ausführung.",
+  "site.121":
+    "Überweisen Sie USD auf Ihr verknüpftes Bankkonto. Anfragen werden von unserem Team geprüft und genehmigt (normalerweise innerhalb von 2 Werktagen).",
+  "site.122":
+    "Jede Partei wird angemessene Sicherheitsmaßnahmen ergreifen. Kunden müssen ihre Anmeldedaten schützen und vermutete Kompromittierung melden.",
+  "site.123":
+    "Ein Technologie-Stack für Daten, Forschung, Intelligenz, Risiko, Ausführung und Konnektivität – keine Aufforderung zur Einzahlung von Kapital.",
+  "site.124":
+    "Zahlen Sie mit unterstützten Kryptowährungen Geld auf Ihr Wallet ein. Nach der Bestätigung ist das Guthaben in Ihrem Wallet verfügbar.",
+  "site.125":
+    "Daten-, quantitative Forschungs-, Informations-, Risiko-, Ausführungs- und Konnektivitätsinfrastruktur für moderne Finanzmärkte.",
+  "site.126":
+    "Wird verwendet, wenn Sie auf „Handel“ klicken. Ihr Kapital bleibt für den von Ihnen gewählten Zeitraum investiert. Eine vorzeitige Auszahlung ist möglicherweise nicht möglich.",
+  "site.127":
+    "Heben Sie Geld von Ihrem Wallet auf Ihre bevorzugte Bank oder Krypto-Wallet ab. Es kann nur das verfügbare Wallet-Guthaben abgehoben werden.",
+  "site.128":
+    "Wählen Sie Ihre bevorzugte Einzahlungsmethode, um Ihrem Guthaben Geld hinzuzufügen. Die Mittel stehen zum Abheben oder Investieren zur Verfügung.",
+  "site.129":
+    "Die Daten können verzögert, unvollständig oder falsch sein. Es ist kein Ersatz für offizielle Veranstaltungsort-Feeds, sofern diese erforderlich sind.",
+  "site.130":
+    "Die Dienstleistungen werden auf Technologiebasis erbracht. In einigen Gerichtsbarkeiten sind die Funktionen möglicherweise in der Vorschau verfügbar, eingeschränkt oder nicht verfügbar.",
+  "site.131":
+    "Aufträge können verzögert, abgelehnt, teilweise oder zu unerwarteten Preisen ausgeführt werden, sofern eine Ausführungskonnektivität besteht.",
+  "site.132":
+    "Authentifizierung, API-Schlüssel, Ratenbeschränkungen und Beispiele werden zugelassenen Entwicklern veröffentlicht. Bis dahin beantragen Sie den Zugang.",
+  "site.133":
+    "Hosting-, Konnektivitäts- und Betriebsvereinbarungen werden im jeweiligen Auftragsformular oder in der Leistungsbeschreibung beschrieben.",
+  "site.134":
+    "Fordern Sie Zugang an, um Daten, Forschung, Risiko, Ausführung und Konnektivitätsinfrastruktur mit dem Evermount-Team zu besprechen.",
+  "site.135":
+    "Eine konzeptionelle Architektur, die KI, Forschung, Risiko und Ausführung in einer institutionellen Technologieplattform verbindet.",
+  "site.136":
+    "Eine praktische Reise für Institutionen und Entwickler, die die Evermount-Infrastruktur nutzen – kein Fonds-Onboarding-Ablauf.",
+  "site.137":
+    "Evermount-Technologiearchitektur für Datentechnik, quantitatives Computing, KI, Handelssysteme und Risiko.",
+  "site.138":
+    "Wir entwerfen Systeme, die auf Datenqualität, Forschungsergebnissen und messbarem Risiko basieren – nicht auf diskretionärem Fondsmarketing.",
+  "site.139":
+    "Bauen Sie mit Evermount das Finanzökosystem durch Daten-, Konnektivitäts-, Technologie- und Forschungspartnerschaften auf.",
+  "site.140":
+    "Drawdown, Volatilität und Sharpe Ratio werden aus den täglichen Erträgen Ihres eigenen Portfolios der letzten 90 Tage berechnet.",
+  "site.141":
+    "Heben Sie KES von Ihrem Wallet direkt auf Ihr M-Pesa-Konto ab. Es kann nur das verfügbare Wallet-Guthaben abgehoben werden.",
+  "site.142":
+    "Laden Sie Ihr KES-Wallet sofort über M-Pesa auf. Sie erhalten einen STK-Push auf Ihrem Telefon, um die Zahlung zu bestätigen.",
+  "site.143":
+    "Leistungs-, Risiko-, Gefährdungs-, Attributions- und Stresstest-Analysefunktionen in der Evermount-Plattform.",
+  "site.144":
+    "Eine konzeptionelle Architektur. Spezifische Bereitstellungen, Veranstaltungsorte und Integrationen variieren je nach Kunde und Gerichtsbarkeit.",
+  "site.145":
+    "Etwaige Gebühren werden in einem Bestellformular festgelegt. Auf dieser Website werden keine Fondsverwaltungs- oder Performancegebühren aufgeführt.",
+  "site.146":
+    "Marktunabhängige Infrastruktur für Aktien, Devisen, festverzinsliche Wertpapiere, Rohstoffe, Derivate und digitale Vermögenswerte.",
+  "site.147":
+    "Wir garantieren keinen unterbrechungsfreien Service. Wartungsarbeiten, Ausfälle von Anbietern und höhere Gewalt können den Zugang beeinträchtigen.",
+  "site.148":
+    "Teilen Sie die erwartete Größe, Märkte und Infrastrukturanforderungen mit. Es handelt sich um Preisangaben, nicht um Fondsgebühren.",
+  "site.149":
+    "Vorbehaltlich der Genehmigung und des geltenden Rechts können wir Zugang zu Umgebungen, Anmeldeinformationen und Dokumentation gewähren.",
+  "site.150":
+    "Wir sind immer auf der Suche nach leidenschaftlichen Menschen. Wenn Sie von unserer Mission begeistert sind, würden wir uns freuen, von Ihnen zu hören.",
+  "site.151":
+    "Einheitliche Finanzdaten-Pipelines zur Unterstützung von Forschung, Analyse und Echtzeit-Entscheidungssystemen.",
+  "site.152":
+    "Funktionen der Evermount-Plattform. Die spezifische Verfügbarkeit hängt von der Zugriffsstufe und der Gerichtsbarkeit ab.",
+  "site.153":
+    "Legen Sie EXNESS_PARTNER_REFERRAL_LINK fest oder aktivieren Sie EXNESS_PARTNER_ENABLED mit PPA-Anmeldeinformationen in der Backend-Umgebung.",
+  "site.154":
+    "Heben Sie Geld von Ihrem Wallet auf Ihr Krypto-Wallet ab. Es kann nur das verfügbare Wallet-Guthaben abgehoben werden.",
+  "site.155":
+    "Vier Funktionen, die Finanzdaten in Informationen, Forschung, Risikoentscheidungen und Ausführung umwandeln.",
+  "site.156":
+    "Risikokontrollen sollten direkt in die Systeme eingebettet werden, einschließlich Pre-Trade- und Echtzeitüberwachung.",
+  "site.157":
+    "Softwarefehler, Ausfälle und Konfigurationsfehler können den Zugriff unterbrechen oder zu falschen Ausgaben führen.",
+  "site.158":
+    "Eine siebenstufige Reise von der Verbindung von Systemen bis zur Überwachung von Märkten, Risiken und Ausführung auf Evermount.",
+  "site.159":
+    "Die Finanzinfrastruktur sollte programmierbar sein. APIs, Streaming und Integrationen sind erstklassig.",
+  "site.160":
+    "Die Haftung ist auf den gesetzlich zulässigen Umfang und die in den unterzeichneten Geschäftsbedingungen festgelegten Grenzen beschränkt.",
+  "site.161":
+    "Produktionshosting- und Betriebsdetails werden mit den Kunden während der Bereitstellungsplanung bestätigt.",
+  "site.162":
+    "Echtzeitüberwachung von Exposure, Liquidität, Volatilität, Korrelation, Drawdown und Marktregimen.",
+  "site.163":
+    "Wir konnten die von Ihnen gesuchte Seite nicht finden. Möglicherweise haben Sie die URL falsch eingegeben oder die Seite wurde verschoben.",
+  "site.164":
+    "Eine Technologiegrundlage für Marktdaten, quantitative Forschung, Intelligenz, Risiko und Ausführung.",
+  "site.165":
+    "Um die Leistung der Website zu optimieren, das Benutzererlebnis zu personalisieren, die Sicherheit zu erhöhen und den Datenverkehr zu analysieren.",
+  "site.166":
+    "Greifen Sie auf Bildungsressourcen, Leitfäden, Videos und Webinare zu, um Ihr Anlagewissen zu erweitern.",
+  "site.167":
+    "Sie können nicht finden, was Sie suchen? Senden Sie uns eine Nachricht und wir werden uns innerhalb von 24 Stunden bei Ihnen melden.",
+  "site.168":
+    "Zu den aktiv genutzten Sprachen gehören TypeScript und Python. C++ und Rust stehen auf der System-Roadmap.",
+  "site.169":
+    "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein und wir senden Ihnen ein OTP zum Zurücksetzen Ihres Passworts.",
+  "site.170":
+    "Systematische Ausführungsinfrastruktur, die auf Zuverlässigkeit, Geschwindigkeit und kontrollierte Bereitstellung ausgelegt ist.",
+  "site.171":
+    "Lernen Sie das Evermount-Team kennen und erfahren Sie, wie wir eine Finanzinfrastruktur für moderne Märkte aufbauen.",
+  "site.172":
+    "Kleine Datendateien, die auf Ihrem Gerät abgelegt werden, um Verhalten, Präferenzen und Sitzungsaktivitäten zu verfolgen.",
+  "site.173":
+    "Verwalten Sie Anlegerkonten und -zugriffe. Portfoliomanager werden unter Admin → Manager erstellt.",
+  "site.174":
+    "Unser Team vereint Erfahrung in den Bereichen Quantitative Finance, Data Science und Systems Engineering.",
+  "site.175":
+    "Erzählen Sie uns von Ihren institutionellen und infrastrukturellen Anforderungen. Wir werden die nächsten Schritte verfolgen.",
+  "site.176":
+    "Infrastruktur, die für den markt- und rechtsgebietsübergreifenden Betrieb ausgelegt ist, sofern die Möglichkeiten dies zulassen.",
+  "site.177":
+    "Vereinbaren Sie ein Gespräch über die Daten-, Forschungs-, Risiko- und Ausführungsinfrastruktur von Evermount.",
+  "site.178":
+    "Wird von Evermount direkt für Anmeldesitzungen, das Speichern von Designeinstellungen und Diagrammzuständen festgelegt.",
+  "site.179":
+    "APIs können geändert, versioniert oder mit Vorankündigung zurückgezogen werden, soweit dies vernünftigerweise möglich ist.",
+  "site.180":
+    "Verbinden Sie Datenquellen, Broker, Veranstaltungsorte oder institutionelle Systeme, sofern Integrationen vorhanden sind.",
+  "site.181":
+    "Marktdaten und Daten Dritter unterliegen der Datenrichtlinie und etwaigen Anbieterlizenzen.",
+  "site.182":
+    "Für zugelassene Entwickler sind Nicht-Produktionsumgebungen für Integrationstests geplant.",
+  "site.183":
+    "Quantitative Forschung, Marktstruktur, KI, Risiko- und Ausführungsforschung von Evermount.",
+  "site.184":
+    "Teilen Sie uns Ihr Unternehmen, Ihre Rolle und Ihre API-Anforderungen mit, damit wir die richtige Umgebung bereitstellen können.",
+  "site.185":
+    "Nutzen Sie moderne Technik, quantitative Methoden und KI, um komplexe Finanzprobleme zu lösen.",
+  "site.186":
+    "Wir investieren in Forschung und Technik, damit die Infrastruktur programmierbar und zuverlässig bleibt.",
+  "site.187":
+    "Machen Sie anspruchsvolle Finanzinfrastruktur zugänglicher, programmierbarer und skalierbarer.",
+  "site.188":
+    "Erforschen Sie, wie Veranstaltungsorte, Liquidität und Marktmikrostruktur mit Technologie interagieren.",
+  "site.189":
+    "Ihr Wallet fungiert als Treuhandkonto, auf dem Sie Gelder sicher aufbewahren können, bevor Sie investieren",
+  "site.190":
+    "Portfolioaufbau, -optimierung und -analyse – kein verwaltetes Anlageprodukt.",
+  "site.191":
+    "Institutionen und Forscher können Daten, Methoden und Partnerschaftsmöglichkeiten diskutieren.",
+  "site.192":
+    "Erfahren Sie mehr über die Mission von Evermount, eine Finanzinfrastruktur für moderne Märkte aufzubauen.",
+  "site.193":
+    "Verwalten Sie Ihr Wallet-Guthaben, Einzahlungen, Abhebungen und überweisen Sie Gelder in Investitionen.",
+  "site.194":
+    "Wir haben einen 6-stelligen Bestätigungscode per E-Mail gesendet. Geben Sie den Code unten ein, um Ihre E-Mail-Adresse zu bestätigen.",
+  "site.195":
+    "Für institutionelle Konten stehen dedizierte Relationship-Manager-Zuweisungen zur Verfügung.",
+  "site.196":
+    "Melden Sie sich sicher beim Anlegerportal von Evermount Capital an und verwalten Sie Ihre Investitionen.",
+  "site.197":
+    "Marktdaten und Daten Dritter unterliegen den Anbieterlizenzen und der Datenrichtlinie.",
+  "site.198":
+    "Marktinformationen, quantitative Forschung und Finanztechnologie-Infrastruktur.",
+  "site.199":
+    "Erforderlich für Grundfunktionen – z. B. Anmeldung, Portfoliozugriff. Kann nicht deaktiviert werden.",
+  "site.200":
+    "Daten werden lizenziert, nicht verkauft. Die Rechte sind auf die Anwendungsfälle in Ihrer Vereinbarung beschränkt.",
+  "site.201":
+    "Einzahlungen landen direkt auf Ihrem Wallet und können abgehoben oder investiert werden",
+  "site.202":
+    "Für die Funktionalität werden unbedingt erforderliche Cookies verwendet. Sie können Tracking-Cookies deaktivieren.",
+  "site.203":
+    "Programmgesteuerter Zugriff auf Finanzdaten, Analysen, Informationen und Infrastruktur.",
+  "site.204":
+    "Eine Weitergabe an Dritte ist untersagt, sofern nicht ausdrücklich schriftlich gestattet.",
+  "site.205":
+    "Unbefugter Zugriff, Malware und Zugangsdatendiebstahl können Systeme und Daten gefährden.",
+  "site.206":
+    "Ihre Identität wurde überprüft. Sie haben vollen Zugriff auf Einlagen und Anlagen.",
+  "site.207":
+    "Eine öffentliche Statusseite folgt in Kürze. Bei Vorfällen wenden Sie sich bitte an support@evermount.co.",
+  "site.208":
+    "Für Ein- und Auszahlungen können alle Zahlungsmethoden (Karte, Bank, Krypto) genutzt werden",
+  "site.209":
+    "Teilen Sie Ihren Institutionstyp, Ihre Interessenmärkte und Ihre Infrastrukturanforderungen mit.",
+  "site.210":
+    "Abgezogene Gewinne aus Investitionen werden automatisch Ihrem Wallet-Guthaben gutgeschrieben",
+  "site.211":
+    "Karten-, M-Pesa- und Krypto-Einzahlungen sind verfügbar. Banküberweisungen folgen bald.",
+  "site.212":
+    "Besprechen Sie Architektur, APIs und Integrationsanforderungen mit dem Evermount-Team.",
+  "site.213":
+    "Ihre vorherige Einreichung wurde abgelehnt. Bitte laden Sie neue Dokumente hoch, um es erneut zu versuchen.",
+  "site.214":
+    "Börsen-, Anbieter- und alternative Daten unterliegen weiterhin den Bedingungen dieser Anbieter.",
+  "site.215":
+    "Portfolioaktivitäten, Risikoprofil und Ausführungszeitpunkt werden aus Gründen der Genauigkeit protokolliert.",
+  "site.216":
+    "Quantitative und KI-Modelle können in neuen Systemen falsch spezifiziert werden, überpassen oder versagen.",
+  "site.217":
+    "Es ist Ihnen nicht gestattet, Daten über Ihre Lizenz hinaus zu scrapen, zurückzuentwickeln oder weiterzuverbreiten.",
+  "site.218":
+    "Das Kapital bleibt für diesen Zeitraum investiert. Eine vorzeitige Auszahlung ist möglicherweise nicht möglich.",
+  "site.219":
+    "Feeds können verzögert, fehlen oder falsch sein. Auf Daten basierende Entscheidungen können fehlerhaft sein.",
+  "site.220":
+    "Infrastruktur, die Institutionen, Makler, Veranstaltungsorte und Finanzsysteme verbindet.",
+  "site.221":
+    "Zieht den Strategie-NAV von Evermount-Quant ab und aktualisiert die Portfoliowerte der Anleger.",
+  "site.222":
+    "Fordern Sie Zugang an, um zu besprechen, wie Analyse-APIs und Dashboards zu Ihrem Workflow passen.",
+  "site.223":
+    "Sagen Sie uns, welche Anlageklassen und Datenanforderungen für Ihr Institut wichtig sind.",
+  "site.224":
+    "Begleiten Sie unsere Experten zu einer detaillierten Analyse der Markttrends und -chancen.",
+  "site.225":
+    "Ihre Unterlagen werden geprüft. Sobald der Vorgang abgeschlossen ist, benachrichtigen wir Sie per E-Mail.",
+  "site.226":
+    "Ihre Botschaft – Rolle, Unternehmenstyp, Märkte, Daten-/API-Anforderungen, erwartete Größe ...",
+  "site.227":
+    "Zugeordnete Investoren, Salden und Strategiezuordnung mit Live-Risikokennzahlen",
+  "site.228":
+    "Entdecken Sie, wie Marktdaten, Forschung, Informationen, Risiko und Ausführung zusammenhängen.",
+  "site.229":
+    "Lernen Sie die Grundlagen quantitativer Handelsstrategien und deren Funktionsweise kennen.",
+  "site.230":
+    "Temporär und gelöscht, wenn der Browser geschlossen wird. Behält die Anmeldung seitenübergreifend bei.",
+  "site.231":
+    "Alle Daten werden während der Übertragung und im Ruhezustand unter Verwendung der Best Practices der Branche verschlüsselt.",
+  "site.232":
+    "Laden Sie PDF-Kontoauszüge mit Portfoliozusammenfassung und Leistungszuordnung herunter.",
+  "site.233":
+    "Flex Items-Center Gap-3 px-3 py-2 abgerundet-md Text-sm Schriftart-Medium-Übergang",
+  "site.234":
+    "Infrastruktur für Modellierung, Simulation, Faktorforschung und Strategieforschung.",
+  "site.235":
+    "Wir können Analyse- und Leistungs-SDKs (z. B. Google Analytics, Sentry) verwenden.",
+  "site.236":
+    "Bank-, M-Pesa- und Krypto-Abhebungen sind nach KYC-Überprüfung möglich.",
+  "site.237":
+    "Makler, Veranstaltungsorte, Netzwerke und Anbieter können unabhängig von Evermount scheitern.",
+  "site.238":
+    "Marktdaten-, Analyse- und Ausführungsinfrastruktur für Rohstoffmärkte.",
+  "site.239":
+    "Market-Making-Technologie, Liquiditätsinfrastruktur und Veranstaltungsortkonnektivität.",
+  "site.240":
+    "Besprechen Sie Architektur und Integration ohne erfundene Leistungsansprüche.",
+  "site.241":
+    "Wir können diese Datenschutzrichtlinie überarbeiten. Änderungen werden den Benutzern mitgeteilt.",
+  "site.242":
+    "Sie können jederzeit Auskunft, Berichtigung oder Löschung Ihrer Daten verlangen.",
+  "site.243":
+    "Quantitative Methoden und Datenqualität stehen im Mittelpunkt der Plattform.",
+  "site.244":
+    "Wird beim ersten Eintrag mit Opt-in/Out-Optionen angezeigt – konform mit DSGVO/CCPA.",
+  "site.245":
+    "APIs und Finanzinfrastruktur, die in Produkte integriert werden können.",
+  "site.246":
+    "Bauen Sie eine Infrastruktur auf, die über Märkte und Gerichtsbarkeiten hinweg betrieben werden kann.",
+  "site.247":
+    "Maschinelles Lernen, Marktinformationen, Signalgenerierung und Analyse.",
+  "site.248":
+    "Methoden zur Regimeerkennung, NLP, Prognose und Forschungsassistenten.",
+  "site.249":
+    "Noch keine Leistungshistorie. Investieren Sie, um Ihre Eigenkapitalkurve zu verfolgen.",
+  "site.250":
+    "Schritt-für-Schritt-Anleitung zum Aufbau eines gut diversifizierten Anlageportfolios.",
+  "site.251":
+    "Um die Benutzererfahrung zu verbessern, Analysen durchzuführen und Vorschriften einzuhalten.",
+  "site.252":
+    "Wir bewahren Benutzerdaten so lange auf, wie es zur Einhaltung der Finanzgesetze erforderlich ist.",
+  "site.253":
+    "Anmeldezeitstempel, IP und Geolokalisierung werden zur Betrugsprävention gespeichert.",
+  "site.254":
+    "Das Passwort muss sicher sein. Schließen Sie Großbuchstaben, Zahlen und Sonderzeichen ein.",
+  "site.255":
+    "Wird zum Speichern von Dashboard-Filtern, Moduseinstellungen und Sitzungstokens verwendet.",
+  "site.256":
+    "Wir verkaufen keine durch Cookies gesammelten Daten. Wird ausschließlich für Ihr Erlebnis verwendet.",
+  "site.257":
+    "Ein umfassender Leitfaden zum Management des Portfoliorisikos in volatilen Märkten.",
+  "site.258":
+    "Alles, was Sie über sichere Investitionen in digitale Vermögenswerte wissen müssen.",
+  "site.259":
+    "Im Falle eines Verstoßes werden die betroffenen Benutzer innerhalb von 72 Stunden benachrichtigt.",
+  "site.260":
+    "Verwalten Sie Ihre Investitionen über verschiedene Fonds hinweg und verfolgen Sie die Performance.",
+  "site.261":
+    "In den meisten Browsern können Sie Cookies unter „Einstellungen“ > „Datenschutz/Sicherheit“ blockieren.",
+  "site.262":
+    "Sehen Sie sich Laufstrategien an, wechseln Sie die Ausführung und überwachen Sie gepoolte Metriken",
+  "site.263":
+    "Versuche zur Umgehung von Sicherheit, Quoten oder Lizenzen sind verboten.",
+  "site.264":
+    "Eine hochwertige Finanzinfrastruktur beginnt mit hochwertigen Daten.",
+  "site.265":
+    "Infrastruktur, die für den markt- und rechtsgebietsübergreifenden Betrieb konzipiert ist.",
+  "site.266":
+    "MARKTDATEN → DATENPLATTFORM → QUANT + KI → RISIKO → AUSFÜHRUNG → VERANSTALTUNGSORTE",
+  "site.267":
+    "Noch keine Aussagen. Kontoauszüge werden monatlich von der Plattform generiert.",
+  "site.268":
+    "Ausfälle von Personen, Prozessen und Dritten können die Servicequalität beeinträchtigen.",
+  "site.269":
+    "Technologieinfrastruktur für Märkte für digitale Vermögenswerte, sofern unterstützt.",
+  "site.270":
+    "Wir anonymisieren alle Daten, die für Benchmarks und Forschungspublikationen verwendet werden.",
+  "site.271":
+    "Wir können Ihnen E-Mails zu Plattformänderungen, Werbeaktionen oder Berichten senden.",
+  "site.272":
+    "Erstellen und verwalten Sie Portfoliomanager, die Kunden an Bord nehmen und betreuen.",
+  "site.273":
+    "Elektronische Handelssysteme und systematische Ausführungsinfrastruktur.",
+  "site.274":
+    "Leistungsstarke Daten-, Forschungs-, Ausführungs- und Risikoinfrastruktur.",
+  "site.275":
+    "Veranlassen Sie eine Bankeinzahlung und überweisen Sie dann den Betrag auf unser Abrechnungskonto.",
+  "site.276":
+    "Vielen Dank, dass Sie uns kontaktiert haben! Wir werden uns innerhalb von 24 Stunden bei Ihnen melden.",
+  "site.277":
+    "APIs dürfen nur für die in Ihrer Zugriffsgewährung zulässigen Zwecke verwendet werden.",
+  "site.278":
+    "Geben Sie einen Betrag ein – wir finden für Sie die beste Strategie für Ihren Plan.",
+  "site.279":
+    "Beherrschen Sie fortgeschrittene Handelstechniken, die von professionellen Anlegern verwendet werden.",
+  "site.280":
+    "Strukturierte Intelligenz aus Marktdaten und alternativen Datensätzen.",
+  "site.281":
+    "Tools wie uBlock oder Browsereinstellungen können Analysecookies blockieren.",
+  "site.282":
+    "Wird für Analysen (Google), Zahlungen (Stripe) und soziale Anmeldungen verwendet.",
+  "site.283":
+    "Wir unterhalten redundante sichere Backups, um die Servicekontinuität sicherzustellen.",
+  "site.284":
+    "Sie können jederzeit Geld von Ihrem Wallet in Investitionen überweisen",
+  "site.285":
+    "Sie können Ihre Einwilligung zur Datennutzung vorbehaltlich Funktionseinschränkungen widerrufen.",
+  "site.286":
+    "Derzeit nicht verwendet. Wir werden Sie um Ihr Einverständnis bitten, wenn wir sie vorstellen.",
   "site.287": "Exposure, Stresstests, Szenarioanalyse und Limitrahmen.",
-  "site.288": "Marktdaten-, Analyse-, Risiko- und Ausführungsinfrastruktur für FX.",
-  "site.289": "Noch keine Transaktionen. Tätigen Sie eine Einzahlung oder Investition, um loszulegen.",
-  "site.290": "Wir halten uns an die DSGVO, CCPA und die kenianischen Datenschutzrichtlinien.",
-  "site.291": "Wir können Daten offenlegen, wenn dies aufgrund eines rechtlichen Verfahrens oder einer Vorladung erforderlich ist.",
-  "site.292": "Geben Sie den an Ihre E-Mail-Adresse gesendeten 6-stelligen Code und Ihr neues Passwort ein.",
-  "site.293": "Rollenbasierte Kontrollen regeln den internen Zugriff auf Ihre Kontodaten.",
-  "site.294": "Auszahlung eingereicht. Es wird nach Genehmigung durch den Administrator verarbeitet.",
-  "site.295": "Alle Wallet-Einzahlungen, -Abhebungen, -Investitionen und -Anpassungen.",
-  "site.296": "Alle externen Integrationen über unsere API werden protokolliert und überwacht.",
-  "site.297": "Bankeinzahlung eingeleitet – überweisen Sie Geld mit den unten stehenden Angaben",
-  "site.298": "Aktivieren Sie Design-, Währungs-, Sprach- und Benutzeroberflächenanpassungen.",
+  "site.288":
+    "Marktdaten-, Analyse-, Risiko- und Ausführungsinfrastruktur für FX.",
+  "site.289":
+    "Noch keine Transaktionen. Tätigen Sie eine Einzahlung oder Investition, um loszulegen.",
+  "site.290":
+    "Wir halten uns an die DSGVO, CCPA und die kenianischen Datenschutzrichtlinien.",
+  "site.291":
+    "Wir können Daten offenlegen, wenn dies aufgrund eines rechtlichen Verfahrens oder einer Vorladung erforderlich ist.",
+  "site.292":
+    "Geben Sie den an Ihre E-Mail-Adresse gesendeten 6-stelligen Code und Ihr neues Passwort ein.",
+  "site.293":
+    "Rollenbasierte Kontrollen regeln den internen Zugriff auf Ihre Kontodaten.",
+  "site.294":
+    "Auszahlung eingereicht. Es wird nach Genehmigung durch den Administrator verarbeitet.",
+  "site.295":
+    "Alle Wallet-Einzahlungen, -Abhebungen, -Investitionen und -Anpassungen.",
+  "site.296":
+    "Alle externen Integrationen über unsere API werden protokolliert und überwacht.",
+  "site.297":
+    "Bankeinzahlung eingeleitet – überweisen Sie Geld mit den unten stehenden Angaben",
+  "site.298":
+    "Aktivieren Sie Design-, Währungs-, Sprach- und Benutzeroberflächenanpassungen.",
   "site.299": "Ausführungsanalysen, Routing-Forschung und Betriebskontrollen.",
-  "site.300": "Die Zahlungsabwicklung erfolgt über sichere, PCI-konforme Drittanbieter.",
-  "site.301": "In die Plattform eingebettete Pre-Trade- und Echtzeit-Risikokontrollen.",
-  "site.302": "Quantitative Forschung, Daten, Ausführung und Risikoinfrastruktur.",
-  "site.303": "Überprüfen Sie die Allokationsdetails, bevor Sie Kundenkapital binden.",
-  "site.304": "Sprechen Sie mit Evermount über Ihre Daten-, API- und Risikoanforderungen.",
-  "site.305": "Laden Sie Ihre Dokumente hoch, um Ihre Identität zu überprüfen, bevor Sie investieren.",
-  "site.306": "Wir können Benutzeraktionen verwenden, um optimierte Anlagemodelle vorzuschlagen.",
-  "site.307": "Ihr anonymisiertes Verhalten kann zum Trainieren von Portfoliomodellen verwendet werden.",
-  "site.308": "Konfigurieren Sie Systemeinstellungen, Sicherheit und Plattformeinstellungen.",
-  "site.309": "Geben Sie Ihre Visa- oder Mastercard-Daten ein, um die Einzahlung abzuschließen.",
-  "site.310": "Finanzkriminalitätskontrollen proportional zu den angebotenen Dienstleistungen.",
-  "site.311": "Partner-Due-Diligence-Prüfung für Konnektivität und Datenbeziehungen.",
-  "site.312": "Überweisen Sie Ihr verfügbares Guthaben direkt auf Ihr Bankkonto.",
-  "site.313": "Wir reagieren derzeit nicht auf „Do Not Track“-Signale des Browsers.",
-  "site.314": "Wir aktualisieren diese Richtlinie bei wesentlichen Änderungen – siehe Änderungsprotokoll.",
+  "site.300":
+    "Die Zahlungsabwicklung erfolgt über sichere, PCI-konforme Drittanbieter.",
+  "site.301":
+    "In die Plattform eingebettete Pre-Trade- und Echtzeit-Risikokontrollen.",
+  "site.302":
+    "Quantitative Forschung, Daten, Ausführung und Risikoinfrastruktur.",
+  "site.303":
+    "Überprüfen Sie die Allokationsdetails, bevor Sie Kundenkapital binden.",
+  "site.304":
+    "Sprechen Sie mit Evermount über Ihre Daten-, API- und Risikoanforderungen.",
+  "site.305":
+    "Laden Sie Ihre Dokumente hoch, um Ihre Identität zu überprüfen, bevor Sie investieren.",
+  "site.306":
+    "Wir können Benutzeraktionen verwenden, um optimierte Anlagemodelle vorzuschlagen.",
+  "site.307":
+    "Ihr anonymisiertes Verhalten kann zum Trainieren von Portfoliomodellen verwendet werden.",
+  "site.308":
+    "Konfigurieren Sie Systemeinstellungen, Sicherheit und Plattformeinstellungen.",
+  "site.309":
+    "Geben Sie Ihre Visa- oder Mastercard-Daten ein, um die Einzahlung abzuschließen.",
+  "site.310":
+    "Finanzkriminalitätskontrollen proportional zu den angebotenen Dienstleistungen.",
+  "site.311":
+    "Partner-Due-Diligence-Prüfung für Konnektivität und Datenbeziehungen.",
+  "site.312":
+    "Überweisen Sie Ihr verfügbares Guthaben direkt auf Ihr Bankkonto.",
+  "site.313":
+    "Wir reagieren derzeit nicht auf „Do Not Track“-Signale des Browsers.",
+  "site.314":
+    "Wir aktualisieren diese Richtlinie bei wesentlichen Änderungen – siehe Änderungsprotokoll.",
   "site.315": "Kunden-Onboarding für institutionelle und Entwicklerkonten.",
-  "site.316": "Erweiterte Modalitäten für die EU, Kalifornien, Kenia und andere Regionen.",
-  "site.317": "Finden Sie Antworten auf häufige Fragen oder kontaktieren Sie unser Support-Team.",
-  "site.318": "Im Falle einer Akquise kann es zu einer Übertragung von Nutzerdaten kommen.",
-  "site.319": "Integrationen wie Okra und Plaid löschen möglicherweise sitzungsbasierte Cookies.",
+  "site.316":
+    "Erweiterte Modalitäten für die EU, Kalifornien, Kenia und andere Regionen.",
+  "site.317":
+    "Finden Sie Antworten auf häufige Fragen oder kontaktieren Sie unser Support-Team.",
+  "site.318":
+    "Im Falle einer Akquise kann es zu einer Übertragung von Nutzerdaten kommen.",
+  "site.319":
+    "Integrationen wie Okra und Plaid löschen möglicherweise sitzungsbasierte Cookies.",
   "site.320": "Marktinfrastruktur, Analysen und Technologieintegrationen.",
-  "site.321": "Wir protokollieren IP, Betriebssystem und Browserversion, um Benutzerkonten zu schützen.",
-  "site.322": "Ihre Einwilligung wird 6 Monate lang gespeichert, sofern sie nicht manuell zurückgesetzt wird.",
-  "site.323": "Automatisierte Risikomanagement- und Portfoliooptimierungssysteme",
-  "site.324": "Geben Sie Ihre M-Pesa-PIN auf Ihrem Telefon ein, um die Einzahlung abzuschließen.",
-  "site.325": "Wenn Sie Bedenken hinsichtlich des Datenschutzes haben, senden Sie uns eine E-Mail an Privacy@evermount.com.",
+  "site.321":
+    "Wir protokollieren IP, Betriebssystem und Browserversion, um Benutzerkonten zu schützen.",
+  "site.322":
+    "Ihre Einwilligung wird 6 Monate lang gespeichert, sofern sie nicht manuell zurückgesetzt wird.",
+  "site.323":
+    "Automatisierte Risikomanagement- und Portfoliooptimierungssysteme",
+  "site.324":
+    "Geben Sie Ihre M-Pesa-PIN auf Ihrem Telefon ein, um die Einzahlung abzuschließen.",
+  "site.325":
+    "Wenn Sie Bedenken hinsichtlich des Datenschutzes haben, senden Sie uns eine E-Mail an Privacy@evermount.com.",
   "site.326": "Sharpe Ratio (als Analysemetrik für Kundenportfolios)",
-  "site.327": "Langfristige Speicherung für Sprache, Thema und Gerätepräferenz.",
-  "site.328": "Beschreiben Sie die Art der Partnerschaft, die Märkte und den technischen Umfang.",
-  "site.329": "Gruppiert nach Typ: Analyse, Einstellungen, Authentifizierung, Gerät usw.",
+  "site.327":
+    "Langfristige Speicherung für Sprache, Thema und Gerätepräferenz.",
+  "site.328":
+    "Beschreiben Sie die Art der Partnerschaft, die Märkte und den technischen Umfang.",
+  "site.329":
+    "Gruppiert nach Typ: Analyse, Einstellungen, Authentifizierung, Gerät usw.",
   "site.330": "Infrastruktur für Institutionen, Entwickler und Forscher",
   "site.331": "Unsere Plattform ist nicht für Nutzer unter 18 Jahren gedacht.",
-  "site.332": "Erhalten Sie Ihr Geld sicher in Ihrer persönlichen Krypto-Wallet.",
+  "site.332":
+    "Erhalten Sie Ihr Geld sicher in Ihrer persönlichen Krypto-Wallet.",
   "site.333": "Technologie- und Analyseinfrastruktur für Aktienmärkte.",
-  "site.334": "Sie können Ihre Präferenzen jederzeit über die Fußzeile anpassen.",
+  "site.334":
+    "Sie können Ihre Präferenzen jederzeit über die Fußzeile anpassen.",
   "site.335": "Infrastruktur für Futures, Optionen und andere Derivate.",
   "site.336": "Marktdaten-, Analyse-, Risiko- und Ausführungsinfrastruktur.",
-  "site.337": "Multi-Faktor-Authentifizierung und rollenbasierte Zugriffskontrollen",
-  "site.338": "Der Umgang mit personenbezogenen Daten ist in der Datenschutzerklärung beschrieben.",
+  "site.337":
+    "Multi-Faktor-Authentifizierung und rollenbasierte Zugriffskontrollen",
+  "site.338":
+    "Der Umgang mit personenbezogenen Daten ist in der Datenschutzerklärung beschrieben.",
   "site.339": "Forschung, Portfolioanalyse, Risiko- und Ausführungstools.",
-  "site.340": "Einige Funktionen verwenden möglicherweise KI, um Strategieerkenntnisse automatisch anzupassen.",
+  "site.340":
+    "Einige Funktionen verwenden möglicherweise KI, um Strategieerkenntnisse automatisch anzupassen.",
   "site.341": "Bauen Sie vor Finanzanträgen zuverlässige Grundlagen auf.",
-  "site.342": "Übermäßiger oder missbräuchlicher Datenverkehr kann gedrosselt oder blockiert werden.",
-  "site.343": "Modelle für maschinelles Lernen, die auf historischen Marktdaten trainiert wurden",
-  "site.344": "QR-Code im lokalen Entwickler nicht verfügbar – verwenden Sie die oben angegebene Adresse.",
-  "site.345": "Sitzungscookies verfallen standardmäßig nach 2 Stunden Inaktivität.",
-  "site.346": "Systematische elektronische Handelsinfrastruktur mit geringer Latenz",
+  "site.342":
+    "Übermäßiger oder missbräuchlicher Datenverkehr kann gedrosselt oder blockiert werden.",
+  "site.343":
+    "Modelle für maschinelles Lernen, die auf historischen Marktdaten trainiert wurden",
+  "site.344":
+    "QR-Code im lokalen Entwickler nicht verfügbar – verwenden Sie die oben angegebene Adresse.",
+  "site.345":
+    "Sitzungscookies verfallen standardmäßig nach 2 Stunden Inaktivität.",
+  "site.346":
+    "Systematische elektronische Handelsinfrastruktur mit geringer Latenz",
   "site.347": "0 1px 3px rgba(0, 0, 0, 0,5), 0 0 8px rgba(0, 0, 0, 0,3)",
-  "site.348": "Alle Cookie-Zustimmungen werden sicher gespeichert und mit einem Zeitstempel versehen.",
+  "site.348":
+    "Alle Cookie-Zustimmungen werden sicher gespeichert und mit einem Zeitstempel versehen.",
   "site.349": "Bauen Sie die Infrastruktur hinter modernen Finanzmärkten auf",
   "site.350": "Aufbau der Infrastruktur für moderne Finanzmärkte",
-  "site.351": "Daten können in mehreren sicheren Gerichtsbarkeiten gespeichert werden.",
-  "site.352": "Sammeln Sie Daten, um die Produktleistung und Erkenntnisse zu verbessern.",
-  "site.353": "Institutionelle Due Diligence, sofern wirtschaftlich erforderlich.",
+  "site.351":
+    "Daten können in mehreren sicheren Gerichtsbarkeiten gespeichert werden.",
+  "site.352":
+    "Sammeln Sie Daten, um die Produktleistung und Erkenntnisse zu verbessern.",
+  "site.353":
+    "Institutionelle Due Diligence, sofern wirtschaftlich erforderlich.",
   "site.354": "Leistungskennzahlen ähnlich verifizierten Handelskonten",
-  "site.355": "STK-Push gesendet. Überprüfen Sie Ihr Telefon, um die Zahlung abzuschließen.",
-  "site.356": "Speichern Sie Einstellungen für Schriftgröße, Kontrast und Tastaturnavigation.",
-  "site.357": "Wir verfolgen wissentlich keine Kinder unter 18 Jahren über Cookies.",
+  "site.355":
+    "STK-Push gesendet. Überprüfen Sie Ihr Telefon, um die Zahlung abzuschließen.",
+  "site.356":
+    "Speichern Sie Einstellungen für Schriftgröße, Kontrast und Tastaturnavigation.",
+  "site.357":
+    "Wir verfolgen wissentlich keine Kinder unter 18 Jahren über Cookies.",
   "site.358": "Sie können den Erhalt von Werbe-E-Mails jederzeit abbestellen.",
-  "site.359": "Wir verfolgen Benutzer nicht geräteübergreifend, es sei denn, Sie stimmen zu.",
+  "site.359":
+    "Wir verfolgen Benutzer nicht geräteübergreifend, es sei denn, Sie stimmen zu.",
   "site.360": "256-Bit-AES-Verschlüsselung für ruhende und übertragene Daten",
-  "site.361": "Kanäle, die den Benutzern die Evermount-Infrastruktur zugänglich machen.",
+  "site.361":
+    "Kanäle, die den Benutzern die Evermount-Infrastruktur zugänglich machen.",
   "site.362": "Disaster Recovery – geplant für Unternehmensbereitstellungen",
   "site.363": "Hohe Verfügbarkeit – geplant für Unternehmensbereitstellungen",
-  "site.364": "Überwachen Sie Quant Engine, Kill Switch und NAV-Veröffentlichung",
+  "site.364":
+    "Überwachen Sie Quant Engine, Kill Switch und NAV-Veröffentlichung",
   "site.365": "Ihrem Konto ist noch kein Kundenbetreuer zugewiesen.",
   "site.366": "Interne Primärforschung und Integrationssprache.",
   "site.367": "Bei Fragen erreichen Sie uns unter Cookies@evermount.com.",
   "site.368": "Echtzeit-Datenverarbeitungs- und Analyseinfrastruktur",
-  "site.369": "Versuchen Sie, Ihre Filter anzupassen oder tätigen Sie Ihre erste Einzahlung",
-  "site.370": "Fügen Sie dieses Geheimnis zu Google Authenticator / 1Password hinzu:",
+  "site.369":
+    "Versuchen Sie, Ihre Filter anzupassen oder tätigen Sie Ihre erste Einzahlung",
+  "site.370":
+    "Fügen Sie dieses Geheimnis zu Google Authenticator / 1Password hinzu:",
   "site.371": "Aufbau einer Finanzinfrastruktur für moderne Märkte",
   "site.372": "Unabhängige Risikoüberwachung und Compliance-Überwachung",
   "site.373": "Für Bankabhebungen fällt eine Bearbeitungsgebühr von 5,00 $ an.",
   "site.374": "Analysieren Sie Ladezeit, Serverantwort und allgemeine UX.",
   "site.375": "Umfassende Backtesting- und Validierungs-Frameworks",
-  "site.376": "Die Anmeldedaten sind vertraulich und dürfen nicht weitergegeben werden.",
+  "site.376":
+    "Die Anmeldedaten sind vertraulich und dürfen nicht weitergegeben werden.",
   "site.377": "Infrastruktur für Zins-, Anleihen- und Kreditmärkte.",
   "site.378": "Einsätze für Banken, Makler und Vermögensverwalter.",
   "site.379": "Infrastruktur und Risikokontrollen auf institutionellem Niveau",
@@ -4165,7 +5337,8 @@ export const siteDe: Messages = {
   "site.381": "Wählen Sie aus, wie Sie sich für diese Stelle bewerben möchten.",
   "site.382": "Infrastruktur für moderne Finanzmärkte",
   "site.383": "Erhalten Sie KES direkt auf Ihrer M-Pesa-Telefonnummer.",
-  "site.384": "Überprüfen und genehmigen Sie die Eingaben zur Anlegeridentität.",
+  "site.384":
+    "Überprüfen und genehmigen Sie die Eingaben zur Anlegeridentität.",
   "site.385": "TOTP-Zwei-Faktor-Authentifizierung für Administratorkonten",
   "site.386": "APIs, Plattformen und Infrastrukturintegrationen.",
   "site.387": "Konnektivität, Ausführung und Risikoinfrastruktur.",
@@ -4184,14 +5357,17 @@ export const siteDe: Messages = {
   "site.400": "Institutionelle Infrastruktur und Risikokontrollen",
   "site.401": "Marktdaten und alternative Datenintegrationen.",
   "site.402": "Regulatorische Zusammenarbeit, soweit gesetzlich erforderlich.",
-  "site.403": "Verwenden Sie für die Einzahlung Ihre Visa, Mastercard oder Amex.",
-  "site.404": "Sehen Sie sich alle Ihre Wallet-Transaktionen und -Aktivitäten an",
+  "site.403":
+    "Verwenden Sie für die Einzahlung Ihre Visa, Mastercard oder Amex.",
+  "site.404":
+    "Sehen Sie sich alle Ihre Wallet-Transaktionen und -Aktivitäten an",
   "site.405": "Broker, venue and institutional connectivity.",
   "site.406": "Quantitative Forschung und Marktintelligenz",
   "site.407": "Auch die Nutzung von APIs unterliegt den API-Bedingungen.",
   "site.408": "Bauen Sie mit Evermount das Finanzökosystem auf",
   "site.409": "Zur Abhebung oder Investition verfügbare Mittel",
-  "site.410": "Wird verwendet, um verdächtige Aktivitäten oder Missbrauch zu erkennen.",
+  "site.410":
+    "Wird verwendet, um verdächtige Aktivitäten oder Missbrauch zu erkennen.",
   "site.411": "; Fall „anstehend“: Fall „in Bearbeitung“: zurück",
   "site.412": "Evermount-Finanzinfrastrukturplattform",
   "site.413": "Wie wird die Performance meines Portfolios berechnet?",
@@ -4199,7 +5375,8 @@ export const siteDe: Messages = {
   "site.415": "Aktiver Devisenhandel über große Währungspaare hinweg",
   "site.416": "Flipbot – gepoolte Exness MT5-Demoausführung",
   "site.417": "Effektiver durch optimierte Arbeitsabläufe.",
-  "site.418": "Es wurden keine Ressourcen gefunden, die Ihren Kriterien entsprechen.",
+  "site.418":
+    "Es wurden keine Ressourcen gefunden, die Ihren Kriterien entsprechen.",
   "site.419": "Zahlen Sie mit Bitcoin, Ethereum und mehr ein.",
   "site.420": "Digitale Vermögenswerte und Blockchain-Investitionen",
   "site.421": "Evermount financial intelligence platform",
@@ -5042,11 +6219,14 @@ export const siteDe: Messages = {
 
 export const siteNl: Messages = {
   "site.0": "Het Evermount-platform voor financiële infrastructuur",
-  "site.1": "Marktdata, kwantitatief research, AI, execution, risico en portfolio-infrastructuur voor moderne financiële markten.",
-  "site.2": "Bouw, verbind, analyseer en voer uit op financiële markten met Evermount-infrastructuur.",
+  "site.1":
+    "Marktdata, kwantitatief research, AI, execution, risico en portfolio-infrastructuur voor moderne financiële markten.",
+  "site.2":
+    "Bouw, verbind, analyseer en voer uit op financiële markten met Evermount-infrastructuur.",
   "site.3": "API's verkennen",
   "site.4": "Marktdata-infrastructuur",
-  "site.5": "Infrastructuur voor het innemen, normaliseren en distribueren van marktdata.",
+  "site.5":
+    "Infrastructuur voor het innemen, normaliseren en distribueren van marktdata.",
   "site.6": "Realtime data",
   "site.7": "Historische data",
   "site.8": "Datanormalisatie",
@@ -5101,311 +6281,588 @@ export const siteNl: Messages = {
   "site.57": "Platformarchitectuur",
   "site.58": "Hoe de stack verbindt",
   "site.59": "Laatst bijgewerkt: 6 september 2026",
-  "site.60": "Deze pagina is een productsamenvatting en geen juridisch advies. Juridische en regelgevende voorwaarden moeten vóór publicatie door gekwalificeerde counsel worden beoordeeld. Evermount claimt geen SEC-, FCA-, CMA-, MiFID- of vergelijkbare vergunning tenzij afzonderlijk en uitdrukkelijk vermeld.",
-  "site.61": "Evermount kan de uitvoeringsinfrastructuur, software voor orderbeheer en analyses leveren. Wanneer een klant een gereglementeerde onderneming is met verplichtingen inzake optimale uitvoering, blijven deze verplichtingen bij de klant berusten. Evermount beweert niet dat het een makelaar is die orders van klanten uitvoert als beleggingsonderneming, tenzij een ondertekende overeenkomst anders bepaalt.",
-  "site.62": "Evermount is een technologieleverancier. Er kunnen conflicten ontstaan ​​tussen commerciële belangen, leveranciersrelaties en klantbelangen. Wij streven ernaar materiële conflicten in klantovereenkomsten te identificeren, beheren en openbaar te maken, in plaats van op te treden als discretionaire beleggingsbeheerder voor websitebezoekers.",
-  "site.63": "Evermount combineert kunstmatige intelligentie, kwantitatief onderzoek en handelsinfrastructuur om intelligente systemen te creëren die in staat zijn voortdurend markten te analyseren, kansen te ontdekken, risico's te beheersen en systematische strategieën uit te voeren.",
-  "site.64": "Financiële markten zijn complex, gefragmenteerd en technisch moeilijk om op te bouwen. We combineren data-engineering, kwantitatief onderzoek, machine learning en uitvoeringstechnologie, zodat instellingen en ontwikkelaars op een gemeenschappelijke basis kunnen voortbouwen.",
-  "site.65": "Analysemogelijkheden voor prestaties, risico's en blootstelling. De cijfers in productdemo's zijn ter illustratie, tenzij ze zijn gelabeld als eigen gegevens van de klant. Evermount publiceert geen beleggingsrendementen of Sharpe-ratio's als bedrijfsprestaties.",
-  "site.66": "Deze verklaring beschrijft de controles op financiële criminaliteit die passend zijn voor een technologie- en infrastructuuraanbieder. Het is geen AML-handleiding voor fondsbeheerders en betekent niet dat Evermount beleggersabonnementen accepteert of geld van klanten aanhoudt.",
-  "site.67": "Deze voorwaarden regelen de toegang tot Evermount-software, API's, gegevens en infrastructuurdiensten. Ze vormen geen beleggingsbeheerovereenkomst, inschrijving op een fonds of een uitnodiging om geld van klanten bij Evermount te storten.",
-  "site.68": "Klanten blijven verantwoordelijk voor hun eigen handels-, regelgevings-, KYC/AML- en fiduciaire verplichtingen. Evermount is geen makelaar-dealer, bank, bewaarder, beurs- of beleggingsadviseur, tenzij uitdrukkelijk vermeld in een ondertekende overeenkomst.",
-  "site.69": "Evermount levert technologie- en infrastructuurdiensten. Deze pagina maakt geen aanspraak op SEC-registratie, FCA-autorisatie, CMA-autorisatie, MiFID-autorisatie, makelaar-dealerstatus, status van beleggingsadviseur of bewaring.",
-  "site.70": "Financiële markten zijn complexe systemen. Wij geloven dat de volgende generatie financiële infrastructuur zal worden gebouwd door grootschalige data, kunstmatige intelligentie, kwantitatief onderzoek en geautomatiseerde uitvoering te combineren.",
-  "site.71": "Wij werken samen met banken, makelaars, beurzen, aanbieders van marktgegevens, fintechs, technologieaanbieders, liquiditeitsverschaffers en instellingen. Partnerschappen met naam worden alleen vermeld als ze echt zijn en goedgekeurd zijn om openbaar te zijn.",
-  "site.72": "Institutionele klanten blijven verantwoordelijk voor hun eigen wettelijke verplichtingen, waaronder handelsvergunningen, optimale uitvoering als zij een gereguleerd bedrijf zijn, en de regels voor klantactiva die op hen van toepassing zijn.",
-  "site.73": "Evermount is een kwantitatieve onderzoeks- en financiële technologieorganisatie. Openbare onderzoeksnotities worden hier vermeld wanneer ze worden gepubliceerd. Wij fabriceren geen papieren, prestaties of klantresultaten.",
-  "site.74": "Wij bedienen banken, makelaars, beurzen, vermogensbeheerders, hedgefondsen, eigen handelsfirma's, marktmakers, fintechs, family offices en ontwikkelaars die programmeerbare marktinfrastructuur nodig hebben.",
-  "site.75": "Voor grootschalige implementaties. Potentiële mogelijkheden: specifieke implementatie, privéconnectiviteit, aangepaste integraties, hoge beschikbaarheid, speciale engineering en SLA – contractueel onderworpen.",
-  "site.76": "Voor banken, makelaars en vermogensbeheerders. Potentiële mogelijkheden: institutionele API's, speciale infrastructuur, marktconnectiviteit, risico- en uitvoeringsinfrastructuur en bedrijfsondersteuning.",
-  "site.77": "Evermount is gepositioneerd als marktagnostisch. In de onderstaande paragrafen wordt de infrastructuur voor elke markt beschreven – er wordt niet beweerd dat Evermount gereguleerde toegang biedt tot elke locatie of elk instrument.",
-  "site.78": "Financiële markten zijn complex, gefragmenteerd en technisch moeilijk om op te bouwen. Evermount biedt infrastructuur die het bouwen, integreren en exploiteren van markttechnologie eenvoudiger maakt.",
-  "site.79": "We bouwen de infrastructuur achter de moderne financiële markten – en we zijn nog maar net begonnen. Sluit u aan bij ingenieurs, onderzoekers en operators die geven om data, risico's en systemen.",
-  "site.80": "De onderstaande stapel weerspiegelt de systemen die we vandaag de dag gebruiken en de mogelijkheden op de technische roadmap. We publiceren geen latentie-, uptime- of doorvoercijfers tenzij onafhankelijk geverifieerd.",
-  "site.81": "Programmatische toegang tot financiële gegevens, analyses, intelligentie en infrastructuur. Openbare API-documentatie en productiereferenties worden verstrekt nadat de toegang is goedgekeurd.",
-  "site.82": "Evermount bouwt systemen die voortdurend leren van financiële gegevens, hypothesen genereren, risico's evalueren en gevalideerde informatie vertalen in gecontroleerde actie.",
-  "site.83": "Voor handelsbedrijven, fintechs en professionele gebruikers. Potentiële mogelijkheden: realtime gegevens, geavanceerde API's, analyses, risico-API's en uitvoeringsmogelijkheden, indien ingeschakeld.",
-  "site.84": "Het platform is marktonafhankelijk: ontworpen om aandelen, valuta, vastrentende waarden, grondstoffen, derivaten en digitale activa te ondersteunen waar deze mogelijkheden beschikbaar zijn.",
-  "site.85": "Evermount behoudt de rechten op haar software, modellen en documentatie. Klanten behouden de rechten op hun eigen gegevens, afhankelijk van de verleende licenties om de dienst te exploiteren.",
-  "site.86": "Evermount is marktonafhankelijk. Wij bieden infrastructuur voor activaklassen – we impliceren niet dat Evermount elke markt opereert of gereguleerde toegang biedt.",
-  "site.87": "Ervaren professionals die expertise op het gebied van kwantitatieve financiën, computerwetenschappen en techniek combineren om innovatie in systematische handelstechnologie te stimuleren.",
-  "site.88": "Algoritmische uitvoering, orderbeheer en uitvoeringsanalyse. Connectiviteit met makelaars en locaties hangt af van de integratiestatus en de toepasselijke regelgeving.",
-  "site.89": "Evermount levert technologie- en infrastructuurdiensten. Institutionele klanten blijven, indien van toepassing, verantwoordelijk voor hun eigen wettelijke verplichtingen.",
-  "site.90": "We maken gebruik van machine learning, statistische modellen en moderne software-engineering. Specifieke prestatiekenmerken worden niet als marketingstatistieken gepubliceerd.",
-  "site.91": "BELANGRIJK: Lees deze risicoverklaring aandachtig door. Het gebruik van financiële technologie brengt risico's met zich mee. Dit is geen openbaarmaking van beleggingsproducten voor een fonds.",
-  "site.92": "Evermount is een financieel technologiebedrijf dat infrastructuur bouwt voor marktgegevens, kwantitatief onderzoek, kunstmatige intelligentie, risico en uitvoering.",
-  "site.93": "Ja, u kunt uw beleggingen op elk moment opnieuw toewijzen via de Portfolio-pagina. U kunt ook automatisch opnieuw in evenwicht brengen instellen op basis van uw voorkeuren.",
-  "site.94": "Een uniforme technologiestapel ontworpen om financiële gegevens om te zetten in intelligentie, kwantitatieve strategieën, risicobeslissingen en systematische uitvoering.",
-  "site.95": "In dit Cookiebeleid wordt uitgelegd hoe Evermount (\"wij\", \"onze\" of \"ons\") cookies en soortgelijke technologieën gebruikt om u te herkennen wanneer u ons platform bezoekt.",
-  "site.96": "Een AI-native intelligentielaag die is ontworpen om financiële systemen te helpen markten te begrijpen, kansen te onderzoeken en betere risicobewuste beslissingen te nemen.",
-  "site.97": "Toegangscontroles, encryptie en monitoringpraktijken worden geïmplementeerd in overeenstemming met de systemen in productie en de toepasselijke klantovereenkomst.",
-  "site.98": "Commerciële voorwaarden zijn afhankelijk van data, markten, API-volume en implementatiemodel. Wij publiceren geen verzonnen catalogusprijzen. Neem contact op met de verkoop voor een voorstel.",
-  "site.99": "Dit privacybeleid schetst hoe Evermount uw informatie verzamelt, gebruikt, opslaat en beschermt. Uw privacy is voor ons van cruciaal belang.",
-  "site.100": "Een financieel ecosysteem waar instellingen, ontwikkelaars en onderzoekers geavanceerde marktapplicaties kunnen bouwen op betrouwbare infrastructuur.",
-  "site.101": "Elke partij kan de overeenkomst beëindigen zoals bepaald in de commerciële overeenkomst. De toegang kan worden opgeschort wegens misbruik, veiligheidsrisico's of wettelijke vereisten.",
-  "site.102": "AI-systemen analyseren marktinformatie, nieuws, macro-economische omstandigheden en alternatieve gegevens om gestructureerde financiële informatie te genereren.",
-  "site.103": "Een technologische routekaart van hedendaags AI-ondersteund onderzoek naar systematische uitvoering, marktinfrastructuur en mondiale marktconnectiviteit.",
-  "site.104": "Voor ontwikkelaars en onderzoekers. Potentiële mogelijkheden: sandbox, beperkte API-toegang, historische gegevens, onderzoekstools en documentatie.",
-  "site.105": "De beschikbaarheid van specifieke diensten is afhankelijk van de jurisdictie en de toepasselijke regelgeving. Evermount is niet in elk rechtsgebied gereguleerd.",
-  "site.106": "Toegangsniveaus voor ontwikkelaars, professionals, instellingen en ondernemingen. Commerciële voorwaarden worden geleverd door de verkoop – geen verzonnen catalogusprijzen.",
-  "site.107": "Geplande en in ontwikkeling zijnde API-oppervlakken. De beschikbaarheid wordt bevestigd tijdens de onboarding. Ga er niet vanuit dat elke API live in productie is.",
-  "site.108": "FlipbotEA peilt de signaalwachtrij en voert de ingelogde Exness MT5-demo uit. Succesvolle vullingen verhogen de NAV van investeerders via FillRecorded.",
-  "site.109": "Het merk is mondiaal georiënteerd: infrastructuur die in verschillende markten en rechtsgebieden kan opereren, voor zover de mogelijkheden en licenties dit toelaten.",
-  "site.110": "Een AI-forward stack die is ontworpen om financiële gegevens om te zetten in intelligentie, gevalideerd onderzoek, risicobeslissingen en gecontroleerde uitvoering.",
-  "site.111": "Er zijn momenteel geen openstaande functies vermeld. Stel uzelf voor op careers@evermount.co als u wilt helpen bij het opbouwen van een financiële infrastructuur.",
-  "site.112": "Financiële infrastructuur voor moderne markten – marktgegevens, kwantitatief onderzoek, intelligentie, risico, uitvoering en connectiviteit.",
-  "site.113": "Evermount, opgericht in 2023, is opgericht om geavanceerde financiële infrastructuur toegankelijker, programmeerbaar en schaalbaarder te maken.",
-  "site.114": "Onderzoeksinfrastructuur voor het ontdekken van factoren, het genereren van hypothesen, backtesting, simulatie en systematische strategieontwikkeling.",
-  "site.115": "Partnership API for referral links, client reports, and commission data. Trading execution uses Exness MT5 above — not this API.",
-  "site.116": "We're building our infrastructure to the highest standards of operational excellence, security, and risk management as we scale.",
-  "site.117": "\"We bouwen aan de data-, onderzoeks-, inlichtingen-, risico- en uitvoeringsinfrastructuur waar instellingen en ontwikkelaars op kunnen voortbouwen.\"",
-  "site.118": "Marktgegevens, analyses, risico's, uitvoering en connectiviteitsinfrastructuur voor banken, makelaars, vermogensbeheerders en handelsfirma's.",
-  "site.119": "Typisch toegestaan ​​gebruik omvat interne onderzoeks-, risico-, analyse- en applicatiefuncties die u voor uw organisatie gebruikt.",
-  "site.120": "De kern van Evermount wordt gevormd door een technologieplatform voor marktgegevens, kwantitatief onderzoek, intelligentie, risico en uitvoering.",
-  "site.121": "Neem USD op naar uw gekoppelde bankrekening. Verzoeken worden beoordeeld en goedgekeurd door ons team (doorgaans binnen 2 werkdagen).",
-  "site.122": "Elke partij zal redelijke veiligheidsmaatregelen implementeren. Klanten moeten hun inloggegevens beschermen en vermoedelijke inbreuken melden.",
-  "site.123": "Een technologiestapel voor data, onderzoek, intelligentie, risico, uitvoering en connectiviteit – geen verzoek om kapitaal te storten.",
-  "site.124": "Deposit funds to your wallet using supported cryptocurrencies. Funds will be available in your wallet after confirmation.",
-  "site.125": "Data-, kwantitatief onderzoek, intelligentie, risico, uitvoering en connectiviteitsinfrastructuur voor moderne financiële markten.",
-  "site.126": "Wordt gebruikt wanneer u op Handelen klikt. Uw kapitaal blijft belegd gedurende de door u gekozen periode. Vroegtijdige uitbetaling is mogelijk niet mogelijk.",
-  "site.127": "Neem geld uit uw portemonnee op naar uw favoriete bank of crypto-portemonnee. Alleen het beschikbare portemonneesaldo kan worden opgenomen.",
-  "site.128": "Kies de stortingsmethode van uw voorkeur om geld aan uw portemonnee toe te voegen. Er zal geld beschikbaar zijn voor opname of investering.",
-  "site.129": "Data may be delayed, incomplete or incorrect. It is not a substitute for official venue feeds where those are required.",
-  "site.130": "Diensten worden geleverd op technologische basis. Functies zijn mogelijk in preview, beperkt of niet beschikbaar in bepaalde rechtsgebieden.",
-  "site.131": "Orders kunnen worden vertraagd, afgewezen, gedeeltelijk uitgevoerd of tegen onverwachte prijzen worden uitgevoerd als er sprake is van uitvoeringsconnectiviteit.",
-  "site.132": "Authentication, API keys, rate limits and examples are published to approved developers. Until then, request access.",
-  "site.133": "Hosting, connectiviteit en operationele regelingen worden beschreven in het toepasselijke bestelformulier of werkoverzicht.",
-  "site.134": "Vraag toegang aan om gegevens, onderzoek, risico's, uitvoering en connectiviteitsinfrastructuur te bespreken met het Evermount-team.",
-  "site.135": "Een conceptuele architectuur die AI, onderzoek, risico en uitvoering verbindt in één institutioneel technologieplatform.",
-  "site.136": "Een praktische reis voor instellingen en ontwikkelaars die de Evermount-infrastructuur gebruiken - geen onboarding-stroom voor fondsen.",
-  "site.137": "Evermount-technologiearchitectuur voor data-engineering, kwantitatieve computing, AI, handelssystemen en risico's.",
-  "site.138": "Wij ontwerpen systemen rond datakwaliteit, onderzoeksgegevens en meetbare risico’s – niet op discretionaire fondsmarketing.",
-  "site.139": "Bouw samen met Evermount het financiële ecosysteem op via partnerschappen op het gebied van data, connectiviteit, technologie en onderzoek.",
-  "site.140": "Drawdown, volatiliteit en Sharpe-ratio berekend op basis van het dagelijkse rendement van uw eigen portefeuille over de afgelopen 90 dagen.",
-  "site.141": "Neem KES rechtstreeks uit uw portemonnee op naar uw M-Pesa-account. Alleen het beschikbare portemonneesaldo kan worden opgenomen.",
-  "site.142": "Financier direct uw KES-portemonnee via M-Pesa. U ontvangt een STK-push op uw telefoon om de betaling te bevestigen.",
-  "site.143": "Analysemogelijkheden voor prestaties, risico's, blootstelling, attributie en stresstesten op het Evermount-platform.",
-  "site.144": "Een conceptuele architectuur. Specifieke implementaties, locaties en integraties variëren per klant en rechtsgebied.",
-  "site.145": "Eventuele kosten worden vermeld op een bestelformulier. Op deze website worden geen fondsbeheer- of prestatievergoedingen vermeld.",
-  "site.146": "Marktonafhankelijke infrastructuur voor aandelen, valuta, vastrentende waarden, grondstoffen, derivaten en digitale activa.",
-  "site.147": "Wij garanderen geen ononderbroken service. Onderhoud, uitval van leveranciers en overmacht kunnen de toegang beïnvloeden.",
-  "site.148": "Deel de verwachte schaal, markten en infrastructuurvereisten. De prijzen zijn genoteerd en niet vermeld als fondskosten.",
-  "site.149": "We kunnen toegang verlenen tot omgevingen, inloggegevens en documentatie onder voorbehoud van goedkeuring en toepasselijke wetgeving.",
-  "site.150": "Wij zijn altijd op zoek naar gepassioneerde mensen. Als u enthousiast bent over onze missie, horen wij graag van u.",
-  "site.151": "Uniforme financiële datapijplijnen ontworpen ter ondersteuning van onderzoek, analyses en realtime beslissingssystemen.",
-  "site.152": "Mogelijkheden van het Evermount-platform. De specifieke beschikbaarheid is afhankelijk van het toegangsniveau en het rechtsgebied.",
-  "site.153": "Stel EXNESS_PARTNER_REFERRAL_LINK in of schakel EXNESS_PARTNER_ENABLED in met PPA-referenties in de backend-omgeving.",
-  "site.154": "Withdraw funds from your wallet to your crypto wallet. Only available wallet balance can be withdrawn.",
-  "site.155": "Vier mogelijkheden die financiële gegevens omzetten in inlichtingen, onderzoek, risicobeslissingen en uitvoering.",
-  "site.156": "Risicocontroles moeten rechtstreeks in systemen worden ingebed, inclusief pre-trade- en realtime monitoring.",
-  "site.157": "Softwaredefecten, uitval en configuratiefouten kunnen de toegang onderbreken of onjuiste uitvoer produceren.",
-  "site.158": "Een reis in zeven stappen, van het verbinden van systemen tot het monitoren van markten, risico's en uitvoering op Evermount.",
-  "site.159": "Financiële infrastructuur moet programmeerbaar zijn. API's, streaming en integraties zijn eersteklas.",
-  "site.160": "De aansprakelijkheid is beperkt voor zover toegestaan ​​door de wet en zoals uiteengezet in de ondertekende commerciële voorwaarden.",
-  "site.161": "Productiehosting- en operationele details worden tijdens de implementatieplanning met klanten bevestigd.",
-  "site.162": "Realtime monitoring van blootstelling, liquiditeit, volatiliteit, correlatie, opname en marktregimes.",
-  "site.163": "We konden de pagina die u zocht niet vinden. Misschien heb je de URL verkeerd getypt of is de pagina verplaatst.",
-  "site.164": "Een technologische basis voor marktgegevens, kwantitatief onderzoek, intelligentie, risico's en uitvoering.",
-  "site.165": "Om de prestaties van de site te optimaliseren, de gebruikerservaring te personaliseren, de beveiliging te verbeteren en het verkeer te analyseren.",
-  "site.166": "Krijg toegang tot educatieve bronnen, handleidingen, video's en webinars om uw beleggingskennis te vergroten.",
-  "site.167": "Kunt u niet vinden wat u zoekt? Stuur ons een bericht en we nemen binnen 24 uur contact met u op.",
-  "site.168": "Talen die actief worden gebruikt, zijn onder meer TypeScript en Python. C++ en Rust staan ​​op de roadmap van het systeem.",
-  "site.169": "Voer het e-mailadres in dat aan uw account is gekoppeld en we sturen u een OTP om uw wachtwoord opnieuw in te stellen.",
-  "site.170": "Systematische uitvoeringsinfrastructuur ontworpen voor betrouwbaarheid, snelheid en gecontroleerde implementatie.",
-  "site.171": "Maak kennis met het Evermount-team en hoe we financiële infrastructuur bouwen voor moderne markten.",
-  "site.172": "Kleine gegevensbestanden die op uw apparaat worden geplaatst om gedrag, voorkeuren en sessie-activiteit bij te houden.",
-  "site.173": "Beheer beleggersaccounts en toegang. Portefeuillebeheerders worden aangemaakt onder Beheer → Managers.",
-  "site.174": "Ons team combineert ervaring in kwantitatieve financiën, datawetenschap en systeemtechniek.",
-  "site.175": "Vertel ons over uw instelling en infrastructuurbehoeften. Wij zullen vervolgstappen volgen.",
-  "site.176": "Infrastructuur die is ontworpen om in alle markten en rechtsgebieden te kunnen opereren, voor zover de mogelijkheden dit toelaten.",
-  "site.177": "Plan een gesprek over de data-, onderzoeks-, risico- en uitvoeringsinfrastructuur van Evermount.",
-  "site.178": "Wordt rechtstreeks door Evermount ingesteld voor inlogsessies, waarbij themavoorkeuren en grafiekstatussen worden opgeslagen.",
-  "site.179": "API's kunnen indien redelijkerwijs mogelijk met kennisgeving worden gewijzigd, van een versie worden voorzien of worden ingetrokken.",
-  "site.180": "Verbind gegevensbronnen, makelaars, locaties of institutionele systemen waar integraties bestaan.",
-  "site.181": "Marktgegevens en gegevens van derden zijn onderworpen aan het Gegevensbeleid en eventuele leverancierslicenties.",
-  "site.182": "Niet-productieomgevingen voor integratietests zijn bedoeld voor goedgekeurde ontwikkelaars.",
-  "site.183": "Kwantitatief onderzoek, marktstructuur, AI, risico- en uitvoeringsonderzoek van Evermount.",
-  "site.184": "Deel uw bedrijf, rol en API-vereisten zodat we de juiste omgeving kunnen bieden.",
-  "site.185": "Gebruik moderne techniek, kwantitatieve methoden en AI om complexe financiële problemen op te lossen.",
-  "site.186": "We investeren in onderzoek en engineering, zodat de infrastructuur programmeerbaar en betrouwbaar blijft.",
-  "site.187": "Maak geavanceerde financiële infrastructuur toegankelijker, programmeerbaar en schaalbaarder.",
-  "site.188": "Onderzoek naar hoe locaties, liquiditeit en marktmicrostructuur interageren met technologie.",
-  "site.189": "Uw portemonnee fungeert als een geblokkeerde rekening waar u veilig geld kunt opslaan voordat u gaat beleggen",
-  "site.190": "Portefeuilleconstructie, optimalisatie en analyse – geen beheerd beleggingsproduct.",
-  "site.191": "Instellingen en onderzoekers kunnen data, methoden en samenwerkingsmogelijkheden bespreken.",
-  "site.192": "Lees meer over de missie van Evermount om financiële infrastructuur voor moderne markten te bouwen.",
-  "site.193": "Beheer uw portemonneesaldo, stortingen, opnames en maak geld over naar beleggingen.",
-  "site.194": "We hebben een 6-cijferige bevestigingscode per e-mail verzonden. Voer de onderstaande code in om uw e-mailadres te verifiëren.",
-  "site.195": "Voor institutionele accounts zijn specifieke relatiemanageropdrachten beschikbaar.",
-  "site.196": "Log veilig in op het Evermount Capital investeerdersportaal en beheer uw beleggingen.",
-  "site.197": "Marktgegevens en gegevens van derden zijn onderworpen aan leverancierslicenties en het Gegevensbeleid.",
-  "site.198": "Marktinformatie, kwantitatief onderzoek en financiële technologie-infrastructuur.",
-  "site.199": "Vereist voor basisfuncties, bijvoorbeeld aanmelden en toegang tot portfolio's. Kan niet worden uitgeschakeld.",
-  "site.200": "Gegevens worden in licentie gegeven, niet verkocht. De rechten zijn beperkt tot de gebruiksscenario's in uw overeenkomst.",
-  "site.201": "Stortingen gaan rechtstreeks naar uw portemonnee en zijn beschikbaar voor opname of belegging",
-  "site.202": "Essentiële cookies worden gebruikt voor functionaliteit. U kunt zich afmelden voor trackingcookies.",
-  "site.203": "Programmatische toegang tot financiële gegevens, analyses, intelligentie en infrastructuur.",
-  "site.204": "Herdistributie aan derden is verboden, tenzij dit uitdrukkelijk schriftelijk is toegestaan.",
-  "site.205": "Ongeautoriseerde toegang, malware en diefstal van inloggegevens kunnen systemen en gegevens in gevaar brengen.",
-  "site.206": "Uw identiteit is geverifieerd. U heeft volledige toegang tot deposito's en beleggingen.",
-  "site.207": "Er komt binnenkort een openbare statuspagina. Neem voor incidenten contact op met support@evermount.co.",
-  "site.208": "Alle betaalmethoden (kaart, bank, crypto) kunnen worden gebruikt voor stortingen en opnames",
-  "site.209": "Deel uw instellingstype, interessante markten en infrastructuurvereisten.",
-  "site.210": "Opgenomen winsten uit beleggingen worden automatisch toegevoegd aan uw portemonneesaldo",
-  "site.211": "Kaart-, M-Pesa- en crypto-stortingen zijn beschikbaar. Bankoverschrijvingen volgen binnenkort.",
-  "site.212": "Bespreek architectuur, API's en integratievereisten met het Evermount-team.",
-  "site.213": "Uw eerdere inzending is afgewezen. Upload nieuwe documenten om het opnieuw te proberen.",
-  "site.214": "Uitwisselings-, leveranciers- en alternatieve gegevens blijven onderworpen aan de voorwaarden van die aanbieders.",
-  "site.215": "Portefeuilleactiviteit, risicoprofiel en uitvoeringstijdstip worden geregistreerd voor nauwkeurigheid.",
-  "site.216": "Kwantitatieve en AI-modellen kunnen in nieuwe regimes verkeerd worden gespecificeerd, overmatig fit worden of falen.",
-  "site.217": "U mag gegevens niet schrapen, reverse-engineeren of herdistribueren buiten uw licentie.",
-  "site.218": "Het kapitaal blijft gedurende deze periode geïnvesteerd. Vroegtijdige uitbetaling is mogelijk niet mogelijk.",
-  "site.219": "Feeds kunnen vertraagd zijn, ontbreken of verkeerd zijn. Beslissingen op basis van data kunnen gebrekkig zijn.",
-  "site.220": "Infrastructuur die instellingen, makelaars, locaties en financiële systemen met elkaar verbindt.",
-  "site.221": "Haalt de strategie-NAV uit het evermount-quant en actualiseert de waarden van de beleggersportefeuille.",
-  "site.222": "Vraag toegang aan om te bespreken hoe analyse-API's en dashboards in uw workflow passen.",
-  "site.223": "Vertel ons welke activaklassen en datavereisten voor uw instelling van belang zijn.",
-  "site.224": "Sluit u aan bij onze experts voor een diepgaande analyse van markttrends en kansen.",
-  "site.225": "Uw documenten worden beoordeeld. We zullen u per e-mail op de hoogte stellen zodra dit is voltooid.",
-  "site.226": "Jouw boodschap – rol, bedrijfstype, markten, data/API-behoeften, verwachte schaal...",
-  "site.227": "Toegewezen investeerders, saldi en strategieallocatie met live risicostatistieken",
-  "site.228": "Ontdek hoe marktgegevens, onderzoek, intelligentie, risico's en uitvoering met elkaar verbonden zijn.",
-  "site.229": "Leer de grondbeginselen van kwantitatieve handelsstrategieën en hoe ze werken.",
-  "site.230": "Tijdelijk en verwijderd wanneer de browser sluit. Onderhoudt login op verschillende pagina's.",
-  "site.231": "Alle gegevens worden tijdens de overdracht en in rust gecodeerd volgens de best practices uit de sector.",
-  "site.232": "Download PDF-overzichten met portfoliooverzicht en prestatietoeschrijving.",
-  "site.233": "flex items-center gap-3 px-3 py-2 afgerond-md tekst-sm lettertype-medium overgang",
-  "site.234": "Modellering, simulatie, factoronderzoek en strategieonderzoeksinfrastructuur.",
-  "site.235": "We kunnen analyse- en prestatie-SDK's gebruiken (bijvoorbeeld Google Analytics, Sentry).",
-  "site.236": "Bank-, M-Pesa- en crypto-opnames zijn beschikbaar na KYC-verificatie.",
-  "site.237": "Makelaars, locaties, netwerken en leveranciers kunnen onafhankelijk van Evermount failliet gaan.",
-  "site.238": "Marktgegevens, analyses en uitvoeringsinfrastructuur voor grondstoffenmarkten.",
-  "site.239": "Marktmakende technologie, liquiditeitsinfrastructuur en connectiviteit van locaties.",
-  "site.240": "Bespreek architectuur en integratie zonder verzonnen prestatieclaims.",
-  "site.241": "Wij kunnen dit privacybeleid herzien. Wijzigingen zullen aan de gebruikers worden gecommuniceerd.",
-  "site.242": "U kunt te allen tijde verzoeken om inzage, correctie of verwijdering van uw gegevens.",
-  "site.243": "Kwantitatieve methoden en datakwaliteit staan ​​centraal op het platform.",
-  "site.244": "Wordt bij eerste binnenkomst weergegeven met opt-in/out-opties — in overeenstemming met GDPR/CCPA.",
-  "site.245": "API’s en financiële infrastructuur die in producten kunnen worden geïntegreerd.",
-  "site.246": "Bouw een infrastructuur die in alle markten en rechtsgebieden kan opereren.",
+  "site.60":
+    "Deze pagina is een productsamenvatting en geen juridisch advies. Juridische en regelgevende voorwaarden moeten vóór publicatie door gekwalificeerde counsel worden beoordeeld. Evermount claimt geen SEC-, FCA-, CMA-, MiFID- of vergelijkbare vergunning tenzij afzonderlijk en uitdrukkelijk vermeld.",
+  "site.61":
+    "Evermount kan de uitvoeringsinfrastructuur, software voor orderbeheer en analyses leveren. Wanneer een klant een gereglementeerde onderneming is met verplichtingen inzake optimale uitvoering, blijven deze verplichtingen bij de klant berusten. Evermount beweert niet dat het een makelaar is die orders van klanten uitvoert als beleggingsonderneming, tenzij een ondertekende overeenkomst anders bepaalt.",
+  "site.62":
+    "Evermount is een technologieleverancier. Er kunnen conflicten ontstaan ​​tussen commerciële belangen, leveranciersrelaties en klantbelangen. Wij streven ernaar materiële conflicten in klantovereenkomsten te identificeren, beheren en openbaar te maken, in plaats van op te treden als discretionaire beleggingsbeheerder voor websitebezoekers.",
+  "site.63":
+    "Evermount combineert kunstmatige intelligentie, kwantitatief onderzoek en handelsinfrastructuur om intelligente systemen te creëren die in staat zijn voortdurend markten te analyseren, kansen te ontdekken, risico's te beheersen en systematische strategieën uit te voeren.",
+  "site.64":
+    "Financiële markten zijn complex, gefragmenteerd en technisch moeilijk om op te bouwen. We combineren data-engineering, kwantitatief onderzoek, machine learning en uitvoeringstechnologie, zodat instellingen en ontwikkelaars op een gemeenschappelijke basis kunnen voortbouwen.",
+  "site.65":
+    "Analysemogelijkheden voor prestaties, risico's en blootstelling. De cijfers in productdemo's zijn ter illustratie, tenzij ze zijn gelabeld als eigen gegevens van de klant. Evermount publiceert geen beleggingsrendementen of Sharpe-ratio's als bedrijfsprestaties.",
+  "site.66":
+    "Deze verklaring beschrijft de controles op financiële criminaliteit die passend zijn voor een technologie- en infrastructuuraanbieder. Het is geen AML-handleiding voor fondsbeheerders en betekent niet dat Evermount beleggersabonnementen accepteert of geld van klanten aanhoudt.",
+  "site.67":
+    "Deze voorwaarden regelen de toegang tot Evermount-software, API's, gegevens en infrastructuurdiensten. Ze vormen geen beleggingsbeheerovereenkomst, inschrijving op een fonds of een uitnodiging om geld van klanten bij Evermount te storten.",
+  "site.68":
+    "Klanten blijven verantwoordelijk voor hun eigen handels-, regelgevings-, KYC/AML- en fiduciaire verplichtingen. Evermount is geen makelaar-dealer, bank, bewaarder, beurs- of beleggingsadviseur, tenzij uitdrukkelijk vermeld in een ondertekende overeenkomst.",
+  "site.69":
+    "Evermount levert technologie- en infrastructuurdiensten. Deze pagina maakt geen aanspraak op SEC-registratie, FCA-autorisatie, CMA-autorisatie, MiFID-autorisatie, makelaar-dealerstatus, status van beleggingsadviseur of bewaring.",
+  "site.70":
+    "Financiële markten zijn complexe systemen. Wij geloven dat de volgende generatie financiële infrastructuur zal worden gebouwd door grootschalige data, kunstmatige intelligentie, kwantitatief onderzoek en geautomatiseerde uitvoering te combineren.",
+  "site.71":
+    "Wij werken samen met banken, makelaars, beurzen, aanbieders van marktgegevens, fintechs, technologieaanbieders, liquiditeitsverschaffers en instellingen. Partnerschappen met naam worden alleen vermeld als ze echt zijn en goedgekeurd zijn om openbaar te zijn.",
+  "site.72":
+    "Institutionele klanten blijven verantwoordelijk voor hun eigen wettelijke verplichtingen, waaronder handelsvergunningen, optimale uitvoering als zij een gereguleerd bedrijf zijn, en de regels voor klantactiva die op hen van toepassing zijn.",
+  "site.73":
+    "Evermount is een kwantitatieve onderzoeks- en financiële technologieorganisatie. Openbare onderzoeksnotities worden hier vermeld wanneer ze worden gepubliceerd. Wij fabriceren geen papieren, prestaties of klantresultaten.",
+  "site.74":
+    "Wij bedienen banken, makelaars, beurzen, vermogensbeheerders, hedgefondsen, eigen handelsfirma's, marktmakers, fintechs, family offices en ontwikkelaars die programmeerbare marktinfrastructuur nodig hebben.",
+  "site.75":
+    "Voor grootschalige implementaties. Potentiële mogelijkheden: specifieke implementatie, privéconnectiviteit, aangepaste integraties, hoge beschikbaarheid, speciale engineering en SLA – contractueel onderworpen.",
+  "site.76":
+    "Voor banken, makelaars en vermogensbeheerders. Potentiële mogelijkheden: institutionele API's, speciale infrastructuur, marktconnectiviteit, risico- en uitvoeringsinfrastructuur en bedrijfsondersteuning.",
+  "site.77":
+    "Evermount is gepositioneerd als marktagnostisch. In de onderstaande paragrafen wordt de infrastructuur voor elke markt beschreven – er wordt niet beweerd dat Evermount gereguleerde toegang biedt tot elke locatie of elk instrument.",
+  "site.78":
+    "Financiële markten zijn complex, gefragmenteerd en technisch moeilijk om op te bouwen. Evermount biedt infrastructuur die het bouwen, integreren en exploiteren van markttechnologie eenvoudiger maakt.",
+  "site.79":
+    "We bouwen de infrastructuur achter de moderne financiële markten – en we zijn nog maar net begonnen. Sluit u aan bij ingenieurs, onderzoekers en operators die geven om data, risico's en systemen.",
+  "site.80":
+    "De onderstaande stapel weerspiegelt de systemen die we vandaag de dag gebruiken en de mogelijkheden op de technische roadmap. We publiceren geen latentie-, uptime- of doorvoercijfers tenzij onafhankelijk geverifieerd.",
+  "site.81":
+    "Programmatische toegang tot financiële gegevens, analyses, intelligentie en infrastructuur. Openbare API-documentatie en productiereferenties worden verstrekt nadat de toegang is goedgekeurd.",
+  "site.82":
+    "Evermount bouwt systemen die voortdurend leren van financiële gegevens, hypothesen genereren, risico's evalueren en gevalideerde informatie vertalen in gecontroleerde actie.",
+  "site.83":
+    "Voor handelsbedrijven, fintechs en professionele gebruikers. Potentiële mogelijkheden: realtime gegevens, geavanceerde API's, analyses, risico-API's en uitvoeringsmogelijkheden, indien ingeschakeld.",
+  "site.84":
+    "Het platform is marktonafhankelijk: ontworpen om aandelen, valuta, vastrentende waarden, grondstoffen, derivaten en digitale activa te ondersteunen waar deze mogelijkheden beschikbaar zijn.",
+  "site.85":
+    "Evermount behoudt de rechten op haar software, modellen en documentatie. Klanten behouden de rechten op hun eigen gegevens, afhankelijk van de verleende licenties om de dienst te exploiteren.",
+  "site.86":
+    "Evermount is marktonafhankelijk. Wij bieden infrastructuur voor activaklassen – we impliceren niet dat Evermount elke markt opereert of gereguleerde toegang biedt.",
+  "site.87":
+    "Ervaren professionals die expertise op het gebied van kwantitatieve financiën, computerwetenschappen en techniek combineren om innovatie in systematische handelstechnologie te stimuleren.",
+  "site.88":
+    "Algoritmische uitvoering, orderbeheer en uitvoeringsanalyse. Connectiviteit met makelaars en locaties hangt af van de integratiestatus en de toepasselijke regelgeving.",
+  "site.89":
+    "Evermount levert technologie- en infrastructuurdiensten. Institutionele klanten blijven, indien van toepassing, verantwoordelijk voor hun eigen wettelijke verplichtingen.",
+  "site.90":
+    "We maken gebruik van machine learning, statistische modellen en moderne software-engineering. Specifieke prestatiekenmerken worden niet als marketingstatistieken gepubliceerd.",
+  "site.91":
+    "BELANGRIJK: Lees deze risicoverklaring aandachtig door. Het gebruik van financiële technologie brengt risico's met zich mee. Dit is geen openbaarmaking van beleggingsproducten voor een fonds.",
+  "site.92":
+    "Evermount is een financieel technologiebedrijf dat infrastructuur bouwt voor marktgegevens, kwantitatief onderzoek, kunstmatige intelligentie, risico en uitvoering.",
+  "site.93":
+    "Ja, u kunt uw beleggingen op elk moment opnieuw toewijzen via de Portfolio-pagina. U kunt ook automatisch opnieuw in evenwicht brengen instellen op basis van uw voorkeuren.",
+  "site.94":
+    "Een uniforme technologiestapel ontworpen om financiële gegevens om te zetten in intelligentie, kwantitatieve strategieën, risicobeslissingen en systematische uitvoering.",
+  "site.95":
+    'In dit Cookiebeleid wordt uitgelegd hoe Evermount ("wij", "onze" of "ons") cookies en soortgelijke technologieën gebruikt om u te herkennen wanneer u ons platform bezoekt.',
+  "site.96":
+    "Een AI-native intelligentielaag die is ontworpen om financiële systemen te helpen markten te begrijpen, kansen te onderzoeken en betere risicobewuste beslissingen te nemen.",
+  "site.97":
+    "Toegangscontroles, encryptie en monitoringpraktijken worden geïmplementeerd in overeenstemming met de systemen in productie en de toepasselijke klantovereenkomst.",
+  "site.98":
+    "Commerciële voorwaarden zijn afhankelijk van data, markten, API-volume en implementatiemodel. Wij publiceren geen verzonnen catalogusprijzen. Neem contact op met de verkoop voor een voorstel.",
+  "site.99":
+    "Dit privacybeleid schetst hoe Evermount uw informatie verzamelt, gebruikt, opslaat en beschermt. Uw privacy is voor ons van cruciaal belang.",
+  "site.100":
+    "Een financieel ecosysteem waar instellingen, ontwikkelaars en onderzoekers geavanceerde marktapplicaties kunnen bouwen op betrouwbare infrastructuur.",
+  "site.101":
+    "Elke partij kan de overeenkomst beëindigen zoals bepaald in de commerciële overeenkomst. De toegang kan worden opgeschort wegens misbruik, veiligheidsrisico's of wettelijke vereisten.",
+  "site.102":
+    "AI-systemen analyseren marktinformatie, nieuws, macro-economische omstandigheden en alternatieve gegevens om gestructureerde financiële informatie te genereren.",
+  "site.103":
+    "Een technologische routekaart van hedendaags AI-ondersteund onderzoek naar systematische uitvoering, marktinfrastructuur en mondiale marktconnectiviteit.",
+  "site.104":
+    "Voor ontwikkelaars en onderzoekers. Potentiële mogelijkheden: sandbox, beperkte API-toegang, historische gegevens, onderzoekstools en documentatie.",
+  "site.105":
+    "De beschikbaarheid van specifieke diensten is afhankelijk van de jurisdictie en de toepasselijke regelgeving. Evermount is niet in elk rechtsgebied gereguleerd.",
+  "site.106":
+    "Toegangsniveaus voor ontwikkelaars, professionals, instellingen en ondernemingen. Commerciële voorwaarden worden geleverd door de verkoop – geen verzonnen catalogusprijzen.",
+  "site.107":
+    "Geplande en in ontwikkeling zijnde API-oppervlakken. De beschikbaarheid wordt bevestigd tijdens de onboarding. Ga er niet vanuit dat elke API live in productie is.",
+  "site.108":
+    "FlipbotEA peilt de signaalwachtrij en voert de ingelogde Exness MT5-demo uit. Succesvolle vullingen verhogen de NAV van investeerders via FillRecorded.",
+  "site.109":
+    "Het merk is mondiaal georiënteerd: infrastructuur die in verschillende markten en rechtsgebieden kan opereren, voor zover de mogelijkheden en licenties dit toelaten.",
+  "site.110":
+    "Een AI-forward stack die is ontworpen om financiële gegevens om te zetten in intelligentie, gevalideerd onderzoek, risicobeslissingen en gecontroleerde uitvoering.",
+  "site.111":
+    "Er zijn momenteel geen openstaande functies vermeld. Stel uzelf voor op careers@evermount.co als u wilt helpen bij het opbouwen van een financiële infrastructuur.",
+  "site.112":
+    "Financiële infrastructuur voor moderne markten – marktgegevens, kwantitatief onderzoek, intelligentie, risico, uitvoering en connectiviteit.",
+  "site.113":
+    "Evermount, opgericht in 2023, is opgericht om geavanceerde financiële infrastructuur toegankelijker, programmeerbaar en schaalbaarder te maken.",
+  "site.114":
+    "Onderzoeksinfrastructuur voor het ontdekken van factoren, het genereren van hypothesen, backtesting, simulatie en systematische strategieontwikkeling.",
+  "site.115":
+    "Partnership API for referral links, client reports, and commission data. Trading execution uses Exness MT5 above — not this API.",
+  "site.116":
+    "We're building our infrastructure to the highest standards of operational excellence, security, and risk management as we scale.",
+  "site.117":
+    '"We bouwen aan de data-, onderzoeks-, inlichtingen-, risico- en uitvoeringsinfrastructuur waar instellingen en ontwikkelaars op kunnen voortbouwen."',
+  "site.118":
+    "Marktgegevens, analyses, risico's, uitvoering en connectiviteitsinfrastructuur voor banken, makelaars, vermogensbeheerders en handelsfirma's.",
+  "site.119":
+    "Typisch toegestaan ​​gebruik omvat interne onderzoeks-, risico-, analyse- en applicatiefuncties die u voor uw organisatie gebruikt.",
+  "site.120":
+    "De kern van Evermount wordt gevormd door een technologieplatform voor marktgegevens, kwantitatief onderzoek, intelligentie, risico en uitvoering.",
+  "site.121":
+    "Neem USD op naar uw gekoppelde bankrekening. Verzoeken worden beoordeeld en goedgekeurd door ons team (doorgaans binnen 2 werkdagen).",
+  "site.122":
+    "Elke partij zal redelijke veiligheidsmaatregelen implementeren. Klanten moeten hun inloggegevens beschermen en vermoedelijke inbreuken melden.",
+  "site.123":
+    "Een technologiestapel voor data, onderzoek, intelligentie, risico, uitvoering en connectiviteit – geen verzoek om kapitaal te storten.",
+  "site.124":
+    "Deposit funds to your wallet using supported cryptocurrencies. Funds will be available in your wallet after confirmation.",
+  "site.125":
+    "Data-, kwantitatief onderzoek, intelligentie, risico, uitvoering en connectiviteitsinfrastructuur voor moderne financiële markten.",
+  "site.126":
+    "Wordt gebruikt wanneer u op Handelen klikt. Uw kapitaal blijft belegd gedurende de door u gekozen periode. Vroegtijdige uitbetaling is mogelijk niet mogelijk.",
+  "site.127":
+    "Neem geld uit uw portemonnee op naar uw favoriete bank of crypto-portemonnee. Alleen het beschikbare portemonneesaldo kan worden opgenomen.",
+  "site.128":
+    "Kies de stortingsmethode van uw voorkeur om geld aan uw portemonnee toe te voegen. Er zal geld beschikbaar zijn voor opname of investering.",
+  "site.129":
+    "Data may be delayed, incomplete or incorrect. It is not a substitute for official venue feeds where those are required.",
+  "site.130":
+    "Diensten worden geleverd op technologische basis. Functies zijn mogelijk in preview, beperkt of niet beschikbaar in bepaalde rechtsgebieden.",
+  "site.131":
+    "Orders kunnen worden vertraagd, afgewezen, gedeeltelijk uitgevoerd of tegen onverwachte prijzen worden uitgevoerd als er sprake is van uitvoeringsconnectiviteit.",
+  "site.132":
+    "Authentication, API keys, rate limits and examples are published to approved developers. Until then, request access.",
+  "site.133":
+    "Hosting, connectiviteit en operationele regelingen worden beschreven in het toepasselijke bestelformulier of werkoverzicht.",
+  "site.134":
+    "Vraag toegang aan om gegevens, onderzoek, risico's, uitvoering en connectiviteitsinfrastructuur te bespreken met het Evermount-team.",
+  "site.135":
+    "Een conceptuele architectuur die AI, onderzoek, risico en uitvoering verbindt in één institutioneel technologieplatform.",
+  "site.136":
+    "Een praktische reis voor instellingen en ontwikkelaars die de Evermount-infrastructuur gebruiken - geen onboarding-stroom voor fondsen.",
+  "site.137":
+    "Evermount-technologiearchitectuur voor data-engineering, kwantitatieve computing, AI, handelssystemen en risico's.",
+  "site.138":
+    "Wij ontwerpen systemen rond datakwaliteit, onderzoeksgegevens en meetbare risico’s – niet op discretionaire fondsmarketing.",
+  "site.139":
+    "Bouw samen met Evermount het financiële ecosysteem op via partnerschappen op het gebied van data, connectiviteit, technologie en onderzoek.",
+  "site.140":
+    "Drawdown, volatiliteit en Sharpe-ratio berekend op basis van het dagelijkse rendement van uw eigen portefeuille over de afgelopen 90 dagen.",
+  "site.141":
+    "Neem KES rechtstreeks uit uw portemonnee op naar uw M-Pesa-account. Alleen het beschikbare portemonneesaldo kan worden opgenomen.",
+  "site.142":
+    "Financier direct uw KES-portemonnee via M-Pesa. U ontvangt een STK-push op uw telefoon om de betaling te bevestigen.",
+  "site.143":
+    "Analysemogelijkheden voor prestaties, risico's, blootstelling, attributie en stresstesten op het Evermount-platform.",
+  "site.144":
+    "Een conceptuele architectuur. Specifieke implementaties, locaties en integraties variëren per klant en rechtsgebied.",
+  "site.145":
+    "Eventuele kosten worden vermeld op een bestelformulier. Op deze website worden geen fondsbeheer- of prestatievergoedingen vermeld.",
+  "site.146":
+    "Marktonafhankelijke infrastructuur voor aandelen, valuta, vastrentende waarden, grondstoffen, derivaten en digitale activa.",
+  "site.147":
+    "Wij garanderen geen ononderbroken service. Onderhoud, uitval van leveranciers en overmacht kunnen de toegang beïnvloeden.",
+  "site.148":
+    "Deel de verwachte schaal, markten en infrastructuurvereisten. De prijzen zijn genoteerd en niet vermeld als fondskosten.",
+  "site.149":
+    "We kunnen toegang verlenen tot omgevingen, inloggegevens en documentatie onder voorbehoud van goedkeuring en toepasselijke wetgeving.",
+  "site.150":
+    "Wij zijn altijd op zoek naar gepassioneerde mensen. Als u enthousiast bent over onze missie, horen wij graag van u.",
+  "site.151":
+    "Uniforme financiële datapijplijnen ontworpen ter ondersteuning van onderzoek, analyses en realtime beslissingssystemen.",
+  "site.152":
+    "Mogelijkheden van het Evermount-platform. De specifieke beschikbaarheid is afhankelijk van het toegangsniveau en het rechtsgebied.",
+  "site.153":
+    "Stel EXNESS_PARTNER_REFERRAL_LINK in of schakel EXNESS_PARTNER_ENABLED in met PPA-referenties in de backend-omgeving.",
+  "site.154":
+    "Withdraw funds from your wallet to your crypto wallet. Only available wallet balance can be withdrawn.",
+  "site.155":
+    "Vier mogelijkheden die financiële gegevens omzetten in inlichtingen, onderzoek, risicobeslissingen en uitvoering.",
+  "site.156":
+    "Risicocontroles moeten rechtstreeks in systemen worden ingebed, inclusief pre-trade- en realtime monitoring.",
+  "site.157":
+    "Softwaredefecten, uitval en configuratiefouten kunnen de toegang onderbreken of onjuiste uitvoer produceren.",
+  "site.158":
+    "Een reis in zeven stappen, van het verbinden van systemen tot het monitoren van markten, risico's en uitvoering op Evermount.",
+  "site.159":
+    "Financiële infrastructuur moet programmeerbaar zijn. API's, streaming en integraties zijn eersteklas.",
+  "site.160":
+    "De aansprakelijkheid is beperkt voor zover toegestaan ​​door de wet en zoals uiteengezet in de ondertekende commerciële voorwaarden.",
+  "site.161":
+    "Productiehosting- en operationele details worden tijdens de implementatieplanning met klanten bevestigd.",
+  "site.162":
+    "Realtime monitoring van blootstelling, liquiditeit, volatiliteit, correlatie, opname en marktregimes.",
+  "site.163":
+    "We konden de pagina die u zocht niet vinden. Misschien heb je de URL verkeerd getypt of is de pagina verplaatst.",
+  "site.164":
+    "Een technologische basis voor marktgegevens, kwantitatief onderzoek, intelligentie, risico's en uitvoering.",
+  "site.165":
+    "Om de prestaties van de site te optimaliseren, de gebruikerservaring te personaliseren, de beveiliging te verbeteren en het verkeer te analyseren.",
+  "site.166":
+    "Krijg toegang tot educatieve bronnen, handleidingen, video's en webinars om uw beleggingskennis te vergroten.",
+  "site.167":
+    "Kunt u niet vinden wat u zoekt? Stuur ons een bericht en we nemen binnen 24 uur contact met u op.",
+  "site.168":
+    "Talen die actief worden gebruikt, zijn onder meer TypeScript en Python. C++ en Rust staan ​​op de roadmap van het systeem.",
+  "site.169":
+    "Voer het e-mailadres in dat aan uw account is gekoppeld en we sturen u een OTP om uw wachtwoord opnieuw in te stellen.",
+  "site.170":
+    "Systematische uitvoeringsinfrastructuur ontworpen voor betrouwbaarheid, snelheid en gecontroleerde implementatie.",
+  "site.171":
+    "Maak kennis met het Evermount-team en hoe we financiële infrastructuur bouwen voor moderne markten.",
+  "site.172":
+    "Kleine gegevensbestanden die op uw apparaat worden geplaatst om gedrag, voorkeuren en sessie-activiteit bij te houden.",
+  "site.173":
+    "Beheer beleggersaccounts en toegang. Portefeuillebeheerders worden aangemaakt onder Beheer → Managers.",
+  "site.174":
+    "Ons team combineert ervaring in kwantitatieve financiën, datawetenschap en systeemtechniek.",
+  "site.175":
+    "Vertel ons over uw instelling en infrastructuurbehoeften. Wij zullen vervolgstappen volgen.",
+  "site.176":
+    "Infrastructuur die is ontworpen om in alle markten en rechtsgebieden te kunnen opereren, voor zover de mogelijkheden dit toelaten.",
+  "site.177":
+    "Plan een gesprek over de data-, onderzoeks-, risico- en uitvoeringsinfrastructuur van Evermount.",
+  "site.178":
+    "Wordt rechtstreeks door Evermount ingesteld voor inlogsessies, waarbij themavoorkeuren en grafiekstatussen worden opgeslagen.",
+  "site.179":
+    "API's kunnen indien redelijkerwijs mogelijk met kennisgeving worden gewijzigd, van een versie worden voorzien of worden ingetrokken.",
+  "site.180":
+    "Verbind gegevensbronnen, makelaars, locaties of institutionele systemen waar integraties bestaan.",
+  "site.181":
+    "Marktgegevens en gegevens van derden zijn onderworpen aan het Gegevensbeleid en eventuele leverancierslicenties.",
+  "site.182":
+    "Niet-productieomgevingen voor integratietests zijn bedoeld voor goedgekeurde ontwikkelaars.",
+  "site.183":
+    "Kwantitatief onderzoek, marktstructuur, AI, risico- en uitvoeringsonderzoek van Evermount.",
+  "site.184":
+    "Deel uw bedrijf, rol en API-vereisten zodat we de juiste omgeving kunnen bieden.",
+  "site.185":
+    "Gebruik moderne techniek, kwantitatieve methoden en AI om complexe financiële problemen op te lossen.",
+  "site.186":
+    "We investeren in onderzoek en engineering, zodat de infrastructuur programmeerbaar en betrouwbaar blijft.",
+  "site.187":
+    "Maak geavanceerde financiële infrastructuur toegankelijker, programmeerbaar en schaalbaarder.",
+  "site.188":
+    "Onderzoek naar hoe locaties, liquiditeit en marktmicrostructuur interageren met technologie.",
+  "site.189":
+    "Uw portemonnee fungeert als een geblokkeerde rekening waar u veilig geld kunt opslaan voordat u gaat beleggen",
+  "site.190":
+    "Portefeuilleconstructie, optimalisatie en analyse – geen beheerd beleggingsproduct.",
+  "site.191":
+    "Instellingen en onderzoekers kunnen data, methoden en samenwerkingsmogelijkheden bespreken.",
+  "site.192":
+    "Lees meer over de missie van Evermount om financiële infrastructuur voor moderne markten te bouwen.",
+  "site.193":
+    "Beheer uw portemonneesaldo, stortingen, opnames en maak geld over naar beleggingen.",
+  "site.194":
+    "We hebben een 6-cijferige bevestigingscode per e-mail verzonden. Voer de onderstaande code in om uw e-mailadres te verifiëren.",
+  "site.195":
+    "Voor institutionele accounts zijn specifieke relatiemanageropdrachten beschikbaar.",
+  "site.196":
+    "Log veilig in op het Evermount Capital investeerdersportaal en beheer uw beleggingen.",
+  "site.197":
+    "Marktgegevens en gegevens van derden zijn onderworpen aan leverancierslicenties en het Gegevensbeleid.",
+  "site.198":
+    "Marktinformatie, kwantitatief onderzoek en financiële technologie-infrastructuur.",
+  "site.199":
+    "Vereist voor basisfuncties, bijvoorbeeld aanmelden en toegang tot portfolio's. Kan niet worden uitgeschakeld.",
+  "site.200":
+    "Gegevens worden in licentie gegeven, niet verkocht. De rechten zijn beperkt tot de gebruiksscenario's in uw overeenkomst.",
+  "site.201":
+    "Stortingen gaan rechtstreeks naar uw portemonnee en zijn beschikbaar voor opname of belegging",
+  "site.202":
+    "Essentiële cookies worden gebruikt voor functionaliteit. U kunt zich afmelden voor trackingcookies.",
+  "site.203":
+    "Programmatische toegang tot financiële gegevens, analyses, intelligentie en infrastructuur.",
+  "site.204":
+    "Herdistributie aan derden is verboden, tenzij dit uitdrukkelijk schriftelijk is toegestaan.",
+  "site.205":
+    "Ongeautoriseerde toegang, malware en diefstal van inloggegevens kunnen systemen en gegevens in gevaar brengen.",
+  "site.206":
+    "Uw identiteit is geverifieerd. U heeft volledige toegang tot deposito's en beleggingen.",
+  "site.207":
+    "Er komt binnenkort een openbare statuspagina. Neem voor incidenten contact op met support@evermount.co.",
+  "site.208":
+    "Alle betaalmethoden (kaart, bank, crypto) kunnen worden gebruikt voor stortingen en opnames",
+  "site.209":
+    "Deel uw instellingstype, interessante markten en infrastructuurvereisten.",
+  "site.210":
+    "Opgenomen winsten uit beleggingen worden automatisch toegevoegd aan uw portemonneesaldo",
+  "site.211":
+    "Kaart-, M-Pesa- en crypto-stortingen zijn beschikbaar. Bankoverschrijvingen volgen binnenkort.",
+  "site.212":
+    "Bespreek architectuur, API's en integratievereisten met het Evermount-team.",
+  "site.213":
+    "Uw eerdere inzending is afgewezen. Upload nieuwe documenten om het opnieuw te proberen.",
+  "site.214":
+    "Uitwisselings-, leveranciers- en alternatieve gegevens blijven onderworpen aan de voorwaarden van die aanbieders.",
+  "site.215":
+    "Portefeuilleactiviteit, risicoprofiel en uitvoeringstijdstip worden geregistreerd voor nauwkeurigheid.",
+  "site.216":
+    "Kwantitatieve en AI-modellen kunnen in nieuwe regimes verkeerd worden gespecificeerd, overmatig fit worden of falen.",
+  "site.217":
+    "U mag gegevens niet schrapen, reverse-engineeren of herdistribueren buiten uw licentie.",
+  "site.218":
+    "Het kapitaal blijft gedurende deze periode geïnvesteerd. Vroegtijdige uitbetaling is mogelijk niet mogelijk.",
+  "site.219":
+    "Feeds kunnen vertraagd zijn, ontbreken of verkeerd zijn. Beslissingen op basis van data kunnen gebrekkig zijn.",
+  "site.220":
+    "Infrastructuur die instellingen, makelaars, locaties en financiële systemen met elkaar verbindt.",
+  "site.221":
+    "Haalt de strategie-NAV uit het evermount-quant en actualiseert de waarden van de beleggersportefeuille.",
+  "site.222":
+    "Vraag toegang aan om te bespreken hoe analyse-API's en dashboards in uw workflow passen.",
+  "site.223":
+    "Vertel ons welke activaklassen en datavereisten voor uw instelling van belang zijn.",
+  "site.224":
+    "Sluit u aan bij onze experts voor een diepgaande analyse van markttrends en kansen.",
+  "site.225":
+    "Uw documenten worden beoordeeld. We zullen u per e-mail op de hoogte stellen zodra dit is voltooid.",
+  "site.226":
+    "Jouw boodschap – rol, bedrijfstype, markten, data/API-behoeften, verwachte schaal...",
+  "site.227":
+    "Toegewezen investeerders, saldi en strategieallocatie met live risicostatistieken",
+  "site.228":
+    "Ontdek hoe marktgegevens, onderzoek, intelligentie, risico's en uitvoering met elkaar verbonden zijn.",
+  "site.229":
+    "Leer de grondbeginselen van kwantitatieve handelsstrategieën en hoe ze werken.",
+  "site.230":
+    "Tijdelijk en verwijderd wanneer de browser sluit. Onderhoudt login op verschillende pagina's.",
+  "site.231":
+    "Alle gegevens worden tijdens de overdracht en in rust gecodeerd volgens de best practices uit de sector.",
+  "site.232":
+    "Download PDF-overzichten met portfoliooverzicht en prestatietoeschrijving.",
+  "site.233":
+    "flex items-center gap-3 px-3 py-2 afgerond-md tekst-sm lettertype-medium overgang",
+  "site.234":
+    "Modellering, simulatie, factoronderzoek en strategieonderzoeksinfrastructuur.",
+  "site.235":
+    "We kunnen analyse- en prestatie-SDK's gebruiken (bijvoorbeeld Google Analytics, Sentry).",
+  "site.236":
+    "Bank-, M-Pesa- en crypto-opnames zijn beschikbaar na KYC-verificatie.",
+  "site.237":
+    "Makelaars, locaties, netwerken en leveranciers kunnen onafhankelijk van Evermount failliet gaan.",
+  "site.238":
+    "Marktgegevens, analyses en uitvoeringsinfrastructuur voor grondstoffenmarkten.",
+  "site.239":
+    "Marktmakende technologie, liquiditeitsinfrastructuur en connectiviteit van locaties.",
+  "site.240":
+    "Bespreek architectuur en integratie zonder verzonnen prestatieclaims.",
+  "site.241":
+    "Wij kunnen dit privacybeleid herzien. Wijzigingen zullen aan de gebruikers worden gecommuniceerd.",
+  "site.242":
+    "U kunt te allen tijde verzoeken om inzage, correctie of verwijdering van uw gegevens.",
+  "site.243":
+    "Kwantitatieve methoden en datakwaliteit staan ​​centraal op het platform.",
+  "site.244":
+    "Wordt bij eerste binnenkomst weergegeven met opt-in/out-opties — in overeenstemming met GDPR/CCPA.",
+  "site.245":
+    "API’s en financiële infrastructuur die in producten kunnen worden geïntegreerd.",
+  "site.246":
+    "Bouw een infrastructuur die in alle markten en rechtsgebieden kan opereren.",
   "site.247": "Machine learning, marktinformatie, signaalgeneratie en analyse.",
-  "site.248": "Methoden voor regimedetectie, NLP, forecasting en onderzoeksassistenten.",
-  "site.249": "Nog geen prestatiegeschiedenis. Investeer om uw aandelencurve te volgen.",
-  "site.250": "Stapsgewijze handleiding voor het opbouwen van een goed gediversifieerde beleggingsportefeuille.",
-  "site.251": "Om de gebruikerservaring te verbeteren, voert u analyses uit en voldoet u aan de regelgeving.",
-  "site.252": "We bewaren gebruikersgegevens zo lang als nodig is om te voldoen aan de financiële wetgeving.",
-  "site.253": "Tijdstempels voor inloggen, IP en geolocatie worden opgeslagen voor fraudepreventie.",
-  "site.254": "Wachtwoord moet sterk zijn. Inclusief hoofdletters, cijfers en speciaal teken.",
-  "site.255": "Wordt gebruikt voor het opslaan van dashboardfilters, modusinstellingen en sessietokens.",
-  "site.256": "Wij verkopen geen door cookies verzamelde gegevens. Uitsluitend gebruikt voor uw ervaring.",
-  "site.257": "Een uitgebreide gids voor het beheren van portefeuillerisico's in volatiele markten.",
+  "site.248":
+    "Methoden voor regimedetectie, NLP, forecasting en onderzoeksassistenten.",
+  "site.249":
+    "Nog geen prestatiegeschiedenis. Investeer om uw aandelencurve te volgen.",
+  "site.250":
+    "Stapsgewijze handleiding voor het opbouwen van een goed gediversifieerde beleggingsportefeuille.",
+  "site.251":
+    "Om de gebruikerservaring te verbeteren, voert u analyses uit en voldoet u aan de regelgeving.",
+  "site.252":
+    "We bewaren gebruikersgegevens zo lang als nodig is om te voldoen aan de financiële wetgeving.",
+  "site.253":
+    "Tijdstempels voor inloggen, IP en geolocatie worden opgeslagen voor fraudepreventie.",
+  "site.254":
+    "Wachtwoord moet sterk zijn. Inclusief hoofdletters, cijfers en speciaal teken.",
+  "site.255":
+    "Wordt gebruikt voor het opslaan van dashboardfilters, modusinstellingen en sessietokens.",
+  "site.256":
+    "Wij verkopen geen door cookies verzamelde gegevens. Uitsluitend gebruikt voor uw ervaring.",
+  "site.257":
+    "Een uitgebreide gids voor het beheren van portefeuillerisico's in volatiele markten.",
   "site.258": "Alles wat u moet weten over veilig beleggen in digitale activa.",
-  "site.259": "In geval van een inbreuk worden de getroffen gebruikers binnen 72 uur op de hoogte gesteld.",
-  "site.260": "Beheer uw beleggingen in verschillende fondsen en volg de prestaties.",
-  "site.261": "In de meeste browsers kunt u cookies blokkeren via instellingen > privacy/beveiliging.",
-  "site.262": "Bekijk hardloopstrategieën, schakel de uitvoering uit en controleer gepoolde statistieken",
-  "site.263": "Pogingen om de beveiliging, quota's of licenties te omzeilen zijn verboden.",
-  "site.264": "Een hoogwaardige financiële infrastructuur begint met hoogwaardige gegevens.",
-  "site.265": "Infrastructuur die is ontworpen om in verschillende markten en rechtsgebieden te opereren.",
-  "site.266": "MARKTDATA → DATAPLATFORM → QUANT + AI → RISICO → UITVOERING → LOCATIES",
-  "site.267": "Nog geen uitspraken. Afschriften worden maandelijks door het platform gegenereerd.",
-  "site.268": "Fouten van mensen, processen en derden kunnen de kwaliteit van de dienstverlening beïnvloeden.",
-  "site.269": "Technologie-infrastructuur voor markten voor digitale activa werd ondersteund.",
-  "site.270": "We anonimiseren alle gegevens die worden gebruikt voor benchmarks en onderzoekspublicaties.",
-  "site.271": "We kunnen u een e-mail sturen over platformwijzigingen, promoties of rapporten.",
-  "site.272": "Creëer en beheer portfoliomanagers die klanten aan boord nemen en bedienen.",
-  "site.273": "Elektronische handelssystemen en systematische uitvoeringsinfrastructuur.",
-  "site.274": "Hoogwaardige data-, onderzoeks-, uitvoerings- en risico-infrastructuur.",
-  "site.275": "Voer een bankstorting uit en maak vervolgens geld over naar onze vereffeningsrekening.",
-  "site.276": "Bedankt dat u contact met ons opneemt! Wij nemen binnen 24 uur contact met u op.",
-  "site.277": "API's mogen alleen worden gebruikt voor toegestane doeleinden in uw toegangsverlening.",
-  "site.278": "Voer een bedrag in - wij matchen u met de beste strategie voor uw plan.",
-  "site.279": "Beheers geavanceerde handelstechnieken die worden gebruikt door professionele beleggers.",
-  "site.280": "Gestructureerde intelligentie uit marktdata en alternatieve datasets.",
-  "site.281": "Tools zoals uBlock of browserinstellingen kunnen analytische cookies blokkeren.",
-  "site.282": "Gebruikt voor analyses (Google), betalingen (Stripe) en sociale logins.",
-  "site.283": "We onderhouden redundante, beveiligde back-ups om de continuïteit van de dienstverlening te garanderen.",
-  "site.284": "U kunt op elk moment geld van uw portemonnee naar beleggingen overboeken",
-  "site.285": "U kunt de toestemming voor gegevensgebruik intrekken, met inachtneming van functiebeperkingen.",
-  "site.286": "Momenteel niet gebruikt. Wij zullen om toestemming vragen als wij ze introduceren.",
+  "site.259":
+    "In geval van een inbreuk worden de getroffen gebruikers binnen 72 uur op de hoogte gesteld.",
+  "site.260":
+    "Beheer uw beleggingen in verschillende fondsen en volg de prestaties.",
+  "site.261":
+    "In de meeste browsers kunt u cookies blokkeren via instellingen > privacy/beveiliging.",
+  "site.262":
+    "Bekijk hardloopstrategieën, schakel de uitvoering uit en controleer gepoolde statistieken",
+  "site.263":
+    "Pogingen om de beveiliging, quota's of licenties te omzeilen zijn verboden.",
+  "site.264":
+    "Een hoogwaardige financiële infrastructuur begint met hoogwaardige gegevens.",
+  "site.265":
+    "Infrastructuur die is ontworpen om in verschillende markten en rechtsgebieden te opereren.",
+  "site.266":
+    "MARKTDATA → DATAPLATFORM → QUANT + AI → RISICO → UITVOERING → LOCATIES",
+  "site.267":
+    "Nog geen uitspraken. Afschriften worden maandelijks door het platform gegenereerd.",
+  "site.268":
+    "Fouten van mensen, processen en derden kunnen de kwaliteit van de dienstverlening beïnvloeden.",
+  "site.269":
+    "Technologie-infrastructuur voor markten voor digitale activa werd ondersteund.",
+  "site.270":
+    "We anonimiseren alle gegevens die worden gebruikt voor benchmarks en onderzoekspublicaties.",
+  "site.271":
+    "We kunnen u een e-mail sturen over platformwijzigingen, promoties of rapporten.",
+  "site.272":
+    "Creëer en beheer portfoliomanagers die klanten aan boord nemen en bedienen.",
+  "site.273":
+    "Elektronische handelssystemen en systematische uitvoeringsinfrastructuur.",
+  "site.274":
+    "Hoogwaardige data-, onderzoeks-, uitvoerings- en risico-infrastructuur.",
+  "site.275":
+    "Voer een bankstorting uit en maak vervolgens geld over naar onze vereffeningsrekening.",
+  "site.276":
+    "Bedankt dat u contact met ons opneemt! Wij nemen binnen 24 uur contact met u op.",
+  "site.277":
+    "API's mogen alleen worden gebruikt voor toegestane doeleinden in uw toegangsverlening.",
+  "site.278":
+    "Voer een bedrag in - wij matchen u met de beste strategie voor uw plan.",
+  "site.279":
+    "Beheers geavanceerde handelstechnieken die worden gebruikt door professionele beleggers.",
+  "site.280":
+    "Gestructureerde intelligentie uit marktdata en alternatieve datasets.",
+  "site.281":
+    "Tools zoals uBlock of browserinstellingen kunnen analytische cookies blokkeren.",
+  "site.282":
+    "Gebruikt voor analyses (Google), betalingen (Stripe) en sociale logins.",
+  "site.283":
+    "We onderhouden redundante, beveiligde back-ups om de continuïteit van de dienstverlening te garanderen.",
+  "site.284":
+    "U kunt op elk moment geld van uw portemonnee naar beleggingen overboeken",
+  "site.285":
+    "U kunt de toestemming voor gegevensgebruik intrekken, met inachtneming van functiebeperkingen.",
+  "site.286":
+    "Momenteel niet gebruikt. Wij zullen om toestemming vragen als wij ze introduceren.",
   "site.287": "Exposure, stresstesten, scenarioanalyse en limietkaders.",
-  "site.288": "Marktgegevens, analyses, risico's en uitvoeringsinfrastructuur voor FX.",
-  "site.289": "Nog geen transacties. Doe een storting of investering om aan de slag te gaan.",
-  "site.290": "We voldoen aan de AVG-, CCPA- en Keniaanse richtlijnen voor gegevensbescherming.",
-  "site.291": "We kunnen gegevens vrijgeven wanneer dit vereist is door een juridisch proces of dagvaardingen.",
-  "site.292": "Voer de 6-cijferige code in die naar uw e-mailadres is verzonden en uw nieuwe wachtwoord.",
-  "site.293": "Op rollen gebaseerde controles regelen de interne toegang tot uw accountgegevens.",
-  "site.294": "Intrekking ingediend. Het wordt verwerkt na goedkeuring door de beheerder.",
-  "site.295": "Alle portemonneestortingen, opnames, investeringen en aanpassingen.",
-  "site.296": "Eventuele externe integraties via onze API worden geregistreerd en gemonitord.",
-  "site.297": "Bankstorting gestart - maak geld over met behulp van de onderstaande gegevens",
+  "site.288":
+    "Marktgegevens, analyses, risico's en uitvoeringsinfrastructuur voor FX.",
+  "site.289":
+    "Nog geen transacties. Doe een storting of investering om aan de slag te gaan.",
+  "site.290":
+    "We voldoen aan de AVG-, CCPA- en Keniaanse richtlijnen voor gegevensbescherming.",
+  "site.291":
+    "We kunnen gegevens vrijgeven wanneer dit vereist is door een juridisch proces of dagvaardingen.",
+  "site.292":
+    "Voer de 6-cijferige code in die naar uw e-mailadres is verzonden en uw nieuwe wachtwoord.",
+  "site.293":
+    "Op rollen gebaseerde controles regelen de interne toegang tot uw accountgegevens.",
+  "site.294":
+    "Intrekking ingediend. Het wordt verwerkt na goedkeuring door de beheerder.",
+  "site.295":
+    "Alle portemonneestortingen, opnames, investeringen en aanpassingen.",
+  "site.296":
+    "Eventuele externe integraties via onze API worden geregistreerd en gemonitord.",
+  "site.297":
+    "Bankstorting gestart - maak geld over met behulp van de onderstaande gegevens",
   "site.298": "Schakel thema-, valuta-, taal- en interface-aanpassingen in.",
-  "site.299": "Uitvoeringsanalyses, routeringsonderzoek en operationele controles.",
-  "site.300": "Betalingen worden verwerkt via veilige, PCI-compatibele derde partijen.",
+  "site.299":
+    "Uitvoeringsanalyses, routeringsonderzoek en operationele controles.",
+  "site.300":
+    "Betalingen worden verwerkt via veilige, PCI-compatibele derde partijen.",
   "site.301": "Pre-trade en realtime risicocontroles ingebed in het platform.",
-  "site.302": "Kwantitatief onderzoek, data, uitvoering en risico-infrastructuur.",
-  "site.303": "Controleer de toewijzingsgegevens voordat u kapitaal van klanten vastlegt.",
+  "site.302":
+    "Kwantitatief onderzoek, data, uitvoering en risico-infrastructuur.",
+  "site.303":
+    "Controleer de toewijzingsgegevens voordat u kapitaal van klanten vastlegt.",
   "site.304": "Praat met Evermount over uw data-, API- en risicovereisten.",
-  "site.305": "Upload uw documenten om uw identiteit te verifiëren voordat u investeert.",
-  "site.306": "We kunnen gebruikersacties gebruiken om geoptimaliseerde investeringsmodellen voor te stellen.",
-  "site.307": "Uw geanonimiseerde gedrag kan worden gebruikt om portfoliomodellen te trainen.",
-  "site.308": "Configureer systeeminstellingen, beveiliging en platformvoorkeuren.",
-  "site.309": "Voer uw Visa- of Mastercard-gegevens in om de storting te voltooien.",
-  "site.310": "Controles op financiële criminaliteit zijn evenredig aan de aangeboden diensten.",
+  "site.305":
+    "Upload uw documenten om uw identiteit te verifiëren voordat u investeert.",
+  "site.306":
+    "We kunnen gebruikersacties gebruiken om geoptimaliseerde investeringsmodellen voor te stellen.",
+  "site.307":
+    "Uw geanonimiseerde gedrag kan worden gebruikt om portfoliomodellen te trainen.",
+  "site.308":
+    "Configureer systeeminstellingen, beveiliging en platformvoorkeuren.",
+  "site.309":
+    "Voer uw Visa- of Mastercard-gegevens in om de storting te voltooien.",
+  "site.310":
+    "Controles op financiële criminaliteit zijn evenredig aan de aangeboden diensten.",
   "site.311": "Partner due diligence voor connectiviteit en datarelaties.",
-  "site.312": "Maak uw beschikbare saldo rechtstreeks over naar uw bankrekening.",
-  "site.313": "We reageren momenteel niet op ‘Do Not Track’-signalen van browsers.",
-  "site.314": "We werken dit beleid bij op het gebied van materiële wijzigingen – zie de changelog.",
+  "site.312":
+    "Maak uw beschikbare saldo rechtstreeks over naar uw bankrekening.",
+  "site.313":
+    "We reageren momenteel niet op ‘Do Not Track’-signalen van browsers.",
+  "site.314":
+    "We werken dit beleid bij op het gebied van materiële wijzigingen – zie de changelog.",
   "site.315": "Klantonboarding voor institutionele en ontwikkelaarsaccounts.",
-  "site.316": "Verbeterde modaliteiten voor de EU, Californië, Kenia en andere regio's.",
-  "site.317": "Vind antwoorden op veelgestelde vragen of neem contact op met ons ondersteuningsteam.",
+  "site.316":
+    "Verbeterde modaliteiten voor de EU, Californië, Kenia en andere regio's.",
+  "site.317":
+    "Vind antwoorden op veelgestelde vragen of neem contact op met ons ondersteuningsteam.",
   "site.318": "Bij overname kunnen gebruikersgegevens worden overgedragen.",
-  "site.319": "Integraties zoals Okra en Plaid kunnen sessiegebaseerde cookies verwijderen.",
+  "site.319":
+    "Integraties zoals Okra en Plaid kunnen sessiegebaseerde cookies verwijderen.",
   "site.320": "Marktinfrastructuur, analyses en technologie-integraties.",
-  "site.321": "We registreren IP, OS en browserversie om gebruikersaccounts te helpen beschermen.",
-  "site.322": "Uw aanmelding wordt 6 maanden onthouden, tenzij u deze handmatig opnieuw instelt.",
-  "site.323": "Geautomatiseerde systemen voor risicobeheer en portefeuilleoptimalisatie",
-  "site.324": "Voer uw M-Pesa-pincode in op uw telefoon om de storting te voltooien.",
-  "site.325": "Voor eventuele privacyproblemen kunt u een e-mail sturen naar privacy@evermount.com.",
-  "site.326": "Sharpe-ratio (als een analytische maatstaf voor klantportfolio's)",
+  "site.321":
+    "We registreren IP, OS en browserversie om gebruikersaccounts te helpen beschermen.",
+  "site.322":
+    "Uw aanmelding wordt 6 maanden onthouden, tenzij u deze handmatig opnieuw instelt.",
+  "site.323":
+    "Geautomatiseerde systemen voor risicobeheer en portefeuilleoptimalisatie",
+  "site.324":
+    "Voer uw M-Pesa-pincode in op uw telefoon om de storting te voltooien.",
+  "site.325":
+    "Voor eventuele privacyproblemen kunt u een e-mail sturen naar privacy@evermount.com.",
+  "site.326":
+    "Sharpe-ratio (als een analytische maatstaf voor klantportfolio's)",
   "site.327": "Langdurig opgeslagen voor taal, thema en apparaatvoorkeur.",
-  "site.328": "Beschrijf het type partnerschap, de markten en de technische reikwijdte.",
-  "site.329": "Gegroepeerd op type: analyses, voorkeuren, authenticatie, apparaat, etc.",
+  "site.328":
+    "Beschrijf het type partnerschap, de markten en de technische reikwijdte.",
+  "site.329":
+    "Gegroepeerd op type: analyses, voorkeuren, authenticatie, apparaat, etc.",
   "site.330": "Infrastructuur voor instellingen, ontwikkelaars en onderzoekers",
-  "site.331": "Ons platform is niet bedoeld voor gebruikers jonger dan 18 jaar.",
+  "site.331":
+    "Ons platform is niet bedoeld voor gebruikers jonger dan 18 jaar.",
   "site.332": "Ontvang uw geld veilig in uw persoonlijke crypto-portemonnee.",
   "site.333": "Technologie- en analyse-infrastructuur voor aandelenmarkten.",
-  "site.334": "Via de voettekst kunt u op ieder moment uw voorkeuren aanpassen.",
+  "site.334":
+    "Via de voettekst kunt u op ieder moment uw voorkeuren aanpassen.",
   "site.335": "Infrastructuur voor futures, opties en andere derivaten.",
   "site.336": "Marktgegevens, analyses, risico's en uitvoeringsinfrastructuur.",
-  "site.337": "Multi-factor authenticatie en op rollen gebaseerde toegangscontroles",
-  "site.338": "De verwerking van persoonlijke gegevens wordt beschreven in het Privacybeleid.",
+  "site.337":
+    "Multi-factor authenticatie en op rollen gebaseerde toegangscontroles",
+  "site.338":
+    "De verwerking van persoonlijke gegevens wordt beschreven in het Privacybeleid.",
   "site.339": "Onderzoek, portefeuilleanalyse, risico- en uitvoeringstools.",
-  "site.340": "Sommige functies kunnen AI gebruiken om strategie-inzichten automatisch aan te passen.",
+  "site.340":
+    "Sommige functies kunnen AI gebruiken om strategie-inzichten automatisch aan te passen.",
   "site.341": "Bouw een betrouwbare basis vóór financiële aanvragen.",
-  "site.342": "Overmatig of onrechtmatig verkeer kan worden beperkt of geblokkeerd.",
+  "site.342":
+    "Overmatig of onrechtmatig verkeer kan worden beperkt of geblokkeerd.",
   "site.343": "Machine learning-modellen getraind op historische marktgegevens",
-  "site.344": "QR-code niet beschikbaar in lokale ontwikkelaar. Gebruik het bovenstaande adres.",
+  "site.344":
+    "QR-code niet beschikbaar in lokale ontwikkelaar. Gebruik het bovenstaande adres.",
   "site.345": "Sessiecookies vervallen standaard na 2 uur inactiviteit.",
-  "site.346": "Systematische elektronische handelsinfrastructuur met lage latentie",
+  "site.346":
+    "Systematische elektronische handelsinfrastructuur met lage latentie",
   "site.347": "0 1px 3px rgba(0, 0, 0, 0,5), 0 0 8px rgba(0, 0, 0, 0,3)",
-  "site.348": "Alle cookie-toestemmingen worden veilig opgeslagen en voorzien van een tijdstempel.",
+  "site.348":
+    "Alle cookie-toestemmingen worden veilig opgeslagen en voorzien van een tijdstempel.",
   "site.349": "Bouw de infrastructuur achter moderne financiële markten",
   "site.350": "Bouwen aan de infrastructuur voor moderne financiële markten",
-  "site.351": "Gegevens kunnen in meerdere beveiligde rechtsgebieden worden opgeslagen.",
-  "site.352": "Verzamel gegevens om de productprestaties en inzichten te verbeteren.",
+  "site.351":
+    "Gegevens kunnen in meerdere beveiligde rechtsgebieden worden opgeslagen.",
+  "site.352":
+    "Verzamel gegevens om de productprestaties en inzichten te verbeteren.",
   "site.353": "Institutionele due diligence indien commercieel vereist.",
-  "site.354": "Prestatiestatistieken vergelijkbaar met geverifieerde handelsaccounts",
-  "site.355": "STK-push verzonden. Controleer uw telefoon om de betaling af te ronden.",
-  "site.356": "Bewaar voorkeuren voor lettergrootte, contrast en toetsenbordnavigatie.",
+  "site.354":
+    "Prestatiestatistieken vergelijkbaar met geverifieerde handelsaccounts",
+  "site.355":
+    "STK-push verzonden. Controleer uw telefoon om de betaling af te ronden.",
+  "site.356":
+    "Bewaar voorkeuren voor lettergrootte, contrast en toetsenbordnavigatie.",
   "site.357": "Wij volgen niet bewust kinderen onder de 18 jaar via cookies.",
-  "site.358": "U kunt zich op elk gewenst moment afmelden voor promotionele e-mails.",
-  "site.359": "We volgen geen gebruikers op verschillende apparaten, tenzij u zich daarvoor aanmeldt.",
+  "site.358":
+    "U kunt zich op elk gewenst moment afmelden voor promotionele e-mails.",
+  "site.359":
+    "We volgen geen gebruikers op verschillende apparaten, tenzij u zich daarvoor aanmeldt.",
   "site.360": "256-bit AES-codering voor gegevens in rust en onderweg",
-  "site.361": "Kanalen die de Evermount-infrastructuur naar gebruikers brengen.",
+  "site.361":
+    "Kanalen die de Evermount-infrastructuur naar gebruikers brengen.",
   "site.362": "Herstel na noodgevallen – gepland voor bedrijfsimplementaties",
   "site.363": "Hoge beschikbaarheid – gepland voor bedrijfsimplementaties",
-  "site.364": "Bewaak de kwantitatieve engine, de kill-schakelaar en de NAV-publicatie",
+  "site.364":
+    "Bewaak de kwantitatieve engine, de kill-schakelaar en de NAV-publicatie",
   "site.365": "Er is nog geen relatiebeheerder aan uw account toegewezen.",
   "site.366": "Primair onderzoek en integratietaal intern.",
   "site.367": "Neem bij vragen contact met ons op via cookies@evermount.com.",
@@ -5414,7 +6871,8 @@ export const siteNl: Messages = {
   "site.370": "Voeg dit geheim toe aan Google Authenticator / 1Password:",
   "site.371": "Het bouwen van financiële infrastructuur voor moderne markten",
   "site.372": "Onafhankelijk risicotoezicht en toezicht op naleving",
-  "site.373": "Voor bankopnames worden verwerkingskosten van $ 5,00 in rekening gebracht.",
+  "site.373":
+    "Voor bankopnames worden verwerkingskosten van $ 5,00 in rekening gebracht.",
   "site.374": "Analyseer de laadtijd, serverreactie en algehele UX.",
   "site.375": "Uitgebreide backtesting- en validatieframeworks",
   "site.376": "Inloggegevens zijn vertrouwelijk en mogen niet worden gedeeld.",
@@ -5425,7 +6883,8 @@ export const siteNl: Messages = {
   "site.381": "Kies hoe je op deze functie wilt solliciteren.",
   "site.382": "Infrastructuur gebouwd voor moderne financiële markten",
   "site.383": "Ontvang KES rechtstreeks op uw M-Pesa-telefoonnummer.",
-  "site.384": "Beoordeel en keur de identiteitsinzendingen van investeerders goed.",
+  "site.384":
+    "Beoordeel en keur de identiteitsinzendingen van investeerders goed.",
   "site.385": "TOTP tweefactorauthenticatie voor beheerdersaccounts",
   "site.386": "API's, platforms en infrastructuurintegraties.",
   "site.387": "Connectiviteit, uitvoering en risico-infrastructuur.",
@@ -5443,16 +6902,19 @@ export const siteNl: Messages = {
   "site.399": "Aan de slag met portefeuillediversificatie",
   "site.400": "Institutionele infrastructuur en risicobeheersing",
   "site.401": "Marktdata en alternatieve data-integraties.",
-  "site.402": "Samenwerking op regelgevingsgebied waar dit wettelijk vereist is.",
+  "site.402":
+    "Samenwerking op regelgevingsgebied waar dit wettelijk vereist is.",
   "site.403": "Gebruik uw Visa, Mastercard of Amex om te storten.",
   "site.404": "Bekijk al uw portemonneetransacties en -activiteiten",
   "site.405": "Makelaar, locatie en institutionele connectiviteit.",
   "site.406": "Kwantitatief onderzoek en marktinformatie",
-  "site.407": "Op het gebruik van API's zijn ook de API-voorwaarden van toepassing.",
+  "site.407":
+    "Op het gebruik van API's zijn ook de API-voorwaarden van toepassing.",
   "site.408": "Bouw het financiële ecosysteem met Evermount",
   "site.409": "Geld beschikbaar voor opname of belegging",
-  "site.410": "Wordt gebruikt om verdachte activiteiten of misbruik te detecteren.",
-  "site.411": "; case \"in behandeling\": case \"in behandeling\": retour",
+  "site.410":
+    "Wordt gebruikt om verdachte activiteiten of misbruik te detecteren.",
+  "site.411": '; case "in behandeling": case "in behandeling": retour',
   "site.412": "Evermount financiële infrastructuurplatform",
   "site.413": "Hoe worden de prestaties van mijn portefeuille berekend?",
   "site.414": "Direct storten via STK-push naar uw telefoon.",
@@ -5465,7 +6927,7 @@ export const siteNl: Messages = {
   "site.421": "Evermount financieel inlichtingenplatform",
   "site.422": "Infrastructuur voor financiële instellingen",
   "site.423": "Eén platform. Meerdere financiële systemen.",
-  "site.424": "; case \"mislukt\": case \"afgewezen\": retour",
+  "site.424": '; case "mislukt": case "afgewezen": retour',
   "site.425": "Voltooi de verificatie om te beginnen met beleggen",
   "site.426": "Van financiële informatie tot uitvoering",
   "site.427": "Hoe kan ik mijn persoonlijke gegevens bijwerken?",
@@ -5609,8 +7071,8 @@ export const siteNl: Messages = {
   "site.565": "Draadreferentie (optioneel)",
   "site.566": "Opnemen in Crypto Wallet",
   "site.567": "← Terug naar Stortingsmethoden",
-  "site.568": "; geval \"artikel\": retour",
-  "site.569": "; case \"webinar\": retour",
+  "site.568": '; geval "artikel": retour',
+  "site.569": '; case "webinar": retour',
   "site.570": "Wijs een investeerder toe via e-mail",
   "site.571": "Uitvoering infrastructuur",
   "site.572": "uitvoeringsinfrastructuur",
@@ -5649,7 +7111,7 @@ export const siteNl: Messages = {
   "site.605": "Technologie Architectuur",
   "site.606": "Typescript / JavaScript",
   "site.607": "Portemonnee + Geïnvesteerd geld",
-  "site.608": "; geval \"gids\": retour",
+  "site.608": '; geval "gids": retour',
   "site.609": "AI-onderzoeksassistenten",
   "site.610": "Standaard lock-in-periode",
   "site.611": "Strategieën ontdekken",
@@ -6302,8 +7764,10 @@ export const siteNl: Messages = {
 
 export const siteAr: Messages = {
   "site.0": "منصة البنية التحتية المالية Evermount",
-  "site.1": "بيانات السوق والبحث الكمي والذكاء الاصطناعي والتنفيذ والمخاطر والبنية التحتية للمحفظة للأسواق المالية الحديثة.",
-  "site.2": "يمكنك البناء والاتصال والتحليل والتنفيذ عبر الأسواق المالية باستخدام البنية التحتية لـ Evermount.",
+  "site.1":
+    "بيانات السوق والبحث الكمي والذكاء الاصطناعي والتنفيذ والمخاطر والبنية التحتية للمحفظة للأسواق المالية الحديثة.",
+  "site.2":
+    "يمكنك البناء والاتصال والتحليل والتنفيذ عبر الأسواق المالية باستخدام البنية التحتية لـ Evermount.",
   "site.3": "اكتشف واجهات برمجة التطبيقات",
   "site.4": "البنية التحتية لبيانات السوق",
   "site.5": "البنية التحتية لاستيعاب وتطبيع وتوزيع بيانات السوق.",
@@ -6361,261 +7825,476 @@ export const siteAr: Messages = {
   "site.57": "بنية المنصة",
   "site.58": "How the stack connects",
   "site.59": "آخر تحديث: 6 سبتمبر 2026",
-  "site.60": "This page is a product-facing summary and is not legal advice. Legal and regulatory terms should be reviewed and approved by qualified counsel before publication. Evermount does not claim SEC, FCA, CMA, MiFID, or similar authorization unless separately and expressly stated by the company.",
-  "site.61": "قد توفر Evermount البنية التحتية للتنفيذ وبرامج إدارة الطلبات والتحليلات. عندما يكون العميل شركة خاضعة للتنظيم ولديها التزامات بأفضل التنفيذ، فإن هذه الالتزامات تظل على عاتق العميل. لا تقر Evermount بأنها وسيط ينفذ أوامر العملاء كشركة استثمار ما لم تنص اتفاقية موقعة على خلاف ذلك.",
-  "site.62": "Evermount هو مزود التكنولوجيا. قد تنشأ تعارضات بين المصالح التجارية والعلاقات مع البائعين ومصالح العملاء. نحن نهدف إلى تحديد وإدارة والكشف عن التعارضات المادية في اتفاقيات العملاء بدلاً من العمل كمدير استثمار تقديري لزوار الموقع.",
-  "site.63": "Evermount combines artificial intelligence, quantitative research and trading infrastructure to create intelligent systems capable of continuously analyzing markets, discovering opportunities, managing risk and executing systematic strategies.",
-  "site.64": "الأسواق المالية معقدة ومجزأة ويصعب البناء عليها من الناحية الفنية. نحن نجمع بين هندسة البيانات والبحث الكمي والتعلم الآلي وتكنولوجيا التنفيذ حتى تتمكن المؤسسات والمطورون من البناء على أساس مشترك.",
-  "site.65": "قدرات تحليلية للأداء والمخاطر والتعرض. الأرقام الموضحة في العروض التوضيحية للمنتج توضيحية ما لم يتم تصنيفها على أنها بيانات خاصة بالعميل. لا تنشر Evermount عوائد الاستثمار أو نسب Sharpe كأداء الشركة.",
-  "site.66": "يصف هذا البيان ضوابط الجرائم المالية المناسبة لمزود التكنولوجيا والبنية التحتية. إنه ليس دليل مكافحة غسيل الأموال الخاص بمدير الصندوق ولا يعني أن Evermount يقبل اشتراكات المستثمرين أو يحتفظ بأموال العميل.",
-  "site.67": "تحكم هذه الشروط الوصول إلى برامج Evermount وواجهات برمجة التطبيقات والبيانات وخدمات البنية التحتية. وهي لا تشكل اتفاقية إدارة استثمار، أو اشتراكًا في صندوق، أو دعوة لإيداع أموال العميل لدى Evermount.",
-  "site.68": "يظل العملاء مسؤولين عن التزاماتهم التجارية والتنظيمية والتزاماتهم المتعلقة بمعرفة عميلك ومكافحة غسل الأموال والالتزامات الائتمانية. Evermount ليست وسيطًا أو تاجرًا أو بنكًا أو أمينًا أو مستشارًا للتبادل أو الاستثمار ما لم يُنص صراحةً على ذلك في اتفاقية موقعة.",
-  "site.69": "Evermount provides technology and infrastructure services. This page does not claim SEC registration, FCA authorization, CMA authorization, MiFID authorization, broker-dealer status, investment adviser status, or custody.",
-  "site.70": "الأسواق المالية هي أنظمة معقدة. نعتقد أن الجيل القادم من البنية التحتية المالية سيتم بناؤه من خلال الجمع بين البيانات واسعة النطاق والذكاء الاصطناعي والبحث الكمي والتنفيذ الآلي.",
-  "site.71": "نحن نعمل مع البنوك والوسطاء والبورصات ومقدمي بيانات السوق وشركات التكنولوجيا المالية ومقدمي التكنولوجيا ومقدمي السيولة والمؤسسات. يتم إدراج الشراكات المسماة فقط عندما تكون حقيقية وتمت الموافقة على نشرها للعامة.",
-  "site.72": "Institutional customers remain responsible for their own regulatory obligations, including trading permissions, best execution where they are a regulated firm, and client-asset rules that apply to them.",
-  "site.73": "Evermount is a quantitative research and financial technology organization. Public research notes will be listed here when published. We do not fabricate papers, performance or customer results.",
-  "site.74": "We serve banks, brokers, exchanges, asset managers, hedge funds, proprietary trading firms, market makers, fintechs, family offices and developers who need programmable market infrastructure.",
-  "site.75": "For large-scale deployments. Potential capabilities: dedicated deployment, private connectivity, custom integrations, high availability, dedicated engineering and SLA — subject to contract.",
-  "site.76": "For banks, brokers and asset managers. Potential capabilities: institutional APIs, dedicated infrastructure, market connectivity, risk and execution infrastructure, and enterprise support.",
-  "site.77": "Evermount is positioned as market-agnostic. The sections below describe infrastructure for each market — not a claim that Evermount provides regulated access to every venue or instrument.",
-  "site.78": "Financial markets are complex, fragmented and technically difficult to build on. Evermount provides infrastructure that makes market technology easier to build, integrate and operate.",
-  "site.79": "We're building the infrastructure behind modern financial markets — and we're just getting started. Join engineers, researchers and operators who care about data, risk and systems.",
-  "site.80": "The stack below reflects systems we use today and capabilities on the engineering roadmap. We do not publish latency, uptime or throughput figures unless independently verified.",
-  "site.81": "Programmatic access to financial data, analytics, intelligence and infrastructure. Public API documentation and production credentials are provided after access is approved.",
-  "site.82": "Evermount is building systems that continuously learn from financial data, generate hypotheses, evaluate risk and translate validated intelligence into controlled action.",
-  "site.83": "For trading firms, fintechs and professional users. Potential capabilities: real-time data, advanced APIs, analytics, risk APIs and execution capabilities where enabled.",
-  "site.84": "The platform is market-agnostic: designed to support equities, FX, fixed income, commodities, derivatives and digital assets where those capabilities are available.",
-  "site.85": "Evermount retains rights in its software, models and documentation. Customers retain rights in their own data, subject to licenses granted to operate the service.",
-  "site.86": "Evermount is market-agnostic. We provide infrastructure for asset classes — we do not imply that Evermount operates or provides regulated access to every market.",
-  "site.87": "Experienced professionals combining expertise in quantitative finance, computer science, and engineering to drive innovation in systematic trading technology.",
-  "site.88": "Algorithmic execution, order management and execution analytics. Connectivity to brokers and venues depends on integration status and applicable regulation.",
-  "site.89": "Evermount provides technology and infrastructure services. Institutional customers remain responsible for their own regulatory obligations where applicable.",
-  "site.90": "We use machine learning, statistical models and modern software engineering. Specific performance characteristics are not published as marketing statistics.",
-  "site.91": "IMPORTANT: Please read this risk disclosure carefully. Using financial technology involves risk. This is not an investment product disclosure for a fund.",
-  "site.92": "Evermount is a financial technology company building infrastructure for market data, quantitative research, artificial intelligence, risk and execution.",
-  "site.93": "Yes, you can reallocate your investments at any time through the Portfolio page. You can also set up automatic rebalancing based on your preferences.",
-  "site.94": "A unified technology stack designed to transform financial data into intelligence, quantitative strategies, risk decisions and systematic execution.",
-  "site.95": "This Cookie Policy explains how Evermount (\"we\", \"our\", or \"us\") uses cookies and similar technologies to recognize you when you visit our platform.",
-  "site.96": "An AI-native intelligence layer designed to help financial systems understand markets, research opportunities and make better risk-aware decisions.",
-  "site.97": "يتم تنفيذ ضوابط الوصول وممارسات التشفير والمراقبة وفقًا لأنظمة الإنتاج واتفاقية العميل المعمول بها.",
-  "site.98": "تعتمد المصطلحات التجارية على البيانات والأسواق وحجم واجهة برمجة التطبيقات ونموذج النشر. نحن لا ننشر قائمة الأسعار المخترعة. الاتصال بالمبيعات للحصول على اقتراح.",
-  "site.99": "This Privacy Policy outlines how Evermount collects, uses, stores, and protects your information. Your privacy is critically important to us.",
-  "site.100": "نظام بيئي مالي حيث يمكن للمؤسسات والمطورين والباحثين بناء تطبيقات سوقية متطورة على بنية تحتية موثوقة.",
-  "site.101": "يجوز لأي من الطرفين الإنهاء على النحو المنصوص عليه في الاتفاقية التجارية. قد يتم تعليق الوصول بسبب إساءة الاستخدام أو المخاطر الأمنية أو المتطلبات القانونية.",
-  "site.102": "تقوم أنظمة الذكاء الاصطناعي بتحليل معلومات السوق والأخبار وظروف الاقتصاد الكلي والبيانات البديلة لتوليد معلومات مالية منظمة.",
-  "site.103": "خارطة طريق تكنولوجية من الأبحاث المدعومة بالذكاء الاصطناعي اليوم نحو التنفيذ المنهجي والبنية التحتية للسوق والاتصال بالسوق العالمية.",
-  "site.104": "للمطورين والباحثين. الإمكانات المحتملة: وضع الحماية، والوصول المحدود لواجهة برمجة التطبيقات، والبيانات التاريخية، وأدوات البحث والوثائق.",
-  "site.105": "يعتمد توفر خدمات محددة على الاختصاص القضائي واللوائح المعمول بها. لا يتم تنظيم Evermount في كل ولاية قضائية.",
-  "site.106": "مستويات الوصول للمطورين والمهنيين والمؤسساتيين والمؤسسيين. يتم توفير المصطلحات التجارية من خلال المبيعات - ولا توجد قائمة أسعار مخترعة.",
-  "site.107": "أسطح API المخططة وقيد التطوير. يتم تأكيد التوفر أثناء الإعداد — لا تفترض أن كل واجهة برمجة تطبيقات موجودة في مرحلة الإنتاج.",
-  "site.108": "يقوم FlipbotEA باستقصاء قائمة انتظار الإشارة وتنفيذها على العرض التوضيحي لـ Exness MT5 الذي تم تسجيل الدخول إليه. عمليات التعبئة الناجحة عثرة المستثمر NAV عبر fillRecorded.",
-  "site.109": "العلامة التجارية ذات توجه عالمي: بنية تحتية يمكن أن تعمل عبر الأسواق والولايات القضائية حسب ما تسمح به القدرات والتراخيص.",
-  "site.110": "مجموعة AI-forward مصممة لتحويل البيانات المالية إلى معلومات استخبارية وأبحاث تم التحقق من صحتها وقرارات المخاطر والتنفيذ الخاضع للرقابة.",
-  "site.111": "لا توجد أدوار مفتوحة مدرجة حاليًا. قدم نفسك على careers@evermount.co إذا كنت تريد المساعدة في بناء البنية التحتية المالية.",
-  "site.112": "البنية التحتية المالية للأسواق الحديثة - بيانات السوق، والأبحاث الكمية، والاستخبارات، والمخاطر، والتنفيذ، والاتصال.",
-  "site.113": "تم إنشاء Evermount، التي تأسست عام 2023، لتسهيل الوصول إلى البنية التحتية المالية المتطورة وقابليتها للبرمجة والتطوير.",
-  "site.114": "البنية التحتية البحثية لاكتشاف العوامل وتوليد الفرضيات والاختبار الخلفي والمحاكاة وتطوير الإستراتيجية المنهجية.",
-  "site.115": "واجهة برمجة تطبيقات الشراكة لروابط الإحالة وتقارير العملاء وبيانات العمولة. يستخدم تنفيذ التداول Exness MT5 أعلاه — وليس واجهة برمجة التطبيقات هذه.",
-  "site.116": "نحن نبني بنيتنا التحتية وفقًا لأعلى معايير التميز التشغيلي والأمان وإدارة المخاطر أثناء توسعنا.",
-  "site.117": "\"نحن نبني البيانات والأبحاث والاستخبارات والمخاطر والتنفيذ والبنية التحتية التي يمكن للمؤسسات والمطورين البناء عليها.\"",
-  "site.118": "بيانات السوق والتحليلات والمخاطر والتنفيذ والبنية التحتية للاتصال للبنوك والوسطاء ومديري الأصول والشركات التجارية.",
-  "site.119": "يتضمن الاستخدام النموذجي المسموح به البحث الداخلي والمخاطر والتحليلات وميزات التطبيق التي تديرها لمؤسستك.",
-  "site.120": "يوجد في قلب Evermount منصة تقنية لبيانات السوق والبحث الكمي والاستخبارات والمخاطر والتنفيذ.",
-  "site.121": "اسحب الدولار الأمريكي إلى حسابك البنكي المرتبط. تتم مراجعة الطلبات والموافقة عليها من قبل فريقنا (عادةً خلال يومي عمل).",
-  "site.122": "سيقوم كل طرف بتنفيذ تدابير أمنية معقولة. يجب على العملاء حماية بيانات الاعتماد والإبلاغ عن التسوية المشتبه بها.",
-  "site.123": "مجموعة تكنولوجية للبيانات والأبحاث والاستخبارات والمخاطر والتنفيذ والاتصال - وليس طلبًا لإيداع رأس المال.",
-  "site.124": "قم بإيداع الأموال في محفظتك باستخدام العملات المشفرة المدعومة. ستكون الأموال متاحة في محفظتك بعد التأكيد.",
-  "site.125": "البيانات والبحث الكمي والاستخبارات والمخاطر والتنفيذ والبنية التحتية للاتصالات للأسواق المالية الحديثة.",
-  "site.126": "يستخدم عند النقر فوق التجارة. يبقى رأس مالك مستثمرًا خلال الفترة التي تختارها. الانسحاب المبكر قد لا يكون متاحا.",
-  "site.127": "اسحب الأموال من محفظتك إلى البنك المفضل لديك أو محفظة العملات المشفرة. يمكن سحب رصيد المحفظة المتاح فقط.",
-  "site.128": "اختر طريقة الإيداع المفضلة لديك لإضافة أموال إلى محفظتك. ستكون الأموال متاحة للسحب أو الاستثمار.",
-  "site.129": "قد تكون البيانات متأخرة أو غير كاملة أو غير صحيحة. إنه ليس بديلاً عن خلاصات المكان الرسمية عندما تكون مطلوبة.",
-  "site.130": "يتم تقديم الخدمات على أساس التكنولوجيا. قد تكون الميزات قيد المعاينة أو محدودة أو غير متوفرة في بعض الولايات القضائية.",
-  "site.131": "قد يتم تأخير الأوامر أو رفضها أو تنفيذها جزئيًا أو تنفيذها بأسعار غير متوقعة في حالة وجود اتصال بالتنفيذ.",
-  "site.132": "يتم نشر المصادقة ومفاتيح API وحدود الأسعار والأمثلة للمطورين المعتمدين. حتى ذلك الحين، طلب الوصول.",
-  "site.133": "يتم وصف ترتيبات الاستضافة والاتصال والتشغيل في نموذج الطلب المعمول به أو بيان العمل.",
-  "site.134": "اطلب الوصول لمناقشة البيانات والأبحاث والمخاطر والتنفيذ والبنية التحتية للاتصال مع فريق Evermount.",
-  "site.135": "بنية مفاهيمية تربط الذكاء الاصطناعي والبحث والمخاطر والتنفيذ في منصة تكنولوجية مؤسسية واحدة.",
-  "site.136": "رحلة عملية للمؤسسات والمطورين الذين يستخدمون البنية الأساسية لـ Evermount - وليس تدفقًا لتأهيل الأموال.",
-  "site.137": "هندسة تقنية Evermount عبر هندسة البيانات والحوسبة الكمية والذكاء الاصطناعي وأنظمة التداول والمخاطر.",
-  "site.138": "نحن نصمم أنظمة تتمحور حول جودة البيانات والأدلة البحثية والمخاطر القابلة للقياس - وليس تسويق الصناديق التقديرية.",
-  "site.139": "قم ببناء النظام البيئي المالي مع Evermount من خلال شراكات البيانات والاتصال والتكنولوجيا والبحث.",
-  "site.140": "يتم حساب نسبة السحب والتقلب وشارب من العائدات اليومية لمحفظتك الخاصة خلال آخر 90 يومًا.",
-  "site.141": "اسحب KES من محفظتك مباشرة إلى حساب M-Pesa الخاص بك. يمكن سحب رصيد المحفظة المتاح فقط.",
-  "site.142": "قم بتمويل محفظة KES الخاصة بك على الفور عبر M-Pesa. ستتلقى رسالة STK على هاتفك لتأكيد الدفع.",
-  "site.143": "قدرات تحليل الأداء والمخاطر والتعرض والإسناد واختبار الضغط في منصة Evermount.",
-  "site.144": "العمارة المفاهيمية. تختلف عمليات النشر والأماكن والتكاملات المحددة حسب العميل والولاية القضائية.",
-  "site.145": "يتم تحديد الرسوم، إن وجدت، في نموذج الطلب. لا يدرج هذا الموقع رسوم إدارة الأموال أو الأداء.",
-  "site.146": "بنية تحتية محايدة للسوق للأسهم والعملات الأجنبية والدخل الثابت والسلع والمشتقات والأصول الرقمية.",
-  "site.147": "نحن لا نضمن عدم انقطاع الخدمة. قد تؤثر الصيانة وانقطاع الخدمة لدى البائع والقوة القاهرة على الوصول.",
-  "site.148": "مشاركة الحجم المتوقع والأسواق ومتطلبات البنية التحتية. الأسعار مذكورة، وليست مدرجة ضمن رسوم الصندوق.",
-  "site.149": "يجوز لنا منح الوصول إلى البيئات وبيانات الاعتماد والوثائق الخاضعة للموافقة والقانون المعمول به.",
-  "site.150": "نحن نبحث دائمًا عن الأشخاص المتحمسين. إذا كنت متحمسًا لمهمتنا، فنحن نحب أن نسمع منك.",
-  "site.151": "خطوط أنابيب بيانات مالية موحدة مصممة لدعم البحث والتحليلات وأنظمة اتخاذ القرار في الوقت الفعلي.",
-  "site.152": "إمكانيات منصة Evermount. يعتمد التوفر المحدد على مستوى الوصول والولاية القضائية.",
-  "site.153": "قم بتعيين EXNESS_PARTNER_REFERRAL_LINK أو تمكين EXNESS_PARTNER_ENABLED باستخدام بيانات اعتماد PPA في بيئة الواجهة الخلفية.",
-  "site.154": "سحب الأموال من محفظتك إلى محفظة التشفير الخاصة بك. يمكن سحب رصيد المحفظة المتاح فقط.",
-  "site.155": "أربع قدرات تحول البيانات المالية إلى معلومات وأبحاث وقرارات المخاطر والتنفيذ.",
-  "site.156": "وينبغي دمج ضوابط المخاطر مباشرة في الأنظمة، بما في ذلك مراقبة ما قبل التجارة والرصد في الوقت الحقيقي.",
-  "site.157": "يمكن أن تؤدي عيوب البرامج وانقطاع الخدمة وأخطاء التكوين إلى مقاطعة الوصول أو إنتاج مخرجات غير صحيحة.",
-  "site.158": "رحلة من سبع خطوات من ربط الأنظمة إلى مراقبة الأسواق والمخاطر والتنفيذ على Evermount.",
-  "site.159": "وينبغي أن تكون البنية التحتية المالية قابلة للبرمجة. تعتبر واجهات برمجة التطبيقات والبث والتكامل من الدرجة الأولى.",
-  "site.160": "تقتصر المسؤولية على الحد الذي يسمح به القانون وكما هو منصوص عليه في الشروط التجارية الموقعة.",
-  "site.161": "يتم تأكيد تفاصيل استضافة الإنتاج والعمليات مع العملاء أثناء تخطيط النشر.",
-  "site.162": "مراقبة في الوقت الحقيقي للتعرض والسيولة والتقلبات والارتباط والسحب وأنظمة السوق.",
-  "site.163": "لم نتمكن من العثور على الصفحة التي كنت تبحث عنها. ربما أخطأت في كتابة عنوان URL، أو تم نقل الصفحة.",
-  "site.164": "أساس تكنولوجي لبيانات السوق والبحث الكمي والاستخبارات والمخاطر والتنفيذ.",
-  "site.165": "لتحسين أداء الموقع، وتخصيص تجربة المستخدم، وتعزيز الأمان، وتحليل حركة المرور.",
-  "site.166": "يمكنك الوصول إلى الموارد التعليمية والأدلة ومقاطع الفيديو والندوات عبر الإنترنت لتعزيز معرفتك الاستثمارية.",
-  "site.167": "لا يمكنك العثور على ما تبحث عنه؟ أرسل لنا رسالة وسنرد عليك خلال 24 ساعة.",
-  "site.168": "اللغات قيد الاستخدام النشط تشمل TypeScript وPython. C++ وRust موجودان في خارطة طريق الأنظمة.",
-  "site.169": "أدخل البريد الإلكتروني المرتبط بحسابك وسنرسل لك كلمة المرور لمرة واحدة (OTP) لإعادة تعيين كلمة المرور الخاصة بك.",
-  "site.170": "بنية تحتية للتنفيذ المنهجي مصممة لتحقيق الموثوقية والسرعة والنشر المتحكم فيه.",
-  "site.171": "تعرف على فريق Evermount وكيف نقوم ببناء البنية التحتية المالية للأسواق الحديثة.",
-  "site.172": "ملفات بيانات صغيرة موضوعة على جهازك لتتبع السلوك والتفضيلات ونشاط الجلسة.",
-  "site.173": "إدارة حسابات المستثمرين والوصول إليها. يتم إنشاء مديري المحافظ ضمن المسؤول → المديرين.",
-  "site.174": "يجمع فريقنا بين الخبرة في التمويل الكمي وعلوم البيانات وهندسة النظم.",
-  "site.175": "أخبرنا عن مؤسستك واحتياجات البنية التحتية الخاصة بك. وسوف نتابع الخطوات التالية.",
-  "site.176": "بنية تحتية مصممة للعمل عبر الأسواق والولايات القضائية حسب ما تسمح به القدرات.",
-  "site.177": "حدد موعدًا لمحادثة حول بيانات Evermount والأبحاث والمخاطر والبنية التحتية للتنفيذ.",
-  "site.178": "تم تعيينه بواسطة Evermount مباشرةً لجلسات تسجيل الدخول وحفظ تفضيلات السمة وحالات المخطط.",
-  "site.179": "قد تتغير واجهات برمجة التطبيقات (API)، أو يتم إصدارها، أو يتم سحبها مع إشعار حيثما كان ذلك ممكنًا بشكل معقول.",
-  "site.180": "قم بتوصيل مصادر البيانات أو الوسطاء أو الأماكن أو الأنظمة المؤسسية حيث توجد عمليات تكامل.",
-  "site.181": "تخضع بيانات السوق وبيانات الطرف الثالث لسياسة البيانات وأي تراخيص للبائعين.",
-  "site.182": "يتم التخطيط للبيئات غير الإنتاجية لاختبار التكامل للمطورين المعتمدين.",
-  "site.183": "البحث الكمي وهيكل السوق والذكاء الاصطناعي وأبحاث المخاطر والتنفيذ من Evermount.",
-  "site.184": "شارك متطلبات شركتك ودورك وواجهة برمجة التطبيقات (API) حتى نتمكن من توفير البيئة المناسبة.",
-  "site.185": "استخدم الهندسة الحديثة والأساليب الكمية والذكاء الاصطناعي لحل المشكلات المالية المعقدة.",
-  "site.186": "نحن نستثمر في البحث والهندسة حتى تظل البنية التحتية قابلة للبرمجة وموثوقة.",
-  "site.187": "جعل البنية التحتية المالية المتطورة أكثر سهولة وقابلة للبرمجة والتوسع.",
-  "site.188": "البحث في كيفية تفاعل الأماكن والسيولة والبنية الدقيقة للسوق مع التكنولوجيا.",
-  "site.189": "تعمل محفظتك كحساب ضمان حيث يمكنك تخزين الأموال بأمان قبل الاستثمار",
-  "site.190": "إنشاء المحفظة وتحسينها وتحليلها - وليس منتجًا استثماريًا مُدارًا.",
+  "site.60":
+    "This page is a product-facing summary and is not legal advice. Legal and regulatory terms should be reviewed and approved by qualified counsel before publication. Evermount does not claim SEC, FCA, CMA, MiFID, or similar authorization unless separately and expressly stated by the company.",
+  "site.61":
+    "قد توفر Evermount البنية التحتية للتنفيذ وبرامج إدارة الطلبات والتحليلات. عندما يكون العميل شركة خاضعة للتنظيم ولديها التزامات بأفضل التنفيذ، فإن هذه الالتزامات تظل على عاتق العميل. لا تقر Evermount بأنها وسيط ينفذ أوامر العملاء كشركة استثمار ما لم تنص اتفاقية موقعة على خلاف ذلك.",
+  "site.62":
+    "Evermount هو مزود التكنولوجيا. قد تنشأ تعارضات بين المصالح التجارية والعلاقات مع البائعين ومصالح العملاء. نحن نهدف إلى تحديد وإدارة والكشف عن التعارضات المادية في اتفاقيات العملاء بدلاً من العمل كمدير استثمار تقديري لزوار الموقع.",
+  "site.63":
+    "Evermount combines artificial intelligence, quantitative research and trading infrastructure to create intelligent systems capable of continuously analyzing markets, discovering opportunities, managing risk and executing systematic strategies.",
+  "site.64":
+    "الأسواق المالية معقدة ومجزأة ويصعب البناء عليها من الناحية الفنية. نحن نجمع بين هندسة البيانات والبحث الكمي والتعلم الآلي وتكنولوجيا التنفيذ حتى تتمكن المؤسسات والمطورون من البناء على أساس مشترك.",
+  "site.65":
+    "قدرات تحليلية للأداء والمخاطر والتعرض. الأرقام الموضحة في العروض التوضيحية للمنتج توضيحية ما لم يتم تصنيفها على أنها بيانات خاصة بالعميل. لا تنشر Evermount عوائد الاستثمار أو نسب Sharpe كأداء الشركة.",
+  "site.66":
+    "يصف هذا البيان ضوابط الجرائم المالية المناسبة لمزود التكنولوجيا والبنية التحتية. إنه ليس دليل مكافحة غسيل الأموال الخاص بمدير الصندوق ولا يعني أن Evermount يقبل اشتراكات المستثمرين أو يحتفظ بأموال العميل.",
+  "site.67":
+    "تحكم هذه الشروط الوصول إلى برامج Evermount وواجهات برمجة التطبيقات والبيانات وخدمات البنية التحتية. وهي لا تشكل اتفاقية إدارة استثمار، أو اشتراكًا في صندوق، أو دعوة لإيداع أموال العميل لدى Evermount.",
+  "site.68":
+    "يظل العملاء مسؤولين عن التزاماتهم التجارية والتنظيمية والتزاماتهم المتعلقة بمعرفة عميلك ومكافحة غسل الأموال والالتزامات الائتمانية. Evermount ليست وسيطًا أو تاجرًا أو بنكًا أو أمينًا أو مستشارًا للتبادل أو الاستثمار ما لم يُنص صراحةً على ذلك في اتفاقية موقعة.",
+  "site.69":
+    "Evermount provides technology and infrastructure services. This page does not claim SEC registration, FCA authorization, CMA authorization, MiFID authorization, broker-dealer status, investment adviser status, or custody.",
+  "site.70":
+    "الأسواق المالية هي أنظمة معقدة. نعتقد أن الجيل القادم من البنية التحتية المالية سيتم بناؤه من خلال الجمع بين البيانات واسعة النطاق والذكاء الاصطناعي والبحث الكمي والتنفيذ الآلي.",
+  "site.71":
+    "نحن نعمل مع البنوك والوسطاء والبورصات ومقدمي بيانات السوق وشركات التكنولوجيا المالية ومقدمي التكنولوجيا ومقدمي السيولة والمؤسسات. يتم إدراج الشراكات المسماة فقط عندما تكون حقيقية وتمت الموافقة على نشرها للعامة.",
+  "site.72":
+    "Institutional customers remain responsible for their own regulatory obligations, including trading permissions, best execution where they are a regulated firm, and client-asset rules that apply to them.",
+  "site.73":
+    "Evermount is a quantitative research and financial technology organization. Public research notes will be listed here when published. We do not fabricate papers, performance or customer results.",
+  "site.74":
+    "We serve banks, brokers, exchanges, asset managers, hedge funds, proprietary trading firms, market makers, fintechs, family offices and developers who need programmable market infrastructure.",
+  "site.75":
+    "For large-scale deployments. Potential capabilities: dedicated deployment, private connectivity, custom integrations, high availability, dedicated engineering and SLA — subject to contract.",
+  "site.76":
+    "For banks, brokers and asset managers. Potential capabilities: institutional APIs, dedicated infrastructure, market connectivity, risk and execution infrastructure, and enterprise support.",
+  "site.77":
+    "Evermount is positioned as market-agnostic. The sections below describe infrastructure for each market — not a claim that Evermount provides regulated access to every venue or instrument.",
+  "site.78":
+    "Financial markets are complex, fragmented and technically difficult to build on. Evermount provides infrastructure that makes market technology easier to build, integrate and operate.",
+  "site.79":
+    "We're building the infrastructure behind modern financial markets — and we're just getting started. Join engineers, researchers and operators who care about data, risk and systems.",
+  "site.80":
+    "The stack below reflects systems we use today and capabilities on the engineering roadmap. We do not publish latency, uptime or throughput figures unless independently verified.",
+  "site.81":
+    "Programmatic access to financial data, analytics, intelligence and infrastructure. Public API documentation and production credentials are provided after access is approved.",
+  "site.82":
+    "Evermount is building systems that continuously learn from financial data, generate hypotheses, evaluate risk and translate validated intelligence into controlled action.",
+  "site.83":
+    "For trading firms, fintechs and professional users. Potential capabilities: real-time data, advanced APIs, analytics, risk APIs and execution capabilities where enabled.",
+  "site.84":
+    "The platform is market-agnostic: designed to support equities, FX, fixed income, commodities, derivatives and digital assets where those capabilities are available.",
+  "site.85":
+    "Evermount retains rights in its software, models and documentation. Customers retain rights in their own data, subject to licenses granted to operate the service.",
+  "site.86":
+    "Evermount is market-agnostic. We provide infrastructure for asset classes — we do not imply that Evermount operates or provides regulated access to every market.",
+  "site.87":
+    "Experienced professionals combining expertise in quantitative finance, computer science, and engineering to drive innovation in systematic trading technology.",
+  "site.88":
+    "Algorithmic execution, order management and execution analytics. Connectivity to brokers and venues depends on integration status and applicable regulation.",
+  "site.89":
+    "Evermount provides technology and infrastructure services. Institutional customers remain responsible for their own regulatory obligations where applicable.",
+  "site.90":
+    "We use machine learning, statistical models and modern software engineering. Specific performance characteristics are not published as marketing statistics.",
+  "site.91":
+    "IMPORTANT: Please read this risk disclosure carefully. Using financial technology involves risk. This is not an investment product disclosure for a fund.",
+  "site.92":
+    "Evermount is a financial technology company building infrastructure for market data, quantitative research, artificial intelligence, risk and execution.",
+  "site.93":
+    "Yes, you can reallocate your investments at any time through the Portfolio page. You can also set up automatic rebalancing based on your preferences.",
+  "site.94":
+    "A unified technology stack designed to transform financial data into intelligence, quantitative strategies, risk decisions and systematic execution.",
+  "site.95":
+    'This Cookie Policy explains how Evermount ("we", "our", or "us") uses cookies and similar technologies to recognize you when you visit our platform.',
+  "site.96":
+    "An AI-native intelligence layer designed to help financial systems understand markets, research opportunities and make better risk-aware decisions.",
+  "site.97":
+    "يتم تنفيذ ضوابط الوصول وممارسات التشفير والمراقبة وفقًا لأنظمة الإنتاج واتفاقية العميل المعمول بها.",
+  "site.98":
+    "تعتمد المصطلحات التجارية على البيانات والأسواق وحجم واجهة برمجة التطبيقات ونموذج النشر. نحن لا ننشر قائمة الأسعار المخترعة. الاتصال بالمبيعات للحصول على اقتراح.",
+  "site.99":
+    "This Privacy Policy outlines how Evermount collects, uses, stores, and protects your information. Your privacy is critically important to us.",
+  "site.100":
+    "نظام بيئي مالي حيث يمكن للمؤسسات والمطورين والباحثين بناء تطبيقات سوقية متطورة على بنية تحتية موثوقة.",
+  "site.101":
+    "يجوز لأي من الطرفين الإنهاء على النحو المنصوص عليه في الاتفاقية التجارية. قد يتم تعليق الوصول بسبب إساءة الاستخدام أو المخاطر الأمنية أو المتطلبات القانونية.",
+  "site.102":
+    "تقوم أنظمة الذكاء الاصطناعي بتحليل معلومات السوق والأخبار وظروف الاقتصاد الكلي والبيانات البديلة لتوليد معلومات مالية منظمة.",
+  "site.103":
+    "خارطة طريق تكنولوجية من الأبحاث المدعومة بالذكاء الاصطناعي اليوم نحو التنفيذ المنهجي والبنية التحتية للسوق والاتصال بالسوق العالمية.",
+  "site.104":
+    "للمطورين والباحثين. الإمكانات المحتملة: وضع الحماية، والوصول المحدود لواجهة برمجة التطبيقات، والبيانات التاريخية، وأدوات البحث والوثائق.",
+  "site.105":
+    "يعتمد توفر خدمات محددة على الاختصاص القضائي واللوائح المعمول بها. لا يتم تنظيم Evermount في كل ولاية قضائية.",
+  "site.106":
+    "مستويات الوصول للمطورين والمهنيين والمؤسساتيين والمؤسسيين. يتم توفير المصطلحات التجارية من خلال المبيعات - ولا توجد قائمة أسعار مخترعة.",
+  "site.107":
+    "أسطح API المخططة وقيد التطوير. يتم تأكيد التوفر أثناء الإعداد — لا تفترض أن كل واجهة برمجة تطبيقات موجودة في مرحلة الإنتاج.",
+  "site.108":
+    "يقوم FlipbotEA باستقصاء قائمة انتظار الإشارة وتنفيذها على العرض التوضيحي لـ Exness MT5 الذي تم تسجيل الدخول إليه. عمليات التعبئة الناجحة عثرة المستثمر NAV عبر fillRecorded.",
+  "site.109":
+    "العلامة التجارية ذات توجه عالمي: بنية تحتية يمكن أن تعمل عبر الأسواق والولايات القضائية حسب ما تسمح به القدرات والتراخيص.",
+  "site.110":
+    "مجموعة AI-forward مصممة لتحويل البيانات المالية إلى معلومات استخبارية وأبحاث تم التحقق من صحتها وقرارات المخاطر والتنفيذ الخاضع للرقابة.",
+  "site.111":
+    "لا توجد أدوار مفتوحة مدرجة حاليًا. قدم نفسك على careers@evermount.co إذا كنت تريد المساعدة في بناء البنية التحتية المالية.",
+  "site.112":
+    "البنية التحتية المالية للأسواق الحديثة - بيانات السوق، والأبحاث الكمية، والاستخبارات، والمخاطر، والتنفيذ، والاتصال.",
+  "site.113":
+    "تم إنشاء Evermount، التي تأسست عام 2023، لتسهيل الوصول إلى البنية التحتية المالية المتطورة وقابليتها للبرمجة والتطوير.",
+  "site.114":
+    "البنية التحتية البحثية لاكتشاف العوامل وتوليد الفرضيات والاختبار الخلفي والمحاكاة وتطوير الإستراتيجية المنهجية.",
+  "site.115":
+    "واجهة برمجة تطبيقات الشراكة لروابط الإحالة وتقارير العملاء وبيانات العمولة. يستخدم تنفيذ التداول Exness MT5 أعلاه — وليس واجهة برمجة التطبيقات هذه.",
+  "site.116":
+    "نحن نبني بنيتنا التحتية وفقًا لأعلى معايير التميز التشغيلي والأمان وإدارة المخاطر أثناء توسعنا.",
+  "site.117":
+    '"نحن نبني البيانات والأبحاث والاستخبارات والمخاطر والتنفيذ والبنية التحتية التي يمكن للمؤسسات والمطورين البناء عليها."',
+  "site.118":
+    "بيانات السوق والتحليلات والمخاطر والتنفيذ والبنية التحتية للاتصال للبنوك والوسطاء ومديري الأصول والشركات التجارية.",
+  "site.119":
+    "يتضمن الاستخدام النموذجي المسموح به البحث الداخلي والمخاطر والتحليلات وميزات التطبيق التي تديرها لمؤسستك.",
+  "site.120":
+    "يوجد في قلب Evermount منصة تقنية لبيانات السوق والبحث الكمي والاستخبارات والمخاطر والتنفيذ.",
+  "site.121":
+    "اسحب الدولار الأمريكي إلى حسابك البنكي المرتبط. تتم مراجعة الطلبات والموافقة عليها من قبل فريقنا (عادةً خلال يومي عمل).",
+  "site.122":
+    "سيقوم كل طرف بتنفيذ تدابير أمنية معقولة. يجب على العملاء حماية بيانات الاعتماد والإبلاغ عن التسوية المشتبه بها.",
+  "site.123":
+    "مجموعة تكنولوجية للبيانات والأبحاث والاستخبارات والمخاطر والتنفيذ والاتصال - وليس طلبًا لإيداع رأس المال.",
+  "site.124":
+    "قم بإيداع الأموال في محفظتك باستخدام العملات المشفرة المدعومة. ستكون الأموال متاحة في محفظتك بعد التأكيد.",
+  "site.125":
+    "البيانات والبحث الكمي والاستخبارات والمخاطر والتنفيذ والبنية التحتية للاتصالات للأسواق المالية الحديثة.",
+  "site.126":
+    "يستخدم عند النقر فوق التجارة. يبقى رأس مالك مستثمرًا خلال الفترة التي تختارها. الانسحاب المبكر قد لا يكون متاحا.",
+  "site.127":
+    "اسحب الأموال من محفظتك إلى البنك المفضل لديك أو محفظة العملات المشفرة. يمكن سحب رصيد المحفظة المتاح فقط.",
+  "site.128":
+    "اختر طريقة الإيداع المفضلة لديك لإضافة أموال إلى محفظتك. ستكون الأموال متاحة للسحب أو الاستثمار.",
+  "site.129":
+    "قد تكون البيانات متأخرة أو غير كاملة أو غير صحيحة. إنه ليس بديلاً عن خلاصات المكان الرسمية عندما تكون مطلوبة.",
+  "site.130":
+    "يتم تقديم الخدمات على أساس التكنولوجيا. قد تكون الميزات قيد المعاينة أو محدودة أو غير متوفرة في بعض الولايات القضائية.",
+  "site.131":
+    "قد يتم تأخير الأوامر أو رفضها أو تنفيذها جزئيًا أو تنفيذها بأسعار غير متوقعة في حالة وجود اتصال بالتنفيذ.",
+  "site.132":
+    "يتم نشر المصادقة ومفاتيح API وحدود الأسعار والأمثلة للمطورين المعتمدين. حتى ذلك الحين، طلب الوصول.",
+  "site.133":
+    "يتم وصف ترتيبات الاستضافة والاتصال والتشغيل في نموذج الطلب المعمول به أو بيان العمل.",
+  "site.134":
+    "اطلب الوصول لمناقشة البيانات والأبحاث والمخاطر والتنفيذ والبنية التحتية للاتصال مع فريق Evermount.",
+  "site.135":
+    "بنية مفاهيمية تربط الذكاء الاصطناعي والبحث والمخاطر والتنفيذ في منصة تكنولوجية مؤسسية واحدة.",
+  "site.136":
+    "رحلة عملية للمؤسسات والمطورين الذين يستخدمون البنية الأساسية لـ Evermount - وليس تدفقًا لتأهيل الأموال.",
+  "site.137":
+    "هندسة تقنية Evermount عبر هندسة البيانات والحوسبة الكمية والذكاء الاصطناعي وأنظمة التداول والمخاطر.",
+  "site.138":
+    "نحن نصمم أنظمة تتمحور حول جودة البيانات والأدلة البحثية والمخاطر القابلة للقياس - وليس تسويق الصناديق التقديرية.",
+  "site.139":
+    "قم ببناء النظام البيئي المالي مع Evermount من خلال شراكات البيانات والاتصال والتكنولوجيا والبحث.",
+  "site.140":
+    "يتم حساب نسبة السحب والتقلب وشارب من العائدات اليومية لمحفظتك الخاصة خلال آخر 90 يومًا.",
+  "site.141":
+    "اسحب KES من محفظتك مباشرة إلى حساب M-Pesa الخاص بك. يمكن سحب رصيد المحفظة المتاح فقط.",
+  "site.142":
+    "قم بتمويل محفظة KES الخاصة بك على الفور عبر M-Pesa. ستتلقى رسالة STK على هاتفك لتأكيد الدفع.",
+  "site.143":
+    "قدرات تحليل الأداء والمخاطر والتعرض والإسناد واختبار الضغط في منصة Evermount.",
+  "site.144":
+    "العمارة المفاهيمية. تختلف عمليات النشر والأماكن والتكاملات المحددة حسب العميل والولاية القضائية.",
+  "site.145":
+    "يتم تحديد الرسوم، إن وجدت، في نموذج الطلب. لا يدرج هذا الموقع رسوم إدارة الأموال أو الأداء.",
+  "site.146":
+    "بنية تحتية محايدة للسوق للأسهم والعملات الأجنبية والدخل الثابت والسلع والمشتقات والأصول الرقمية.",
+  "site.147":
+    "نحن لا نضمن عدم انقطاع الخدمة. قد تؤثر الصيانة وانقطاع الخدمة لدى البائع والقوة القاهرة على الوصول.",
+  "site.148":
+    "مشاركة الحجم المتوقع والأسواق ومتطلبات البنية التحتية. الأسعار مذكورة، وليست مدرجة ضمن رسوم الصندوق.",
+  "site.149":
+    "يجوز لنا منح الوصول إلى البيئات وبيانات الاعتماد والوثائق الخاضعة للموافقة والقانون المعمول به.",
+  "site.150":
+    "نحن نبحث دائمًا عن الأشخاص المتحمسين. إذا كنت متحمسًا لمهمتنا، فنحن نحب أن نسمع منك.",
+  "site.151":
+    "خطوط أنابيب بيانات مالية موحدة مصممة لدعم البحث والتحليلات وأنظمة اتخاذ القرار في الوقت الفعلي.",
+  "site.152":
+    "إمكانيات منصة Evermount. يعتمد التوفر المحدد على مستوى الوصول والولاية القضائية.",
+  "site.153":
+    "قم بتعيين EXNESS_PARTNER_REFERRAL_LINK أو تمكين EXNESS_PARTNER_ENABLED باستخدام بيانات اعتماد PPA في بيئة الواجهة الخلفية.",
+  "site.154":
+    "سحب الأموال من محفظتك إلى محفظة التشفير الخاصة بك. يمكن سحب رصيد المحفظة المتاح فقط.",
+  "site.155":
+    "أربع قدرات تحول البيانات المالية إلى معلومات وأبحاث وقرارات المخاطر والتنفيذ.",
+  "site.156":
+    "وينبغي دمج ضوابط المخاطر مباشرة في الأنظمة، بما في ذلك مراقبة ما قبل التجارة والرصد في الوقت الحقيقي.",
+  "site.157":
+    "يمكن أن تؤدي عيوب البرامج وانقطاع الخدمة وأخطاء التكوين إلى مقاطعة الوصول أو إنتاج مخرجات غير صحيحة.",
+  "site.158":
+    "رحلة من سبع خطوات من ربط الأنظمة إلى مراقبة الأسواق والمخاطر والتنفيذ على Evermount.",
+  "site.159":
+    "وينبغي أن تكون البنية التحتية المالية قابلة للبرمجة. تعتبر واجهات برمجة التطبيقات والبث والتكامل من الدرجة الأولى.",
+  "site.160":
+    "تقتصر المسؤولية على الحد الذي يسمح به القانون وكما هو منصوص عليه في الشروط التجارية الموقعة.",
+  "site.161":
+    "يتم تأكيد تفاصيل استضافة الإنتاج والعمليات مع العملاء أثناء تخطيط النشر.",
+  "site.162":
+    "مراقبة في الوقت الحقيقي للتعرض والسيولة والتقلبات والارتباط والسحب وأنظمة السوق.",
+  "site.163":
+    "لم نتمكن من العثور على الصفحة التي كنت تبحث عنها. ربما أخطأت في كتابة عنوان URL، أو تم نقل الصفحة.",
+  "site.164":
+    "أساس تكنولوجي لبيانات السوق والبحث الكمي والاستخبارات والمخاطر والتنفيذ.",
+  "site.165":
+    "لتحسين أداء الموقع، وتخصيص تجربة المستخدم، وتعزيز الأمان، وتحليل حركة المرور.",
+  "site.166":
+    "يمكنك الوصول إلى الموارد التعليمية والأدلة ومقاطع الفيديو والندوات عبر الإنترنت لتعزيز معرفتك الاستثمارية.",
+  "site.167":
+    "لا يمكنك العثور على ما تبحث عنه؟ أرسل لنا رسالة وسنرد عليك خلال 24 ساعة.",
+  "site.168":
+    "اللغات قيد الاستخدام النشط تشمل TypeScript وPython. C++ وRust موجودان في خارطة طريق الأنظمة.",
+  "site.169":
+    "أدخل البريد الإلكتروني المرتبط بحسابك وسنرسل لك كلمة المرور لمرة واحدة (OTP) لإعادة تعيين كلمة المرور الخاصة بك.",
+  "site.170":
+    "بنية تحتية للتنفيذ المنهجي مصممة لتحقيق الموثوقية والسرعة والنشر المتحكم فيه.",
+  "site.171":
+    "تعرف على فريق Evermount وكيف نقوم ببناء البنية التحتية المالية للأسواق الحديثة.",
+  "site.172":
+    "ملفات بيانات صغيرة موضوعة على جهازك لتتبع السلوك والتفضيلات ونشاط الجلسة.",
+  "site.173":
+    "إدارة حسابات المستثمرين والوصول إليها. يتم إنشاء مديري المحافظ ضمن المسؤول → المديرين.",
+  "site.174":
+    "يجمع فريقنا بين الخبرة في التمويل الكمي وعلوم البيانات وهندسة النظم.",
+  "site.175":
+    "أخبرنا عن مؤسستك واحتياجات البنية التحتية الخاصة بك. وسوف نتابع الخطوات التالية.",
+  "site.176":
+    "بنية تحتية مصممة للعمل عبر الأسواق والولايات القضائية حسب ما تسمح به القدرات.",
+  "site.177":
+    "حدد موعدًا لمحادثة حول بيانات Evermount والأبحاث والمخاطر والبنية التحتية للتنفيذ.",
+  "site.178":
+    "تم تعيينه بواسطة Evermount مباشرةً لجلسات تسجيل الدخول وحفظ تفضيلات السمة وحالات المخطط.",
+  "site.179":
+    "قد تتغير واجهات برمجة التطبيقات (API)، أو يتم إصدارها، أو يتم سحبها مع إشعار حيثما كان ذلك ممكنًا بشكل معقول.",
+  "site.180":
+    "قم بتوصيل مصادر البيانات أو الوسطاء أو الأماكن أو الأنظمة المؤسسية حيث توجد عمليات تكامل.",
+  "site.181":
+    "تخضع بيانات السوق وبيانات الطرف الثالث لسياسة البيانات وأي تراخيص للبائعين.",
+  "site.182":
+    "يتم التخطيط للبيئات غير الإنتاجية لاختبار التكامل للمطورين المعتمدين.",
+  "site.183":
+    "البحث الكمي وهيكل السوق والذكاء الاصطناعي وأبحاث المخاطر والتنفيذ من Evermount.",
+  "site.184":
+    "شارك متطلبات شركتك ودورك وواجهة برمجة التطبيقات (API) حتى نتمكن من توفير البيئة المناسبة.",
+  "site.185":
+    "استخدم الهندسة الحديثة والأساليب الكمية والذكاء الاصطناعي لحل المشكلات المالية المعقدة.",
+  "site.186":
+    "نحن نستثمر في البحث والهندسة حتى تظل البنية التحتية قابلة للبرمجة وموثوقة.",
+  "site.187":
+    "جعل البنية التحتية المالية المتطورة أكثر سهولة وقابلة للبرمجة والتوسع.",
+  "site.188":
+    "البحث في كيفية تفاعل الأماكن والسيولة والبنية الدقيقة للسوق مع التكنولوجيا.",
+  "site.189":
+    "تعمل محفظتك كحساب ضمان حيث يمكنك تخزين الأموال بأمان قبل الاستثمار",
+  "site.190":
+    "إنشاء المحفظة وتحسينها وتحليلها - وليس منتجًا استثماريًا مُدارًا.",
   "site.191": "يمكن للمؤسسات والباحثين مناقشة البيانات والأساليب وفرص الشراكة.",
-  "site.192": "تعرف على مهمة Evermount لبناء البنية التحتية المالية للأسواق الحديثة.",
-  "site.193": "إدارة رصيد محفظتك والودائع والسحوبات وتحويل الأموال إلى الاستثمارات.",
-  "site.194": "لقد أرسلنا عبر البريد الإلكتروني رمز التأكيد المكون من 6 أرقام. أدخل الرمز أدناه للتحقق من بريدك الإلكتروني.",
+  "site.192":
+    "تعرف على مهمة Evermount لبناء البنية التحتية المالية للأسواق الحديثة.",
+  "site.193":
+    "إدارة رصيد محفظتك والودائع والسحوبات وتحويل الأموال إلى الاستثمارات.",
+  "site.194":
+    "لقد أرسلنا عبر البريد الإلكتروني رمز التأكيد المكون من 6 أرقام. أدخل الرمز أدناه للتحقق من بريدك الإلكتروني.",
   "site.195": "تتوفر تعيينات مدير العلاقات المخصصة للحسابات المؤسسية.",
-  "site.196": "قم بتسجيل الدخول بشكل آمن إلى بوابة المستثمر Evermount Capital وقم بإدارة استثماراتك.",
-  "site.197": "تخضع بيانات السوق وبيانات الطرف الثالث لتراخيص البائعين وسياسة البيانات.",
-  "site.198": "استخبارات السوق والبحث الكمي والبنية التحتية للتكنولوجيا المالية.",
-  "site.199": "مطلوبة للوظائف الأساسية - على سبيل المثال، تسجيل الدخول والوصول إلى المحفظة. لا يمكن تعطيله.",
-  "site.200": "البيانات مرخصة وليست مباعة. تقتصر الحقوق على حالات الاستخدام الواردة في اتفاقيتك.",
+  "site.196":
+    "قم بتسجيل الدخول بشكل آمن إلى بوابة المستثمر Evermount Capital وقم بإدارة استثماراتك.",
+  "site.197":
+    "تخضع بيانات السوق وبيانات الطرف الثالث لتراخيص البائعين وسياسة البيانات.",
+  "site.198":
+    "استخبارات السوق والبحث الكمي والبنية التحتية للتكنولوجيا المالية.",
+  "site.199":
+    "مطلوبة للوظائف الأساسية - على سبيل المثال، تسجيل الدخول والوصول إلى المحفظة. لا يمكن تعطيله.",
+  "site.200":
+    "البيانات مرخصة وليست مباعة. تقتصر الحقوق على حالات الاستخدام الواردة في اتفاقيتك.",
   "site.201": "تذهب الودائع مباشرة إلى محفظتك وهي متاحة للسحب أو الاستثمار",
-  "site.202": "تُستخدم ملفات تعريف الارتباط الأساسية للوظائف. يمكنك إلغاء الاشتراك في تتبع ملفات تعريف الارتباط.",
-  "site.203": "الوصول البرنامجي إلى البيانات المالية والتحليلات والاستخبارات والبنية التحتية.",
-  "site.204": "يحظر إعادة التوزيع إلى أطراف ثالثة ما لم يسمح بذلك صراحة كتابيا.",
-  "site.205": "يمكن أن يؤدي الوصول غير المصرح به والبرامج الضارة وسرقة بيانات الاعتماد إلى تعريض الأنظمة والبيانات للخطر.",
-  "site.206": "لقد تم التحقق من هويتك. لديك حق الوصول الكامل إلى الودائع والاستثمارات.",
-  "site.207": "ستتوفر قريبًا صفحة الحالة العامة. بالنسبة للحوادث، اتصل بـ support@evermount.co.",
-  "site.208": "يمكن استخدام جميع طرق الدفع (البطاقة، البنك، العملة المشفرة) للإيداع والسحب",
+  "site.202":
+    "تُستخدم ملفات تعريف الارتباط الأساسية للوظائف. يمكنك إلغاء الاشتراك في تتبع ملفات تعريف الارتباط.",
+  "site.203":
+    "الوصول البرنامجي إلى البيانات المالية والتحليلات والاستخبارات والبنية التحتية.",
+  "site.204":
+    "يحظر إعادة التوزيع إلى أطراف ثالثة ما لم يسمح بذلك صراحة كتابيا.",
+  "site.205":
+    "يمكن أن يؤدي الوصول غير المصرح به والبرامج الضارة وسرقة بيانات الاعتماد إلى تعريض الأنظمة والبيانات للخطر.",
+  "site.206":
+    "لقد تم التحقق من هويتك. لديك حق الوصول الكامل إلى الودائع والاستثمارات.",
+  "site.207":
+    "ستتوفر قريبًا صفحة الحالة العامة. بالنسبة للحوادث، اتصل بـ support@evermount.co.",
+  "site.208":
+    "يمكن استخدام جميع طرق الدفع (البطاقة، البنك، العملة المشفرة) للإيداع والسحب",
   "site.209": "شارك نوع مؤسستك والأسواق التي تهمك ومتطلبات البنية التحتية.",
-  "site.210": "تتم إضافة الأرباح المسحوبة من الاستثمارات تلقائيًا إلى رصيد محفظتك",
-  "site.211": "تتوفر ودائع البطاقة وM-Pesa والعملات المشفرة. التحويلات المصرفية قادمة قريبا.",
-  "site.212": "ناقش البنية وواجهات برمجة التطبيقات ومتطلبات التكامل مع فريق Evermount.",
-  "site.213": "لقد تم رفض طلبك السابق. يرجى تحميل مستندات جديدة للمحاولة مرة أخرى.",
-  "site.214": "وتظل بيانات التبادل والبائعين والبيانات البديلة خاضعة لشروط مقدمي الخدمة هؤلاء.",
-  "site.215": "يتم تسجيل نشاط المحفظة وملف المخاطر وتوقيت التنفيذ للتأكد من دقتها.",
-  "site.216": "يمكن أن يتم تحديد النماذج الكمية ونماذج الذكاء الاصطناعي بشكل خاطئ، أو الإفراط في ملاءمتها، أو الفشل في الأنظمة الجديدة.",
-  "site.217": "لا يجوز لك استخراج البيانات أو إجراء هندسة عكسية لها أو إعادة توزيعها بما يتجاوز الترخيص الخاص بك.",
-  "site.218": "يبقى رأس المال مستثمرا لهذه الفترة. الانسحاب المبكر قد لا يكون متاحا.",
-  "site.219": "قد تتأخر الخلاصات أو تكون مفقودة أو خاطئة. يمكن أن تكون القرارات المبنية على البيانات معيبة.",
-  "site.220": "البنية التحتية التي تربط المؤسسات والوسطاء والأماكن والأنظمة المالية.",
-  "site.221": "سحب قيمة صافي قيمة الأصول الإستراتيجية من الكمية الدائمة وتحديث قيم محفظة المستثمرين.",
-  "site.222": "اطلب الوصول لمناقشة مدى ملاءمة واجهات برمجة تطبيقات التحليلات ولوحات المعلومات لسير عملك.",
+  "site.210":
+    "تتم إضافة الأرباح المسحوبة من الاستثمارات تلقائيًا إلى رصيد محفظتك",
+  "site.211":
+    "تتوفر ودائع البطاقة وM-Pesa والعملات المشفرة. التحويلات المصرفية قادمة قريبا.",
+  "site.212":
+    "ناقش البنية وواجهات برمجة التطبيقات ومتطلبات التكامل مع فريق Evermount.",
+  "site.213":
+    "لقد تم رفض طلبك السابق. يرجى تحميل مستندات جديدة للمحاولة مرة أخرى.",
+  "site.214":
+    "وتظل بيانات التبادل والبائعين والبيانات البديلة خاضعة لشروط مقدمي الخدمة هؤلاء.",
+  "site.215":
+    "يتم تسجيل نشاط المحفظة وملف المخاطر وتوقيت التنفيذ للتأكد من دقتها.",
+  "site.216":
+    "يمكن أن يتم تحديد النماذج الكمية ونماذج الذكاء الاصطناعي بشكل خاطئ، أو الإفراط في ملاءمتها، أو الفشل في الأنظمة الجديدة.",
+  "site.217":
+    "لا يجوز لك استخراج البيانات أو إجراء هندسة عكسية لها أو إعادة توزيعها بما يتجاوز الترخيص الخاص بك.",
+  "site.218":
+    "يبقى رأس المال مستثمرا لهذه الفترة. الانسحاب المبكر قد لا يكون متاحا.",
+  "site.219":
+    "قد تتأخر الخلاصات أو تكون مفقودة أو خاطئة. يمكن أن تكون القرارات المبنية على البيانات معيبة.",
+  "site.220":
+    "البنية التحتية التي تربط المؤسسات والوسطاء والأماكن والأنظمة المالية.",
+  "site.221":
+    "سحب قيمة صافي قيمة الأصول الإستراتيجية من الكمية الدائمة وتحديث قيم محفظة المستثمرين.",
+  "site.222":
+    "اطلب الوصول لمناقشة مدى ملاءمة واجهات برمجة تطبيقات التحليلات ولوحات المعلومات لسير عملك.",
   "site.223": "أخبرنا بفئات الأصول ومتطلبات البيانات التي تهم مؤسستك.",
   "site.224": "انضم إلى خبرائنا لإجراء تحليل متعمق لاتجاهات السوق وفرصه.",
-  "site.225": "تتم الآن مراجعة مستنداتك. سنقوم بإخطارك عبر البريد الإلكتروني بمجرد اكتماله.",
-  "site.226": "رسالتك - الدور ونوع الشركة والأسواق واحتياجات البيانات/واجهة برمجة التطبيقات والنطاق المتوقع...",
-  "site.227": "المستثمرون المعينون والأرصدة وتخصيص الإستراتيجية باستخدام مقاييس المخاطر المباشرة",
-  "site.228": "اكتشف كيفية ربط بيانات السوق والأبحاث والاستخبارات والمخاطر والتنفيذ.",
+  "site.225":
+    "تتم الآن مراجعة مستنداتك. سنقوم بإخطارك عبر البريد الإلكتروني بمجرد اكتماله.",
+  "site.226":
+    "رسالتك - الدور ونوع الشركة والأسواق واحتياجات البيانات/واجهة برمجة التطبيقات والنطاق المتوقع...",
+  "site.227":
+    "المستثمرون المعينون والأرصدة وتخصيص الإستراتيجية باستخدام مقاييس المخاطر المباشرة",
+  "site.228":
+    "اكتشف كيفية ربط بيانات السوق والأبحاث والاستخبارات والمخاطر والتنفيذ.",
   "site.229": "تعلم أساسيات استراتيجيات التداول الكمي وكيفية عملها.",
-  "site.230": "مؤقت ويتم حذفه عند إغلاق المتصفح. يحافظ على تسجيل الدخول عبر الصفحات.",
-  "site.231": "يتم تشفير جميع البيانات أثناء النقل وفي حالة عدم النشاط باستخدام أفضل ممارسات الصناعة.",
+  "site.230":
+    "مؤقت ويتم حذفه عند إغلاق المتصفح. يحافظ على تسجيل الدخول عبر الصفحات.",
+  "site.231":
+    "يتم تشفير جميع البيانات أثناء النقل وفي حالة عدم النشاط باستخدام أفضل ممارسات الصناعة.",
   "site.232": "قم بتنزيل بيانات PDF مع ملخص المحفظة وإسناد الأداء.",
-  "site.233": "العناصر المرنة-مركز الفجوة-3 بكسل-3 py-2 مدورة-md نص-sm خط-انتقال متوسط",
-  "site.234": "النمذجة والمحاكاة وأبحاث العوامل والبنية التحتية لأبحاث الإستراتيجية.",
-  "site.235": "We may use analytics and performance SDKs (e.g., Google Analytics, Sentry).",
-  "site.236": "تتوفر عمليات السحب من البنك وM-Pesa والعملات المشفرة بعد التحقق من KYC.",
-  "site.237": "من الممكن أن يفشل الوسطاء والأماكن والشبكات والبائعين بشكل مستقل عن Evermount.",
-  "site.238": "Market data, analytics and execution infrastructure for commodity markets.",
+  "site.233":
+    "العناصر المرنة-مركز الفجوة-3 بكسل-3 py-2 مدورة-md نص-sm خط-انتقال متوسط",
+  "site.234":
+    "النمذجة والمحاكاة وأبحاث العوامل والبنية التحتية لأبحاث الإستراتيجية.",
+  "site.235":
+    "We may use analytics and performance SDKs (e.g., Google Analytics, Sentry).",
+  "site.236":
+    "تتوفر عمليات السحب من البنك وM-Pesa والعملات المشفرة بعد التحقق من KYC.",
+  "site.237":
+    "من الممكن أن يفشل الوسطاء والأماكن والشبكات والبائعين بشكل مستقل عن Evermount.",
+  "site.238":
+    "Market data, analytics and execution infrastructure for commodity markets.",
   "site.239": "تكنولوجيا صناعة السوق والبنية التحتية للسيولة والاتصال بالمكان.",
   "site.240": "ناقش الهندسة المعمارية والتكامل دون ادعاءات الأداء المخترعة.",
-  "site.241": "We may revise this Privacy Policy. Changes will be communicated to users.",
+  "site.241":
+    "We may revise this Privacy Policy. Changes will be communicated to users.",
   "site.242": "يمكنك طلب الوصول إلى بياناتك أو تصحيحها أو حذفها في أي وقت.",
   "site.243": "تقع الأساليب الكمية وجودة البيانات في مركز المنصة.",
-  "site.244": "يتم عرضه عند الإدخال الأول مع خيارات الاشتراك/الخروج — المتوافق مع القانون العام لحماية البيانات (GDPR)/قانون خصوصية المستهلك في كاليفورنيا (CCPA).",
-  "site.245": "واجهات برمجة التطبيقات والبنية التحتية المالية التي يمكن دمجها في المنتجات.",
-  "site.246": "بناء البنية التحتية التي يمكن أن تعمل عبر الأسواق والولايات القضائية.",
+  "site.244":
+    "يتم عرضه عند الإدخال الأول مع خيارات الاشتراك/الخروج — المتوافق مع القانون العام لحماية البيانات (GDPR)/قانون خصوصية المستهلك في كاليفورنيا (CCPA).",
+  "site.245":
+    "واجهات برمجة التطبيقات والبنية التحتية المالية التي يمكن دمجها في المنتجات.",
+  "site.246":
+    "بناء البنية التحتية التي يمكن أن تعمل عبر الأسواق والولايات القضائية.",
   "site.247": "التعلم الآلي وذكاء السوق وتوليد الإشارات والتحليلات.",
-  "site.248": "طرق الكشف عن النظام، البرمجة اللغوية العصبية، التنبؤ ومساعدي البحوث.",
-  "site.249": "No performance history yet. Invest to start tracking your equity curve.",
-  "site.250": "Step-by-step guide to building a well-diversified investment portfolio.",
-  "site.251": "To improve user experience, run analytics, and comply with regulations.",
-  "site.252": "نحن نحتفظ ببيانات المستخدم طالما كان ذلك ضروريًا للامتثال للقوانين المالية.",
-  "site.253": "Login timestamps, IP, and geolocation are stored for fraud prevention.",
-  "site.254": "كلمة المرور يجب أن تكون قوية. تضمين الأحرف الكبيرة والرقم والحرف الخاص.",
-  "site.255": "يُستخدم لتخزين مرشحات لوحة المعلومات وإعدادات الوضع والرموز المميزة للجلسة.",
-  "site.256": "We do not sell cookie-collected data. Used solely for your experience.",
+  "site.248":
+    "طرق الكشف عن النظام، البرمجة اللغوية العصبية، التنبؤ ومساعدي البحوث.",
+  "site.249":
+    "No performance history yet. Invest to start tracking your equity curve.",
+  "site.250":
+    "Step-by-step guide to building a well-diversified investment portfolio.",
+  "site.251":
+    "To improve user experience, run analytics, and comply with regulations.",
+  "site.252":
+    "نحن نحتفظ ببيانات المستخدم طالما كان ذلك ضروريًا للامتثال للقوانين المالية.",
+  "site.253":
+    "Login timestamps, IP, and geolocation are stored for fraud prevention.",
+  "site.254":
+    "كلمة المرور يجب أن تكون قوية. تضمين الأحرف الكبيرة والرقم والحرف الخاص.",
+  "site.255":
+    "يُستخدم لتخزين مرشحات لوحة المعلومات وإعدادات الوضع والرموز المميزة للجلسة.",
+  "site.256":
+    "We do not sell cookie-collected data. Used solely for your experience.",
   "site.257": "دليل شامل لإدارة مخاطر المحفظة في الأسواق المتقلبة.",
   "site.258": "كل ما تحتاج لمعرفته حول الاستثمار في الأصول الرقمية بأمان.",
-  "site.259": "وفي حالة حدوث خرق، سيتم إخطار المستخدمين المتأثرين خلال 72 ساعة.",
+  "site.259":
+    "وفي حالة حدوث خرق، سيتم إخطار المستخدمين المتأثرين خلال 72 ساعة.",
   "site.260": "قم بإدارة استثماراتك عبر الصناديق المختلفة وتتبع الأداء.",
-  "site.261": "Most browsers let you block cookies from settings > privacy/security.",
-  "site.262": "View running strategies, switch execution, and monitor pooled metrics",
-  "site.263": "Attempts to circumvent security, quotas or licensing are prohibited.",
-  "site.264": "High-quality financial infrastructure begins with high-quality data.",
-  "site.265": "Infrastructure designed to operate across markets and jurisdictions.",
-  "site.266": "MARKET DATA → DATA PLATFORM → QUANT + AI → RISK → EXECUTION → VENUES",
-  "site.267": "No statements yet. Statements are generated monthly by the platform.",
-  "site.268": "People, process and third-party failures can affect service quality.",
+  "site.261":
+    "Most browsers let you block cookies from settings > privacy/security.",
+  "site.262":
+    "View running strategies, switch execution, and monitor pooled metrics",
+  "site.263":
+    "Attempts to circumvent security, quotas or licensing are prohibited.",
+  "site.264":
+    "High-quality financial infrastructure begins with high-quality data.",
+  "site.265":
+    "Infrastructure designed to operate across markets and jurisdictions.",
+  "site.266":
+    "MARKET DATA → DATA PLATFORM → QUANT + AI → RISK → EXECUTION → VENUES",
+  "site.267":
+    "No statements yet. Statements are generated monthly by the platform.",
+  "site.268":
+    "People, process and third-party failures can affect service quality.",
   "site.269": "البنية التحتية التكنولوجية لأسواق الأصول الرقمية حيث يتم دعمها.",
-  "site.270": "We anonymize all data used for benchmarks and research publications.",
-  "site.271": "We may email you regarding platform changes, promotions, or reports.",
-  "site.272": "Create and manage portfolio managers who onboard and serve clients.",
+  "site.270":
+    "We anonymize all data used for benchmarks and research publications.",
+  "site.271":
+    "We may email you regarding platform changes, promotions, or reports.",
+  "site.272":
+    "Create and manage portfolio managers who onboard and serve clients.",
   "site.273": "أنظمة التداول الإلكترونية والبنية التحتية للتنفيذ المنهجي.",
-  "site.274": "High-performance data, research, execution and risk infrastructure.",
-  "site.275": "Initiate a bank deposit, then wire funds to our settlement account.",
+  "site.274":
+    "High-performance data, research, execution and risk infrastructure.",
+  "site.275":
+    "Initiate a bank deposit, then wire funds to our settlement account.",
   "site.276": "شكرا لاتصالك بنا! سنعود إليك خلال 24 ساعة.",
-  "site.277": "APIs may only be used for permitted purposes in your access grant.",
+  "site.277":
+    "APIs may only be used for permitted purposes in your access grant.",
   "site.278": "أدخل المبلغ — نحن نطابقك مع أفضل استراتيجية لخطتك.",
-  "site.279": "إتقان تقنيات التداول المتقدمة التي يستخدمها المستثمرون المحترفون.",
-  "site.280": "Structured intelligence from market data and alternative datasets.",
-  "site.281": "يمكن لأدوات مثل uBlock أو إعدادات المتصفح حظر ملفات تعريف الارتباط التحليلية.",
-  "site.282": "يُستخدم للتحليلات (Google)، والمدفوعات (Stripe)، وتسجيلات الدخول الاجتماعية.",
-  "site.283": "نحن نحتفظ بنسخ احتياطية آمنة زائدة عن الحاجة لضمان استمرارية الخدمة.",
+  "site.279":
+    "إتقان تقنيات التداول المتقدمة التي يستخدمها المستثمرون المحترفون.",
+  "site.280":
+    "Structured intelligence from market data and alternative datasets.",
+  "site.281":
+    "يمكن لأدوات مثل uBlock أو إعدادات المتصفح حظر ملفات تعريف الارتباط التحليلية.",
+  "site.282":
+    "يُستخدم للتحليلات (Google)، والمدفوعات (Stripe)، وتسجيلات الدخول الاجتماعية.",
+  "site.283":
+    "نحن نحتفظ بنسخ احتياطية آمنة زائدة عن الحاجة لضمان استمرارية الخدمة.",
   "site.284": "يمكنك تحويل الأموال من محفظتك إلى الاستثمارات في أي وقت",
-  "site.285": "يجوز لك سحب الموافقة على استخدام البيانات، مع مراعاة قيود الميزات.",
+  "site.285":
+    "يجوز لك سحب الموافقة على استخدام البيانات، مع مراعاة قيود الميزات.",
   "site.286": "حاليا لا تستخدم. سنطلب الموافقة إذا قدمناهم.",
   "site.287": "التعرض واختبار الإجهاد وتحليل السيناريو وأطر الحد.",
-  "site.288": "بيانات السوق والتحليلات والمخاطر والبنية التحتية للتنفيذ في سوق العملات الأجنبية.",
+  "site.288":
+    "بيانات السوق والتحليلات والمخاطر والبنية التحتية للتنفيذ في سوق العملات الأجنبية.",
   "site.289": "لا توجد معاملات حتى الآن. قم بعمل إيداع أو استثمار للبدء.",
-  "site.290": "نحن نلتزم باللوائح العامة لحماية البيانات (GDPR) وCCPA وإرشادات حماية البيانات الكينية.",
-  "site.291": "يجوز لنا الكشف عن البيانات عندما تتطلب ذلك الإجراءات القانونية أو مذكرات الاستدعاء.",
-  "site.292": "أدخل الرمز المكون من 6 أرقام المرسل إلى بريدك الإلكتروني وكلمة المرور الجديدة.",
-  "site.293": "تحكم عناصر التحكم المستندة إلى الدور الوصول الداخلي إلى بيانات حسابك.",
+  "site.290":
+    "نحن نلتزم باللوائح العامة لحماية البيانات (GDPR) وCCPA وإرشادات حماية البيانات الكينية.",
+  "site.291":
+    "يجوز لنا الكشف عن البيانات عندما تتطلب ذلك الإجراءات القانونية أو مذكرات الاستدعاء.",
+  "site.292":
+    "أدخل الرمز المكون من 6 أرقام المرسل إلى بريدك الإلكتروني وكلمة المرور الجديدة.",
+  "site.293":
+    "تحكم عناصر التحكم المستندة إلى الدور الوصول الداخلي إلى بيانات حسابك.",
   "site.294": "تم السحب. سيتم معالجته بعد موافقة المشرف.",
   "site.295": "جميع إيداعات المحفظة والسحوبات والاستثمارات والتسويات.",
-  "site.296": "يتم تسجيل ومراقبة أي عمليات تكامل خارجية عبر واجهة برمجة التطبيقات (API) الخاصة بنا.",
+  "site.296":
+    "يتم تسجيل ومراقبة أي عمليات تكامل خارجية عبر واجهة برمجة التطبيقات (API) الخاصة بنا.",
   "site.297": "بدأ الإيداع البنكي - قم بتحويل الأموال باستخدام التفاصيل أدناه",
   "site.298": "تمكين تخصيصات السمات والعملة واللغة والواجهة.",
   "site.299": "تحليلات التنفيذ وأبحاث التوجيه والضوابط التشغيلية.",
   "site.300": "تتم معالجة المدفوعات عبر أطراف ثالثة آمنة ومتوافقة مع PCI.",
-  "site.301": "ضوابط ما قبل التجارة وفي الوقت الحقيقي للمخاطر المضمنة في المنصة.",
+  "site.301":
+    "ضوابط ما قبل التجارة وفي الوقت الحقيقي للمخاطر المضمنة في المنصة.",
   "site.302": "Quantitative research, data, execution and risk infrastructure.",
   "site.303": "قم بمراجعة تفاصيل التخصيص قبل الالتزام برأس مال العميل.",
-  "site.304": "تحدث مع Evermount حول بياناتك وواجهة برمجة التطبيقات (API) ومتطلبات المخاطر.",
+  "site.304":
+    "تحدث مع Evermount حول بياناتك وواجهة برمجة التطبيقات (API) ومتطلبات المخاطر.",
   "site.305": "قم بتحميل المستندات الخاصة بك للتحقق من هويتك قبل الاستثمار.",
   "site.306": "قد نستخدم إجراءات المستخدم لاقتراح نماذج استثمار محسنة.",
   "site.307": "يمكن استخدام سلوكك المجهول لتدريب نماذج المحفظة.",
   "site.308": "Configure system settings, security, and platform preferences.",
-  "site.309": "أدخل تفاصيل بطاقة الفيزا أو الماستر كارد الخاصة بك لإكمال الإيداع.",
+  "site.309":
+    "أدخل تفاصيل بطاقة الفيزا أو الماستر كارد الخاصة بك لإكمال الإيداع.",
   "site.310": "ضوابط الجرائم المالية بما يتناسب مع الخدمات المقدمة.",
   "site.311": "Partner due diligence for connectivity and data relationships.",
   "site.312": "قم بتحويل رصيدك المتاح مباشرة إلى حسابك البنكي.",
-  "site.313": "نحن لا نستجيب حاليًا لإشارات المتصفح \"عدم التتبع\".",
-  "site.314": "نقوم بتحديث هذه السياسة بناءً على التغييرات المادية - راجع سجل التغييرات.",
+  "site.313": 'نحن لا نستجيب حاليًا لإشارات المتصفح "عدم التتبع".',
+  "site.314":
+    "نقوم بتحديث هذه السياسة بناءً على التغييرات المادية - راجع سجل التغييرات.",
   "site.315": "إعداد العملاء للحسابات المؤسسية والمطورين.",
   "site.316": "Enhanced modals for EU, California, Kenya, and other regions.",
   "site.317": "Find answers to common questions or contact our support team.",
@@ -6625,7 +8304,8 @@ export const siteAr: Messages = {
   "site.321": "We log IP, OS, browser version to help protect user accounts.",
   "site.322": "Your opt-in is remembered for 6 months unless manually reset.",
   "site.323": "Automated risk management and portfolio optimization systems",
-  "site.324": "أدخل رقم التعريف الشخصي (PIN) الخاص بـ M-Pesa على هاتفك لإكمال الإيداع.",
+  "site.324":
+    "أدخل رقم التعريف الشخصي (PIN) الخاص بـ M-Pesa على هاتفك لإكمال الإيداع.",
   "site.325": "For any privacy concerns, email us at privacy@evermount.com.",
   "site.326": "Sharpe ratio (as an analytics metric on customer portfolios)",
   "site.327": "Stored long-term for language, theme, and device preference.",
@@ -6641,15 +8321,19 @@ export const siteAr: Messages = {
   "site.337": "المصادقة متعددة العوامل وضوابط الوصول القائمة على الدور",
   "site.338": "Personal data handling is described in the Privacy Policy.",
   "site.339": "Research, portfolio analytics, risk and execution tooling.",
-  "site.340": "قد تستخدم بعض الميزات الذكاء الاصطناعي لضبط رؤى الإستراتيجية تلقائيًا.",
+  "site.340":
+    "قد تستخدم بعض الميزات الذكاء الاصطناعي لضبط رؤى الإستراتيجية تلقائيًا.",
   "site.341": "بناء أسس موثوقة قبل التطبيقات المالية.",
   "site.342": "قد يتم تقييد أو حظر حركة المرور المفرطة أو المسيئة.",
   "site.343": "نماذج التعلم الآلي المدربة على بيانات السوق التاريخية",
-  "site.344": "رمز الاستجابة السريعة غير متوفر لدى المطور المحلي — استخدم العنوان أعلاه.",
-  "site.345": "تنتهي صلاحية ملفات تعريف الارتباط للجلسة بعد ساعتين من عدم النشاط افتراضيًا.",
+  "site.344":
+    "رمز الاستجابة السريعة غير متوفر لدى المطور المحلي — استخدم العنوان أعلاه.",
+  "site.345":
+    "تنتهي صلاحية ملفات تعريف الارتباط للجلسة بعد ساعتين من عدم النشاط افتراضيًا.",
   "site.346": "Systematic, low-latency electronic trading infrastructure",
   "site.347": "0 1px 3px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 0, 0, 0.3)",
-  "site.348": "يتم تخزين جميع موافقات ملفات تعريف الارتباط بشكل آمن وختمها بختم زمني.",
+  "site.348":
+    "يتم تخزين جميع موافقات ملفات تعريف الارتباط بشكل آمن وختمها بختم زمني.",
   "site.349": "بناء البنية التحتية وراء الأسواق المالية الحديثة",
   "site.350": "بناء البنية التحتية للأسواق المالية الحديثة",
   "site.351": "قد يتم تخزين البيانات عبر ولايات قضائية آمنة متعددة.",
@@ -6658,8 +8342,10 @@ export const siteAr: Messages = {
   "site.354": "مقاييس الأداء مشابهة لحسابات التداول التي تم التحقق منها",
   "site.355": "تم إرسال دفعة STK. تحقق من هاتفك لإتمام عملية الدفع.",
   "site.356": "قم بتخزين حجم الخط والتباين وتفضيلات التنقل في لوحة المفاتيح.",
-  "site.357": "نحن لا نتتبع الأطفال دون سن 18 عامًا عن قصد عبر ملفات تعريف الارتباط.",
-  "site.358": "يمكنك إلغاء الاشتراك في رسائل البريد الإلكتروني الترويجية في أي وقت.",
+  "site.357":
+    "نحن لا نتتبع الأطفال دون سن 18 عامًا عن قصد عبر ملفات تعريف الارتباط.",
+  "site.358":
+    "يمكنك إلغاء الاشتراك في رسائل البريد الإلكتروني الترويجية في أي وقت.",
   "site.359": "نحن لا نتتبع المستخدمين عبر الأجهزة إلا إذا قمت بالاشتراك.",
   "site.360": "تشفير AES 256 بت للبيانات أثناء السكون وأثناء النقل",
   "site.361": "القنوات التي توفر البنية التحتية لـ Evermount للمستخدمين.",
@@ -6674,7 +8360,8 @@ export const siteAr: Messages = {
   "site.370": "أضف هذا السر إلى Google Authenticator / 1Password:",
   "site.371": "بناء البنية التحتية المالية للأسواق الحديثة",
   "site.372": "مراقبة المخاطر المستقلة ومراقبة الامتثال",
-  "site.373": "تنطبق رسوم المعالجة البالغة 5.00 دولارات على عمليات السحب البنكي.",
+  "site.373":
+    "تنطبق رسوم المعالجة البالغة 5.00 دولارات على عمليات السحب البنكي.",
   "site.374": "قم بتحليل وقت التحميل واستجابة الخادم وتجربة المستخدم الشاملة.",
   "site.375": "أطر شاملة للاختبار والتحقق من الصحة",
   "site.376": "أوراق الاعتماد سرية ولا يجوز مشاركتها.",
@@ -6708,11 +8395,12 @@ export const siteAr: Messages = {
   "site.404": "عرض جميع معاملات ونشاط محفظتك",
   "site.405": "الوسيط والمكان والاتصال المؤسسي.",
   "site.406": "البحث الكمي وذكاء السوق",
-  "site.407": "يخضع استخدام واجهات برمجة التطبيقات أيضًا لشروط واجهة برمجة التطبيقات.",
+  "site.407":
+    "يخضع استخدام واجهات برمجة التطبيقات أيضًا لشروط واجهة برمجة التطبيقات.",
   "site.408": "قم ببناء النظام البيئي المالي مع Evermount",
   "site.409": "الأموال المتاحة للسحب أو الاستثمار",
   "site.410": "يستخدم للكشف عن الأنشطة المشبوهة أو إساءة الاستخدام.",
-  "site.411": "; الحالة \"معلقة\": الحالة \"قيد المعالجة\": العودة",
+  "site.411": '; الحالة "معلقة": الحالة "قيد المعالجة": العودة',
   "site.412": "منصة البنية التحتية المالية Evermount",
   "site.413": "كيف يتم حساب أداء محفظتي؟",
   "site.414": "إيداع فوري عبر STK Push إلى هاتفك.",
@@ -6725,7 +8413,7 @@ export const siteAr: Messages = {
   "site.421": "منصة Evermount للاستخبارات المالية",
   "site.422": "البنية التحتية للمؤسسات المالية",
   "site.423": "منصة واحدة. أنظمة مالية متعددة.",
-  "site.424": "; الحالة \"فشلت\": الحالة \"مرفوضة\": العودة",
+  "site.424": '; الحالة "فشلت": الحالة "مرفوضة": العودة',
   "site.425": "استكمال التحقق لبدء الاستثمار",
   "site.426": "من الاستخبارات المالية إلى التنفيذ",
   "site.427": "كيف أقوم بتحديث معلوماتي الشخصية؟",
@@ -6869,8 +8557,8 @@ export const siteAr: Messages = {
   "site.565": "مرجع الأسلاك (اختياري)",
   "site.566": "السحب إلى محفظة التشفير",
   "site.567": "← العودة إلى طرق الإيداع",
-  "site.568": "; حالة \"المادة\": العودة",
-  "site.569": "; حالة \"ندوة عبر الإنترنت\": العودة",
+  "site.568": '; حالة "المادة": العودة',
+  "site.569": '; حالة "ندوة عبر الإنترنت": العودة',
   "site.570": "تعيين المستثمر عن طريق البريد الإلكتروني",
   "site.571": "البنية التحتية للتنفيذ",
   "site.572": "البنية التحتية للتنفيذ",
@@ -6909,7 +8597,7 @@ export const siteAr: Messages = {
   "site.605": "هندسة التكنولوجيا",
   "site.606": "تايب سكريبت / جافا سكريبت",
   "site.607": "المحفظة + الأموال المستثمرة",
-  "site.608": "; حالة \"الدليل\": العودة",
+  "site.608": '; حالة "الدليل": العودة',
   "site.609": "مساعدو أبحاث الذكاء الاصطناعي",
   "site.610": "فترة القفل الافتراضية",
   "site.611": "اكتشاف الاستراتيجيات",
