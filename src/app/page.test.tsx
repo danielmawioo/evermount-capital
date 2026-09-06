@@ -7,17 +7,14 @@ describe("Home page", () => {
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: /Building Africa's Quantitative Trading Infrastructure/i,
+        name: /Financial Infrastructure for Modern Markets/i,
       }),
     ).toBeInTheDocument();
-    expect(
-      screen.getAllByText(/quantitative trading and market-making/i).length,
-    ).toBeGreaterThan(0);
   });
 
   it("exports metadata with the expected title", () => {
     expect(metadata.title).toBe(
-      "Evermount Capital | Quantitative Trading Infrastructure for Africa",
+      "Evermount | Financial Infrastructure for Modern Markets",
     );
   });
 });

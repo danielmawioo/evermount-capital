@@ -1,43 +1,20 @@
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import { MarketData, SAMPLE_MARKET_DATA } from "@/lib/mock-market-data";
 
 const TOP_MOVERS_COUNT = 10;
-const SIMULATION_INTERVAL_MS = 5000;
 
 /**
- * Drives the homepage's decorative "top movers" widget: seeds from
- * SAMPLE_MARKET_DATA (sorted by absolute % change) and then simulates small
- * price movements on an interval. Not connected to any real market feed.
+ * Homepage decorative "top movers" widget. Static sample quotes only —
+ * not connected to any market feed and not simulated as live prices.
  */
 export function useMarketTicker() {
-  const [marketData, setMarketData] = useState<MarketData[]>([]);
-
-  useEffect(() => {
-    const sortedData = [...SAMPLE_MARKET_DATA].sort(
-      (a, b) => Math.abs(b.changePercent) - Math.abs(a.changePercent),
-    );
-    setMarketData(sortedData.slice(0, TOP_MOVERS_COUNT));
-
-    const interval = setInterval(() => {
-      setMarketData((prev) =>
-        prev.map((item) => {
-          const randomChange = (Math.random() - 0.5) * 0.5;
-          const newChangePercent = item.changePercent + randomChange;
-          const newChange = (item.price * newChangePercent) / 100;
-          return {
-            ...item,
-            price: item.price + newChange,
-            change: newChange,
-            changePercent: newChangePercent,
-          };
-        }),
-      );
-    }, SIMULATION_INTERVAL_MS);
-
-    return () => clearInterval(interval);
+  const marketData = useMemo(() => {
+    return [...SAMPLE_MARKET_DATA]
+      .sort((a, b) => Math.abs(b.changePercent) - Math.abs(a.changePercent))
+      .slice(0, TOP_MOVERS_COUNT);
   }, []);
 
-  return { marketData, simulationIntervalMs: SIMULATION_INTERVAL_MS };
+  return { marketData };
 }
 
 export function getMarketTypeColor(type: MarketData["type"]) {

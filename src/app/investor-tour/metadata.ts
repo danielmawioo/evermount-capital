@@ -1,24 +1,10 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Investor Tour | Evermount Capital - How It Works",
+  title: "Platform Tour | Evermount",
   description:
-    "Explore how Evermount blends AI and Quantitative Models to build future-ready investment portfolios. Learn about our investment process, security, and performance.",
-  keywords: [
-    "how to invest",
-    "quantitative trading process",
-    "AI investing",
-    "investment guide",
-    "Evermount Capital guide",
-  ],
-  openGraph: {
-    title: "Investor Tour | Evermount Capital - How It Works",
-    description:
-      "Explore how Evermount blends AI and Quantitative Models to build future-ready investment portfolios.",
-    url: "https://www.evermount.co/investor-tour",
-    type: "website",
-  },
+    "A seven-step journey from connecting systems to monitoring markets, risk and execution on Evermount.",
   alternates: {
-    canonical: "https://www.evermount.co/investor-tour",
+    canonical: "https://www.evermount.co/platform-tour",
   },
 };

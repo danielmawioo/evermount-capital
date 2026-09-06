@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import MockAdapter from "axios-mock-adapter";
 import apiClient from "@/lib/api-client";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { LocaleProvider } from "@/context/LocaleContext";
 import Topbar from "./Topbar";
 
 const push = jest.fn();
@@ -16,7 +17,9 @@ jest.mock("next/navigation", () => ({
 function renderTopbar() {
   return render(
     <ThemeProvider>
-      <Topbar />
+      <LocaleProvider>
+        <Topbar />
+      </LocaleProvider>
     </ThemeProvider>,
   );
 }
@@ -74,14 +77,20 @@ describe("Topbar", () => {
     const user = userEvent.setup();
     renderTopbar();
 
-    await user.click(screen.getByText("🇬🇧 English"));
-    expect(screen.getByText("🇫🇷 French")).toBeInTheDocument();
+    await user.click(screen.getByLabelText("Language"));
+    expect(screen.getByRole("option", { name: "Deutsch" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("option", { name: "Nederlands" }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("option", { name: "العربية" })).toBeInTheDocument();
 
-    await user.click(screen.getByText("🇫🇷 French"));
+    await user.click(screen.getByRole("option", { name: "Français" }));
     await waitFor(() =>
-      expect(screen.queryByText("🇬🇧 English")).not.toBeInTheDocument(),
+      expect(
+        screen.queryByRole("option", { name: "English" }),
+      ).not.toBeInTheDocument(),
     );
-    expect(screen.getByText("🇫🇷 French")).toBeInTheDocument();
+    expect(screen.getByLabelText("Langue")).toBeInTheDocument();
   });
 
   it("toggles dark mode via the header theme button", async () => {
@@ -153,13 +162,17 @@ describe("Topbar", () => {
     const user = userEvent.setup();
     renderTopbar();
 
-    await user.click(screen.getByText("🇬🇧 English"));
-    expect(screen.getByText("🇫🇷 French")).toBeInTheDocument();
+    await user.click(screen.getByLabelText("Language"));
+    expect(
+      screen.getByRole("option", { name: "Français" }),
+    ).toBeInTheDocument();
 
     await user.click(document.body);
 
     await waitFor(() =>
-      expect(screen.queryByText("🇫🇷 French")).not.toBeInTheDocument(),
+      expect(
+        screen.queryByRole("option", { name: "Français" }),
+      ).not.toBeInTheDocument(),
     );
   });
 });

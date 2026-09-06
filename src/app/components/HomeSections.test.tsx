@@ -1,41 +1,39 @@
 import { render, screen } from "@testing-library/react";
 import HomeSectionsWithImages from "./HomeSections";
 
-// Content-heavy marketing composition with no interactive logic (tabs,
-// forms, accordions) - a smoke test covering key headings and CTAs is
-// appropriate here rather than deep interaction tests.
 describe("HomeSections", () => {
   it("renders without throwing and shows key section headings", () => {
     render(<HomeSectionsWithImages />);
 
     expect(
-      screen.getByText("The Infrastructure Behind Evermount"),
+      screen.getByText("The Infrastructure Behind Modern Markets"),
     ).toBeInTheDocument();
-    expect(screen.getByText("Key Highlights")).toBeInTheDocument();
+    expect(screen.getByText("What Evermount Builds")).toBeInTheDocument();
     expect(
-      screen.getByText("Systematic Investment Excellence"),
+      screen.getByText("From Financial Intelligence to Execution"),
     ).toBeInTheDocument();
-    expect(screen.getByText("Fund Highlights")).toBeInTheDocument();
-    expect(screen.getByText("How We Manage Your Capital")).toBeInTheDocument();
+    expect(screen.getByText("Evermount Platform")).toBeInTheDocument();
+    expect(screen.getByText("Markets")).toBeInTheDocument();
   });
 
-  it("renders the final CTA links to book-demo and portfolio-insights", () => {
+  it("renders the mid-page CTA links to platform and book-demo", () => {
     render(<HomeSectionsWithImages />);
 
-    expect(screen.getByRole("link", { name: "Book a Demo" })).toHaveAttribute(
-      "href",
-      "/book-demo",
+    expect(
+      screen.getByRole("link", { name: "Explore Platform" }),
+    ).toHaveAttribute("href", "/platform");
+    expect(
+      screen.getByRole("link", { name: "Request Access" }),
+    ).toHaveAttribute("href", "/book-demo");
+  });
+
+  it("renders the infrastructure categories", () => {
+    render(<HomeSectionsWithImages />);
+
+    expect(screen.getAllByText("Market Data").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("AI & Intelligence").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Quantitative Research").length).toBeGreaterThan(
+      0,
     );
-    expect(
-      screen.getByRole("link", { name: "See Performance" }),
-    ).toHaveAttribute("href", "/portfolio-insights");
-  });
-
-  it("renders the key stats", () => {
-    render(<HomeSectionsWithImages />);
-
-    expect(screen.getByText("Quantitative")).toBeInTheDocument();
-    expect(screen.getByText("Research & Modeling")).toBeInTheDocument();
-    expect(screen.getByText("AI-Powered")).toBeInTheDocument();
   });
 });
