@@ -10,26 +10,29 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
   title: {
-    default: "Evermount Capital | Quantitative Trading Infrastructure for Africa",
-    template: "%s | Evermount Capital",
+    default: "Evermount | Financial Infrastructure for Modern Markets",
+    template: "%s | Evermount",
   },
   description:
-    "Evermount is building an Africa-focused quantitative trading and market-making technology company — combining quantitative research, AI and high-performance trading infrastructure.",
+    "Evermount builds the technology, data, intelligence, execution, risk and infrastructure that powers modern financial markets.",
   keywords: [
-    "quantitative trading",
-    "market making",
-    "Africa fintech",
-    "algorithmic trading",
-    "AI trading infrastructure",
-    "electronic trading",
-    "Evermount Capital",
-    "African financial markets",
-    "systematic trading",
-    "trading technology",
+    "financial infrastructure",
+    "financial market infrastructure",
+    "market data infrastructure",
+    "quantitative research platform",
+    "trading infrastructure",
+    "financial APIs",
+    "risk infrastructure",
+    "execution infrastructure",
+    "quantitative trading technology",
+    "institutional trading technology",
+    "financial data APIs",
+    "market intelligence",
+    "financial technology infrastructure",
   ],
-  authors: [{ name: "Evermount Capital" }],
-  creator: "Evermount Capital",
-  publisher: "Evermount Capital",
+  authors: [{ name: "Evermount" }],
+  creator: "Evermount",
+  publisher: "Evermount",
   metadataBase: new URL("https://www.evermount.co"),
   alternates: {
     canonical: "https://www.evermount.co",
@@ -45,16 +48,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://www.evermount.co",
-    siteName: "Evermount Capital",
-    title: "Evermount Capital | Quantitative Trading Infrastructure for Africa",
+    siteName: "Evermount",
+    title: "Evermount | Financial Infrastructure for Modern Markets",
     description:
-      "Building an Africa-focused quantitative trading and market-making technology company.",
+      "Evermount builds the technology, data, intelligence, execution, risk and infrastructure that powers modern financial markets.",
     images: [
       {
         url: "https://www.evermount.co/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Evermount Capital Platform",
+        alt: "Evermount financial infrastructure platform",
       },
     ],
     locale: "en_US",
@@ -63,9 +66,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@evermountcapital",
     creator: "@evermountcapital",
-    title: "Evermount Capital | Quantitative Trading Infrastructure for Africa",
+    title: "Evermount | Financial Infrastructure for Modern Markets",
     description:
-      "Building an Africa-focused quantitative trading and market-making technology company.",
+      "Evermount builds the technology, data, intelligence, execution, risk and infrastructure that powers modern financial markets.",
     images: ["https://www.evermount.co/og-image.png"],
   },
   robots: {
@@ -118,6 +121,13 @@ export default function RootLayout({
                 } catch (e) {
                   console.error('Theme initialization error:', e);
                 }
+                try {
+                  const savedLocale = localStorage.getItem('evermount-locale');
+                  if (savedLocale === 'ar') {
+                    document.documentElement.lang = 'ar-AE';
+                    document.documentElement.dir = 'rtl';
+                  }
+                } catch (e) {}
               })();
             `,
           }}
@@ -129,7 +139,7 @@ export default function RootLayout({
           name="apple-mobile-web-app-status-bar-style"
           content="black-translucent"
         />
-        <meta name="apple-mobile-web-app-title" content="Evermount Capital" />
+        <meta name="apple-mobile-web-app-title" content="Evermount" />
         <link rel="manifest" href="/manifest.json" />
 
         {/* JSON-LD Rich Schema */}
@@ -141,10 +151,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "FinancialService",
+              "@type": "Organization",
               "@id": "https://www.evermount.co/#organization",
-              name: "Evermount Capital",
-              alternateName: "Evermount",
+              name: "Evermount",
+              alternateName: "Evermount Capital",
               url: "https://www.evermount.co",
               logo: {
                 "@type": "ImageObject",
@@ -154,7 +164,7 @@ export default function RootLayout({
               },
               image: "https://www.evermount.co/og-image.png",
               description:
-                "Africa-focused quantitative trading and market-making technology company, building AI-driven research, portfolio management, and trading infrastructure.",
+                "Evermount builds the technology, data, intelligence, execution, risk and infrastructure that powers modern financial markets.",
               foundingDate: "2023",
               founder: [
                 {
@@ -179,7 +189,13 @@ export default function RootLayout({
                   contactType: "Customer Support",
                   email: "info@evermount.co",
                   areaServed: "Worldwide",
-                  availableLanguage: ["English"],
+                  availableLanguage: [
+                    "English",
+                    "French",
+                    "Spanish",
+                    "German",
+                    "Dutch",
+                  ],
                 },
                 {
                   "@type": "ContactPoint",
@@ -197,9 +213,9 @@ export default function RootLayout({
               ],
               offers: {
                 "@type": "Offer",
-                name: "Quantitative Trading Technology",
+                name: "Financial Infrastructure Platform",
                 description:
-                  "AI-powered quantitative trading and portfolio management technology",
+                  "Market data, quantitative research, intelligence, risk, execution and connectivity infrastructure",
               },
             }),
           }}

@@ -18,11 +18,15 @@ import {
   MoonIcon,
 } from "@heroicons/react/24/outline";
 import { useTheme } from "@/context/ThemeContext";
-import { navItems } from "./navItems";
 import NavSubmenu from "./NavSubmenu";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslatedNav } from "./useTranslatedNav";
+import { useLocale } from "@/context/LocaleContext";
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
+  const { t } = useLocale();
+  const translatedNav = useTranslatedNav();
   const [menuOpen, setMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
@@ -40,23 +44,23 @@ export default function Navbar() {
 
   const handleJoin = useCallback(async () => {
     if (!EmailSchema.safeParse(email).success) {
-      toast.error("Please enter a valid email address.");
+      toast.error(t("nav.waitlistInvalid"));
       return;
     }
 
     try {
       setLoading(true);
       await api.newsletter.subscribe({ email });
-      toast.success("You're on the waitlist! 🎉");
+      toast.success(t("nav.waitlistSuccess"));
       setEmail("");
       setShowModal(false);
     } catch (err: unknown) {
       logger.error("Waitlist signup failed", err);
-      toast.error(getApiErrorMessage(err, "Something went wrong. Try again."));
+      toast.error(getApiErrorMessage(err, t("nav.waitlistError")));
     } finally {
       setLoading(false);
     }
-  }, [email]);
+  }, [email, t]);
 
   useEffect(() => {
     const openWaitlist = () => setShowModal(true);
@@ -78,16 +82,13 @@ export default function Navbar() {
         className="bg-gradient-to-r from-[#00a76f] via-emerald-500 to-green-400 text-white text-sm sm:text-base text-center px-4 py-2.5 font-medium relative z-[60]"
       >
         <p className="flex flex-wrap justify-center items-center gap-2">
-          <span className="font-semibold">🚀 New:</span>
-          <span className="whitespace-nowrap">
-            We&apos;re open-sourcing our AI-powered quantitative trading
-            infrastructure.
-          </span>
+          <span className="font-semibold">Evermount</span>
+          <span className="whitespace-nowrap">{t("banner.tagline")}</span>
           <Link
-            href="/book-demo"
+            href="/platform"
             className="ml-2 underline font-semibold hover:text-green-100 transition flex items-center gap-1"
           >
-            Try now
+            {t("banner.explore")}
             <ArrowRightIcon className="w-4 h-4 inline" />
           </Link>
         </p>
@@ -128,9 +129,9 @@ export default function Navbar() {
 
             {/* Desktop Navigation - Scale AI Style */}
             <div className="hidden lg:flex items-center space-x-8">
-              {navItems.map((item) => (
+              {translatedNav.map((item) => (
                 <div
-                  key={item.label}
+                  key={item.id}
                   className="relative"
                   onMouseEnter={() => item.submenu && setHoveredNav(item.label)}
                   onMouseLeave={() => setHoveredNav(null)}
@@ -170,7 +171,7 @@ export default function Navbar() {
                   toggleTheme();
                 }}
                 className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                aria-label="Toggle theme"
+                aria-label={t("common.toggleTheme")}
                 type="button"
               >
                 {theme === "dark" ? (
@@ -180,13 +181,20 @@ export default function Navbar() {
                 )}
               </motion.button>
 
-              <Link href="/login">
+              <LanguageSwitcher />
+
+              <Link href="/platform" className="hidden xl:inline-flex">
+                <span className="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+                  {t("common.explorePlatform")}
+                </span>
+              </Link>
+              <Link href="/book-demo">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white rounded-md transition-all shadow-md hover:shadow-lg bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:from-yellow-500 hover:via-yellow-600 hover:to-yellow-700"
+                  className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white rounded-md transition-all shadow-md hover:shadow-lg bg-[#00a76f] hover:bg-emerald-700"
                 >
-                  Invest
+                  {t("common.requestAccess")}
                   <ArrowRightIcon className="w-4 h-4" />
                 </motion.button>
               </Link>
@@ -195,7 +203,7 @@ export default function Navbar() {
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
                 className="lg:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                aria-label="Toggle menu"
+                aria-label={t("common.toggleMenu")}
               >
                 {menuOpen ? (
                   <XMarkIcon className="w-6 h-6" />
@@ -218,9 +226,9 @@ export default function Navbar() {
               className="lg:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900"
             >
               <div className="px-4 py-4 space-y-1">
-                {navItems.map((item, idx) => (
+                {translatedNav.map((item, idx) => (
                   <motion.div
-                    key={item.label}
+                    key={item.id}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.1 }}
@@ -236,7 +244,7 @@ export default function Navbar() {
                       <div className="pl-4 mt-1 space-y-1">
                         {item.submenu.map((subItem) => (
                           <Link
-                            key={subItem.label}
+                            key={subItem.id}
                             href={subItem.href}
                             onClick={() => setMenuOpen(false)}
                             className="block px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
@@ -263,21 +271,24 @@ export default function Navbar() {
                     {theme === "dark" ? (
                       <>
                         <SunIcon className="w-5 h-5" />
-                        Light Mode
+                        {t("common.lightMode")}
                       </>
                     ) : (
                       <>
                         <MoonIcon className="w-5 h-5" />
-                        Dark Mode
+                        {t("common.darkMode")}
                       </>
                     )}
                   </motion.button>
-                  <Link href="/login" onClick={() => setMenuOpen(false)}>
+                  <div className="flex justify-center py-1">
+                    <LanguageSwitcher />
+                  </div>
+                  <Link href="/book-demo" onClick={() => setMenuOpen(false)}>
                     <motion.button
                       whileTap={{ scale: 0.95 }}
-                      className="w-full flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-medium text-white rounded-md transition-all shadow-md hover:shadow-lg bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:from-yellow-500 hover:via-yellow-600 hover:to-yellow-700"
+                      className="w-full flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-medium text-white rounded-md transition-all shadow-md hover:shadow-lg bg-[#00a76f] hover:bg-emerald-700"
                     >
-                      Invest
+                      {t("common.requestAccess")}
                       <ArrowRightIcon className="w-4 h-4" />
                     </motion.button>
                   </Link>
@@ -320,10 +331,10 @@ export default function Navbar() {
                   <XMarkIcon className="w-5 h-5" />
                 </button>
                 <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
-                  Join the Waitlist
+                  {t("nav.waitlistTitle")}
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
-                  Get early access to our beta and priority onboarding.
+                  {t("nav.waitlistBody")}
                 </p>
                 <input
                   type="email"
@@ -339,7 +350,7 @@ export default function Navbar() {
                   disabled={loading}
                   className="w-full bg-[#00a76f] hover:bg-emerald-700 text-white py-3 rounded-lg text-base font-semibold transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  {loading ? "Submitting..." : "Submit"}
+                  {loading ? t("common.submitting") : t("common.submit")}
                 </motion.button>
               </div>
             </motion.div>

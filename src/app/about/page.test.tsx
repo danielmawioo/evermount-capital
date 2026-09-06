@@ -6,7 +6,7 @@ describe("AboutPage", () => {
     render(<AboutPage />);
     expect(
       screen.getByRole("heading", {
-        name: /an africa-focused quantitative trading company/i,
+        name: /Building the Infrastructure for Modern Financial Markets/i,
       }),
     ).toBeInTheDocument();
   });

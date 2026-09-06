@@ -43,7 +43,7 @@ See `.env.example` for the full list with inline comments.
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3001](http://localhost:3001). (The dev server runs on 3001, not Next's default 3000, so it doesn't collide with the backend's default port — see [Prerequisites](#prerequisites).)
 
 ## Run without a backend (mock mode)
 

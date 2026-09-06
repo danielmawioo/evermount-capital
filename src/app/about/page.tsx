@@ -12,13 +12,13 @@ export default function AboutPage() {
   const aboutStructuredData = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    name: "About Evermount Capital",
+    name: "About Evermount",
     description:
-      "Learn about Evermount Capital's mission, vision, and team of founders building Africa-focused quantitative trading and market-making technology.",
+      "Learn about Evermount's mission to build financial infrastructure for modern markets.",
     url: "https://www.evermount.co/about",
     mainEntity: {
       "@type": "Organization",
-      name: "Evermount Capital",
+      name: "Evermount",
       founder: [
         {
           "@type": "Person",

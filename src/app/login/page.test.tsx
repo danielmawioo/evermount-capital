@@ -11,6 +11,11 @@ import apiClient from "@/lib/api-client";
 import toast from "react-hot-toast";
 import LoginPage from "./page";
 
+jest.mock("@/app/components/TranslateTree", () => ({
+  __esModule: true,
+  default: ({ children }: { children: React.ReactNode }) => children,
+}));
+
 jest.mock("react-hot-toast", () => {
   const fn = jest.fn() as jest.Mock & { success: jest.Mock; error: jest.Mock };
   fn.success = jest.fn();
@@ -157,29 +162,13 @@ describe("LoginPage", () => {
     });
   });
 
-  it("attempts a GitHub OAuth redirect without erroring", async () => {
-    const user = userEvent.setup();
+  it("does not offer social sign-in", () => {
     render(<LoginPage />);
-
-    // jsdom does not implement real navigation, so we cannot observe the
-    // resulting URL; we can only confirm the redirect branch runs cleanly
-    // (no error toast from the catch block) and re-enables the button.
-    const githubButton = screen.getByRole("button", { name: /github/i });
-    await user.click(githubButton);
-
-    expect(toastFn.error).not.toHaveBeenCalled();
-    await waitFor(() => expect(githubButton).not.toBeDisabled());
-  });
-
-  it("shows an in-progress toast for the Google sign-in placeholder", async () => {
-    const user = userEvent.setup();
-    render(<LoginPage />);
-
-    await user.click(screen.getByRole("button", { name: /google/i }));
-
-    expect(toastFn).toHaveBeenCalledWith(
-      "Google Sign-In integration in progress",
-      expect.objectContaining({ icon: expect.any(String) }),
-    );
+    expect(
+      screen.queryByRole("button", { name: /github/i }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("button", { name: /google/i }),
+    ).not.toBeInTheDocument();
   });
 });

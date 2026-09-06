@@ -32,6 +32,35 @@ const nextConfig = {
   images: {
     domains: ["evermount.co"],
   },
+  async redirects() {
+    return [
+      {
+        source: "/investor-tour",
+        destination: "/platform-tour",
+        permanent: true,
+      },
+      {
+        source: "/portfolio-insights",
+        destination: "/analytics",
+        permanent: true,
+      },
+      {
+        source: "/capital",
+        destination: "/institutions",
+        permanent: true,
+      },
+      {
+        source: "/features",
+        destination: "/platform",
+        permanent: true,
+      },
+      {
+        source: "/investment-agreement",
+        destination: "/terms",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
