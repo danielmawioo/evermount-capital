@@ -42,7 +42,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Lint
-        run: yarn next lint --max-warnings=0
+        run: yarn lint
 
       - name: Format check
         run: yarn format:check

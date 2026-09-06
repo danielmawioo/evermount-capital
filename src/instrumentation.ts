@@ -1,6 +1,6 @@
 const dsn = process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN;
 
-// Node.js runtime only: the edge runtime (used by middleware.ts) bundles
+// Node.js runtime only: the edge runtime (used by proxy.ts) bundles
 // everything into one script with no lazy-loading, so importing the Sentry
 // SDK there — even dynamically — would add ~60KB to every edge request
 // regardless of whether a DSN is configured.

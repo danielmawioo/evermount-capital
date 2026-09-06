@@ -22,15 +22,15 @@ const nextConfig = {
     "strict-event-emitter",
     "is-node-process",
   ],
-  // Lint already runs as its own blocking CI step (deploy.yml); keep the
-  // build gated on it too so a misconfigured/skipped CI step can't ship.
-  eslint: {
-    ignoreDuringBuilds: false,
-  },
   // Removed "output: export" to enable API routes for chat functionality
   // If you need static export, you'll need to use a different approach for the chat API
   images: {
-    domains: ["evermount.co"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "evermount.co",
+      },
+    ],
   },
   async redirects() {
     return [
