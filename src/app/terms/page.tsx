@@ -1,4 +1,3 @@
-import LegalNotice from "@/app/components/marketing/LegalNotice";
 import { pageMetadata } from "@/lib/page-metadata";
 import LegalView from "./LegalView";
 
