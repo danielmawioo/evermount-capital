@@ -19,16 +19,16 @@ describe("TeamAndReachSection", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders the global reach heading and all stats", () => {
+  it("renders the technology roadmap heading and stages", () => {
     render(<TeamAndReachSection />);
 
     expect(
-      screen.getByText("Starting With African Markets"),
+      screen.getByText("Cross-Market Financial Infrastructure"),
     ).toBeInTheDocument();
 
-    expect(screen.getByText("Today")).toBeInTheDocument();
-    expect(screen.getByText("African Markets")).toBeInTheDocument();
-    expect(screen.getByText("Vision")).toBeInTheDocument();
-    expect(screen.getByText("Continent-Wide")).toBeInTheDocument();
+    expect(screen.getByText("NOW")).toBeInTheDocument();
+    expect(screen.getByText("AI + Quant Research")).toBeInTheDocument();
+    expect(screen.getByText("VISION")).toBeInTheDocument();
+    expect(screen.getByText("Cross-market infrastructure")).toBeInTheDocument();
   });
 });

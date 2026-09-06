@@ -6,11 +6,11 @@ import {
   MoonIcon,
   SunIcon,
   BellIcon,
-  GlobeAltIcon,
-  ChevronDownIcon,
   RocketLaunchIcon,
 } from "@heroicons/react/24/outline";
 import { useTheme } from "@/context/ThemeContext";
+import { useLocale } from "@/context/LocaleContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 import Image from "next/image";
 import Link from "next/link";
 import { clearAuth } from "@/lib/auth-storage";
@@ -20,30 +20,24 @@ import { logger } from "@/lib/logger";
 export default function Topbar() {
   const router = useRouter();
   const { theme, setTheme, toggleTheme } = useTheme();
+  const { t } = useLocale();
   const [greeting, setGreeting] = useState("");
-  const [langOpen, setLangOpen] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [logoutMessage, setLogoutMessage] = useState("");
-  const [selectedLang, setSelectedLang] = useState("🇬🇧 English");
 
-  const langRef = useRef<HTMLDivElement>(null);
   const notifRef = useRef<HTMLDivElement>(null);
   const profileRef = useRef<HTMLDivElement>(null);
 
-  // Greeting based on time
   useEffect(() => {
     const hour = new Date().getHours();
-    if (hour < 12) setGreeting("Good morning");
-    else if (hour < 18) setGreeting("Good afternoon");
-    else setGreeting("Good evening");
-  }, []);
+    if (hour < 12) setGreeting(t("topbar.goodMorning"));
+    else if (hour < 18) setGreeting(t("topbar.goodAfternoon"));
+    else setGreeting(t("topbar.goodEvening"));
+  }, [t]);
 
-  // Handle click outside dropdowns
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (langRef.current && !langRef.current.contains(event.target as Node))
-        setLangOpen(false);
       if (notifRef.current && !notifRef.current.contains(event.target as Node))
         setNotifOpen(false);
       if (
@@ -67,7 +61,7 @@ export default function Topbar() {
       });
     }
     clearAuth();
-    setLogoutMessage("✅ Logged out successfully!");
+    setLogoutMessage(t("topbar.loggedOut"));
     setTimeout(() => {
       router.push("/");
     }, 1500);
@@ -82,7 +76,7 @@ export default function Topbar() {
         </h1>
         <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 flex items-center gap-1">
           <RocketLaunchIcon className="w-3 h-3 text-[#00a76f]" />
-          Let&apos;s grow your portfolio today
+          {t("topbar.tagline")}
         </p>
 
         {logoutMessage && (
@@ -98,54 +92,19 @@ export default function Topbar() {
         <div className="hidden lg:block relative">
           <input
             type="text"
-            placeholder="Search..."
+            placeholder={t("topbar.search")}
             className="rounded-md px-3 py-1.5 w-40 xl:w-48 text-sm bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#00a76f]"
           />
         </div>
 
         {/* Language Selector */}
-        <div className="relative" ref={langRef}>
-          <button
-            onClick={() => {
-              setLangOpen((prev) => !prev);
-              setNotifOpen(false);
-              setProfileOpen(false);
-            }}
-            className="flex items-center gap-1 px-2 py-1.5 text-xs sm:text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-white rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-          >
-            <GlobeAltIcon className="w-4 h-4 sm:w-5 sm:h-5" />
-            <span className="hidden sm:inline">{selectedLang}</span>
-            <ChevronDownIcon className="w-3 h-3 sm:w-4 sm:h-4" />
-          </button>
-
-          {langOpen && (
-            <ul className="absolute right-0 mt-2 w-36 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-md shadow-md text-sm z-50">
-              {["🇬🇧 English", "🇫🇷 French", "🇪🇸 Spanish"].map((lang) => (
-                <li
-                  key={lang}
-                  onClick={() => {
-                    setSelectedLang(lang);
-                    setLangOpen(false);
-                  }}
-                  className={`px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 ${
-                    selectedLang === lang
-                      ? "bg-gray-100 dark:bg-gray-800 font-semibold"
-                      : ""
-                  }`}
-                >
-                  {lang}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+        <LanguageSwitcher />
 
         {/* Notifications */}
         <div className="relative" ref={notifRef}>
           <button
             onClick={() => {
               setNotifOpen((prev) => !prev);
-              setLangOpen(false);
               setProfileOpen(false);
             }}
             className="p-1.5 sm:p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
@@ -155,9 +114,9 @@ export default function Topbar() {
 
           {notifOpen && (
             <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-md shadow-md p-4 text-sm z-50">
-              <p className="font-bold">Notifications</p>
+              <p className="font-bold">{t("topbar.notifications")}</p>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
-                No new notifications.
+                {t("topbar.noNotifications")}
               </p>
             </div>
           )}
@@ -169,7 +128,6 @@ export default function Topbar() {
             onClick={() => {
               setProfileOpen((prev) => !prev);
               setNotifOpen(false);
-              setLangOpen(false);
             }}
             className="w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border-2 border-gray-200 dark:border-gray-700 hover:ring-2 hover:ring-[#00a76f] transition"
           >
@@ -194,10 +152,10 @@ export default function Topbar() {
                 </p>
                 <div className="flex justify-between items-center mt-2">
                   <span className="text-xs font-medium text-green-600 dark:text-green-400">
-                    Current Account
+                    {t("topbar.currentAccount")}
                   </span>
                   <button className="text-xs bg-green-100 dark:bg-green-800 text-green-700 dark:text-green-300 px-2 py-0.5 rounded">
-                    Switch
+                    {t("topbar.switch")}
                   </button>
                 </div>
               </div>
@@ -208,19 +166,19 @@ export default function Topbar() {
                   href="/settings"
                   className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
                 >
-                  Profile Settings
+                  {t("topbar.profileSettings")}
                 </Link>
                 <Link
                   href="/add-account"
                   className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
                 >
-                  Add Account
+                  {t("topbar.addAccount")}
                 </Link>
                 <Link
                   href="/manage-accounts"
                   className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
                 >
-                  Manage Accounts
+                  {t("topbar.manageAccounts")}
                 </Link>
               </div>
 
@@ -230,13 +188,13 @@ export default function Topbar() {
                   href="/topup"
                   className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
                 >
-                  Top Up
+                  {t("topbar.topUp")}
                 </Link>
                 <Link
                   href="/withdraw"
                   className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
                 >
-                  Withdraw
+                  {t("topbar.withdraw")}
                 </Link>
               </div>
 
@@ -251,7 +209,7 @@ export default function Topbar() {
                   }`}
                 >
                   <SunIcon className="w-5 h-5 mb-1" />
-                  Light
+                  {t("topbar.light")}
                 </button>
                 <button
                   onClick={() => setTheme("dark")}
@@ -262,7 +220,7 @@ export default function Topbar() {
                   }`}
                 >
                   <MoonIcon className="w-5 h-5 mb-1" />
-                  Dark
+                  {t("topbar.dark")}
                 </button>
               </div>
 
@@ -272,7 +230,7 @@ export default function Topbar() {
                   onClick={handleLogout}
                   className="w-full py-2 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 text-sm font-bold rounded hover:bg-red-200 dark:hover:bg-red-800 transition"
                 >
-                  Logout
+                  {t("topbar.logout")}
                 </button>
               </div>
             </div>
@@ -283,7 +241,7 @@ export default function Topbar() {
         <button
           onClick={toggleTheme}
           className="p-1.5 sm:p-2 rounded-md border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
-          aria-label="Toggle theme"
+          aria-label={t("common.toggleTheme")}
         >
           {theme === "dark" ? (
             <SunIcon className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400" />

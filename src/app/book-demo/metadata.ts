@@ -1,13 +1,13 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Book a Demo | Evermount Capital",
+  title: "Request Access | Evermount",
   description:
-    "Schedule a personalized demo of the Evermount Capital platform. See how our AI-powered quantitative trading strategies work. Choose a date and time that works for you.",
+    "Request access to Evermount financial infrastructure. Share your company, role and technical requirements.",
   openGraph: {
-    title: "Book a Demo | Evermount Capital",
+    title: "Request Access | Evermount",
     description:
-      "Schedule a personalized demo of the Evermount Capital platform. See how our AI-powered quantitative trading strategies work.",
+      "Request access to Evermount market data, research, risk and execution infrastructure.",
     url: "https://www.evermount.co/book-demo",
     type: "website",
   },

@@ -6,13 +6,12 @@ describe("TechnologyAndSecuritySection", () => {
     render(<TechnologyAndSecuritySection />);
 
     expect(
-      screen.getByText("Proprietary Technology & Research Infrastructure"),
+      screen.getByText("The Evermount Technology Stack"),
     ).toBeInTheDocument();
 
-    expect(
-      screen.getByText("Quantitative Research & Modeling"),
-    ).toBeInTheDocument();
-    expect(screen.getByText("Systematic Risk Management")).toBeInTheDocument();
+    expect(screen.getByText("AI Financial Intelligence")).toBeInTheDocument();
+    expect(screen.getByText("Risk Intelligence Engine")).toBeInTheDocument();
+    expect(screen.getByText("High-Performance Execution")).toBeInTheDocument();
   });
 
   it("renders the security heading and all security features", () => {

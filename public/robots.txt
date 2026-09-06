@@ -1,45 +1,43 @@
 User-agent: *
 Allow: /
 
-# ✅ Public Pages
 Allow: /about
 Allow: /careers
-Allow: /features
-Allow: /portfolio-insights
-Allow: /pricing
-Allow: /book-demo
-Allow: /investor-tour
 Allow: /platform
+Allow: /infrastructure
+Allow: /markets
+Allow: /institutions
+Allow: /developers
+Allow: /research
+Allow: /technology
+Allow: /pricing
+Allow: /analytics
+Allow: /platform-tour
+Allow: /partners
+Allow: /book-demo
 
-# ✅ Legal & Compliance Pages
 Allow: /terms
 Allow: /privacy
 Allow: /cookie-policy
 Allow: /aml-policy
 Allow: /risk-disclosure
 Allow: /regulatory-compliance
-Allow: /investment-agreement
+Allow: /data-policy
+Allow: /api-terms
 Allow: /conflict-of-interest
 Allow: /best-execution
 
-# ✅ Auth Pages (but won't index them)
 Disallow: /login
 Disallow: /register
 Disallow: /forgot-password
 Disallow: /reset-password
 Disallow: /verify-email
-
-# ✅ Admin or internal dashboards
 Disallow: /dashboard
-
-# ✅ Development or non-production pages
 Disallow: /test
 Disallow: /dev
 Disallow: /drafts
 Disallow: /api
 
-# Crawl-delay for respectful crawling
 Crawl-delay: 1
 
-# Sitemap
 Sitemap: https://www.evermount.co/sitemap.xml
