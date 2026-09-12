@@ -26,13 +26,7 @@ function formatPct(value: number | null): string {
   return `${Math.round(value * 100)}%`;
 }
 
-function Metric({
-  label,
-  children,
-}: {
-  label: string;
-  children: string;
-}) {
+function Metric({ label, children }: { label: string; children: string }) {
   return (
     <div className="rounded-xl bg-white dark:bg-gray-900 px-4 py-3 border border-gray-100 dark:border-gray-700">
       <p className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
@@ -85,7 +79,10 @@ export default function GexLevelsPanel() {
 
   const riskRows = [
     { label: "Mode", value: snapshot.mode ?? "—" },
-    { label: "Halt", value: snapshot.halt === null ? "—" : snapshot.halt ? "Yes" : "No" },
+    {
+      label: "Halt",
+      value: snapshot.halt === null ? "—" : snapshot.halt ? "Yes" : "No",
+    },
     { label: "Risk budget", value: formatUsd(snapshot.riskBudgetUsd) },
     { label: "Max daily loss", value: formatUsd(snapshot.maxDailyLossUsd) },
   ];

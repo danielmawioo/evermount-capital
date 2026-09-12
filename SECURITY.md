@@ -25,6 +25,7 @@ Vulnerabilities in the backend or infrastructure should be reported the same way
 - Input reaching the API layer from forms (deposit/withdrawal amounts, admin wallet credits) is validated with [Zod](https://zod.dev/) schemas (`src/lib/schemas.ts`) before it's sent.
 - Dependabot is configured (`.github/dependabot.yml`) for weekly npm and GitHub Actions updates.
 - CI runs `yarn audit --groups dependencies --level high` on every push and pull request and **fails the build** on any high/critical advisory in a production dependency (`package.json`'s `resolutions` field pins several transitive packages — `nanoid`, `postcss`, `lodash`, `sharp`, `yaml`, and a scoped `picomatch` override — to patched versions that their parent packages hadn't picked up yet).
+- Response headers in `next.config.ts` set `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `X-Frame-Options: DENY`, `Content-Security-Policy: frame-ancestors 'none'`, `Permissions-Policy`, and HSTS (`max-age=63072000; includeSubDomains; preload`). `/api/health` and `/api/ready` never return secrets.
 
 ## Known limitations
 

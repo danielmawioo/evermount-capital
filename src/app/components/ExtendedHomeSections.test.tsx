@@ -10,9 +10,7 @@ describe("ExtendedHomeSections", () => {
         /Infrastructure for Institutions, Developers and Researchers/,
       ),
     ).toBeInTheDocument();
-    expect(
-      screen.getByText("Our Technology Philosophy"),
-    ).toBeInTheDocument();
+    expect(screen.getByText("Our Technology Philosophy")).toBeInTheDocument();
     expect(
       screen.getByText("World-Class Research & Engineering Team"),
     ).toBeInTheDocument();

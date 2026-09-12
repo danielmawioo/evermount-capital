@@ -26,7 +26,8 @@ jest.mock("./components/Analytics", () => {
 describe("RootLayout", () => {
   it("exports metadata with the expected shape", () => {
     expect(metadata.title).toEqual({
-      default: "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
+      default:
+        "Evermount | AI Financial Intelligence & Trading Infrastructure for Africa",
       template: "%s | Evermount",
     });
     expect(metadata.description).toMatch(/Africa/i);

@@ -31,8 +31,8 @@ export default function DevelopersPage() {
           <code className="text-sm bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">
             GET /api/research/gex
           </code>
-          . That is not a general SDK, sandbox, webhook platform, or the
-          private decision/OMS API.
+          . That is not a general SDK, sandbox, webhook platform, or the private
+          decision/OMS API.
         </p>
       </section>
       <section id="documentation" className="scroll-mt-28 space-y-4">
