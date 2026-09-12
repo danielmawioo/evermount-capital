@@ -26,7 +26,7 @@ Copy is keyed lookup, not inline strings on marketing pages. Chrome and site dic
 | `GET /api/health` | Liveness | `{ status, version, timestamp }` — this process only; does not call the backend |
 | `GET /api/ready` | Readiness | `{ status, version, uptimeMs }` — no secrets, env dumps, or backend probes |
 
-Uptime monitors should hit `/api/health`. Orchestrators that wait for a process to boot can hit `/api/ready`.
+Uptime monitors should hit `/api/health`. Orchestrators that wait for a process to boot can hit `/api/ready`. The Helm chart at `helm/evermount-capital/` wires those paths as liveness and readiness probes.
 
 ## Size limit
 

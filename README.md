@@ -88,6 +88,16 @@ docker compose up --build
 
 The app is served at [http://localhost:3000](http://localhost:3000). `NEXT_PUBLIC_*` variables are baked into the client bundle at build time (via `docker-compose.yml`'s build args, sourced from your shell env or an `.env` file next to `docker-compose.yml`); server-only variables (`OPENAI_API_KEY`, `GITHUB_CLIENT_SECRET`, etc.) are read from `.env.local` at container runtime.
 
+## Kubernetes (Helm)
+
+A chart lives at [`helm/evermount-capital/`](./helm/evermount-capital/). Liveness uses `GET /api/health`; readiness uses `GET /api/ready`. `NEXT_PUBLIC_*` values must be baked into the image at docker build time; runtime secrets go in a Kubernetes Secret referenced by `envFromSecret`.
+
+```bash
+helm upgrade --install evermount ./helm/evermount-capital \
+  --set image.repository=ghcr.io/danielmawioo/evermount-capital \
+  --set image.tag=1.0.0
+```
+
 ## Architecture
 
 - **App Router** under `src/app`: marketing pages at the root, authenticated dashboards under `src/app/dashboard/{admin,manager,...}`, and a couple of server-side API routes under `src/app/api` (chat proxy, GitHub OAuth callback).

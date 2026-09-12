@@ -7,3 +7,4 @@ yarn.lock
 package.json
 *.md
 **/.venv
+helm/**
