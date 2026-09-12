@@ -1,0 +1,9 @@
+# Local cluster (kind / minikube / k3d) after:
+#   docker compose -f docker-compose.yml -f docker-compose.k8s.yml build
+#   kind load docker-image ghcr.io/danielmawioo/evermount-capital:1.0.0
+image:
+  repository: ghcr.io/danielmawioo/evermount-capital
+  tag: "1.0.0"
+  pullPolicy: Never
+
+replicaCount: 1

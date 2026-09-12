@@ -1,0 +1,13 @@
+Evermount Capital frontend ({{ .Chart.AppVersion }}).
+
+Liveness:  GET /api/health
+Readiness: GET /api/ready
+
+{{- if .Values.ingress.enabled }}
+{{- range .Values.ingress.hosts }}
+Host: http{{ if $.Values.ingress.tls }}s{{ end }}://{{ .host }}
+{{- end }}
+{{- else }}
+Port-forward:
+  kubectl port-forward svc/{{ include "evermount-capital.fullname" . }} 3000:{{ .Values.service.port }}
+{{- end }}

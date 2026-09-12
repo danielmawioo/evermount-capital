@@ -88,6 +88,28 @@ docker compose up --build
 
 The app is served at [http://localhost:3000](http://localhost:3000). `NEXT_PUBLIC_*` variables are baked into the client bundle at build time (via `docker-compose.yml`'s build args, sourced from your shell env or an `.env` file next to `docker-compose.yml`); server-only variables (`OPENAI_API_KEY`, `GITHUB_CLIENT_SECRET`, etc.) are read from `.env.local` at container runtime.
 
+The image is tagged `ghcr.io/danielmawioo/evermount-capital:${IMAGE_TAG:-1.0.0}` so the same build can be pushed and used by Helm:
+
+```bash
+export IMAGE_TAG=1.0.0
+docker compose build
+docker compose push
+```
+
+## Kubernetes (Helm)
+
+A chart lives at [`helm/evermount-capital/`](./helm/evermount-capital/). Liveness uses `GET /api/health`; readiness uses `GET /api/ready`. `NEXT_PUBLIC_*` values must be baked into the image at docker build time; runtime secrets go in a Kubernetes Secret referenced by `envFromSecret`.
+
+```bash
+export IMAGE_TAG=1.0.0
+docker compose -f docker-compose.yml -f docker-compose.k8s.yml build
+# kind load docker-image ghcr.io/danielmawioo/evermount-capital:$IMAGE_TAG
+helm upgrade --install evermount ./helm/evermount-capital \
+  --set image.tag=$IMAGE_TAG
+```
+
+For a local cluster that cannot pull from GHCR, use `--set image.pullPolicy=Never` or `-f helm/evermount-capital/values-local.yaml`.
+
 ## Architecture
 
 - **App Router** under `src/app`: marketing pages at the root, authenticated dashboards under `src/app/dashboard/{admin,manager,...}`, and a couple of server-side API routes under `src/app/api` (chat proxy, GitHub OAuth callback).

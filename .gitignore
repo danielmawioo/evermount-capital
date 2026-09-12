@@ -48,4 +48,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-.husky/_
+# python
+scripts/__pycache__/
+__pycache__/

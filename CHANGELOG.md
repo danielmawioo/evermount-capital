@@ -18,12 +18,15 @@ for commit messages going forward.
 - `docs/ARCHITECTURE.md` describing page → hook → API client layering.
 - CI coverage artifact plus a coverage table in the GitHub Actions job summary.
 - Coverage floor raised to measured levels: statements 84%, lines 85%, functions 83%, branches 73%.
+- Helm chart under `helm/evermount-capital/` for Kubernetes deploys (probes `/api/health` and `/api/ready`).
+- Docker image pipeline (`Dockerfile`, `docker-compose.yml`, `docker-compose.k8s.yml`) tagged for the Helm chart.
 
 ### Changed
 
 - ESLint `max-lines` of 500 on `src/**/*.{ts,tsx}` (tests excluded).
 - Security response headers include `Content-Security-Policy: frame-ancestors 'none'` in addition to `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, and HSTS.
 - `package.json` records `packageManager: yarn@1.22.22`.
+- Production `sharp` resolution pinned to `^0.35.4` (libheif advisories via `next > sharp`).
 
 ### Added
 
