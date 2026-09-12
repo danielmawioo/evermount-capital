@@ -45,8 +45,14 @@ describe("Footer", () => {
       "href",
       "tel:+254758578816",
     );
-    expect(screen.getByLabelText("LinkedIn")).toBeInTheDocument();
-    expect(screen.getByLabelText("X Twitter")).toBeInTheDocument();
+    expect(screen.getByLabelText("LinkedIn")).toHaveAttribute(
+      "href",
+      "https://linkedin.com/company/evermount",
+    );
+    expect(screen.getByLabelText("X Twitter")).toHaveAttribute(
+      "href",
+      "https://x.com/evermount",
+    );
   });
 
   it("does not submit the newsletter form when the email is empty", async () => {

@@ -123,10 +123,11 @@ export default function LoginPage() {
           <div className="hidden md:flex bg-[#f2fdf9] dark:bg-gray-800 flex-col justify-center items-center px-6 py-12 text-center">
             <div className="max-w-xs">
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-                Hi, Welcome back
+                Evermount Capital
               </h1>
               <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
-                More effectively with optimized workflows.
+                Sign in to your Capital account. Platform research stays on the
+                public site.
               </p>
               <div className="mt-10 w-72 h-72 relative">
                 <Image
@@ -143,10 +144,10 @@ export default function LoginPage() {
           <div className="flex flex-col justify-center px-6 sm:px-10 md:px-20 py-12 bg-white dark:bg-gray-900">
             <div className="w-full max-w-md mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                Sign in to your account
+                Sign in to Capital
               </h2>
               <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                Don&apos;t have an account?{" "}
+                Don&apos;t have a Capital account?{" "}
                 <Link
                   href="/register"
                   className="text-[#00a76f] font-medium hover:underline"

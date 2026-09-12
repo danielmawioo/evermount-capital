@@ -14,7 +14,7 @@ export default function AboutPage() {
     "@type": "AboutPage",
     name: "About Evermount",
     description:
-      "Learn about Evermount's mission to build financial infrastructure for modern markets.",
+      "Learn about Evermount's mission to build AI financial intelligence and trading infrastructure for Africa.",
     url: "https://www.evermount.co/about",
     mainEntity: {
       "@type": "Organization",

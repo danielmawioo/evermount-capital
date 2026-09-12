@@ -53,6 +53,7 @@ describe("Navbar", () => {
     expect(screen.getByText("Platform")).toBeInTheDocument();
     expect(screen.getByText("Markets")).toBeInTheDocument();
     expect(screen.getByText("Institutions")).toBeInTheDocument();
+    expect(screen.getByText("Capital")).toBeInTheDocument();
     expect(screen.getAllByText("Request Access").length).toBeGreaterThan(0);
   });
 

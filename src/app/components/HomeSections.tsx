@@ -3,8 +3,7 @@
 import StatsSection from "./home-sections/StatsSection";
 import KeyHighlightsSection from "./home-sections/KeyHighlightsSection";
 import WhyEvermountSection from "./home-sections/WhyEvermountSection";
-import PlatformArchitectureSection from "./home-sections/PlatformArchitectureSection";
-import InvestmentTimelineSection from "./home-sections/InvestmentTimelineSection";
+import MarketsSection from "./home-sections/MarketsSection";
 import FinalCtaSection from "./home-sections/FinalCtaSection";
 
 export default function HomeSectionsWithImages() {
@@ -13,8 +12,7 @@ export default function HomeSectionsWithImages() {
       <StatsSection />
       <KeyHighlightsSection />
       <WhyEvermountSection />
-      <PlatformArchitectureSection />
-      <InvestmentTimelineSection />
+      <MarketsSection />
       <FinalCtaSection />
     </div>
   );

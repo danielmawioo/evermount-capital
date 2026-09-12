@@ -1,106 +1,53 @@
 import PageHero from "@/app/components/marketing/PageHero";
-import BulletSection from "@/app/components/marketing/BulletSection";
-import CapabilityGrid from "@/app/components/marketing/CapabilityGrid";
 import CtaBand from "@/app/components/marketing/CtaBand";
-import Tx from "@/app/components/Tx";
 import { pageMetadata } from "@/lib/page-metadata";
 
 export const metadata = pageMetadata(
   "Build on Evermount",
-  "Programmatic access to financial data, analytics, intelligence and infrastructure.",
+  "Request access for credentials. The public surface today is the gold GEX research overlay — not a general market-data or execution API catalog.",
   "/developers",
 );
 
 export default function DevelopersPage() {
   return (
-    <main className="px-6 py-16 max-w-5xl mx-auto space-y-16">
+    <main className="px-6 py-16 max-w-5xl mx-auto space-y-12">
       <PageHero
         eyebrow="Developers"
-        title="Build on Evermount"
-        body="Programmatic access to financial data, analytics, intelligence and infrastructure. Public API documentation and production credentials are provided after access is approved."
+        title="Access, not a catalog of unbuilt APIs"
+        body="Evermount does not publish a public Market Data, Risk, or Execution API today. Production credentials and documentation are issued after access is approved. What you can inspect now is the gold GEX overlay used on the research page."
         primaryHref="/book-demo"
         primaryLabel="Request Access"
-        secondaryHref="/developers#documentation"
-        secondaryLabel="View Documentation"
+        secondaryHref="/research#gold-gex"
+        secondaryLabel="View gold GEX"
       />
-      <BulletSection
-        id="apis"
-        title="APIs"
-        body="Planned and in-development API surfaces. Availability is confirmed during onboarding — do not assume every API is live in production."
-        items={[
-          "Market Data API",
-          "Historical Data API",
-          "Analytics API",
-          "Risk API",
-          "Execution API",
-        ]}
-      />
-      <BulletSection
-        id="connectivity"
-        title="Connectivity"
-        items={["REST", "WebSockets", "Streaming", "Webhooks"]}
-      />
-      <section id="sdks" className="scroll-mt-28">
-        <Tx
-          as="h2"
-          className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6"
-        >
-          SDKs
-        </Tx>
-        <CapabilityGrid
-          columns="grid-cols-1 sm:grid-cols-2"
-          items={[
-            {
-              title: "Python",
-              description:
-                "Primary research and integration language internally.",
-              badge: "Coming soon",
-            },
-            {
-              title: "TypeScript / JavaScript",
-              description: "Web and application integrations.",
-              badge: "Coming soon",
-            },
-            {
-              title: "C++",
-              description: "Low-latency systems on the engineering roadmap.",
-              badge: "Coming soon",
-            },
-            {
-              title: "Rust",
-              description: "Systems programming on the engineering roadmap.",
-              badge: "Coming soon",
-            },
-          ]}
-        />
+      <section id="gex-overlay" className="scroll-mt-28 space-y-4">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
+          Available now
+        </h2>
+        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          The GEX engine exposes an overlay used by research and (internally)
+          MetaTrader. The website proxies a public subset — spot, futures, gamma
+          flip, max pain, session, expected move, and paper risk caps — at{" "}
+          <code className="text-sm bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">
+            GET /api/research/gex
+          </code>
+          . That is not a general SDK, sandbox, webhook platform, or the private
+          decision/OMS API.
+        </p>
       </section>
-      <BulletSection
-        id="documentation"
-        title="Documentation"
-        body="Authentication, API keys, rate limits and examples are published to approved developers. Until then, request access."
-        items={[
-          "API documentation",
-          "Authentication",
-          "API keys",
-          "Rate limits",
-          "Examples",
-        ]}
-      />
-      <BulletSection
-        id="sandbox"
-        title="Sandbox"
-        body="Non-production environments for integration testing are planned for approved developers."
-        items={["Sandbox access — coming soon"]}
-      />
-      <BulletSection
-        id="status"
-        title="System Status"
-        body="A public status page is coming soon. For incidents, contact support@evermount.co."
-        items={[]}
-      />
+      <section id="documentation" className="scroll-mt-28 space-y-4">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
+          Documentation
+        </h2>
+        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          Full API documentation, keys and rate limits ship with approved
+          access. Until then, the research board and API terms are the public
+          record.
+        </p>
+      </section>
       <CtaBand
         title="Request developer access"
-        body="Share your company, role and API requirements so we can provision the right environment."
+        body="Tell us your firm, role and what you need to integrate. We will not list SDKs or sandboxes that are not callable yet."
         secondaryHref="/api-terms"
         secondaryLabel="API Terms"
       />

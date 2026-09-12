@@ -14,12 +14,13 @@ export default function HeroSection() {
         className="text-center"
       >
         <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-6">
-          Building the Infrastructure for Modern Financial Markets
+          Building the AI Financial Intelligence Company for Africa
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-          Evermount is a financial technology company building infrastructure
-          for market data, quantitative research, artificial intelligence, risk
-          and execution.
+          Evermount is the AI financial intelligence and trading infrastructure
+          company for Africa. We build systems that understand markets, manage
+          risk and execute capital — and we apply that platform to Evermount
+          Capital as one product, not the whole firm.
         </p>
       </motion.section>
     </TranslateTree>

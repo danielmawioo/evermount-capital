@@ -134,10 +134,10 @@ export default function RegisterPage() {
         <div className="hidden md:flex bg-[#f2fdf9] dark:bg-gray-800 flex-col justify-center items-center px-6 py-12 text-center">
           <div className="max-w-xs">
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-              Manage the job
+              Evermount Capital
             </h1>
             <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
-              More effectively with optimized workflows.
+              Open a Capital account. This is not platform API access.
             </p>
             <div className="mt-10 w-72 h-72 relative">
               <Image
@@ -154,7 +154,7 @@ export default function RegisterPage() {
         <div className="flex flex-col justify-center px-6 py-12 sm:px-10 md:px-20 bg-white dark:bg-gray-900">
           <div className="max-w-md w-full mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
-              Get started absolutely free
+              Create a Capital account
             </h2>
             <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
               Already have an account?{" "}

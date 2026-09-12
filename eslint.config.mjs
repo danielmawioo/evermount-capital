@@ -21,6 +21,13 @@ const eslintConfig = defineConfig([
     },
   },
   {
+    files: ["src/**/*.{ts,tsx}"],
+    ignores: ["src/**/*.test.ts", "src/**/*.test.tsx"],
+    rules: {
+      "max-lines": ["error", { max: 500 }],
+    },
+  },
+  {
     // logger.ts is the one place allowed to call console directly — it's
     // the abstraction everything else routes through.
     files: ["src/lib/logger.ts"],

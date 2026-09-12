@@ -6,8 +6,8 @@ Next.js (App Router) / TypeScript frontend for the Evermount fintech platform: p
 
 ## Prerequisites
 
-- Node.js 20.x
-- Yarn 1 (Classic) — this repo's lockfile is `yarn.lock`, not `package-lock.json` or `pnpm-lock.yaml`
+- Node.js 24.x
+- Yarn 1 (Classic) — this repo's lockfile is `yarn.lock`, not `package-lock.json` or `pnpm-lock.yaml`. `package.json` pins `packageManager` to Yarn 1.22.22.
 - A running instance of the Evermount backend (see [`DEPLOYMENT_SETUP.md`](./DEPLOYMENT_SETUP.md)), or point `NEXT_PUBLIC_API_URL` at a deployed one, for any page that calls the API
 
 ## Install
@@ -58,12 +58,15 @@ This starts the app with every `src/lib/api/*` call served by a local [Mock Serv
 ## Test
 
 ```bash
-yarn test        # Jest + React Testing Library, with coverage
-yarn typecheck   # tsc --noEmit
-yarn lint        # eslint . --max-warnings=0
+yarn test                 # Jest + React Testing Library, with coverage
+yarn test --coverage      # same; prints the coverage table
+yarn typecheck            # tsc --noEmit
+yarn lint                 # eslint . --max-warnings=0 (includes max-lines 500 on src)
 ```
 
-`yarn test` enforces a coverage floor (`coverageThreshold` in `jest.config.js`) and fails if coverage regresses below it.
+`yarn test` enforces a coverage floor (`coverageThreshold` in `jest.config.js`) and fails if coverage regresses below it. CI uploads the `coverage/` directory as an artifact and prints the summary table on the job.
+
+Liveness: `GET /api/health` (`{ status, version, timestamp }`). Readiness: `GET /api/ready` (`{ status, version, uptimeMs }`). Neither returns secrets. Layering (page → hook → API client) is documented in [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md).
 
 CI (`.github/workflows/deploy.yml`) runs lint, typecheck, build, and tests on every push and pull request to `main`; the Vercel deploy only triggers on push to `main`, once all of them pass — never from a pull request.
 
@@ -95,7 +98,7 @@ The app is served at [http://localhost:3000](http://localhost:3000). `NEXT_PUBLI
 
 ## Other docs in this repo
 
-- [`CONTRIBUTING.md`](./CONTRIBUTING.md) — setup, commit/PR conventions, project structure, testing conventions
+- [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md) — page → hook → API client layering, i18n lookup, health vs ready
 - [`CHANGELOG.md`](./CHANGELOG.md) — notable changes, Keep a Changelog format
 - [`SECURITY.md`](./SECURITY.md) — how to report a vulnerability, what's already handled, known limitations
 - [`DEPLOYMENT_SETUP.md`](./DEPLOYMENT_SETUP.md) — backend server/Nginx/HTTPS setup

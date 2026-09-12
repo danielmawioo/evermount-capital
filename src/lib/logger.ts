@@ -32,6 +32,21 @@ async function reportError(message: string, error?: unknown) {
   }
 }
 
+async function addBreadcrumb(
+  level: "info" | "warning",
+  message: string,
+  context?: LogContext,
+) {
+  if (!sentryDsnConfigured) return;
+  const Sentry = await import("@sentry/nextjs");
+  Sentry.addBreadcrumb({
+    category: "logger",
+    level,
+    message,
+    data: context,
+  });
+}
+
 export const logger = {
   /** An operation failed. Pass the caught error so it reaches Sentry with a stack trace. */
   error(message: string, error?: unknown, context?: LogContext) {
@@ -42,10 +57,12 @@ export const logger = {
   /** Something unexpected but non-fatal happened. */
   warn(message: string, context?: LogContext) {
     logToConsole("warn", message, context);
+    void addBreadcrumb("warning", message, context);
   },
 
   /** Notable app events worth recording (not errors). */
   info(message: string, context?: LogContext) {
     logToConsole("info", message, context);
+    void addBreadcrumb("info", message, context);
   },
 };

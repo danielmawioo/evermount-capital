@@ -45,11 +45,6 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/capital",
-        destination: "/institutions",
-        permanent: true,
-      },
-      {
         source: "/features",
         destination: "/platform",
         permanent: true,
@@ -79,6 +74,10 @@ const nextConfig = {
           {
             key: "Strict-Transport-Security",
             value: "max-age=63072000; includeSubDomains; preload",
+          },
+          {
+            key: "Content-Security-Policy",
+            value: "frame-ancestors 'none'",
           },
         ],
       },

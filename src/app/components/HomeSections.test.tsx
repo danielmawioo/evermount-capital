@@ -12,7 +12,6 @@ describe("HomeSections", () => {
     expect(
       screen.getByText("From Financial Intelligence to Execution"),
     ).toBeInTheDocument();
-    expect(screen.getByText("Evermount Platform")).toBeInTheDocument();
     expect(screen.getByText("Markets")).toBeInTheDocument();
   });
 

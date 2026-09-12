@@ -10,6 +10,23 @@ for commit messages going forward.
 
 ### Added
 
+- Per-locale i18n copy chunks under `src/i18n/copy/` and chrome messages under `src/i18n/messages/`.
+- Wallet history data layer (`useWalletHistory`) and shared `src/lib/format.ts` helpers.
+- Dashboard page splits (manager clients, admin settings/managers, strategies, wallets, bank deposit) into hooks and presentational components.
+- `GET /api/ready` readiness probe (`status`, `version`, `uptimeMs`) alongside liveness at `GET /api/health`.
+- Sentry breadcrumbs on `logger.info` / `logger.warn` when a DSN is configured.
+- `docs/ARCHITECTURE.md` describing page → hook → API client layering.
+- CI coverage artifact plus a coverage table in the GitHub Actions job summary.
+- Coverage floor raised to measured levels: statements 84%, lines 85%, functions 83%, branches 73%.
+
+### Changed
+
+- ESLint `max-lines` of 500 on `src/**/*.{ts,tsx}` (tests excluded).
+- Security response headers include `Content-Security-Policy: frame-ancestors 'none'` in addition to `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, and HSTS.
+- `package.json` records `packageManager: yarn@1.22.22`.
+
+### Added
+
 - Structured logging (`src/lib/logger.ts`) and optional Sentry error tracking
   (`src/instrumentation.ts` / `src/instrumentation-client.ts`), inert unless
   `NEXT_PUBLIC_SENTRY_DSN`/`SENTRY_DSN` is configured.

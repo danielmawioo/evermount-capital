@@ -78,8 +78,39 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Run tests
-        run: yarn test
+      - name: Run tests with coverage
+        run: yarn test --coverage --coverageReporters=text-summary --coverageReporters=json-summary
+
+      - name: Publish coverage summary
+        if: always()
+        run: |
+          {
+            echo "## Test coverage"
+            echo
+            if [ -f coverage/coverage-summary.json ]; then
+              python3 - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path("coverage/coverage-summary.json").read_text())
+          total = data.get("total", {})
+          print("| Metric | Covered | Total | Pct |")
+          print("| --- | ---: | ---: | ---: |")
+          for key in ("statements", "branches", "functions", "lines"):
+              row = total.get(key, {})
+              print(f"| {key} | {row.get('covered', 0)} | {row.get('total', 0)} | {row.get('pct', 0)}% |")
+          PY
+            else
+              echo "coverage-summary.json was not produced."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload coverage artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage/
+          if-no-files-found: warn
 
   commitlint:
     name: Commit messages
