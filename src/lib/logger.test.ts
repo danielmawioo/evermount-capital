@@ -3,6 +3,7 @@ import { logger } from "./logger";
 jest.mock("@sentry/nextjs", () => ({
   captureException: jest.fn(),
   captureMessage: jest.fn(),
+  addBreadcrumb: jest.fn(),
 }));
 
 describe("logger", () => {
@@ -76,6 +77,8 @@ describe("logger (Sentry forwarding)", () => {
 
   beforeEach(() => {
     jest.spyOn(console, "error").mockImplementation(() => {});
+    jest.spyOn(console, "warn").mockImplementation(() => {});
+    jest.spyOn(console, "info").mockImplementation(() => {});
   });
 
   afterEach(() => {
@@ -97,6 +100,32 @@ describe("logger (Sentry forwarding)", () => {
 
     expect(Sentry.captureException).toHaveBeenCalledWith(error);
     expect(Sentry.captureMessage).not.toHaveBeenCalled();
+  });
+
+  it("adds Sentry breadcrumbs for info and warn when a DSN is configured", async () => {
+    process.env.NEXT_PUBLIC_SENTRY_DSN = "https://example@sentry.io/1";
+    jest.resetModules();
+
+    const Sentry = await import("@sentry/nextjs");
+    const { logger: dsnLogger } = await import("./logger");
+
+    dsnLogger.info("User signed in", { userId: "u1" });
+    dsnLogger.warn("Deprecated path used", { path: "/old" });
+    await Promise.resolve();
+    await Promise.resolve();
+
+    expect(Sentry.addBreadcrumb).toHaveBeenCalledWith({
+      category: "logger",
+      level: "info",
+      message: "User signed in",
+      data: { userId: "u1" },
+    });
+    expect(Sentry.addBreadcrumb).toHaveBeenCalledWith({
+      category: "logger",
+      level: "warning",
+      message: "Deprecated path used",
+      data: { path: "/old" },
+    });
   });
 
   it("calls Sentry.captureMessage when a DSN is configured but no Error was caught", async () => {
