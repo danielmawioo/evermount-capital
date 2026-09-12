@@ -1,0 +1,12 @@
+# Overlay used when the compose image is loaded into a local cluster
+# (kind / minikube / k3d) and deployed with values-local.yaml.
+#
+#   docker compose -f docker-compose.yml -f docker-compose.k8s.yml build
+#   helm upgrade --install evermount ./helm/evermount-capital \
+#     -f helm/evermount-capital/values-local.yaml
+name: evermount-capital
+
+services:
+  web:
+    image: ghcr.io/danielmawioo/evermount-capital:${IMAGE_TAG:-1.0.0}
+    pull_policy: build

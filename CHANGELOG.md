@@ -19,6 +19,7 @@ for commit messages going forward.
 - CI coverage artifact plus a coverage table in the GitHub Actions job summary.
 - Coverage floor raised to measured levels: statements 84%, lines 85%, functions 83%, branches 73%.
 - Helm chart under `helm/evermount-capital/` for Kubernetes deploys (probes `/api/health` and `/api/ready`).
+- Docker image pipeline (`Dockerfile`, `docker-compose.yml`, `docker-compose.k8s.yml`) tagged for the Helm chart.
 
 ### Changed
 
