@@ -53,12 +53,58 @@ jobs:
       - name: Dependency audit (production — blocking)
         run: yarn audit --groups dependencies --level high
 
-      - name: Dependency audit (dev tooling — informational)
-        run: yarn audit --groups devDependencies --level high
-        continue-on-error: true
+      - name: Dependency audit (dev tooling)
+        run: |
+          set +e
+          out=$(yarn audit --groups devDependencies --level high 2>&1)
+          code=$?
+          echo "$out"
+          {
+            echo "## Dev dependency audit"
+            echo
+            if [ "$code" -eq 0 ]; then
+              echo "No high/critical findings in devDependencies."
+            else
+              echo "⚠️ Dev audit reported findings (non-blocking)."
+              echo
+              echo '```'
+              echo "$out"
+              echo '```'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit 0
 
       - name: Build
         run: yarn build
+
+  infra-validate:
+    name: Infra validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: v3.16.4
+
+      - name: Helm lint and template
+        run: |
+          helm lint helm/evermount-capital
+          helm lint helm/evermount-capital -f helm/evermount-capital/values-ci.yaml
+          helm template evermount helm/evermount-capital \
+            --set image.tag=test \
+            -f helm/evermount-capital/values-ci.yaml \
+            > /tmp/evermount-manifests.yaml
+          test -s /tmp/evermount-manifests.yaml
+
+      - name: Docker Compose config
+        run: |
+          docker compose -f docker-compose.yml config >/dev/null
+          docker compose -f docker-compose.yml -f docker-compose.k8s.yml config >/dev/null
 
   test:
     name: Test
@@ -142,7 +188,7 @@ jobs:
 
   deploy:
     name: Deploy to Vercel
-    needs: [validate, test]
+    needs: [validate, test, infra-validate]
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 15
