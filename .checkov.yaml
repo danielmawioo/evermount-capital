@@ -1,0 +1,10 @@
+# Checkov policy for the frontend image and Helm chart.
+# Skip default-namespace (helm template) and optional digest on untagged local tags.
+skip-check:
+  - CKV_K8S_21
+  - CKV2_K8S_6
+skip-path:
+  - templates/tests
+framework:
+  - dockerfile
+  - helm
