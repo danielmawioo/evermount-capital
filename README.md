@@ -98,7 +98,7 @@ docker compose push
 
 ## Kubernetes (Helm)
 
-A chart lives at [`helm/evermount-capital/`](./helm/evermount-capital/). Liveness uses `GET /api/health`; readiness uses `GET /api/ready`; process metrics are at `GET /api/metrics`. CI runs `helm lint`, `helm template --set image.tag=test`, and `docker compose config` on every push and PR (`Infra validate` in `.github/workflows/deploy.yml`). `NEXT_PUBLIC_*` values must be baked into the image at docker build time; runtime secrets go in a Kubernetes Secret referenced by `envFromSecret`.
+A chart lives at [`helm/evermount-capital/`](./helm/evermount-capital/). See that README for values, probes, and secrets. CI (`Infra validate`) runs `helm lint`, `helm template`, kubeconform, Checkov, Hadolint, and `docker compose config`. `NEXT_PUBLIC_*` values must be baked into the image at docker build time; runtime secrets go in a Kubernetes Secret referenced by `envFromSecret`.
 
 ```bash
 helm lint ./helm/evermount-capital
