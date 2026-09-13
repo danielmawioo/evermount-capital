@@ -2,9 +2,14 @@
 # Not a production overlay.
 image:
   tag: test
+  digest: "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 
 ingress:
   enabled: true
+  tls:
+    - secretName: evermount-tls
+      hosts:
+        - evermount.co
 
 autoscaling:
   enabled: true
@@ -14,5 +19,9 @@ podDisruptionBudget:
 
 networkPolicy:
   enabled: true
+
+metrics:
+  serviceMonitor:
+    enabled: true
 
 envFromSecret: evermount-runtime

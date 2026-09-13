@@ -3,6 +3,7 @@ replicaCount: 2
 image:
   repository: ghcr.io/danielmawioo/evermount-capital
   tag: "1.0.0"
+  digest: ""
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
@@ -11,7 +12,7 @@ fullnameOverride: ""
 
 serviceAccount:
   create: true
-  automount: true
+  automount: false
   annotations: {}
   name: ""
 
@@ -19,10 +20,19 @@ podAnnotations: {}
 podLabels: {}
 
 podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  runAsGroup: 1000
   fsGroup: 1000
+  seccompProfile:
+    type: RuntimeDefault
 
 securityContext:
   allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 1000
+  runAsGroup: 1000
   capabilities:
     drop:
       - ALL
@@ -88,3 +98,9 @@ podDisruptionBudget:
 
 networkPolicy:
   enabled: false
+
+metrics:
+  serviceMonitor:
+    enabled: false
+    interval: 30s
+    path: /api/metrics
