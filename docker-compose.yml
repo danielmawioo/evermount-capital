@@ -14,8 +14,7 @@ services:
     ports:
       - "3000:3000"
     env_file:
-      - path: .env.local
-        required: false
+      - .env.example
     environment:
       NODE_ENV: production
     healthcheck:

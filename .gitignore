@@ -51,3 +51,4 @@ next-env.d.ts
 # python
 scripts/__pycache__/
 __pycache__/
+gex-engine/.venv/

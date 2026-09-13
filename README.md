@@ -98,7 +98,15 @@ docker compose push
 
 ## Kubernetes (Helm)
 
-A chart lives at [`helm/evermount-capital/`](./helm/evermount-capital/). Liveness uses `GET /api/health`; readiness uses `GET /api/ready`. `NEXT_PUBLIC_*` values must be baked into the image at docker build time; runtime secrets go in a Kubernetes Secret referenced by `envFromSecret`.
+A chart lives at [`helm/evermount-capital/`](./helm/evermount-capital/). Liveness uses `GET /api/health`; readiness uses `GET /api/ready`; process metrics are at `GET /api/metrics`. CI runs `helm lint`, `helm template --set image.tag=test`, and `docker compose config` on every push and PR (`Infra validate` in `.github/workflows/deploy.yml`). `NEXT_PUBLIC_*` values must be baked into the image at docker build time; runtime secrets go in a Kubernetes Secret referenced by `envFromSecret`.
+
+```bash
+helm lint ./helm/evermount-capital
+helm lint ./helm/evermount-capital -f helm/evermount-capital/values-ci.yaml
+helm template evermount ./helm/evermount-capital --set image.tag=test \
+  -f helm/evermount-capital/values-ci.yaml
+docker compose -f docker-compose.yml -f docker-compose.k8s.yml config
+```
 
 ```bash
 export IMAGE_TAG=1.0.0
@@ -116,7 +124,7 @@ For a local cluster that cannot pull from GHCR, use `--set image.pullPolicy=Neve
 - **API layer**: `src/lib/api/client.ts` holds the single Axios instance and its interceptors (a request interceptor attaches the bearer token; a response interceptor handles `401`s by refreshing the access token once via `/auth/refresh` and retrying, or clearing auth and redirecting to `/login` if the refresh itself fails). Each backend domain (`auth`, `wallets`, `admin`, `portfolioManager`, …) has its own file under `src/lib/api/`; `src/lib/api-client.ts` composes them into the typed `api.*` surface everything else imports.
 - **Auth storage** (`src/lib/auth-storage.ts`): tokens live in `localStorage` (remember-me) or `sessionStorage`, mirrored into a short-lived cookie so the proxy can read auth state without an API round trip.
 - **Validation** (`src/lib/schemas.ts`): Zod schemas for form inputs that reach the API layer (e.g. wallet credit amounts), used alongside `getApiErrorMessage` (`src/lib/api-error.ts`) for consistent error surfacing across dashboard pages.
-- **Deployment**: GitHub Actions builds, lints, typechecks, and tests on push to `main`, then triggers a Vercel deploy hook. The backend is deployed separately (see `DEPLOYMENT_SETUP.md` and `nginx-api.evermount.co.conf`).
+- **Deployment**: GitHub Actions runs lint/typecheck/audit/build, tests with coverage, and Helm/Compose validation, then triggers a Vercel deploy hook on `main`. The backend is deployed separately (see `DEPLOYMENT_SETUP.md` and `nginx-api.evermount.co.conf`).
 
 ## Other docs in this repo
 

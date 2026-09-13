@@ -1,0 +1,18 @@
+# Fixture used only by `helm lint` / `helm template` in CI.
+# Not a production overlay.
+image:
+  tag: test
+
+ingress:
+  enabled: true
+
+autoscaling:
+  enabled: true
+
+podDisruptionBudget:
+  enabled: true
+
+networkPolicy:
+  enabled: true
+
+envFromSecret: evermount-runtime

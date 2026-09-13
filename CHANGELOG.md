@@ -20,6 +20,10 @@ for commit messages going forward.
 - Coverage floor raised to measured levels: statements 84%, lines 85%, functions 83%, branches 73%.
 - Helm chart under `helm/evermount-capital/` for Kubernetes deploys (probes `/api/health` and `/api/ready`).
 - Docker image pipeline (`Dockerfile`, `docker-compose.yml`, `docker-compose.k8s.yml`) tagged for the Helm chart.
+- `GET /api/metrics` Prometheus process gauges (`evermount_up`, `evermount_uptime_ms`).
+- Helm PDB, NetworkPolicy, `values-ci.yaml` lint fixture, and a Helm test hook.
+- CI `Infra validate` job (`helm lint` / `helm template` / `docker compose config`).
+- Weekly `yarn outdated` workflow (`.github/workflows/dep-freshness.yml`).
 
 ### Changed
 
