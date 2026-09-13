@@ -81,3 +81,10 @@ env:
 # Runtime-only secrets (OPENAI_API_KEY, SENTRY_DSN, …). NEXT_PUBLIC_* must be
 # baked into the image at docker build time.
 envFromSecret: ""
+
+podDisruptionBudget:
+  enabled: false
+  minAvailable: 1
+
+networkPolicy:
+  enabled: false
