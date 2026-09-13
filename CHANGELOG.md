@@ -21,8 +21,8 @@ for commit messages going forward.
 - Helm chart under `helm/evermount-capital/` for Kubernetes deploys (probes `/api/health` and `/api/ready`).
 - Docker image pipeline (`Dockerfile`, `docker-compose.yml`, `docker-compose.k8s.yml`) tagged for the Helm chart.
 - `GET /api/metrics` Prometheus process gauges (`evermount_up`, `evermount_uptime_ms`).
-- Helm PDB, NetworkPolicy, `values-ci.yaml` lint fixture, and a Helm test hook.
-- CI `Infra validate` job (`helm lint` / `helm template` / `docker compose config`).
+- Helm pod hardening (`runAsNonRoot`, read-only root, seccomp), optional image digest, ServiceMonitor, and chart README.
+- CI `Infra validate` job (`helm lint` / `helm template` / kubeconform / Checkov / Hadolint / `docker compose config`).
 - Weekly `yarn outdated` workflow (`.github/workflows/dep-freshness.yml`).
 
 ### Changed

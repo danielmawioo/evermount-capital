@@ -27,14 +27,14 @@ ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
-RUN apk add --no-cache wget \
-  && addgroup -S evermount && adduser -S evermount -G evermount
-COPY --from=builder --chown=evermount:evermount /app/node_modules ./node_modules
-COPY --from=builder --chown=evermount:evermount /app/.next ./.next
-COPY --from=builder --chown=evermount:evermount /app/public ./public
-COPY --from=builder --chown=evermount:evermount /app/package.json ./package.json
-COPY --from=builder --chown=evermount:evermount /app/next.config.ts ./next.config.ts
-USER evermount
+# node:24-alpine already ships uid/gid 1000 as `node` (matches Helm runAsUser).
+RUN apk add --no-cache wget
+COPY --from=builder --chown=node:node /app/node_modules ./node_modules
+COPY --from=builder --chown=node:node /app/.next ./.next
+COPY --from=builder --chown=node:node /app/public ./public
+COPY --from=builder --chown=node:node /app/package.json ./package.json
+COPY --from=builder --chown=node:node /app/next.config.ts ./next.config.ts
+USER node
 EXPOSE 3000
 HEALTHCHECK --interval=20s --timeout=5s --start-period=20s --retries=3 \
   CMD wget -qO- http://127.0.0.1:3000/api/health >/dev/null || exit 1

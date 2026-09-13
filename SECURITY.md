@@ -23,9 +23,9 @@ Vulnerabilities in the backend or infrastructure should be reported the same way
 - No secrets are committed. `.env`, `.env.local`, and friends are gitignored; `.env.example` documents required variables without values.
 - Auth tokens live in `localStorage`/`sessionStorage`, never in a plain cookie usable cross-site (see `src/lib/auth-storage.ts`).
 - Input reaching the API layer from forms (deposit/withdrawal amounts, admin wallet credits) is validated with [Zod](https://zod.dev/) schemas (`src/lib/schemas.ts`) before it's sent.
-- Dependabot is configured (`.github/dependabot.yml`) for weekly npm and GitHub Actions updates.
+- Dependabot is configured (`.github/dependabot.yml`) for weekly npm, Docker, and GitHub Actions updates.
 - CI runs `yarn audit --groups dependencies --level high` on every push and pull request and **fails the build** on any high/critical advisory in a production dependency (`package.json`'s `resolutions` field pins several transitive packages — `nanoid`, `postcss`, `lodash`, `sharp`, `yaml`, and a scoped `picomatch` override — to patched versions that their parent packages hadn't picked up yet).
-- Response headers in `next.config.ts` set `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `X-Frame-Options: DENY`, `Content-Security-Policy: frame-ancestors 'none'`, `Permissions-Policy`, and HSTS (`max-age=63072000; includeSubDomains; preload`). `/api/health`, `/api/ready`, and `/api/metrics` never return secrets. The Helm chart can emit a NetworkPolicy and PodDisruptionBudget.
+- Response headers in `next.config.ts` set `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `X-Frame-Options: DENY`, `Content-Security-Policy: frame-ancestors 'none'`, `Permissions-Policy`, and HSTS (`max-age=63072000; includeSubDomains; preload`). `/api/health`, `/api/ready`, and `/api/metrics` never return secrets. The Helm chart runs as uid 1000 with a read-only root filesystem, optional image digest, and can emit a NetworkPolicy, PodDisruptionBudget, and ServiceMonitor. CI validates the chart with kubeconform, Checkov, and Hadolint.
 
 ## Known limitations
 

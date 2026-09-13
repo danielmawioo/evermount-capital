@@ -101,6 +101,43 @@ jobs:
             > /tmp/evermount-manifests.yaml
           test -s /tmp/evermount-manifests.yaml
 
+      - name: kubeconform
+        run: |
+          curl -sSL -o /tmp/kubeconform.tgz \
+            https://github.com/yannh/kubeconform/releases/download/v0.6.7/kubeconform-linux-amd64.tar.gz
+          mkdir -p "$HOME/.local/bin"
+          tar -xzf /tmp/kubeconform.tgz -C "$HOME/.local/bin" kubeconform
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          "$HOME/.local/bin/kubeconform" -strict -ignore-missing-schemas \
+            -kubernetes-version 1.28.0 \
+            /tmp/evermount-manifests.yaml
+
+      - name: Hadolint
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Dockerfile
+          config: .hadolint.yaml
+          failure-threshold: error
+
+      - name: Checkov Dockerfile
+        uses: bridgecrewio/checkov-action@v12
+        with:
+          file: Dockerfile
+          framework: dockerfile
+          quiet: true
+          soft_fail: false
+          config_file: .checkov.yaml
+
+      - name: Checkov Helm
+        uses: bridgecrewio/checkov-action@v12
+        with:
+          directory: helm/evermount-capital
+          framework: helm
+          quiet: true
+          soft_fail: false
+          config_file: .checkov.yaml
+          var_file: values-ci.yaml
+
       - name: Docker Compose config
         run: |
           docker compose -f docker-compose.yml config >/dev/null

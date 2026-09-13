@@ -27,7 +27,7 @@ Copy is keyed lookup, not inline strings on marketing pages. Chrome and site dic
 | `GET /api/ready` | Readiness | `{ status, version, uptimeMs }` — no secrets, env dumps, or backend probes |
 | `GET /api/metrics` | Process metrics | Prometheus text (`evermount_up`, `evermount_uptime_ms`) — no secrets |
 
-Uptime monitors should hit `/api/health`. Orchestrators that wait for a process to boot can hit `/api/ready`. Scrapers can hit `/api/metrics`. The Helm chart at `helm/evermount-capital/` wires health/ready as probes. CI runs `helm lint`, `helm template`, and `docker compose config` in the Infra validate job.
+Uptime monitors should hit `/api/health`. Orchestrators that wait for a process to boot can hit `/api/ready`. Scrapers can hit `/api/metrics`. The Helm chart at `helm/evermount-capital/` wires health/ready as probes and can emit a ServiceMonitor. CI runs `helm lint`, `helm template`, kubeconform, Checkov, Hadolint, and `docker compose config` in the Infra validate job.
 
 ## Size limit
 
