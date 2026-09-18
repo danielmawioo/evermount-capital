@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM node:24-alpine AS base
+FROM node:25-alpine AS base
 RUN corepack enable && corepack prepare yarn@1.22.22 --activate
 WORKDIR /app
 
