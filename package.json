@@ -35,7 +35,7 @@
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@intercom/messenger-js-sdk": "^0.0.20",
-    "@sentry/nextjs": "^10.71.0",
+    "@sentry/nextjs": "^10.74.0",
     "@stripe/react-stripe-js": "^4.0.2",
     "@stripe/stripe-js": "^7.10.0",
     "axios": "^1.19.0",
