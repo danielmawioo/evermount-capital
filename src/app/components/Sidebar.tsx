@@ -23,6 +23,7 @@ import {
   ShieldCheckIcon,
   ChartBarSquareIcon,
   BanknotesIcon,
+  ChartPieIcon,
 } from "@heroicons/react/24/outline";
 import { useInvestor } from "@/hooks/useInvestor";
 
@@ -45,6 +46,11 @@ const investorLinks: NavLink[] = [
   { label: "Overview", href: "/dashboard", icon: HomeIcon },
   { label: "Trade", href: "/dashboard/trade", icon: BoltIcon },
   { label: "Portfolio", href: "/dashboard/portfolio", icon: Squares2X2Icon },
+  {
+    label: "Intelligence",
+    href: "/dashboard/intelligence",
+    icon: ChartPieIcon,
+  },
   { label: "Wallet", href: "/dashboard/wallets", icon: WalletIcon },
   {
     label: "Transactions",
