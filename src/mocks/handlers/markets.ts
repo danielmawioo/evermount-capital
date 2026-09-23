@@ -35,14 +35,6 @@ const mockInstruments: MarketInstrument[] = [
   },
 ];
 
-// Example UNAVAILABLE instrument (can be uncommented to test)
-const unavailableInstrument: MarketInstrument = {
-  symbol: "XAGUSD",
-  name: "Silver Spot",
-  delayClass: "UNAVAILABLE",
-  quote: null,
-};
-
 export const marketsHandlers = [
   // List all markets
   http.get("*/v1/markets", ({ request }) => {

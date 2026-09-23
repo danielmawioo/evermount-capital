@@ -139,7 +139,7 @@ export default function IntelligencePage() {
               Market Intelligence
             </h1>
             <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm">
-              Real-time market data and analysis
+              Delayed XAU/GC market intelligence
             </p>
           </div>
 
@@ -173,7 +173,7 @@ export default function IntelligencePage() {
               Market Intelligence
             </h1>
             <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm">
-              Real-time market data and analysis
+              Delayed XAU/GC market intelligence
             </p>
           </div>
 
@@ -197,7 +197,7 @@ export default function IntelligencePage() {
               Market Intelligence
             </h1>
             <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm">
-              Real-time market data and analysis
+              Delayed XAU/GC market intelligence
             </p>
           </div>
 
@@ -228,7 +228,7 @@ export default function IntelligencePage() {
               Market Intelligence
             </h1>
             <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm">
-              Real-time market data and analysis
+              Delayed XAU/GC market intelligence
             </p>
           </div>
 
@@ -255,7 +255,7 @@ export default function IntelligencePage() {
               Market Intelligence
             </h1>
             <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm">
-              Real-time market data and analysis
+              Delayed XAU/GC market intelligence
             </p>
           </div>
           <button

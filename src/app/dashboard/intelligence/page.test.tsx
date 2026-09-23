@@ -166,8 +166,8 @@ describe("IntelligencePage", () => {
         data: {
           instruments: [
             {
-              symbol: "XAGUSD",
-              name: "Silver Spot",
+              symbol: "GC",
+              name: "Gold Futures",
               delayClass: "UNAVAILABLE",
               quote: null,
             },
@@ -178,10 +178,10 @@ describe("IntelligencePage", () => {
       render(<IntelligencePage />);
 
       await waitFor(() => {
-        expect(screen.getByText("XAGUSD")).toBeInTheDocument();
+        expect(screen.getByText("GC")).toBeInTheDocument();
       });
 
-      expect(screen.getByText("Silver Spot")).toBeInTheDocument();
+      expect(screen.getByText("Gold Futures")).toBeInTheDocument();
       expect(screen.getByText("Unavailable")).toBeInTheDocument();
       expect(screen.getByText("Quote data unavailable")).toBeInTheDocument();
     });
