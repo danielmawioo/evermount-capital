@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { api } from "@/lib/api-client";
 import { logger } from "@/lib/logger";
 import type { MarketInstrument, DelayClass } from "@/lib/api/markets";
+import type { AxiosError } from "axios";
 import {
   ClockIcon,
   ExclamationTriangleIcon,
@@ -49,10 +50,14 @@ export default function IntelligencePage() {
         error: null,
         authError: false,
       });
-    } catch (error: any) {
+    } catch (error) {
       logger.error("Failed to load markets", error);
 
-      if (error.response?.status === 401 || error.response?.status === 403) {
+      const axiosError = error as AxiosError;
+      if (
+        axiosError.response?.status === 401 ||
+        axiosError.response?.status === 403
+      ) {
         setState({
           instruments: [],
           loading: false,
@@ -63,9 +68,11 @@ export default function IntelligencePage() {
         setState({
           instruments: [],
           loading: false,
-          error: error.response?.status >= 500
-            ? "Service temporarily unavailable. Please try again."
-            : "Failed to load market data",
+          error:
+            axiosError.response?.status &&
+            axiosError.response.status >= 500
+              ? "Service temporarily unavailable. Please try again."
+              : "Failed to load market data",
           authError: false,
         });
       }
