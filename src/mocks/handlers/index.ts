@@ -42,6 +42,7 @@ import { securityHandlers } from "./security";
 import { statementsHandlers } from "./statements";
 import { complianceHandlers } from "./compliance";
 import { adminHandlers } from "./admin";
+import { marketsHandlers } from "./markets";
 
 export const handlers = [
   ...adminHandlers,
@@ -64,4 +65,5 @@ export const handlers = [
   ...securityHandlers,
   ...statementsHandlers,
   ...complianceHandlers,
+  ...marketsHandlers,
 ];

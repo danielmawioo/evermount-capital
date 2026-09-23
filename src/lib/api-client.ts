@@ -19,6 +19,7 @@ import { security } from "./api/security";
 import { statements } from "./api/statements";
 import { compliance } from "./api/compliance";
 import { admin } from "./api/admin";
+import { markets } from "./api/markets";
 
 export const api = {
   auth,
@@ -41,6 +42,7 @@ export const api = {
   statements,
   compliance,
   admin,
+  markets,
 };
 
 export default apiClient;
