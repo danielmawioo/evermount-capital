@@ -69,8 +69,7 @@ export default function IntelligencePage() {
           instruments: [],
           loading: false,
           error:
-            axiosError.response?.status &&
-            axiosError.response.status >= 500
+            axiosError.response?.status && axiosError.response.status >= 500
               ? "Service temporarily unavailable. Please try again."
               : "Failed to load market data",
           authError: false,
@@ -156,8 +155,8 @@ export default function IntelligencePage() {
               Request Access
             </h3>
             <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md mx-auto">
-              Market intelligence features require authentication. Please sign in
-              or contact support to request access to delayed market data.
+              Market intelligence features require authentication. Please sign
+              in or contact support to request access to delayed market data.
             </p>
             <button
               onClick={() => router.push("/login")}
@@ -371,9 +370,9 @@ export default function IntelligencePage() {
               <p className="text-blue-800 dark:text-blue-200">
                 <strong>Delayed:</strong> Data delayed by up to 15 minutes.{" "}
                 <strong>Stale:</strong> Data older than 15 minutes.{" "}
-                <strong>Unavailable:</strong> Quote data not currently available.
-                This data is provided for informational purposes only and should
-                not be used as the sole basis for trading decisions.
+                <strong>Unavailable:</strong> Quote data not currently
+                available. This data is provided for informational purposes only
+                and should not be used as the sole basis for trading decisions.
               </p>
             </div>
           </div>

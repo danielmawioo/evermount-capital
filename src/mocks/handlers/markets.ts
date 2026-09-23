@@ -42,10 +42,7 @@ export const marketsHandlers = [
 
     // Simulate 401 for unauthenticated requests
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
-      return HttpResponse.json(
-        { error: "Unauthorized" },
-        { status: 401 },
-      );
+      return HttpResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     // Simulate 403 for forbidden (could be used for specific scenarios)
@@ -63,20 +60,14 @@ export const marketsHandlers = [
     const authHeader = request.headers.get("authorization");
 
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
-      return HttpResponse.json(
-        { error: "Unauthorized" },
-        { status: 401 },
-      );
+      return HttpResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     const { symbol } = params;
     const instrument = mockInstruments.find((i) => i.symbol === symbol);
 
     if (!instrument) {
-      return HttpResponse.json(
-        { error: "Not found" },
-        { status: 404 },
-      );
+      return HttpResponse.json({ error: "Not found" }, { status: 404 });
     }
 
     return HttpResponse.json(instrument);

@@ -42,7 +42,9 @@ describe("IntelligencePage", () => {
       });
 
       expect(
-        screen.getByText(/Market intelligence features require authentication/i),
+        screen.getByText(
+          /Market intelligence features require authentication/i,
+        ),
       ).toBeInTheDocument();
       expect(api.markets.list).not.toHaveBeenCalled();
     });
@@ -215,7 +217,9 @@ describe("IntelligencePage", () => {
 
       await waitFor(() => {
         expect(
-          screen.getByText("Service temporarily unavailable. Please try again."),
+          screen.getByText(
+            "Service temporarily unavailable. Please try again.",
+          ),
         ).toBeInTheDocument();
       });
 
