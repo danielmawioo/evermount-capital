@@ -4342,13 +4342,13 @@ fraction.js@^4.3.7:
   resolved "https://registry.npmjs.org/fraction.js/-/fraction.js-4.3.7.tgz"
   integrity sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==
 
-framer-motion@^13.2.0:
-  version "13.2.0"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-13.2.0.tgz#e531f00950f590d5ac0e905a355b8af4ca3923b0"
-  integrity sha512-9E33ebgMaO33w1nN/jEdW8z3/GO483fMi4rqbMG9rt83XgW9QLKRe4NcmJ8s+fQ3O34++UHrIQwlIWGIWTITjA==
+framer-motion@^13.4.0:
+  version "13.4.0"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-13.4.0.tgz#2a7171731ce00028ea6c12527e8ee97427e26c86"
+  integrity sha512-HCpqKM9BTu6UYKtj0u6J1QNxojnnirNcghcSDZ+SkpiL3myxvtsgXPS3ZGEELC2eSma7YiA937rAEXtRyydSXQ==
   dependencies:
-    motion-dom "^13.2.0"
-    motion-utils "^13.0.0"
+    motion-dom "^13.3.0"
+    motion-utils "^13.3.0"
     tslib "^2.4.0"
 
 fs-extra@^10.0.0:
@@ -5938,17 +5938,17 @@ moo-color@^1.0.2:
   dependencies:
     color-name "^1.1.4"
 
-motion-dom@^13.2.0:
-  version "13.2.0"
-  resolved "https://registry.yarnpkg.com/motion-dom/-/motion-dom-13.2.0.tgz#d13d09accabdd6775d3bb981895fa2b8b6c07735"
-  integrity sha512-N6gdSoWRDk0Rh/fVtlqUtLs+fEN3ELFZI3cn3IQE9Mnf3E+Mh8wjO6MstzCOPFh4Yf0L1as5m2eUyYWj8ylVSQ==
+motion-dom@^13.3.0:
+  version "13.4.2"
+  resolved "https://registry.yarnpkg.com/motion-dom/-/motion-dom-13.4.2.tgz#0e61793579cfdf3accf8bfe4ebadc7d60d112799"
+  integrity sha512-mY293Iyj4rOQo5sDxUwPYLOKiveLQrJoK1tKfG8V1H3MMGMfan3s2i7NBW18WnD39DD79ogyiL/1fmy22GLG5w==
   dependencies:
-    motion-utils "^13.0.0"
+    motion-utils "^13.3.0"
 
-motion-utils@^13.0.0:
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/motion-utils/-/motion-utils-13.0.0.tgz#b2e4dbe21e5488032592f0b0d4e0b7b776466dfa"
-  integrity sha512-7DnN7TmbLcYXcG4RVadXIihWlyuM9afoUww8Y5Agg431kGKiuL2/OMyP4mJ5wLz+pvN3t5ySClLOaVXJ+wekRQ==
+motion-utils@^13.3.0:
+  version "13.3.0"
+  resolved "https://registry.yarnpkg.com/motion-utils/-/motion-utils-13.3.0.tgz#f48cb83bc43c29ca06a807cb84ecd3d04563c635"
+  integrity sha512-sgSschQp7EseHInIlR7hBbMuvet3RA0bs28KPZAXJcGKGdxHGvh1ogpYDilY3bOMtl73EqPNmp75sAKHYPU5sg==
 
 ms@^2.1.1, ms@^2.1.3:
   version "2.1.3"
