@@ -158,4 +158,53 @@ describe("Sidebar", () => {
     await user.click(screen.getByRole("link", { name: /Overview/i }));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
+
+  describe("Market Intelligence feature flag", () => {
+    const originalEnv = process.env.NEXT_PUBLIC_MI_ENABLED;
+
+    afterEach(() => {
+      process.env.NEXT_PUBLIC_MI_ENABLED = originalEnv;
+    });
+
+    it("shows Intelligence link when MI is enabled", async () => {
+      process.env.NEXT_PUBLIC_MI_ENABLED = "true";
+      mock.onGet("/users/profile").reply(200, {});
+
+      render(<Sidebar />);
+
+      expect(
+        screen.getByRole("link", { name: /Intelligence/i }),
+      ).toBeInTheDocument();
+      expect(screen.getByRole("link", { name: /Intelligence/i })).toHaveAttribute(
+        "href",
+        "/dashboard/intelligence",
+      );
+    });
+
+    it("hides Intelligence link when MI is disabled", async () => {
+      process.env.NEXT_PUBLIC_MI_ENABLED = "false";
+      mock.onGet("/users/profile").reply(200, {});
+
+      render(<Sidebar />);
+
+      await waitFor(() => {
+        expect(screen.getByText("Investor")).toBeInTheDocument();
+      });
+
+      expect(
+        screen.queryByRole("link", { name: /Intelligence/i }),
+      ).not.toBeInTheDocument();
+    });
+
+    it("shows Intelligence link when MI env var is omitted (default enabled)", async () => {
+      delete process.env.NEXT_PUBLIC_MI_ENABLED;
+      mock.onGet("/users/profile").reply(200, {});
+
+      render(<Sidebar />);
+
+      expect(
+        screen.getByRole("link", { name: /Intelligence/i }),
+      ).toBeInTheDocument();
+    });
+  });
 });

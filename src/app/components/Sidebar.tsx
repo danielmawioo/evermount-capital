@@ -111,7 +111,18 @@ export default function Sidebar({ onClose }: SidebarProps) {
   const pathname = usePathname();
   const { profile, tier, isAdmin, isManager, loading } = useInvestor();
 
-  const sections: NavSection[] = [{ title: "Investor", links: investorLinks }];
+  const MI_ENABLED = process.env.NEXT_PUBLIC_MI_ENABLED !== "false";
+
+  const investorLinksFiltered = investorLinks.filter((link) => {
+    if (link.href === "/dashboard/intelligence" && !MI_ENABLED) {
+      return false;
+    }
+    return true;
+  });
+
+  const sections: NavSection[] = [
+    { title: "Investor", links: investorLinksFiltered },
+  ];
 
   if (isAdmin) {
     sections.push({ title: "Admin", links: adminLinks });

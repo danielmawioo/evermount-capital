@@ -13,6 +13,7 @@ import {
   ArrowPathIcon,
   InformationCircleIcon,
 } from "@heroicons/react/24/outline";
+import { MI_COPY } from "@/lib/mi-copy";
 
 interface IntelligencePageState {
   instruments: MarketInstrument[];
@@ -29,6 +30,15 @@ export default function IntelligencePage() {
     error: null,
     authError: false,
   });
+
+  const MI_ENABLED = process.env.NEXT_PUBLIC_MI_ENABLED !== "false";
+
+  useEffect(() => {
+    if (!MI_ENABLED) {
+      router.push("/dashboard");
+      return;
+    }
+  }, [MI_ENABLED, router]);
 
   useEffect(() => {
     const token =
@@ -70,8 +80,8 @@ export default function IntelligencePage() {
           loading: false,
           error:
             axiosError.response?.status && axiosError.response.status >= 500
-              ? "Service temporarily unavailable. Please try again."
-              : "Failed to load market data",
+              ? MI_COPY.states.serviceUnavailable
+              : MI_COPY.states.loadFailed,
           authError: false,
         });
       }
@@ -116,21 +126,21 @@ export default function IntelligencePage() {
         return (
           <span className="inline-flex items-center gap-1 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 text-xs font-semibold px-3 py-1">
             <ClockIcon className="w-3.5 h-3.5" />
-            Delayed
+            {MI_COPY.badges.delayed.label}
           </span>
         );
       case "STALE":
         return (
           <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300 text-xs font-semibold px-3 py-1">
             <ExclamationTriangleIcon className="w-3.5 h-3.5" />
-            Stale
+            {MI_COPY.badges.stale.label}
           </span>
         );
       case "UNAVAILABLE":
         return (
           <span className="inline-flex items-center gap-1 rounded-full bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 text-xs font-semibold px-3 py-1">
             <ExclamationTriangleIcon className="w-3.5 h-3.5" />
-            Unavailable
+            {MI_COPY.badges.unavailable.label}
           </span>
         );
     }
@@ -142,27 +152,26 @@ export default function IntelligencePage() {
         <div className="space-y-6">
           <div>
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Market Intelligence
+              {MI_COPY.page.title}
             </h1>
             <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm">
-              Delayed XAU/GC market intelligence
+              {MI_COPY.page.subtitle}
             </p>
           </div>
 
           <div className="bg-white dark:bg-[#161a23] rounded-xl p-8 border border-gray-100 dark:border-gray-800 shadow-sm text-center">
             <InformationCircleIcon className="w-12 h-12 text-gray-400 mx-auto mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              Request Access
+              {MI_COPY.requestAccess.title}
             </h3>
             <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md mx-auto">
-              Market intelligence features require authentication. Please sign
-              in or contact support to request access to delayed market data.
+              {MI_COPY.requestAccess.message}
             </p>
             <button
               onClick={() => router.push("/login")}
               className="inline-flex items-center justify-center rounded-lg bg-[#00a76f] text-white text-sm font-semibold px-6 py-2.5 hover:bg-[#008f5d] transition"
             >
-              Sign In
+              {MI_COPY.requestAccess.ctaLabel}
             </button>
           </div>
         </div>
@@ -176,17 +185,17 @@ export default function IntelligencePage() {
         <div className="space-y-6">
           <div>
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Market Intelligence
+              {MI_COPY.page.title}
             </h1>
             <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm">
-              Delayed XAU/GC market intelligence
+              {MI_COPY.page.subtitle}
             </p>
           </div>
 
           <div className="bg-white dark:bg-[#161a23] rounded-xl p-8 border border-gray-100 dark:border-gray-800 shadow-sm text-center">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#00a76f] mx-auto"></div>
             <p className="text-gray-600 dark:text-gray-400 mt-4">
-              Loading market data...
+              {MI_COPY.states.loading}
             </p>
           </div>
         </div>
@@ -200,10 +209,10 @@ export default function IntelligencePage() {
         <div className="space-y-6">
           <div>
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Market Intelligence
+              {MI_COPY.page.title}
             </h1>
             <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm">
-              Delayed XAU/GC market intelligence
+              {MI_COPY.page.subtitle}
             </p>
           </div>
 
@@ -217,7 +226,7 @@ export default function IntelligencePage() {
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#00a76f] text-white text-sm font-semibold px-6 py-2.5 hover:bg-[#008f5d] transition mt-4"
             >
               <ArrowPathIcon className="w-4 h-4" />
-              Retry
+              {MI_COPY.actions.retry}
             </button>
           </div>
         </div>
@@ -231,20 +240,20 @@ export default function IntelligencePage() {
         <div className="space-y-6">
           <div>
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Market Intelligence
+              {MI_COPY.page.title}
             </h1>
             <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm">
-              Delayed XAU/GC market intelligence
+              {MI_COPY.page.subtitle}
             </p>
           </div>
 
           <div className="bg-white dark:bg-[#161a23] rounded-xl p-8 border border-gray-100 dark:border-gray-800 shadow-sm text-center">
             <InformationCircleIcon className="w-12 h-12 text-gray-400 mx-auto mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              No market data available
+              {MI_COPY.states.noData}
             </h3>
             <p className="text-gray-600 dark:text-gray-400">
-              Market instruments will appear here when available.
+              {MI_COPY.states.noDataDetail}
             </p>
           </div>
         </div>
@@ -258,10 +267,10 @@ export default function IntelligencePage() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Market Intelligence
+              {MI_COPY.page.title}
             </h1>
             <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm">
-              Delayed XAU/GC market intelligence
+              {MI_COPY.page.subtitle}
             </p>
           </div>
           <button
@@ -269,7 +278,7 @@ export default function IntelligencePage() {
             className="inline-flex items-center justify-center gap-2 rounded-lg bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-semibold px-4 py-2 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
           >
             <ArrowPathIcon className="w-4 h-4" />
-            Refresh
+            {MI_COPY.actions.refresh}
           </button>
         </div>
 
@@ -351,10 +360,10 @@ export default function IntelligencePage() {
                 <div className="py-6 text-center">
                   <ExclamationTriangleIcon className="w-8 h-8 text-gray-400 mx-auto mb-2" />
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                    Quote data unavailable
+                    {MI_COPY.states.quoteUnavailable}
                   </p>
                   <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
-                    Please try again later or contact support
+                    {MI_COPY.states.quoteUnavailableDetail}
                   </p>
                 </div>
               )}
@@ -366,13 +375,14 @@ export default function IntelligencePage() {
           <div className="flex gap-3">
             <InformationCircleIcon className="w-5 h-5 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
             <div className="text-sm text-blue-900 dark:text-blue-100">
-              <p className="font-semibold mb-1">About Market Data</p>
+              <p className="font-semibold mb-1">{MI_COPY.disclaimer.title}</p>
               <p className="text-blue-800 dark:text-blue-200">
-                <strong>Delayed:</strong> Data delayed by up to 15 minutes.{" "}
-                <strong>Stale:</strong> Data older than 15 minutes.{" "}
-                <strong>Unavailable:</strong> Quote data not currently
-                available. This data is provided for informational purposes only
-                and should not be used as the sole basis for trading decisions.
+                <strong>{MI_COPY.badges.delayed.label}:</strong>{" "}
+                {MI_COPY.badges.delayed.description}.{" "}
+                <strong>{MI_COPY.badges.stale.label}:</strong>{" "}
+                {MI_COPY.badges.stale.description}.{" "}
+                <strong>{MI_COPY.badges.unavailable.label}:</strong>{" "}
+                {MI_COPY.badges.unavailable.description}. {MI_COPY.disclaimer.content}
               </p>
             </div>
           </div>

@@ -2,6 +2,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { useRouter } from "next/navigation";
 import IntelligencePage from "./page";
 import { api } from "@/lib/api-client";
+import { MI_COPY } from "@/lib/mi-copy";
 
 jest.mock("next/navigation", () => ({
   useRouter: jest.fn(),
@@ -23,6 +24,7 @@ jest.mock("@/lib/logger", () => ({
 
 describe("IntelligencePage", () => {
   const mockRouterPush = jest.fn();
+  const originalEnv = process.env.NEXT_PUBLIC_MI_ENABLED;
 
   beforeEach(() => {
     (useRouter as jest.Mock).mockReturnValue({
@@ -31,6 +33,40 @@ describe("IntelligencePage", () => {
     localStorage.clear();
     sessionStorage.clear();
     jest.clearAllMocks();
+    process.env.NEXT_PUBLIC_MI_ENABLED = originalEnv;
+  });
+
+  afterEach(() => {
+    process.env.NEXT_PUBLIC_MI_ENABLED = originalEnv;
+  });
+
+  describe("feature flag", () => {
+    it("redirects to dashboard when MI is disabled", async () => {
+      process.env.NEXT_PUBLIC_MI_ENABLED = "false";
+      localStorage.setItem("token", "fake-token");
+
+      render(<IntelligencePage />);
+
+      await waitFor(() => {
+        expect(mockRouterPush).toHaveBeenCalledWith("/dashboard");
+      });
+    });
+
+    it("does not redirect when MI is enabled", async () => {
+      process.env.NEXT_PUBLIC_MI_ENABLED = "true";
+      localStorage.setItem("token", "fake-token");
+      (api.markets.list as jest.Mock).mockImplementation(
+        () => new Promise(() => {}),
+      );
+
+      render(<IntelligencePage />);
+
+      await waitFor(() => {
+        expect(screen.getByText(MI_COPY.states.loading)).toBeInTheDocument();
+      });
+
+      expect(mockRouterPush).not.toHaveBeenCalled();
+    });
   });
 
   describe("authentication", () => {
@@ -38,13 +74,11 @@ describe("IntelligencePage", () => {
       render(<IntelligencePage />);
 
       await waitFor(() => {
-        expect(screen.getByText("Request Access")).toBeInTheDocument();
+        expect(screen.getByText(MI_COPY.requestAccess.title)).toBeInTheDocument();
       });
 
       expect(
-        screen.getByText(
-          /Market intelligence features require authentication/i,
-        ),
+        screen.getByText(MI_COPY.requestAccess.message),
       ).toBeInTheDocument();
       expect(api.markets.list).not.toHaveBeenCalled();
     });
@@ -58,7 +92,7 @@ describe("IntelligencePage", () => {
       render(<IntelligencePage />);
 
       await waitFor(() => {
-        expect(screen.getByText("Request Access")).toBeInTheDocument();
+        expect(screen.getByText(MI_COPY.requestAccess.title)).toBeInTheDocument();
       });
     });
 
@@ -71,7 +105,7 @@ describe("IntelligencePage", () => {
       render(<IntelligencePage />);
 
       await waitFor(() => {
-        expect(screen.getByText("Request Access")).toBeInTheDocument();
+        expect(screen.getByText(MI_COPY.requestAccess.title)).toBeInTheDocument();
       });
     });
   });
@@ -85,7 +119,7 @@ describe("IntelligencePage", () => {
 
       render(<IntelligencePage />);
 
-      expect(screen.getByText("Loading market data...")).toBeInTheDocument();
+      expect(screen.getByText(MI_COPY.states.loading)).toBeInTheDocument();
     });
 
     it("displays DELAYED instruments with quote data", async () => {
@@ -119,7 +153,7 @@ describe("IntelligencePage", () => {
       });
 
       expect(screen.getByText("Gold Spot")).toBeInTheDocument();
-      expect(screen.getByText("Delayed")).toBeInTheDocument();
+      expect(screen.getByText(MI_COPY.badges.delayed.label)).toBeInTheDocument();
       expect(screen.getByText("$2,050.50")).toBeInTheDocument();
       expect(screen.getByText("$2,050.30")).toBeInTheDocument();
       expect(screen.getByText("$2,050.70")).toBeInTheDocument();
@@ -158,7 +192,7 @@ describe("IntelligencePage", () => {
       });
 
       expect(screen.getByText("Gold Futures")).toBeInTheDocument();
-      expect(screen.getByText("Stale")).toBeInTheDocument();
+      expect(screen.getByText(MI_COPY.badges.stale.label)).toBeInTheDocument();
       expect(screen.getByText("$2,048.20")).toBeInTheDocument();
     });
 
@@ -184,8 +218,8 @@ describe("IntelligencePage", () => {
       });
 
       expect(screen.getByText("Gold Futures")).toBeInTheDocument();
-      expect(screen.getByText("Unavailable")).toBeInTheDocument();
-      expect(screen.getByText("Quote data unavailable")).toBeInTheDocument();
+      expect(screen.getByText(MI_COPY.badges.unavailable.label)).toBeInTheDocument();
+      expect(screen.getByText(MI_COPY.states.quoteUnavailable)).toBeInTheDocument();
     });
 
     it("shows empty state when no instruments returned", async () => {
@@ -200,7 +234,7 @@ describe("IntelligencePage", () => {
 
       await waitFor(() => {
         expect(
-          screen.getByText("No market data available"),
+          screen.getByText(MI_COPY.states.noData),
         ).toBeInTheDocument();
       });
     });
@@ -217,13 +251,11 @@ describe("IntelligencePage", () => {
 
       await waitFor(() => {
         expect(
-          screen.getByText(
-            "Service temporarily unavailable. Please try again.",
-          ),
+          screen.getByText(MI_COPY.states.serviceUnavailable),
         ).toBeInTheDocument();
       });
 
-      expect(screen.getByText("Retry")).toBeInTheDocument();
+      expect(screen.getByText(MI_COPY.actions.retry)).toBeInTheDocument();
     });
 
     it("shows generic error for non-5xx errors", async () => {
@@ -236,7 +268,7 @@ describe("IntelligencePage", () => {
 
       await waitFor(() => {
         expect(
-          screen.getByText("Failed to load market data"),
+          screen.getByText(MI_COPY.states.loadFailed),
         ).toBeInTheDocument();
       });
     });
@@ -270,18 +302,31 @@ describe("IntelligencePage", () => {
       render(<IntelligencePage />);
 
       await waitFor(() => {
-        expect(screen.getByText("About Market Data")).toBeInTheDocument();
+        expect(screen.getByText(MI_COPY.disclaimer.title)).toBeInTheDocument();
       });
 
       expect(
-        screen.getByText(/Data delayed by up to 15 minutes/i),
+        screen.getByText(new RegExp(MI_COPY.badges.delayed.description)),
       ).toBeInTheDocument();
       expect(
-        screen.getByText(/Data older than 15 minutes/i),
+        screen.getByText(new RegExp(MI_COPY.badges.stale.description)),
       ).toBeInTheDocument();
       expect(
-        screen.getByText(/Quote data not currently available/i),
+        screen.getByText(new RegExp(MI_COPY.badges.unavailable.description)),
       ).toBeInTheDocument();
+    });
+  });
+
+  describe("string constants", () => {
+    it("uses MI_COPY constants for all user-facing strings", () => {
+      expect(MI_COPY.page.title).toBe("Market Intelligence");
+      expect(MI_COPY.page.subtitle).toBe("Delayed XAU/GC market intelligence");
+      expect(MI_COPY.badges.delayed.label).toBe("Delayed");
+      expect(MI_COPY.badges.stale.label).toBe("Stale");
+      expect(MI_COPY.badges.unavailable.label).toBe("Unavailable");
+      expect(MI_COPY.requestAccess.title).toBe("Request Access");
+      expect(MI_COPY.actions.refresh).toBe("Refresh");
+      expect(MI_COPY.actions.retry).toBe("Retry");
     });
   });
 });
