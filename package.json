@@ -79,7 +79,7 @@
     "tailwindcss": "^4.1.4",
     "tailwindcss-cli": "^0.1.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5"
+    "typescript": "^6"
   },
   "msw": {
     "workerDirectory": [
